@@ -14,6 +14,10 @@ func Deregister(rule rules.RegisteredRule) {
 	rules.Deregister(rule)
 }
 
-func GetRegistered(fw ...framework.Framework) (registered []rules.RegisteredRule) {
+func GetRegistered(fw ...framework.Framework) []rules.RegisteredRule {
 	return rules.GetFrameworkRules(fw...)
+}
+
+func GetSpecRules(spec string) []rules.RegisteredRule {
+	return rules.GetSpecRules(spec)
 }
