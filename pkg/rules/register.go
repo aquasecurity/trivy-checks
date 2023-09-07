@@ -10,6 +10,10 @@ func Register(rule scan.Rule, f scan.CheckFunc) rules.RegisteredRule {
 	return rules.Register(rule, f)
 }
 
+func Deregister(rule rules.RegisteredRule) {
+	rules.Deregister(rule)
+}
+
 func GetRegistered(fw ...framework.Framework) (registered []rules.RegisteredRule) {
 	return rules.GetFrameworkRules(fw...)
 }
