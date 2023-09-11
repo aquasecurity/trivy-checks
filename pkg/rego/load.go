@@ -3,6 +3,7 @@ package rego
 import (
 	"context"
 	"fmt"
+	"github.com/simar7/trivy-misconf-rules/internal/rego"
 	"io"
 	"io/fs"
 	"path/filepath"
@@ -201,7 +202,7 @@ func (s *Scanner) prunePoliciesWithError(compiler *ast.Compiler) error {
 }
 
 func (s *Scanner) compilePolicies(srcFS fs.FS, paths []string) error {
-	compiler := ast.NewCompiler()
+
 	schemaSet, custom, err := BuildSchemaSetFromPolicies(s.policies, paths, srcFS)
 	if err != nil {
 		return err
@@ -210,8 +211,8 @@ func (s *Scanner) compilePolicies(srcFS fs.FS, paths []string) error {
 		s.inputSchema = nil // discard auto detected input schema in favour of policy defined schema
 	}
 
-	compiler.WithSchemas(schemaSet)
-	compiler.WithCapabilities(ast.CapabilitiesForThisVersion())
+	compiler := rego.NewRegoCompiler(schemaSet)
+
 	compiler.Compile(s.policies)
 	if compiler.Failed() {
 		if err := s.prunePoliciesWithError(compiler); err != nil {
