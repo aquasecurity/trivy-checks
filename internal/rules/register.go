@@ -7,7 +7,7 @@ import (
 	"github.com/aquasecurity/defsec/pkg/scan"
 	"github.com/aquasecurity/defsec/pkg/state"
 	"github.com/aquasecurity/defsec/pkg/types"
-	"github.com/aquasecurity/defsec/rules/specs"
+	"github.com/simar7/trivy-misconf-rules/rules/specs"
 	"gopkg.in/yaml.v3"
 )
 

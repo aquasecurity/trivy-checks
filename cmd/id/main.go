@@ -9,8 +9,8 @@ import (
 
 	"github.com/aquasecurity/defsec/pkg/framework"
 
-	_ "github.com/aquasecurity/defsec/pkg/rego"
-	"github.com/aquasecurity/defsec/pkg/rules"
+	_ "github.com/simar7/trivy-misconf-rules/pkg/rego"
+	"github.com/simar7/trivy-misconf-rules/pkg/rules"
 )
 
 func main() {

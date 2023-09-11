@@ -6,6 +6,7 @@ require (
 	github.com/aquasecurity/defsec v0.92.0
 	github.com/docker/docker v24.0.5+incompatible
 	github.com/liamg/iamgo v0.0.9
+	github.com/liamg/memoryfs v1.4.3
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/open-policy-agent/opa v0.56.0
 	github.com/owenrumney/squealer v1.2.1
@@ -56,7 +57,6 @@ require (
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
 	github.com/klauspost/compress v1.16.0 // indirect
 	github.com/liamg/jfather v0.0.7 // indirect
-	github.com/liamg/memoryfs v1.4.3 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
 	github.com/mitchellh/go-wordwrap v1.0.1 // indirect
@@ -103,3 +103,5 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
+
+replace github.com/aquasecurity/defsec => /Users/tososomaru/projects/defsec
