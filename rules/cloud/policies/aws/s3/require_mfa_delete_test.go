@@ -75,7 +75,7 @@ func TestCheckRequireMFADelete(t *testing.T) {
 			results := CheckRequireMFADelete.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRequireMFADelete.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRequireMFADelete.GetRule().LongID() {
 					found = true
 				}
 			}

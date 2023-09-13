@@ -51,7 +51,7 @@ func TestCheckEnableAllRegions(t *testing.T) {
 			results := CheckEnableAllRegions.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableAllRegions.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableAllRegions.GetRule().LongID() {
 					found = true
 				}
 			}

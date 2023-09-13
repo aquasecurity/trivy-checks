@@ -65,7 +65,7 @@ func TestCheckMysqlNoLocalInfile(t *testing.T) {
 			results := CheckMysqlNoLocalInfile.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckMysqlNoLocalInfile.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckMysqlNoLocalInfile.GetRule().LongID() {
 					found = true
 				}
 			}

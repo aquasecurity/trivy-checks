@@ -69,7 +69,7 @@ func TestCheckNoPublicClusterAccessToCidr(t *testing.T) {
 			results := CheckNoPublicClusterAccessToCidr.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPublicClusterAccessToCidr.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPublicClusterAccessToCidr.GetRule().LongID() {
 					found = true
 				}
 			}

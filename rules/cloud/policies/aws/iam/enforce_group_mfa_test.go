@@ -92,7 +92,7 @@ func TestCheckEnforceGroupMFA(t *testing.T) {
 			results := CheckEnforceGroupMFA.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnforceGroupMFA.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnforceGroupMFA.GetRule().LongID() {
 					found = true
 				}
 			}

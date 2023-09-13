@@ -47,7 +47,7 @@ func TestCheckSetMaxPasswordAge(t *testing.T) {
 			results := CheckSetMaxPasswordAge.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckSetMaxPasswordAge.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckSetMaxPasswordAge.GetRule().LongID() {
 					found = true
 				}
 			}

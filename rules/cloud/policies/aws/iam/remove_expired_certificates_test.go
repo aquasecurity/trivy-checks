@@ -56,7 +56,7 @@ func TestCheckRemoveExpiredCertificates(t *testing.T) {
 			results := CheckRemoveExpiredCertificates.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRemoveExpiredCertificates.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRemoveExpiredCertificates.GetRule().LongID() {
 					found = true
 				}
 			}

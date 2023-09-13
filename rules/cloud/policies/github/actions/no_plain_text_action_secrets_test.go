@@ -47,7 +47,7 @@ func TestCheckNoPlainTextActionEnvironmentSecrets(t *testing.T) {
 			results := CheckNoPlainTextActionEnvironmentSecrets.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPlainTextActionEnvironmentSecrets.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPlainTextActionEnvironmentSecrets.GetRule().LongID() {
 					found = true
 				}
 			}

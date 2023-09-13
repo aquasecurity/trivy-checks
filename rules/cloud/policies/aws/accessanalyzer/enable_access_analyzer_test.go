@@ -61,7 +61,7 @@ func TestASCheckNoSecretsInUserData(t *testing.T) {
 			results := CheckEnableAccessAnalyzer.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableAccessAnalyzer.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableAccessAnalyzer.GetRule().LongID() {
 					found = true
 				}
 			}

@@ -51,7 +51,7 @@ func TestCheckAddSecurityGroupToRouter(t *testing.T) {
 			results := CheckAddSecurityGroupToRouter.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAddSecurityGroupToRouter.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAddSecurityGroupToRouter.GetRule().LongID() {
 					found = true
 				}
 			}

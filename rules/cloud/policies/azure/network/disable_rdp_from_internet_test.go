@@ -118,7 +118,7 @@ func TestCheckDisableRdpFromInternet(t *testing.T) {
 			results := CheckDisableRdpFromInternet.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckDisableRdpFromInternet.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckDisableRdpFromInternet.GetRule().LongID() {
 					found = true
 				}
 			}

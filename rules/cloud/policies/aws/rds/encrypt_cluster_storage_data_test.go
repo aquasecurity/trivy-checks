@@ -75,7 +75,7 @@ func TestCheckEncryptClusterStorageData(t *testing.T) {
 			results := CheckEncryptClusterStorageData.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEncryptClusterStorageData.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEncryptClusterStorageData.GetRule().LongID() {
 					found = true
 				}
 			}

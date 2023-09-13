@@ -15,7 +15,7 @@ func Test_EmbeddedLoading(t *testing.T) {
 	frameworkRules := rules.GetFrameworkRules()
 	var found bool
 	for _, rule := range frameworkRules {
-		if rule.Rule().RegoPackage != "" {
+		if rule.GetRule().RegoPackage != "" {
 			found = true
 		}
 	}

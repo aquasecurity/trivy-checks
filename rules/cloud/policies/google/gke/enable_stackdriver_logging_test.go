@@ -51,7 +51,7 @@ func TestCheckEnableStackdriverLogging(t *testing.T) {
 			results := CheckEnableStackdriverLogging.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableStackdriverLogging.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableStackdriverLogging.GetRule().LongID() {
 					found = true
 				}
 			}

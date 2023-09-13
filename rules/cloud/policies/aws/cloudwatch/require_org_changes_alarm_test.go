@@ -110,7 +110,7 @@ func TestCheckRequireOrgChangesAlarm(t *testing.T) {
 			results := CheckRequireOrgChangesAlarm.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRequireOrgChangesAlarm.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRequireOrgChangesAlarm.GetRule().LongID() {
 					found = true
 				}
 			}

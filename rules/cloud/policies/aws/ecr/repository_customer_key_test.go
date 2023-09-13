@@ -74,7 +74,7 @@ func TestCheckRepositoryCustomerKey(t *testing.T) {
 			results := CheckRepositoryCustomerKey.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRepositoryCustomerKey.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRepositoryCustomerKey.GetRule().LongID() {
 					found = true
 				}
 			}

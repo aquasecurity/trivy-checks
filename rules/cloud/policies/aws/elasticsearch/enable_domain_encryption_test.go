@@ -57,7 +57,7 @@ func TestCheckEnableDomainEncryption(t *testing.T) {
 			results := CheckEnableDomainEncryption.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableDomainEncryption.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableDomainEncryption.GetRule().LongID() {
 					found = true
 				}
 			}

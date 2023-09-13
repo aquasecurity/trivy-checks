@@ -61,7 +61,7 @@ func TestCheckRetentionPeriodSet(t *testing.T) {
 			results := CheckRetentionPeriodSet.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRetentionPeriodSet.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRetentionPeriodSet.GetRule().LongID() {
 					found = true
 				}
 			}

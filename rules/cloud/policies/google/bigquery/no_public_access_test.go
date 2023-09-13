@@ -65,7 +65,7 @@ func TestCheckNoPublicAccess(t *testing.T) {
 			results := CheckNoPublicAccess.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPublicAccess.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPublicAccess.GetRule().LongID() {
 					found = true
 				}
 			}

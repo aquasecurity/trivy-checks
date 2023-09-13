@@ -57,7 +57,7 @@ func TestCheckEnableShieldedVMSecureBoot(t *testing.T) {
 			results := CheckEnableShieldedVMSecureBoot.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableShieldedVMSecureBoot.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableShieldedVMSecureBoot.GetRule().LongID() {
 					found = true
 				}
 			}

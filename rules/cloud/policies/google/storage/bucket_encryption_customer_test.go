@@ -57,7 +57,7 @@ func TestCheckBucketEncryptionCustomerKey(t *testing.T) {
 			results := CheckBucketEncryptionCustomerKey.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckBucketEncryptionCustomerKey.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckBucketEncryptionCustomerKey.GetRule().LongID() {
 					found = true
 				}
 			}

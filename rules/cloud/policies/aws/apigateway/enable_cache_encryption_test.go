@@ -97,7 +97,7 @@ func TestCheckEnableCacheEncryption(t *testing.T) {
 			results := CheckEnableCacheEncryption.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableCacheEncryption.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableCacheEncryption.GetRule().LongID() {
 					found = true
 				}
 			}

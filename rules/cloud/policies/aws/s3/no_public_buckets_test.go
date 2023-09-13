@@ -53,7 +53,7 @@ func TestCheckPublicBucketsAreRestricted(t *testing.T) {
 			results := CheckPublicBucketsAreRestricted.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckPublicBucketsAreRestricted.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckPublicBucketsAreRestricted.GetRule().LongID() {
 					found = true
 				}
 			}

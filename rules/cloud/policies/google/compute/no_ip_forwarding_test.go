@@ -51,7 +51,7 @@ func TestCheckNoIpForwarding(t *testing.T) {
 			results := CheckNoIpForwarding.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoIpForwarding.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoIpForwarding.GetRule().LongID() {
 					found = true
 				}
 			}

@@ -89,7 +89,7 @@ func TestCheckRestrictAllInDefaultSG(t *testing.T) {
 			results := CheckRestrictAllInDefaultSG.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRestrictAllInDefaultSG.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRestrictAllInDefaultSG.GetRule().LongID() {
 					found = true
 				}
 			}

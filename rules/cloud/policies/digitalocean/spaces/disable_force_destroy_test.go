@@ -51,7 +51,7 @@ func TestCheckDisableForceDestroy(t *testing.T) {
 			results := CheckDisableForceDestroy.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckDisableForceDestroy.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckDisableForceDestroy.GetRule().LongID() {
 					found = true
 				}
 			}

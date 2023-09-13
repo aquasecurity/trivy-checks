@@ -67,7 +67,7 @@ func TestCheckEnableAutoRepair(t *testing.T) {
 			results := CheckEnableAutoRepair.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableAutoRepair.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableAutoRepair.GetRule().LongID() {
 					found = true
 				}
 			}

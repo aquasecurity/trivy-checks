@@ -63,7 +63,7 @@ func TestCheckAddDescriptionToNASSecurityGroup(t *testing.T) {
 			results := CheckAddDescriptionToNASSecurityGroup.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAddDescriptionToNASSecurityGroup.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAddDescriptionToNASSecurityGroup.GetRule().LongID() {
 					found = true
 				}
 			}

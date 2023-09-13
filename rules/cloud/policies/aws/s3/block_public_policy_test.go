@@ -53,7 +53,7 @@ func TestCheckPublicPoliciesAreBlocked(t *testing.T) {
 			results := CheckPublicPoliciesAreBlocked.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckPublicPoliciesAreBlocked.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckPublicPoliciesAreBlocked.GetRule().LongID() {
 					found = true
 				}
 			}

@@ -18,7 +18,7 @@ func main() {
 	// organise existing rules by provider
 	keyMap := make(map[string][]string)
 	for _, rule := range rules.GetRegistered(framework.ALL) {
-		id := rule.Rule().AVDID
+		id := rule.GetRule().AVDID
 		if id == "" {
 			continue
 		}

@@ -69,7 +69,7 @@ func TestCheckEnableLogExport(t *testing.T) {
 			results := CheckEnableLogExport.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableLogExport.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableLogExport.GetRule().LongID() {
 					found = true
 				}
 			}

@@ -47,7 +47,7 @@ func TestCheckProjectLevelOslogin(t *testing.T) {
 			results := CheckProjectLevelOslogin.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckProjectLevelOslogin.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckProjectLevelOslogin.GetRule().LongID() {
 					found = true
 				}
 			}

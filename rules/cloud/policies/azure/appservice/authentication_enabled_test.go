@@ -55,7 +55,7 @@ func TestCheckAuthenticationEnabled(t *testing.T) {
 			results := CheckAuthenticationEnabled.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAuthenticationEnabled.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAuthenticationEnabled.GetRule().LongID() {
 					found = true
 				}
 			}

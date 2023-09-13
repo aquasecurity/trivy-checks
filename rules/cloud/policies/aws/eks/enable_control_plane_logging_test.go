@@ -81,7 +81,7 @@ func TestCheckEnableControlPlaneLogging(t *testing.T) {
 			results := CheckEnableControlPlaneLogging.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableControlPlaneLogging.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableControlPlaneLogging.GetRule().LongID() {
 					found = true
 				}
 			}

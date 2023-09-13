@@ -120,7 +120,7 @@ func TestCheckUnusedCredentialsDisabled45Days(t *testing.T) {
 			results := CheckUnusedCredentialsDisabled45Days.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckUnusedCredentialsDisabled45Days.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckUnusedCredentialsDisabled45Days.GetRule().LongID() {
 					found = true
 				}
 			}

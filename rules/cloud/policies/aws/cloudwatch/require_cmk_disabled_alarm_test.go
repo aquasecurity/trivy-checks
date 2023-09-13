@@ -102,7 +102,7 @@ func TestCheckCMKDisabledAlarm(t *testing.T) {
 			results := requireCMKDisabledAlarm.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireCMKDisabledAlarm.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireCMKDisabledAlarm.GetRule().LongID() {
 					found = true
 				}
 			}

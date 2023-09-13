@@ -51,7 +51,7 @@ func TestCheckNodeShieldingEnabled(t *testing.T) {
 			results := CheckNodeShieldingEnabled.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNodeShieldingEnabled.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNodeShieldingEnabled.GetRule().LongID() {
 					found = true
 				}
 			}

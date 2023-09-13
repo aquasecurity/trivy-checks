@@ -63,7 +63,7 @@ func TestCheckLogging(t *testing.T) {
 			results := CheckLogging.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckLogging.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckLogging.GetRule().LongID() {
 					found = true
 				}
 			}

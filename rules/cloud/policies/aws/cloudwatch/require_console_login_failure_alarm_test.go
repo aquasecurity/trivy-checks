@@ -102,7 +102,7 @@ func TestCheckRequireConsoleLoginFailureAlarm(t *testing.T) {
 			results := requireConsoleLoginFailureAlarm.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireConsoleLoginFailureAlarm.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireConsoleLoginFailureAlarm.GetRule().LongID() {
 					found = true
 				}
 			}

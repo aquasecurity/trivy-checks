@@ -47,7 +47,7 @@ func TestCheckAggregateAllRegions(t *testing.T) {
 			results := CheckAggregateAllRegions.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAggregateAllRegions.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAggregateAllRegions.GetRule().LongID() {
 					found = true
 				}
 			}

@@ -132,7 +132,7 @@ func TestCheckNoFolderLevelDefaultServiceAccountAssignment(t *testing.T) {
 			results := CheckNoFolderLevelDefaultServiceAccountAssignment.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoFolderLevelDefaultServiceAccountAssignment.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoFolderLevelDefaultServiceAccountAssignment.GetRule().LongID() {
 					found = true
 				}
 			}

@@ -72,7 +72,7 @@ func TestCheckTableCustomerKey(t *testing.T) {
 			results := CheckTableCustomerKey.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckTableCustomerKey.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckTableCustomerKey.GetRule().LongID() {
 					found = true
 				}
 			}
