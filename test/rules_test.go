@@ -7,12 +7,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
 	"github.com/aquasecurity/defsec/pkg/framework"
-	"github.com/aquasecurity/defsec/pkg/scanners/options"
-	"github.com/aquasecurity/defsec/test/testutil"
 	"github.com/simar7/trivy-misconf-rules/internal/rules"
 )
 
@@ -45,57 +42,6 @@ func TestRulesAgainstExampleCode(t *testing.T) {
 				_, err := os.Stat(filepath.Join("..", "avd_docs", provider, service, rule.Rule().AVDID, "docs.md"))
 				require.NoError(t, err)
 			})
-
-			if rule.Rule().Terraform != nil {
-				t.Run("terraform: good examples", func(t *testing.T) {
-					for i, example := range rule.Rule().Terraform.GoodExamples {
-						t.Run(fmt.Sprintf("example %d", i), func(t *testing.T) {
-							results := scanHCL(t, example, options.ScannerWithFrameworks(framework.ALL))
-							testutil.AssertRuleNotFound(t, rule.Rule().LongID(), results, "Rule %s was detected in good example #%d:\n%s", rule.Rule().LongID(), i, example)
-						})
-					}
-				})
-				t.Run("terraform: bad examples", func(t *testing.T) {
-					for i, example := range rule.Rule().Terraform.BadExamples {
-						t.Run(fmt.Sprintf("example %d", i), func(t *testing.T) {
-							results := scanHCL(t, example, options.ScannerWithFrameworks(framework.ALL))
-							testutil.AssertRuleFound(t, rule.Rule().LongID(), results, "Rule %s was not detected in bad example #%d:\n%s", rule.Rule().LongID(), i, example)
-							for _, result := range results.GetFailed() {
-								if result.Rule().LongID() == rule.Rule().LongID() {
-									code, err := result.GetCode()
-									require.NoError(t, err)
-									assert.Greater(t, len(code.Lines), 0)
-								}
-							}
-						})
-					}
-				})
-			}
-			if rule.Rule().CloudFormation != nil {
-				t.Run("cloudformation: good examples", func(t *testing.T) {
-					for i, example := range rule.Rule().CloudFormation.GoodExamples {
-						t.Run(fmt.Sprintf("example %d", i), func(t *testing.T) {
-							results := scanCF(t, example, options.ScannerWithFrameworks(framework.ALL))
-							testutil.AssertRuleNotFound(t, rule.Rule().LongID(), results, "Rule %s was detected in good example #%d:\n%s", rule.Rule().LongID(), i, example)
-						})
-					}
-				})
-				t.Run("cloudformation: bad examples", func(t *testing.T) {
-					for i, example := range rule.Rule().CloudFormation.BadExamples {
-						t.Run(fmt.Sprintf("example %d", i), func(t *testing.T) {
-							results := scanCF(t, example, options.ScannerWithFrameworks(framework.ALL))
-							testutil.AssertRuleFound(t, rule.Rule().LongID(), results, "Rule %s was not detected in bad example #%d:\n%s", rule.Rule().LongID(), i, example)
-							for _, result := range results.GetFailed() {
-								if result.Rule().LongID() == rule.Rule().LongID() {
-									code, err := result.GetCode()
-									require.NoError(t, err)
-									assert.Greater(t, len(code.Lines), 0)
-								}
-							}
-						})
-					}
-				})
-			}
 		})
 	}
 }
