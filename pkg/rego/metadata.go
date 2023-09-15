@@ -427,7 +427,7 @@ func findSchemaInFS(paths []string, srcFS fs.FS, schemaName string) ([]byte, err
 			if info.IsDir() {
 				return nil
 			}
-			if !isJSONFile(info.Name()) {
+			if !IsJSONFile(info.Name()) {
 				return nil
 			}
 			if info.Name() == schemaName+".json" {

@@ -87,7 +87,7 @@ func RecurseEmbeddedModules(fs embed.FS, dir string) (map[string]*ast.Module, er
 			}
 			continue
 		}
-		if !isRegoFile(entry.Name()) || isDotFile(entry.Name()) {
+		if !IsRegoFile(entry.Name()) || IsDotFile(entry.Name()) {
 			continue
 		}
 		fullPath := strings.Join([]string{dir, entry.Name()}, "/")
