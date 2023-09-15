@@ -65,7 +65,7 @@ func TestCheckPgLogDisconnections(t *testing.T) {
 			results := CheckPgLogDisconnections.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckPgLogDisconnections.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckPgLogDisconnections.GetRule().LongID() {
 					found = true
 				}
 			}

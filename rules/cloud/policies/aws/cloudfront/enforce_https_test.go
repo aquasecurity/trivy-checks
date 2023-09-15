@@ -84,7 +84,7 @@ func TestCheckEnforceHttps(t *testing.T) {
 			results := CheckEnforceHttps.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnforceHttps.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnforceHttps.GetRule().LongID() {
 					found = true
 				}
 			}

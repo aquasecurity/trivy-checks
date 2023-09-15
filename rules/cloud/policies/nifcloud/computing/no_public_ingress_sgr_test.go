@@ -61,7 +61,7 @@ func TestCheckNoPublicIngressSgr(t *testing.T) {
 			results := CheckNoPublicIngressSgr.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPublicIngressSgr.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPublicIngressSgr.GetRule().LongID() {
 					found = true
 				}
 			}

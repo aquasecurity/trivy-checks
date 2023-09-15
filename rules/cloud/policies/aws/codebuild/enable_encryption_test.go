@@ -84,7 +84,7 @@ func TestCheckEnableEncryption(t *testing.T) {
 			results := CheckEnableEncryption.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableEncryption.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableEncryption.GetRule().LongID() {
 					found = true
 				}
 			}

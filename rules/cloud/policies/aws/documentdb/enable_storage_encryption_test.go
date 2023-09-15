@@ -51,7 +51,7 @@ func TestCheckEnableStorageEncryption(t *testing.T) {
 			results := CheckEnableStorageEncryption.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableStorageEncryption.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableStorageEncryption.GetRule().LongID() {
 					found = true
 				}
 			}

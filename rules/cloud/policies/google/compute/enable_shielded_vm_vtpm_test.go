@@ -57,7 +57,7 @@ func TestCheckEnableShieldedVMVTPM(t *testing.T) {
 			results := CheckEnableShieldedVMVTPM.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableShieldedVMVTPM.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableShieldedVMVTPM.GetRule().LongID() {
 					found = true
 				}
 			}

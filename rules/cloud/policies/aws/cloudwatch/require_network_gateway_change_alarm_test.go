@@ -105,7 +105,7 @@ func TestCheckNetworkGatewayChangeAlarm(t *testing.T) {
 			results := requireNetworkGatewayChangeAlarm.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireNetworkGatewayChangeAlarm.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireNetworkGatewayChangeAlarm.GetRule().LongID() {
 					found = true
 				}
 			}

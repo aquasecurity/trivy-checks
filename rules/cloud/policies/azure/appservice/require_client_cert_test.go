@@ -51,7 +51,7 @@ func TestCheckRequireClientCert(t *testing.T) {
 			results := CheckRequireClientCert.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRequireClientCert.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRequireClientCert.GetRule().LongID() {
 					found = true
 				}
 			}

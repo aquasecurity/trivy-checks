@@ -32,10 +32,13 @@ func init() {
 func RegisterRegoRules(modules map[string]*ast.Module) {
 	ctx := context.TODO()
 
-	compiler := ast.NewCompiler()
 	schemaSet, _, _ := BuildSchemaSetFromPolicies(modules, nil, nil)
-	compiler.WithSchemas(schemaSet)
-	compiler.WithCapabilities(nil)
+
+	compiler := ast.NewCompiler().
+		WithSchemas(schemaSet).
+		WithCapabilities(nil).
+		WithUseTypeCheckAnnotations(true)
+
 	compiler.Compile(modules)
 	if compiler.Failed() {
 		// we should panic as the embedded rego policies are syntactically incorrect...

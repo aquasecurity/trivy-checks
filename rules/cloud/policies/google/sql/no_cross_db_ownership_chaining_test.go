@@ -65,7 +65,7 @@ func TestCheckNoCrossDbOwnershipChaining(t *testing.T) {
 			results := CheckNoCrossDbOwnershipChaining.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoCrossDbOwnershipChaining.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoCrossDbOwnershipChaining.GetRule().LongID() {
 					found = true
 				}
 			}

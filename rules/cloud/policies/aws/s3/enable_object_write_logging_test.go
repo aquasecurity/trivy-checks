@@ -246,7 +246,7 @@ func TestCheckEnableObjectWriteLogging(t *testing.T) {
 			results := CheckEnableObjectWriteLogging.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableObjectWriteLogging.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableObjectWriteLogging.GetRule().LongID() {
 					found = true
 				}
 			}

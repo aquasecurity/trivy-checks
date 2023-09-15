@@ -88,7 +88,7 @@ func Test_Registration(t *testing.T) {
 			_ = Register(rule, nil)
 			var found bool
 			for _, matchedRule := range GetFrameworkRules(test.inputFrameworks...) {
-				if matchedRule.Rule().AVDID == rule.AVDID {
+				if matchedRule.GetRule().AVDID == rule.AVDID {
 					assert.False(t, found, "rule should not be returned more than once")
 					found = true
 				}
@@ -110,7 +110,7 @@ func Test_Deregistration(t *testing.T) {
 	Deregister(registrationA)
 	actual := GetFrameworkRules()
 	require.Equal(t, 1, len(actual))
-	assert.Equal(t, "B", actual[0].Rule().AVDID)
+	assert.Equal(t, "B", actual[0].GetRule().AVDID)
 	Deregister(registrationB)
 	assert.Equal(t, 0, len(GetFrameworkRules()))
 }
@@ -133,7 +133,7 @@ func Test_DeregistrationMultipleFrameworks(t *testing.T) {
 	Deregister(registrationA)
 	actual := GetFrameworkRules()
 	require.Equal(t, 1, len(actual))
-	assert.Equal(t, "B", actual[0].Rule().AVDID)
+	assert.Equal(t, "B", actual[0].GetRule().AVDID)
 	Deregister(registrationB)
 	assert.Equal(t, 0, len(GetFrameworkRules()))
 }

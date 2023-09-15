@@ -57,7 +57,7 @@ func TestCheckDisablePasswordAuthentication(t *testing.T) {
 			results := CheckDisablePasswordAuthentication.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckDisablePasswordAuthentication.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckDisablePasswordAuthentication.GetRule().LongID() {
 					found = true
 				}
 			}

@@ -9,13 +9,14 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/rego/schemas"
+	"github.com/simar7/trivy-misconf-rules/pkg/rego/schemas"
 
 	"github.com/stretchr/testify/assert"
 
-	dr "github.com/aquasecurity/defsec/pkg/rego"
 	"github.com/open-policy-agent/opa/ast"
 	"github.com/open-policy-agent/opa/rego"
+	ir "github.com/simar7/trivy-misconf-rules/internal/rego"
+	dr "github.com/simar7/trivy-misconf-rules/pkg/rego"
 	"github.com/stretchr/testify/require"
 )
 
@@ -53,13 +54,14 @@ func Test_AllRegoCloudRulesMatchSchema(t *testing.T) {
 		return nil
 	}))
 
-	compiler := ast.NewCompiler()
-	schemaSet := ast.NewSchemaSet()
 	var schema interface{}
 	require.NoError(t, json.Unmarshal([]byte(schemas.Cloud), &schema))
+
+	schemaSet := ast.NewSchemaSet()
 	schemaSet.Put(ast.MustParseRef("schema.cloud"), schema)
-	compiler.WithSchemas(schemaSet)
-	compiler.WithCapabilities(ast.CapabilitiesForThisVersion())
+
+	compiler := ir.NewRegoCompiler(schemaSet)
+
 	compiler.Compile(baseModules)
 	assert.False(t, compiler.Failed(), "compilation failed: %s", compiler.Errors)
 }
@@ -102,13 +104,13 @@ func Test_AllRegoRules(t *testing.T) {
 		return nil
 	}))
 
-	compiler := ast.NewCompiler()
 	schemaSet := ast.NewSchemaSet()
 	schemaSet.Put(ast.MustParseRef("schema.dockerfile"), map[string]interface{}{})
 	schemaSet.Put(ast.MustParseRef("schema.cloud"), map[string]interface{}{})
 	schemaSet.Put(ast.MustParseRef("schema.kubernetes"), map[string]interface{}{})
-	compiler.WithSchemas(schemaSet)
-	compiler.WithCapabilities(ast.CapabilitiesForThisVersion())
+
+	compiler := ir.NewRegoCompiler(schemaSet)
+
 	compiler.Compile(baseModules)
 	if compiler.Failed() {
 		t.Fatal(compiler.Errors)

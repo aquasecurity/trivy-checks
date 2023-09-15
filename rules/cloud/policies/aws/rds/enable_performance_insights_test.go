@@ -60,7 +60,7 @@ func TestCheckEnablePerformanceInsights(t *testing.T) {
 			results := CheckEnablePerformanceInsights.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnablePerformanceInsights.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnablePerformanceInsights.GetRule().LongID() {
 					found = true
 				}
 			}

@@ -63,7 +63,7 @@ func TestCheckRestrictSourceArn(t *testing.T) {
 			results := CheckRestrictSourceArn.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRestrictSourceArn.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRestrictSourceArn.GetRule().LongID() {
 					found = true
 				}
 			}

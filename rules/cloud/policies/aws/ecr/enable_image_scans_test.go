@@ -57,7 +57,7 @@ func TestCheckEnableImageScans(t *testing.T) {
 			results := CheckEnableImageScans.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableImageScans.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableImageScans.GetRule().LongID() {
 					found = true
 				}
 			}

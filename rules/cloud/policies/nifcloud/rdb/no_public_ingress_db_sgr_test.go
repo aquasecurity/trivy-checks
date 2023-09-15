@@ -55,7 +55,7 @@ func TestCheckNoPublicIngressDBSgr(t *testing.T) {
 			results := CheckNoPublicIngressDBSgr.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPublicIngressDBSgr.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPublicIngressDBSgr.GetRule().LongID() {
 					found = true
 				}
 			}

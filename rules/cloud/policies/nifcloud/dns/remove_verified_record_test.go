@@ -69,7 +69,7 @@ func TestCheckRemoveVerifiedRecord(t *testing.T) {
 			results := CheckRemoveVerifiedRecord.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRemoveVerifiedRecord.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRemoveVerifiedRecord.GetRule().LongID() {
 					found = true
 				}
 			}

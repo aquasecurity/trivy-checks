@@ -216,7 +216,7 @@ func TestCheckNoPublicFirewallAccess(t *testing.T) {
 			results := CheckNoPublicFirewallAccess.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPublicFirewallAccess.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPublicFirewallAccess.GetRule().LongID() {
 					found = true
 				}
 			}

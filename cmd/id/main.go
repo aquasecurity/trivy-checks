@@ -9,8 +9,8 @@ import (
 
 	"github.com/aquasecurity/defsec/pkg/framework"
 
-	_ "github.com/aquasecurity/defsec/pkg/rego"
-	"github.com/aquasecurity/defsec/pkg/rules"
+	_ "github.com/simar7/trivy-misconf-rules/pkg/rego"
+	"github.com/simar7/trivy-misconf-rules/pkg/rules"
 )
 
 func main() {
@@ -18,7 +18,7 @@ func main() {
 	// organise existing rules by provider
 	keyMap := make(map[string][]string)
 	for _, rule := range rules.GetRegistered(framework.ALL) {
-		id := rule.Rule().AVDID
+		id := rule.GetRule().AVDID
 		if id == "" {
 			continue
 		}

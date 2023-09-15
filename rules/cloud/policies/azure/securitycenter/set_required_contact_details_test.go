@@ -51,7 +51,7 @@ func TestCheckSetRequiredContactDetails(t *testing.T) {
 			results := CheckSetRequiredContactDetails.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckSetRequiredContactDetails.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckSetRequiredContactDetails.GetRule().LongID() {
 					found = true
 				}
 			}

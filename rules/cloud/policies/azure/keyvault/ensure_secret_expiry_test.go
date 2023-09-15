@@ -62,7 +62,7 @@ func TestCheckEnsureSecretExpiry(t *testing.T) {
 			results := CheckEnsureSecretExpiry.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnsureSecretExpiry.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnsureSecretExpiry.GetRule().LongID() {
 					found = true
 				}
 			}

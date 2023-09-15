@@ -77,7 +77,7 @@ func TestCheckNoRsaSha1(t *testing.T) {
 			results := CheckNoRsaSha1.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoRsaSha1.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoRsaSha1.GetRule().LongID() {
 					found = true
 				}
 			}

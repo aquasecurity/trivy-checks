@@ -51,7 +51,7 @@ func TestCheckEnableStandardSubscription(t *testing.T) {
 			results := CheckEnableStandardSubscription.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableStandardSubscription.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableStandardSubscription.GetRule().LongID() {
 					found = true
 				}
 			}

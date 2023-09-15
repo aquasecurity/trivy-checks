@@ -57,7 +57,7 @@ func TestCheckEnableContainerInsight(t *testing.T) {
 			results := CheckEnableContainerInsight.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableContainerInsight.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableContainerInsight.GetRule().LongID() {
 					found = true
 				}
 			}

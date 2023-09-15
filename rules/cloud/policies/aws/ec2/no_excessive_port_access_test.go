@@ -83,7 +83,7 @@ func TestCheckNoExcessivePortAccess(t *testing.T) {
 			results := CheckNoExcessivePortAccess.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoExcessivePortAccess.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoExcessivePortAccess.GetRule().LongID() {
 					found = true
 				}
 			}

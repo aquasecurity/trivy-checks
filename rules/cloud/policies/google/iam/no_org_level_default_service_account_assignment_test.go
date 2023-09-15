@@ -92,7 +92,7 @@ func TestCheckNoOrgLevelDefaultServiceAccountAssignment(t *testing.T) {
 			results := CheckNoOrgLevelDefaultServiceAccountAssignment.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoOrgLevelDefaultServiceAccountAssignment.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoOrgLevelDefaultServiceAccountAssignment.GetRule().LongID() {
 					found = true
 				}
 			}

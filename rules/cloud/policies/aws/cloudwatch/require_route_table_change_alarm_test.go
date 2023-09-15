@@ -105,7 +105,7 @@ func TestCheckRouteTableChangeAlarm(t *testing.T) {
 			results := requireRouteTableChangeAlarm.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireRouteTableChangeAlarm.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireRouteTableChangeAlarm.GetRule().LongID() {
 					found = true
 				}
 			}

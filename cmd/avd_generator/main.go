@@ -11,9 +11,10 @@ import (
 	"text/template"
 
 	"github.com/aquasecurity/defsec/pkg/framework"
-	"github.com/simar7/trivy-misconf-rules/internal/rules"
+
 	_ "github.com/simar7/trivy-misconf-rules/pkg/rego"
 	registered "github.com/simar7/trivy-misconf-rules/pkg/rules"
+	"github.com/simar7/trivy-misconf-rules/pkg/types"
 )
 
 func main() {
@@ -28,7 +29,7 @@ func main() {
 }
 
 // nolint: cyclop
-func writeDocsFile(meta rules.RegisteredRule, path string) {
+func writeDocsFile(meta types.RegisteredRule, path string) {
 
 	tmpl, err := template.New("defsec").Parse(docsMarkdownTemplate)
 	if err != nil {
@@ -36,9 +37,9 @@ func writeDocsFile(meta rules.RegisteredRule, path string) {
 	}
 
 	docpath := filepath.Join(path,
-		strings.ToLower(meta.Rule().Provider.ConstName()),
-		strings.ToLower(strings.ReplaceAll(meta.Rule().Service, "-", "")),
-		meta.Rule().AVDID,
+		strings.ToLower(meta.GetRule().Provider.ConstName()),
+		strings.ToLower(strings.ReplaceAll(meta.GetRule().Service, "-", "")),
+		meta.GetRule().AVDID,
 	)
 
 	if err := os.MkdirAll(docpath, os.ModePerm); err != nil {
@@ -50,19 +51,19 @@ func writeDocsFile(meta rules.RegisteredRule, path string) {
 		fail("error occurred creating the docs file for %s", docpath)
 	}
 
-	if err := tmpl.Execute(file, meta.Rule()); err != nil {
+	if err := tmpl.Execute(file, meta.GetRule()); err != nil {
 		fail("error occurred generating the document %v", err)
 	}
-	fmt.Printf("Generating docs file for policy %s\n", meta.Rule().AVDID)
+	fmt.Printf("Generating docs file for policy %s\n", meta.GetRule().AVDID)
 
-	if meta.Rule().Terraform != nil {
-		if len(meta.Rule().Terraform.GoodExamples) > 0 || len(meta.Rule().Terraform.Links) > 0 {
-			if meta.Rule().RegoPackage != "" { // get examples from file as rego rules don't have embedded
-				value, err := GetExampleValueFromFile(meta.Rule().Terraform.GoodExamples[0], "GoodExamples")
+	if meta.GetRule().Terraform != nil {
+		if len(meta.GetRule().Terraform.GoodExamples) > 0 || len(meta.GetRule().Terraform.Links) > 0 {
+			if meta.GetRule().RegoPackage != "" { // get examples from file as rego rules don't have embedded
+				value, err := GetExampleValueFromFile(meta.GetRule().Terraform.GoodExamples[0], "GoodExamples")
 				if err != nil {
 					fail("error retrieving examples from metadata: %v\n", err)
 				}
-				meta.Rule().Terraform.GoodExamples = []string{value}
+				meta.GetRule().Terraform.GoodExamples = []string{value}
 			}
 
 			tmpl, err := template.New("terraform").Parse(terraformMarkdownTemplate)
@@ -75,21 +76,21 @@ func writeDocsFile(meta rules.RegisteredRule, path string) {
 			}
 			defer func() { _ = file.Close() }()
 
-			if err := tmpl.Execute(file, meta.Rule()); err != nil {
+			if err := tmpl.Execute(file, meta.GetRule()); err != nil {
 				fail("error occurred generating the document %v", err)
 			}
-			fmt.Printf("Generating Terraform file for policy %s\n", meta.Rule().AVDID)
+			fmt.Printf("Generating Terraform file for policy %s\n", meta.GetRule().AVDID)
 		}
 	}
 
-	if meta.Rule().CloudFormation != nil {
-		if len(meta.Rule().CloudFormation.GoodExamples) > 0 || len(meta.Rule().CloudFormation.Links) > 0 {
-			if meta.Rule().RegoPackage != "" { // get examples from file as rego rules don't have embedded
-				value, err := GetExampleValueFromFile(meta.Rule().CloudFormation.GoodExamples[0], "GoodExamples")
+	if meta.GetRule().CloudFormation != nil {
+		if len(meta.GetRule().CloudFormation.GoodExamples) > 0 || len(meta.GetRule().CloudFormation.Links) > 0 {
+			if meta.GetRule().RegoPackage != "" { // get examples from file as rego rules don't have embedded
+				value, err := GetExampleValueFromFile(meta.GetRule().CloudFormation.GoodExamples[0], "GoodExamples")
 				if err != nil {
 					fail("error retrieving examples from metadata: %v\n", err)
 				}
-				meta.Rule().CloudFormation.GoodExamples = []string{value}
+				meta.GetRule().CloudFormation.GoodExamples = []string{value}
 			}
 
 			tmpl, err := template.New("cloudformation").Parse(cloudformationMarkdownTemplate)
@@ -102,10 +103,10 @@ func writeDocsFile(meta rules.RegisteredRule, path string) {
 			}
 			defer func() { _ = file.Close() }()
 
-			if err := tmpl.Execute(file, meta.Rule()); err != nil {
+			if err := tmpl.Execute(file, meta.GetRule()); err != nil {
 				fail("error occurred generating the document %v", err)
 			}
-			fmt.Printf("Generating CloudFormation file for policy %s\n", meta.Rule().AVDID)
+			fmt.Printf("Generating CloudFormation file for policy %s\n", meta.GetRule().AVDID)
 		}
 	}
 }

@@ -51,7 +51,7 @@ func TestCheckAlertOnSevereNotifications(t *testing.T) {
 			results := CheckAlertOnSevereNotifications.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAlertOnSevereNotifications.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAlertOnSevereNotifications.GetRule().LongID() {
 					found = true
 				}
 			}

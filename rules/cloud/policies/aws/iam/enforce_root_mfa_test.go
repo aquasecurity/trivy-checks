@@ -69,7 +69,7 @@ func TestCheckRootMFAEnabled(t *testing.T) {
 			results := checkRootMFAEnabled.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == checkRootMFAEnabled.Rule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == checkRootMFAEnabled.GetRule().LongID() {
 					found = true
 				}
 			}
