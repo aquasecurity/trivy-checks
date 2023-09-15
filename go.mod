@@ -1,4 +1,4 @@
-module github.com/simar7/trivy-misconf-rules
+module github.com/simar7/trivy-policies
 
 go 1.20
 

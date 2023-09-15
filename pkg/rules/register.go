@@ -3,8 +3,8 @@ package rules
 import (
 	"github.com/aquasecurity/defsec/pkg/framework"
 	"github.com/aquasecurity/defsec/pkg/scan"
-	"github.com/simar7/trivy-misconf-rules/internal/rules"
-	"github.com/simar7/trivy-misconf-rules/pkg/types"
+	"github.com/simar7/trivy-policies/internal/rules"
+	"github.com/simar7/trivy-policies/pkg/types"
 )
 
 func Register(rule scan.Rule, f scan.CheckFunc) types.RegisteredRule {

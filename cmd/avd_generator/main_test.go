@@ -12,7 +12,7 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/aquasecurity/defsec/pkg/framework"
-	registered "github.com/simar7/trivy-misconf-rules/pkg/rules"
+	registered "github.com/simar7/trivy-policies/pkg/rules"
 )
 
 func init() { // change the pwd for the test to top level defesc dir

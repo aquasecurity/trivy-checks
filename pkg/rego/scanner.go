@@ -17,7 +17,7 @@ import (
 	"github.com/open-policy-agent/opa/ast"
 	"github.com/open-policy-agent/opa/rego"
 	"github.com/open-policy-agent/opa/storage"
-	"github.com/simar7/trivy-misconf-rules/pkg/rego/schemas"
+	"github.com/simar7/trivy-policies/pkg/rego/schemas"
 )
 
 var _ options.ConfigurableScanner = (*Scanner)(nil)

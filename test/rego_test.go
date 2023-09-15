@@ -9,14 +9,14 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/simar7/trivy-misconf-rules/pkg/rego/schemas"
+	"github.com/simar7/trivy-policies/pkg/rego/schemas"
 
 	"github.com/stretchr/testify/assert"
 
 	"github.com/open-policy-agent/opa/ast"
 	"github.com/open-policy-agent/opa/rego"
-	ir "github.com/simar7/trivy-misconf-rules/internal/rego"
-	dr "github.com/simar7/trivy-misconf-rules/pkg/rego"
+	ir "github.com/simar7/trivy-policies/internal/rego"
+	dr "github.com/simar7/trivy-policies/pkg/rego"
 	"github.com/stretchr/testify/require"
 )
 
