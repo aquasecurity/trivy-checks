@@ -13,15 +13,15 @@ import (
 	"github.com/open-policy-agent/opa/bundle"
 )
 
-func isRegoFile(name string) bool {
+func IsRegoFile(name string) bool {
 	return strings.HasSuffix(name, bundle.RegoExt) && !strings.HasSuffix(name, "_test"+bundle.RegoExt)
 }
 
-func isDotFile(name string) bool {
+func IsDotFile(name string) bool {
 	return strings.HasPrefix(name, ".")
 }
 
-func isJSONFile(name string) bool {
+func IsJSONFile(name string) bool {
 	return strings.HasSuffix(name, ".json")
 }
 
@@ -42,7 +42,7 @@ func (s *Scanner) loadPoliciesFromDirs(target fs.FS, paths []string) (map[string
 			if info.IsDir() {
 				return nil
 			}
-			if !isRegoFile(info.Name()) || isDotFile(info.Name()) {
+			if !IsRegoFile(info.Name()) || IsDotFile(info.Name()) {
 				return nil
 			}
 			data, err := fs.ReadFile(target, filepath.ToSlash(path))
