@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/aquasecurity/defsec/pkg/framework"
-	"github.com/simar7/trivy-policies/internal/rules"
+	"github.com/aquasecurity/trivy-policies/internal/rules"
 )
 
 func TestAVDIDs(t *testing.T) {

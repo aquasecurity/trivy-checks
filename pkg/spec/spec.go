@@ -1,7 +1,7 @@
 package spec
 
 import (
-	"github.com/simar7/trivy-policies/rules/specs"
+	"github.com/aquasecurity/trivy-policies/rules/specs"
 )
 
 // Loader access compliance specs

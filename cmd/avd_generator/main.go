@@ -12,9 +12,9 @@ import (
 
 	"github.com/aquasecurity/defsec/pkg/framework"
 
-	_ "github.com/simar7/trivy-policies/pkg/rego"
-	registered "github.com/simar7/trivy-policies/pkg/rules"
-	"github.com/simar7/trivy-policies/pkg/types"
+	_ "github.com/aquasecurity/trivy-policies/pkg/rego"
+	registered "github.com/aquasecurity/trivy-policies/pkg/rules"
+	"github.com/aquasecurity/trivy-policies/pkg/types"
 )
 
 func main() {

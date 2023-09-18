@@ -3,11 +3,12 @@ package rego
 import (
 	"context"
 	"fmt"
-	"github.com/simar7/trivy-policies/internal/rego"
 	"io"
 	"io/fs"
 	"path/filepath"
 	"strings"
+
+	"github.com/aquasecurity/trivy-policies/internal/rego"
 
 	"github.com/open-policy-agent/opa/ast"
 	"github.com/open-policy-agent/opa/bundle"

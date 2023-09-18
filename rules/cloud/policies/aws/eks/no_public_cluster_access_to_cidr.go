@@ -9,9 +9,9 @@ import (
 
 	"github.com/aquasecurity/defsec/pkg/scan"
 
-	"github.com/simar7/trivy-policies/internal/rules"
+	"github.com/aquasecurity/trivy-policies/internal/rules"
 
-	"github.com/simar7/trivy-policies/internal/cidr"
+	"github.com/aquasecurity/trivy-policies/internal/cidr"
 
 	"github.com/aquasecurity/defsec/pkg/providers"
 )
