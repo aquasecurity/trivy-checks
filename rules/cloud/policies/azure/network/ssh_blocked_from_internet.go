@@ -6,8 +6,8 @@ import (
 	"github.com/aquasecurity/defsec/pkg/severity"
 	"github.com/aquasecurity/defsec/pkg/state"
 	"github.com/aquasecurity/defsec/pkg/types"
-	"github.com/simar7/trivy-misconf-rules/internal/cidr"
-	"github.com/simar7/trivy-misconf-rules/internal/rules"
+	"github.com/simar7/trivy-policies/internal/cidr"
+	"github.com/simar7/trivy-policies/internal/rules"
 )
 
 var CheckSshBlockedFromInternet = rules.Register(

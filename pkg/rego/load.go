@@ -3,7 +3,7 @@ package rego
 import (
 	"context"
 	"fmt"
-	"github.com/simar7/trivy-misconf-rules/internal/rego"
+	"github.com/simar7/trivy-policies/internal/rego"
 	"io"
 	"io/fs"
 	"path/filepath"

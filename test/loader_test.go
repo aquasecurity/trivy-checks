@@ -3,7 +3,7 @@ package test
 import (
 	"testing"
 
-	"github.com/simar7/trivy-misconf-rules/pkg/rules"
+	"github.com/simar7/trivy-policies/pkg/rules"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	"github.com/open-policy-agent/opa/ast"
-	"github.com/simar7/trivy-misconf-rules/internal/rules"
-	rules2 "github.com/simar7/trivy-misconf-rules/rules"
+	"github.com/simar7/trivy-policies/internal/rules"
+	rules2 "github.com/simar7/trivy-policies/rules"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

@@ -8,8 +8,8 @@ import (
 	"github.com/aquasecurity/defsec/pkg/scan"
 	dftypes "github.com/aquasecurity/defsec/pkg/types"
 
-	"github.com/simar7/trivy-misconf-rules/pkg/types"
-	"github.com/simar7/trivy-misconf-rules/rules/specs"
+	"github.com/simar7/trivy-policies/pkg/types"
+	"github.com/simar7/trivy-policies/rules/specs"
 )
 
 type registry struct {
