@@ -1,4 +1,4 @@
-module github.com/simar7/trivy-policies
+module github.com/aquasecurity/trivy-policies
 
 go 1.20
 
