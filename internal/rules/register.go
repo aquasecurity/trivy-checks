@@ -1,15 +1,16 @@
 package rules
 
 import (
-	"gopkg.in/yaml.v3"
 	"sync"
+
+	"gopkg.in/yaml.v3"
 
 	"github.com/aquasecurity/defsec/pkg/framework"
 	"github.com/aquasecurity/defsec/pkg/scan"
 	dftypes "github.com/aquasecurity/defsec/pkg/types"
 
-	"github.com/simar7/trivy-policies/pkg/types"
-	"github.com/simar7/trivy-policies/rules/specs"
+	"github.com/aquasecurity/trivy-policies/pkg/types"
+	"github.com/aquasecurity/trivy-policies/rules/specs"
 )
 
 type registry struct {

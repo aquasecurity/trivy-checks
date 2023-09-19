@@ -9,14 +9,14 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/simar7/trivy-policies/pkg/rego/schemas"
+	"github.com/aquasecurity/trivy-policies/pkg/rego/schemas"
 
 	"github.com/stretchr/testify/assert"
 
+	ir "github.com/aquasecurity/trivy-policies/internal/rego"
+	dr "github.com/aquasecurity/trivy-policies/pkg/rego"
 	"github.com/open-policy-agent/opa/ast"
 	"github.com/open-policy-agent/opa/rego"
-	ir "github.com/simar7/trivy-policies/internal/rego"
-	dr "github.com/simar7/trivy-policies/pkg/rego"
 	"github.com/stretchr/testify/require"
 )
 

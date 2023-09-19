@@ -7,7 +7,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/simar7/trivy-policies/pkg/rego/schemas"
+	"github.com/aquasecurity/trivy-policies/pkg/rego/schemas"
 )
 
 // generate a json schema document for cloud rego input (state.State)

@@ -5,8 +5,8 @@ import (
 	"github.com/aquasecurity/defsec/pkg/scan"
 	"github.com/aquasecurity/defsec/pkg/severity"
 	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy-policies/internal/rules"
 	"github.com/owenrumney/squealer/pkg/squealer"
-	"github.com/simar7/trivy-policies/internal/rules"
 )
 
 var scanner = squealer.NewStringScanner()
