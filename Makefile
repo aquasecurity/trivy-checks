@@ -1,3 +1,5 @@
+DYNAMIC_REGO_FOLDER=./rules/kubernetes/policies/dynamic
+
 .PHONY: schema
 schema:
 	go run ./cmd/schema generate
@@ -32,3 +34,6 @@ docs-test:
 .PHONY: id
 id:
 	@go run ./cmd/id
+
+outdated-api-updated:
+	sed -i.bak "s|recommendedVersions :=.*|recommendedVersions := $(OUTDATE_API_DATA)|" $(DYNAMIC_REGO_FOLDER)/outdated_api.rego && rm $(DYNAMIC_REGO_FOLDER)/outdated_api.rego.bak
