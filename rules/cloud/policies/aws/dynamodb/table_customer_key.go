@@ -35,12 +35,13 @@ var CheckTableCustomerKey = rules.Register(
 			if table.Metadata.IsUnmanaged() {
 				continue
 			}
-			if table.ServerSideEncryption.KMSKeyID.IsEmpty() {
+			if table.ServerSideEncryption.Enabled.IsFalse() {
 				results.Add(
 					"Table encryption does not use a customer-managed KMS key.",
 					table.ServerSideEncryption.KMSKeyID,
 				)
-			} else if table.ServerSideEncryption.KMSKeyID.EqualTo(dynamodb.DefaultKMSKeyID) {
+			} else if table.ServerSideEncryption.KMSKeyID.IsEmpty() ||
+				table.ServerSideEncryption.KMSKeyID.EqualTo(dynamodb.DefaultKMSKeyID) {
 				results.Add(
 					"Table encryption explicitly uses the default KMS key.",
 					table.ServerSideEncryption.KMSKeyID,
