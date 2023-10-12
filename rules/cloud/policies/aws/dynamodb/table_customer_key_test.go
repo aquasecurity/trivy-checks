@@ -3,13 +3,10 @@ package dynamodb
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
-
-	"github.com/aquasecurity/defsec/pkg/state"
-
 	"github.com/aquasecurity/defsec/pkg/providers/aws/dynamodb"
 	"github.com/aquasecurity/defsec/pkg/scan"
-
+	"github.com/aquasecurity/defsec/pkg/state"
+	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -22,10 +19,11 @@ func TestCheckTableCustomerKey(t *testing.T) {
 		{
 			name: "Cluster encryption missing KMS key",
 			input: dynamodb.DynamoDB{
-				DAXClusters: []dynamodb.DAXCluster{
+				Tables: []dynamodb.Table{
 					{
 						Metadata: defsecTypes.NewTestMetadata(),
 						ServerSideEncryption: dynamodb.ServerSideEncryption{
+							Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
 							Metadata: defsecTypes.NewTestMetadata(),
 							KMSKeyID: defsecTypes.String("", defsecTypes.NewTestMetadata()),
 						},
@@ -37,10 +35,11 @@ func TestCheckTableCustomerKey(t *testing.T) {
 		{
 			name: "Cluster encryption using default KMS key",
 			input: dynamodb.DynamoDB{
-				DAXClusters: []dynamodb.DAXCluster{
+				Tables: []dynamodb.Table{
 					{
 						Metadata: defsecTypes.NewTestMetadata(),
 						ServerSideEncryption: dynamodb.ServerSideEncryption{
+							Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
 							Metadata: defsecTypes.NewTestMetadata(),
 							KMSKeyID: defsecTypes.String(dynamodb.DefaultKMSKeyID, defsecTypes.NewTestMetadata()),
 						},
@@ -52,10 +51,11 @@ func TestCheckTableCustomerKey(t *testing.T) {
 		{
 			name: "Cluster encryption using proper KMS key",
 			input: dynamodb.DynamoDB{
-				DAXClusters: []dynamodb.DAXCluster{
+				Tables: []dynamodb.Table{
 					{
 						Metadata: defsecTypes.NewTestMetadata(),
 						ServerSideEncryption: dynamodb.ServerSideEncryption{
+							Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
 							Metadata: defsecTypes.NewTestMetadata(),
 							KMSKeyID: defsecTypes.String("some-ok-key", defsecTypes.NewTestMetadata()),
 						},
@@ -63,6 +63,22 @@ func TestCheckTableCustomerKey(t *testing.T) {
 				},
 			},
 			expected: false,
+		},
+		{
+			name: "KMS key exist, but SSE is not enabled",
+			input: dynamodb.DynamoDB{
+				Tables: []dynamodb.Table{
+					{
+						Metadata: defsecTypes.NewTestMetadata(),
+						ServerSideEncryption: dynamodb.ServerSideEncryption{
+							Enabled:  defsecTypes.BoolDefault(false, defsecTypes.NewTestMetadata()),
+							Metadata: defsecTypes.NewTestMetadata(),
+							KMSKeyID: defsecTypes.String("some-ok-key", defsecTypes.NewTestMetadata()),
+						},
+					},
+				},
+			},
+			expected: true,
 		},
 	}
 	for _, test := range tests {
