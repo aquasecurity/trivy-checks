@@ -3,8 +3,6 @@ package rego
 import (
 	"context"
 	"fmt"
-	"io/fs"
-	"path/filepath"
 	"strings"
 
 	"github.com/aquasecurity/defsec/pkg/framework"
@@ -15,7 +13,6 @@ import (
 	"github.com/mitchellh/mapstructure"
 	"github.com/open-policy-agent/opa/ast"
 	"github.com/open-policy-agent/opa/rego"
-	"github.com/open-policy-agent/opa/util"
 )
 
 type StaticMetadata struct {
@@ -113,7 +110,7 @@ func (m *MetadataRetriever) findPackageAnnotation(module *ast.Module) *ast.Annot
 	return nil
 }
 
-func (m *MetadataRetriever) RetrieveMetadata(ctx context.Context, module *ast.Module, inputs ...Input) (*StaticMetadata, error) {
+func (m *MetadataRetriever) RetrieveMetadata(ctx context.Context, module *ast.Module, contents ...any) (*StaticMetadata, error) {
 
 	metadata := StaticMetadata{
 		ID:           "N/A",
@@ -143,8 +140,8 @@ func (m *MetadataRetriever) RetrieveMetadata(ctx context.Context, module *ast.Mo
 		rego.Capabilities(nil),
 	}
 	// support dynamic metadata fields
-	for _, in := range inputs {
-		options = append(options, rego.Input(in.Contents))
+	for _, in := range contents {
+		options = append(options, rego.Input(in))
 	}
 
 	instance := rego.New(options...)
@@ -383,64 +380,6 @@ func (m *MetadataRetriever) queryInputOptions(ctx context.Context, module *ast.M
 
 }
 
-func BuildSchemaSetFromPolicies(policies map[string]*ast.Module, paths []string, srcFS fs.FS) (*ast.SchemaSet, bool, error) {
-	schemaSet := ast.NewSchemaSet()
-	schemaSet.Put(ast.MustParseRef("schema.input"), map[string]interface{}{}) // for backwards compat only
-	var customFound bool
-	for _, policy := range policies {
-		for _, annotation := range policy.Annotations {
-			for _, ss := range annotation.Schemas {
-				schemaName, err := ss.Schema.Ptr()
-				if err != nil {
-					continue
-				}
-				if schemaName != "input" {
-					if schema, ok := SchemaMap[defsecTypes.Source(schemaName)]; ok {
-						customFound = true
-						schemaSet.Put(ast.MustParseRef(ss.Schema.String()), util.MustUnmarshalJSON([]byte(schema)))
-					} else {
-						b, err := findSchemaInFS(paths, srcFS, schemaName)
-						if err != nil {
-							return schemaSet, true, err
-						}
-						if b != nil {
-							customFound = true
-							schemaSet.Put(ast.MustParseRef(ss.Schema.String()), util.MustUnmarshalJSON(b))
-						}
-					}
-				}
-			}
-		}
-	}
-
-	return schemaSet, customFound, nil
-}
-
-// findSchemaInFS tries to find the schema anywhere in the specified FS
-func findSchemaInFS(paths []string, srcFS fs.FS, schemaName string) ([]byte, error) {
-	var schema []byte
-	for _, path := range paths {
-		if err := fs.WalkDir(srcFS, sanitisePath(path), func(path string, info fs.DirEntry, err error) error {
-			if err != nil {
-				return err
-			}
-			if info.IsDir() {
-				return nil
-			}
-			if !IsJSONFile(info.Name()) {
-				return nil
-			}
-			if info.Name() == schemaName+".json" {
-				schema, err = fs.ReadFile(srcFS, filepath.ToSlash(path))
-				if err != nil {
-					return err
-				}
-				return nil
-			}
-			return nil
-		}); err != nil {
-			return nil, err
-		}
-	}
-	return schema, nil
+func getModuleNamespace(module *ast.Module) string {
+	return strings.TrimPrefix(module.Package.Path.String(), "data.")
 }

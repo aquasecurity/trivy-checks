@@ -12,7 +12,8 @@ import (
 
 	"github.com/aquasecurity/defsec/pkg/framework"
 
-	_ "github.com/aquasecurity/trivy-policies/pkg/rego"
+	_ "github.com/aquasecurity/trivy-policies/pkg/rego" // TODO
+	_ "github.com/aquasecurity/trivy-policies/pkg/rego/embed"
 	registered "github.com/aquasecurity/trivy-policies/pkg/rules"
 	"github.com/aquasecurity/trivy-policies/pkg/types"
 )

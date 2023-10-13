@@ -1,24 +1,28 @@
-package rego
+package embed
 
 import (
 	"context"
 	"embed"
+	"io/fs"
 	"path/filepath"
 	"strings"
 
-	"github.com/aquasecurity/trivy-policies/internal/rules"
-	rules2 "github.com/aquasecurity/trivy-policies/rules"
 	"github.com/open-policy-agent/opa/ast"
+	"github.com/open-policy-agent/opa/bundle"
+
+	"github.com/aquasecurity/trivy-policies/pkg/rego"
+	"github.com/aquasecurity/trivy-policies/pkg/rules"
+	rules2 "github.com/aquasecurity/trivy-policies/rules"
 )
 
 func init() {
 
-	modules, err := loadEmbeddedPolicies()
+	modules, err := LoadEmbeddedPolicies()
 	if err != nil {
 		// we should panic as the policies were not embedded properly
 		panic(err)
 	}
-	loadedLibs, err := loadEmbeddedLibraries()
+	loadedLibs, err := LoadEmbeddedLibraries()
 	if err != nil {
 		panic(err)
 	}
@@ -32,7 +36,7 @@ func init() {
 func RegisterRegoRules(modules map[string]*ast.Module) {
 	ctx := context.TODO()
 
-	schemaSet, _, _ := BuildSchemaSetFromPolicies(modules, nil, nil)
+	schemaSet, _, _ := rego.BuildSchemaSetFromPolicies(modules, nil, nil)
 
 	compiler := ast.NewCompiler().
 		WithSchemas(schemaSet).
@@ -45,7 +49,7 @@ func RegisterRegoRules(modules map[string]*ast.Module) {
 		panic(compiler.Errors)
 	}
 
-	retriever := NewMetadataRetriever(compiler)
+	retriever := rego.NewMetadataRetriever(compiler)
 	for _, module := range modules {
 		metadata, err := retriever.RetrieveMetadata(ctx, module)
 		if err != nil {
@@ -61,12 +65,62 @@ func RegisterRegoRules(modules map[string]*ast.Module) {
 	}
 }
 
-func loadEmbeddedPolicies() (map[string]*ast.Module, error) {
+func LoadEmbeddedPolicies() (map[string]*ast.Module, error) {
 	return RecurseEmbeddedModules(rules2.EmbeddedPolicyFileSystem, ".")
 }
 
-func loadEmbeddedLibraries() (map[string]*ast.Module, error) {
+func LoadEmbeddedLibraries() (map[string]*ast.Module, error) {
 	return RecurseEmbeddedModules(rules2.EmbeddedLibraryFileSystem, ".")
+}
+
+func IsRegoFile(name string) bool {
+	return strings.HasSuffix(name, bundle.RegoExt) && !strings.HasSuffix(name, "_test"+bundle.RegoExt)
+}
+
+func IsDotFile(name string) bool {
+	return strings.HasPrefix(name, ".")
+}
+
+func sanitisePath(path string) string {
+	vol := filepath.VolumeName(path)
+	path = strings.TrimPrefix(path, vol)
+	return strings.TrimPrefix(strings.TrimPrefix(filepath.ToSlash(path), "./"), "/")
+}
+
+func LoadPoliciesFromDirs(target fs.FS, paths ...string) (map[string]*ast.Module, error) {
+	// 	if strings.HasSuffix(dir, "policies/advanced/optional") {
+	// 		return nil, nil
+	// 	}
+	modules := make(map[string]*ast.Module)
+	for _, path := range paths {
+		if err := fs.WalkDir(target, sanitisePath(path), func(path string, info fs.DirEntry, err error) error {
+			if err != nil {
+				return err
+			}
+			if info.IsDir() {
+				return nil
+			}
+			if !IsRegoFile(info.Name()) || IsDotFile(info.Name()) {
+				return nil
+			}
+			data, err := fs.ReadFile(target, filepath.ToSlash(path))
+			if err != nil {
+				return err
+			}
+			module, err := ast.ParseModuleWithOpts(path, string(data), ast.ParserOptions{
+				ProcessAnnotation: true,
+			})
+			if err != nil {
+				// s.debug.Log("Failed to load module: %s, err: %s", filepath.ToSlash(path), err.Error())
+				return err
+			}
+			modules[path] = module
+			return nil
+		}); err != nil {
+			return nil, err
+		}
+	}
+	return modules, nil
 }
 
 func RecurseEmbeddedModules(fs embed.FS, dir string) (map[string]*ast.Module, error) {
