@@ -10,7 +10,7 @@
 #   id: KCV0040
 #   avd_id: AVD-KCV-0040
 #   severity: LOW
-#   short_code: ensure-profiling-argument-is-set-to-false 
+#   short_code: ensure-profiling-argument-is-set-to-false
 #   recommended_action: "Edit the Scheduler pod specification file /etc/kubernetes/manifests/kube-scheduler.yaml file on the Control Plane node and set the below parameter."
 #   input:
 #     selector:

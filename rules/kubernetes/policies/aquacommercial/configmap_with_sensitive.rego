@@ -17,7 +17,6 @@
 #         - kind: configmap
 package builtin.kubernetes.KSV01010
 
-
 import data.lib.kubernetes
 
 # More patterns can be added here, adding more patterns may lead to performance issue
