@@ -9,7 +9,7 @@ rego: fmt-rego test-rego
 
 .PHONY: fmt-rego
 fmt-rego:
-	opa fmt -w rules/cloud/policies
+	opa fmt -w rules/
 
 .PHONY: test-rego
 test-rego:
