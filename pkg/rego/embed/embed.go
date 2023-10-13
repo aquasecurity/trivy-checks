@@ -2,7 +2,6 @@ package embed
 
 import (
 	"context"
-	"embed"
 	"io/fs"
 	"path/filepath"
 	"strings"
@@ -66,11 +65,11 @@ func RegisterRegoRules(modules map[string]*ast.Module) {
 }
 
 func LoadEmbeddedPolicies() (map[string]*ast.Module, error) {
-	return RecurseEmbeddedModules(rules2.EmbeddedPolicyFileSystem, ".")
+	return LoadPoliciesFromDirs(rules2.EmbeddedPolicyFileSystem, ".")
 }
 
 func LoadEmbeddedLibraries() (map[string]*ast.Module, error) {
-	return RecurseEmbeddedModules(rules2.EmbeddedLibraryFileSystem, ".")
+	return LoadPoliciesFromDirs(rules2.EmbeddedLibraryFileSystem, ".")
 }
 
 func IsRegoFile(name string) bool {
@@ -88,9 +87,6 @@ func sanitisePath(path string) string {
 }
 
 func LoadPoliciesFromDirs(target fs.FS, paths ...string) (map[string]*ast.Module, error) {
-	// 	if strings.HasSuffix(dir, "policies/advanced/optional") {
-	// 		return nil, nil
-	// 	}
 	modules := make(map[string]*ast.Module)
 	for _, path := range paths {
 		if err := fs.WalkDir(target, sanitisePath(path), func(path string, info fs.DirEntry, err error) error {
@@ -100,6 +96,11 @@ func LoadPoliciesFromDirs(target fs.FS, paths ...string) (map[string]*ast.Module
 			if info.IsDir() {
 				return nil
 			}
+
+			if strings.HasSuffix(filepath.Dir(filepath.ToSlash(path)), "policies/advanced/optional") {
+				return fs.SkipDir
+			}
+
 			if !IsRegoFile(info.Name()) || IsDotFile(info.Name()) {
 				return nil
 			}
@@ -119,46 +120,6 @@ func LoadPoliciesFromDirs(target fs.FS, paths ...string) (map[string]*ast.Module
 		}); err != nil {
 			return nil, err
 		}
-	}
-	return modules, nil
-}
-
-func RecurseEmbeddedModules(fs embed.FS, dir string) (map[string]*ast.Module, error) {
-	if strings.HasSuffix(dir, "policies/advanced/optional") {
-		return nil, nil
-	}
-	dir = strings.TrimPrefix(dir, "./")
-	modules := make(map[string]*ast.Module)
-	entries, err := fs.ReadDir(filepath.ToSlash(dir))
-	if err != nil {
-		return nil, err
-	}
-	for _, entry := range entries {
-		if entry.IsDir() {
-			subs, err := RecurseEmbeddedModules(fs, strings.Join([]string{dir, entry.Name()}, "/"))
-			if err != nil {
-				return nil, err
-			}
-			for key, val := range subs {
-				modules[key] = val
-			}
-			continue
-		}
-		if !IsRegoFile(entry.Name()) || IsDotFile(entry.Name()) {
-			continue
-		}
-		fullPath := strings.Join([]string{dir, entry.Name()}, "/")
-		data, err := fs.ReadFile(filepath.ToSlash(fullPath))
-		if err != nil {
-			return nil, err
-		}
-		mod, err := ast.ParseModuleWithOpts(fullPath, string(data), ast.ParserOptions{
-			ProcessAnnotation: true,
-		})
-		if err != nil {
-			return nil, err
-		}
-		modules[fullPath] = mod
 	}
 	return modules, nil
 }
