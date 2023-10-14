@@ -5,8 +5,8 @@ import (
 	"reflect"
 	"strings"
 
+	"github.com/aquasecurity/defsec/pkg/rego/convert"
 	"github.com/aquasecurity/defsec/pkg/state"
-	"github.com/aquasecurity/trivy-policies/pkg/rego/convert"
 )
 
 type RawSchema struct {
@@ -162,6 +162,10 @@ func (b *builder) readProperty(name string, parent, inputType reflect.Type, inde
 
 	fmt.Printf("WARNING: unsupported type: %s (%s)\n", inputType.Name(), inputType)
 	return nil, nil
+}
+
+type Converter interface {
+	ToRego() interface{}
 }
 
 var converterInterface = reflect.TypeOf((*convert.Converter)(nil)).Elem()
