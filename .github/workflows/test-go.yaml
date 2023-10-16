@@ -1,0 +1,18 @@
+name: Test Go
+on:
+  pull_request:
+  merge_group:
+jobs:
+  build:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-go@v4
+      with:
+        go-version-file: go.mod
+
+    - name: Run tests
+      run: make test
+      shell: bash

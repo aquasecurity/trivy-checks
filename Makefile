@@ -1,5 +1,9 @@
 DYNAMIC_REGO_FOLDER=./rules/kubernetes/policies/dynamic
 
+.PHONY: test
+test:
+	go test -v ./...
+
 .PHONY: schema
 schema:
 	go run ./cmd/schema generate
