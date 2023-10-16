@@ -14,6 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
+	trivyRego "github.com/aquasecurity/trivy-policies/pkg/rego"
 	_ "github.com/aquasecurity/trivy-policies/pkg/rego/embed"
 	"github.com/aquasecurity/trivy-policies/pkg/rego/schemas"
 )
@@ -120,7 +121,7 @@ func Test_AllRegoRules(t *testing.T) {
 		t.Fatal(compiler.Errors)
 	}
 
-	// retriever := dr.NewMetadataRetriever(compiler)
+	retriever := trivyRego.NewMetadataRetriever(compiler)
 
 	ctx := context.Background()
 
@@ -128,19 +129,19 @@ func Test_AllRegoRules(t *testing.T) {
 	for _, module := range testModules {
 		t.Run(module.Package.Path.String(), func(t *testing.T) {
 
-			// t.Run("schema", func(t *testing.T) {
-			// 	static, err := retriever.RetrieveMetadata(ctx, module)
-			// 	require.NoError(t, err)
-			// 	assert.Greater(t, len(static.InputOptions.Selectors), 0, "all rego files should specify at least one input selector")
-			// 	if static.Library { // lib files do not require avd IDs etc.
-			// 		return
-			// 	}
-			// 	assert.NotEmpty(t, static.AVDID, "all rego files should specify an AVD ID")
-			// 	assert.NotEmpty(t, static.Title, "all rego files should specify a title")
-			// 	assert.NotEmpty(t, static.Description, "all rego files should specify a description")
-			// 	assert.NotEmpty(t, static.Severity, "all rego files should specify a severity")
-			// 	assert.NotEmpty(t, static.ShortCode, "all rego files should specify a short code")
-			// })
+			t.Run("schema", func(t *testing.T) {
+				static, err := retriever.RetrieveMetadata(ctx, module)
+				require.NoError(t, err)
+				assert.Greater(t, len(static.InputOptions.Selectors), 0, "all rego files should specify at least one input selector")
+				if static.Library { // lib files do not require avd IDs etc.
+					return
+				}
+				assert.NotEmpty(t, static.AVDID, "all rego files should specify an AVD ID")
+				assert.NotEmpty(t, static.Title, "all rego files should specify a title")
+				assert.NotEmpty(t, static.Description, "all rego files should specify a description")
+				assert.NotEmpty(t, static.Severity, "all rego files should specify a severity")
+				assert.NotEmpty(t, static.ShortCode, "all rego files should specify a short code")
+			})
 
 			var hasTests bool
 			for _, rule := range module.Rules {
