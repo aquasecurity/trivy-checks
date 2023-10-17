@@ -1,9 +1,9 @@
-package rego
+package embed
 
 import (
 	"testing"
 
-	"github.com/aquasecurity/trivy-policies/internal/rules"
+	"github.com/aquasecurity/trivy-policies/pkg/rules"
 	rules2 "github.com/aquasecurity/trivy-policies/rules"
 	"github.com/open-policy-agent/opa/ast"
 	"github.com/stretchr/testify/assert"
@@ -12,7 +12,7 @@ import (
 
 func Test_EmbeddedLoading(t *testing.T) {
 
-	frameworkRules := rules.GetFrameworkRules()
+	frameworkRules := rules.GetRegistered()
 	var found bool
 	for _, rule := range frameworkRules {
 		if rule.GetRule().RegoPackage != "" {
@@ -102,7 +102,7 @@ deny[res]{
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			policies, err := RecurseEmbeddedModules(rules2.EmbeddedLibraryFileSystem, ".")
+			policies, err := LoadPoliciesFromDirs(rules2.EmbeddedLibraryFileSystem, ".")
 			require.NoError(t, err)
 			newRule, err := ast.ParseModuleWithOpts("/rules/newrule.rego", tc.inputPolicy, ast.ParserOptions{
 				ProcessAnnotation: true,
