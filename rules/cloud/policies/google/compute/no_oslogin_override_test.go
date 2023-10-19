@@ -51,7 +51,7 @@ func TestCheckNoOsloginOverride(t *testing.T) {
 			results := CheckNoOsloginOverride.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoOsloginOverride.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoOsloginOverride.LongID() {
 					found = true
 				}
 			}

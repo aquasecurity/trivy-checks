@@ -107,7 +107,7 @@ func TestCheckVPCChangeAlarm(t *testing.T) {
 			results := requireVPCChangeAlarm.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireVPCChangeAlarm.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireVPCChangeAlarm.LongID() {
 					found = true
 				}
 			}

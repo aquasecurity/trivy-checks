@@ -56,7 +56,7 @@ func TestCheckEnableAudit(t *testing.T) {
 			results := CheckEnableAudit.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableAudit.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableAudit.LongID() {
 					found = true
 				}
 			}

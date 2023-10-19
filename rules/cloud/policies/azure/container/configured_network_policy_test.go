@@ -57,7 +57,7 @@ func TestCheckConfiguredNetworkPolicy(t *testing.T) {
 			results := CheckConfiguredNetworkPolicy.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckConfiguredNetworkPolicy.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckConfiguredNetworkPolicy.LongID() {
 					found = true
 				}
 			}

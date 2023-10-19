@@ -80,7 +80,7 @@ func TestCheckLimitRootAccountUsage(t *testing.T) {
 			results := checkLimitRootAccountUsage.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == checkLimitRootAccountUsage.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == checkLimitRootAccountUsage.LongID() {
 					found = true
 				}
 			}

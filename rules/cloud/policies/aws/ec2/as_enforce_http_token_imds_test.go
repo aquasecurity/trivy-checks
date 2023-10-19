@@ -78,7 +78,7 @@ func TestASCheckIMDSAccessRequiresToken(t *testing.T) {
 			results := CheckASIMDSAccessRequiresToken.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckASIMDSAccessRequiresToken.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckASIMDSAccessRequiresToken.LongID() {
 					found = true
 				}
 			}

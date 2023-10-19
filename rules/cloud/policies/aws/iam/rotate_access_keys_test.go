@@ -72,7 +72,7 @@ func TestCheckAccessKeysRotated(t *testing.T) {
 			results := CheckAccessKeysRotated.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAccessKeysRotated.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAccessKeysRotated.LongID() {
 					found = true
 				}
 			}

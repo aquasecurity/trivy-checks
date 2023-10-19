@@ -102,7 +102,7 @@ func TestCheckRequireUnauthorisedApiCallAlarm(t *testing.T) {
 			results := requireUnauthorizedApiCallAlarm.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireUnauthorizedApiCallAlarm.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireUnauthorizedApiCallAlarm.LongID() {
 					found = true
 				}
 			}

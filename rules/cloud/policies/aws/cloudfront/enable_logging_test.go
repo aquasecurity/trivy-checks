@@ -57,7 +57,7 @@ func TestCheckEnableLogging(t *testing.T) {
 			results := CheckEnableLogging.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableLogging.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableLogging.LongID() {
 					found = true
 				}
 			}

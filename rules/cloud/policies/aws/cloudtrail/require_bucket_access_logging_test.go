@@ -78,7 +78,7 @@ func TestCheckBucketAccessLoggingRequired(t *testing.T) {
 			results := checkBucketAccessLoggingRequired.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == checkBucketAccessLoggingRequired.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == checkBucketAccessLoggingRequired.LongID() {
 					found = true
 				}
 			}

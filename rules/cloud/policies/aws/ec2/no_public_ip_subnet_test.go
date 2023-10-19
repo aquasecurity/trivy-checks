@@ -51,7 +51,7 @@ func TestCheckNoPublicIpSubnet(t *testing.T) {
 			results := CheckNoPublicIpSubnet.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPublicIpSubnet.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPublicIpSubnet.LongID() {
 					found = true
 				}
 			}

@@ -50,7 +50,7 @@ func TestCheckEnsureCloudwatchIntegration(t *testing.T) {
 			results := checkEnsureCloudwatchIntegration.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == checkEnsureCloudwatchIntegration.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == checkEnsureCloudwatchIntegration.LongID() {
 					found = true
 				}
 			}

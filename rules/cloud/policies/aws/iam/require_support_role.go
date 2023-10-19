@@ -10,7 +10,7 @@ import (
 
 	"github.com/aquasecurity/defsec/pkg/scan"
 
-	"github.com/aquasecurity/trivy-policies/internal/rules"
+	"github.com/aquasecurity/trivy-policies/pkg/rules"
 
 	"github.com/aquasecurity/defsec/pkg/providers"
 )

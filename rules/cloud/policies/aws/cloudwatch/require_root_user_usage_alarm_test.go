@@ -106,7 +106,7 @@ func TestCheckRequireRootUserUsageAlarm(t *testing.T) {
 			results := requireRootUserUsageAlarm.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireRootUserUsageAlarm.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireRootUserUsageAlarm.LongID() {
 					found = true
 				}
 			}

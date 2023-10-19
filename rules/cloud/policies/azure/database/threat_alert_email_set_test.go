@@ -63,7 +63,7 @@ func TestCheckThreatAlertEmailSet(t *testing.T) {
 			results := CheckThreatAlertEmailSet.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckThreatAlertEmailSet.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckThreatAlertEmailSet.LongID() {
 					found = true
 				}
 			}

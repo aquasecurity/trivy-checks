@@ -116,7 +116,7 @@ func TestCheckNoRootAccessKeys(t *testing.T) {
 			results := checkNoRootAccessKeys.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == checkNoRootAccessKeys.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == checkNoRootAccessKeys.LongID() {
 					found = true
 				}
 			}

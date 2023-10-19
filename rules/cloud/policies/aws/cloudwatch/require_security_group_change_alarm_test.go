@@ -105,7 +105,7 @@ func TestCheckSecurityGroupChangeAlarm(t *testing.T) {
 			results := requireSecurityGroupChangeAlarm.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireSecurityGroupChangeAlarm.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireSecurityGroupChangeAlarm.LongID() {
 					found = true
 				}
 			}

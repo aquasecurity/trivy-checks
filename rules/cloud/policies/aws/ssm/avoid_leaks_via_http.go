@@ -5,7 +5,7 @@ import (
 	"github.com/aquasecurity/defsec/pkg/scan"
 	"github.com/aquasecurity/defsec/pkg/severity"
 	"github.com/aquasecurity/defsec/pkg/terraform"
-	"github.com/aquasecurity/trivy-policies/internal/rules"
+	"github.com/aquasecurity/trivy-policies/pkg/rules"
 )
 
 var AvoidLeaksViaHTTP = rules.Register(

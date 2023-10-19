@@ -60,7 +60,7 @@ func TestCheckInstancesDoNotHavePublicIPs(t *testing.T) {
 			results := CheckInstancesDoNotHavePublicIPs.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckInstancesDoNotHavePublicIPs.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckInstancesDoNotHavePublicIPs.LongID() {
 					found = true
 				}
 			}

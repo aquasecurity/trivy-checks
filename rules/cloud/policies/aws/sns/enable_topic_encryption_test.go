@@ -72,7 +72,7 @@ func TestCheckEnableTopicEncryption(t *testing.T) {
 			results := CheckEnableTopicEncryption.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableTopicEncryption.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableTopicEncryption.LongID() {
 					found = true
 				}
 			}

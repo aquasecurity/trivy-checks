@@ -72,7 +72,7 @@ func TestCheckQueueEncryptionUsesCMK(t *testing.T) {
 			results := CheckQueueEncryptionUsesCMK.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckQueueEncryptionUsesCMK.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckQueueEncryptionUsesCMK.LongID() {
 					found = true
 				}
 			}

@@ -61,7 +61,7 @@ func TestCheckNoCommonPrivateRouter(t *testing.T) {
 			results := CheckNoCommonPrivateRouter.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoCommonPrivateRouter.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoCommonPrivateRouter.LongID() {
 					found = true
 				}
 			}

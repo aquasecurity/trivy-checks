@@ -117,7 +117,7 @@ func TestCheckRequireIAMPolicyChangeAlarm(t *testing.T) {
 			results := requireIAMPolicyChangeAlarm.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireIAMPolicyChangeAlarm.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireIAMPolicyChangeAlarm.LongID() {
 					found = true
 				}
 			}

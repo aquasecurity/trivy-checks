@@ -72,7 +72,7 @@ func TestCheckEnableInTransitEncryption(t *testing.T) {
 			results := CheckEnableInTransitEncryption.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableInTransitEncryption.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableInTransitEncryption.LongID() {
 					found = true
 				}
 			}

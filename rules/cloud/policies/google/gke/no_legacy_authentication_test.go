@@ -83,7 +83,7 @@ func TestCheckNoLegacyAuthentication(t *testing.T) {
 			results := CheckNoLegacyAuthentication.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoLegacyAuthentication.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoLegacyAuthentication.LongID() {
 					found = true
 				}
 			}

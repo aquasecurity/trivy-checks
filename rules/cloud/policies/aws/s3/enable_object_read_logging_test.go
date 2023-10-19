@@ -246,7 +246,7 @@ func TestCheckEnableObjectReadLogging(t *testing.T) {
 			results := CheckEnableObjectReadLogging.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableObjectReadLogging.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableObjectReadLogging.LongID() {
 					found = true
 				}
 			}

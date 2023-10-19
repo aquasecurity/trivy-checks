@@ -57,7 +57,7 @@ func TestCheckEnableDomainLogging(t *testing.T) {
 			results := CheckEnableDomainLogging.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableDomainLogging.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableDomainLogging.LongID() {
 					found = true
 				}
 			}

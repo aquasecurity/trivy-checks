@@ -7,7 +7,7 @@ import (
 	"github.com/aquasecurity/defsec/pkg/severity"
 	"github.com/aquasecurity/defsec/pkg/state"
 	"github.com/aquasecurity/trivy-policies/internal/cidr"
-	"github.com/aquasecurity/trivy-policies/internal/rules"
+	"github.com/aquasecurity/trivy-policies/pkg/rules"
 )
 
 var CheckNoPublicIngress = rules.Register(

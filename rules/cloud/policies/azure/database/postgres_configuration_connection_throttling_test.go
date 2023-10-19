@@ -57,7 +57,7 @@ func TestCheckPostgresConfigurationLogConnectionThrottling(t *testing.T) {
 			results := CheckPostgresConfigurationLogConnectionThrottling.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckPostgresConfigurationLogConnectionThrottling.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckPostgresConfigurationLogConnectionThrottling.LongID() {
 					found = true
 				}
 			}

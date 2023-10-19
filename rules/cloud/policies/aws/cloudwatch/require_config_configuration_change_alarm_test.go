@@ -102,7 +102,7 @@ func TestCheckConfigConfigurationChangeAlarm(t *testing.T) {
 			results := requireConfigConfigurationChangeAlarm.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireConfigConfigurationChangeAlarm.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireConfigConfigurationChangeAlarm.LongID() {
 					found = true
 				}
 			}

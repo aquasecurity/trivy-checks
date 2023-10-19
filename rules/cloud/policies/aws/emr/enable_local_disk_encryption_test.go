@@ -77,7 +77,7 @@ func TestEnableLocalDiskEncryption(t *testing.T) {
 			results := CheckEnableLocalDiskEncryption.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableLocalDiskEncryption.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableLocalDiskEncryption.LongID() {
 					found = true
 				}
 			}

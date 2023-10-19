@@ -100,7 +100,7 @@ func TestCheckNoFunctionPolicyWildcards(t *testing.T) {
 			results := CheckNoFunctionPolicyWildcards.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoFunctionPolicyWildcards.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoFunctionPolicyWildcards.LongID() {
 					found = true
 				}
 			}

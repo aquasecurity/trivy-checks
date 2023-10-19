@@ -63,7 +63,7 @@ func TestCheckAllowMicrosoftServiceBypass(t *testing.T) {
 			results := CheckAllowMicrosoftServiceBypass.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAllowMicrosoftServiceBypass.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAllowMicrosoftServiceBypass.LongID() {
 					found = true
 				}
 			}

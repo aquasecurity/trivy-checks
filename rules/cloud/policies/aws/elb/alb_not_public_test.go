@@ -53,7 +53,7 @@ func TestCheckAlbNotPublic(t *testing.T) {
 			results := CheckAlbNotPublic.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAlbNotPublic.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAlbNotPublic.LongID() {
 					found = true
 				}
 			}

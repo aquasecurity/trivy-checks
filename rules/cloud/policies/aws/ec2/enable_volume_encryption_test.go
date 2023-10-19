@@ -57,7 +57,7 @@ func TestCheckEnableVolumeEncryption(t *testing.T) {
 			results := CheckEnableVolumeEncryption.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableVolumeEncryption.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableVolumeEncryption.LongID() {
 					found = true
 				}
 			}

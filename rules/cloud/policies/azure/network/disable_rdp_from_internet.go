@@ -7,7 +7,7 @@ import (
 	"github.com/aquasecurity/defsec/pkg/state"
 	"github.com/aquasecurity/defsec/pkg/types"
 	"github.com/aquasecurity/trivy-policies/internal/cidr"
-	"github.com/aquasecurity/trivy-policies/internal/rules"
+	"github.com/aquasecurity/trivy-policies/pkg/rules"
 )
 
 var CheckDisableRdpFromInternet = rules.Register(

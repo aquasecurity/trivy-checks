@@ -47,7 +47,7 @@ func TestCheckSetMinimumPasswordLength(t *testing.T) {
 			results := CheckSetMinimumPasswordLength.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckSetMinimumPasswordLength.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckSetMinimumPasswordLength.LongID() {
 					found = true
 				}
 			}

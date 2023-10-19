@@ -64,7 +64,7 @@ func TestCheckDropInvalidHeaders(t *testing.T) {
 			results := CheckDropInvalidHeaders.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckDropInvalidHeaders.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckDropInvalidHeaders.LongID() {
 					found = true
 				}
 			}

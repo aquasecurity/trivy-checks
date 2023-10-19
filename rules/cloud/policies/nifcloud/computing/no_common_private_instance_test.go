@@ -61,7 +61,7 @@ func TestCheckNoCommonPrivateInstance(t *testing.T) {
 			results := CheckNoCommonPrivateInstance.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoCommonPrivateInstance.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoCommonPrivateInstance.LongID() {
 					found = true
 				}
 			}

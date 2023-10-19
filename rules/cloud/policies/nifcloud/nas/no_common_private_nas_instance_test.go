@@ -51,7 +51,7 @@ func TestCheckNoCommonPrivateNASInstance(t *testing.T) {
 			results := CheckNoCommonPrivateNASInstance.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoCommonPrivateNASInstance.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoCommonPrivateNASInstance.LongID() {
 					found = true
 				}
 			}

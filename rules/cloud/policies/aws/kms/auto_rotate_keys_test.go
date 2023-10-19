@@ -63,7 +63,7 @@ func TestCheckAutoRotateKeys(t *testing.T) {
 			results := CheckAutoRotateKeys.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAutoRotateKeys.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAutoRotateKeys.LongID() {
 					found = true
 				}
 			}

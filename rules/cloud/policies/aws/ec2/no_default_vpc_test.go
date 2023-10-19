@@ -57,7 +57,7 @@ func TestCheckNoDefaultVpc(t *testing.T) {
 			results := CheckNoDefaultVpc.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoDefaultVpc.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoDefaultVpc.LongID() {
 					found = true
 				}
 			}

@@ -105,7 +105,7 @@ func TestCheckRequireNonMFALoginAlarm(t *testing.T) {
 			results := requireNonMFALoginAlarm.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireNonMFALoginAlarm.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireNonMFALoginAlarm.LongID() {
 					found = true
 				}
 			}

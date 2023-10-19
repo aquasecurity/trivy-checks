@@ -82,7 +82,7 @@ func TestCheckEnablePerformanceInsightsEncryption(t *testing.T) {
 			results := CheckEnablePerformanceInsightsEncryption.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() != scan.StatusPassed && result.Rule().LongID() == CheckEnablePerformanceInsightsEncryption.GetRule().LongID() {
+				if result.Status() != scan.StatusPassed && result.Rule().LongID() == CheckEnablePerformanceInsightsEncryption.LongID() {
 					found = true
 				}
 			}

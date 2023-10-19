@@ -75,7 +75,7 @@ func TestCheckNoDefaultServiceAccount(t *testing.T) {
 			results := CheckNoDefaultServiceAccount.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoDefaultServiceAccount.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoDefaultServiceAccount.LongID() {
 					found = true
 				}
 			}

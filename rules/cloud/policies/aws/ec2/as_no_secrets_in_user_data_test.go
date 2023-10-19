@@ -63,7 +63,7 @@ func TestASCheckNoSecretsInUserData(t *testing.T) {
 			results := CheckASNoSecretsInUserData.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckASNoSecretsInUserData.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckASNoSecretsInUserData.LongID() {
 					found = true
 				}
 			}

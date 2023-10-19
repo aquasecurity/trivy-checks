@@ -61,7 +61,7 @@ func TestCheckNoCommonPrivateElasticLoadBalancer(t *testing.T) {
 			results := CheckNoCommonPrivateElasticLoadBalancer.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoCommonPrivateElasticLoadBalancer.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoCommonPrivateElasticLoadBalancer.LongID() {
 					found = true
 				}
 			}

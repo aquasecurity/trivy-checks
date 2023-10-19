@@ -51,7 +51,7 @@ func TestCheckNoSerialPort(t *testing.T) {
 			results := CheckNoSerialPort.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoSerialPort.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoSerialPort.LongID() {
 					found = true
 				}
 			}

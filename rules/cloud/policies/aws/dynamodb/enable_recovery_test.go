@@ -51,7 +51,7 @@ func TestCheckEnableRecovery(t *testing.T) {
 			results := CheckEnableRecovery.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableRecovery.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableRecovery.LongID() {
 					found = true
 				}
 			}
