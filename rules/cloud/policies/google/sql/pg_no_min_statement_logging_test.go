@@ -65,7 +65,7 @@ func TestCheckPgNoMinStatementLogging(t *testing.T) {
 			results := CheckPgNoMinStatementLogging.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckPgNoMinStatementLogging.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckPgNoMinStatementLogging.LongID() {
 					found = true
 				}
 			}

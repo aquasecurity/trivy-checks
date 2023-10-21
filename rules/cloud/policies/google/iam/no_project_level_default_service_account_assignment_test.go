@@ -104,7 +104,7 @@ func TestCheckNoProjectLevelDefaultServiceAccountAssignment(t *testing.T) {
 			results := CheckNoProjectLevelDefaultServiceAccountAssignment.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoProjectLevelDefaultServiceAccountAssignment.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoProjectLevelDefaultServiceAccountAssignment.LongID() {
 					found = true
 				}
 			}

@@ -53,7 +53,7 @@ func TestCheckPublicACLsAreBlocked(t *testing.T) {
 			results := CheckPublicACLsAreBlocked.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckPublicACLsAreBlocked.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckPublicACLsAreBlocked.LongID() {
 					found = true
 				}
 			}

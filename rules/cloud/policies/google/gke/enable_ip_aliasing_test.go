@@ -57,7 +57,7 @@ func TestCheckEnableIpAliasing(t *testing.T) {
 			results := CheckEnableIpAliasing.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableIpAliasing.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableIpAliasing.LongID() {
 					found = true
 				}
 			}

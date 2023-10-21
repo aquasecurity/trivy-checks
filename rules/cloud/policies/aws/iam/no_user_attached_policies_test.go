@@ -60,7 +60,7 @@ func TestCheckNoUserAttachedPolicies(t *testing.T) {
 			results := checkNoUserAttachedPolicies.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == checkNoUserAttachedPolicies.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == checkNoUserAttachedPolicies.LongID() {
 					found = true
 				}
 			}

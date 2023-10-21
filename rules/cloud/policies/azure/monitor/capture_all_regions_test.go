@@ -122,7 +122,7 @@ func TestCheckCaptureAllRegions(t *testing.T) {
 			results := CheckCaptureAllRegions.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckCaptureAllRegions.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckCaptureAllRegions.LongID() {
 					found = true
 				}
 			}

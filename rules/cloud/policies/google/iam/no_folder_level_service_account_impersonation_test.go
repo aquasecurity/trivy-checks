@@ -101,7 +101,7 @@ func TestCheckNoFolderLevelServiceAccountImpersonation(t *testing.T) {
 			results := CheckNoFolderLevelServiceAccountImpersonation.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoFolderLevelServiceAccountImpersonation.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoFolderLevelServiceAccountImpersonation.LongID() {
 					found = true
 				}
 			}

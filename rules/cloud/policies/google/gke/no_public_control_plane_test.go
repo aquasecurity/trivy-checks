@@ -61,7 +61,7 @@ func TestCheckNoPublicControlPlane(t *testing.T) {
 			results := CheckNoPublicControlPlane.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPublicControlPlane.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPublicControlPlane.LongID() {
 					found = true
 				}
 			}

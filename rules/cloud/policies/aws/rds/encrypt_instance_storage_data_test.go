@@ -59,7 +59,7 @@ func TestCheckEncryptInstanceStorageData(t *testing.T) {
 			results := CheckEncryptInstanceStorageData.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEncryptInstanceStorageData.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEncryptInstanceStorageData.LongID() {
 					found = true
 				}
 			}

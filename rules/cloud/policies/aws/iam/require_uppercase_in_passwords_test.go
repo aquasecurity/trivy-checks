@@ -47,7 +47,7 @@ func TestCheckRequireUppercaseInPasswords(t *testing.T) {
 			results := CheckRequireUppercaseInPasswords.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRequireUppercaseInPasswords.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckRequireUppercaseInPasswords.LongID() {
 					found = true
 				}
 			}

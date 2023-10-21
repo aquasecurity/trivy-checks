@@ -84,7 +84,7 @@ func TestCheckEnableBackup(t *testing.T) {
 			results := CheckEnableBackup.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableBackup.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableBackup.LongID() {
 					found = true
 				}
 			}

@@ -99,7 +99,7 @@ func TestCheckNoProjectLevelServiceAccountImpersonation(t *testing.T) {
 			results := CheckNoProjectLevelServiceAccountImpersonation.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoProjectLevelServiceAccountImpersonation.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoProjectLevelServiceAccountImpersonation.LongID() {
 					found = true
 				}
 			}

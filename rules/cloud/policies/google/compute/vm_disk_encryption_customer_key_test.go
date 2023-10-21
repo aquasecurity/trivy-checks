@@ -67,7 +67,7 @@ func TestCheckVmDiskEncryptionCustomerKey(t *testing.T) {
 			results := CheckVmDiskEncryptionCustomerKey.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckVmDiskEncryptionCustomerKey.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckVmDiskEncryptionCustomerKey.LongID() {
 					found = true
 				}
 			}

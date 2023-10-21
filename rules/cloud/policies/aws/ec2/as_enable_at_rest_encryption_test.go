@@ -80,7 +80,7 @@ func TestASCheckEnableAtRestEncryption(t *testing.T) {
 			results := CheckASEnableAtRestEncryption.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckASEnableAtRestEncryption.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckASEnableAtRestEncryption.LongID() {
 					found = true
 				}
 			}

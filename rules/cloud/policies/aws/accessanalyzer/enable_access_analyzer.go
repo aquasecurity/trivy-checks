@@ -7,7 +7,7 @@ import (
 	"github.com/aquasecurity/defsec/pkg/severity"
 	"github.com/aquasecurity/defsec/pkg/state"
 	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
-	"github.com/aquasecurity/trivy-policies/internal/rules"
+	"github.com/aquasecurity/trivy-policies/pkg/rules"
 )
 
 var CheckEnableAccessAnalyzer = rules.Register(

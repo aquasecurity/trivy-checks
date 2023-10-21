@@ -47,7 +47,7 @@ func TestCheckPrivate(t *testing.T) {
 			results := CheckPrivate.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckPrivate.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckPrivate.LongID() {
 					found = true
 				}
 			}

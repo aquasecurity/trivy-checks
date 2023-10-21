@@ -64,7 +64,7 @@ func TestCheckAddDescriptionToSecurityGroup(t *testing.T) {
 			results := CheckAddDescriptionToSecurityGroup.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAddDescriptionToSecurityGroup.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAddDescriptionToSecurityGroup.LongID() {
 					found = true
 				}
 			}

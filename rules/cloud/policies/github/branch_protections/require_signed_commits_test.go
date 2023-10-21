@@ -47,7 +47,7 @@ func TestCheckRequireSignedCommits(t *testing.T) {
 			results := CheckRequireSignedCommits.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() != scan.StatusPassed && result.Rule().LongID() == CheckRequireSignedCommits.GetRule().LongID() {
+				if result.Status() != scan.StatusPassed && result.Rule().LongID() == CheckRequireSignedCommits.LongID() {
 					found = true
 				}
 			}

@@ -71,7 +71,7 @@ func TestCheckLimitRoleActions(t *testing.T) {
 			results := CheckLimitRoleActions.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckLimitRoleActions.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckLimitRoleActions.LongID() {
 					found = true
 				}
 			}

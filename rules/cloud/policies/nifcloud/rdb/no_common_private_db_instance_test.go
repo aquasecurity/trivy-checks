@@ -51,7 +51,7 @@ func TestCheckNoCommonPrivateDBInstance(t *testing.T) {
 			results := CheckNoCommonPrivateDBInstance.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoCommonPrivateDBInstance.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoCommonPrivateDBInstance.LongID() {
 					found = true
 				}
 			}

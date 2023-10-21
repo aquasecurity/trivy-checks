@@ -53,7 +53,7 @@ func TestCheckUseSshKeys(t *testing.T) {
 			results := CheckUseSshKeys.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckUseSshKeys.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckUseSshKeys.LongID() {
 					found = true
 				}
 			}

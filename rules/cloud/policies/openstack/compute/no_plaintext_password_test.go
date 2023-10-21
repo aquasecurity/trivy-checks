@@ -51,7 +51,7 @@ func TestCheckNoPlaintextPassword(t *testing.T) {
 			results := CheckNoPlaintextPassword.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPlaintextPassword.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPlaintextPassword.LongID() {
 					found = true
 				}
 			}

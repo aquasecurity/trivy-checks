@@ -57,7 +57,7 @@ func TestCheckEnableApiAccessLogging(t *testing.T) {
 			results := CheckEnableApiAccessLogging.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableApiAccessLogging.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableApiAccessLogging.LongID() {
 					found = true
 				}
 			}

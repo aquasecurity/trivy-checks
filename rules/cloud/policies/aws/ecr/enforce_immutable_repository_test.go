@@ -51,7 +51,7 @@ func TestCheckEnforceImmutableRepository(t *testing.T) {
 			results := CheckEnforceImmutableRepository.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnforceImmutableRepository.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnforceImmutableRepository.LongID() {
 					found = true
 				}
 			}

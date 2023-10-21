@@ -87,7 +87,7 @@ func TestCheckRootHardwareMFAEnabled(t *testing.T) {
 			results := checkRootHardwareMFAEnabled.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == checkRootHardwareMFAEnabled.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == checkRootHardwareMFAEnabled.LongID() {
 					found = true
 				}
 			}

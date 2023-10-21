@@ -105,7 +105,7 @@ func TestCheckRequireS3BucketPolicyChangeAlarm(t *testing.T) {
 			results := requireS3BucketPolicyChangeAlarm.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireS3BucketPolicyChangeAlarm.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == requireS3BucketPolicyChangeAlarm.LongID() {
 					found = true
 				}
 			}

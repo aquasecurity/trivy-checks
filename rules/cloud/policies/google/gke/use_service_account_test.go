@@ -59,7 +59,7 @@ func TestCheckUseServiceAccount(t *testing.T) {
 			results := CheckUseServiceAccount.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckUseServiceAccount.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckUseServiceAccount.LongID() {
 					found = true
 				}
 			}

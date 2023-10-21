@@ -52,7 +52,7 @@ func TestCheckBucketsHavePublicAccessBlocks(t *testing.T) {
 			results := CheckBucketsHavePublicAccessBlocks.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckBucketsHavePublicAccessBlocks.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckBucketsHavePublicAccessBlocks.LongID() {
 					found = true
 				}
 			}

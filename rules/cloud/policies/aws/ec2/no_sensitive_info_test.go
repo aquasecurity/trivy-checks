@@ -58,7 +58,7 @@ func TestCheckNoSensitiveInfo(t *testing.T) {
 			results := CheckNoSensitiveInfo.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoSensitiveInfo.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoSensitiveInfo.LongID() {
 					found = true
 				}
 			}

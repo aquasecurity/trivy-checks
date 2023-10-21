@@ -57,7 +57,7 @@ func TestCheckApiUseSecureTlsPolicy(t *testing.T) {
 			results := CheckApiUseSecureTlsPolicy.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckApiUseSecureTlsPolicy.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckApiUseSecureTlsPolicy.LongID() {
 					found = true
 				}
 			}

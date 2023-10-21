@@ -75,7 +75,7 @@ func TestCheckAclNoPublicRead(t *testing.T) {
 			results := CheckAclNoPublicRead.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAclNoPublicRead.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAclNoPublicRead.LongID() {
 					found = true
 				}
 			}

@@ -51,7 +51,7 @@ func TestCheckAddSecurityGroupToInstance(t *testing.T) {
 			results := CheckAddSecurityGroupToInstance.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAddSecurityGroupToInstance.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAddSecurityGroupToInstance.LongID() {
 					found = true
 				}
 			}

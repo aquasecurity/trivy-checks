@@ -51,7 +51,7 @@ func TestCheckLogGroupCustomerKey(t *testing.T) {
 			results := CheckLogGroupCustomerKey.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckLogGroupCustomerKey.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckLogGroupCustomerKey.LongID() {
 					found = true
 				}
 			}

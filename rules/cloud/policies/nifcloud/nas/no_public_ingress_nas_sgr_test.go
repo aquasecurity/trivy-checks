@@ -55,7 +55,7 @@ func TestCheckNoPublicIngressnasSgr(t *testing.T) {
 			results := CheckNoPublicIngressNASSgr.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPublicIngressNASSgr.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPublicIngressNASSgr.LongID() {
 					found = true
 				}
 			}

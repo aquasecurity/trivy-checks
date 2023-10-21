@@ -66,7 +66,7 @@ func TestCheckNoPurge(t *testing.T) {
 			results := CheckNoPurge.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPurge.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPurge.LongID() {
 					found = true
 				}
 			}

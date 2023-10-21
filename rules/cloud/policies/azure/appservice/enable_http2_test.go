@@ -61,7 +61,7 @@ func TestCheckEnableHttp2(t *testing.T) {
 			results := CheckEnableHttp2.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableHttp2.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableHttp2.LongID() {
 					found = true
 				}
 			}

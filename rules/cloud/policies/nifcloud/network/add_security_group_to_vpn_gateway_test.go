@@ -51,7 +51,7 @@ func TestCheckAddSecurityGroupToVpnGateway(t *testing.T) {
 			results := CheckAddSecurityGroupToVpnGateway.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAddSecurityGroupToVpnGateway.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckAddSecurityGroupToVpnGateway.LongID() {
 					found = true
 				}
 			}

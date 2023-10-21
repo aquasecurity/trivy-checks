@@ -53,7 +53,7 @@ func TestCheckPublicACLsAreIgnored(t *testing.T) {
 			results := CheckPublicACLsAreIgnored.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckPublicACLsAreIgnored.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckPublicACLsAreIgnored.LongID() {
 					found = true
 				}
 			}

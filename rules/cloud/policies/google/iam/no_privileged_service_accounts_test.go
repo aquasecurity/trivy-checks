@@ -112,7 +112,7 @@ func TestCheckNoPrivilegedServiceAccounts(t *testing.T) {
 			results := CheckNoPrivilegedServiceAccounts.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPrivilegedServiceAccounts.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckNoPrivilegedServiceAccounts.LongID() {
 					found = true
 				}
 			}

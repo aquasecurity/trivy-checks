@@ -75,7 +75,7 @@ func TestCheckActivityLogRetentionSet(t *testing.T) {
 			results := CheckActivityLogRetentionSet.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckActivityLogRetentionSet.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckActivityLogRetentionSet.LongID() {
 					found = true
 				}
 			}

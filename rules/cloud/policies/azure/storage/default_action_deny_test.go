@@ -61,7 +61,7 @@ func TestCheckDefaultActionDeny(t *testing.T) {
 			results := CheckDefaultActionDeny.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckDefaultActionDeny.GetRule().LongID() {
+				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckDefaultActionDeny.LongID() {
 					found = true
 				}
 			}
