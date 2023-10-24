@@ -31,3 +31,9 @@ deny[res] {
 	instance.publicaccess.value
 	res := result.new("Instance has Public Access enabled", instance.publicaccess)
 }
+
+deny[res] {
+	instance := input.aws.rds.clusters[_].instances[_].instance
+	instance.publicaccess.value
+	res := result.new("Cluster instance has Public Access enabled", instance.publicaccess)
+}
