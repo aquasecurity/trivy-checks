@@ -1,6 +1,6 @@
 # METADATA
 # title: "RDS Publicly Accessible"
-# description: "Ensures RDS instances are not launched into the public cloud."
+# description: "Ensures RDS instances and RDS Cluster instances are not launched into the public cloud."
 # scope: package
 # schemas:
 # - input: schema["cloud"]
@@ -12,7 +12,7 @@
 #   service: rds
 #   severity: HIGH
 #   short_code: enable-public-access
-#   recommended_action: "Remove the public endpoint from the RDS instance'"
+#   recommended_action: "Remove the public endpoint from the RDS instance."
 #   input:
 #     selector:
 #     - type: cloud
@@ -20,9 +20,9 @@
 #         - service: rds
 #           provider: aws
 #   terraform:
-#       good_examples: "rules/cloud/policies/aws/rds/no_public_db_access.tf.go"
+#       good_examples: "rules/cloud/policies/aws/rds/disable_public_access.tf.go"
 #   cloud_formation:
-#       good_examples: "rules/cloud/policies/aws/rds/no_public_db_access.cf.go"
+#       good_examples: "rules/cloud/policies/aws/rds/disable_public_access.cf.go"
 
 package builtin.aws.rds.aws0180
 
