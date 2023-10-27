@@ -3,17 +3,14 @@ package rds
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
-
-	"github.com/aquasecurity/defsec/pkg/state"
-
 	"github.com/aquasecurity/defsec/pkg/providers/aws/rds"
 	"github.com/aquasecurity/defsec/pkg/scan"
-
+	"github.com/aquasecurity/defsec/pkg/state"
+	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
 	"github.com/stretchr/testify/assert"
 )
 
-func TestCheckEnablePerformanceInsightsEncryption(t *testing.T) {
+func TestCheckPerformanceInsightsEncryptionCustomerKey(t *testing.T) {
 	tests := []struct {
 		name     string
 		input    rds.RDS
@@ -36,7 +33,7 @@ func TestCheckEnablePerformanceInsightsEncryption(t *testing.T) {
 			expected: false,
 		},
 		{
-			name: "RDS Instance with performance insights enabled but missing KMS key",
+			name: "RDS Cluster instance with performance insights enabled but missing KMS key",
 			input: rds.RDS{
 				Clusters: []rds.Cluster{
 					{
@@ -79,10 +76,10 @@ func TestCheckEnablePerformanceInsightsEncryption(t *testing.T) {
 		t.Run(test.name, func(t *testing.T) {
 			var testState state.State
 			testState.AWS.RDS = test.input
-			results := CheckEnablePerformanceInsightsEncryption.Evaluate(&testState)
+			results := CheckPerformanceInsightsEncryptionCustomerKey.Evaluate(&testState)
 			var found bool
 			for _, result := range results {
-				if result.Status() != scan.StatusPassed && result.Rule().LongID() == CheckEnablePerformanceInsightsEncryption.LongID() {
+				if result.Status() != scan.StatusPassed && result.Rule().LongID() == CheckPerformanceInsightsEncryptionCustomerKey.LongID() {
 					found = true
 				}
 			}

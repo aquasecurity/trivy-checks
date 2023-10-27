@@ -1,6 +1,6 @@
 package rds
 
-var terraformEnablePerformanceInsightsEncryptionGoodExamples = []string{
+var terraformPerformanceInsightsEncryptionCustomerKeyGoodExamples = []string{
 	`
 resource "aws_rds_cluster_instance" "good_example" {
 	name = "bar"
@@ -10,7 +10,7 @@ resource "aws_rds_cluster_instance" "good_example" {
 		`,
 }
 
-var terraformEnablePerformanceInsightsEncryptionBadExamples = []string{
+var terraformPerformanceInsightsEncryptionCustomerKeyBadExamples = []string{
 	`
 resource "aws_rds_cluster_instance" "bad_example" {
 	name = "bar"
@@ -20,8 +20,8 @@ resource "aws_rds_cluster_instance" "bad_example" {
 		`,
 }
 
-var terraformEnablePerformanceInsightsEncryptionLinks = []string{
+var terraformPerformanceInsightsEncryptionCustomerKeyLinks = []string{
 	`https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/rds_cluster_instance#performance_insights_kms_key_id`, `https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance#performance_insights_kms_key_id`,
 }
 
-var terraformEnablePerformanceInsightsEncryptionRemediationMarkdown = ``
+var terraformPerformanceInsightsEncryptionCustomerKeyRemediationMarkdown = ``

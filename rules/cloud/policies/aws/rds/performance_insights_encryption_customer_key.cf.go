@@ -1,6 +1,6 @@
 package rds
 
-var cloudFormationEnablePerformanceInsightsEncryptionGoodExamples = []string{
+var cloudFormationPerformanceInsightsEncryptionCustomerKeyGoodExamples = []string{
 	`---
 AWSTemplateFormatVersion: 2010-09-09
 Description: Good example
@@ -14,7 +14,7 @@ Resources:
 `,
 }
 
-var cloudFormationEnablePerformanceInsightsEncryptionBadExamples = []string{
+var cloudFormationPerformanceInsightsEncryptionCustomerKeyBadExamples = []string{
 	`---
 AWSTemplateFormatVersion: 2010-09-09
 Description: Bad example
@@ -27,6 +27,6 @@ Resources:
 `,
 }
 
-var cloudFormationEnablePerformanceInsightsEncryptionLinks = []string{}
+var cloudFormationPerformanceInsightsEncryptionCustomerKeyLinks = []string{}
 
-var cloudFormationEnablePerformanceInsightsEncryptionRemediationMarkdown = ``
+var cloudFormationPerformanceInsightsEncryptionCustomerKeyRemediationMarkdown = ``
