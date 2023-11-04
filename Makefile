@@ -22,5 +22,11 @@ bundle:
 	go run ./scripts/verify-bundle.go
 	rm scripts/bundle.tar.gz
 
+.PHONY: id
+id:
+	@go run ./cmd/id
+
+.PHONY: outdated-api-updated
 outdated-api-updated:
 	sed -i.bak "s|recommendedVersions :=.*|recommendedVersions := $(OUTDATE_API_DATA)|" $(DYNAMIC_REGO_FOLDER)/outdated_api.rego && rm $(DYNAMIC_REGO_FOLDER)/outdated_api.rego.bak
+
