@@ -30,7 +30,10 @@ var CheckEnableVPCFlowLogs = rules.Register(
 	func(s *state.State) (results scan.Results) {
 		for _, network := range s.Google.Compute.Networks {
 			for _, subnetwork := range network.Subnetworks {
-				if subnetwork.EnableFlowLogs.IsFalse() {
+				if subnetwork.EnableFlowLogs.IsFalse() &&
+					// Proxy-only subnets don't support VPC Flow Logs.
+					// https://cloud.google.com/vpc/docs/using-flow-logs#flow_logs_appear_to_be_disabled_even_though_you_enabled_them
+					!subnetwork.Purpose.IsOneOf("REGIONAL_MANAGED_PROXY", "GLOBAL_MANAGED_PROXY") {
 					results.Add(
 						"Subnetwork does not have VPC flow logs enabled.",
 						subnetwork.EnableFlowLogs,
