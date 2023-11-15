@@ -27,15 +27,16 @@ func TestCheckNoRsaSha1(t *testing.T) {
 						Metadata: defsecTypes.NewTestMetadata(),
 						DNSSec: dns.DNSSec{
 							Metadata: defsecTypes.NewTestMetadata(),
-							DefaultKeySpecs: dns.KeySpecs{
-								Metadata: defsecTypes.NewTestMetadata(),
-								KeySigningKey: dns.Key{
+							DefaultKeySpecs: []dns.KeySpecs{
+								{
 									Metadata:  defsecTypes.NewTestMetadata(),
 									Algorithm: defsecTypes.String("rsasha1", defsecTypes.NewTestMetadata()),
+									KeyType:   defsecTypes.String("keySigning", defsecTypes.NewTestMetadata()),
 								},
-								ZoneSigningKey: dns.Key{
+								{
 									Metadata:  defsecTypes.NewTestMetadata(),
 									Algorithm: defsecTypes.String("rsasha1", defsecTypes.NewTestMetadata()),
+									KeyType:   defsecTypes.String("zoneSigning", defsecTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -52,15 +53,16 @@ func TestCheckNoRsaSha1(t *testing.T) {
 						Metadata: defsecTypes.NewTestMetadata(),
 						DNSSec: dns.DNSSec{
 							Metadata: defsecTypes.NewTestMetadata(),
-							DefaultKeySpecs: dns.KeySpecs{
-								Metadata: defsecTypes.NewTestMetadata(),
-								KeySigningKey: dns.Key{
+							DefaultKeySpecs: []dns.KeySpecs{
+								{
 									Metadata:  defsecTypes.NewTestMetadata(),
 									Algorithm: defsecTypes.String("rsasha512", defsecTypes.NewTestMetadata()),
+									KeyType:   defsecTypes.String("keySigning", defsecTypes.NewTestMetadata()),
 								},
-								ZoneSigningKey: dns.Key{
+								{
 									Metadata:  defsecTypes.NewTestMetadata(),
 									Algorithm: defsecTypes.String("rsasha512", defsecTypes.NewTestMetadata()),
+									KeyType:   defsecTypes.String("zoneSigning", defsecTypes.NewTestMetadata()),
 								},
 							},
 						},
