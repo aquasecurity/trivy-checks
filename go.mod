@@ -1,6 +1,6 @@
 module github.com/aquasecurity/trivy-policies
 
-go 1.20
+go 1.19
 
 require (
 	github.com/aquasecurity/defsec v0.93.2-0.20231024055158-015ab97ce898
