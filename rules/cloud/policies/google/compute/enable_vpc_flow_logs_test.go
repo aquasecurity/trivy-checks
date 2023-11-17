@@ -53,6 +53,24 @@ func TestCheckEnableVPCFlowLogs(t *testing.T) {
 			},
 			expected: false,
 		},
+		{
+			name: "Proxy-only subnets and logs disabled",
+			input: compute.Compute{
+				Networks: []compute.Network{
+					{
+						Metadata: defsecTypes.NewTestMetadata(),
+						Subnetworks: []compute.SubNetwork{
+							{
+								Metadata:       defsecTypes.NewTestMetadata(),
+								EnableFlowLogs: defsecTypes.BoolDefault(false, defsecTypes.NewTestMetadata()),
+								Purpose:        defsecTypes.String("REGIONAL_MANAGED_PROXY", defsecTypes.NewTestMetadata()),
+							},
+						},
+					},
+				},
+			},
+			expected: false,
+		},
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
