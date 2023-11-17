@@ -20,11 +20,12 @@ var CheckUseSecureTlsPolicy = rules.Register(
 		Resolution: "Use the most modern TLS/SSL policies available",
 		Explanation: `You should not use outdated/insecure TLS versions for encryption. You should be using TLS v1.2+.
 		
-Note: that setting *minimum_protocol_version = "TLSv1.2_2021"* is only possible when *cloudfront_default_certificate* is false (eg. you are not using the cloudfront.net domain name). 
+Note: that setting *minimum_protocol_version = "TLSv1.2_2021"* is only possible when *cloudfront_default_certificate* is false (eg. you are not using the cloudfront.net domain name) and *ssl_support_method* is *sni-only*. 
 If *cloudfront_default_certificate* is true then the Cloudfront API will only allow setting *minimum_protocol_version = "TLSv1"*, and setting it to any other value will result in a perpetual diff in your *terraform plan*'s. 
 The only option when using the cloudfront.net domain name is to ignore this rule.`,
 		Links: []string{
 			"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html",
+			"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesGeneral",
 		},
 		Terraform: &scan.EngineMetadata{
 			GoodExamples:        terraformUseSecureTlsPolicyGoodExamples,
@@ -42,10 +43,13 @@ The only option when using the cloudfront.net domain name is to ignore this rule
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, dist := range s.AWS.Cloudfront.Distributions {
-			if dist.ViewerCertificate.MinimumProtocolVersion.NotEqualTo(cloudfront.ProtocolVersionTLS1_2) {
+			vc := dist.ViewerCertificate
+			if vc.CloudfrontDefaultCertificate.IsFalse() &&
+				vc.SSLSupportMethod.EqualTo("sni-only") &&
+				vc.MinimumProtocolVersion.NotEqualTo(cloudfront.ProtocolVersionTLS1_2) {
 				results.Add(
 					"Distribution allows unencrypted communications.",
-					dist.ViewerCertificate.MinimumProtocolVersion,
+					vc.MinimumProtocolVersion,
 				)
 			} else {
 				results.AddPassed(&dist)
