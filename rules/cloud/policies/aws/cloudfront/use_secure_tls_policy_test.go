@@ -28,6 +28,7 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 						ViewerCertificate: cloudfront.ViewerCertificate{
 							Metadata:               defsecTypes.NewTestMetadata(),
 							MinimumProtocolVersion: defsecTypes.String("TLSv1.0", defsecTypes.NewTestMetadata()),
+							SSLSupportMethod:       defsecTypes.String("sni-only", defsecTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -43,6 +44,38 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 						ViewerCertificate: cloudfront.ViewerCertificate{
 							Metadata:               defsecTypes.NewTestMetadata(),
 							MinimumProtocolVersion: defsecTypes.String(cloudfront.ProtocolVersionTLS1_2, defsecTypes.NewTestMetadata()),
+						},
+					},
+				},
+			},
+			expected: false,
+		},
+		{
+			name: "CloudFrontDefaultCertificate is true",
+			input: cloudfront.Cloudfront{
+				Distributions: []cloudfront.Distribution{
+					{
+						Metadata: defsecTypes.NewTestMetadata(),
+						ViewerCertificate: cloudfront.ViewerCertificate{
+							Metadata:                     defsecTypes.NewTestMetadata(),
+							MinimumProtocolVersion:       defsecTypes.String("TLSv1.0", defsecTypes.NewTestMetadata()),
+							CloudfrontDefaultCertificate: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						},
+					},
+				},
+			},
+			expected: false,
+		},
+		{
+			name: "SSLSupportMethod is not `sny-only`",
+			input: cloudfront.Cloudfront{
+				Distributions: []cloudfront.Distribution{
+					{
+						Metadata: defsecTypes.NewTestMetadata(),
+						ViewerCertificate: cloudfront.ViewerCertificate{
+							Metadata:               defsecTypes.NewTestMetadata(),
+							MinimumProtocolVersion: defsecTypes.String("TLSv1.0", defsecTypes.NewTestMetadata()),
+							SSLSupportMethod:       defsecTypes.String("vip", defsecTypes.NewTestMetadata()),
 						},
 					},
 				},
