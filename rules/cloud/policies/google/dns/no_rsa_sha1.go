@@ -1,6 +1,8 @@
 package dns
 
 import (
+	"fmt"
+
 	"github.com/aquasecurity/defsec/pkg/providers"
 	"github.com/aquasecurity/defsec/pkg/scan"
 	"github.com/aquasecurity/defsec/pkg/severity"
@@ -32,18 +34,14 @@ var CheckNoRsaSha1 = rules.Register(
 			if zone.Metadata.IsUnmanaged() {
 				continue
 			}
-			if zone.DNSSec.DefaultKeySpecs.KeySigningKey.Algorithm.EqualTo("rsasha1") {
-				results.Add(
-					"Zone KSK uses RSA SHA1 for signing.",
-					zone.DNSSec.DefaultKeySpecs.KeySigningKey.Algorithm,
-				)
-			} else if zone.DNSSec.DefaultKeySpecs.ZoneSigningKey.Algorithm.EqualTo("rsasha1") {
-				results.Add(
-					"Zone ZSK uses RSA SHA1 for signing.",
-					zone.DNSSec.DefaultKeySpecs.ZoneSigningKey.Algorithm,
-				)
-			} else {
-				results.AddPassed(&zone)
+			for _, keySpec := range zone.DNSSec.DefaultKeySpecs {
+
+				if keySpec.Algorithm.EqualTo("rsasha1") {
+					results.Add(
+						fmt.Sprintf("Zone uses %q key type with RSA SHA1 algorithm for signing.", keySpec.KeyType.Value()),
+						keySpec.Algorithm,
+					)
+				}
 			}
 		}
 		return
