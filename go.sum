@@ -28,8 +28,8 @@ github.com/apparentlymart/go-textseg/v15 v15.0.0 h1:uYvfpb3DyLSCGWnctWKGj857c6ew
 github.com/apparentlymart/go-textseg/v15 v15.0.0/go.mod h1:K8XmNZdhEBkdlyDdvbmmsvpAG721bKi0joRfFdHIWJ4=
 github.com/aquasecurity/defsec v0.93.2-0.20231117234854-a13ada52a90f h1:cO9S78J2eBx9tEIZYwFoousuYWV4DtgQlGsZUusMyNY=
 github.com/aquasecurity/defsec v0.93.2-0.20231117234854-a13ada52a90f/go.mod h1:J30VViSgmoW2Ic/6aqVJO2qvuADsmZ3MYuNxPcU6Vt0=
-github.com/aquasecurity/trivy-iac v0.5.2 h1:cqeSDEfQtM3l4ceiQ+IUD2K/ZBhyz443xe+S2TkBdE0=
-github.com/aquasecurity/trivy-iac v0.5.2/go.mod h1:dHoaIzm4niotuaEiSM40HelhcL8m/2MHzT3uHcQYUh8=
+github.com/aquasecurity/trivy-iac v0.6.0 h1:YzAi2etvQ3iUd+u+0XKIM/ycj623bL1Sa+ftI7MweH4=
+github.com/aquasecurity/trivy-iac v0.6.0/go.mod h1:b203qMvrWyx7OU0YrVuxez8k5CJxLJVlrpu2fjVvLcc=
 github.com/arbovm/levenshtein v0.0.0-20160628152529-48b4e1c0c4d0 h1:jfIu9sQUG6Ig+0+Ap1h4unLjW6YQJpKZVmUzxsD4E/Q=
 github.com/arbovm/levenshtein v0.0.0-20160628152529-48b4e1c0c4d0/go.mod h1:t2tdKJDJF9BV14lnkjHmOQgcvEKgtqs5a1N3LNdJhGE=
 github.com/armon/go-socks5 v0.0.0-20160902184237-e75332964ef5 h1:0CwZNZbxp69SHPdPJAN/hZIm0C4OItdklCFmMRWYpio=

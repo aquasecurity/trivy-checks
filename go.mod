@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/aquasecurity/defsec v0.93.2-0.20231117234854-a13ada52a90f
-	github.com/aquasecurity/trivy-iac v0.5.2
+	github.com/aquasecurity/trivy-iac v0.6.0
 	github.com/docker/docker v24.0.7+incompatible
 	github.com/liamg/iamgo v0.0.9
 	github.com/liamg/memoryfs v1.6.0
