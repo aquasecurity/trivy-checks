@@ -112,3 +112,5 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
+
+replace github.com/aquasecurity/defsec => /Users/simarpreetsingh/repos/defsec
