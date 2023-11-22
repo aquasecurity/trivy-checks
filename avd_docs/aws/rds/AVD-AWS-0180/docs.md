@@ -1,5 +1,5 @@
 
-Ensures RDS instances are not launched into the public cloud.
+Ensures RDS instances and RDS Cluster instances are not launched into the public cloud.
 
 ### Impact
 <!-- Add Impact here -->
