@@ -1,5 +1,5 @@
 
-Enable encryption for RDS clusters and instances
+Use Customer Managed Keys to encrypt Performance Insights data
 
 ```hcl
 resource "aws_rds_cluster_instance" "good_example" {

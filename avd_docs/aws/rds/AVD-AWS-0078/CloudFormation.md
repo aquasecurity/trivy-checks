@@ -1,5 +1,5 @@
 
-Enable encryption for RDS clusters and instances
+Use Customer Managed Keys to encrypt Performance Insights data
 
 ```yaml---
 AWSTemplateFormatVersion: 2010-09-09
