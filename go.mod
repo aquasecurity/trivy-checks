@@ -111,9 +111,3 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	sigs.k8s.io/yaml v1.4.0 // indirect
 )
-
-replace github.com/aquasecurity/trivy-policies => /Users/simarpreetsingh/repos/trivy-policies
-
-replace github.com/aquasecurity/trivy-aws => /Users/simarpreetsingh/repos/trivy-aws
-
-replace github.com/aquasecurity/defsec => /Users/simarpreetsingh/repos/defsec
