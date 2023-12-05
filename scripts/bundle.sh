@@ -11,8 +11,8 @@ if [ -n "$GITHUB_ENV" ]; then
   echo "MAJOR_VERSION=$MAJOR_VERSION" >> $GITHUB_ENV
 fi
 mkdir -p bundle/policies
-rsync -avr --exclude=README.md --exclude="*_test.rego" --exclude="*.go" --exclude=compliance --exclude=test --exclude=advanced rules/ bundle/policies/
-cp rules/.manifest bundle/
+rsync -avr --exclude=README.md --exclude="*_test.rego" --exclude="*.go" --exclude=compliance --exclude=test --exclude=advanced checks/ bundle/policies/
+cp checks/.manifest bundle/
 rm bundle/policies/.manifest
 sed -i -e "s/\[GITHUB_SHA\]/${RELEASE_VERSION}/" bundle/.manifest
 tar -C bundle -czvf bundle.tar.gz .
