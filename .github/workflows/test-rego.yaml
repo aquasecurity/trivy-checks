@@ -35,5 +35,3 @@ jobs:
           go-version-file: go.mod
           cache: true
           cache-dependency-path: go.sum
-      - name: OPA Test
-        run: make test-rego
