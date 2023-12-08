@@ -1,11 +1,11 @@
-package rules
+package trivy_policies
 
 import (
 	"embed"
 )
 
-//go:embed */policies
+//go:embed checks/*
 var EmbeddedPolicyFileSystem embed.FS
 
-//go:embed */lib
+//go:embed lib/*
 var EmbeddedLibraryFileSystem embed.FS
