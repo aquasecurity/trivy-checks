@@ -1,4 +1,4 @@
-package rules
+package trivy_policies
 
 import (
 	"testing"

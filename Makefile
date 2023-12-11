@@ -11,10 +11,6 @@ rego: fmt-rego test-rego
 fmt-rego:
 	opa fmt -w rules/
 
-.PHONY: test-rego
-test-rego:
-	go test --run Test_AllRegoRules ./test
-
 .PHONY: bundle
 bundle:
 	./scripts/bundle.sh

@@ -128,6 +128,7 @@ func LoadBundle() {
 	fmt.Println(debugLogsForContainer(ctx, trivyC))
 }
 
+// TODO: Verify by using bundle to scan
 func main() {
 	LoadBundle()
 }
