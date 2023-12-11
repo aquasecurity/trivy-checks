@@ -32,7 +32,9 @@ var CheckEnableNetworkPolicy = rules.Register(
 			if cluster.Metadata.IsUnmanaged() {
 				continue
 			}
-			if cluster.NetworkPolicy.Enabled.IsFalse() && !cluster.EnableAutpilot.IsTrue() {
+			if cluster.NetworkPolicy.Enabled.IsFalse() &&
+				!cluster.EnableAutpilot.IsTrue() &&
+				!cluster.DatapathProvider.EqualTo("ADVANCED_DATAPATH") {
 				results.Add(
 					"Cluster does not have a network policy enabled.",
 					cluster.NetworkPolicy.Enabled,
