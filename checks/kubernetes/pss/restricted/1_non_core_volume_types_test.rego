@@ -31,7 +31,7 @@ test_disallowed_volume_type_used_denied {
 	}
 
 	count(r) == 1
-	r[_].msg == "Pod 'hello-volume-types' should set 'spec.volumes[*]' to type 'PersistentVolumeClaim'"
+	r[_].msg == "Pod 'hello-volume-types' should set 'spec.volumes[*]' to an allowed volume type"
 }
 
 test_no_volume_type_used_allowed {
