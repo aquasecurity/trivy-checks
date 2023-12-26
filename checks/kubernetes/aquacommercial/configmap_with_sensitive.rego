@@ -30,6 +30,7 @@ patterns := [
 	"[^\\.](?:\\b[A-Z]{2}\\d{2} ?\\d{4} ?\\d{4} ?\\d{4} ?\\d{4} ?[\\d]{0,2}\\b)",
 	"(?i)(SHA1)",
 	"(?i)(MD5)",
+	"(?i)(iban\\s*(=|:))",
 ]
 
 patternsForKey := [
@@ -41,9 +42,16 @@ patternsForKey := [
 	"[^\\.](?:\\b[A-Z]{2}\\d{2} ?\\d{4} ?\\d{4} ?\\d{4} ?\\d{4} ?[\\d]{0,2}\\b)",
 	"(?i)(SHA1\\s*)",
 	"(?i)(MD5\\s*)",
+	"(?i)(iban\\s*)",
 ]
 
 patternsForEmail := "([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)"
+
+# - https://www.iban.com/structure
+patternForIbanAndPassport := [
+	"([A-Z]{2}[ \\-]?[0-9]{2}[ \\-]?([A-Z0-9]{3,5}[ \\-]?){2,7}[A-Z0-9]{1,3})",
+	"^[A-Z0-9<]{3,20}$",
+]
 
 # ConfigMapWithSensitive gives secret key
 # To reduce performance overhead, only matched patterns will be applied to each value for key
@@ -80,6 +88,14 @@ ConfigMapWithSensitive[sensitiveData] {
 	values = split(kubernetes.object.data[d], "\n")
 	val = split(values[v], ":")
 	regex.match(patternsForEmail, val[v])
+	sensitiveData = d
+}
+
+ConfigMapWithSensitive[sensitiveData] {
+	input.kind == "ConfigMap"
+	values = split(input.data[d], "\n")
+	val = split(values[v], ":")
+	regex.match(patternForIbanAndPassport[p], val[v])
 	sensitiveData = d
 }
 
