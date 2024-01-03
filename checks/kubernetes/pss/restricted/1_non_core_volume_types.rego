@@ -51,7 +51,6 @@ disallowed_volume_types = [
 	"portworxVolume",
 	"scaleIO",
 	"storageos",
-	"csi",
 ]
 
 # getDisallowedVolumes returns a list of volume names
@@ -71,6 +70,6 @@ failVolumeTypes {
 
 deny[res] {
 	failVolumeTypes
-	msg := kubernetes.format(sprintf("%s '%s' should set 'spec.volumes[*]' to type 'PersistentVolumeClaim'", [kubernetes.kind, kubernetes.name]))
+	msg := kubernetes.format(sprintf("%s '%s' should set 'spec.volumes[*]' to an allowed volume type", [kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, input.spec)
 }
