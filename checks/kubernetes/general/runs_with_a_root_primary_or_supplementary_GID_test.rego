@@ -27,5 +27,15 @@ test_failRootGroupId_failed {
 		}},
 	}
 
-	count(r) > 0
+	count(r) = 0
+}
+
+test_failRootGroupId_irrelevant {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "ClusterRole",
+		"metadata": {"name": "hello"}
+	}
+
+	count(r) = 0	
 }

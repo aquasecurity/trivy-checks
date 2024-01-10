@@ -59,6 +59,7 @@ failRootGroupId {
 }
 
 deny[res] {
+	failRootGroupId
 	output := failRootGroupId
 	msg := kubernetes.format(sprintf("%s %s in %s namespace should set spec.securityContext.runAsGroup, spec.securityContext.supplementalGroups[*] and spec.securityContext.fsGroup to integer greater than 0", [lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
 	res := result.new(msg, output)
