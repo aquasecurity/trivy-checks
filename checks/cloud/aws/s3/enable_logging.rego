@@ -21,10 +21,10 @@
 #         - service: s3
 #           provider: aws
 #   terraform:
-#       good_examples: "rules/cloud/policies/aws/s3/enable_bucket_logging.tf.go"
+#       good_examples: "checks/cloud/aws/s3/enable_bucket_logging.tf.go"
 #       links: "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket"
 #   cloud_formation:
-#       good_examples: "rules/cloud/policies/aws/s3/enable_bucket_logging.cf.go"
+#       good_examples: "checks/cloud/aws/s3/enable_bucket_logging.cf.go"
 package builtin.aws.s3.aws0089
 
 deny[res] {
