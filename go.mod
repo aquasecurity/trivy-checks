@@ -3,7 +3,7 @@ module github.com/aquasecurity/trivy-policies
 go 1.20
 
 require (
-	github.com/aquasecurity/defsec v0.93.2-0.20231209043331-6c7b9811ed2a
+	github.com/aquasecurity/defsec v0.93.2-0.20240104002958-968b8f115bc0
 	github.com/docker/docker v24.0.7+incompatible
 	github.com/liamg/iamgo v0.0.9
 	github.com/liamg/memoryfs v1.6.0
@@ -88,5 +88,3 @@ require (
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
-
-replace github.com/aquasecurity/defsec => /Users/nikita/projects/defsec
