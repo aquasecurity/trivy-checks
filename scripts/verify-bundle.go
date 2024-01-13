@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 
 	"github.com/docker/docker/api/types/container"
+	"github.com/docker/docker/api/types/mount"
 	"github.com/testcontainers/testcontainers-go"
 	"github.com/testcontainers/testcontainers-go/wait"
 )
@@ -39,16 +40,14 @@ func createOrasContainer(ctx context.Context, regIP string, bundlePath string) t
 	reqOras := testcontainers.ContainerRequest{
 		Image: "bitnami/oras:latest",
 		Cmd:   append([]string{"push", fmt.Sprintf("%s:5111/defsec-test:latest", regIP)}, OrasPush...),
-		Mounts: testcontainers.ContainerMounts{
-			testcontainers.ContainerMount{
-				Source: testcontainers.GenericBindMountSource{
-					HostPath: bundlePath,
-				},
-				Target: "/bundle.tar.gz",
-			},
-		},
 		HostConfigModifier: func(config *container.HostConfig) {
 			config.NetworkMode = "host"
+			config.Mounts = []mount.Mount{
+				{
+					Type:   mount.TypeBind,
+					Source: bundlePath,
+					Target: "/bundle.tar.gz",
+				}}
 		},
 		WaitingFor: wait.ForLog("Pushed [registry] localhost:5111/defsec-test:latest"),
 	}
