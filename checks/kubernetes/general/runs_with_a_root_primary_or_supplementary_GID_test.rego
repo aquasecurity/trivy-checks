@@ -34,8 +34,8 @@ test_failRootGroupId_irrelevant {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "ClusterRole",
-		"metadata": {"name": "hello"}
+		"metadata": {"name": "hello"},
 	}
 
-	count(r) = 0	
+	count(r) = 0
 }
