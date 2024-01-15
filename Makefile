@@ -12,11 +12,7 @@ fmt-rego:
 	opa fmt -w rules/
 
 .PHONY: bundle
-bundle:
-	./scripts/bundle.sh
-	cp bundle.tar.gz scripts/bundle.tar.gz
-	go run ./scripts/verify-bundle.go
-	rm scripts/bundle.tar.gz
+bundle: create-bundle verify-bundle
 
 .PHONY: id
 id:
@@ -33,3 +29,13 @@ docs:
 .PHONY: docs-test
 docs-test:
 	go test -v ./cmd/avd_generator/...
+
+.PHONY: create-bundle
+create-bundle:
+	./scripts/bundle.sh
+
+.PHONY: verify-bundle
+verify-bundle:
+	cp bundle.tar.gz scripts/bundle.tar.gz
+	go run ./scripts/verify-bundle.go
+	rm scripts/bundle.tar.gz

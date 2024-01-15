@@ -93,7 +93,7 @@ ConfigMapWithSensitive[sensitiveData] {
 
 ConfigMapWithSensitive[sensitiveData] {
 	input.kind == "ConfigMap"
-	values = split(input.data[d], "\n")
+	values = split(kubernetes.object.data[d], "\n")
 	val = split(values[v], ":")
 	regex.match(patternForIbanAndPassport[p], val[v])
 	sensitiveData = d
