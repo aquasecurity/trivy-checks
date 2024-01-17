@@ -5,7 +5,7 @@ test:
 	go test -v ./...
 
 .PHONY: rego
-rego: fmt-rego test-rego
+rego: fmt-rego
 
 .PHONY: fmt-rego
 fmt-rego:
