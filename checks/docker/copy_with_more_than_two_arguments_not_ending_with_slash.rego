@@ -25,12 +25,21 @@ get_copy_arg[output] {
 	cnt := count(copy.Value)
 	cnt > 2
 
+	not is_command_with_hash(copy.Value, "file:")
+	not is_command_with_hash(copy.Value, "multi:")
+
 	arg := copy.Value[cnt - 1]
 	not endswith(arg, "/")
 	output := {
 		"arg": arg,
 		"cmd": copy,
 	}
+}
+
+is_command_with_hash(cmd, prefix) {
+	count(cmd) == 3
+	startswith(cmd[0], prefix)
+	cmd[1] == "in"
 }
 
 deny[res] {
