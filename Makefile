@@ -1,4 +1,4 @@
-DYNAMIC_REGO_FOLDER=./rules/kubernetes/policies/dynamic
+DYNAMIC_REGO_FOLDER=./checks/kubernetes/policies/dynamic
 
 .PHONY: test
 test:
@@ -9,7 +9,7 @@ rego: fmt-rego test-rego
 
 .PHONY: fmt-rego
 fmt-rego:
-	opa fmt -w rules/
+	opa fmt -w checks/
 
 .PHONY: bundle
 bundle: create-bundle verify-bundle
