@@ -10,7 +10,7 @@ rego: fmt-rego test-rego
 
 .PHONY: test-rego
 test-rego: 
-	opa test -v checks/ lib/
+	opa test checks/ lib/
 
 .PHONY: fmt-rego
 fmt-rego:
