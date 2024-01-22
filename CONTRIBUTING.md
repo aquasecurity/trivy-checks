@@ -90,6 +90,8 @@ In the example above, you'll notice properties are being accessed from the `inpu
 
 You should also write a test for your rule(s). There are many examples of these in the `checks/cloud` directory.
 
+This repository formats all rules with the `opa fmt -w <path>` option, so make sure to run it on your files before you commit.
+
 Finally, you'll want to generate documentation for your newly added rule. Please run `make docs` to generate the documentation for your new policy and submit a PR for us to take a look at.
 
 You can see a full example PR for a new rule being added here: [https://github.com/aquasecurity/defsec/pull/1000](https://github.com/aquasecurity/defsec/pull/1000).
