@@ -5,11 +5,15 @@ test:
 	go test -v ./...
 
 .PHONY: rego
-rego: fmt-rego
+rego: fmt-rego test-rego
 
 .PHONY: fmt-rego
 fmt-rego:
 	opa fmt -w checks/
+
+.PHONY: test-rego
+test-rego:
+	go run ./cmd/opa test lib/ checks/
 
 .PHONY: bundle
 bundle: create-bundle verify-bundle
