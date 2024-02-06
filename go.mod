@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/aquasecurity/defsec v0.94.1
-	github.com/docker/docker v25.0.0+incompatible
+	github.com/docker/docker v25.0.2+incompatible
 	github.com/liamg/iamgo v0.0.9
 	github.com/liamg/memoryfs v1.6.0
 	github.com/open-policy-agent/opa v0.60.0
