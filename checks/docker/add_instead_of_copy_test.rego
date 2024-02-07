@@ -44,6 +44,24 @@ test_copy_allowed {
 	count(r) == 0
 }
 
+test_add_file_colon_in_allowed {
+	r := deny with input as {"Stages": [{
+		"Name": "alpine:3.13",
+		"Commands": [{"Cmd": "add", "Value": ["file:8b8864b3e02a33a579dc216fd51b28a6047bc8eeaa03045b258980fe0cf7fcb3", "in", "/xyz"]}],
+	}]}
+
+	count(r) == 0
+}
+
+test_add_multi_colon_in_allowed {
+	r := deny with input as {"Stages": [{
+		"Name": "alpine:3.13",
+		"Commands": [{"Cmd": "add", "Value": ["multi:8b8864b3e02a33a579dc216fd51b28a6047bc8eeaa03045b258980fe0cf7fcb3", "in", "/xyz"]}],
+	}]}
+
+	count(r) == 0
+}
+
 test_add_tar_allowed {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",

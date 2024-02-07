@@ -24,10 +24,20 @@ get_add[output] {
 	args := concat(" ", add.Value)
 
 	not contains(args, ".tar")
+
+	not is_command_with_hash(add.Value, "file:")
+	not is_command_with_hash(add.Value, "multi:")
+
 	output := {
 		"args": args,
 		"cmd": add,
 	}
+}
+
+is_command_with_hash(cmd, prefix) {
+	count(cmd) == 3
+	startswith(cmd[0], prefix)
+	cmd[1] == "in"
 }
 
 deny[res] {
