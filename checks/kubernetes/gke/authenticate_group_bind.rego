@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV01011
 #   avd_id: AVD-KSV-01011
-#   severity: CRITICAL
+#   severity: LOW
 #   short_code: no-system-authenticated-group-bind
 #   recommended_action: "Remove system:authenticated group binding from clusterrolebinding or rolebinding."
 #   input:
