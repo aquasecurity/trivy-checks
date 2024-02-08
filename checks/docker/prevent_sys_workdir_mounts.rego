@@ -19,7 +19,7 @@ package builtin.dockerfile.DS030
 
 import data.lib.docker
 
-sysdirs := {"/proc", "/boot", "/dev", "/initrd", "/lost+found"}
+sysdirs := {"/proc/", "/boot/", "/dev/", "/initrd/", "/lost+found/"}
 
 is_workdir_in_sysdirs[output] {
 	workdir := docker.workdir[_]
