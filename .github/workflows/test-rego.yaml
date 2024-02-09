@@ -21,6 +21,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup OPA
+        uses: ./.github/actions/setup-opa
+
       - name: OPA Format
         run: |
           files=$(opa fmt --list . | grep -v vendor || true)
