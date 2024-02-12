@@ -1,18 +1,18 @@
 package iam
 
 import (
-	"github.com/aquasecurity/defsec/pkg/framework"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/aquasecurity/trivy/pkg/iac/framework"
+	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/severity"
+	"github.com/aquasecurity/trivy/pkg/iac/severity"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/aquasecurity/trivy-policies/pkg/rules"
 
-	"github.com/aquasecurity/defsec/pkg/providers"
+	"github.com/aquasecurity/trivy/pkg/iac/providers"
 )
 
 var CheckRequireSupportRole = rules.Register(

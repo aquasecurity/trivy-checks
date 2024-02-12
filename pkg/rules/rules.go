@@ -1,7 +1,7 @@
 package rules
 
 import (
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 )
 
 var rules []scan.Rule
