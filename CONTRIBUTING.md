@@ -30,6 +30,7 @@ A simple rule looks like the following example:
 # related_resources:
 # - https://docs.aws.amazon.com/neptune/latest/userguide/iam-auth.html
 # custom:
+#   id: AVD-AWS-0176
 #   avd_id: AVD-AWS-0176
 #   provider: aws
 #   service: rds
