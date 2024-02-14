@@ -13,7 +13,7 @@ fmt-rego:
 
 .PHONY: test-rego
 test-rego:
-	go run ./cmd/opa test lib/ checks/
+	go run ./cmd/opa test --explain=fails lib/ checks/
 
 .PHONY: bundle
 bundle: create-bundle verify-bundle
