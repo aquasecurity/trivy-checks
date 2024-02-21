@@ -3,12 +3,12 @@ package computing
 import (
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/providers/nifcloud/computing"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/nifcloud/computing"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,11 +24,11 @@ func TestCheckAddDescriptionToSecurityGroupRule(t *testing.T) {
 			input: computing.Computing{
 				SecurityGroups: []computing.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						IngressRules: []computing.SecurityGroupRule{
 							{
-								Metadata:    defsecTypes.NewTestMetadata(),
-								Description: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+								Metadata:    trivyTypes.NewTestMetadata(),
+								Description: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -41,11 +41,11 @@ func TestCheckAddDescriptionToSecurityGroupRule(t *testing.T) {
 			input: computing.Computing{
 				SecurityGroups: []computing.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						IngressRules: []computing.SecurityGroupRule{
 							{
-								Metadata:    defsecTypes.NewTestMetadata(),
-								Description: defsecTypes.String("some description", defsecTypes.NewTestMetadata()),
+								Metadata:    trivyTypes.NewTestMetadata(),
+								Description: trivyTypes.String("some description", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

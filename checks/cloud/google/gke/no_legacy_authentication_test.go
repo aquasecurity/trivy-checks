@@ -3,12 +3,12 @@ package gke
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/google/gke"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/google/gke"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,12 +24,12 @@ func TestCheckNoLegacyAuthentication(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						MasterAuth: gke.MasterAuth{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							ClientCertificate: gke.ClientCertificate{
-								Metadata:         defsecTypes.NewTestMetadata(),
-								IssueCertificate: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata:         trivyTypes.NewTestMetadata(),
+								IssueCertificate: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -42,14 +42,14 @@ func TestCheckNoLegacyAuthentication(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						MasterAuth: gke.MasterAuth{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							ClientCertificate: gke.ClientCertificate{
-								Metadata:         defsecTypes.NewTestMetadata(),
-								IssueCertificate: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata:         trivyTypes.NewTestMetadata(),
+								IssueCertificate: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
-							Username: defsecTypes.String("username", defsecTypes.NewTestMetadata()),
+							Username: trivyTypes.String("username", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -61,14 +61,14 @@ func TestCheckNoLegacyAuthentication(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						MasterAuth: gke.MasterAuth{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							ClientCertificate: gke.ClientCertificate{
-								Metadata:         defsecTypes.NewTestMetadata(),
-								IssueCertificate: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata:         trivyTypes.NewTestMetadata(),
+								IssueCertificate: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
-							Username: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+							Username: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

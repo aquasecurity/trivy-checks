@@ -3,12 +3,12 @@ package database
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/azure/database"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/azure/database"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,12 +24,12 @@ func TestCheckAllThreatAlertsEnabled(t *testing.T) {
 			input: database.Database{
 				MSSQLServers: []database.MSSQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						SecurityAlertPolicies: []database.SecurityAlertPolicy{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								DisabledAlerts: []defsecTypes.StringValue{
-									defsecTypes.String("Sql_Injection", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								DisabledAlerts: []trivyTypes.StringValue{
+									trivyTypes.String("Sql_Injection", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -43,11 +43,11 @@ func TestCheckAllThreatAlertsEnabled(t *testing.T) {
 			input: database.Database{
 				MSSQLServers: []database.MSSQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						SecurityAlertPolicies: []database.SecurityAlertPolicy{
 							{
-								Metadata:       defsecTypes.NewTestMetadata(),
-								DisabledAlerts: []defsecTypes.StringValue{},
+								Metadata:       trivyTypes.NewTestMetadata(),
+								DisabledAlerts: []trivyTypes.StringValue{},
 							},
 						},
 					},

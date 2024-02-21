@@ -3,12 +3,12 @@ package cloudfront
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/cloudfront"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/cloudfront"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,11 +24,11 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: cloudfront.Cloudfront{
 				Distributions: []cloudfront.Distribution{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ViewerCertificate: cloudfront.ViewerCertificate{
-							Metadata:               defsecTypes.NewTestMetadata(),
-							MinimumProtocolVersion: defsecTypes.String("TLSv1.0", defsecTypes.NewTestMetadata()),
-							SSLSupportMethod:       defsecTypes.String("sni-only", defsecTypes.NewTestMetadata()),
+							Metadata:               trivyTypes.NewTestMetadata(),
+							MinimumProtocolVersion: trivyTypes.String("TLSv1.0", trivyTypes.NewTestMetadata()),
+							SSLSupportMethod:       trivyTypes.String("sni-only", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -40,10 +40,10 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: cloudfront.Cloudfront{
 				Distributions: []cloudfront.Distribution{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ViewerCertificate: cloudfront.ViewerCertificate{
-							Metadata:               defsecTypes.NewTestMetadata(),
-							MinimumProtocolVersion: defsecTypes.String(cloudfront.ProtocolVersionTLS1_2, defsecTypes.NewTestMetadata()),
+							Metadata:               trivyTypes.NewTestMetadata(),
+							MinimumProtocolVersion: trivyTypes.String(cloudfront.ProtocolVersionTLS1_2, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -55,11 +55,11 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: cloudfront.Cloudfront{
 				Distributions: []cloudfront.Distribution{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ViewerCertificate: cloudfront.ViewerCertificate{
-							Metadata:                     defsecTypes.NewTestMetadata(),
-							MinimumProtocolVersion:       defsecTypes.String("TLSv1.0", defsecTypes.NewTestMetadata()),
-							CloudfrontDefaultCertificate: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:                     trivyTypes.NewTestMetadata(),
+							MinimumProtocolVersion:       trivyTypes.String("TLSv1.0", trivyTypes.NewTestMetadata()),
+							CloudfrontDefaultCertificate: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -71,11 +71,11 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: cloudfront.Cloudfront{
 				Distributions: []cloudfront.Distribution{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ViewerCertificate: cloudfront.ViewerCertificate{
-							Metadata:               defsecTypes.NewTestMetadata(),
-							MinimumProtocolVersion: defsecTypes.String("TLSv1.0", defsecTypes.NewTestMetadata()),
-							SSLSupportMethod:       defsecTypes.String("vip", defsecTypes.NewTestMetadata()),
+							Metadata:               trivyTypes.NewTestMetadata(),
+							MinimumProtocolVersion: trivyTypes.String("TLSv1.0", trivyTypes.NewTestMetadata()),
+							SSLSupportMethod:       trivyTypes.String("vip", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

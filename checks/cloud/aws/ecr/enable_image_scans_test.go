@@ -3,12 +3,12 @@ package ecr
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/ecr"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/ecr"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,10 +24,10 @@ func TestCheckEnableImageScans(t *testing.T) {
 			input: ecr.ECR{
 				Repositories: []ecr.Repository{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ImageScanning: ecr.ImageScanning{
-							Metadata:   defsecTypes.NewTestMetadata(),
-							ScanOnPush: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata:   trivyTypes.NewTestMetadata(),
+							ScanOnPush: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckEnableImageScans(t *testing.T) {
 			input: ecr.ECR{
 				Repositories: []ecr.Repository{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ImageScanning: ecr.ImageScanning{
-							Metadata:   defsecTypes.NewTestMetadata(),
-							ScanOnPush: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:   trivyTypes.NewTestMetadata(),
+							ScanOnPush: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

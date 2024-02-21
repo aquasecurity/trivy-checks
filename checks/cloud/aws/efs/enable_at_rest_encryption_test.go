@@ -3,12 +3,12 @@ package efs
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/efs"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/efs"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,8 +24,8 @@ func TestCheckEnableAtRestEncryption(t *testing.T) {
 			input: efs.EFS{
 				FileSystems: []efs.FileSystem{
 					{
-						Metadata:  defsecTypes.NewTestMetadata(),
-						Encrypted: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:  trivyTypes.NewTestMetadata(),
+						Encrypted: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					}},
 			},
 			expected: true,
@@ -35,8 +35,8 @@ func TestCheckEnableAtRestEncryption(t *testing.T) {
 			input: efs.EFS{
 				FileSystems: []efs.FileSystem{
 					{
-						Metadata:  defsecTypes.NewTestMetadata(),
-						Encrypted: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:  trivyTypes.NewTestMetadata(),
+						Encrypted: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					}},
 			},
 			expected: false,

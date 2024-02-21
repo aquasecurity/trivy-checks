@@ -3,12 +3,12 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/digitalocean/compute"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/digitalocean/compute"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,8 +24,8 @@ func TestCheckAutoUpgrade(t *testing.T) {
 			input: compute.Compute{
 				KubernetesClusters: []compute.KubernetesCluster{
 					{
-						Metadata:    defsecTypes.NewTestMetadata(),
-						AutoUpgrade: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:    trivyTypes.NewTestMetadata(),
+						AutoUpgrade: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckAutoUpgrade(t *testing.T) {
 			input: compute.Compute{
 				KubernetesClusters: []compute.KubernetesCluster{
 					{
-						Metadata:    defsecTypes.NewTestMetadata(),
-						AutoUpgrade: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:    trivyTypes.NewTestMetadata(),
+						AutoUpgrade: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

@@ -3,10 +3,10 @@ package iam
 import (
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/iam"
-	"github.com/aquasecurity/defsec/pkg/scan"
-	"github.com/aquasecurity/defsec/pkg/state"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/iam"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 	"github.com/liamg/iamgo"
 	"github.com/stretchr/testify/assert"
 )
@@ -22,10 +22,10 @@ func TestCheckNoPolicyWildcards(t *testing.T) {
 			input: iam.IAM{
 				Roles: []iam.Role{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Policies: []iam.Policy{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Document: func() iam.Document {
 
 									builder := iamgo.NewPolicyBuilder()
@@ -42,10 +42,10 @@ func TestCheckNoPolicyWildcards(t *testing.T) {
 
 									return iam.Document{
 										Parsed:   builder.Build(),
-										Metadata: defsecTypes.NewTestMetadata(),
+										Metadata: trivyTypes.NewTestMetadata(),
 									}
 								}(),
-								Builtin: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Builtin: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -58,10 +58,10 @@ func TestCheckNoPolicyWildcards(t *testing.T) {
 			input: iam.IAM{
 				Roles: []iam.Role{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Policies: []iam.Policy{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Document: func() iam.Document {
 
 									builder := iamgo.NewPolicyBuilder()
@@ -78,10 +78,10 @@ func TestCheckNoPolicyWildcards(t *testing.T) {
 
 									return iam.Document{
 										Parsed:   builder.Build(),
-										Metadata: defsecTypes.NewTestMetadata(),
+										Metadata: trivyTypes.NewTestMetadata(),
 									}
 								}(),
-								Builtin: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Builtin: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -94,7 +94,7 @@ func TestCheckNoPolicyWildcards(t *testing.T) {
 			input: iam.IAM{
 				Policies: []iam.Policy{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Document: func() iam.Document {
 
 							builder := iamgo.NewPolicyBuilder()
@@ -111,10 +111,10 @@ func TestCheckNoPolicyWildcards(t *testing.T) {
 
 							return iam.Document{
 								Parsed:   builder.Build(),
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 							}
 						}(),
-						Builtin: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Builtin: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -125,7 +125,7 @@ func TestCheckNoPolicyWildcards(t *testing.T) {
 			input: iam.IAM{
 				Policies: []iam.Policy{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Document: func() iam.Document {
 
 							builder := iamgo.NewPolicyBuilder()
@@ -141,18 +141,18 @@ func TestCheckNoPolicyWildcards(t *testing.T) {
 
 							return iam.Document{
 								Parsed:   builder.Build(),
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 							}
 						}(),
-						Builtin: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Builtin: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 				Roles: []iam.Role{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Policies: []iam.Policy{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Document: func() iam.Document {
 
 									builder := iamgo.NewPolicyBuilder()
@@ -167,10 +167,10 @@ func TestCheckNoPolicyWildcards(t *testing.T) {
 
 									return iam.Document{
 										Parsed:   builder.Build(),
-										Metadata: defsecTypes.NewTestMetadata(),
+										Metadata: trivyTypes.NewTestMetadata(),
 									}
 								}(),
-								Builtin: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Builtin: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -183,7 +183,7 @@ func TestCheckNoPolicyWildcards(t *testing.T) {
 			input: iam.IAM{
 				Policies: []iam.Policy{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Document: func() iam.Document {
 
 							builder := iamgo.NewPolicyBuilder()
@@ -199,18 +199,18 @@ func TestCheckNoPolicyWildcards(t *testing.T) {
 
 							return iam.Document{
 								Parsed:   builder.Build(),
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 							}
 						}(),
-						Builtin: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Builtin: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 				Roles: []iam.Role{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Policies: []iam.Policy{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Document: func() iam.Document {
 
 									builder := iamgo.NewPolicyBuilder()
@@ -225,10 +225,10 @@ func TestCheckNoPolicyWildcards(t *testing.T) {
 
 									return iam.Document{
 										Parsed:   builder.Build(),
-										Metadata: defsecTypes.NewTestMetadata(),
+										Metadata: trivyTypes.NewTestMetadata(),
 									}
 								}(),
-								Builtin: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Builtin: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -241,7 +241,7 @@ func TestCheckNoPolicyWildcards(t *testing.T) {
 			input: iam.IAM{
 				Policies: []iam.Policy{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Document: func() iam.Document {
 
 							builder := iamgo.NewPolicyBuilder()
@@ -257,18 +257,18 @@ func TestCheckNoPolicyWildcards(t *testing.T) {
 
 							return iam.Document{
 								Parsed:   builder.Build(),
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 							}
 						}(),
-						Builtin: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Builtin: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 				Roles: []iam.Role{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Policies: []iam.Policy{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Document: func() iam.Document {
 
 									builder := iamgo.NewPolicyBuilder()
@@ -283,10 +283,10 @@ func TestCheckNoPolicyWildcards(t *testing.T) {
 
 									return iam.Document{
 										Parsed:   builder.Build(),
-										Metadata: defsecTypes.NewTestMetadata(),
+										Metadata: trivyTypes.NewTestMetadata(),
 									}
 								}(),
-								Builtin: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Builtin: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

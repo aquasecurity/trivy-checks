@@ -3,12 +3,12 @@ package elasticache
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/elasticache"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/elasticache"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,10 +24,10 @@ func TestCheckEnableBackupRetention(t *testing.T) {
 			input: elasticache.ElastiCache{
 				Clusters: []elasticache.Cluster{
 					{
-						Metadata:               defsecTypes.NewTestMetadata(),
-						Engine:                 defsecTypes.String("redis", defsecTypes.NewTestMetadata()),
-						NodeType:               defsecTypes.String("cache.m4.large", defsecTypes.NewTestMetadata()),
-						SnapshotRetentionLimit: defsecTypes.Int(0, defsecTypes.NewTestMetadata()),
+						Metadata:               trivyTypes.NewTestMetadata(),
+						Engine:                 trivyTypes.String("redis", trivyTypes.NewTestMetadata()),
+						NodeType:               trivyTypes.String("cache.m4.large", trivyTypes.NewTestMetadata()),
+						SnapshotRetentionLimit: trivyTypes.Int(0, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -38,10 +38,10 @@ func TestCheckEnableBackupRetention(t *testing.T) {
 			input: elasticache.ElastiCache{
 				Clusters: []elasticache.Cluster{
 					{
-						Metadata:               defsecTypes.NewTestMetadata(),
-						Engine:                 defsecTypes.String("redis", defsecTypes.NewTestMetadata()),
-						NodeType:               defsecTypes.String("cache.m4.large", defsecTypes.NewTestMetadata()),
-						SnapshotRetentionLimit: defsecTypes.Int(5, defsecTypes.NewTestMetadata()),
+						Metadata:               trivyTypes.NewTestMetadata(),
+						Engine:                 trivyTypes.String("redis", trivyTypes.NewTestMetadata()),
+						NodeType:               trivyTypes.String("cache.m4.large", trivyTypes.NewTestMetadata()),
+						SnapshotRetentionLimit: trivyTypes.Int(5, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

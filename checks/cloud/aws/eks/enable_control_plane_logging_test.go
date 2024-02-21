@@ -3,12 +3,12 @@ package eks
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/eks"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/eks"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,13 +24,13 @@ func TestCheckEnableControlPlaneLogging(t *testing.T) {
 			input: eks.EKS{
 				Clusters: []eks.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Logging: eks.Logging{
-							API:               defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-							Audit:             defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-							Authenticator:     defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-							ControllerManager: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-							Scheduler:         defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							API:               trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+							Audit:             trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+							Authenticator:     trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+							ControllerManager: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+							Scheduler:         trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -42,13 +42,13 @@ func TestCheckEnableControlPlaneLogging(t *testing.T) {
 			input: eks.EKS{
 				Clusters: []eks.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Logging: eks.Logging{
-							API:               defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-							Audit:             defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							Authenticator:     defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-							ControllerManager: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							Scheduler:         defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							API:               trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+							Audit:             trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							Authenticator:     trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+							ControllerManager: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							Scheduler:         trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -60,13 +60,13 @@ func TestCheckEnableControlPlaneLogging(t *testing.T) {
 			input: eks.EKS{
 				Clusters: []eks.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Logging: eks.Logging{
-							API:               defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							Audit:             defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							Authenticator:     defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							ControllerManager: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							Scheduler:         defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							API:               trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							Audit:             trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							Authenticator:     trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							ControllerManager: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							Scheduler:         trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

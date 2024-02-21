@@ -3,12 +3,12 @@ package codebuild
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/codebuild"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/codebuild"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,10 +24,10 @@ func TestCheckEnableEncryption(t *testing.T) {
 			input: codebuild.CodeBuild{
 				Projects: []codebuild.Project{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ArtifactSettings: codebuild.ArtifactSettings{
-							Metadata:          defsecTypes.NewTestMetadata(),
-							EncryptionEnabled: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata:          trivyTypes.NewTestMetadata(),
+							EncryptionEnabled: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,15 +39,15 @@ func TestCheckEnableEncryption(t *testing.T) {
 			input: codebuild.CodeBuild{
 				Projects: []codebuild.Project{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ArtifactSettings: codebuild.ArtifactSettings{
-							Metadata:          defsecTypes.NewTestMetadata(),
-							EncryptionEnabled: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:          trivyTypes.NewTestMetadata(),
+							EncryptionEnabled: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 						SecondaryArtifactSettings: []codebuild.ArtifactSettings{
 							{
-								Metadata:          defsecTypes.NewTestMetadata(),
-								EncryptionEnabled: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata:          trivyTypes.NewTestMetadata(),
+								EncryptionEnabled: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -60,15 +60,15 @@ func TestCheckEnableEncryption(t *testing.T) {
 			input: codebuild.CodeBuild{
 				Projects: []codebuild.Project{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ArtifactSettings: codebuild.ArtifactSettings{
-							Metadata:          defsecTypes.NewTestMetadata(),
-							EncryptionEnabled: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:          trivyTypes.NewTestMetadata(),
+							EncryptionEnabled: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 						SecondaryArtifactSettings: []codebuild.ArtifactSettings{
 							{
-								Metadata:          defsecTypes.NewTestMetadata(),
-								EncryptionEnabled: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata:          trivyTypes.NewTestMetadata(),
+								EncryptionEnabled: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

@@ -3,12 +3,12 @@ package sql
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/google/sql"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/google/sql"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,12 +24,12 @@ func TestCheckNoPublicAccess(t *testing.T) {
 			input: sql.SQL{
 				Instances: []sql.DatabaseInstance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Settings: sql.Settings{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							IPConfiguration: sql.IPConfiguration{
-								Metadata:   defsecTypes.NewTestMetadata(),
-								EnableIPv4: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata:   trivyTypes.NewTestMetadata(),
+								EnableIPv4: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -42,18 +42,18 @@ func TestCheckNoPublicAccess(t *testing.T) {
 			input: sql.SQL{
 				Instances: []sql.DatabaseInstance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Settings: sql.Settings{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							IPConfiguration: sql.IPConfiguration{
-								Metadata:   defsecTypes.NewTestMetadata(),
-								EnableIPv4: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata:   trivyTypes.NewTestMetadata(),
+								EnableIPv4: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 								AuthorizedNetworks: []struct {
-									Name defsecTypes.StringValue
-									CIDR defsecTypes.StringValue
+									Name trivyTypes.StringValue
+									CIDR trivyTypes.StringValue
 								}{
 									{
-										CIDR: defsecTypes.String("0.0.0.0/0", defsecTypes.NewTestMetadata()),
+										CIDR: trivyTypes.String("0.0.0.0/0", trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -68,18 +68,18 @@ func TestCheckNoPublicAccess(t *testing.T) {
 			input: sql.SQL{
 				Instances: []sql.DatabaseInstance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Settings: sql.Settings{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							IPConfiguration: sql.IPConfiguration{
-								Metadata:   defsecTypes.NewTestMetadata(),
-								EnableIPv4: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata:   trivyTypes.NewTestMetadata(),
+								EnableIPv4: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 								AuthorizedNetworks: []struct {
-									Name defsecTypes.StringValue
-									CIDR defsecTypes.StringValue
+									Name trivyTypes.StringValue
+									CIDR trivyTypes.StringValue
 								}{
 									{
-										CIDR: defsecTypes.String("10.0.0.1/24", defsecTypes.NewTestMetadata()),
+										CIDR: trivyTypes.String("10.0.0.1/24", trivyTypes.NewTestMetadata()),
 									},
 								},
 							},

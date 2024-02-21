@@ -3,11 +3,11 @@ package emr
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/emr"
-	"github.com/aquasecurity/defsec/pkg/scan"
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/emr"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -22,8 +22,8 @@ func TestEnableAtRestEncryption(t *testing.T) {
 			input: emr.EMR{
 				SecurityConfiguration: []emr.SecurityConfiguration{
 					{
-						Name: defsecTypes.String("test", defsecTypes.NewTestMetadata()),
-						Configuration: defsecTypes.String(`{
+						Name: trivyTypes.String("test", trivyTypes.NewTestMetadata()),
+						Configuration: trivyTypes.String(`{
 							"EncryptionConfiguration": {
 							  "AtRestEncryptionConfiguration": {
 								"S3EncryptionConfiguration": {
@@ -36,7 +36,7 @@ func TestEnableAtRestEncryption(t *testing.T) {
 							  },
 							  "EnableAtRestEncryption": false
 							}
-						  }`, defsecTypes.NewTestMetadata()),
+						  }`, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -47,8 +47,8 @@ func TestEnableAtRestEncryption(t *testing.T) {
 			input: emr.EMR{
 				SecurityConfiguration: []emr.SecurityConfiguration{
 					{
-						Name: defsecTypes.String("test", defsecTypes.NewTestMetadata()),
-						Configuration: defsecTypes.String(`{
+						Name: trivyTypes.String("test", trivyTypes.NewTestMetadata()),
+						Configuration: trivyTypes.String(`{
 							"EncryptionConfiguration": {
 							  "AtRestEncryptionConfiguration": {
 								"S3EncryptionConfiguration": {
@@ -61,7 +61,7 @@ func TestEnableAtRestEncryption(t *testing.T) {
 							  },
 							  "EnableAtRestEncryption": true
 							}
-						  }`, defsecTypes.NewTestMetadata()),
+						  }`, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

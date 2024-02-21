@@ -3,12 +3,12 @@ package storage
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/azure/storage"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/azure/storage"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,15 +24,15 @@ func TestCheckQueueServicesLoggingEnabled(t *testing.T) {
 			input: storage.Storage{
 				Accounts: []storage.Account{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						QueueProperties: storage.QueueProperties{
-							Metadata:      defsecTypes.NewTestMetadata(),
-							EnableLogging: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata:      trivyTypes.NewTestMetadata(),
+							EnableLogging: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 						Queues: []storage.Queue{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Name:     defsecTypes.String("my-queue", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Name:     trivyTypes.String("my-queue", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -45,10 +45,10 @@ func TestCheckQueueServicesLoggingEnabled(t *testing.T) {
 			input: storage.Storage{
 				Accounts: []storage.Account{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						QueueProperties: storage.QueueProperties{
-							Metadata:      defsecTypes.NewTestMetadata(),
-							EnableLogging: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata:      trivyTypes.NewTestMetadata(),
+							EnableLogging: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -60,10 +60,10 @@ func TestCheckQueueServicesLoggingEnabled(t *testing.T) {
 			input: storage.Storage{
 				Accounts: []storage.Account{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						QueueProperties: storage.QueueProperties{
-							Metadata:      defsecTypes.NewTestMetadata(),
-							EnableLogging: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:      trivyTypes.NewTestMetadata(),
+							EnableLogging: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

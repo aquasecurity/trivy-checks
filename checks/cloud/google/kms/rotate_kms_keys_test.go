@@ -3,12 +3,12 @@ package kms
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/google/kms"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/google/kms"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,11 +24,11 @@ func TestCheckRotateKmsKeys(t *testing.T) {
 			input: kms.KMS{
 				KeyRings: []kms.KeyRing{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Keys: []kms.Key{
 							{
-								Metadata:              defsecTypes.NewTestMetadata(),
-								RotationPeriodSeconds: defsecTypes.Int(7862400, defsecTypes.NewTestMetadata()),
+								Metadata:              trivyTypes.NewTestMetadata(),
+								RotationPeriodSeconds: trivyTypes.Int(7862400, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -41,11 +41,11 @@ func TestCheckRotateKmsKeys(t *testing.T) {
 			input: kms.KMS{
 				KeyRings: []kms.KeyRing{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Keys: []kms.Key{
 							{
-								Metadata:              defsecTypes.NewTestMetadata(),
-								RotationPeriodSeconds: defsecTypes.Int(2592000, defsecTypes.NewTestMetadata()),
+								Metadata:              trivyTypes.NewTestMetadata(),
+								RotationPeriodSeconds: trivyTypes.Int(2592000, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

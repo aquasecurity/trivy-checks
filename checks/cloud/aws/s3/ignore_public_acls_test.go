@@ -3,12 +3,12 @@ package s3
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/s3"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/s3"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,7 +24,7 @@ func TestCheckPublicACLsAreIgnored(t *testing.T) {
 			input: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 					},
 				},
 			},
@@ -35,10 +35,10 @@ func TestCheckPublicACLsAreIgnored(t *testing.T) {
 			input: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						PublicAccessBlock: &s3.PublicAccessBlock{
-							Metadata:         defsecTypes.NewTestMetadata(),
-							IgnorePublicACLs: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:         trivyTypes.NewTestMetadata(),
+							IgnorePublicACLs: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

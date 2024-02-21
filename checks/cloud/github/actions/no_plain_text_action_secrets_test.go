@@ -3,12 +3,12 @@ package actions
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/github"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/github"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -23,8 +23,8 @@ func TestCheckNoPlainTextActionEnvironmentSecrets(t *testing.T) {
 			name: "Github actions environment secret has plain text value",
 			input: []github.EnvironmentSecret{
 				{
-					Metadata:       defsecTypes.NewTestMetadata(),
-					PlainTextValue: defsecTypes.String("sensitive secret string", defsecTypes.NewTestMetadata()),
+					Metadata:       trivyTypes.NewTestMetadata(),
+					PlainTextValue: trivyTypes.String("sensitive secret string", trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: true,
@@ -33,8 +33,8 @@ func TestCheckNoPlainTextActionEnvironmentSecrets(t *testing.T) {
 			name: "Github actions environment secret has no plain text value",
 			input: []github.EnvironmentSecret{
 				{
-					Metadata:       defsecTypes.NewTestMetadata(),
-					PlainTextValue: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+					Metadata:       trivyTypes.NewTestMetadata(),
+					PlainTextValue: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: false,

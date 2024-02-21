@@ -3,12 +3,12 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/digitalocean/compute"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/digitalocean/compute"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,13 +24,13 @@ func TestCheckNoPublicIngress(t *testing.T) {
 			input: compute.Compute{
 				Firewalls: []compute.Firewall{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						InboundRules: []compute.InboundFirewallRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								SourceAddresses: []defsecTypes.StringValue{
-									defsecTypes.String("0.0.0.0/0", defsecTypes.NewTestMetadata()),
-									defsecTypes.String("::/0", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								SourceAddresses: []trivyTypes.StringValue{
+									trivyTypes.String("0.0.0.0/0", trivyTypes.NewTestMetadata()),
+									trivyTypes.String("::/0", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -44,12 +44,12 @@ func TestCheckNoPublicIngress(t *testing.T) {
 			input: compute.Compute{
 				Firewalls: []compute.Firewall{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						InboundRules: []compute.InboundFirewallRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								SourceAddresses: []defsecTypes.StringValue{
-									defsecTypes.String("192.168.1.0/24", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								SourceAddresses: []trivyTypes.StringValue{
+									trivyTypes.String("192.168.1.0/24", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},

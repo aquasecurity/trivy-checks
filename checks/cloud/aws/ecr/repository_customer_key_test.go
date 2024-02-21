@@ -3,12 +3,12 @@ package ecr
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/ecr"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/ecr"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,10 +24,10 @@ func TestCheckRepositoryCustomerKey(t *testing.T) {
 			input: ecr.ECR{
 				Repositories: []ecr.Repository{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: ecr.Encryption{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Type:     defsecTypes.String(ecr.EncryptionTypeAES256, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Type:     trivyTypes.String(ecr.EncryptionTypeAES256, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,11 +39,11 @@ func TestCheckRepositoryCustomerKey(t *testing.T) {
 			input: ecr.ECR{
 				Repositories: []ecr.Repository{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: ecr.Encryption{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Type:     defsecTypes.String(ecr.EncryptionTypeKMS, defsecTypes.NewTestMetadata()),
-							KMSKeyID: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Type:     trivyTypes.String(ecr.EncryptionTypeKMS, trivyTypes.NewTestMetadata()),
+							KMSKeyID: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -55,11 +55,11 @@ func TestCheckRepositoryCustomerKey(t *testing.T) {
 			input: ecr.ECR{
 				Repositories: []ecr.Repository{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: ecr.Encryption{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Type:     defsecTypes.String(ecr.EncryptionTypeKMS, defsecTypes.NewTestMetadata()),
-							KMSKeyID: defsecTypes.String("some-kms-key", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Type:     trivyTypes.String(ecr.EncryptionTypeKMS, trivyTypes.NewTestMetadata()),
+							KMSKeyID: trivyTypes.String("some-kms-key", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

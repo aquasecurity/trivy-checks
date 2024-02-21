@@ -3,12 +3,12 @@ package database
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/azure/database"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/azure/database"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,11 +24,11 @@ func TestCheckRetentionPeriodSet(t *testing.T) {
 			input: database.Database{
 				MSSQLServers: []database.MSSQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ExtendedAuditingPolicies: []database.ExtendedAuditingPolicy{
 							{
-								Metadata:        defsecTypes.NewTestMetadata(),
-								RetentionInDays: defsecTypes.Int(30, defsecTypes.NewTestMetadata()),
+								Metadata:        trivyTypes.NewTestMetadata(),
+								RetentionInDays: trivyTypes.Int(30, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -41,11 +41,11 @@ func TestCheckRetentionPeriodSet(t *testing.T) {
 			input: database.Database{
 				MSSQLServers: []database.MSSQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ExtendedAuditingPolicies: []database.ExtendedAuditingPolicy{
 							{
-								Metadata:        defsecTypes.NewTestMetadata(),
-								RetentionInDays: defsecTypes.Int(90, defsecTypes.NewTestMetadata()),
+								Metadata:        trivyTypes.NewTestMetadata(),
+								RetentionInDays: trivyTypes.Int(90, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

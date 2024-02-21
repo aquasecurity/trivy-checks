@@ -3,12 +3,12 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/iam"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/iam"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -23,8 +23,8 @@ func TestCheckSetMinimumPasswordLength(t *testing.T) {
 			name: "Minimum password length set to 8",
 			input: iam.IAM{
 				PasswordPolicy: iam.PasswordPolicy{
-					Metadata:      defsecTypes.NewTestMetadata(),
-					MinimumLength: defsecTypes.Int(8, defsecTypes.NewTestMetadata()),
+					Metadata:      trivyTypes.NewTestMetadata(),
+					MinimumLength: trivyTypes.Int(8, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: true,
@@ -33,8 +33,8 @@ func TestCheckSetMinimumPasswordLength(t *testing.T) {
 			name: "Minimum password length set to 15",
 			input: iam.IAM{
 				PasswordPolicy: iam.PasswordPolicy{
-					Metadata:      defsecTypes.NewTestMetadata(),
-					MinimumLength: defsecTypes.Int(15, defsecTypes.NewTestMetadata()),
+					Metadata:      trivyTypes.NewTestMetadata(),
+					MinimumLength: trivyTypes.Int(15, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: false,

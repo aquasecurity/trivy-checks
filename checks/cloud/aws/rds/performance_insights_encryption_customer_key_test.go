@@ -3,10 +3,10 @@ package rds
 import (
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/rds"
-	"github.com/aquasecurity/defsec/pkg/scan"
-	"github.com/aquasecurity/defsec/pkg/state"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/rds"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -21,11 +21,11 @@ func TestCheckPerformanceInsightsEncryptionCustomerKey(t *testing.T) {
 			input: rds.RDS{
 				Instances: []rds.Instance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						PerformanceInsights: rds.PerformanceInsights{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-							KMSKeyID: defsecTypes.String("some-kms-key", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+							KMSKeyID: trivyTypes.String("some-kms-key", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -37,15 +37,15 @@ func TestCheckPerformanceInsightsEncryptionCustomerKey(t *testing.T) {
 			input: rds.RDS{
 				Clusters: []rds.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Instances: []rds.ClusterInstance{
 							{
 								Instance: rds.Instance{
-									Metadata: defsecTypes.NewTestMetadata(),
+									Metadata: trivyTypes.NewTestMetadata(),
 									PerformanceInsights: rds.PerformanceInsights{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-										KMSKeyID: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+										KMSKeyID: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -60,11 +60,11 @@ func TestCheckPerformanceInsightsEncryptionCustomerKey(t *testing.T) {
 			input: rds.RDS{
 				Instances: []rds.Instance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						PerformanceInsights: rds.PerformanceInsights{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							KMSKeyID: defsecTypes.String("some-kms-key", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							KMSKeyID: trivyTypes.String("some-kms-key", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

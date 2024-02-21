@@ -3,10 +3,10 @@ package dynamodb
 import (
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/dynamodb"
-	"github.com/aquasecurity/defsec/pkg/scan"
-	"github.com/aquasecurity/defsec/pkg/state"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/dynamodb"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -21,11 +21,11 @@ func TestCheckTableCustomerKey(t *testing.T) {
 			input: dynamodb.DynamoDB{
 				Tables: []dynamodb.Table{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ServerSideEncryption: dynamodb.ServerSideEncryption{
-							Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							Metadata: defsecTypes.NewTestMetadata(),
-							KMSKeyID: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+							Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							KMSKeyID: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -37,11 +37,11 @@ func TestCheckTableCustomerKey(t *testing.T) {
 			input: dynamodb.DynamoDB{
 				Tables: []dynamodb.Table{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ServerSideEncryption: dynamodb.ServerSideEncryption{
-							Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							Metadata: defsecTypes.NewTestMetadata(),
-							KMSKeyID: defsecTypes.String(dynamodb.DefaultKMSKeyID, defsecTypes.NewTestMetadata()),
+							Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							KMSKeyID: trivyTypes.String(dynamodb.DefaultKMSKeyID, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -53,11 +53,11 @@ func TestCheckTableCustomerKey(t *testing.T) {
 			input: dynamodb.DynamoDB{
 				Tables: []dynamodb.Table{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ServerSideEncryption: dynamodb.ServerSideEncryption{
-							Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							Metadata: defsecTypes.NewTestMetadata(),
-							KMSKeyID: defsecTypes.String("some-ok-key", defsecTypes.NewTestMetadata()),
+							Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							KMSKeyID: trivyTypes.String("some-ok-key", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -69,11 +69,11 @@ func TestCheckTableCustomerKey(t *testing.T) {
 			input: dynamodb.DynamoDB{
 				Tables: []dynamodb.Table{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ServerSideEncryption: dynamodb.ServerSideEncryption{
-							Enabled:  defsecTypes.BoolDefault(false, defsecTypes.NewTestMetadata()),
-							Metadata: defsecTypes.NewTestMetadata(),
-							KMSKeyID: defsecTypes.String("some-ok-key", defsecTypes.NewTestMetadata()),
+							Enabled:  trivyTypes.BoolDefault(false, trivyTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							KMSKeyID: trivyTypes.String("some-ok-key", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

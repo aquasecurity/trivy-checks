@@ -3,12 +3,12 @@ package network
 import (
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/providers/nifcloud/network"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/nifcloud/network"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,8 +24,8 @@ func TestCheckAddSecurityGroupToRouter(t *testing.T) {
 			input: network.Network{
 				Routers: []network.Router{
 					{
-						Metadata:      defsecTypes.NewTestMetadata(),
-						SecurityGroup: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata:      trivyTypes.NewTestMetadata(),
+						SecurityGroup: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckAddSecurityGroupToRouter(t *testing.T) {
 			input: network.Network{
 				Routers: []network.Router{
 					{
-						Metadata:      defsecTypes.NewTestMetadata(),
-						SecurityGroup: defsecTypes.String("some security group", defsecTypes.NewTestMetadata()),
+						Metadata:      trivyTypes.NewTestMetadata(),
+						SecurityGroup: trivyTypes.String("some security group", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

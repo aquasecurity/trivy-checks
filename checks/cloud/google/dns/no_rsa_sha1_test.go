@@ -3,12 +3,12 @@ package dns
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/google/dns"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/google/dns"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,19 +24,19 @@ func TestCheckNoRsaSha1(t *testing.T) {
 			input: dns.DNS{
 				ManagedZones: []dns.ManagedZone{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						DNSSec: dns.DNSSec{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							DefaultKeySpecs: []dns.KeySpecs{
 								{
-									Metadata:  defsecTypes.NewTestMetadata(),
-									Algorithm: defsecTypes.String("rsasha1", defsecTypes.NewTestMetadata()),
-									KeyType:   defsecTypes.String("keySigning", defsecTypes.NewTestMetadata()),
+									Metadata:  trivyTypes.NewTestMetadata(),
+									Algorithm: trivyTypes.String("rsasha1", trivyTypes.NewTestMetadata()),
+									KeyType:   trivyTypes.String("keySigning", trivyTypes.NewTestMetadata()),
 								},
 								{
-									Metadata:  defsecTypes.NewTestMetadata(),
-									Algorithm: defsecTypes.String("rsasha1", defsecTypes.NewTestMetadata()),
-									KeyType:   defsecTypes.String("zoneSigning", defsecTypes.NewTestMetadata()),
+									Metadata:  trivyTypes.NewTestMetadata(),
+									Algorithm: trivyTypes.String("rsasha1", trivyTypes.NewTestMetadata()),
+									KeyType:   trivyTypes.String("zoneSigning", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -50,19 +50,19 @@ func TestCheckNoRsaSha1(t *testing.T) {
 			input: dns.DNS{
 				ManagedZones: []dns.ManagedZone{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						DNSSec: dns.DNSSec{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							DefaultKeySpecs: []dns.KeySpecs{
 								{
-									Metadata:  defsecTypes.NewTestMetadata(),
-									Algorithm: defsecTypes.String("rsasha512", defsecTypes.NewTestMetadata()),
-									KeyType:   defsecTypes.String("keySigning", defsecTypes.NewTestMetadata()),
+									Metadata:  trivyTypes.NewTestMetadata(),
+									Algorithm: trivyTypes.String("rsasha512", trivyTypes.NewTestMetadata()),
+									KeyType:   trivyTypes.String("keySigning", trivyTypes.NewTestMetadata()),
 								},
 								{
-									Metadata:  defsecTypes.NewTestMetadata(),
-									Algorithm: defsecTypes.String("rsasha512", defsecTypes.NewTestMetadata()),
-									KeyType:   defsecTypes.String("zoneSigning", defsecTypes.NewTestMetadata()),
+									Metadata:  trivyTypes.NewTestMetadata(),
+									Algorithm: trivyTypes.String("rsasha512", trivyTypes.NewTestMetadata()),
+									KeyType:   trivyTypes.String("zoneSigning", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},

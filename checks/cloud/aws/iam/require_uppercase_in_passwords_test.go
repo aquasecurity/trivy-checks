@@ -3,12 +3,12 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/iam"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/iam"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -23,8 +23,8 @@ func TestCheckRequireUppercaseInPasswords(t *testing.T) {
 			name: "IAM password policy uppercase not required",
 			input: iam.IAM{
 				PasswordPolicy: iam.PasswordPolicy{
-					Metadata:         defsecTypes.NewTestMetadata(),
-					RequireUppercase: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+					Metadata:         trivyTypes.NewTestMetadata(),
+					RequireUppercase: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: true,
@@ -33,8 +33,8 @@ func TestCheckRequireUppercaseInPasswords(t *testing.T) {
 			name: "IAM password policy uppercase required",
 			input: iam.IAM{
 				PasswordPolicy: iam.PasswordPolicy{
-					Metadata:         defsecTypes.NewTestMetadata(),
-					RequireUppercase: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+					Metadata:         trivyTypes.NewTestMetadata(),
+					RequireUppercase: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: false,

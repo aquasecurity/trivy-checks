@@ -3,12 +3,12 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/digitalocean/compute"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/digitalocean/compute"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,11 +24,11 @@ func TestCheckEnforceHttps(t *testing.T) {
 			input: compute.Compute{
 				LoadBalancers: []compute.LoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ForwardingRules: []compute.ForwardingRule{
 							{
-								Metadata:      defsecTypes.NewTestMetadata(),
-								EntryProtocol: defsecTypes.String("http", defsecTypes.NewTestMetadata()),
+								Metadata:      trivyTypes.NewTestMetadata(),
+								EntryProtocol: trivyTypes.String("http", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -41,11 +41,11 @@ func TestCheckEnforceHttps(t *testing.T) {
 			input: compute.Compute{
 				LoadBalancers: []compute.LoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ForwardingRules: []compute.ForwardingRule{
 							{
-								Metadata:      defsecTypes.NewTestMetadata(),
-								EntryProtocol: defsecTypes.String("https", defsecTypes.NewTestMetadata()),
+								Metadata:      trivyTypes.NewTestMetadata(),
+								EntryProtocol: trivyTypes.String("https", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -58,12 +58,12 @@ func TestCheckEnforceHttps(t *testing.T) {
 			input: compute.Compute{
 				LoadBalancers: []compute.LoadBalancer{
 					{
-						Metadata:            defsecTypes.NewTestMetadata(),
-						RedirectHttpToHttps: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:            trivyTypes.NewTestMetadata(),
+						RedirectHttpToHttps: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						ForwardingRules: []compute.ForwardingRule{
 							{
-								Metadata:      defsecTypes.NewTestMetadata(),
-								EntryProtocol: defsecTypes.String("http", defsecTypes.NewTestMetadata()),
+								Metadata:      trivyTypes.NewTestMetadata(),
+								EntryProtocol: trivyTypes.String("http", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

@@ -3,12 +3,12 @@ package athena
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/athena"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/athena"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,8 +24,8 @@ func TestCheckNoEncryptionOverride(t *testing.T) {
 			input: athena.Athena{
 				Workgroups: []athena.Workgroup{
 					{
-						Metadata:             defsecTypes.NewTestMetadata(),
-						EnforceConfiguration: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:             trivyTypes.NewTestMetadata(),
+						EnforceConfiguration: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckNoEncryptionOverride(t *testing.T) {
 			input: athena.Athena{
 				Workgroups: []athena.Workgroup{
 					{
-						Metadata:             defsecTypes.NewTestMetadata(),
-						EnforceConfiguration: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:             trivyTypes.NewTestMetadata(),
+						EnforceConfiguration: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

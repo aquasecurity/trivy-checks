@@ -3,12 +3,12 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/iam"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/iam"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -23,8 +23,8 @@ func TestCheckRequireSymbolsInPasswords(t *testing.T) {
 			name: "IAM password policy symbols not required",
 			input: iam.IAM{
 				PasswordPolicy: iam.PasswordPolicy{
-					Metadata:       defsecTypes.NewTestMetadata(),
-					RequireSymbols: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+					Metadata:       trivyTypes.NewTestMetadata(),
+					RequireSymbols: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: true,
@@ -33,8 +33,8 @@ func TestCheckRequireSymbolsInPasswords(t *testing.T) {
 			name: "IAM password policy symbols required",
 			input: iam.IAM{
 				PasswordPolicy: iam.PasswordPolicy{
-					Metadata:       defsecTypes.NewTestMetadata(),
-					RequireSymbols: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+					Metadata:       trivyTypes.NewTestMetadata(),
+					RequireSymbols: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: false,

@@ -3,12 +3,12 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/google/compute"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/google/compute"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,20 +24,20 @@ func TestCheckNoPublicEgress(t *testing.T) {
 			input: compute.Compute{
 				Networks: []compute.Network{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Firewall: &compute.Firewall{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							EgressRules: []compute.EgressRule{
 								{
-									Metadata: defsecTypes.NewTestMetadata(),
+									Metadata: trivyTypes.NewTestMetadata(),
 									FirewallRule: compute.FirewallRule{
-										Metadata: defsecTypes.NewTestMetadata(),
-										IsAllow:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-										Enforced: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										IsAllow:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+										Enforced: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 									},
-									DestinationRanges: []defsecTypes.StringValue{
-										defsecTypes.String("0.0.0.0/0", defsecTypes.NewTestMetadata()),
-										defsecTypes.String("1.2.3.4/32", defsecTypes.NewTestMetadata()),
+									DestinationRanges: []trivyTypes.StringValue{
+										trivyTypes.String("0.0.0.0/0", trivyTypes.NewTestMetadata()),
+										trivyTypes.String("1.2.3.4/32", trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -52,19 +52,19 @@ func TestCheckNoPublicEgress(t *testing.T) {
 			input: compute.Compute{
 				Networks: []compute.Network{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Firewall: &compute.Firewall{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							EgressRules: []compute.EgressRule{
 								{
-									Metadata: defsecTypes.NewTestMetadata(),
+									Metadata: trivyTypes.NewTestMetadata(),
 									FirewallRule: compute.FirewallRule{
-										Metadata: defsecTypes.NewTestMetadata(),
-										IsAllow:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-										Enforced: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										IsAllow:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+										Enforced: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 									},
-									DestinationRanges: []defsecTypes.StringValue{
-										defsecTypes.String("1.2.3.4/32", defsecTypes.NewTestMetadata()),
+									DestinationRanges: []trivyTypes.StringValue{
+										trivyTypes.String("1.2.3.4/32", trivyTypes.NewTestMetadata()),
 									},
 								},
 							},

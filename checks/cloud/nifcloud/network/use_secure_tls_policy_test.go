@@ -3,10 +3,10 @@ package network
 import (
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/providers/nifcloud/network"
-	"github.com/aquasecurity/defsec/pkg/scan"
-	"github.com/aquasecurity/defsec/pkg/state"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/nifcloud/network"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -21,12 +21,12 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: network.Network{
 				LoadBalancers: []network.LoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Listeners: []network.LoadBalancerListener{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								TLSPolicy: defsecTypes.String("Standard Ciphers A ver1", defsecTypes.NewTestMetadata()),
-								Protocol:  defsecTypes.String("HTTPS", defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								TLSPolicy: trivyTypes.String("Standard Ciphers A ver1", trivyTypes.NewTestMetadata()),
+								Protocol:  trivyTypes.String("HTTPS", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -39,12 +39,12 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: network.Network{
 				LoadBalancers: []network.LoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Listeners: []network.LoadBalancerListener{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								TLSPolicy: defsecTypes.String("Standard Ciphers D ver1", defsecTypes.NewTestMetadata()),
-								Protocol:  defsecTypes.String("HTTPS", defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								TLSPolicy: trivyTypes.String("Standard Ciphers D ver1", trivyTypes.NewTestMetadata()),
+								Protocol:  trivyTypes.String("HTTPS", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -57,12 +57,12 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: network.Network{
 				LoadBalancers: []network.LoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Listeners: []network.LoadBalancerListener{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								TLSPolicy: defsecTypes.String("", defsecTypes.NewTestMetadata()),
-								Protocol:  defsecTypes.String("ICMP", defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								TLSPolicy: trivyTypes.String("", trivyTypes.NewTestMetadata()),
+								Protocol:  trivyTypes.String("ICMP", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

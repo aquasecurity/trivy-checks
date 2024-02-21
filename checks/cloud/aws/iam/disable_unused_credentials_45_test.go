@@ -4,12 +4,12 @@ import (
 	"testing"
 	"time"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/iam"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/iam"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -25,9 +25,9 @@ func TestCheckUnusedCredentialsDisabled45Days(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Name:       defsecTypes.String("user", defsecTypes.NewTestMetadata()),
-						LastAccess: defsecTypes.Time(time.Now(), defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Name:       trivyTypes.String("user", trivyTypes.NewTestMetadata()),
+						LastAccess: trivyTypes.Time(time.Now(), trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -38,16 +38,16 @@ func TestCheckUnusedCredentialsDisabled45Days(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Name:       defsecTypes.String("user", defsecTypes.NewTestMetadata()),
-						LastAccess: defsecTypes.TimeUnresolvable(defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Name:       trivyTypes.String("user", trivyTypes.NewTestMetadata()),
+						LastAccess: trivyTypes.TimeUnresolvable(trivyTypes.NewTestMetadata()),
 						AccessKeys: []iam.AccessKey{
 							{
-								Metadata:     defsecTypes.NewTestMetadata(),
-								AccessKeyId:  defsecTypes.String("AKIACKCEVSQ6C2EXAMPLE", defsecTypes.NewTestMetadata()),
-								Active:       defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-								CreationDate: defsecTypes.Time(time.Now().Add(-time.Hour*24*30), defsecTypes.NewTestMetadata()),
-								LastAccess:   defsecTypes.Time(time.Now(), defsecTypes.NewTestMetadata()),
+								Metadata:     trivyTypes.NewTestMetadata(),
+								AccessKeyId:  trivyTypes.String("AKIACKCEVSQ6C2EXAMPLE", trivyTypes.NewTestMetadata()),
+								Active:       trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								CreationDate: trivyTypes.Time(time.Now().Add(-time.Hour*24*30), trivyTypes.NewTestMetadata()),
+								LastAccess:   trivyTypes.Time(time.Now(), trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -60,9 +60,9 @@ func TestCheckUnusedCredentialsDisabled45Days(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Name:       defsecTypes.String("user", defsecTypes.NewTestMetadata()),
-						LastAccess: defsecTypes.Time(time.Now().Add(-time.Hour*24*50), defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Name:       trivyTypes.String("user", trivyTypes.NewTestMetadata()),
+						LastAccess: trivyTypes.Time(time.Now().Add(-time.Hour*24*50), trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -73,16 +73,16 @@ func TestCheckUnusedCredentialsDisabled45Days(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Name:       defsecTypes.String("user", defsecTypes.NewTestMetadata()),
-						LastAccess: defsecTypes.TimeUnresolvable(defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Name:       trivyTypes.String("user", trivyTypes.NewTestMetadata()),
+						LastAccess: trivyTypes.TimeUnresolvable(trivyTypes.NewTestMetadata()),
 						AccessKeys: []iam.AccessKey{
 							{
-								Metadata:     defsecTypes.NewTestMetadata(),
-								AccessKeyId:  defsecTypes.String("AKIACKCEVSQ6C2EXAMPLE", defsecTypes.NewTestMetadata()),
-								Active:       defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-								CreationDate: defsecTypes.Time(time.Now().Add(-time.Hour*24*120), defsecTypes.NewTestMetadata()),
-								LastAccess:   defsecTypes.Time(time.Now().Add(-time.Hour*24*50), defsecTypes.NewTestMetadata()),
+								Metadata:     trivyTypes.NewTestMetadata(),
+								AccessKeyId:  trivyTypes.String("AKIACKCEVSQ6C2EXAMPLE", trivyTypes.NewTestMetadata()),
+								Active:       trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								CreationDate: trivyTypes.Time(time.Now().Add(-time.Hour*24*120), trivyTypes.NewTestMetadata()),
+								LastAccess:   trivyTypes.Time(time.Now().Add(-time.Hour*24*50), trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -95,16 +95,16 @@ func TestCheckUnusedCredentialsDisabled45Days(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Name:       defsecTypes.String("user", defsecTypes.NewTestMetadata()),
-						LastAccess: defsecTypes.TimeUnresolvable(defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Name:       trivyTypes.String("user", trivyTypes.NewTestMetadata()),
+						LastAccess: trivyTypes.TimeUnresolvable(trivyTypes.NewTestMetadata()),
 						AccessKeys: []iam.AccessKey{
 							{
-								Metadata:     defsecTypes.NewTestMetadata(),
-								AccessKeyId:  defsecTypes.String("AKIACKCEVSQ6C2EXAMPLE", defsecTypes.NewTestMetadata()),
-								Active:       defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-								CreationDate: defsecTypes.Time(time.Now().Add(-time.Hour*24*120), defsecTypes.NewTestMetadata()),
-								LastAccess:   defsecTypes.Time(time.Now().Add(-time.Hour*24*50), defsecTypes.NewTestMetadata()),
+								Metadata:     trivyTypes.NewTestMetadata(),
+								AccessKeyId:  trivyTypes.String("AKIACKCEVSQ6C2EXAMPLE", trivyTypes.NewTestMetadata()),
+								Active:       trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								CreationDate: trivyTypes.Time(time.Now().Add(-time.Hour*24*120), trivyTypes.NewTestMetadata()),
+								LastAccess:   trivyTypes.Time(time.Now().Add(-time.Hour*24*50), trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

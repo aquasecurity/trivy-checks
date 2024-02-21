@@ -3,12 +3,12 @@ package msk
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/msk"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/msk"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,10 +24,10 @@ func TestCheckEnableInTransitEncryption(t *testing.T) {
 			input: msk.MSK{
 				Clusters: []msk.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						EncryptionInTransit: msk.EncryptionInTransit{
-							Metadata:     defsecTypes.NewTestMetadata(),
-							ClientBroker: defsecTypes.String(msk.ClientBrokerEncryptionPlaintext, defsecTypes.NewTestMetadata()),
+							Metadata:     trivyTypes.NewTestMetadata(),
+							ClientBroker: trivyTypes.String(msk.ClientBrokerEncryptionPlaintext, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckEnableInTransitEncryption(t *testing.T) {
 			input: msk.MSK{
 				Clusters: []msk.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						EncryptionInTransit: msk.EncryptionInTransit{
-							Metadata:     defsecTypes.NewTestMetadata(),
-							ClientBroker: defsecTypes.String(msk.ClientBrokerEncryptionTLSOrPlaintext, defsecTypes.NewTestMetadata()),
+							Metadata:     trivyTypes.NewTestMetadata(),
+							ClientBroker: trivyTypes.String(msk.ClientBrokerEncryptionTLSOrPlaintext, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -54,10 +54,10 @@ func TestCheckEnableInTransitEncryption(t *testing.T) {
 			input: msk.MSK{
 				Clusters: []msk.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						EncryptionInTransit: msk.EncryptionInTransit{
-							Metadata:     defsecTypes.NewTestMetadata(),
-							ClientBroker: defsecTypes.String(msk.ClientBrokerEncryptionTLS, defsecTypes.NewTestMetadata()),
+							Metadata:     trivyTypes.NewTestMetadata(),
+							ClientBroker: trivyTypes.String(msk.ClientBrokerEncryptionTLS, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

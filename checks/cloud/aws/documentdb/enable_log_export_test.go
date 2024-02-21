@@ -3,12 +3,12 @@ package documentdb
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/documentdb"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/documentdb"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,9 +24,9 @@ func TestCheckEnableLogExport(t *testing.T) {
 			input: documentdb.DocumentDB{
 				Clusters: []documentdb.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						EnabledLogExports: []defsecTypes.StringValue{
-							defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						EnabledLogExports: []trivyTypes.StringValue{
+							trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -38,9 +38,9 @@ func TestCheckEnableLogExport(t *testing.T) {
 			input: documentdb.DocumentDB{
 				Clusters: []documentdb.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						EnabledLogExports: []defsecTypes.StringValue{
-							defsecTypes.String(documentdb.LogExportAudit, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						EnabledLogExports: []trivyTypes.StringValue{
+							trivyTypes.String(documentdb.LogExportAudit, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -52,9 +52,9 @@ func TestCheckEnableLogExport(t *testing.T) {
 			input: documentdb.DocumentDB{
 				Clusters: []documentdb.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						EnabledLogExports: []defsecTypes.StringValue{
-							defsecTypes.String(documentdb.LogExportProfiler, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						EnabledLogExports: []trivyTypes.StringValue{
+							trivyTypes.String(documentdb.LogExportProfiler, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

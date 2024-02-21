@@ -3,12 +3,12 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/google/compute"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/google/compute"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -23,8 +23,8 @@ func TestCheckProjectLevelOslogin(t *testing.T) {
 			name: "Compute OS login disabled",
 			input: compute.Compute{
 				ProjectMetadata: compute.ProjectMetadata{
-					Metadata:      defsecTypes.NewTestMetadata(),
-					EnableOSLogin: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+					Metadata:      trivyTypes.NewTestMetadata(),
+					EnableOSLogin: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: true,
@@ -33,8 +33,8 @@ func TestCheckProjectLevelOslogin(t *testing.T) {
 			name: "Compute OS login enabled",
 			input: compute.Compute{
 				ProjectMetadata: compute.ProjectMetadata{
-					Metadata:      defsecTypes.NewTestMetadata(),
-					EnableOSLogin: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+					Metadata:      trivyTypes.NewTestMetadata(),
+					EnableOSLogin: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: false,

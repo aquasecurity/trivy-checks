@@ -3,12 +3,12 @@ package sqs
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/sqs"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/sqs"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,11 +24,11 @@ func TestCheckEnableQueueEncryption(t *testing.T) {
 			input: sqs.SQS{
 				Queues: []sqs.Queue{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: sqs.Encryption{
-							Metadata:          defsecTypes.NewTestMetadata(),
-							ManagedEncryption: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-							KMSKeyID:          defsecTypes.String("", defsecTypes.NewTestMetadata()),
+							Metadata:          trivyTypes.NewTestMetadata(),
+							ManagedEncryption: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+							KMSKeyID:          trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -40,11 +40,11 @@ func TestCheckEnableQueueEncryption(t *testing.T) {
 			input: sqs.SQS{
 				Queues: []sqs.Queue{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: sqs.Encryption{
-							Metadata:          defsecTypes.NewTestMetadata(),
-							ManagedEncryption: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-							KMSKeyID:          defsecTypes.String("alias/aws/sqs", defsecTypes.NewTestMetadata()),
+							Metadata:          trivyTypes.NewTestMetadata(),
+							ManagedEncryption: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+							KMSKeyID:          trivyTypes.String("alias/aws/sqs", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -56,11 +56,11 @@ func TestCheckEnableQueueEncryption(t *testing.T) {
 			input: sqs.SQS{
 				Queues: []sqs.Queue{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: sqs.Encryption{
-							Metadata:          defsecTypes.NewTestMetadata(),
-							ManagedEncryption: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-							KMSKeyID:          defsecTypes.String("some-ok-key", defsecTypes.NewTestMetadata()),
+							Metadata:          trivyTypes.NewTestMetadata(),
+							ManagedEncryption: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+							KMSKeyID:          trivyTypes.String("some-ok-key", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -72,11 +72,11 @@ func TestCheckEnableQueueEncryption(t *testing.T) {
 			input: sqs.SQS{
 				Queues: []sqs.Queue{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: sqs.Encryption{
-							Metadata:          defsecTypes.NewTestMetadata(),
-							ManagedEncryption: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							KMSKeyID:          defsecTypes.String("", defsecTypes.NewTestMetadata()),
+							Metadata:          trivyTypes.NewTestMetadata(),
+							ManagedEncryption: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							KMSKeyID:          trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

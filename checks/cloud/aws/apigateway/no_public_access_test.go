@@ -3,13 +3,13 @@ package apigateway
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	v1 "github.com/aquasecurity/defsec/pkg/providers/aws/apigateway/v1"
+	v1 "github.com/aquasecurity/trivy/pkg/iac/providers/aws/apigateway/v1"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -25,15 +25,15 @@ func TestCheckNoPublicAccess(t *testing.T) {
 			input: v1.APIGateway{
 				APIs: []v1.API{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Resources: []v1.Resource{
 							{
 								Methods: []v1.Method{
 									{
-										Metadata:          defsecTypes.NewTestMetadata(),
-										HTTPMethod:        defsecTypes.String("GET", defsecTypes.NewTestMetadata()),
-										APIKeyRequired:    defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-										AuthorizationType: defsecTypes.String(v1.AuthorizationNone, defsecTypes.NewTestMetadata()),
+										Metadata:          trivyTypes.NewTestMetadata(),
+										HTTPMethod:        trivyTypes.String("GET", trivyTypes.NewTestMetadata()),
+										APIKeyRequired:    trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+										AuthorizationType: trivyTypes.String(v1.AuthorizationNone, trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -48,15 +48,15 @@ func TestCheckNoPublicAccess(t *testing.T) {
 			input: v1.APIGateway{
 				APIs: []v1.API{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Resources: []v1.Resource{
 							{
 								Methods: []v1.Method{
 									{
-										Metadata:          defsecTypes.NewTestMetadata(),
-										HTTPMethod:        defsecTypes.String("OPTION", defsecTypes.NewTestMetadata()),
-										APIKeyRequired:    defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-										AuthorizationType: defsecTypes.String(v1.AuthorizationNone, defsecTypes.NewTestMetadata()),
+										Metadata:          trivyTypes.NewTestMetadata(),
+										HTTPMethod:        trivyTypes.String("OPTION", trivyTypes.NewTestMetadata()),
+										APIKeyRequired:    trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+										AuthorizationType: trivyTypes.String(v1.AuthorizationNone, trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -71,15 +71,15 @@ func TestCheckNoPublicAccess(t *testing.T) {
 			input: v1.APIGateway{
 				APIs: []v1.API{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Resources: []v1.Resource{
 							{
 								Methods: []v1.Method{
 									{
-										Metadata:          defsecTypes.NewTestMetadata(),
-										HTTPMethod:        defsecTypes.String("GET", defsecTypes.NewTestMetadata()),
-										APIKeyRequired:    defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-										AuthorizationType: defsecTypes.String(v1.AuthorizationIAM, defsecTypes.NewTestMetadata()),
+										Metadata:          trivyTypes.NewTestMetadata(),
+										HTTPMethod:        trivyTypes.String("GET", trivyTypes.NewTestMetadata()),
+										APIKeyRequired:    trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+										AuthorizationType: trivyTypes.String(v1.AuthorizationIAM, trivyTypes.NewTestMetadata()),
 									},
 								},
 							},

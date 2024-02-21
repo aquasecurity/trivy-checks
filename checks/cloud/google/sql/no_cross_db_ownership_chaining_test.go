@@ -3,12 +3,12 @@ package sql
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/google/sql"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/google/sql"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,13 +24,13 @@ func TestCheckNoCrossDbOwnershipChaining(t *testing.T) {
 			input: sql.SQL{
 				Instances: []sql.DatabaseInstance{
 					{
-						Metadata:        defsecTypes.NewTestMetadata(),
-						DatabaseVersion: defsecTypes.String("SQLSERVER_2017_STANDARD", defsecTypes.NewTestMetadata()),
+						Metadata:        trivyTypes.NewTestMetadata(),
+						DatabaseVersion: trivyTypes.String("SQLSERVER_2017_STANDARD", trivyTypes.NewTestMetadata()),
 						Settings: sql.Settings{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							Flags: sql.Flags{
-								Metadata:                 defsecTypes.NewTestMetadata(),
-								CrossDBOwnershipChaining: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata:                 trivyTypes.NewTestMetadata(),
+								CrossDBOwnershipChaining: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -43,13 +43,13 @@ func TestCheckNoCrossDbOwnershipChaining(t *testing.T) {
 			input: sql.SQL{
 				Instances: []sql.DatabaseInstance{
 					{
-						Metadata:        defsecTypes.NewTestMetadata(),
-						DatabaseVersion: defsecTypes.String("SQLSERVER_2017_STANDARD", defsecTypes.NewTestMetadata()),
+						Metadata:        trivyTypes.NewTestMetadata(),
+						DatabaseVersion: trivyTypes.String("SQLSERVER_2017_STANDARD", trivyTypes.NewTestMetadata()),
 						Settings: sql.Settings{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							Flags: sql.Flags{
-								Metadata:                 defsecTypes.NewTestMetadata(),
-								CrossDBOwnershipChaining: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata:                 trivyTypes.NewTestMetadata(),
+								CrossDBOwnershipChaining: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

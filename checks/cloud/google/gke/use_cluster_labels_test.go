@@ -3,12 +3,12 @@ package gke
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/google/gke"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/google/gke"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,8 +24,8 @@ func TestCheckUseClusterLabels(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata:       defsecTypes.NewTestMetadata(),
-						ResourceLabels: defsecTypes.Map(map[string]string{}, defsecTypes.NewTestMetadata().GetMetadata()),
+						Metadata:       trivyTypes.NewTestMetadata(),
+						ResourceLabels: trivyTypes.Map(map[string]string{}, trivyTypes.NewTestMetadata().GetMetadata()),
 					},
 				},
 			},
@@ -36,10 +36,10 @@ func TestCheckUseClusterLabels(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						ResourceLabels: defsecTypes.Map(map[string]string{
+						Metadata: trivyTypes.NewTestMetadata(),
+						ResourceLabels: trivyTypes.Map(map[string]string{
 							"env": "staging",
-						}, defsecTypes.NewTestMetadata().GetMetadata()),
+						}, trivyTypes.NewTestMetadata().GetMetadata()),
 					},
 				},
 			},

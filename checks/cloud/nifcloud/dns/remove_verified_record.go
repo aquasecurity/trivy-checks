@@ -1,16 +1,16 @@
 package dns
 
 import (
-	"github.com/aquasecurity/defsec/pkg/providers/nifcloud/dns"
-	"github.com/aquasecurity/defsec/pkg/severity"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/nifcloud/dns"
+	"github.com/aquasecurity/trivy/pkg/iac/severity"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/aquasecurity/trivy-policies/pkg/rules"
 
-	"github.com/aquasecurity/defsec/pkg/providers"
+	"github.com/aquasecurity/trivy/pkg/iac/providers"
 )
 
 var CheckRemoveVerifiedRecord = rules.Register(

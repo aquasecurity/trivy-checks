@@ -3,13 +3,13 @@ package accessanalyzer
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/accessanalyzer"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/accessanalyzer"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -30,10 +30,10 @@ func TestASCheckNoSecretsInUserData(t *testing.T) {
 			input: accessanalyzer.AccessAnalyzer{
 				Analyzers: []accessanalyzer.Analyzer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						ARN:      defsecTypes.String("arn:aws:accessanalyzer:us-east-1:123456789012:analyzer/test", defsecTypes.NewTestMetadata()),
-						Name:     defsecTypes.String("test", defsecTypes.NewTestMetadata()),
-						Active:   defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						ARN:      trivyTypes.String("arn:aws:accessanalyzer:us-east-1:123456789012:analyzer/test", trivyTypes.NewTestMetadata()),
+						Name:     trivyTypes.String("test", trivyTypes.NewTestMetadata()),
+						Active:   trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -44,10 +44,10 @@ func TestASCheckNoSecretsInUserData(t *testing.T) {
 			input: accessanalyzer.AccessAnalyzer{
 				Analyzers: []accessanalyzer.Analyzer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						ARN:      defsecTypes.String("arn:aws:accessanalyzer:us-east-1:123456789012:analyzer/test", defsecTypes.NewTestMetadata()),
-						Name:     defsecTypes.String("test", defsecTypes.NewTestMetadata()),
-						Active:   defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						ARN:      trivyTypes.String("arn:aws:accessanalyzer:us-east-1:123456789012:analyzer/test", trivyTypes.NewTestMetadata()),
+						Name:     trivyTypes.String("test", trivyTypes.NewTestMetadata()),
+						Active:   trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

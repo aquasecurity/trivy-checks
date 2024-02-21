@@ -3,12 +3,12 @@ package ecs
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/ecs"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/ecs"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,10 +24,10 @@ func TestCheckEnableContainerInsight(t *testing.T) {
 			input: ecs.ECS{
 				Clusters: []ecs.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Settings: ecs.ClusterSettings{
-							Metadata:                 defsecTypes.NewTestMetadata(),
-							ContainerInsightsEnabled: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata:                 trivyTypes.NewTestMetadata(),
+							ContainerInsightsEnabled: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckEnableContainerInsight(t *testing.T) {
 			input: ecs.ECS{
 				Clusters: []ecs.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Settings: ecs.ClusterSettings{
-							Metadata:                 defsecTypes.NewTestMetadata(),
-							ContainerInsightsEnabled: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:                 trivyTypes.NewTestMetadata(),
+							ContainerInsightsEnabled: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

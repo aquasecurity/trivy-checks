@@ -3,12 +3,12 @@ package rds
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/rds"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/rds"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,11 +24,11 @@ func TestCheckEncryptClusterStorageData(t *testing.T) {
 			input: rds.RDS{
 				Clusters: []rds.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: rds.Encryption{
-							Metadata:       defsecTypes.NewTestMetadata(),
-							EncryptStorage: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-							KMSKeyID:       defsecTypes.String("kms-key", defsecTypes.NewTestMetadata()),
+							Metadata:       trivyTypes.NewTestMetadata(),
+							EncryptStorage: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+							KMSKeyID:       trivyTypes.String("kms-key", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -40,11 +40,11 @@ func TestCheckEncryptClusterStorageData(t *testing.T) {
 			input: rds.RDS{
 				Clusters: []rds.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: rds.Encryption{
-							Metadata:       defsecTypes.NewTestMetadata(),
-							EncryptStorage: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							KMSKeyID:       defsecTypes.String("", defsecTypes.NewTestMetadata()),
+							Metadata:       trivyTypes.NewTestMetadata(),
+							EncryptStorage: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							KMSKeyID:       trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -56,11 +56,11 @@ func TestCheckEncryptClusterStorageData(t *testing.T) {
 			input: rds.RDS{
 				Clusters: []rds.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: rds.Encryption{
-							Metadata:       defsecTypes.NewTestMetadata(),
-							EncryptStorage: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							KMSKeyID:       defsecTypes.String("kms-key", defsecTypes.NewTestMetadata()),
+							Metadata:       trivyTypes.NewTestMetadata(),
+							EncryptStorage: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							KMSKeyID:       trivyTypes.String("kms-key", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

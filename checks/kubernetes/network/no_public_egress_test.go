@@ -3,12 +3,12 @@ package network
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/kubernetes"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/kubernetes"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -23,13 +23,13 @@ func TestCheckNoPublicEgress(t *testing.T) {
 			name: "Public destination CIDR",
 			input: []kubernetes.NetworkPolicy{
 				{
-					Metadata: defsecTypes.NewTestMetadata(),
+					Metadata: trivyTypes.NewTestMetadata(),
 					Spec: kubernetes.NetworkPolicySpec{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Egress: kubernetes.Egress{
-							Metadata: defsecTypes.NewTestMetadata(),
-							DestinationCIDRs: []defsecTypes.StringValue{
-								defsecTypes.String("0.0.0.0/0", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							DestinationCIDRs: []trivyTypes.StringValue{
+								trivyTypes.String("0.0.0.0/0", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -41,13 +41,13 @@ func TestCheckNoPublicEgress(t *testing.T) {
 			name: "Private destination CIDR",
 			input: []kubernetes.NetworkPolicy{
 				{
-					Metadata: defsecTypes.NewTestMetadata(),
+					Metadata: trivyTypes.NewTestMetadata(),
 					Spec: kubernetes.NetworkPolicySpec{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Egress: kubernetes.Egress{
-							Metadata: defsecTypes.NewTestMetadata(),
-							DestinationCIDRs: []defsecTypes.StringValue{
-								defsecTypes.String("10.0.0.0/16", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							DestinationCIDRs: []trivyTypes.StringValue{
+								trivyTypes.String("10.0.0.0/16", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

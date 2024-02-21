@@ -3,12 +3,12 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/oracle"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/oracle"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,8 +24,8 @@ func TestCheckNoPublicIp(t *testing.T) {
 			input: oracle.Compute{
 				AddressReservations: []oracle.AddressReservation{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Pool:     defsecTypes.String("public-ippool", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Pool:     trivyTypes.String("public-ippool", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckNoPublicIp(t *testing.T) {
 			input: oracle.Compute{
 				AddressReservations: []oracle.AddressReservation{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Pool:     defsecTypes.String("cloud-ippool", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Pool:     trivyTypes.String("cloud-ippool", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

@@ -3,13 +3,13 @@ package ec2
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/ec2"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/ec2"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -25,12 +25,12 @@ func TestCheckNoExcessivePortAccess(t *testing.T) {
 			input: ec2.EC2{
 				NetworkACLs: []ec2.NetworkACL{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Rules: []ec2.NetworkACLRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Protocol: defsecTypes.String("-1", defsecTypes.NewTestMetadata()),
-								Action:   defsecTypes.String("allow", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Protocol: trivyTypes.String("-1", trivyTypes.NewTestMetadata()),
+								Action:   trivyTypes.String("allow", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -43,12 +43,12 @@ func TestCheckNoExcessivePortAccess(t *testing.T) {
 			input: ec2.EC2{
 				NetworkACLs: []ec2.NetworkACL{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Rules: []ec2.NetworkACLRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Protocol: defsecTypes.String("all", defsecTypes.NewTestMetadata()),
-								Action:   defsecTypes.String("allow", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Protocol: trivyTypes.String("all", trivyTypes.NewTestMetadata()),
+								Action:   trivyTypes.String("allow", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -61,13 +61,13 @@ func TestCheckNoExcessivePortAccess(t *testing.T) {
 			input: ec2.EC2{
 				NetworkACLs: []ec2.NetworkACL{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Rules: []ec2.NetworkACLRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Protocol: defsecTypes.String("tcp", defsecTypes.NewTestMetadata()),
-								Type:     defsecTypes.String("egress", defsecTypes.NewTestMetadata()),
-								Action:   defsecTypes.String("allow", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Protocol: trivyTypes.String("tcp", trivyTypes.NewTestMetadata()),
+								Type:     trivyTypes.String("egress", trivyTypes.NewTestMetadata()),
+								Action:   trivyTypes.String("allow", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

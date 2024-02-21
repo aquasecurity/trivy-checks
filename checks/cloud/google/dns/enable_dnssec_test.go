@@ -3,12 +3,12 @@ package dns
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/google/dns"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/google/dns"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,11 +24,11 @@ func TestCheckEnableDnssec(t *testing.T) {
 			input: dns.DNS{
 				ManagedZones: []dns.ManagedZone{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Visibility: defsecTypes.String("public", defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Visibility: trivyTypes.String("public", trivyTypes.NewTestMetadata()),
 						DNSSec: dns.DNSSec{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -40,11 +40,11 @@ func TestCheckEnableDnssec(t *testing.T) {
 			input: dns.DNS{
 				ManagedZones: []dns.ManagedZone{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Visibility: defsecTypes.String("public", defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Visibility: trivyTypes.String("public", trivyTypes.NewTestMetadata()),
 						DNSSec: dns.DNSSec{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -56,11 +56,11 @@ func TestCheckEnableDnssec(t *testing.T) {
 			input: dns.DNS{
 				ManagedZones: []dns.ManagedZone{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Visibility: defsecTypes.String("private", defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Visibility: trivyTypes.String("private", trivyTypes.NewTestMetadata()),
 						DNSSec: dns.DNSSec{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

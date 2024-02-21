@@ -3,10 +3,10 @@ package dns
 import (
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/providers/nifcloud/dns"
-	"github.com/aquasecurity/defsec/pkg/scan"
-	"github.com/aquasecurity/defsec/pkg/state"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/nifcloud/dns"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -26,9 +26,9 @@ func TestCheckRemoveVerifiedRecord(t *testing.T) {
 			input: dns.DNS{
 				Records: []dns.Record{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Type:     defsecTypes.String("A", defsecTypes.NewTestMetadata()),
-						Record:   defsecTypes.String("some", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Type:     trivyTypes.String("A", trivyTypes.NewTestMetadata()),
+						Record:   trivyTypes.String("some", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -39,9 +39,9 @@ func TestCheckRemoveVerifiedRecord(t *testing.T) {
 			input: dns.DNS{
 				Records: []dns.Record{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Type:     defsecTypes.String("TXT", defsecTypes.NewTestMetadata()),
-						Record:   defsecTypes.String("some", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Type:     trivyTypes.String("TXT", trivyTypes.NewTestMetadata()),
+						Record:   trivyTypes.String("some", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -53,9 +53,9 @@ func TestCheckRemoveVerifiedRecord(t *testing.T) {
 			input: dns.DNS{
 				Records: []dns.Record{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Type:     defsecTypes.String("TXT", defsecTypes.NewTestMetadata()),
-						Record:   defsecTypes.String(dns.ZoneRegistrationAuthTxt, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Type:     trivyTypes.String("TXT", trivyTypes.NewTestMetadata()),
+						Record:   trivyTypes.String(dns.ZoneRegistrationAuthTxt, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

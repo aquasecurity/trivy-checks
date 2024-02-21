@@ -4,12 +4,12 @@ import (
 	"testing"
 	"time"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/azure/keyvault"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/azure/keyvault"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -25,11 +25,11 @@ func TestCheckEnsureKeyExpiry(t *testing.T) {
 			input: keyvault.KeyVault{
 				Vaults: []keyvault.Vault{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Keys: []keyvault.Key{
 							{
-								Metadata:   defsecTypes.NewTestMetadata(),
-								ExpiryDate: defsecTypes.Time(time.Time{}, defsecTypes.NewTestMetadata().GetMetadata()),
+								Metadata:   trivyTypes.NewTestMetadata(),
+								ExpiryDate: trivyTypes.Time(time.Time{}, trivyTypes.NewTestMetadata().GetMetadata()),
 							},
 						},
 					},
@@ -42,11 +42,11 @@ func TestCheckEnsureKeyExpiry(t *testing.T) {
 			input: keyvault.KeyVault{
 				Vaults: []keyvault.Vault{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Keys: []keyvault.Key{
 							{
-								Metadata:   defsecTypes.NewTestMetadata(),
-								ExpiryDate: defsecTypes.Time(time.Now(), defsecTypes.NewTestMetadata().GetMetadata()),
+								Metadata:   trivyTypes.NewTestMetadata(),
+								ExpiryDate: trivyTypes.Time(time.Now(), trivyTypes.NewTestMetadata().GetMetadata()),
 							},
 						},
 					},

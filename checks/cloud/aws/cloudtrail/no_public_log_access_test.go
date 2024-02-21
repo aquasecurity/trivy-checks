@@ -3,13 +3,13 @@ package cloudtrail
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/cloudtrail"
-	"github.com/aquasecurity/defsec/pkg/providers/aws/s3"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/cloudtrail"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/s3"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -26,17 +26,17 @@ func TestCheckNoPublicLogAccess(t *testing.T) {
 			inputCT: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						BucketName: defsecTypes.String("my-bucket", defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						BucketName: trivyTypes.String("my-bucket", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
 			inputS3: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("my-bucket", defsecTypes.NewTestMetadata()),
-						ACL:      defsecTypes.String("private", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("my-bucket", trivyTypes.NewTestMetadata()),
+						ACL:      trivyTypes.String("private", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -47,17 +47,17 @@ func TestCheckNoPublicLogAccess(t *testing.T) {
 			inputCT: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						BucketName: defsecTypes.String("my-bucket", defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						BucketName: trivyTypes.String("my-bucket", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
 			inputS3: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("my-bucket", defsecTypes.NewTestMetadata()),
-						ACL:      defsecTypes.String("public-read", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("my-bucket", trivyTypes.NewTestMetadata()),
+						ACL:      trivyTypes.String("public-read", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

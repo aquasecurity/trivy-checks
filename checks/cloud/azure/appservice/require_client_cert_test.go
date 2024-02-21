@@ -3,12 +3,12 @@ package appservice
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/azure/appservice"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/azure/appservice"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,8 +24,8 @@ func TestCheckRequireClientCert(t *testing.T) {
 			input: appservice.AppService{
 				Services: []appservice.Service{
 					{
-						Metadata:         defsecTypes.NewTestMetadata(),
-						EnableClientCert: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:         trivyTypes.NewTestMetadata(),
+						EnableClientCert: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckRequireClientCert(t *testing.T) {
 			input: appservice.AppService{
 				Services: []appservice.Service{
 					{
-						Metadata:         defsecTypes.NewTestMetadata(),
-						EnableClientCert: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:         trivyTypes.NewTestMetadata(),
+						EnableClientCert: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

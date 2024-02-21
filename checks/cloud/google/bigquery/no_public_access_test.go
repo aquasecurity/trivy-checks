@@ -3,12 +3,12 @@ package bigquery
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/google/bigquery"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/google/bigquery"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,12 +24,12 @@ func TestCheckNoPublicAccess(t *testing.T) {
 			input: bigquery.BigQuery{
 				Datasets: []bigquery.Dataset{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						AccessGrants: []bigquery.AccessGrant{
 							{
-								SpecialGroup: defsecTypes.String(
+								SpecialGroup: trivyTypes.String(
 									bigquery.SpecialGroupAllAuthenticatedUsers,
-									defsecTypes.NewTestMetadata(),
+									trivyTypes.NewTestMetadata(),
 								),
 							},
 						},
@@ -43,12 +43,12 @@ func TestCheckNoPublicAccess(t *testing.T) {
 			input: bigquery.BigQuery{
 				Datasets: []bigquery.Dataset{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						AccessGrants: []bigquery.AccessGrant{
 							{
-								SpecialGroup: defsecTypes.String(
+								SpecialGroup: trivyTypes.String(
 									"anotherGroup",
-									defsecTypes.NewTestMetadata(),
+									trivyTypes.NewTestMetadata(),
 								),
 							},
 						},

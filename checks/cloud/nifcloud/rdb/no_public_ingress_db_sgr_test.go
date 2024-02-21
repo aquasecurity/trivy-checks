@@ -3,12 +3,12 @@ package rdb
 import (
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/providers/nifcloud/rdb"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/nifcloud/rdb"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,9 +24,9 @@ func TestCheckNoPublicIngressDBSgr(t *testing.T) {
 			input: rdb.RDB{
 				DBSecurityGroups: []rdb.DBSecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						CIDRs: []defsecTypes.StringValue{
-							defsecTypes.String("0.0.0.0/0", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						CIDRs: []trivyTypes.StringValue{
+							trivyTypes.String("0.0.0.0/0", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -38,9 +38,9 @@ func TestCheckNoPublicIngressDBSgr(t *testing.T) {
 			input: rdb.RDB{
 				DBSecurityGroups: []rdb.DBSecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						CIDRs: []defsecTypes.StringValue{
-							defsecTypes.String("10.0.0.0/16", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						CIDRs: []trivyTypes.StringValue{
+							trivyTypes.String("10.0.0.0/16", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

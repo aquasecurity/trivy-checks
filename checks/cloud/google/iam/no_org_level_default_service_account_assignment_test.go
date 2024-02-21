@@ -3,12 +3,12 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/google/iam"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/google/iam"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,13 +24,13 @@ func TestCheckNoOrgLevelDefaultServiceAccountAssignment(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Bindings: []iam.Binding{
 							{
-								Metadata:                      defsecTypes.NewTestMetadata(),
-								IncludesDefaultServiceAccount: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-								Members: []defsecTypes.StringValue{
-									defsecTypes.String("123-compute@developer.gserviceaccount.com", defsecTypes.NewTestMetadata()),
+								Metadata:                      trivyTypes.NewTestMetadata(),
+								IncludesDefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								Members: []trivyTypes.StringValue{
+									trivyTypes.String("123-compute@developer.gserviceaccount.com", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -44,12 +44,12 @@ func TestCheckNoOrgLevelDefaultServiceAccountAssignment(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Members: []iam.Member{
 							{
-								Metadata:              defsecTypes.NewTestMetadata(),
-								Member:                defsecTypes.String("proper@email.com", defsecTypes.NewTestMetadata()),
-								DefaultServiceAccount: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata:              trivyTypes.NewTestMetadata(),
+								Member:                trivyTypes.String("proper@email.com", trivyTypes.NewTestMetadata()),
+								DefaultServiceAccount: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -62,20 +62,20 @@ func TestCheckNoOrgLevelDefaultServiceAccountAssignment(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Members: []iam.Member{
 							{
-								Metadata:              defsecTypes.NewTestMetadata(),
-								Member:                defsecTypes.String("proper@email.com", defsecTypes.NewTestMetadata()),
-								DefaultServiceAccount: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata:              trivyTypes.NewTestMetadata(),
+								Member:                trivyTypes.String("proper@email.com", trivyTypes.NewTestMetadata()),
+								DefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 						Bindings: []iam.Binding{
 							{
-								Metadata:                      defsecTypes.NewTestMetadata(),
-								IncludesDefaultServiceAccount: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-								Members: []defsecTypes.StringValue{
-									defsecTypes.String("proper@email.com", defsecTypes.NewTestMetadata()),
+								Metadata:                      trivyTypes.NewTestMetadata(),
+								IncludesDefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								Members: []trivyTypes.StringValue{
+									trivyTypes.String("proper@email.com", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},

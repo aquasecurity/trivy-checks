@@ -3,12 +3,12 @@ package authorization
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/azure/authorization"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/azure/authorization"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,17 +24,17 @@ func TestCheckLimitRoleActions(t *testing.T) {
 			input: authorization.Authorization{
 				RoleDefinitions: []authorization.RoleDefinition{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Permissions: []authorization.Permission{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Actions: []defsecTypes.StringValue{
-									defsecTypes.String("*", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Actions: []trivyTypes.StringValue{
+									trivyTypes.String("*", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
-						AssignableScopes: []defsecTypes.StringValue{
-							defsecTypes.String("/", defsecTypes.NewTestMetadata()),
+						AssignableScopes: []trivyTypes.StringValue{
+							trivyTypes.String("/", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -46,17 +46,17 @@ func TestCheckLimitRoleActions(t *testing.T) {
 			input: authorization.Authorization{
 				RoleDefinitions: []authorization.RoleDefinition{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Permissions: []authorization.Permission{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Actions: []defsecTypes.StringValue{
-									defsecTypes.String("*", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Actions: []trivyTypes.StringValue{
+									trivyTypes.String("*", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
-						AssignableScopes: []defsecTypes.StringValue{
-							defsecTypes.String("proper-scope", defsecTypes.NewTestMetadata()),
+						AssignableScopes: []trivyTypes.StringValue{
+							trivyTypes.String("proper-scope", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

@@ -3,12 +3,12 @@ package gke
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/google/gke"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/google/gke"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,8 +24,8 @@ func TestCheckEnableStackdriverLogging(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata:       defsecTypes.NewTestMetadata(),
-						LoggingService: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata:       trivyTypes.NewTestMetadata(),
+						LoggingService: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckEnableStackdriverLogging(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata:       defsecTypes.NewTestMetadata(),
-						LoggingService: defsecTypes.String("logging.googleapis.com/kubernetes", defsecTypes.NewTestMetadata()),
+						Metadata:       trivyTypes.NewTestMetadata(),
+						LoggingService: trivyTypes.String("logging.googleapis.com/kubernetes", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

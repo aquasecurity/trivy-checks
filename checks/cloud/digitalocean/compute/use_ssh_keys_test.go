@@ -3,12 +3,12 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/digitalocean/compute"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/digitalocean/compute"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,8 +24,8 @@ func TestCheckUseSshKeys(t *testing.T) {
 			input: compute.Compute{
 				Droplets: []compute.Droplet{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						SSHKeys:  []defsecTypes.StringValue{},
+						Metadata: trivyTypes.NewTestMetadata(),
+						SSHKeys:  []trivyTypes.StringValue{},
 					},
 				},
 			},
@@ -36,9 +36,9 @@ func TestCheckUseSshKeys(t *testing.T) {
 			input: compute.Compute{
 				Droplets: []compute.Droplet{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						SSHKeys: []defsecTypes.StringValue{
-							defsecTypes.String("my-ssh-key", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						SSHKeys: []trivyTypes.StringValue{
+							trivyTypes.String("my-ssh-key", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

@@ -3,12 +3,12 @@ package ecs
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/ecs"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/ecs"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,15 +24,15 @@ func TestCheckNoPlaintextSecrets(t *testing.T) {
 			input: ecs.ECS{
 				TaskDefinitions: []ecs.TaskDefinition{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ContainerDefinitions: []ecs.ContainerDefinition{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								Name:      defsecTypes.String("my_service", defsecTypes.NewTestMetadata()),
-								Image:     defsecTypes.String("my_image", defsecTypes.NewTestMetadata()),
-								CPU:       defsecTypes.Int(2, defsecTypes.NewTestMetadata()),
-								Memory:    defsecTypes.Int(256, defsecTypes.NewTestMetadata()),
-								Essential: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								Name:      trivyTypes.String("my_service", trivyTypes.NewTestMetadata()),
+								Image:     trivyTypes.String("my_image", trivyTypes.NewTestMetadata()),
+								CPU:       trivyTypes.Int(2, trivyTypes.NewTestMetadata()),
+								Memory:    trivyTypes.Int(256, trivyTypes.NewTestMetadata()),
+								Essential: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 								Environment: []ecs.EnvVar{
 									{
 										Name:  "ENVIRONMENT",
@@ -55,15 +55,15 @@ func TestCheckNoPlaintextSecrets(t *testing.T) {
 			input: ecs.ECS{
 				TaskDefinitions: []ecs.TaskDefinition{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ContainerDefinitions: []ecs.ContainerDefinition{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								Name:      defsecTypes.String("my_service", defsecTypes.NewTestMetadata()),
-								Image:     defsecTypes.String("my_image", defsecTypes.NewTestMetadata()),
-								CPU:       defsecTypes.Int(2, defsecTypes.NewTestMetadata()),
-								Memory:    defsecTypes.Int(256, defsecTypes.NewTestMetadata()),
-								Essential: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								Name:      trivyTypes.String("my_service", trivyTypes.NewTestMetadata()),
+								Image:     trivyTypes.String("my_image", trivyTypes.NewTestMetadata()),
+								CPU:       trivyTypes.Int(2, trivyTypes.NewTestMetadata()),
+								Memory:    trivyTypes.Int(256, trivyTypes.NewTestMetadata()),
+								Essential: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 								Environment: []ecs.EnvVar{
 									{
 										Name:  "ENVIRONMENT",

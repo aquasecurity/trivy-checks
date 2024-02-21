@@ -1,13 +1,13 @@
 package accessanalyzer
 
 import (
-	"github.com/aquasecurity/defsec/pkg/framework"
-	"github.com/aquasecurity/defsec/pkg/providers"
-	"github.com/aquasecurity/defsec/pkg/scan"
-	"github.com/aquasecurity/defsec/pkg/severity"
-	"github.com/aquasecurity/defsec/pkg/state"
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
 	"github.com/aquasecurity/trivy-policies/pkg/rules"
+	"github.com/aquasecurity/trivy/pkg/iac/framework"
+	"github.com/aquasecurity/trivy/pkg/iac/providers"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/severity"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 )
 
 var CheckEnableAccessAnalyzer = rules.Register(
@@ -47,10 +47,10 @@ keys, AWS Lambda functions, and Amazon SQS(Simple Queue Service) queues.
 		if !enabled {
 			results.Add(
 				"Access Analyzer is not enabled.",
-				defsecTypes.NewUnmanagedMetadata(),
+				trivyTypes.NewUnmanagedMetadata(),
 			)
 		} else {
-			results.AddPassed(defsecTypes.NewUnmanagedMetadata())
+			results.AddPassed(trivyTypes.NewUnmanagedMetadata())
 		}
 		return
 	},

@@ -3,12 +3,12 @@ package elb
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/elb"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/elb"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,11 +24,11 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: elb.ELB{
 				LoadBalancers: []elb.LoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Listeners: []elb.Listener{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								TLSPolicy: defsecTypes.String("ELBSecurityPolicy-TLS-1-0-2015-04", defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								TLSPolicy: trivyTypes.String("ELBSecurityPolicy-TLS-1-0-2015-04", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -41,11 +41,11 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: elb.ELB{
 				LoadBalancers: []elb.LoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Listeners: []elb.Listener{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								TLSPolicy: defsecTypes.String("ELBSecurityPolicy-TLS-1-2-2017-01", defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								TLSPolicy: trivyTypes.String("ELBSecurityPolicy-TLS-1-2-2017-01", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -58,11 +58,11 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: elb.ELB{
 				LoadBalancers: []elb.LoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Listeners: []elb.Listener{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								TLSPolicy: defsecTypes.String("ELBSecurityPolicy-TLS13-1-2-2021-06", defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								TLSPolicy: trivyTypes.String("ELBSecurityPolicy-TLS13-1-2-2021-06", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

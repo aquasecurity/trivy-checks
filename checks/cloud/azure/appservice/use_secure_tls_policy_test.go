@@ -3,12 +3,12 @@ package appservice
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/providers/azure/appservice"
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/azure/appservice"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -24,13 +24,13 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: appservice.AppService{
 				Services: []appservice.Service{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Site: struct {
-							EnableHTTP2       defsecTypes.BoolValue
-							MinimumTLSVersion defsecTypes.StringValue
+							EnableHTTP2       trivyTypes.BoolValue
+							MinimumTLSVersion trivyTypes.StringValue
 						}{
-							EnableHTTP2:       defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							MinimumTLSVersion: defsecTypes.String("1.0", defsecTypes.NewTestMetadata()),
+							EnableHTTP2:       trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							MinimumTLSVersion: trivyTypes.String("1.0", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -42,13 +42,13 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: appservice.AppService{
 				Services: []appservice.Service{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Site: struct {
-							EnableHTTP2       defsecTypes.BoolValue
-							MinimumTLSVersion defsecTypes.StringValue
+							EnableHTTP2       trivyTypes.BoolValue
+							MinimumTLSVersion trivyTypes.StringValue
 						}{
-							EnableHTTP2:       defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							MinimumTLSVersion: defsecTypes.String("1.2", defsecTypes.NewTestMetadata()),
+							EnableHTTP2:       trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							MinimumTLSVersion: trivyTypes.String("1.2", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
