@@ -8,7 +8,6 @@ import (
 	"strings"
 
 	"github.com/aquasecurity/trivy/pkg/iac/framework"
-
 	_ "github.com/aquasecurity/trivy/pkg/iac/rego"
 	"github.com/aquasecurity/trivy/pkg/iac/rules"
 )

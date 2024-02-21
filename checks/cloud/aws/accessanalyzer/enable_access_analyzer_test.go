@@ -3,13 +3,13 @@ package accessanalyzer
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	"github.com/aquasecurity/defsec/pkg/providers/aws/accessanalyzer"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/accessanalyzer"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )

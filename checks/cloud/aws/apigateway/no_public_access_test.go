@@ -3,13 +3,13 @@ package apigateway
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/defsec/pkg/types"
+	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
-	v1 "github.com/aquasecurity/defsec/pkg/providers/aws/apigateway/v1"
+	v1 "github.com/aquasecurity/trivy/pkg/iac/providers/aws/apigateway/v1"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
 	"github.com/stretchr/testify/assert"
 )
