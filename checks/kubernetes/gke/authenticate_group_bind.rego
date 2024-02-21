@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV01011
 #   avd_id: AVD-KSV-01011
-#   severity: LOW
+#   severity: CRITICAL
 #   short_code: no-system-authenticated-group-bind
 #   recommended_action: "Remove system:authenticated group binding from clusterrolebinding or rolebinding."
 #   input:
@@ -21,6 +21,7 @@
 
 package appshield.kubernetes.KSV01011
 
+import data.k8s
 import data.lib.kubernetes
 
 readRoleRefs := ["system:authenticated"]
@@ -33,6 +34,7 @@ authenticatedGroupBind(roleBinding) {
 }
 
 deny[res] {
+	contains(k8s.version, "-gke")
 	authenticatedGroupBind(input)
 	msg := kubernetes.format(sprintf("%s '%s' should not bind to roles %s", [kubernetes.kind, kubernetes.name, readRoleRefs]))
 	res := result.new(msg, input.metadata)

@@ -25,8 +25,8 @@ is_workdir_in_sysdirs[output] {
 	workdir := docker.workdir[_]
 	arg := workdir.Value[0]
 
-    trimmed := trim(arg, "\"")
-    startswith(trimmed, sysdirs[_])
+	trimmed := trim(arg, "\"")
+	startswith(trimmed, sysdirs[_])
 	output := {
 		"cmd": workdir,
 		"arg": arg,
