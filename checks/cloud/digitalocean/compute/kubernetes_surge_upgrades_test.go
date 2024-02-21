@@ -3,7 +3,7 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckKubernetesSurgeUpgrades(t *testing.T) {
 			input: compute.Compute{
 				KubernetesClusters: []compute.KubernetesCluster{
 					{
-						Metadata:     defsecTypes.NewTestMetadata(),
-						SurgeUpgrade: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:     trivyTypes.NewTestMetadata(),
+						SurgeUpgrade: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckKubernetesSurgeUpgrades(t *testing.T) {
 			input: compute.Compute{
 				KubernetesClusters: []compute.KubernetesCluster{
 					{
-						Metadata:     defsecTypes.NewTestMetadata(),
-						SurgeUpgrade: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:     trivyTypes.NewTestMetadata(),
+						SurgeUpgrade: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

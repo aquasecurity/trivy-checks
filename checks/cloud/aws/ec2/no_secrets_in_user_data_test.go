@@ -3,7 +3,7 @@ package ec2
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,12 +24,12 @@ func TestCheckNoSecretsInUserData(t *testing.T) {
 			input: ec2.EC2{
 				Instances: []ec2.Instance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						UserData: defsecTypes.String(`<<EOF
+						Metadata: trivyTypes.NewTestMetadata(),
+						UserData: trivyTypes.String(`<<EOF
 						export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
 						export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 						export AWS_DEFAULT_REGION=us-west-2
-						EOF`, defsecTypes.NewTestMetadata()),
+						EOF`, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -40,10 +40,10 @@ func TestCheckNoSecretsInUserData(t *testing.T) {
 			input: ec2.EC2{
 				Instances: []ec2.Instance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						UserData: defsecTypes.String(`<<EOF
+						Metadata: trivyTypes.NewTestMetadata(),
+						UserData: trivyTypes.String(`<<EOF
 						export GREETING=hello
-						EOF`, defsecTypes.NewTestMetadata()),
+						EOF`, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

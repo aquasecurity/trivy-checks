@@ -3,7 +3,7 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckSecurityGroupHasDescription(t *testing.T) {
 			input: openstack.Networking{
 				SecurityGroups: []openstack.SecurityGroup{
 					{
-						Metadata:    defsecTypes.NewTestMetadata(),
-						Description: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata:    trivyTypes.NewTestMetadata(),
+						Description: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckSecurityGroupHasDescription(t *testing.T) {
 			input: openstack.Networking{
 				SecurityGroups: []openstack.SecurityGroup{
 					{
-						Metadata:    defsecTypes.NewTestMetadata(),
-						Description: defsecTypes.String("this is for connecting to the database", defsecTypes.NewTestMetadata()),
+						Metadata:    trivyTypes.NewTestMetadata(),
+						Description: trivyTypes.String("this is for connecting to the database", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

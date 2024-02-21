@@ -3,7 +3,7 @@ package rds
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,9 +24,9 @@ func TestCheckBackupRetentionSpecified(t *testing.T) {
 			input: rds.RDS{
 				Clusters: []rds.Cluster{
 					{
-						Metadata:                  defsecTypes.NewTestMetadata(),
-						ReplicationSourceARN:      defsecTypes.String("", defsecTypes.NewTestMetadata()),
-						BackupRetentionPeriodDays: defsecTypes.Int(1, defsecTypes.NewTestMetadata()),
+						Metadata:                  trivyTypes.NewTestMetadata(),
+						ReplicationSourceARN:      trivyTypes.String("", trivyTypes.NewTestMetadata()),
+						BackupRetentionPeriodDays: trivyTypes.Int(1, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -37,9 +37,9 @@ func TestCheckBackupRetentionSpecified(t *testing.T) {
 			input: rds.RDS{
 				Instances: []rds.Instance{
 					{
-						Metadata:                  defsecTypes.NewTestMetadata(),
-						ReplicationSourceARN:      defsecTypes.String("", defsecTypes.NewTestMetadata()),
-						BackupRetentionPeriodDays: defsecTypes.Int(1, defsecTypes.NewTestMetadata()),
+						Metadata:                  trivyTypes.NewTestMetadata(),
+						ReplicationSourceARN:      trivyTypes.String("", trivyTypes.NewTestMetadata()),
+						BackupRetentionPeriodDays: trivyTypes.Int(1, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -50,9 +50,9 @@ func TestCheckBackupRetentionSpecified(t *testing.T) {
 			input: rds.RDS{
 				Clusters: []rds.Cluster{
 					{
-						Metadata:                  defsecTypes.NewTestMetadata(),
-						ReplicationSourceARN:      defsecTypes.String("", defsecTypes.NewTestMetadata()),
-						BackupRetentionPeriodDays: defsecTypes.Int(5, defsecTypes.NewTestMetadata()),
+						Metadata:                  trivyTypes.NewTestMetadata(),
+						ReplicationSourceARN:      trivyTypes.String("", trivyTypes.NewTestMetadata()),
+						BackupRetentionPeriodDays: trivyTypes.Int(5, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -63,9 +63,9 @@ func TestCheckBackupRetentionSpecified(t *testing.T) {
 			input: rds.RDS{
 				Instances: []rds.Instance{
 					{
-						Metadata:                  defsecTypes.NewTestMetadata(),
-						ReplicationSourceARN:      defsecTypes.String("", defsecTypes.NewTestMetadata()),
-						BackupRetentionPeriodDays: defsecTypes.Int(5, defsecTypes.NewTestMetadata()),
+						Metadata:                  trivyTypes.NewTestMetadata(),
+						ReplicationSourceARN:      trivyTypes.String("", trivyTypes.NewTestMetadata()),
+						BackupRetentionPeriodDays: trivyTypes.Int(5, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

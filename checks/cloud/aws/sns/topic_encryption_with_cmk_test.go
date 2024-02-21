@@ -3,7 +3,7 @@ package sns
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckTopicEncryptionUsesCMK(t *testing.T) {
 			input: sns.SNS{
 				Topics: []sns.Topic{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: sns.Encryption{
-							Metadata: defsecTypes.NewTestMetadata(),
-							KMSKeyID: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							KMSKeyID: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckTopicEncryptionUsesCMK(t *testing.T) {
 			input: sns.SNS{
 				Topics: []sns.Topic{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: sns.Encryption{
-							Metadata: defsecTypes.NewTestMetadata(),
-							KMSKeyID: defsecTypes.String("alias/aws/sns", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							KMSKeyID: trivyTypes.String("alias/aws/sns", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -54,10 +54,10 @@ func TestCheckTopicEncryptionUsesCMK(t *testing.T) {
 			input: sns.SNS{
 				Topics: []sns.Topic{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: sns.Encryption{
-							Metadata: defsecTypes.NewTestMetadata(),
-							KMSKeyID: defsecTypes.String("some-ok-key", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							KMSKeyID: trivyTypes.String("some-ok-key", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

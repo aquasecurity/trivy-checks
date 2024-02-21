@@ -3,7 +3,7 @@ package cloudfront
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckEnforceHttps(t *testing.T) {
 			input: cloudfront.Cloudfront{
 				Distributions: []cloudfront.Distribution{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						DefaultCacheBehaviour: cloudfront.CacheBehaviour{
-							Metadata:             defsecTypes.NewTestMetadata(),
-							ViewerProtocolPolicy: defsecTypes.String(cloudfront.ViewerPolicyProtocolAllowAll, defsecTypes.NewTestMetadata()),
+							Metadata:             trivyTypes.NewTestMetadata(),
+							ViewerProtocolPolicy: trivyTypes.String(cloudfront.ViewerPolicyProtocolAllowAll, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,15 +39,15 @@ func TestCheckEnforceHttps(t *testing.T) {
 			input: cloudfront.Cloudfront{
 				Distributions: []cloudfront.Distribution{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						DefaultCacheBehaviour: cloudfront.CacheBehaviour{
-							Metadata:             defsecTypes.NewTestMetadata(),
-							ViewerProtocolPolicy: defsecTypes.String(cloudfront.ViewerPolicyProtocolHTTPSOnly, defsecTypes.NewTestMetadata()),
+							Metadata:             trivyTypes.NewTestMetadata(),
+							ViewerProtocolPolicy: trivyTypes.String(cloudfront.ViewerPolicyProtocolHTTPSOnly, trivyTypes.NewTestMetadata()),
 						},
 						OrdererCacheBehaviours: []cloudfront.CacheBehaviour{
 							{
-								Metadata:             defsecTypes.NewTestMetadata(),
-								ViewerProtocolPolicy: defsecTypes.String(cloudfront.ViewerPolicyProtocolAllowAll, defsecTypes.NewTestMetadata()),
+								Metadata:             trivyTypes.NewTestMetadata(),
+								ViewerProtocolPolicy: trivyTypes.String(cloudfront.ViewerPolicyProtocolAllowAll, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -60,15 +60,15 @@ func TestCheckEnforceHttps(t *testing.T) {
 			input: cloudfront.Cloudfront{
 				Distributions: []cloudfront.Distribution{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						DefaultCacheBehaviour: cloudfront.CacheBehaviour{
-							Metadata:             defsecTypes.NewTestMetadata(),
-							ViewerProtocolPolicy: defsecTypes.String(cloudfront.ViewerPolicyProtocolHTTPSOnly, defsecTypes.NewTestMetadata()),
+							Metadata:             trivyTypes.NewTestMetadata(),
+							ViewerProtocolPolicy: trivyTypes.String(cloudfront.ViewerPolicyProtocolHTTPSOnly, trivyTypes.NewTestMetadata()),
 						},
 						OrdererCacheBehaviours: []cloudfront.CacheBehaviour{
 							{
-								Metadata:             defsecTypes.NewTestMetadata(),
-								ViewerProtocolPolicy: defsecTypes.String(cloudfront.ViewerPolicyProtocolHTTPSOnly, defsecTypes.NewTestMetadata()),
+								Metadata:             trivyTypes.NewTestMetadata(),
+								ViewerProtocolPolicy: trivyTypes.String(cloudfront.ViewerPolicyProtocolHTTPSOnly, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

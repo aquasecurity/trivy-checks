@@ -3,7 +3,7 @@ package branch_protections
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -23,8 +23,8 @@ func TestCheckRequireSignedCommits(t *testing.T) {
 			name: "Require signed commits enabled for branch",
 			input: []github.BranchProtection{
 				{
-					Metadata:             defsecTypes.NewTestMetadata(),
-					RequireSignedCommits: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+					Metadata:             trivyTypes.NewTestMetadata(),
+					RequireSignedCommits: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: false,
@@ -33,8 +33,8 @@ func TestCheckRequireSignedCommits(t *testing.T) {
 			name: "Require signed commits disabled for repository",
 			input: []github.BranchProtection{
 				{
-					Metadata:             defsecTypes.NewTestMetadata(),
-					RequireSignedCommits: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+					Metadata:             trivyTypes.NewTestMetadata(),
+					RequireSignedCommits: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: true,

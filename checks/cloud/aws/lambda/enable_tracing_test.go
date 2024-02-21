@@ -3,7 +3,7 @@ package lambda
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckEnableTracing(t *testing.T) {
 			input: lambda.Lambda{
 				Functions: []lambda.Function{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Tracing: lambda.Tracing{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Mode:     defsecTypes.String("", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Mode:     trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckEnableTracing(t *testing.T) {
 			input: lambda.Lambda{
 				Functions: []lambda.Function{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Tracing: lambda.Tracing{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Mode:     defsecTypes.String(lambda.TracingModeActive, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Mode:     trivyTypes.String(lambda.TracingModeActive, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

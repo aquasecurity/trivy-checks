@@ -3,7 +3,7 @@ package msk
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,11 +24,11 @@ func TestCheckEnableAtRestEncryption(t *testing.T) {
 			input: msk.MSK{
 				Clusters: []msk.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						EncryptionAtRest: msk.EncryptionAtRest{
-							Metadata:  defsecTypes.NewTestMetadata(),
-							KMSKeyARN: defsecTypes.String("foo-bar-key", defsecTypes.NewTestMetadata()),
-							Enabled:   defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:  trivyTypes.NewTestMetadata(),
+							KMSKeyARN: trivyTypes.String("foo-bar-key", trivyTypes.NewTestMetadata()),
+							Enabled:   trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -40,7 +40,7 @@ func TestCheckEnableAtRestEncryption(t *testing.T) {
 			input: msk.MSK{
 				Clusters: []msk.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 					},
 				},
 			},

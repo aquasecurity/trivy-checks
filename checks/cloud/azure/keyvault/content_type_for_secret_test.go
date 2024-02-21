@@ -3,7 +3,7 @@ package keyvault
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,11 +24,11 @@ func TestCheckContentTypeForSecret(t *testing.T) {
 			input: keyvault.KeyVault{
 				Vaults: []keyvault.Vault{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Secrets: []keyvault.Secret{
 							{
-								Metadata:    defsecTypes.NewTestMetadata(),
-								ContentType: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+								Metadata:    trivyTypes.NewTestMetadata(),
+								ContentType: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -41,11 +41,11 @@ func TestCheckContentTypeForSecret(t *testing.T) {
 			input: keyvault.KeyVault{
 				Vaults: []keyvault.Vault{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Secrets: []keyvault.Secret{
 							{
-								Metadata:    defsecTypes.NewTestMetadata(),
-								ContentType: defsecTypes.String("password", defsecTypes.NewTestMetadata()),
+								Metadata:    trivyTypes.NewTestMetadata(),
+								ContentType: trivyTypes.String("password", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

@@ -3,7 +3,7 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,24 +24,24 @@ func TestCheckNoUserGrantedPermissions(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Projects: []iam.Project{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Members: []iam.Member{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Member:   defsecTypes.String("user:test@example.com", defsecTypes.NewTestMetadata()),
-										Role:     defsecTypes.String("some-role", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Member:   trivyTypes.String("user:test@example.com", trivyTypes.NewTestMetadata()),
+										Role:     trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
 									},
 								},
 								Bindings: []iam.Binding{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Members: []defsecTypes.StringValue{
-											defsecTypes.String("user:test@example.com", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Members: []trivyTypes.StringValue{
+											trivyTypes.String("user:test@example.com", trivyTypes.NewTestMetadata()),
 										},
-										Role: defsecTypes.String("some-role", defsecTypes.NewTestMetadata()),
+										Role: trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -56,12 +56,12 @@ func TestCheckNoUserGrantedPermissions(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Members: []iam.Member{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Member:   defsecTypes.String("user:test@example.com", defsecTypes.NewTestMetadata()),
-								Role:     defsecTypes.String("some-role", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Member:   trivyTypes.String("user:test@example.com", trivyTypes.NewTestMetadata()),
+								Role:     trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -74,15 +74,15 @@ func TestCheckNoUserGrantedPermissions(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Folders: []iam.Folder{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Members: []iam.Member{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Member:   defsecTypes.String("user:test@example.com", defsecTypes.NewTestMetadata()),
-										Role:     defsecTypes.String("some-role", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Member:   trivyTypes.String("user:test@example.com", trivyTypes.NewTestMetadata()),
+										Role:     trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -97,17 +97,17 @@ func TestCheckNoUserGrantedPermissions(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Folders: []iam.Folder{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Bindings: []iam.Binding{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Members: []defsecTypes.StringValue{
-											defsecTypes.String("user:test@example.com", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Members: []trivyTypes.StringValue{
+											trivyTypes.String("user:test@example.com", trivyTypes.NewTestMetadata()),
 										},
-										Role: defsecTypes.String("some-role", defsecTypes.NewTestMetadata()),
+										Role: trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -122,33 +122,33 @@ func TestCheckNoUserGrantedPermissions(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Members: []iam.Member{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Member:   defsecTypes.String("group:test@example.com", defsecTypes.NewTestMetadata()),
-								Role:     defsecTypes.String("some-role", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Member:   trivyTypes.String("group:test@example.com", trivyTypes.NewTestMetadata()),
+								Role:     trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
 							},
 						},
 						Bindings: []iam.Binding{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Members: []defsecTypes.StringValue{
-									defsecTypes.String("group:test@example.com", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Members: []trivyTypes.StringValue{
+									trivyTypes.String("group:test@example.com", trivyTypes.NewTestMetadata()),
 								},
-								Role: defsecTypes.String("some-role", defsecTypes.NewTestMetadata()),
+								Role: trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
 							},
 						},
 						Folders: []iam.Folder{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Bindings: []iam.Binding{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Members: []defsecTypes.StringValue{
-											defsecTypes.String("group:test@example.com", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Members: []trivyTypes.StringValue{
+											trivyTypes.String("group:test@example.com", trivyTypes.NewTestMetadata()),
 										},
-										Role: defsecTypes.String("some-role", defsecTypes.NewTestMetadata()),
+										Role: trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
 									},
 								},
 							},

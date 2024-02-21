@@ -3,7 +3,7 @@ package elb
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,16 +24,16 @@ func TestCheckHttpNotUsed(t *testing.T) {
 			input: elb.ELB{
 				LoadBalancers: []elb.LoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Type:     defsecTypes.String(elb.TypeApplication, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Type:     trivyTypes.String(elb.TypeApplication, trivyTypes.NewTestMetadata()),
 						Listeners: []elb.Listener{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Protocol: defsecTypes.String("HTTP", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Protocol: trivyTypes.String("HTTP", trivyTypes.NewTestMetadata()),
 								DefaultActions: []elb.Action{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Type:     defsecTypes.String("forward", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Type:     trivyTypes.String("forward", trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -48,16 +48,16 @@ func TestCheckHttpNotUsed(t *testing.T) {
 			input: elb.ELB{
 				LoadBalancers: []elb.LoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Type:     defsecTypes.String(elb.TypeApplication, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Type:     trivyTypes.String(elb.TypeApplication, trivyTypes.NewTestMetadata()),
 						Listeners: []elb.Listener{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Protocol: defsecTypes.String("HTTP", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Protocol: trivyTypes.String("HTTP", trivyTypes.NewTestMetadata()),
 								DefaultActions: []elb.Action{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Type:     defsecTypes.String("redirect", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Type:     trivyTypes.String("redirect", trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -72,20 +72,20 @@ func TestCheckHttpNotUsed(t *testing.T) {
 			input: elb.ELB{
 				LoadBalancers: []elb.LoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Type:     defsecTypes.String(elb.TypeApplication, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Type:     trivyTypes.String(elb.TypeApplication, trivyTypes.NewTestMetadata()),
 						Listeners: []elb.Listener{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Protocol: defsecTypes.String("HTTP", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Protocol: trivyTypes.String("HTTP", trivyTypes.NewTestMetadata()),
 								DefaultActions: []elb.Action{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Type:     defsecTypes.String("forward", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Type:     trivyTypes.String("forward", trivyTypes.NewTestMetadata()),
 									},
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Type:     defsecTypes.String("redirect", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Type:     trivyTypes.String("redirect", trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -100,16 +100,16 @@ func TestCheckHttpNotUsed(t *testing.T) {
 			input: elb.ELB{
 				LoadBalancers: []elb.LoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Type:     defsecTypes.String(elb.TypeApplication, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Type:     trivyTypes.String(elb.TypeApplication, trivyTypes.NewTestMetadata()),
 						Listeners: []elb.Listener{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Protocol: defsecTypes.String("HTTPS", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Protocol: trivyTypes.String("HTTPS", trivyTypes.NewTestMetadata()),
 								DefaultActions: []elb.Action{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Type:     defsecTypes.String("forward", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Type:     trivyTypes.String("forward", trivyTypes.NewTestMetadata()),
 									},
 								},
 							},

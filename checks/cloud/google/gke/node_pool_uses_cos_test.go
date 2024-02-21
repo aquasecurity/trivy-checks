@@ -3,7 +3,7 @@ package gke
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckNodePoolUsesCos(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NodeConfig: gke.NodeConfig{
-							Metadata:  defsecTypes.NewTestMetadata(),
-							ImageType: defsecTypes.String("UBUNTU", defsecTypes.NewTestMetadata()),
+							Metadata:  trivyTypes.NewTestMetadata(),
+							ImageType: trivyTypes.String("UBUNTU", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,17 +39,17 @@ func TestCheckNodePoolUsesCos(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NodeConfig: gke.NodeConfig{
-							Metadata:  defsecTypes.NewTestMetadata(),
-							ImageType: defsecTypes.String("COS", defsecTypes.NewTestMetadata()),
+							Metadata:  trivyTypes.NewTestMetadata(),
+							ImageType: trivyTypes.String("COS", trivyTypes.NewTestMetadata()),
 						},
 						NodePools: []gke.NodePool{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								NodeConfig: gke.NodeConfig{
-									Metadata:  defsecTypes.NewTestMetadata(),
-									ImageType: defsecTypes.String("UBUNTU", defsecTypes.NewTestMetadata()),
+									Metadata:  trivyTypes.NewTestMetadata(),
+									ImageType: trivyTypes.String("UBUNTU", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -63,10 +63,10 @@ func TestCheckNodePoolUsesCos(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NodeConfig: gke.NodeConfig{
-							Metadata:  defsecTypes.NewTestMetadata(),
-							ImageType: defsecTypes.String("COS_CONTAINERD", defsecTypes.NewTestMetadata()),
+							Metadata:  trivyTypes.NewTestMetadata(),
+							ImageType: trivyTypes.String("COS_CONTAINERD", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

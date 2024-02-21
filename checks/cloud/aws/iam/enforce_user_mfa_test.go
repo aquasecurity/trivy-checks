@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -25,9 +25,9 @@ func TestCheckEnforceUserMFA(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Name:       defsecTypes.String("other", defsecTypes.NewTestMetadata()),
-						LastAccess: defsecTypes.Time(time.Now(), defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Name:       trivyTypes.String("other", trivyTypes.NewTestMetadata()),
+						LastAccess: trivyTypes.Time(time.Now(), trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -38,9 +38,9 @@ func TestCheckEnforceUserMFA(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Name:       defsecTypes.String("other", defsecTypes.NewTestMetadata()),
-						LastAccess: defsecTypes.TimeUnresolvable(defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Name:       trivyTypes.String("other", trivyTypes.NewTestMetadata()),
+						LastAccess: trivyTypes.TimeUnresolvable(trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -51,12 +51,12 @@ func TestCheckEnforceUserMFA(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("root", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("root", trivyTypes.NewTestMetadata()),
 						MFADevices: []iam.MFADevice{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								IsVirtual: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								IsVirtual: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

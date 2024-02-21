@@ -3,7 +3,7 @@ package cloudtrail
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckEnableAllRegions(t *testing.T) {
 			input: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata:      defsecTypes.NewTestMetadata(),
-						IsMultiRegion: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:      trivyTypes.NewTestMetadata(),
+						IsMultiRegion: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckEnableAllRegions(t *testing.T) {
 			input: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata:      defsecTypes.NewTestMetadata(),
-						IsMultiRegion: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:      trivyTypes.NewTestMetadata(),
+						IsMultiRegion: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

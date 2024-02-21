@@ -3,7 +3,7 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/iam"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
@@ -28,13 +28,13 @@ func TestCheckRequireSupportRole(t *testing.T) {
 			input: iam.IAM{
 				Roles: []iam.Role{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("example", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("example", trivyTypes.NewTestMetadata()),
 						Policies: []iam.Policy{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Builtin:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-								Name:     defsecTypes.String("AWSSupportRole", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Builtin:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								Name:     trivyTypes.String("AWSSupportRole", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

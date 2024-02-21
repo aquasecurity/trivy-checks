@@ -3,7 +3,7 @@ package database
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,14 +24,14 @@ func TestCheckNoPublicFirewallAccess(t *testing.T) {
 			input: database.Database{
 				MySQLServers: []database.MySQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Server: database.Server{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							FirewallRules: []database.FirewallRule{
 								{
-									Metadata: defsecTypes.NewTestMetadata(),
-									StartIP:  defsecTypes.String("0.0.0.0", defsecTypes.NewTestMetadata()),
-									EndIP:    defsecTypes.String("255.255.255.255", defsecTypes.NewTestMetadata()),
+									Metadata: trivyTypes.NewTestMetadata(),
+									StartIP:  trivyTypes.String("0.0.0.0", trivyTypes.NewTestMetadata()),
+									EndIP:    trivyTypes.String("255.255.255.255", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -45,14 +45,14 @@ func TestCheckNoPublicFirewallAccess(t *testing.T) {
 			input: database.Database{
 				MySQLServers: []database.MySQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Server: database.Server{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							FirewallRules: []database.FirewallRule{
 								{
-									Metadata: defsecTypes.NewTestMetadata(),
-									StartIP:  defsecTypes.String("8.8.8.8", defsecTypes.NewTestMetadata()),
-									EndIP:    defsecTypes.String("8.8.8.8", defsecTypes.NewTestMetadata()),
+									Metadata: trivyTypes.NewTestMetadata(),
+									StartIP:  trivyTypes.String("8.8.8.8", trivyTypes.NewTestMetadata()),
+									EndIP:    trivyTypes.String("8.8.8.8", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -66,14 +66,14 @@ func TestCheckNoPublicFirewallAccess(t *testing.T) {
 			input: database.Database{
 				MSSQLServers: []database.MSSQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Server: database.Server{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							FirewallRules: []database.FirewallRule{
 								{
-									Metadata: defsecTypes.NewTestMetadata(),
-									StartIP:  defsecTypes.String("0.0.0.0", defsecTypes.NewTestMetadata()),
-									EndIP:    defsecTypes.String("255.255.255.255", defsecTypes.NewTestMetadata()),
+									Metadata: trivyTypes.NewTestMetadata(),
+									StartIP:  trivyTypes.String("0.0.0.0", trivyTypes.NewTestMetadata()),
+									EndIP:    trivyTypes.String("255.255.255.255", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -87,14 +87,14 @@ func TestCheckNoPublicFirewallAccess(t *testing.T) {
 			input: database.Database{
 				PostgreSQLServers: []database.PostgreSQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Server: database.Server{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							FirewallRules: []database.FirewallRule{
 								{
-									Metadata: defsecTypes.NewTestMetadata(),
-									StartIP:  defsecTypes.String("0.0.0.0", defsecTypes.NewTestMetadata()),
-									EndIP:    defsecTypes.String("255.255.255.255", defsecTypes.NewTestMetadata()),
+									Metadata: trivyTypes.NewTestMetadata(),
+									StartIP:  trivyTypes.String("0.0.0.0", trivyTypes.NewTestMetadata()),
+									EndIP:    trivyTypes.String("255.255.255.255", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -108,14 +108,14 @@ func TestCheckNoPublicFirewallAccess(t *testing.T) {
 			input: database.Database{
 				MariaDBServers: []database.MariaDBServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Server: database.Server{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							FirewallRules: []database.FirewallRule{
 								{
-									Metadata: defsecTypes.NewTestMetadata(),
-									StartIP:  defsecTypes.String("0.0.0.0", defsecTypes.NewTestMetadata()),
-									EndIP:    defsecTypes.String("255.255.255.255", defsecTypes.NewTestMetadata()),
+									Metadata: trivyTypes.NewTestMetadata(),
+									StartIP:  trivyTypes.String("0.0.0.0", trivyTypes.NewTestMetadata()),
+									EndIP:    trivyTypes.String("255.255.255.255", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -129,14 +129,14 @@ func TestCheckNoPublicFirewallAccess(t *testing.T) {
 			input: database.Database{
 				MySQLServers: []database.MySQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Server: database.Server{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							FirewallRules: []database.FirewallRule{
 								{
-									Metadata: defsecTypes.NewTestMetadata(),
-									StartIP:  defsecTypes.String("0.0.0.0", defsecTypes.NewTestMetadata()),
-									EndIP:    defsecTypes.String("0.0.0.0", defsecTypes.NewTestMetadata()),
+									Metadata: trivyTypes.NewTestMetadata(),
+									StartIP:  trivyTypes.String("0.0.0.0", trivyTypes.NewTestMetadata()),
+									EndIP:    trivyTypes.String("0.0.0.0", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -150,14 +150,14 @@ func TestCheckNoPublicFirewallAccess(t *testing.T) {
 			input: database.Database{
 				MSSQLServers: []database.MSSQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Server: database.Server{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							FirewallRules: []database.FirewallRule{
 								{
-									Metadata: defsecTypes.NewTestMetadata(),
-									StartIP:  defsecTypes.String("0.0.0.0", defsecTypes.NewTestMetadata()),
-									EndIP:    defsecTypes.String("0.0.0.0", defsecTypes.NewTestMetadata()),
+									Metadata: trivyTypes.NewTestMetadata(),
+									StartIP:  trivyTypes.String("0.0.0.0", trivyTypes.NewTestMetadata()),
+									EndIP:    trivyTypes.String("0.0.0.0", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -171,14 +171,14 @@ func TestCheckNoPublicFirewallAccess(t *testing.T) {
 			input: database.Database{
 				PostgreSQLServers: []database.PostgreSQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Server: database.Server{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							FirewallRules: []database.FirewallRule{
 								{
-									Metadata: defsecTypes.NewTestMetadata(),
-									StartIP:  defsecTypes.String("0.0.0.0", defsecTypes.NewTestMetadata()),
-									EndIP:    defsecTypes.String("0.0.0.0", defsecTypes.NewTestMetadata()),
+									Metadata: trivyTypes.NewTestMetadata(),
+									StartIP:  trivyTypes.String("0.0.0.0", trivyTypes.NewTestMetadata()),
+									EndIP:    trivyTypes.String("0.0.0.0", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -192,14 +192,14 @@ func TestCheckNoPublicFirewallAccess(t *testing.T) {
 			input: database.Database{
 				MariaDBServers: []database.MariaDBServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Server: database.Server{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							FirewallRules: []database.FirewallRule{
 								{
-									Metadata: defsecTypes.NewTestMetadata(),
-									StartIP:  defsecTypes.String("0.0.0.0", defsecTypes.NewTestMetadata()),
-									EndIP:    defsecTypes.String("0.0.0.0", defsecTypes.NewTestMetadata()),
+									Metadata: trivyTypes.NewTestMetadata(),
+									StartIP:  trivyTypes.String("0.0.0.0", trivyTypes.NewTestMetadata()),
+									EndIP:    trivyTypes.String("0.0.0.0", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},

@@ -3,7 +3,7 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,11 +24,11 @@ func TestCheckNoDefaultNetwork(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Projects: []iam.Project{
 							{
-								Metadata:          defsecTypes.NewTestMetadata(),
-								AutoCreateNetwork: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata:          trivyTypes.NewTestMetadata(),
+								AutoCreateNetwork: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -41,24 +41,24 @@ func TestCheckNoDefaultNetwork(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 
 						Folders: []iam.Folder{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Projects: []iam.Project{
 									{
-										Metadata:          defsecTypes.NewTestMetadata(),
-										AutoCreateNetwork: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+										Metadata:          trivyTypes.NewTestMetadata(),
+										AutoCreateNetwork: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 									},
 								},
 								Folders: []iam.Folder{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
+										Metadata: trivyTypes.NewTestMetadata(),
 										Projects: []iam.Project{
 											{
-												Metadata:          defsecTypes.NewTestMetadata(),
-												AutoCreateNetwork: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+												Metadata:          trivyTypes.NewTestMetadata(),
+												AutoCreateNetwork: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 											},
 										},
 									},
@@ -75,11 +75,11 @@ func TestCheckNoDefaultNetwork(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Projects: []iam.Project{
 							{
-								Metadata:          defsecTypes.NewTestMetadata(),
-								AutoCreateNetwork: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata:          trivyTypes.NewTestMetadata(),
+								AutoCreateNetwork: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

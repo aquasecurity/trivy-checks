@@ -3,7 +3,7 @@ package storage
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -25,12 +25,12 @@ func TestCheckNoPublicAccess(t *testing.T) {
 			input: storage.Storage{
 				Buckets: []storage.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Bindings: []iam.Binding{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Members: []defsecTypes.StringValue{
-									defsecTypes.String("allAuthenticatedUsers", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Members: []trivyTypes.StringValue{
+									trivyTypes.String("allAuthenticatedUsers", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -44,11 +44,11 @@ func TestCheckNoPublicAccess(t *testing.T) {
 			input: storage.Storage{
 				Buckets: []storage.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Members: []iam.Member{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Member:   defsecTypes.String("allUsers", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Member:   trivyTypes.String("allUsers", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -61,19 +61,19 @@ func TestCheckNoPublicAccess(t *testing.T) {
 			input: storage.Storage{
 				Buckets: []storage.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Bindings: []iam.Binding{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Members: []defsecTypes.StringValue{
-									defsecTypes.String("user:jane@example.com", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Members: []trivyTypes.StringValue{
+									trivyTypes.String("user:jane@example.com", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
 						Members: []iam.Member{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Member:   defsecTypes.String("user:john@example.com", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Member:   trivyTypes.String("user:john@example.com", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

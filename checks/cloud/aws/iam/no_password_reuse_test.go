@@ -3,7 +3,7 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -23,8 +23,8 @@ func TestCheckNoPasswordReuse(t *testing.T) {
 			name: "IAM with 1 password that can't be reused (min)",
 			input: iam.IAM{
 				PasswordPolicy: iam.PasswordPolicy{
-					Metadata:             defsecTypes.NewTestMetadata(),
-					ReusePreventionCount: defsecTypes.Int(1, defsecTypes.NewTestMetadata()),
+					Metadata:             trivyTypes.NewTestMetadata(),
+					ReusePreventionCount: trivyTypes.Int(1, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: true,
@@ -33,8 +33,8 @@ func TestCheckNoPasswordReuse(t *testing.T) {
 			name: "IAM with 5 passwords that can't be reused",
 			input: iam.IAM{
 				PasswordPolicy: iam.PasswordPolicy{
-					Metadata:             defsecTypes.NewTestMetadata(),
-					ReusePreventionCount: defsecTypes.Int(5, defsecTypes.NewTestMetadata()),
+					Metadata:             trivyTypes.NewTestMetadata(),
+					ReusePreventionCount: trivyTypes.Int(5, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: false,

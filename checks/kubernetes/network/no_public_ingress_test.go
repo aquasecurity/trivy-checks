@@ -3,7 +3,7 @@ package network
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -23,13 +23,13 @@ func TestCheckNoPublicIngress(t *testing.T) {
 			name: "Public source CIDR",
 			input: []kubernetes.NetworkPolicy{
 				{
-					Metadata: defsecTypes.NewTestMetadata(),
+					Metadata: trivyTypes.NewTestMetadata(),
 					Spec: kubernetes.NetworkPolicySpec{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Ingress: kubernetes.Ingress{
-							Metadata: defsecTypes.NewTestMetadata(),
-							SourceCIDRs: []defsecTypes.StringValue{
-								defsecTypes.String("0.0.0.0/0", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							SourceCIDRs: []trivyTypes.StringValue{
+								trivyTypes.String("0.0.0.0/0", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -41,13 +41,13 @@ func TestCheckNoPublicIngress(t *testing.T) {
 			name: "Private source CIDR",
 			input: []kubernetes.NetworkPolicy{
 				{
-					Metadata: defsecTypes.NewTestMetadata(),
+					Metadata: trivyTypes.NewTestMetadata(),
 					Spec: kubernetes.NetworkPolicySpec{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Ingress: kubernetes.Ingress{
-							Metadata: defsecTypes.NewTestMetadata(),
-							SourceCIDRs: []defsecTypes.StringValue{
-								defsecTypes.String("10.0.0.0/16", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							SourceCIDRs: []trivyTypes.StringValue{
+								trivyTypes.String("10.0.0.0/16", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

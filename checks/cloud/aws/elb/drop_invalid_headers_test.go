@@ -3,7 +3,7 @@ package elb
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,9 +24,9 @@ func TestCheckDropInvalidHeaders(t *testing.T) {
 			input: elb.ELB{
 				LoadBalancers: []elb.LoadBalancer{
 					{
-						Metadata:                defsecTypes.NewTestMetadata(),
-						Type:                    defsecTypes.String(elb.TypeApplication, defsecTypes.NewTestMetadata()),
-						DropInvalidHeaderFields: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:                trivyTypes.NewTestMetadata(),
+						Type:                    trivyTypes.String(elb.TypeApplication, trivyTypes.NewTestMetadata()),
+						DropInvalidHeaderFields: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -37,9 +37,9 @@ func TestCheckDropInvalidHeaders(t *testing.T) {
 			input: elb.ELB{
 				LoadBalancers: []elb.LoadBalancer{
 					{
-						Metadata:                defsecTypes.NewTestMetadata(),
-						Type:                    defsecTypes.String(elb.TypeApplication, defsecTypes.NewTestMetadata()),
-						DropInvalidHeaderFields: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:                trivyTypes.NewTestMetadata(),
+						Type:                    trivyTypes.String(elb.TypeApplication, trivyTypes.NewTestMetadata()),
+						DropInvalidHeaderFields: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -49,8 +49,8 @@ func TestCheckDropInvalidHeaders(t *testing.T) {
 			input: elb.ELB{
 				LoadBalancers: []elb.LoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Type:     defsecTypes.String(elb.TypeClassic, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Type:     trivyTypes.String(elb.TypeClassic, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

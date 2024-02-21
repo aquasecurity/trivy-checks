@@ -3,7 +3,7 @@ package apigateway
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	v1 "github.com/aquasecurity/trivy/pkg/iac/providers/aws/apigateway/v1"
 
@@ -25,13 +25,13 @@ func TestCheckEnableAccessLogging(t *testing.T) {
 			input: v1.APIGateway{
 				APIs: []v1.API{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Stages: []v1.Stage{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								AccessLogging: v1.AccessLogging{
-									Metadata:              defsecTypes.NewTestMetadata(),
-									CloudwatchLogGroupARN: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+									Metadata:              trivyTypes.NewTestMetadata(),
+									CloudwatchLogGroupARN: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -45,13 +45,13 @@ func TestCheckEnableAccessLogging(t *testing.T) {
 			input: v1.APIGateway{
 				APIs: []v1.API{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Stages: []v1.Stage{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								AccessLogging: v1.AccessLogging{
-									Metadata:              defsecTypes.NewTestMetadata(),
-									CloudwatchLogGroupARN: defsecTypes.String("log-group-arn", defsecTypes.NewTestMetadata()),
+									Metadata:              trivyTypes.NewTestMetadata(),
+									CloudwatchLogGroupARN: trivyTypes.String("log-group-arn", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},

@@ -3,7 +3,7 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckDisablePasswordAuthentication(t *testing.T) {
 			input: compute.Compute{
 				LinuxVirtualMachines: []compute.LinuxVirtualMachine{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						OSProfileLinuxConfig: compute.OSProfileLinuxConfig{
-							Metadata:                      defsecTypes.NewTestMetadata(),
-							DisablePasswordAuthentication: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata:                      trivyTypes.NewTestMetadata(),
+							DisablePasswordAuthentication: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckDisablePasswordAuthentication(t *testing.T) {
 			input: compute.Compute{
 				LinuxVirtualMachines: []compute.LinuxVirtualMachine{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						OSProfileLinuxConfig: compute.OSProfileLinuxConfig{
-							Metadata:                      defsecTypes.NewTestMetadata(),
-							DisablePasswordAuthentication: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:                      trivyTypes.NewTestMetadata(),
+							DisablePasswordAuthentication: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

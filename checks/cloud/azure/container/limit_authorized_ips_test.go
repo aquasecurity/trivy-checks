@@ -3,7 +3,7 @@ package container
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,9 +24,9 @@ func TestCheckLimitAuthorizedIps(t *testing.T) {
 			input: container.Container{
 				KubernetesClusters: []container.KubernetesCluster{
 					{
-						Metadata:                    defsecTypes.NewTestMetadata(),
-						EnablePrivateCluster:        defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-						APIServerAuthorizedIPRanges: []defsecTypes.StringValue{},
+						Metadata:                    trivyTypes.NewTestMetadata(),
+						EnablePrivateCluster:        trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+						APIServerAuthorizedIPRanges: []trivyTypes.StringValue{},
 					},
 				},
 			},
@@ -37,10 +37,10 @@ func TestCheckLimitAuthorizedIps(t *testing.T) {
 			input: container.Container{
 				KubernetesClusters: []container.KubernetesCluster{
 					{
-						Metadata:             defsecTypes.NewTestMetadata(),
-						EnablePrivateCluster: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-						APIServerAuthorizedIPRanges: []defsecTypes.StringValue{
-							defsecTypes.String("1.2.3.4/32", defsecTypes.NewTestMetadata()),
+						Metadata:             trivyTypes.NewTestMetadata(),
+						EnablePrivateCluster: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+						APIServerAuthorizedIPRanges: []trivyTypes.StringValue{
+							trivyTypes.String("1.2.3.4/32", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

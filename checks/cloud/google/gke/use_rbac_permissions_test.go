@@ -3,7 +3,7 @@ package gke
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckUseRbacPermissions(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata:         defsecTypes.NewTestMetadata(),
-						EnableLegacyABAC: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:         trivyTypes.NewTestMetadata(),
+						EnableLegacyABAC: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckUseRbacPermissions(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata:         defsecTypes.NewTestMetadata(),
-						EnableLegacyABAC: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:         trivyTypes.NewTestMetadata(),
+						EnableLegacyABAC: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

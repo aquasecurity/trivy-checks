@@ -3,7 +3,7 @@ package athena
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckNoEncryptionOverride(t *testing.T) {
 			input: athena.Athena{
 				Workgroups: []athena.Workgroup{
 					{
-						Metadata:             defsecTypes.NewTestMetadata(),
-						EnforceConfiguration: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:             trivyTypes.NewTestMetadata(),
+						EnforceConfiguration: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckNoEncryptionOverride(t *testing.T) {
 			input: athena.Athena{
 				Workgroups: []athena.Workgroup{
 					{
-						Metadata:             defsecTypes.NewTestMetadata(),
-						EnforceConfiguration: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:             trivyTypes.NewTestMetadata(),
+						EnforceConfiguration: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

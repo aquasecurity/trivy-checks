@@ -3,7 +3,7 @@ package ec2
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/ec2"
 
@@ -25,14 +25,14 @@ func TestCheckNoPublicIngress(t *testing.T) {
 			input: ec2.EC2{
 				NetworkACLs: []ec2.NetworkACL{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Rules: []ec2.NetworkACLRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Type:     defsecTypes.String(ec2.TypeIngress, defsecTypes.NewTestMetadata()),
-								Action:   defsecTypes.String(ec2.ActionAllow, defsecTypes.NewTestMetadata()),
-								CIDRs: []defsecTypes.StringValue{
-									defsecTypes.String("0.0.0.0/0", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Type:     trivyTypes.String(ec2.TypeIngress, trivyTypes.NewTestMetadata()),
+								Action:   trivyTypes.String(ec2.ActionAllow, trivyTypes.NewTestMetadata()),
+								CIDRs: []trivyTypes.StringValue{
+									trivyTypes.String("0.0.0.0/0", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -46,14 +46,14 @@ func TestCheckNoPublicIngress(t *testing.T) {
 			input: ec2.EC2{
 				NetworkACLs: []ec2.NetworkACL{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Rules: []ec2.NetworkACLRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Type:     defsecTypes.String(ec2.TypeIngress, defsecTypes.NewTestMetadata()),
-								Action:   defsecTypes.String(ec2.ActionAllow, defsecTypes.NewTestMetadata()),
-								CIDRs: []defsecTypes.StringValue{
-									defsecTypes.String("10.0.0.0/16", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Type:     trivyTypes.String(ec2.TypeIngress, trivyTypes.NewTestMetadata()),
+								Action:   trivyTypes.String(ec2.ActionAllow, trivyTypes.NewTestMetadata()),
+								CIDRs: []trivyTypes.StringValue{
+									trivyTypes.String("10.0.0.0/16", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},

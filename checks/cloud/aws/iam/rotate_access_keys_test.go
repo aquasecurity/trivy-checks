@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -25,16 +25,16 @@ func TestCheckAccessKeysRotated(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Name:       defsecTypes.String("user", defsecTypes.NewTestMetadata()),
-						LastAccess: defsecTypes.TimeUnresolvable(defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Name:       trivyTypes.String("user", trivyTypes.NewTestMetadata()),
+						LastAccess: trivyTypes.TimeUnresolvable(trivyTypes.NewTestMetadata()),
 						AccessKeys: []iam.AccessKey{
 							{
-								Metadata:     defsecTypes.NewTestMetadata(),
-								AccessKeyId:  defsecTypes.String("AKIACKCEVSQ6C2EXAMPLE", defsecTypes.NewTestMetadata()),
-								Active:       defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-								CreationDate: defsecTypes.Time(time.Now().Add(-time.Hour*24*30), defsecTypes.NewTestMetadata()),
-								LastAccess:   defsecTypes.Time(time.Now(), defsecTypes.NewTestMetadata()),
+								Metadata:     trivyTypes.NewTestMetadata(),
+								AccessKeyId:  trivyTypes.String("AKIACKCEVSQ6C2EXAMPLE", trivyTypes.NewTestMetadata()),
+								Active:       trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								CreationDate: trivyTypes.Time(time.Now().Add(-time.Hour*24*30), trivyTypes.NewTestMetadata()),
+								LastAccess:   trivyTypes.Time(time.Now(), trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -47,16 +47,16 @@ func TestCheckAccessKeysRotated(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Name:       defsecTypes.String("user", defsecTypes.NewTestMetadata()),
-						LastAccess: defsecTypes.TimeUnresolvable(defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Name:       trivyTypes.String("user", trivyTypes.NewTestMetadata()),
+						LastAccess: trivyTypes.TimeUnresolvable(trivyTypes.NewTestMetadata()),
 						AccessKeys: []iam.AccessKey{
 							{
-								Metadata:     defsecTypes.NewTestMetadata(),
-								AccessKeyId:  defsecTypes.String("AKIACKCEVSQ6C2EXAMPLE", defsecTypes.NewTestMetadata()),
-								Active:       defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-								CreationDate: defsecTypes.Time(time.Now().Add(-time.Hour*24*30*4), defsecTypes.NewTestMetadata()),
-								LastAccess:   defsecTypes.Time(time.Now(), defsecTypes.NewTestMetadata()),
+								Metadata:     trivyTypes.NewTestMetadata(),
+								AccessKeyId:  trivyTypes.String("AKIACKCEVSQ6C2EXAMPLE", trivyTypes.NewTestMetadata()),
+								Active:       trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								CreationDate: trivyTypes.Time(time.Now().Add(-time.Hour*24*30*4), trivyTypes.NewTestMetadata()),
+								LastAccess:   trivyTypes.Time(time.Now(), trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

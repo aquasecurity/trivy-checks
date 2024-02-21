@@ -3,7 +3,7 @@ package sam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckEnableApiAccessLogging(t *testing.T) {
 			input: sam.SAM{
 				APIs: []sam.API{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						AccessLogging: sam.AccessLogging{
-							Metadata:              defsecTypes.NewTestMetadata(),
-							CloudwatchLogGroupARN: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+							Metadata:              trivyTypes.NewTestMetadata(),
+							CloudwatchLogGroupARN: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckEnableApiAccessLogging(t *testing.T) {
 			input: sam.SAM{
 				APIs: []sam.API{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						AccessLogging: sam.AccessLogging{
-							Metadata:              defsecTypes.NewTestMetadata(),
-							CloudwatchLogGroupARN: defsecTypes.String("log-group-arn", defsecTypes.NewTestMetadata()),
+							Metadata:              trivyTypes.NewTestMetadata(),
+							CloudwatchLogGroupARN: trivyTypes.String("log-group-arn", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

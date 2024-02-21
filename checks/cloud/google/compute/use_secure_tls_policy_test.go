@@ -3,7 +3,7 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: compute.Compute{
 				SSLPolicies: []compute.SSLPolicy{
 					{
-						Metadata:          defsecTypes.NewTestMetadata(),
-						MinimumTLSVersion: defsecTypes.String("TLS_1_0", defsecTypes.NewTestMetadata()),
+						Metadata:          trivyTypes.NewTestMetadata(),
+						MinimumTLSVersion: trivyTypes.String("TLS_1_0", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: compute.Compute{
 				SSLPolicies: []compute.SSLPolicy{
 					{
-						Metadata:          defsecTypes.NewTestMetadata(),
-						MinimumTLSVersion: defsecTypes.String("TLS_1_2", defsecTypes.NewTestMetadata()),
+						Metadata:          trivyTypes.NewTestMetadata(),
+						MinimumTLSVersion: trivyTypes.String("TLS_1_2", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

@@ -3,7 +3,7 @@ package documentdb
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckEncryptionCustomerKey(t *testing.T) {
 			input: documentdb.DocumentDB{
 				Clusters: []documentdb.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						KMSKeyID: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						KMSKeyID: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,12 +36,12 @@ func TestCheckEncryptionCustomerKey(t *testing.T) {
 			input: documentdb.DocumentDB{
 				Clusters: []documentdb.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						KMSKeyID: defsecTypes.String("kms-key", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						KMSKeyID: trivyTypes.String("kms-key", trivyTypes.NewTestMetadata()),
 						Instances: []documentdb.Instance{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								KMSKeyID: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								KMSKeyID: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -54,12 +54,12 @@ func TestCheckEncryptionCustomerKey(t *testing.T) {
 			input: documentdb.DocumentDB{
 				Clusters: []documentdb.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						KMSKeyID: defsecTypes.String("kms-key", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						KMSKeyID: trivyTypes.String("kms-key", trivyTypes.NewTestMetadata()),
 						Instances: []documentdb.Instance{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								KMSKeyID: defsecTypes.String("kms-key", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								KMSKeyID: trivyTypes.String("kms-key", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

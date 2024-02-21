@@ -3,7 +3,7 @@ package elb
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,9 +24,9 @@ func TestCheckAlbNotPublic(t *testing.T) {
 			input: elb.ELB{
 				LoadBalancers: []elb.LoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Type:     defsecTypes.String(elb.TypeApplication, defsecTypes.NewTestMetadata()),
-						Internal: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Type:     trivyTypes.String(elb.TypeApplication, trivyTypes.NewTestMetadata()),
+						Internal: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -37,9 +37,9 @@ func TestCheckAlbNotPublic(t *testing.T) {
 			input: elb.ELB{
 				LoadBalancers: []elb.LoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Type:     defsecTypes.String(elb.TypeApplication, defsecTypes.NewTestMetadata()),
-						Internal: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Type:     trivyTypes.String(elb.TypeApplication, trivyTypes.NewTestMetadata()),
+						Internal: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

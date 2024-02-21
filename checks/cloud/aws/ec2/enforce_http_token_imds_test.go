@@ -3,7 +3,7 @@ package ec2
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,11 +24,11 @@ func TestCheckIMDSAccessRequiresToken(t *testing.T) {
 			input: ec2.EC2{
 				Instances: []ec2.Instance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						MetadataOptions: ec2.MetadataOptions{
-							Metadata:     defsecTypes.NewTestMetadata(),
-							HttpTokens:   defsecTypes.String("optional", defsecTypes.NewTestMetadata()),
-							HttpEndpoint: defsecTypes.String("enabled", defsecTypes.NewTestMetadata()),
+							Metadata:     trivyTypes.NewTestMetadata(),
+							HttpTokens:   trivyTypes.String("optional", trivyTypes.NewTestMetadata()),
+							HttpEndpoint: trivyTypes.String("enabled", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -40,11 +40,11 @@ func TestCheckIMDSAccessRequiresToken(t *testing.T) {
 			input: ec2.EC2{
 				Instances: []ec2.Instance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						MetadataOptions: ec2.MetadataOptions{
-							Metadata:     defsecTypes.NewTestMetadata(),
-							HttpTokens:   defsecTypes.String("required", defsecTypes.NewTestMetadata()),
-							HttpEndpoint: defsecTypes.String("disabled", defsecTypes.NewTestMetadata()),
+							Metadata:     trivyTypes.NewTestMetadata(),
+							HttpTokens:   trivyTypes.String("required", trivyTypes.NewTestMetadata()),
+							HttpEndpoint: trivyTypes.String("disabled", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

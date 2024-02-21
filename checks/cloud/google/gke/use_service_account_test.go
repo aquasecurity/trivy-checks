@@ -3,7 +3,7 @@ package gke
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,11 +24,11 @@ func TestCheckUseServiceAccount(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata:              defsecTypes.NewTestMetadata(),
-						RemoveDefaultNodePool: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:              trivyTypes.NewTestMetadata(),
+						RemoveDefaultNodePool: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						NodeConfig: gke.NodeConfig{
-							Metadata:       defsecTypes.NewTestMetadata(),
-							ServiceAccount: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+							Metadata:       trivyTypes.NewTestMetadata(),
+							ServiceAccount: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -40,11 +40,11 @@ func TestCheckUseServiceAccount(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata:              defsecTypes.NewTestMetadata(),
-						RemoveDefaultNodePool: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:              trivyTypes.NewTestMetadata(),
+						RemoveDefaultNodePool: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						NodeConfig: gke.NodeConfig{
-							Metadata:       defsecTypes.NewTestMetadata(),
-							ServiceAccount: defsecTypes.String("service-account", defsecTypes.NewTestMetadata()),
+							Metadata:       trivyTypes.NewTestMetadata(),
+							ServiceAccount: trivyTypes.String("service-account", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

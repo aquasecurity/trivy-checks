@@ -3,7 +3,7 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,12 +24,12 @@ func TestCheckNoPublicEgress(t *testing.T) {
 			input: openstack.Networking{
 				SecurityGroups: []openstack.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Rules: []openstack.SecurityGroupRule{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								IsIngress: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-								CIDR:      defsecTypes.String("", defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								IsIngress: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								CIDR:      trivyTypes.String("", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -42,12 +42,12 @@ func TestCheckNoPublicEgress(t *testing.T) {
 			input: openstack.Networking{
 				SecurityGroups: []openstack.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Rules: []openstack.SecurityGroupRule{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								IsIngress: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-								CIDR:      defsecTypes.String("10.10.0.1", defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								IsIngress: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								CIDR:      trivyTypes.String("10.10.0.1", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -60,12 +60,12 @@ func TestCheckNoPublicEgress(t *testing.T) {
 			input: openstack.Networking{
 				SecurityGroups: []openstack.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Rules: []openstack.SecurityGroupRule{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								IsIngress: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-								CIDR:      defsecTypes.String("8.8.8.8", defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								IsIngress: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								CIDR:      trivyTypes.String("8.8.8.8", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -78,12 +78,12 @@ func TestCheckNoPublicEgress(t *testing.T) {
 			input: openstack.Networking{
 				SecurityGroups: []openstack.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Rules: []openstack.SecurityGroupRule{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								IsIngress: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-								CIDR:      defsecTypes.String("80.0.0.0/8", defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								IsIngress: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								CIDR:      trivyTypes.String("80.0.0.0/8", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

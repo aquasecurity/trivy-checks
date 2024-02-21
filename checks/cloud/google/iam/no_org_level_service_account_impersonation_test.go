@@ -3,7 +3,7 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,11 +24,11 @@ func TestCheckNoOrgLevelServiceAccountImpersonation(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Members: []iam.Member{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Role:     defsecTypes.String("roles/iam.serviceAccountUser", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Role:     trivyTypes.String("roles/iam.serviceAccountUser", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -41,11 +41,11 @@ func TestCheckNoOrgLevelServiceAccountImpersonation(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Bindings: []iam.Binding{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Role:     defsecTypes.String("roles/iam.serviceAccountTokenCreator", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Role:     trivyTypes.String("roles/iam.serviceAccountTokenCreator", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -59,17 +59,17 @@ func TestCheckNoOrgLevelServiceAccountImpersonation(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Members: []iam.Member{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Role:     defsecTypes.String("roles/some-custom-role", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Role:     trivyTypes.String("roles/some-custom-role", trivyTypes.NewTestMetadata()),
 							},
 						},
 						Bindings: []iam.Binding{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Role:     defsecTypes.String("roles/some-custom-role", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Role:     trivyTypes.String("roles/some-custom-role", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

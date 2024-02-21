@@ -3,7 +3,7 @@ package mq
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckNoPublicAccess(t *testing.T) {
 			input: mq.MQ{
 				Brokers: []mq.Broker{
 					{
-						Metadata:     defsecTypes.NewTestMetadata(),
-						PublicAccess: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:     trivyTypes.NewTestMetadata(),
+						PublicAccess: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckNoPublicAccess(t *testing.T) {
 			input: mq.MQ{
 				Brokers: []mq.Broker{
 					{
-						Metadata:     defsecTypes.NewTestMetadata(),
-						PublicAccess: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:     trivyTypes.NewTestMetadata(),
+						PublicAccess: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

@@ -3,7 +3,7 @@ package storage
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,11 +24,11 @@ func TestCheckAllowMicrosoftServiceBypass(t *testing.T) {
 			input: storage.Storage{
 				Accounts: []storage.Account{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkRules: []storage.NetworkRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Bypass:   []defsecTypes.StringValue{},
+								Metadata: trivyTypes.NewTestMetadata(),
+								Bypass:   []trivyTypes.StringValue{},
 							},
 						},
 					},
@@ -41,12 +41,12 @@ func TestCheckAllowMicrosoftServiceBypass(t *testing.T) {
 			input: storage.Storage{
 				Accounts: []storage.Account{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkRules: []storage.NetworkRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Bypass: []defsecTypes.StringValue{
-									defsecTypes.String("AzureServices", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Bypass: []trivyTypes.StringValue{
+									trivyTypes.String("AzureServices", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},

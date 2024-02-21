@@ -3,7 +3,7 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,15 +24,15 @@ func TestCheckNoProjectLevelDefaultServiceAccountAssignment(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Projects: []iam.Project{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Members: []iam.Member{
 									{
-										Metadata:              defsecTypes.NewTestMetadata(),
-										DefaultServiceAccount: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-										Member:                defsecTypes.String("123-compute@developer.gserviceaccount.com", defsecTypes.NewTestMetadata()),
+										Metadata:              trivyTypes.NewTestMetadata(),
+										DefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+										Member:                trivyTypes.String("123-compute@developer.gserviceaccount.com", trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -47,14 +47,14 @@ func TestCheckNoProjectLevelDefaultServiceAccountAssignment(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Projects: []iam.Project{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Bindings: []iam.Binding{
 									{
-										Metadata:                      defsecTypes.NewTestMetadata(),
-										IncludesDefaultServiceAccount: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+										Metadata:                      trivyTypes.NewTestMetadata(),
+										IncludesDefaultServiceAccount: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -69,23 +69,23 @@ func TestCheckNoProjectLevelDefaultServiceAccountAssignment(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Projects: []iam.Project{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Members: []iam.Member{
 									{
-										Metadata:              defsecTypes.NewTestMetadata(),
-										DefaultServiceAccount: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-										Member:                defsecTypes.String("proper@email.com", defsecTypes.NewTestMetadata()),
+										Metadata:              trivyTypes.NewTestMetadata(),
+										DefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+										Member:                trivyTypes.String("proper@email.com", trivyTypes.NewTestMetadata()),
 									},
 								},
 								Bindings: []iam.Binding{
 									{
-										Metadata:                      defsecTypes.NewTestMetadata(),
-										IncludesDefaultServiceAccount: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-										Members: []defsecTypes.StringValue{
-											defsecTypes.String("proper@email.com", defsecTypes.NewTestMetadata()),
+										Metadata:                      trivyTypes.NewTestMetadata(),
+										IncludesDefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+										Members: []trivyTypes.StringValue{
+											trivyTypes.String("proper@email.com", trivyTypes.NewTestMetadata()),
 										},
 									},
 								},

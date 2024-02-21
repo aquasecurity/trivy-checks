@@ -3,7 +3,7 @@ package container
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckUseRbacPermissions(t *testing.T) {
 			input: container.Container{
 				KubernetesClusters: []container.KubernetesCluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						RoleBasedAccessControl: container.RoleBasedAccessControl{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckUseRbacPermissions(t *testing.T) {
 			input: container.Container{
 				KubernetesClusters: []container.KubernetesCluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						RoleBasedAccessControl: container.RoleBasedAccessControl{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

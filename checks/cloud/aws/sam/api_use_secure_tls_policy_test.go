@@ -3,7 +3,7 @@ package sam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckApiUseSecureTlsPolicy(t *testing.T) {
 			input: sam.SAM{
 				APIs: []sam.API{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						DomainConfiguration: sam.DomainConfiguration{
-							Metadata:       defsecTypes.NewTestMetadata(),
-							SecurityPolicy: defsecTypes.String("TLS_1_0", defsecTypes.NewTestMetadata()),
+							Metadata:       trivyTypes.NewTestMetadata(),
+							SecurityPolicy: trivyTypes.String("TLS_1_0", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckApiUseSecureTlsPolicy(t *testing.T) {
 			input: sam.SAM{
 				APIs: []sam.API{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						DomainConfiguration: sam.DomainConfiguration{
-							Metadata:       defsecTypes.NewTestMetadata(),
-							SecurityPolicy: defsecTypes.String("TLS_1_2", defsecTypes.NewTestMetadata()),
+							Metadata:       trivyTypes.NewTestMetadata(),
+							SecurityPolicy: trivyTypes.String("TLS_1_2", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

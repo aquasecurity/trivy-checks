@@ -3,7 +3,7 @@ package eks
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,11 +24,11 @@ func TestCheckEncryptSecrets(t *testing.T) {
 			input: eks.EKS{
 				Clusters: []eks.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: eks.Encryption{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Secrets:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-							KMSKeyID: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Secrets:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+							KMSKeyID: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -40,11 +40,11 @@ func TestCheckEncryptSecrets(t *testing.T) {
 			input: eks.EKS{
 				Clusters: []eks.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: eks.Encryption{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Secrets:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							KMSKeyID: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Secrets:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							KMSKeyID: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -56,11 +56,11 @@ func TestCheckEncryptSecrets(t *testing.T) {
 			input: eks.EKS{
 				Clusters: []eks.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: eks.Encryption{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Secrets:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							KMSKeyID: defsecTypes.String("some-arn", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Secrets:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							KMSKeyID: trivyTypes.String("some-arn", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

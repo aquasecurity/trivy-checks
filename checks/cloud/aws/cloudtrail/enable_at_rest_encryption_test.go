@@ -3,7 +3,7 @@ package cloudtrail
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckEnableAtRestEncryption(t *testing.T) {
 			input: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						KMSKeyID: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						KMSKeyID: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckEnableAtRestEncryption(t *testing.T) {
 			input: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						KMSKeyID: defsecTypes.String("some-kms-key", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						KMSKeyID: trivyTypes.String("some-kms-key", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

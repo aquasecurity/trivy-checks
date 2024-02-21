@@ -3,7 +3,7 @@ package sql
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,13 +24,13 @@ func TestCheckEnableBackup(t *testing.T) {
 			input: sql.SQL{
 				Instances: []sql.DatabaseInstance{
 					{
-						Metadata:  defsecTypes.NewTestMetadata(),
-						IsReplica: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:  trivyTypes.NewTestMetadata(),
+						IsReplica: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						Settings: sql.Settings{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							Backups: sql.Backups{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -43,13 +43,13 @@ func TestCheckEnableBackup(t *testing.T) {
 			input: sql.SQL{
 				Instances: []sql.DatabaseInstance{
 					{
-						Metadata:  defsecTypes.NewTestMetadata(),
-						IsReplica: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:  trivyTypes.NewTestMetadata(),
+						IsReplica: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						Settings: sql.Settings{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							Backups: sql.Backups{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -62,13 +62,13 @@ func TestCheckEnableBackup(t *testing.T) {
 			input: sql.SQL{
 				Instances: []sql.DatabaseInstance{
 					{
-						Metadata:  defsecTypes.NewTestMetadata(),
-						IsReplica: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:  trivyTypes.NewTestMetadata(),
+						IsReplica: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						Settings: sql.Settings{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							Backups: sql.Backups{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

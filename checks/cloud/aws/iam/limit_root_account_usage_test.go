@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -25,9 +25,9 @@ func TestCheckLimitRootAccountUsage(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Name:       defsecTypes.String("root", defsecTypes.NewTestMetadata()),
-						LastAccess: defsecTypes.TimeUnresolvable(defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Name:       trivyTypes.String("root", trivyTypes.NewTestMetadata()),
+						LastAccess: trivyTypes.TimeUnresolvable(trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -38,9 +38,9 @@ func TestCheckLimitRootAccountUsage(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Name:       defsecTypes.String("other", defsecTypes.NewTestMetadata()),
-						LastAccess: defsecTypes.Time(time.Now().Add(-time.Hour*24*90), defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Name:       trivyTypes.String("other", trivyTypes.NewTestMetadata()),
+						LastAccess: trivyTypes.Time(time.Now().Add(-time.Hour*24*90), trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -51,9 +51,9 @@ func TestCheckLimitRootAccountUsage(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Name:       defsecTypes.String("root", defsecTypes.NewTestMetadata()),
-						LastAccess: defsecTypes.Time(time.Now().Add(-time.Hour), defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Name:       trivyTypes.String("root", trivyTypes.NewTestMetadata()),
+						LastAccess: trivyTypes.Time(time.Now().Add(-time.Hour), trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -64,9 +64,9 @@ func TestCheckLimitRootAccountUsage(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Name:       defsecTypes.String("other", defsecTypes.NewTestMetadata()),
-						LastAccess: defsecTypes.Time(time.Now().Add(-time.Hour), defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Name:       trivyTypes.String("other", trivyTypes.NewTestMetadata()),
+						LastAccess: trivyTypes.Time(time.Now().Add(-time.Hour), trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

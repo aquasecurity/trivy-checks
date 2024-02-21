@@ -3,7 +3,7 @@ package appservice
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,9 +24,9 @@ func TestCheckAuthenticationEnabled(t *testing.T) {
 			input: appservice.AppService{
 				Services: []appservice.Service{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Authentication: struct{ Enabled defsecTypes.BoolValue }{
-							Enabled: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Authentication: struct{ Enabled trivyTypes.BoolValue }{
+							Enabled: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -38,9 +38,9 @@ func TestCheckAuthenticationEnabled(t *testing.T) {
 			input: appservice.AppService{
 				Services: []appservice.Service{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Authentication: struct{ Enabled defsecTypes.BoolValue }{
-							Enabled: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Authentication: struct{ Enabled trivyTypes.BoolValue }{
+							Enabled: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

@@ -3,7 +3,7 @@ package apigateway
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	v1 "github.com/aquasecurity/trivy/pkg/iac/providers/aws/apigateway/v1"
 
@@ -25,11 +25,11 @@ func TestCheckEnableTracing(t *testing.T) {
 			input: v1.APIGateway{
 				APIs: []v1.API{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Stages: []v1.Stage{
 							{
-								Metadata:           defsecTypes.NewTestMetadata(),
-								XRayTracingEnabled: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata:           trivyTypes.NewTestMetadata(),
+								XRayTracingEnabled: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -42,11 +42,11 @@ func TestCheckEnableTracing(t *testing.T) {
 			input: v1.APIGateway{
 				APIs: []v1.API{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Stages: []v1.Stage{
 							{
-								Metadata:           defsecTypes.NewTestMetadata(),
-								XRayTracingEnabled: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata:           trivyTypes.NewTestMetadata(),
+								XRayTracingEnabled: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

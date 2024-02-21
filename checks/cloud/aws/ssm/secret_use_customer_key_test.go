@@ -3,7 +3,7 @@ package ssm
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckSecretUseCustomerKey(t *testing.T) {
 			input: ssm.SSM{
 				Secrets: []ssm.Secret{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						KMSKeyID: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						KMSKeyID: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckSecretUseCustomerKey(t *testing.T) {
 			input: ssm.SSM{
 				Secrets: []ssm.Secret{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						KMSKeyID: defsecTypes.String(ssm.DefaultKMSKeyID, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						KMSKeyID: trivyTypes.String(ssm.DefaultKMSKeyID, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -48,8 +48,8 @@ func TestCheckSecretUseCustomerKey(t *testing.T) {
 			input: ssm.SSM{
 				Secrets: []ssm.Secret{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						KMSKeyID: defsecTypes.String("some-ok-key", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						KMSKeyID: trivyTypes.String("some-ok-key", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

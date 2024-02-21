@@ -3,7 +3,7 @@ package lambda
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,12 +24,12 @@ func TestCheckRestrictSourceArn(t *testing.T) {
 			input: lambda.Lambda{
 				Functions: []lambda.Function{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Permissions: []lambda.Permission{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								Principal: defsecTypes.String("sns.amazonaws.com", defsecTypes.NewTestMetadata()),
-								SourceARN: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								Principal: trivyTypes.String("sns.amazonaws.com", trivyTypes.NewTestMetadata()),
+								SourceARN: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -42,12 +42,12 @@ func TestCheckRestrictSourceArn(t *testing.T) {
 			input: lambda.Lambda{
 				Functions: []lambda.Function{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Permissions: []lambda.Permission{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								Principal: defsecTypes.String("sns.amazonaws.com", defsecTypes.NewTestMetadata()),
-								SourceARN: defsecTypes.String("source-arn", defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								Principal: trivyTypes.String("sns.amazonaws.com", trivyTypes.NewTestMetadata()),
+								SourceARN: trivyTypes.String("source-arn", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

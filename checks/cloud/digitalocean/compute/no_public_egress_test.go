@@ -3,7 +3,7 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,13 +24,13 @@ func TestCheckNoPublicEgress(t *testing.T) {
 			input: compute.Compute{
 				Firewalls: []compute.Firewall{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						OutboundRules: []compute.OutboundFirewallRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								DestinationAddresses: []defsecTypes.StringValue{
-									defsecTypes.String("0.0.0.0/0", defsecTypes.NewTestMetadata()),
-									defsecTypes.String("::/0", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								DestinationAddresses: []trivyTypes.StringValue{
+									trivyTypes.String("0.0.0.0/0", trivyTypes.NewTestMetadata()),
+									trivyTypes.String("::/0", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -44,12 +44,12 @@ func TestCheckNoPublicEgress(t *testing.T) {
 			input: compute.Compute{
 				Firewalls: []compute.Firewall{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						OutboundRules: []compute.OutboundFirewallRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								DestinationAddresses: []defsecTypes.StringValue{
-									defsecTypes.String("192.168.1.0/24", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								DestinationAddresses: []trivyTypes.StringValue{
+									trivyTypes.String("192.168.1.0/24", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},

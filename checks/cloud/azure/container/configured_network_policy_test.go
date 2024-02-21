@@ -3,7 +3,7 @@ package container
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckConfiguredNetworkPolicy(t *testing.T) {
 			input: container.Container{
 				KubernetesClusters: []container.KubernetesCluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkProfile: container.NetworkProfile{
-							Metadata:      defsecTypes.NewTestMetadata(),
-							NetworkPolicy: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+							Metadata:      trivyTypes.NewTestMetadata(),
+							NetworkPolicy: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckConfiguredNetworkPolicy(t *testing.T) {
 			input: container.Container{
 				KubernetesClusters: []container.KubernetesCluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkProfile: container.NetworkProfile{
-							Metadata:      defsecTypes.NewTestMetadata(),
-							NetworkPolicy: defsecTypes.String("calico", defsecTypes.NewTestMetadata()),
+							Metadata:      trivyTypes.NewTestMetadata(),
+							NetworkPolicy: trivyTypes.String("calico", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

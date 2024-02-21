@@ -3,7 +3,7 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -23,8 +23,8 @@ func TestCheckSetMaxPasswordAge(t *testing.T) {
 			name: "Password expires in 99 days",
 			input: iam.IAM{
 				PasswordPolicy: iam.PasswordPolicy{
-					Metadata:   defsecTypes.NewTestMetadata(),
-					MaxAgeDays: defsecTypes.Int(99, defsecTypes.NewTestMetadata()),
+					Metadata:   trivyTypes.NewTestMetadata(),
+					MaxAgeDays: trivyTypes.Int(99, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: true,
@@ -33,8 +33,8 @@ func TestCheckSetMaxPasswordAge(t *testing.T) {
 			name: "Password expires in 60 days",
 			input: iam.IAM{
 				PasswordPolicy: iam.PasswordPolicy{
-					Metadata:   defsecTypes.NewTestMetadata(),
-					MaxAgeDays: defsecTypes.Int(60, defsecTypes.NewTestMetadata()),
+					Metadata:   trivyTypes.NewTestMetadata(),
+					MaxAgeDays: trivyTypes.Int(60, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: false,

@@ -3,7 +3,7 @@ package msk
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,22 +24,22 @@ func TestCheckEnableLogging(t *testing.T) {
 			input: msk.MSK{
 				Clusters: []msk.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Logging: msk.Logging{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							Broker: msk.BrokerLogging{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								S3: msk.S3Logging{
-									Metadata: defsecTypes.NewTestMetadata(),
-									Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+									Metadata: trivyTypes.NewTestMetadata(),
+									Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 								},
 								Cloudwatch: msk.CloudwatchLogging{
-									Metadata: defsecTypes.NewTestMetadata(),
-									Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+									Metadata: trivyTypes.NewTestMetadata(),
+									Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 								},
 								Firehose: msk.FirehoseLogging{
-									Metadata: defsecTypes.NewTestMetadata(),
-									Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+									Metadata: trivyTypes.NewTestMetadata(),
+									Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -53,22 +53,22 @@ func TestCheckEnableLogging(t *testing.T) {
 			input: msk.MSK{
 				Clusters: []msk.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Logging: msk.Logging{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							Broker: msk.BrokerLogging{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								S3: msk.S3Logging{
-									Metadata: defsecTypes.NewTestMetadata(),
-									Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+									Metadata: trivyTypes.NewTestMetadata(),
+									Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 								},
 								Cloudwatch: msk.CloudwatchLogging{
-									Metadata: defsecTypes.NewTestMetadata(),
-									Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+									Metadata: trivyTypes.NewTestMetadata(),
+									Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 								},
 								Firehose: msk.FirehoseLogging{
-									Metadata: defsecTypes.NewTestMetadata(),
-									Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+									Metadata: trivyTypes.NewTestMetadata(),
+									Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 								},
 							},
 						},

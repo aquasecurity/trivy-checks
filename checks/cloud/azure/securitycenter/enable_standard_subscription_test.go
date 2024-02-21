@@ -3,7 +3,7 @@ package securitycenter
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckEnableStandardSubscription(t *testing.T) {
 			input: securitycenter.SecurityCenter{
 				Subscriptions: []securitycenter.SubscriptionPricing{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Tier:     defsecTypes.String(securitycenter.TierFree, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Tier:     trivyTypes.String(securitycenter.TierFree, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckEnableStandardSubscription(t *testing.T) {
 			input: securitycenter.SecurityCenter{
 				Subscriptions: []securitycenter.SubscriptionPricing{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Tier:     defsecTypes.String(securitycenter.TierStandard, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Tier:     trivyTypes.String(securitycenter.TierStandard, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

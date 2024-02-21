@@ -3,7 +3,7 @@ package cloudtrail
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckEnableLogValidation(t *testing.T) {
 			input: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata:                defsecTypes.NewTestMetadata(),
-						EnableLogFileValidation: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:                trivyTypes.NewTestMetadata(),
+						EnableLogFileValidation: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckEnableLogValidation(t *testing.T) {
 			input: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata:                defsecTypes.NewTestMetadata(),
-						EnableLogFileValidation: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:                trivyTypes.NewTestMetadata(),
+						EnableLogFileValidation: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

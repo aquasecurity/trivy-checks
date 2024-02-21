@@ -3,7 +3,7 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,11 +24,11 @@ func TestCheckEnableVPCFlowLogs(t *testing.T) {
 			input: compute.Compute{
 				Networks: []compute.Network{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Subnetworks: []compute.SubNetwork{
 							{
-								Metadata:       defsecTypes.NewTestMetadata(),
-								EnableFlowLogs: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata:       trivyTypes.NewTestMetadata(),
+								EnableFlowLogs: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -41,11 +41,11 @@ func TestCheckEnableVPCFlowLogs(t *testing.T) {
 			input: compute.Compute{
 				Networks: []compute.Network{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Subnetworks: []compute.SubNetwork{
 							{
-								Metadata:       defsecTypes.NewTestMetadata(),
-								EnableFlowLogs: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata:       trivyTypes.NewTestMetadata(),
+								EnableFlowLogs: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -58,12 +58,12 @@ func TestCheckEnableVPCFlowLogs(t *testing.T) {
 			input: compute.Compute{
 				Networks: []compute.Network{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Subnetworks: []compute.SubNetwork{
 							{
-								Metadata:       defsecTypes.NewTestMetadata(),
-								EnableFlowLogs: defsecTypes.BoolDefault(false, defsecTypes.NewTestMetadata()),
-								Purpose:        defsecTypes.String("REGIONAL_MANAGED_PROXY", defsecTypes.NewTestMetadata()),
+								Metadata:       trivyTypes.NewTestMetadata(),
+								EnableFlowLogs: trivyTypes.BoolDefault(false, trivyTypes.NewTestMetadata()),
+								Purpose:        trivyTypes.String("REGIONAL_MANAGED_PROXY", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

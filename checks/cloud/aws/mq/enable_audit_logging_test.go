@@ -3,7 +3,7 @@ package mq
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckEnableAuditLogging(t *testing.T) {
 			input: mq.MQ{
 				Brokers: []mq.Broker{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Logging: mq.Logging{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Audit:    defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Audit:    trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckEnableAuditLogging(t *testing.T) {
 			input: mq.MQ{
 				Brokers: []mq.Broker{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Logging: mq.Logging{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Audit:    defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Audit:    trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

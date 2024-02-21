@@ -3,7 +3,7 @@ package appservice
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,9 +24,9 @@ func TestCheckAccountIdentityRegistered(t *testing.T) {
 			input: appservice.AppService{
 				Services: []appservice.Service{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Identity: struct{ Type defsecTypes.StringValue }{
-							Type: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Identity: struct{ Type trivyTypes.StringValue }{
+							Type: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -38,9 +38,9 @@ func TestCheckAccountIdentityRegistered(t *testing.T) {
 			input: appservice.AppService{
 				Services: []appservice.Service{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Identity: struct{ Type defsecTypes.StringValue }{
-							Type: defsecTypes.String("UserAssigned", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Identity: struct{ Type trivyTypes.StringValue }{
+							Type: trivyTypes.String("UserAssigned", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

@@ -3,7 +3,7 @@ package gke
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,12 +24,12 @@ func TestCheckNodeMetadataSecurity(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NodeConfig: gke.NodeConfig{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							WorkloadMetadataConfig: gke.WorkloadMetadataConfig{
-								Metadata:     defsecTypes.NewTestMetadata(),
-								NodeMetadata: defsecTypes.String("UNSPECIFIED", defsecTypes.NewTestMetadata()),
+								Metadata:     trivyTypes.NewTestMetadata(),
+								NodeMetadata: trivyTypes.String("UNSPECIFIED", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -42,22 +42,22 @@ func TestCheckNodeMetadataSecurity(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NodeConfig: gke.NodeConfig{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							WorkloadMetadataConfig: gke.WorkloadMetadataConfig{
-								Metadata:     defsecTypes.NewTestMetadata(),
-								NodeMetadata: defsecTypes.String("SECURE", defsecTypes.NewTestMetadata()),
+								Metadata:     trivyTypes.NewTestMetadata(),
+								NodeMetadata: trivyTypes.String("SECURE", trivyTypes.NewTestMetadata()),
 							},
 						},
 						NodePools: []gke.NodePool{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								NodeConfig: gke.NodeConfig{
-									Metadata: defsecTypes.NewTestMetadata(),
+									Metadata: trivyTypes.NewTestMetadata(),
 									WorkloadMetadataConfig: gke.WorkloadMetadataConfig{
-										Metadata:     defsecTypes.NewTestMetadata(),
-										NodeMetadata: defsecTypes.String("EXPOSE", defsecTypes.NewTestMetadata()),
+										Metadata:     trivyTypes.NewTestMetadata(),
+										NodeMetadata: trivyTypes.String("EXPOSE", trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -72,12 +72,12 @@ func TestCheckNodeMetadataSecurity(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NodeConfig: gke.NodeConfig{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							WorkloadMetadataConfig: gke.WorkloadMetadataConfig{
-								Metadata:     defsecTypes.NewTestMetadata(),
-								NodeMetadata: defsecTypes.String("SECURE", defsecTypes.NewTestMetadata()),
+								Metadata:     trivyTypes.NewTestMetadata(),
+								NodeMetadata: trivyTypes.String("SECURE", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

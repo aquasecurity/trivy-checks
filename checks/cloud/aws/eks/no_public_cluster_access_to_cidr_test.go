@@ -3,7 +3,7 @@ package eks
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,9 +24,9 @@ func TestCheckNoPublicClusterAccessToCidr(t *testing.T) {
 			input: eks.EKS{
 				Clusters: []eks.Cluster{
 					{
-						PublicAccessEnabled: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-						PublicAccessCIDRs: []defsecTypes.StringValue{
-							defsecTypes.String("0.0.0.0/0", defsecTypes.NewTestMetadata()),
+						PublicAccessEnabled: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+						PublicAccessCIDRs: []trivyTypes.StringValue{
+							trivyTypes.String("0.0.0.0/0", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -38,9 +38,9 @@ func TestCheckNoPublicClusterAccessToCidr(t *testing.T) {
 			input: eks.EKS{
 				Clusters: []eks.Cluster{
 					{
-						PublicAccessEnabled: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-						PublicAccessCIDRs: []defsecTypes.StringValue{
-							defsecTypes.String("10.2.0.0/8", defsecTypes.NewTestMetadata()),
+						PublicAccessEnabled: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+						PublicAccessCIDRs: []trivyTypes.StringValue{
+							trivyTypes.String("10.2.0.0/8", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -52,9 +52,9 @@ func TestCheckNoPublicClusterAccessToCidr(t *testing.T) {
 			input: eks.EKS{
 				Clusters: []eks.Cluster{
 					{
-						PublicAccessEnabled: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-						PublicAccessCIDRs: []defsecTypes.StringValue{
-							defsecTypes.String("10.2.0.0/8", defsecTypes.NewTestMetadata()),
+						PublicAccessEnabled: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+						PublicAccessCIDRs: []trivyTypes.StringValue{
+							trivyTypes.String("10.2.0.0/8", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

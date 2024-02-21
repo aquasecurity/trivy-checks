@@ -3,7 +3,7 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckNoPlaintextPassword(t *testing.T) {
 			input: openstack.Compute{
 				Instances: []openstack.Instance{
 					{
-						Metadata:      defsecTypes.NewTestMetadata(),
-						AdminPassword: defsecTypes.String("very-secret", defsecTypes.NewTestMetadata()),
+						Metadata:      trivyTypes.NewTestMetadata(),
+						AdminPassword: trivyTypes.String("very-secret", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckNoPlaintextPassword(t *testing.T) {
 			input: openstack.Compute{
 				Instances: []openstack.Instance{
 					{
-						Metadata:      defsecTypes.NewTestMetadata(),
-						AdminPassword: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata:      trivyTypes.NewTestMetadata(),
+						AdminPassword: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

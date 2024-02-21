@@ -3,7 +3,7 @@ package database
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckEnableSslEnforcement(t *testing.T) {
 			input: database.Database{
 				MariaDBServers: []database.MariaDBServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Server: database.Server{
-							Metadata:             defsecTypes.NewTestMetadata(),
-							EnableSSLEnforcement: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata:             trivyTypes.NewTestMetadata(),
+							EnableSSLEnforcement: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckEnableSslEnforcement(t *testing.T) {
 			input: database.Database{
 				MySQLServers: []database.MySQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Server: database.Server{
-							Metadata:             defsecTypes.NewTestMetadata(),
-							EnableSSLEnforcement: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata:             trivyTypes.NewTestMetadata(),
+							EnableSSLEnforcement: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -54,10 +54,10 @@ func TestCheckEnableSslEnforcement(t *testing.T) {
 			input: database.Database{
 				PostgreSQLServers: []database.PostgreSQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Server: database.Server{
-							Metadata:             defsecTypes.NewTestMetadata(),
-							EnableSSLEnforcement: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata:             trivyTypes.NewTestMetadata(),
+							EnableSSLEnforcement: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -69,10 +69,10 @@ func TestCheckEnableSslEnforcement(t *testing.T) {
 			input: database.Database{
 				MariaDBServers: []database.MariaDBServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Server: database.Server{
-							Metadata:             defsecTypes.NewTestMetadata(),
-							EnableSSLEnforcement: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:             trivyTypes.NewTestMetadata(),
+							EnableSSLEnforcement: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -84,10 +84,10 @@ func TestCheckEnableSslEnforcement(t *testing.T) {
 			input: database.Database{
 				MySQLServers: []database.MySQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Server: database.Server{
-							Metadata:             defsecTypes.NewTestMetadata(),
-							EnableSSLEnforcement: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:             trivyTypes.NewTestMetadata(),
+							EnableSSLEnforcement: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -99,10 +99,10 @@ func TestCheckEnableSslEnforcement(t *testing.T) {
 			input: database.Database{
 				PostgreSQLServers: []database.PostgreSQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Server: database.Server{
-							Metadata:             defsecTypes.NewTestMetadata(),
-							EnableSSLEnforcement: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:             trivyTypes.NewTestMetadata(),
+							EnableSSLEnforcement: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

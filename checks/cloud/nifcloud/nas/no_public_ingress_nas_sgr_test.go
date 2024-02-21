@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/nifcloud/nas"
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
@@ -24,9 +24,9 @@ func TestCheckNoPublicIngressnasSgr(t *testing.T) {
 			input: nas.NAS{
 				NASSecurityGroups: []nas.NASSecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						CIDRs: []defsecTypes.StringValue{
-							defsecTypes.String("0.0.0.0/0", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						CIDRs: []trivyTypes.StringValue{
+							trivyTypes.String("0.0.0.0/0", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -38,9 +38,9 @@ func TestCheckNoPublicIngressnasSgr(t *testing.T) {
 			input: nas.NAS{
 				NASSecurityGroups: []nas.NASSecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						CIDRs: []defsecTypes.StringValue{
-							defsecTypes.String("10.0.0.0/16", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						CIDRs: []trivyTypes.StringValue{
+							trivyTypes.String("10.0.0.0/16", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

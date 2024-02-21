@@ -3,7 +3,7 @@ package ec2
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/ec2"
 	"github.com/aquasecurity/trivy/pkg/iac/state"
@@ -25,7 +25,7 @@ func TestCheckEnableAtRestEncryption(t *testing.T) {
 				Instances: []ec2.Instance{
 					{
 						RootBlockDevice: &ec2.BlockDevice{
-							Encrypted: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Encrypted: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -38,7 +38,7 @@ func TestCheckEnableAtRestEncryption(t *testing.T) {
 				Instances: []ec2.Instance{
 					{
 						RootBlockDevice: &ec2.BlockDevice{
-							Encrypted: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Encrypted: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

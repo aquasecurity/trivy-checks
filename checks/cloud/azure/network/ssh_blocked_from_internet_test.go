@@ -3,7 +3,7 @@ package network
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,23 +24,23 @@ func TestCheckSshBlockedFromInternet(t *testing.T) {
 			input: network.Network{
 				SecurityGroups: []network.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Rules: []network.SecurityGroupRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Allow:    defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-								Outbound: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Allow:    trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								Outbound: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 								DestinationPorts: []network.PortRange{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
+										Metadata: trivyTypes.NewTestMetadata(),
 										Start:    22,
 										End:      22,
 									},
 								},
-								SourceAddresses: []defsecTypes.StringValue{
-									defsecTypes.String("*", defsecTypes.NewTestMetadata()),
+								SourceAddresses: []trivyTypes.StringValue{
+									trivyTypes.String("*", trivyTypes.NewTestMetadata()),
 								},
-								Protocol: defsecTypes.String("Tcp", defsecTypes.NewTestMetadata()),
+								Protocol: trivyTypes.String("Tcp", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -53,23 +53,23 @@ func TestCheckSshBlockedFromInternet(t *testing.T) {
 			input: network.Network{
 				SecurityGroups: []network.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Rules: []network.SecurityGroupRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Allow:    defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-								Outbound: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Allow:    trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								Outbound: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 								DestinationPorts: []network.PortRange{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
+										Metadata: trivyTypes.NewTestMetadata(),
 										Start:    22,
 										End:      22,
 									},
 								},
-								SourceAddresses: []defsecTypes.StringValue{
-									defsecTypes.String("*", defsecTypes.NewTestMetadata()),
+								SourceAddresses: []trivyTypes.StringValue{
+									trivyTypes.String("*", trivyTypes.NewTestMetadata()),
 								},
-								Protocol: defsecTypes.String("Icmp", defsecTypes.NewTestMetadata()),
+								Protocol: trivyTypes.String("Icmp", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -82,23 +82,23 @@ func TestCheckSshBlockedFromInternet(t *testing.T) {
 			input: network.Network{
 				SecurityGroups: []network.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Rules: []network.SecurityGroupRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Allow:    defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-								Outbound: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Allow:    trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								Outbound: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 								DestinationPorts: []network.PortRange{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
+										Metadata: trivyTypes.NewTestMetadata(),
 										Start:    22,
 										End:      22,
 									},
 								},
-								SourceAddresses: []defsecTypes.StringValue{
-									defsecTypes.String("82.102.23.23", defsecTypes.NewTestMetadata()),
+								SourceAddresses: []trivyTypes.StringValue{
+									trivyTypes.String("82.102.23.23", trivyTypes.NewTestMetadata()),
 								},
-								Protocol: defsecTypes.String("Tcp", defsecTypes.NewTestMetadata()),
+								Protocol: trivyTypes.String("Tcp", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

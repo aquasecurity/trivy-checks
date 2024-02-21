@@ -3,7 +3,7 @@ package sam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckEnableStateMachineTracing(t *testing.T) {
 			input: sam.SAM{
 				StateMachines: []sam.StateMachine{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Tracing: sam.TracingConfiguration{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckEnableStateMachineTracing(t *testing.T) {
 			input: sam.SAM{
 				StateMachines: []sam.StateMachine{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Tracing: sam.TracingConfiguration{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

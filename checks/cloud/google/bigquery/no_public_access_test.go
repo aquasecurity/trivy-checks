@@ -3,7 +3,7 @@ package bigquery
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,12 +24,12 @@ func TestCheckNoPublicAccess(t *testing.T) {
 			input: bigquery.BigQuery{
 				Datasets: []bigquery.Dataset{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						AccessGrants: []bigquery.AccessGrant{
 							{
-								SpecialGroup: defsecTypes.String(
+								SpecialGroup: trivyTypes.String(
 									bigquery.SpecialGroupAllAuthenticatedUsers,
-									defsecTypes.NewTestMetadata(),
+									trivyTypes.NewTestMetadata(),
 								),
 							},
 						},
@@ -43,12 +43,12 @@ func TestCheckNoPublicAccess(t *testing.T) {
 			input: bigquery.BigQuery{
 				Datasets: []bigquery.Dataset{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						AccessGrants: []bigquery.AccessGrant{
 							{
-								SpecialGroup: defsecTypes.String(
+								SpecialGroup: trivyTypes.String(
 									"anotherGroup",
-									defsecTypes.NewTestMetadata(),
+									trivyTypes.NewTestMetadata(),
 								),
 							},
 						},

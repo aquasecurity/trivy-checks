@@ -3,7 +3,7 @@ package sql
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,13 +24,13 @@ func TestCheckPgLogErrors(t *testing.T) {
 			input: sql.SQL{
 				Instances: []sql.DatabaseInstance{
 					{
-						Metadata:        defsecTypes.NewTestMetadata(),
-						DatabaseVersion: defsecTypes.String("POSTGRES_12", defsecTypes.NewTestMetadata()),
+						Metadata:        trivyTypes.NewTestMetadata(),
+						DatabaseVersion: trivyTypes.String("POSTGRES_12", trivyTypes.NewTestMetadata()),
 						Settings: sql.Settings{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							Flags: sql.Flags{
-								Metadata:       defsecTypes.NewTestMetadata(),
-								LogMinMessages: defsecTypes.String("PANIC", defsecTypes.NewTestMetadata()),
+								Metadata:       trivyTypes.NewTestMetadata(),
+								LogMinMessages: trivyTypes.String("PANIC", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -43,13 +43,13 @@ func TestCheckPgLogErrors(t *testing.T) {
 			input: sql.SQL{
 				Instances: []sql.DatabaseInstance{
 					{
-						Metadata:        defsecTypes.NewTestMetadata(),
-						DatabaseVersion: defsecTypes.String("POSTGRES_12", defsecTypes.NewTestMetadata()),
+						Metadata:        trivyTypes.NewTestMetadata(),
+						DatabaseVersion: trivyTypes.String("POSTGRES_12", trivyTypes.NewTestMetadata()),
 						Settings: sql.Settings{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							Flags: sql.Flags{
-								Metadata:       defsecTypes.NewTestMetadata(),
-								LogMinMessages: defsecTypes.String("ERROR", defsecTypes.NewTestMetadata()),
+								Metadata:       trivyTypes.NewTestMetadata(),
+								LogMinMessages: trivyTypes.String("ERROR", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

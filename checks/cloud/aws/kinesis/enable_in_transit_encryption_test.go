@@ -3,7 +3,7 @@ package kinesis
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,11 +24,11 @@ func TestCheckEnableInTransitEncryption(t *testing.T) {
 			input: kinesis.Kinesis{
 				Streams: []kinesis.Stream{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: kinesis.Encryption{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Type:     defsecTypes.String("NONE", defsecTypes.NewTestMetadata()),
-							KMSKeyID: defsecTypes.String("some-key", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Type:     trivyTypes.String("NONE", trivyTypes.NewTestMetadata()),
+							KMSKeyID: trivyTypes.String("some-key", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -40,11 +40,11 @@ func TestCheckEnableInTransitEncryption(t *testing.T) {
 			input: kinesis.Kinesis{
 				Streams: []kinesis.Stream{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: kinesis.Encryption{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Type:     defsecTypes.String(kinesis.EncryptionTypeKMS, defsecTypes.NewTestMetadata()),
-							KMSKeyID: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Type:     trivyTypes.String(kinesis.EncryptionTypeKMS, trivyTypes.NewTestMetadata()),
+							KMSKeyID: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -56,11 +56,11 @@ func TestCheckEnableInTransitEncryption(t *testing.T) {
 			input: kinesis.Kinesis{
 				Streams: []kinesis.Stream{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: kinesis.Encryption{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Type:     defsecTypes.String(kinesis.EncryptionTypeKMS, defsecTypes.NewTestMetadata()),
-							KMSKeyID: defsecTypes.String("some-key", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Type:     trivyTypes.String(kinesis.EncryptionTypeKMS, trivyTypes.NewTestMetadata()),
+							KMSKeyID: trivyTypes.String("some-key", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

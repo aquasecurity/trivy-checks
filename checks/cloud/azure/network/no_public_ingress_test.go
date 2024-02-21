@@ -3,7 +3,7 @@ package network
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,14 +24,14 @@ func TestCheckNoPublicIngress(t *testing.T) {
 			input: network.Network{
 				SecurityGroups: []network.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Rules: []network.SecurityGroupRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Allow:    defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-								Outbound: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-								SourceAddresses: []defsecTypes.StringValue{
-									defsecTypes.String("*", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Allow:    trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								Outbound: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								SourceAddresses: []trivyTypes.StringValue{
+									trivyTypes.String("*", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -45,14 +45,14 @@ func TestCheckNoPublicIngress(t *testing.T) {
 			input: network.Network{
 				SecurityGroups: []network.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Rules: []network.SecurityGroupRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Allow:    defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-								Outbound: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-								SourceAddresses: []defsecTypes.StringValue{
-									defsecTypes.String("10.0.0.0/16", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Allow:    trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								Outbound: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								SourceAddresses: []trivyTypes.StringValue{
+									trivyTypes.String("10.0.0.0/16", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},

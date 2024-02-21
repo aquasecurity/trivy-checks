@@ -3,7 +3,7 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckNoSensitiveInfo(t *testing.T) {
 			input: compute.Compute{
 				Instances: []compute.Instance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						UserData: defsecTypes.String(` export DATABASE_PASSWORD=\"SomeSortOfPassword\"`, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						UserData: trivyTypes.String(` export DATABASE_PASSWORD=\"SomeSortOfPassword\"`, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckNoSensitiveInfo(t *testing.T) {
 			input: compute.Compute{
 				Instances: []compute.Instance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						UserData: defsecTypes.String(` export GREETING="Hello there"`, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						UserData: trivyTypes.String(` export GREETING="Hello there"`, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

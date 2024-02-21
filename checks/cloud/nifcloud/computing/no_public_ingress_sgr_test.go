@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/nifcloud/computing"
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
@@ -24,11 +24,11 @@ func TestCheckNoPublicIngressSgr(t *testing.T) {
 			input: computing.Computing{
 				SecurityGroups: []computing.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						IngressRules: []computing.SecurityGroupRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								CIDR:     defsecTypes.String("0.0.0.0/0", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								CIDR:     trivyTypes.String("0.0.0.0/0", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -41,11 +41,11 @@ func TestCheckNoPublicIngressSgr(t *testing.T) {
 			input: computing.Computing{
 				SecurityGroups: []computing.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						IngressRules: []computing.SecurityGroupRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								CIDR:     defsecTypes.String("10.0.0.0/16", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								CIDR:     trivyTypes.String("10.0.0.0/16", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

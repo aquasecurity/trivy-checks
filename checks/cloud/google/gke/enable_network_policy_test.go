@@ -3,7 +3,7 @@ package gke
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckEnableNetworkPolicy(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkPolicy: gke.NetworkPolicy{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckEnableNetworkPolicy(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkPolicy: gke.NetworkPolicy{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -54,12 +54,12 @@ func TestCheckEnableNetworkPolicy(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkPolicy: gke.NetworkPolicy{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
-						EnableAutpilot: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						EnableAutpilot: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -70,12 +70,12 @@ func TestCheckEnableNetworkPolicy(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkPolicy: gke.NetworkPolicy{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
-						DatapathProvider: defsecTypes.String("ADVANCED_DATAPATH", defsecTypes.NewTestMetadata()),
+						DatapathProvider: trivyTypes.String("ADVANCED_DATAPATH", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

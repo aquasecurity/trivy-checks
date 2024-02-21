@@ -3,7 +3,7 @@ package redshift
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckUsesVPC(t *testing.T) {
 			input: redshift.Redshift{
 				Clusters: []redshift.Cluster{
 					{
-						Metadata:        defsecTypes.NewTestMetadata(),
-						SubnetGroupName: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata:        trivyTypes.NewTestMetadata(),
+						SubnetGroupName: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckUsesVPC(t *testing.T) {
 			input: redshift.Redshift{
 				Clusters: []redshift.Cluster{
 					{
-						Metadata:        defsecTypes.NewTestMetadata(),
-						SubnetGroupName: defsecTypes.String("redshift-subnet", defsecTypes.NewTestMetadata()),
+						Metadata:        trivyTypes.NewTestMetadata(),
+						SubnetGroupName: trivyTypes.String("redshift-subnet", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

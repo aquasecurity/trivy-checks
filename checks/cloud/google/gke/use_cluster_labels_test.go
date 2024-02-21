@@ -3,7 +3,7 @@ package gke
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckUseClusterLabels(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata:       defsecTypes.NewTestMetadata(),
-						ResourceLabels: defsecTypes.Map(map[string]string{}, defsecTypes.NewTestMetadata().GetMetadata()),
+						Metadata:       trivyTypes.NewTestMetadata(),
+						ResourceLabels: trivyTypes.Map(map[string]string{}, trivyTypes.NewTestMetadata().GetMetadata()),
 					},
 				},
 			},
@@ -36,10 +36,10 @@ func TestCheckUseClusterLabels(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						ResourceLabels: defsecTypes.Map(map[string]string{
+						Metadata: trivyTypes.NewTestMetadata(),
+						ResourceLabels: trivyTypes.Map(map[string]string{
 							"env": "staging",
-						}, defsecTypes.NewTestMetadata().GetMetadata()),
+						}, trivyTypes.NewTestMetadata().GetMetadata()),
 					},
 				},
 			},

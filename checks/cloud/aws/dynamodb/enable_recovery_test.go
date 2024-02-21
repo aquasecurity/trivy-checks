@@ -3,7 +3,7 @@ package dynamodb
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckEnableRecovery(t *testing.T) {
 			input: dynamodb.DynamoDB{
 				DAXClusters: []dynamodb.DAXCluster{
 					{
-						Metadata:            defsecTypes.NewTestMetadata(),
-						PointInTimeRecovery: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:            trivyTypes.NewTestMetadata(),
+						PointInTimeRecovery: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckEnableRecovery(t *testing.T) {
 			input: dynamodb.DynamoDB{
 				DAXClusters: []dynamodb.DAXCluster{
 					{
-						Metadata:            defsecTypes.NewTestMetadata(),
-						PointInTimeRecovery: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:            trivyTypes.NewTestMetadata(),
+						PointInTimeRecovery: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

@@ -3,7 +3,7 @@ package datalake
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckEnableAtRestEncryption(t *testing.T) {
 			input: datalake.DataLake{
 				Stores: []datalake.Store{
 					{
-						Metadata:         defsecTypes.NewTestMetadata(),
-						EnableEncryption: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:         trivyTypes.NewTestMetadata(),
+						EnableEncryption: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckEnableAtRestEncryption(t *testing.T) {
 			input: datalake.DataLake{
 				Stores: []datalake.Store{
 					{
-						Metadata:         defsecTypes.NewTestMetadata(),
-						EnableEncryption: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:         trivyTypes.NewTestMetadata(),
+						EnableEncryption: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

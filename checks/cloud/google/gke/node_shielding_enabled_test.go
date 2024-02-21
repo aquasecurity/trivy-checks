@@ -3,7 +3,7 @@ package gke
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckNodeShieldingEnabled(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata:            defsecTypes.NewTestMetadata(),
-						EnableShieldedNodes: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:            trivyTypes.NewTestMetadata(),
+						EnableShieldedNodes: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckNodeShieldingEnabled(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata:            defsecTypes.NewTestMetadata(),
-						EnableShieldedNodes: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:            trivyTypes.NewTestMetadata(),
+						EnableShieldedNodes: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

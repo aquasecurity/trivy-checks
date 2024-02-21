@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/nifcloud/network"
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckAddSecurityGroupToVpnGateway(t *testing.T) {
 			input: network.Network{
 				VpnGateways: []network.VpnGateway{
 					{
-						Metadata:      defsecTypes.NewTestMetadata(),
-						SecurityGroup: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata:      trivyTypes.NewTestMetadata(),
+						SecurityGroup: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckAddSecurityGroupToVpnGateway(t *testing.T) {
 			input: network.Network{
 				VpnGateways: []network.VpnGateway{
 					{
-						Metadata:      defsecTypes.NewTestMetadata(),
-						SecurityGroup: defsecTypes.String("some security group", defsecTypes.NewTestMetadata()),
+						Metadata:      trivyTypes.NewTestMetadata(),
+						SecurityGroup: trivyTypes.String("some security group", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

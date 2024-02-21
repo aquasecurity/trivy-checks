@@ -3,7 +3,7 @@ package cloudfront
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckEnableLogging(t *testing.T) {
 			input: cloudfront.Cloudfront{
 				Distributions: []cloudfront.Distribution{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Logging: cloudfront.Logging{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Bucket:   defsecTypes.String("", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Bucket:   trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckEnableLogging(t *testing.T) {
 			input: cloudfront.Cloudfront{
 				Distributions: []cloudfront.Distribution{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Logging: cloudfront.Logging{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Bucket:   defsecTypes.String("mylogs.s3.amazonaws.com", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Bucket:   trivyTypes.String("mylogs.s3.amazonaws.com", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

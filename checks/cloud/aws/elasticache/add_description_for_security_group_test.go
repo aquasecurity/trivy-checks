@@ -3,7 +3,7 @@ package elasticache
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckAddDescriptionForSecurityGroup(t *testing.T) {
 			input: elasticache.ElastiCache{
 				SecurityGroups: []elasticache.SecurityGroup{
 					{
-						Metadata:    defsecTypes.NewTestMetadata(),
-						Description: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata:    trivyTypes.NewTestMetadata(),
+						Description: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckAddDescriptionForSecurityGroup(t *testing.T) {
 			input: elasticache.ElastiCache{
 				SecurityGroups: []elasticache.SecurityGroup{
 					{
-						Metadata:    defsecTypes.NewTestMetadata(),
-						Description: defsecTypes.String("some decent description", defsecTypes.NewTestMetadata()),
+						Metadata:    trivyTypes.NewTestMetadata(),
+						Description: trivyTypes.String("some decent description", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

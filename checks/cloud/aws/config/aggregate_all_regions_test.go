@@ -3,7 +3,7 @@ package config
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -23,8 +23,8 @@ func TestCheckAggregateAllRegions(t *testing.T) {
 			name: "AWS Config aggregator source with all regions set to false",
 			input: config.Config{
 				ConfigurationAggregrator: config.ConfigurationAggregrator{
-					Metadata:         defsecTypes.NewTestMetadata(),
-					SourceAllRegions: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+					Metadata:         trivyTypes.NewTestMetadata(),
+					SourceAllRegions: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: true,
@@ -33,8 +33,8 @@ func TestCheckAggregateAllRegions(t *testing.T) {
 			name: "AWS Config aggregator source with all regions set to true",
 			input: config.Config{
 				ConfigurationAggregrator: config.ConfigurationAggregrator{
-					Metadata:         defsecTypes.NewTestMetadata(),
-					SourceAllRegions: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+					Metadata:         trivyTypes.NewTestMetadata(),
+					SourceAllRegions: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: false,

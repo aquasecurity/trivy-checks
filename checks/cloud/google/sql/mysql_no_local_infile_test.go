@@ -3,7 +3,7 @@ package sql
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,13 +24,13 @@ func TestCheckMysqlNoLocalInfile(t *testing.T) {
 			input: sql.SQL{
 				Instances: []sql.DatabaseInstance{
 					{
-						Metadata:        defsecTypes.NewTestMetadata(),
-						DatabaseVersion: defsecTypes.String("MYSQL_5_6", defsecTypes.NewTestMetadata()),
+						Metadata:        trivyTypes.NewTestMetadata(),
+						DatabaseVersion: trivyTypes.String("MYSQL_5_6", trivyTypes.NewTestMetadata()),
 						Settings: sql.Settings{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							Flags: sql.Flags{
-								Metadata:    defsecTypes.NewTestMetadata(),
-								LocalInFile: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata:    trivyTypes.NewTestMetadata(),
+								LocalInFile: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -43,13 +43,13 @@ func TestCheckMysqlNoLocalInfile(t *testing.T) {
 			input: sql.SQL{
 				Instances: []sql.DatabaseInstance{
 					{
-						Metadata:        defsecTypes.NewTestMetadata(),
-						DatabaseVersion: defsecTypes.String("MYSQL_5_6", defsecTypes.NewTestMetadata()),
+						Metadata:        trivyTypes.NewTestMetadata(),
+						DatabaseVersion: trivyTypes.String("MYSQL_5_6", trivyTypes.NewTestMetadata()),
 						Settings: sql.Settings{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							Flags: sql.Flags{
-								Metadata:    defsecTypes.NewTestMetadata(),
-								LocalInFile: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata:    trivyTypes.NewTestMetadata(),
+								LocalInFile: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

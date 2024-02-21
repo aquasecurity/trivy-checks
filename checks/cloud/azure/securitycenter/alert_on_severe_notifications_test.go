@@ -3,7 +3,7 @@ package securitycenter
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckAlertOnSevereNotifications(t *testing.T) {
 			input: securitycenter.SecurityCenter{
 				Contacts: []securitycenter.Contact{
 					{
-						Metadata:                 defsecTypes.NewTestMetadata(),
-						EnableAlertNotifications: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:                 trivyTypes.NewTestMetadata(),
+						EnableAlertNotifications: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckAlertOnSevereNotifications(t *testing.T) {
 			input: securitycenter.SecurityCenter{
 				Contacts: []securitycenter.Contact{
 					{
-						Metadata:                 defsecTypes.NewTestMetadata(),
-						EnableAlertNotifications: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:                 trivyTypes.NewTestMetadata(),
+						EnableAlertNotifications: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

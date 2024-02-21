@@ -3,7 +3,7 @@ package ec2
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckEnableVolumeEncryption(t *testing.T) {
 			input: ec2.EC2{
 				Volumes: []ec2.Volume{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: ec2.Encryption{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckEnableVolumeEncryption(t *testing.T) {
 			input: ec2.EC2{
 				Volumes: []ec2.Volume{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: ec2.Encryption{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

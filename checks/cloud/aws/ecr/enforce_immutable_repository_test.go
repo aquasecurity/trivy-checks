@@ -3,7 +3,7 @@ package ecr
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckEnforceImmutableRepository(t *testing.T) {
 			input: ecr.ECR{
 				Repositories: []ecr.Repository{
 					{
-						Metadata:           defsecTypes.NewTestMetadata(),
-						ImageTagsImmutable: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:           trivyTypes.NewTestMetadata(),
+						ImageTagsImmutable: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckEnforceImmutableRepository(t *testing.T) {
 			input: ecr.ECR{
 				Repositories: []ecr.Repository{
 					{
-						Metadata:           defsecTypes.NewTestMetadata(),
-						ImageTagsImmutable: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:           trivyTypes.NewTestMetadata(),
+						ImageTagsImmutable: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

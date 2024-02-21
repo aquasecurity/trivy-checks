@@ -3,7 +3,7 @@ package ec2
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/ec2"
 
@@ -25,8 +25,8 @@ func TestCheckAddDescriptionToSecurityGroup(t *testing.T) {
 			input: ec2.EC2{
 				SecurityGroups: []ec2.SecurityGroup{
 					{
-						Metadata:    defsecTypes.NewTestMetadata(),
-						Description: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata:    trivyTypes.NewTestMetadata(),
+						Description: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -37,8 +37,8 @@ func TestCheckAddDescriptionToSecurityGroup(t *testing.T) {
 			input: ec2.EC2{
 				SecurityGroups: []ec2.SecurityGroup{
 					{
-						Metadata:    defsecTypes.NewTestMetadata(),
-						Description: defsecTypes.String("Managed by Terraform", defsecTypes.NewTestMetadata()),
+						Metadata:    trivyTypes.NewTestMetadata(),
+						Description: trivyTypes.String("Managed by Terraform", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -49,8 +49,8 @@ func TestCheckAddDescriptionToSecurityGroup(t *testing.T) {
 			input: ec2.EC2{
 				SecurityGroups: []ec2.SecurityGroup{
 					{
-						Metadata:    defsecTypes.NewTestMetadata(),
-						Description: defsecTypes.String("some proper description", defsecTypes.NewTestMetadata()),
+						Metadata:    trivyTypes.NewTestMetadata(),
+						Description: trivyTypes.String("some proper description", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

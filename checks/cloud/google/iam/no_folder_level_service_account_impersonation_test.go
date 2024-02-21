@@ -3,7 +3,7 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,14 +24,14 @@ func TestCheckNoFolderLevelServiceAccountImpersonation(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Folders: []iam.Folder{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Members: []iam.Member{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Role:     defsecTypes.String("roles/iam.serviceAccountUser", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Role:     trivyTypes.String("roles/iam.serviceAccountUser", trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -46,15 +46,15 @@ func TestCheckNoFolderLevelServiceAccountImpersonation(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Folders: []iam.Folder{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Bindings: []iam.Binding{
 									{
-										Metadata:                      defsecTypes.NewTestMetadata(),
-										IncludesDefaultServiceAccount: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-										Role:                          defsecTypes.String("roles/iam.serviceAccountTokenCreator", defsecTypes.NewTestMetadata()),
+										Metadata:                      trivyTypes.NewTestMetadata(),
+										IncludesDefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+										Role:                          trivyTypes.String("roles/iam.serviceAccountTokenCreator", trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -69,21 +69,21 @@ func TestCheckNoFolderLevelServiceAccountImpersonation(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Folders: []iam.Folder{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Members: []iam.Member{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Role:     defsecTypes.String("roles/nothingInParticular", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Role:     trivyTypes.String("roles/nothingInParticular", trivyTypes.NewTestMetadata()),
 									},
 								},
 								Bindings: []iam.Binding{
 									{
-										Metadata:                      defsecTypes.NewTestMetadata(),
-										IncludesDefaultServiceAccount: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-										Role:                          defsecTypes.String("roles/nothingInParticular", defsecTypes.NewTestMetadata()),
+										Metadata:                      trivyTypes.NewTestMetadata(),
+										IncludesDefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+										Role:                          trivyTypes.String("roles/nothingInParticular", trivyTypes.NewTestMetadata()),
 									},
 								},
 							},

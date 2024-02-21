@@ -3,7 +3,7 @@ package kms
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckAutoRotateKeys(t *testing.T) {
 			input: kms.KMS{
 				Keys: []kms.Key{
 					{
-						Usage:           defsecTypes.String("ENCRYPT_DECRYPT", defsecTypes.NewTestMetadata()),
-						RotationEnabled: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Usage:           trivyTypes.String("ENCRYPT_DECRYPT", trivyTypes.NewTestMetadata()),
+						RotationEnabled: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckAutoRotateKeys(t *testing.T) {
 			input: kms.KMS{
 				Keys: []kms.Key{
 					{
-						Usage:           defsecTypes.String("ENCRYPT_DECRYPT", defsecTypes.NewTestMetadata()),
-						RotationEnabled: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Usage:           trivyTypes.String("ENCRYPT_DECRYPT", trivyTypes.NewTestMetadata()),
+						RotationEnabled: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -48,8 +48,8 @@ func TestCheckAutoRotateKeys(t *testing.T) {
 			input: kms.KMS{
 				Keys: []kms.Key{
 					{
-						Usage:           defsecTypes.String(kms.KeyUsageSignAndVerify, defsecTypes.NewTestMetadata()),
-						RotationEnabled: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Usage:           trivyTypes.String(kms.KeyUsageSignAndVerify, trivyTypes.NewTestMetadata()),
+						RotationEnabled: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

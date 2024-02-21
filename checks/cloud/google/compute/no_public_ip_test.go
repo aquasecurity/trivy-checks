@@ -3,7 +3,7 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,11 +24,11 @@ func TestCheckInstancesDoNotHavePublicIPs(t *testing.T) {
 			input: compute.Compute{
 				Instances: []compute.Instance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkInterfaces: []compute.NetworkInterface{
 							{
-								Metadata:    defsecTypes.NewTestMetadata(),
-								HasPublicIP: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata:    trivyTypes.NewTestMetadata(),
+								HasPublicIP: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -41,11 +41,11 @@ func TestCheckInstancesDoNotHavePublicIPs(t *testing.T) {
 			input: compute.Compute{
 				Instances: []compute.Instance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkInterfaces: []compute.NetworkInterface{
 							{
-								Metadata:    defsecTypes.NewTestMetadata(),
-								HasPublicIP: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata:    trivyTypes.NewTestMetadata(),
+								HasPublicIP: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

@@ -3,7 +3,7 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckAutoUpgrade(t *testing.T) {
 			input: compute.Compute{
 				KubernetesClusters: []compute.KubernetesCluster{
 					{
-						Metadata:    defsecTypes.NewTestMetadata(),
-						AutoUpgrade: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:    trivyTypes.NewTestMetadata(),
+						AutoUpgrade: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckAutoUpgrade(t *testing.T) {
 			input: compute.Compute{
 				KubernetesClusters: []compute.KubernetesCluster{
 					{
-						Metadata:    defsecTypes.NewTestMetadata(),
-						AutoUpgrade: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:    trivyTypes.NewTestMetadata(),
+						AutoUpgrade: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

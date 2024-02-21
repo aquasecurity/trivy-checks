@@ -3,7 +3,7 @@ package storage
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckEnableUbla(t *testing.T) {
 			input: storage.Storage{
 				Buckets: []storage.Bucket{
 					{
-						Metadata:                       defsecTypes.NewTestMetadata(),
-						EnableUniformBucketLevelAccess: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:                       trivyTypes.NewTestMetadata(),
+						EnableUniformBucketLevelAccess: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckEnableUbla(t *testing.T) {
 			input: storage.Storage{
 				Buckets: []storage.Bucket{
 					{
-						Metadata:                       defsecTypes.NewTestMetadata(),
-						EnableUniformBucketLevelAccess: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:                       trivyTypes.NewTestMetadata(),
+						EnableUniformBucketLevelAccess: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

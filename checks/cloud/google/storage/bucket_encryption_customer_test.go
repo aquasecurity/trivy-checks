@@ -3,7 +3,7 @@ package storage
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckBucketEncryptionCustomerKey(t *testing.T) {
 			input: storage.Storage{
 				Buckets: []storage.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: storage.BucketEncryption{
-							Metadata:          defsecTypes.NewTestMetadata(),
-							DefaultKMSKeyName: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+							Metadata:          trivyTypes.NewTestMetadata(),
+							DefaultKMSKeyName: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckBucketEncryptionCustomerKey(t *testing.T) {
 			input: storage.Storage{
 				Buckets: []storage.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: storage.BucketEncryption{
-							Metadata:          defsecTypes.NewTestMetadata(),
-							DefaultKMSKeyName: defsecTypes.String("default-kms-key-name", defsecTypes.NewTestMetadata()),
+							Metadata:          trivyTypes.NewTestMetadata(),
+							DefaultKMSKeyName: trivyTypes.String("default-kms-key-name", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

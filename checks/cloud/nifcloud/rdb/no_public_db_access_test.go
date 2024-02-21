@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/nifcloud/rdb"
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckNoPublicDbAccess(t *testing.T) {
 			input: rdb.RDB{
 				DBInstances: []rdb.DBInstance{
 					{
-						Metadata:     defsecTypes.NewTestMetadata(),
-						PublicAccess: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:     trivyTypes.NewTestMetadata(),
+						PublicAccess: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckNoPublicDbAccess(t *testing.T) {
 			input: rdb.RDB{
 				DBInstances: []rdb.DBInstance{
 					{
-						Metadata:     defsecTypes.NewTestMetadata(),
-						PublicAccess: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:     trivyTypes.NewTestMetadata(),
+						PublicAccess: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

@@ -3,7 +3,7 @@ package sam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckEnableApiCacheEncryption(t *testing.T) {
 			input: sam.SAM{
 				APIs: []sam.API{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						RESTMethodSettings: sam.RESTMethodSettings{
-							Metadata:           defsecTypes.NewTestMetadata(),
-							CacheDataEncrypted: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata:           trivyTypes.NewTestMetadata(),
+							CacheDataEncrypted: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckEnableApiCacheEncryption(t *testing.T) {
 			input: sam.SAM{
 				APIs: []sam.API{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						RESTMethodSettings: sam.RESTMethodSettings{
-							Metadata:           defsecTypes.NewTestMetadata(),
-							CacheDataEncrypted: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:           trivyTypes.NewTestMetadata(),
+							CacheDataEncrypted: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

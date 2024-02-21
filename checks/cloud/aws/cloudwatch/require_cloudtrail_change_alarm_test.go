@@ -3,7 +3,7 @@ package cloudwatch
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/cloudtrail"
 	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/cloudwatch"
@@ -24,36 +24,36 @@ func TestCheckRequireCloudTrailChangeAlarm(t *testing.T) {
 			cloudtrail: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata:                  defsecTypes.NewTestMetadata(),
-						CloudWatchLogsLogGroupArn: defsecTypes.String("arn:aws:cloudwatch:us-east-1:123456789012:log-group:cloudtrail-logging", defsecTypes.NewTestMetadata()),
-						IsLogging:                 defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-						IsMultiRegion:             defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:                  trivyTypes.NewTestMetadata(),
+						CloudWatchLogsLogGroupArn: trivyTypes.String("arn:aws:cloudwatch:us-east-1:123456789012:log-group:cloudtrail-logging", trivyTypes.NewTestMetadata()),
+						IsLogging:                 trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+						IsMultiRegion:             trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
 			cloudwatch: cloudwatch.CloudWatch{
 				LogGroups: []cloudwatch.LogGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Arn:      defsecTypes.String("arn:aws:cloudwatch:us-east-1:123456789012:log-group:cloudtrail-logging", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Arn:      trivyTypes.String("arn:aws:cloudwatch:us-east-1:123456789012:log-group:cloudtrail-logging", trivyTypes.NewTestMetadata()),
 						MetricFilters: []cloudwatch.MetricFilter{
 							{
-								Metadata:      defsecTypes.NewTestMetadata(),
-								FilterName:    defsecTypes.String("CloudTrailConfigurationChange", defsecTypes.NewTestMetadata()),
-								FilterPattern: defsecTypes.String(`   {($.eventName=CreateTrail) || ($.eventName=UpdateTrail) || ($.eventName=DeleteTrail) || ($.eventName=StartLogging) || ($.eventName=StopLogging)}`, defsecTypes.NewTestMetadata()),
+								Metadata:      trivyTypes.NewTestMetadata(),
+								FilterName:    trivyTypes.String("CloudTrailConfigurationChange", trivyTypes.NewTestMetadata()),
+								FilterPattern: trivyTypes.String(`   {($.eventName=CreateTrail) || ($.eventName=UpdateTrail) || ($.eventName=DeleteTrail) || ($.eventName=StartLogging) || ($.eventName=StopLogging)}`, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
 				},
 				Alarms: []cloudwatch.Alarm{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						AlarmName:  defsecTypes.String("CloudTrailConfigurationChange", defsecTypes.NewTestMetadata()),
-						MetricName: defsecTypes.String("CloudTrailConfigurationChange", defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						AlarmName:  trivyTypes.String("CloudTrailConfigurationChange", trivyTypes.NewTestMetadata()),
+						MetricName: trivyTypes.String("CloudTrailConfigurationChange", trivyTypes.NewTestMetadata()),
 						Metrics: []cloudwatch.MetricDataQuery{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								ID:       defsecTypes.String("CloudTrailConfigurationChange", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								ID:       trivyTypes.String("CloudTrailConfigurationChange", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -66,25 +66,25 @@ func TestCheckRequireCloudTrailChangeAlarm(t *testing.T) {
 			cloudtrail: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata:                  defsecTypes.NewTestMetadata(),
-						CloudWatchLogsLogGroupArn: defsecTypes.String("arn:aws:cloudwatch:us-east-1:123456789012:log-group:cloudtrail-logging", defsecTypes.NewTestMetadata()),
-						IsLogging:                 defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-						IsMultiRegion:             defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:                  trivyTypes.NewTestMetadata(),
+						CloudWatchLogsLogGroupArn: trivyTypes.String("arn:aws:cloudwatch:us-east-1:123456789012:log-group:cloudtrail-logging", trivyTypes.NewTestMetadata()),
+						IsLogging:                 trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+						IsMultiRegion:             trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
 			cloudwatch: cloudwatch.CloudWatch{
 				LogGroups: []cloudwatch.LogGroup{
 					{
-						Metadata:      defsecTypes.NewTestMetadata(),
-						Arn:           defsecTypes.String("arn:aws:cloudwatch:us-east-1:123456789012:log-group:cloudtrail-logging", defsecTypes.NewTestMetadata()),
+						Metadata:      trivyTypes.NewTestMetadata(),
+						Arn:           trivyTypes.String("arn:aws:cloudwatch:us-east-1:123456789012:log-group:cloudtrail-logging", trivyTypes.NewTestMetadata()),
 						MetricFilters: []cloudwatch.MetricFilter{},
 					},
 				},
 				Alarms: []cloudwatch.Alarm{
 					{
-						Metadata:  defsecTypes.NewTestMetadata(),
-						AlarmName: defsecTypes.String("CloudTrailConfigurationChange", defsecTypes.NewTestMetadata()),
+						Metadata:  trivyTypes.NewTestMetadata(),
+						AlarmName: trivyTypes.String("CloudTrailConfigurationChange", trivyTypes.NewTestMetadata()),
 						Metrics: []cloudwatch.MetricDataQuery{
 							{},
 						},

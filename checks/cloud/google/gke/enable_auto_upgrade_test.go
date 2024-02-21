@@ -3,7 +3,7 @@ package gke
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,13 +24,13 @@ func TestCheckEnableAutoUpgrade(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NodePools: []gke.NodePool{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Management: gke.Management{
-									Metadata:          defsecTypes.NewTestMetadata(),
-									EnableAutoUpgrade: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+									Metadata:          trivyTypes.NewTestMetadata(),
+									EnableAutoUpgrade: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -44,13 +44,13 @@ func TestCheckEnableAutoUpgrade(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NodePools: []gke.NodePool{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Management: gke.Management{
-									Metadata:          defsecTypes.NewTestMetadata(),
-									EnableAutoUpgrade: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+									Metadata:          trivyTypes.NewTestMetadata(),
+									EnableAutoUpgrade: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 								},
 							},
 						},

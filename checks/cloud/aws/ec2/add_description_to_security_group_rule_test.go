@@ -3,7 +3,7 @@ package ec2
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/ec2"
 
@@ -25,11 +25,11 @@ func TestCheckAddDescriptionToSecurityGroupRule(t *testing.T) {
 			input: ec2.EC2{
 				SecurityGroups: []ec2.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						IngressRules: []ec2.SecurityGroupRule{
 							{
-								Metadata:    defsecTypes.NewTestMetadata(),
-								Description: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+								Metadata:    trivyTypes.NewTestMetadata(),
+								Description: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -42,11 +42,11 @@ func TestCheckAddDescriptionToSecurityGroupRule(t *testing.T) {
 			input: ec2.EC2{
 				SecurityGroups: []ec2.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						IngressRules: []ec2.SecurityGroupRule{
 							{
-								Metadata:    defsecTypes.NewTestMetadata(),
-								Description: defsecTypes.String("some description", defsecTypes.NewTestMetadata()),
+								Metadata:    trivyTypes.NewTestMetadata(),
+								Description: trivyTypes.String("some description", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

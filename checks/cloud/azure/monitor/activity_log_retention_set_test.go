@@ -3,7 +3,7 @@ package monitor
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,11 +24,11 @@ func TestCheckActivityLogRetentionSet(t *testing.T) {
 			input: monitor.Monitor{
 				LogProfiles: []monitor.LogProfile{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						RetentionPolicy: monitor.RetentionPolicy{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-							Days:     defsecTypes.Int(365, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+							Days:     trivyTypes.Int(365, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -40,11 +40,11 @@ func TestCheckActivityLogRetentionSet(t *testing.T) {
 			input: monitor.Monitor{
 				LogProfiles: []monitor.LogProfile{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						RetentionPolicy: monitor.RetentionPolicy{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							Days:     defsecTypes.Int(90, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							Days:     trivyTypes.Int(90, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -56,11 +56,11 @@ func TestCheckActivityLogRetentionSet(t *testing.T) {
 			input: monitor.Monitor{
 				LogProfiles: []monitor.LogProfile{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						RetentionPolicy: monitor.RetentionPolicy{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							Days:     defsecTypes.Int(365, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							Days:     trivyTypes.Int(365, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

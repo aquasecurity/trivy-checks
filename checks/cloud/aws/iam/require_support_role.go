@@ -2,7 +2,7 @@ package iam
 
 import (
 	"github.com/aquasecurity/trivy/pkg/iac/framework"
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/severity"
 
@@ -47,7 +47,7 @@ IAM Policy to allow Support Center Access in order to manage Incidents with AWS 
 			}
 		}
 
-		results.Add("Missing IAM support role.", defsecTypes.NewUnmanagedMetadata())
+		results.Add("Missing IAM support role.", trivyTypes.NewUnmanagedMetadata())
 		return results
 	},
 )

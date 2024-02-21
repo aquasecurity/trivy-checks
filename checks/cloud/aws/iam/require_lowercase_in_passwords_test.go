@@ -3,7 +3,7 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -23,8 +23,8 @@ func TestCheckRequireLowercaseInPasswords(t *testing.T) {
 			name: "IAM password policy lowercase not required",
 			input: iam.IAM{
 				PasswordPolicy: iam.PasswordPolicy{
-					Metadata:         defsecTypes.NewTestMetadata(),
-					RequireLowercase: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+					Metadata:         trivyTypes.NewTestMetadata(),
+					RequireLowercase: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: true,
@@ -33,8 +33,8 @@ func TestCheckRequireLowercaseInPasswords(t *testing.T) {
 			name: "IAM password policy lowercase required",
 			input: iam.IAM{
 				PasswordPolicy: iam.PasswordPolicy{
-					Metadata:         defsecTypes.NewTestMetadata(),
-					RequireLowercase: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+					Metadata:         trivyTypes.NewTestMetadata(),
+					RequireLowercase: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: false,

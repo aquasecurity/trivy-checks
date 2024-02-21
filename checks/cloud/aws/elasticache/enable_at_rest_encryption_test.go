@@ -3,7 +3,7 @@ package elasticache
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckEnableAtRestEncryption(t *testing.T) {
 			input: elasticache.ElastiCache{
 				ReplicationGroups: []elasticache.ReplicationGroup{
 					{
-						Metadata:                defsecTypes.NewTestMetadata(),
-						AtRestEncryptionEnabled: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:                trivyTypes.NewTestMetadata(),
+						AtRestEncryptionEnabled: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckEnableAtRestEncryption(t *testing.T) {
 			input: elasticache.ElastiCache{
 				ReplicationGroups: []elasticache.ReplicationGroup{
 					{
-						Metadata:                defsecTypes.NewTestMetadata(),
-						AtRestEncryptionEnabled: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:                trivyTypes.NewTestMetadata(),
+						AtRestEncryptionEnabled: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

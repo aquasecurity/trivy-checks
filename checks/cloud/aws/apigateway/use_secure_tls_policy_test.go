@@ -3,7 +3,7 @@ package apigateway
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	v1 "github.com/aquasecurity/trivy/pkg/iac/providers/aws/apigateway/v1"
 
@@ -25,8 +25,8 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: v1.APIGateway{
 				DomainNames: []v1.DomainName{
 					{
-						Metadata:       defsecTypes.NewTestMetadata(),
-						SecurityPolicy: defsecTypes.String("TLS_1_0", defsecTypes.NewTestMetadata()),
+						Metadata:       trivyTypes.NewTestMetadata(),
+						SecurityPolicy: trivyTypes.String("TLS_1_0", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -37,8 +37,8 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: v1.APIGateway{
 				DomainNames: []v1.DomainName{
 					{
-						Metadata:       defsecTypes.NewTestMetadata(),
-						SecurityPolicy: defsecTypes.String("TLS_1_2", defsecTypes.NewTestMetadata()),
+						Metadata:       trivyTypes.NewTestMetadata(),
+						SecurityPolicy: trivyTypes.String("TLS_1_2", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

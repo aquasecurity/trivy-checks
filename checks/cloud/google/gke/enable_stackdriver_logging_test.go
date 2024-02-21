@@ -3,7 +3,7 @@ package gke
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckEnableStackdriverLogging(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata:       defsecTypes.NewTestMetadata(),
-						LoggingService: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata:       trivyTypes.NewTestMetadata(),
+						LoggingService: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckEnableStackdriverLogging(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata:       defsecTypes.NewTestMetadata(),
-						LoggingService: defsecTypes.String("logging.googleapis.com/kubernetes", defsecTypes.NewTestMetadata()),
+						Metadata:       trivyTypes.NewTestMetadata(),
+						LoggingService: trivyTypes.String("logging.googleapis.com/kubernetes", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

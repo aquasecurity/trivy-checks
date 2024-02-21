@@ -3,7 +3,7 @@ package elasticsearch
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckEnableDomainLogging(t *testing.T) {
 			input: elasticsearch.Elasticsearch{
 				Domains: []elasticsearch.Domain{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						LogPublishing: elasticsearch.LogPublishing{
-							Metadata:     defsecTypes.NewTestMetadata(),
-							AuditEnabled: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata:     trivyTypes.NewTestMetadata(),
+							AuditEnabled: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckEnableDomainLogging(t *testing.T) {
 			input: elasticsearch.Elasticsearch{
 				Domains: []elasticsearch.Domain{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						LogPublishing: elasticsearch.LogPublishing{
-							Metadata:     defsecTypes.NewTestMetadata(),
-							AuditEnabled: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:     trivyTypes.NewTestMetadata(),
+							AuditEnabled: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

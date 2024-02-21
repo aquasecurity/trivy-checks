@@ -3,7 +3,7 @@ package keyvault
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,9 +24,9 @@ func TestCheckNoPurge(t *testing.T) {
 			input: keyvault.KeyVault{
 				Vaults: []keyvault.Vault{
 					{
-						Metadata:                defsecTypes.NewTestMetadata(),
-						EnablePurgeProtection:   defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-						SoftDeleteRetentionDays: defsecTypes.Int(30, defsecTypes.NewTestMetadata()),
+						Metadata:                trivyTypes.NewTestMetadata(),
+						EnablePurgeProtection:   trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+						SoftDeleteRetentionDays: trivyTypes.Int(30, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -37,9 +37,9 @@ func TestCheckNoPurge(t *testing.T) {
 			input: keyvault.KeyVault{
 				Vaults: []keyvault.Vault{
 					{
-						Metadata:                defsecTypes.NewTestMetadata(),
-						EnablePurgeProtection:   defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-						SoftDeleteRetentionDays: defsecTypes.Int(3, defsecTypes.NewTestMetadata()),
+						Metadata:                trivyTypes.NewTestMetadata(),
+						EnablePurgeProtection:   trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+						SoftDeleteRetentionDays: trivyTypes.Int(3, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -50,9 +50,9 @@ func TestCheckNoPurge(t *testing.T) {
 			input: keyvault.KeyVault{
 				Vaults: []keyvault.Vault{
 					{
-						Metadata:                defsecTypes.NewTestMetadata(),
-						EnablePurgeProtection:   defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-						SoftDeleteRetentionDays: defsecTypes.Int(30, defsecTypes.NewTestMetadata()),
+						Metadata:                trivyTypes.NewTestMetadata(),
+						EnablePurgeProtection:   trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+						SoftDeleteRetentionDays: trivyTypes.Int(30, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

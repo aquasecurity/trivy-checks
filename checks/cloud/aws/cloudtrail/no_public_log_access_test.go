@@ -3,7 +3,7 @@ package cloudtrail
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -26,17 +26,17 @@ func TestCheckNoPublicLogAccess(t *testing.T) {
 			inputCT: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						BucketName: defsecTypes.String("my-bucket", defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						BucketName: trivyTypes.String("my-bucket", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
 			inputS3: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("my-bucket", defsecTypes.NewTestMetadata()),
-						ACL:      defsecTypes.String("private", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("my-bucket", trivyTypes.NewTestMetadata()),
+						ACL:      trivyTypes.String("private", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -47,17 +47,17 @@ func TestCheckNoPublicLogAccess(t *testing.T) {
 			inputCT: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						BucketName: defsecTypes.String("my-bucket", defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						BucketName: trivyTypes.String("my-bucket", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
 			inputS3: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("my-bucket", defsecTypes.NewTestMetadata()),
-						ACL:      defsecTypes.String("public-read", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("my-bucket", trivyTypes.NewTestMetadata()),
+						ACL:      trivyTypes.String("public-read", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

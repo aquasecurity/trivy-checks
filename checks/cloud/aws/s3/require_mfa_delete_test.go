@@ -3,7 +3,7 @@ package s3
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,11 +24,11 @@ func TestCheckRequireMFADelete(t *testing.T) {
 			input: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Versioning: s3.Versioning{
-							Metadata:  defsecTypes.NewTestMetadata(),
-							Enabled:   defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							MFADelete: defsecTypes.BoolUnresolvable(defsecTypes.NewTestMetadata()),
+							Metadata:  trivyTypes.NewTestMetadata(),
+							Enabled:   trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							MFADelete: trivyTypes.BoolUnresolvable(trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -40,11 +40,11 @@ func TestCheckRequireMFADelete(t *testing.T) {
 			input: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Versioning: s3.Versioning{
-							Metadata:  defsecTypes.NewTestMetadata(),
-							Enabled:   defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							MFADelete: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata:  trivyTypes.NewTestMetadata(),
+							Enabled:   trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							MFADelete: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -56,11 +56,11 @@ func TestCheckRequireMFADelete(t *testing.T) {
 			input: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Versioning: s3.Versioning{
-							Metadata:  defsecTypes.NewTestMetadata(),
-							Enabled:   defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							MFADelete: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:  trivyTypes.NewTestMetadata(),
+							Enabled:   trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							MFADelete: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

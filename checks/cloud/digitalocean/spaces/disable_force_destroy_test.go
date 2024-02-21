@@ -3,7 +3,7 @@ package spaces
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckDisableForceDestroy(t *testing.T) {
 			input: spaces.Spaces{
 				Buckets: []spaces.Bucket{
 					{
-						Metadata:     defsecTypes.NewTestMetadata(),
-						ForceDestroy: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:     trivyTypes.NewTestMetadata(),
+						ForceDestroy: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckDisableForceDestroy(t *testing.T) {
 			input: spaces.Spaces{
 				Buckets: []spaces.Bucket{
 					{
-						Metadata:     defsecTypes.NewTestMetadata(),
-						ForceDestroy: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:     trivyTypes.NewTestMetadata(),
+						ForceDestroy: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

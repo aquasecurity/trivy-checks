@@ -3,7 +3,7 @@ package athena
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckEnableAtRestEncryption(t *testing.T) {
 			input: athena.Athena{
 				Databases: []athena.Database{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: athena.EncryptionConfiguration{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Type:     defsecTypes.String(athena.EncryptionTypeNone, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Type:     trivyTypes.String(athena.EncryptionTypeNone, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckEnableAtRestEncryption(t *testing.T) {
 			input: athena.Athena{
 				Workgroups: []athena.Workgroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: athena.EncryptionConfiguration{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Type:     defsecTypes.String(athena.EncryptionTypeNone, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Type:     trivyTypes.String(athena.EncryptionTypeNone, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -54,19 +54,19 @@ func TestCheckEnableAtRestEncryption(t *testing.T) {
 			input: athena.Athena{
 				Databases: []athena.Database{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: athena.EncryptionConfiguration{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Type:     defsecTypes.String(athena.EncryptionTypeSSEKMS, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Type:     trivyTypes.String(athena.EncryptionTypeSSEKMS, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
 				Workgroups: []athena.Workgroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: athena.EncryptionConfiguration{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Type:     defsecTypes.String(athena.EncryptionTypeSSEKMS, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Type:     trivyTypes.String(athena.EncryptionTypeSSEKMS, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

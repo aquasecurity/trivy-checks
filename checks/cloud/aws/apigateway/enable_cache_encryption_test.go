@@ -3,7 +3,7 @@ package apigateway
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	v1 "github.com/aquasecurity/trivy/pkg/iac/providers/aws/apigateway/v1"
 
@@ -25,15 +25,15 @@ func TestCheckEnableCacheEncryption(t *testing.T) {
 			input: v1.APIGateway{
 				APIs: []v1.API{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Stages: []v1.Stage{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								RESTMethodSettings: []v1.RESTMethodSettings{
 									{
-										Metadata:           defsecTypes.NewTestMetadata(),
-										CacheDataEncrypted: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-										CacheEnabled:       defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+										Metadata:           trivyTypes.NewTestMetadata(),
+										CacheDataEncrypted: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+										CacheEnabled:       trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -48,15 +48,15 @@ func TestCheckEnableCacheEncryption(t *testing.T) {
 			input: v1.APIGateway{
 				APIs: []v1.API{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Stages: []v1.Stage{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								RESTMethodSettings: []v1.RESTMethodSettings{
 									{
-										Metadata:           defsecTypes.NewTestMetadata(),
-										CacheDataEncrypted: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-										CacheEnabled:       defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+										Metadata:           trivyTypes.NewTestMetadata(),
+										CacheDataEncrypted: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+										CacheEnabled:       trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -71,15 +71,15 @@ func TestCheckEnableCacheEncryption(t *testing.T) {
 			input: v1.APIGateway{
 				APIs: []v1.API{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Stages: []v1.Stage{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								RESTMethodSettings: []v1.RESTMethodSettings{
 									{
-										Metadata:           defsecTypes.NewTestMetadata(),
-										CacheDataEncrypted: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-										CacheEnabled:       defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+										Metadata:           trivyTypes.NewTestMetadata(),
+										CacheDataEncrypted: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+										CacheEnabled:       trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 									},
 								},
 							},

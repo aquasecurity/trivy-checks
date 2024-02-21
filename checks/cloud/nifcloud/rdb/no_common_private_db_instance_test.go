@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/nifcloud/rdb"
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
@@ -24,8 +24,8 @@ func TestCheckNoCommonPrivateDBInstance(t *testing.T) {
 			input: rdb.RDB{
 				DBInstances: []rdb.DBInstance{
 					{
-						Metadata:  defsecTypes.NewTestMetadata(),
-						NetworkID: defsecTypes.String("net-COMMON_PRIVATE", defsecTypes.NewTestMetadata()),
+						Metadata:  trivyTypes.NewTestMetadata(),
+						NetworkID: trivyTypes.String("net-COMMON_PRIVATE", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckNoCommonPrivateDBInstance(t *testing.T) {
 			input: rdb.RDB{
 				DBInstances: []rdb.DBInstance{
 					{
-						Metadata:  defsecTypes.NewTestMetadata(),
-						NetworkID: defsecTypes.String("net-some-private-lan", defsecTypes.NewTestMetadata()),
+						Metadata:  trivyTypes.NewTestMetadata(),
+						NetworkID: trivyTypes.String("net-some-private-lan", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

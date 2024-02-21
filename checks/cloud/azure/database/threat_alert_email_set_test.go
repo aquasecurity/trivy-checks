@@ -3,7 +3,7 @@ package database
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,11 +24,11 @@ func TestCheckThreatAlertEmailSet(t *testing.T) {
 			input: database.Database{
 				MSSQLServers: []database.MSSQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						SecurityAlertPolicies: []database.SecurityAlertPolicy{
 							{
-								Metadata:       defsecTypes.NewTestMetadata(),
-								EmailAddresses: []defsecTypes.StringValue{},
+								Metadata:       trivyTypes.NewTestMetadata(),
+								EmailAddresses: []trivyTypes.StringValue{},
 							},
 						},
 					},
@@ -41,12 +41,12 @@ func TestCheckThreatAlertEmailSet(t *testing.T) {
 			input: database.Database{
 				MSSQLServers: []database.MSSQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						SecurityAlertPolicies: []database.SecurityAlertPolicy{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								EmailAddresses: []defsecTypes.StringValue{
-									defsecTypes.String("sample@email.com", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								EmailAddresses: []trivyTypes.StringValue{
+									trivyTypes.String("sample@email.com", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},

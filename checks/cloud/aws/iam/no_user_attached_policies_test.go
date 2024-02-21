@@ -3,7 +3,7 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckNoUserAttachedPolicies(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("example", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("example", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,14 +36,14 @@ func TestCheckNoUserAttachedPolicies(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("example", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("example", trivyTypes.NewTestMetadata()),
 						Policies: []iam.Policy{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Name:     defsecTypes.String("another.policy", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Name:     trivyTypes.String("another.policy", trivyTypes.NewTestMetadata()),
 								Document: iam.Document{
-									Metadata: defsecTypes.NewTestMetadata(),
+									Metadata: trivyTypes.NewTestMetadata(),
 								},
 							},
 						},

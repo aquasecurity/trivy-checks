@@ -3,7 +3,7 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckNoSecretsInCustomData(t *testing.T) {
 			input: compute.Compute{
 				LinuxVirtualMachines: []compute.LinuxVirtualMachine{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						VirtualMachine: compute.VirtualMachine{
-							Metadata:   defsecTypes.NewTestMetadata(),
-							CustomData: defsecTypes.String(`export DATABASE_PASSWORD=\"SomeSortOfPassword\"`, defsecTypes.NewTestMetadata()),
+							Metadata:   trivyTypes.NewTestMetadata(),
+							CustomData: trivyTypes.String(`export DATABASE_PASSWORD=\"SomeSortOfPassword\"`, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckNoSecretsInCustomData(t *testing.T) {
 			input: compute.Compute{
 				LinuxVirtualMachines: []compute.LinuxVirtualMachine{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						VirtualMachine: compute.VirtualMachine{
-							Metadata:   defsecTypes.NewTestMetadata(),
-							CustomData: defsecTypes.String(`export GREETING="Hello there"`, defsecTypes.NewTestMetadata()),
+							Metadata:   trivyTypes.NewTestMetadata(),
+							CustomData: trivyTypes.String(`export GREETING="Hello there"`, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

@@ -3,7 +3,7 @@ package s3
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,11 +24,11 @@ func TestCheckEncryptionCustomerKey(t *testing.T) {
 			input: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: s3.Encryption{
-							Metadata: defsecTypes.Metadata{},
-							Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							KMSKeyId: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.Metadata{},
+							Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							KMSKeyId: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -40,11 +40,11 @@ func TestCheckEncryptionCustomerKey(t *testing.T) {
 			input: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Encryption: s3.Encryption{
-							Metadata: defsecTypes.Metadata{},
-							Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-							KMSKeyId: defsecTypes.String("some-sort-of-key", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.Metadata{},
+							Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							KMSKeyId: trivyTypes.String("some-sort-of-key", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

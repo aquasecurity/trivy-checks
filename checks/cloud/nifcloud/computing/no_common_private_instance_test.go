@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/nifcloud/computing"
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
@@ -24,11 +24,11 @@ func TestCheckNoCommonPrivateInstance(t *testing.T) {
 			input: computing.Computing{
 				Instances: []computing.Instance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkInterfaces: []computing.NetworkInterface{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								NetworkID: defsecTypes.String("net-COMMON_PRIVATE", defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								NetworkID: trivyTypes.String("net-COMMON_PRIVATE", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -41,11 +41,11 @@ func TestCheckNoCommonPrivateInstance(t *testing.T) {
 			input: computing.Computing{
 				Instances: []computing.Instance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkInterfaces: []computing.NetworkInterface{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								NetworkID: defsecTypes.String("net-some-private-lan", defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								NetworkID: trivyTypes.String("net-some-private-lan", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

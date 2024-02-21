@@ -3,7 +3,7 @@ package database
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckPostgresConfigurationLogConnectionThrottling(t *testing.T) {
 			input: database.Database{
 				PostgreSQLServers: []database.PostgreSQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Config: database.PostgresSQLConfig{
-							Metadata:             defsecTypes.NewTestMetadata(),
-							ConnectionThrottling: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata:             trivyTypes.NewTestMetadata(),
+							ConnectionThrottling: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckPostgresConfigurationLogConnectionThrottling(t *testing.T) {
 			input: database.Database{
 				PostgreSQLServers: []database.PostgreSQLServer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Config: database.PostgresSQLConfig{
-							Metadata:             defsecTypes.NewTestMetadata(),
-							ConnectionThrottling: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:             trivyTypes.NewTestMetadata(),
+							ConnectionThrottling: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

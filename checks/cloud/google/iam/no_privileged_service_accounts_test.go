@@ -3,7 +3,7 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,12 +24,12 @@ func TestCheckNoPrivilegedServiceAccounts(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Members: []iam.Member{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Role:     defsecTypes.String("roles/owner", defsecTypes.NewTestMetadata()),
-								Member:   defsecTypes.String("serviceAccount:${google_service_account.test.email}", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Role:     trivyTypes.String("roles/owner", trivyTypes.NewTestMetadata()),
+								Member:   trivyTypes.String("serviceAccount:${google_service_account.test.email}", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -42,19 +42,19 @@ func TestCheckNoPrivilegedServiceAccounts(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Folders: []iam.Folder{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Projects: []iam.Project{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
+										Metadata: trivyTypes.NewTestMetadata(),
 										Bindings: []iam.Binding{
 											{
-												Metadata: defsecTypes.NewTestMetadata(),
-												Role:     defsecTypes.String("roles/editor", defsecTypes.NewTestMetadata()),
-												Members: []defsecTypes.StringValue{
-													defsecTypes.String("serviceAccount:${google_service_account.test.email}", defsecTypes.NewTestMetadata()),
+												Metadata: trivyTypes.NewTestMetadata(),
+												Role:     trivyTypes.String("roles/editor", trivyTypes.NewTestMetadata()),
+												Members: []trivyTypes.StringValue{
+													trivyTypes.String("serviceAccount:${google_service_account.test.email}", trivyTypes.NewTestMetadata()),
 												},
 											},
 										},
@@ -72,26 +72,26 @@ func TestCheckNoPrivilegedServiceAccounts(t *testing.T) {
 			input: iam.IAM{
 				Organizations: []iam.Organization{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Folders: []iam.Folder{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Projects: []iam.Project{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
+										Metadata: trivyTypes.NewTestMetadata(),
 										Members: []iam.Member{
 											{
-												Metadata: defsecTypes.NewTestMetadata(),
-												Role:     defsecTypes.String("roles/owner", defsecTypes.NewTestMetadata()),
-												Member:   defsecTypes.String("proper@email.com", defsecTypes.NewTestMetadata()),
+												Metadata: trivyTypes.NewTestMetadata(),
+												Role:     trivyTypes.String("roles/owner", trivyTypes.NewTestMetadata()),
+												Member:   trivyTypes.String("proper@email.com", trivyTypes.NewTestMetadata()),
 											},
 										},
 										Bindings: []iam.Binding{
 											{
-												Metadata: defsecTypes.NewTestMetadata(),
-												Role:     defsecTypes.String("roles/logging.logWriter", defsecTypes.NewTestMetadata()),
-												Members: []defsecTypes.StringValue{
-													defsecTypes.String("serviceAccount:${google_service_account.test.email}", defsecTypes.NewTestMetadata()),
+												Metadata: trivyTypes.NewTestMetadata(),
+												Role:     trivyTypes.String("roles/logging.logWriter", trivyTypes.NewTestMetadata()),
+												Members: []trivyTypes.StringValue{
+													trivyTypes.String("serviceAccount:${google_service_account.test.email}", trivyTypes.NewTestMetadata()),
 												},
 											},
 										},

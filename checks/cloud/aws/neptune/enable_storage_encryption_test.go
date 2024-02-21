@@ -3,7 +3,7 @@ package neptune
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckEnableStorageEncryption(t *testing.T) {
 			input: neptune.Neptune{
 				Clusters: []neptune.Cluster{
 					{
-						Metadata:         defsecTypes.NewTestMetadata(),
-						StorageEncrypted: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:         trivyTypes.NewTestMetadata(),
+						StorageEncrypted: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckEnableStorageEncryption(t *testing.T) {
 			input: neptune.Neptune{
 				Clusters: []neptune.Cluster{
 					{
-						Metadata:         defsecTypes.NewTestMetadata(),
-						StorageEncrypted: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:         trivyTypes.NewTestMetadata(),
+						StorageEncrypted: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

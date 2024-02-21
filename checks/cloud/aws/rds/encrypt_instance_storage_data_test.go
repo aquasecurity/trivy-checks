@@ -3,7 +3,7 @@ package rds
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,11 +24,11 @@ func TestCheckEncryptInstanceStorageData(t *testing.T) {
 			input: rds.RDS{
 				Instances: []rds.Instance{
 					{
-						Metadata:             defsecTypes.NewTestMetadata(),
-						ReplicationSourceARN: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata:             trivyTypes.NewTestMetadata(),
+						ReplicationSourceARN: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						Encryption: rds.Encryption{
-							Metadata:       defsecTypes.NewTestMetadata(),
-							EncryptStorage: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata:       trivyTypes.NewTestMetadata(),
+							EncryptStorage: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -40,11 +40,11 @@ func TestCheckEncryptInstanceStorageData(t *testing.T) {
 			input: rds.RDS{
 				Instances: []rds.Instance{
 					{
-						Metadata:             defsecTypes.NewTestMetadata(),
-						ReplicationSourceARN: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata:             trivyTypes.NewTestMetadata(),
+						ReplicationSourceARN: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 						Encryption: rds.Encryption{
-							Metadata:       defsecTypes.NewTestMetadata(),
-							EncryptStorage: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:       trivyTypes.NewTestMetadata(),
+							EncryptStorage: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

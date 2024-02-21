@@ -3,7 +3,7 @@ package storage
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,11 +24,11 @@ func TestCheckDefaultActionDeny(t *testing.T) {
 			input: storage.Storage{
 				Accounts: []storage.Account{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkRules: []storage.NetworkRule{
 							{
-								Metadata:       defsecTypes.NewTestMetadata(),
-								AllowByDefault: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata:       trivyTypes.NewTestMetadata(),
+								AllowByDefault: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -41,11 +41,11 @@ func TestCheckDefaultActionDeny(t *testing.T) {
 			input: storage.Storage{
 				Accounts: []storage.Account{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkRules: []storage.NetworkRule{
 							{
-								Metadata:       defsecTypes.NewTestMetadata(),
-								AllowByDefault: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata:       trivyTypes.NewTestMetadata(),
+								AllowByDefault: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

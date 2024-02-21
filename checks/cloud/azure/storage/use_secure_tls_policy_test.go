@@ -3,7 +3,7 @@ package storage
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,7 +24,7 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: storage.Storage{
 				Accounts: []storage.Account{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 					},
 				},
 			},
@@ -35,8 +35,8 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: storage.Storage{
 				Accounts: []storage.Account{
 					{
-						Metadata:          defsecTypes.NewTestMetadata(),
-						MinimumTLSVersion: defsecTypes.String("TLS1_0", defsecTypes.NewTestMetadata()),
+						Metadata:          trivyTypes.NewTestMetadata(),
+						MinimumTLSVersion: trivyTypes.String("TLS1_0", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -47,8 +47,8 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: storage.Storage{
 				Accounts: []storage.Account{
 					{
-						Metadata:          defsecTypes.NewTestMetadata(),
-						MinimumTLSVersion: defsecTypes.String("TLS1_2", defsecTypes.NewTestMetadata()),
+						Metadata:          trivyTypes.NewTestMetadata(),
+						MinimumTLSVersion: trivyTypes.String("TLS1_2", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

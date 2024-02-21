@@ -3,7 +3,7 @@ package cloudtrail
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -26,19 +26,19 @@ func TestCheckBucketAccessLoggingRequired(t *testing.T) {
 			inputCT: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						BucketName: defsecTypes.String("my-bucket", defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						BucketName: trivyTypes.String("my-bucket", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
 			inputS3: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("my-bucket", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("my-bucket", trivyTypes.NewTestMetadata()),
 						Logging: s3.Logging{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -50,19 +50,19 @@ func TestCheckBucketAccessLoggingRequired(t *testing.T) {
 			inputCT: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						BucketName: defsecTypes.String("my-bucket", defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						BucketName: trivyTypes.String("my-bucket", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
 			inputS3: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("my-bucket", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("my-bucket", trivyTypes.NewTestMetadata()),
 						Logging: s3.Logging{
-							Metadata: defsecTypes.NewTestMetadata(),
-							Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

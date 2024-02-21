@@ -3,7 +3,7 @@ package actions
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -23,8 +23,8 @@ func TestCheckNoPlainTextActionEnvironmentSecrets(t *testing.T) {
 			name: "Github actions environment secret has plain text value",
 			input: []github.EnvironmentSecret{
 				{
-					Metadata:       defsecTypes.NewTestMetadata(),
-					PlainTextValue: defsecTypes.String("sensitive secret string", defsecTypes.NewTestMetadata()),
+					Metadata:       trivyTypes.NewTestMetadata(),
+					PlainTextValue: trivyTypes.String("sensitive secret string", trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: true,
@@ -33,8 +33,8 @@ func TestCheckNoPlainTextActionEnvironmentSecrets(t *testing.T) {
 			name: "Github actions environment secret has no plain text value",
 			input: []github.EnvironmentSecret{
 				{
-					Metadata:       defsecTypes.NewTestMetadata(),
-					PlainTextValue: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+					Metadata:       trivyTypes.NewTestMetadata(),
+					PlainTextValue: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: false,

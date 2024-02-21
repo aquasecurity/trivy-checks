@@ -3,7 +3,7 @@ package s3
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckForPublicACL(t *testing.T) {
 			input: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						ACL:      defsecTypes.String("public-read", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						ACL:      trivyTypes.String("public-read", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckForPublicACL(t *testing.T) {
 			input: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						ACL:      defsecTypes.String("private", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						ACL:      trivyTypes.String("private", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

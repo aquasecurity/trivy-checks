@@ -3,7 +3,7 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,9 +24,9 @@ func TestCheckNoConditionOnWorkloadIdentityPoolProvider(t *testing.T) {
 			input: iam.IAM{
 				WorkloadIdentityPoolProviders: []iam.WorkloadIdentityPoolProvider{
 					{
-						Metadata:                       defsecTypes.NewTestMetadata(),
-						WorkloadIdentityPoolId:         defsecTypes.String("example-pool", defsecTypes.NewTestMetadata()),
-						WorkloadIdentityPoolProviderId: defsecTypes.String("example-provider", defsecTypes.NewTestMetadata()),
+						Metadata:                       trivyTypes.NewTestMetadata(),
+						WorkloadIdentityPoolId:         trivyTypes.String("example-pool", trivyTypes.NewTestMetadata()),
+						WorkloadIdentityPoolProviderId: trivyTypes.String("example-provider", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -37,10 +37,10 @@ func TestCheckNoConditionOnWorkloadIdentityPoolProvider(t *testing.T) {
 			input: iam.IAM{
 				WorkloadIdentityPoolProviders: []iam.WorkloadIdentityPoolProvider{
 					{
-						Metadata:                       defsecTypes.NewTestMetadata(),
-						WorkloadIdentityPoolId:         defsecTypes.String("example-pool", defsecTypes.NewTestMetadata()),
-						WorkloadIdentityPoolProviderId: defsecTypes.String("example-provider", defsecTypes.NewTestMetadata()),
-						AttributeCondition:             defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata:                       trivyTypes.NewTestMetadata(),
+						WorkloadIdentityPoolId:         trivyTypes.String("example-pool", trivyTypes.NewTestMetadata()),
+						WorkloadIdentityPoolProviderId: trivyTypes.String("example-provider", trivyTypes.NewTestMetadata()),
+						AttributeCondition:             trivyTypes.String("", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -51,10 +51,10 @@ func TestCheckNoConditionOnWorkloadIdentityPoolProvider(t *testing.T) {
 			input: iam.IAM{
 				WorkloadIdentityPoolProviders: []iam.WorkloadIdentityPoolProvider{
 					{
-						Metadata:                       defsecTypes.NewTestMetadata(),
-						WorkloadIdentityPoolId:         defsecTypes.String("example-pool", defsecTypes.NewTestMetadata()),
-						WorkloadIdentityPoolProviderId: defsecTypes.String("example-provider", defsecTypes.NewTestMetadata()),
-						AttributeCondition:             defsecTypes.String("assertion.repository_owner=='your-github-organization'", defsecTypes.NewTestMetadata()),
+						Metadata:                       trivyTypes.NewTestMetadata(),
+						WorkloadIdentityPoolId:         trivyTypes.String("example-pool", trivyTypes.NewTestMetadata()),
+						WorkloadIdentityPoolProviderId: trivyTypes.String("example-provider", trivyTypes.NewTestMetadata()),
+						AttributeCondition:             trivyTypes.String("assertion.repository_owner=='your-github-organization'", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

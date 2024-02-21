@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/nifcloud/nas"
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
 
@@ -24,8 +24,8 @@ func TestCheckNoCommonPrivateNASInstance(t *testing.T) {
 			input: nas.NAS{
 				NASInstances: []nas.NASInstance{
 					{
-						Metadata:  defsecTypes.NewTestMetadata(),
-						NetworkID: defsecTypes.String("net-COMMON_PRIVATE", defsecTypes.NewTestMetadata()),
+						Metadata:  trivyTypes.NewTestMetadata(),
+						NetworkID: trivyTypes.String("net-COMMON_PRIVATE", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckNoCommonPrivateNASInstance(t *testing.T) {
 			input: nas.NAS{
 				NASInstances: []nas.NASInstance{
 					{
-						Metadata:  defsecTypes.NewTestMetadata(),
-						NetworkID: defsecTypes.String("net-some-private-lan", defsecTypes.NewTestMetadata()),
+						Metadata:  trivyTypes.NewTestMetadata(),
+						NetworkID: trivyTypes.String("net-some-private-lan", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

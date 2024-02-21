@@ -3,7 +3,7 @@ package sam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckEnableFunctionTracing(t *testing.T) {
 			input: sam.SAM{
 				Functions: []sam.Function{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Tracing:  defsecTypes.String(sam.TracingModePassThrough, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Tracing:  trivyTypes.String(sam.TracingModePassThrough, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckEnableFunctionTracing(t *testing.T) {
 			input: sam.SAM{
 				Functions: []sam.Function{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Tracing:  defsecTypes.String(sam.TracingModeActive, defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Tracing:  trivyTypes.String(sam.TracingModeActive, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

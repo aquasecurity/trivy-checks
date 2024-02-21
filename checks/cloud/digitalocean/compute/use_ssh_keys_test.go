@@ -3,7 +3,7 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckUseSshKeys(t *testing.T) {
 			input: compute.Compute{
 				Droplets: []compute.Droplet{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						SSHKeys:  []defsecTypes.StringValue{},
+						Metadata: trivyTypes.NewTestMetadata(),
+						SSHKeys:  []trivyTypes.StringValue{},
 					},
 				},
 			},
@@ -36,9 +36,9 @@ func TestCheckUseSshKeys(t *testing.T) {
 			input: compute.Compute{
 				Droplets: []compute.Droplet{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						SSHKeys: []defsecTypes.StringValue{
-							defsecTypes.String("my-ssh-key", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						SSHKeys: []trivyTypes.StringValue{
+							trivyTypes.String("my-ssh-key", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

@@ -3,7 +3,7 @@ package workspaces
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,19 +24,19 @@ func TestCheckEnableDiskEncryption(t *testing.T) {
 			input: workspaces.WorkSpaces{
 				WorkSpaces: []workspaces.WorkSpace{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						RootVolume: workspaces.Volume{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							Encryption: workspaces.Encryption{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 						UserVolume: workspaces.Volume{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							Encryption: workspaces.Encryption{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -49,19 +49,19 @@ func TestCheckEnableDiskEncryption(t *testing.T) {
 			input: workspaces.WorkSpaces{
 				WorkSpaces: []workspaces.WorkSpace{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						RootVolume: workspaces.Volume{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							Encryption: workspaces.Encryption{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 						UserVolume: workspaces.Volume{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							Encryption: workspaces.Encryption{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Enabled:  defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -75,19 +75,19 @@ func TestCheckEnableDiskEncryption(t *testing.T) {
 			input: workspaces.WorkSpaces{
 				WorkSpaces: []workspaces.WorkSpace{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						RootVolume: workspaces.Volume{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							Encryption: workspaces.Encryption{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 						UserVolume: workspaces.Volume{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							Encryption: workspaces.Encryption{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Enabled:  defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

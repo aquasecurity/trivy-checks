@@ -3,7 +3,7 @@ package cloudwatch
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/cloudtrail"
 	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/cloudwatch"
@@ -24,36 +24,36 @@ func TestCheckRequireRootUserUsageAlarm(t *testing.T) {
 			cloudtrail: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata:                  defsecTypes.NewTestMetadata(),
-						CloudWatchLogsLogGroupArn: defsecTypes.String("arn:aws:cloudwatch:us-east-1:123456789012:log-group:cloudtrail-logging", defsecTypes.NewTestMetadata()),
-						IsLogging:                 defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-						IsMultiRegion:             defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:                  trivyTypes.NewTestMetadata(),
+						CloudWatchLogsLogGroupArn: trivyTypes.String("arn:aws:cloudwatch:us-east-1:123456789012:log-group:cloudtrail-logging", trivyTypes.NewTestMetadata()),
+						IsLogging:                 trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+						IsMultiRegion:             trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
 			cloudwatch: cloudwatch.CloudWatch{
 				LogGroups: []cloudwatch.LogGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Arn:      defsecTypes.String("arn:aws:cloudwatch:us-east-1:123456789012:log-group:cloudtrail-logging", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Arn:      trivyTypes.String("arn:aws:cloudwatch:us-east-1:123456789012:log-group:cloudtrail-logging", trivyTypes.NewTestMetadata()),
 						MetricFilters: []cloudwatch.MetricFilter{
 							{
-								Metadata:      defsecTypes.NewTestMetadata(),
-								FilterName:    defsecTypes.String("RootUserUsage", defsecTypes.NewTestMetadata()),
-								FilterPattern: defsecTypes.String(`$.userIdentity.type = "Root" && $.userIdentity.invokedBy NOT EXISTS && &.eventType != "AwsServiceEvent"`, defsecTypes.NewTestMetadata()),
+								Metadata:      trivyTypes.NewTestMetadata(),
+								FilterName:    trivyTypes.String("RootUserUsage", trivyTypes.NewTestMetadata()),
+								FilterPattern: trivyTypes.String(`$.userIdentity.type = "Root" && $.userIdentity.invokedBy NOT EXISTS && &.eventType != "AwsServiceEvent"`, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
 				},
 				Alarms: []cloudwatch.Alarm{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						AlarmName:  defsecTypes.String("RootUserUsage", defsecTypes.NewTestMetadata()),
-						MetricName: defsecTypes.String("RootUserUsage", defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						AlarmName:  trivyTypes.String("RootUserUsage", trivyTypes.NewTestMetadata()),
+						MetricName: trivyTypes.String("RootUserUsage", trivyTypes.NewTestMetadata()),
 						Metrics: []cloudwatch.MetricDataQuery{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								ID:       defsecTypes.String("RootUserUsage", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								ID:       trivyTypes.String("RootUserUsage", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -66,30 +66,30 @@ func TestCheckRequireRootUserUsageAlarm(t *testing.T) {
 			cloudtrail: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata:                  defsecTypes.NewTestMetadata(),
-						CloudWatchLogsLogGroupArn: defsecTypes.String("arn:aws:cloudwatch:us-east-1:123456789012:log-group:cloudtrail-logging", defsecTypes.NewTestMetadata()),
-						IsLogging:                 defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-						IsMultiRegion:             defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:                  trivyTypes.NewTestMetadata(),
+						CloudWatchLogsLogGroupArn: trivyTypes.String("arn:aws:cloudwatch:us-east-1:123456789012:log-group:cloudtrail-logging", trivyTypes.NewTestMetadata()),
+						IsLogging:                 trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+						IsMultiRegion:             trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
 			cloudwatch: cloudwatch.CloudWatch{
 				LogGroups: []cloudwatch.LogGroup{
 					{
-						Metadata:      defsecTypes.NewTestMetadata(),
-						Arn:           defsecTypes.String("arn:aws:cloudwatch:us-east-1:123456789012:log-group:cloudtrail-logging", defsecTypes.NewTestMetadata()),
+						Metadata:      trivyTypes.NewTestMetadata(),
+						Arn:           trivyTypes.String("arn:aws:cloudwatch:us-east-1:123456789012:log-group:cloudtrail-logging", trivyTypes.NewTestMetadata()),
 						MetricFilters: []cloudwatch.MetricFilter{},
 					},
 				},
 				Alarms: []cloudwatch.Alarm{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						AlarmName:  defsecTypes.String("RootUserUsage", defsecTypes.NewTestMetadata()),
-						MetricName: defsecTypes.String("RootUserUsage", defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						AlarmName:  trivyTypes.String("RootUserUsage", trivyTypes.NewTestMetadata()),
+						MetricName: trivyTypes.String("RootUserUsage", trivyTypes.NewTestMetadata()),
 						Metrics: []cloudwatch.MetricDataQuery{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								ID:       defsecTypes.String("RootUserUsage", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								ID:       trivyTypes.String("RootUserUsage", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

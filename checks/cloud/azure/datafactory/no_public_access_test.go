@@ -3,7 +3,7 @@ package datafactory
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckNoPublicAccess(t *testing.T) {
 			input: datafactory.DataFactory{
 				DataFactories: []datafactory.Factory{
 					{
-						Metadata:            defsecTypes.NewTestMetadata(),
-						EnablePublicNetwork: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:            trivyTypes.NewTestMetadata(),
+						EnablePublicNetwork: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckNoPublicAccess(t *testing.T) {
 			input: datafactory.DataFactory{
 				DataFactories: []datafactory.Factory{
 					{
-						Metadata:            defsecTypes.NewTestMetadata(),
-						EnablePublicNetwork: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:            trivyTypes.NewTestMetadata(),
+						EnablePublicNetwork: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

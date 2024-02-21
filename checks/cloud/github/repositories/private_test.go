@@ -3,7 +3,7 @@ package repositories
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -23,8 +23,8 @@ func TestCheckPrivate(t *testing.T) {
 			name: "Public repository",
 			input: []github.Repository{
 				{
-					Metadata: defsecTypes.NewTestMetadata(),
-					Public:   defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+					Metadata: trivyTypes.NewTestMetadata(),
+					Public:   trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: true,
@@ -33,8 +33,8 @@ func TestCheckPrivate(t *testing.T) {
 			name: "Private repository",
 			input: []github.Repository{
 				{
-					Metadata: defsecTypes.NewTestMetadata(),
-					Public:   defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+					Metadata: trivyTypes.NewTestMetadata(),
+					Public:   trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: false,

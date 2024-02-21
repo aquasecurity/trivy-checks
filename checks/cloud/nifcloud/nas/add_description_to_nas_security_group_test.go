@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/nifcloud/nas"
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckAddDescriptionToNASSecurityGroup(t *testing.T) {
 			input: nas.NAS{
 				NASSecurityGroups: []nas.NASSecurityGroup{
 					{
-						Metadata:    defsecTypes.NewTestMetadata(),
-						Description: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata:    trivyTypes.NewTestMetadata(),
+						Description: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckAddDescriptionToNASSecurityGroup(t *testing.T) {
 			input: nas.NAS{
 				NASSecurityGroups: []nas.NASSecurityGroup{
 					{
-						Metadata:    defsecTypes.NewTestMetadata(),
-						Description: defsecTypes.String("Managed by Terraform", defsecTypes.NewTestMetadata()),
+						Metadata:    trivyTypes.NewTestMetadata(),
+						Description: trivyTypes.String("Managed by Terraform", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -48,8 +48,8 @@ func TestCheckAddDescriptionToNASSecurityGroup(t *testing.T) {
 			input: nas.NAS{
 				NASSecurityGroups: []nas.NASSecurityGroup{
 					{
-						Metadata:    defsecTypes.NewTestMetadata(),
-						Description: defsecTypes.String("some proper description", defsecTypes.NewTestMetadata()),
+						Metadata:    trivyTypes.NewTestMetadata(),
+						Description: trivyTypes.String("some proper description", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

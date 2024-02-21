@@ -3,7 +3,7 @@ package s3
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,7 +24,7 @@ func TestCheckPublicPoliciesAreBlocked(t *testing.T) {
 			input: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 					},
 				},
 			},
@@ -35,10 +35,10 @@ func TestCheckPublicPoliciesAreBlocked(t *testing.T) {
 			input: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						PublicAccessBlock: &s3.PublicAccessBlock{
-							Metadata:          defsecTypes.NewTestMetadata(),
-							BlockPublicPolicy: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:          trivyTypes.NewTestMetadata(),
+							BlockPublicPolicy: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

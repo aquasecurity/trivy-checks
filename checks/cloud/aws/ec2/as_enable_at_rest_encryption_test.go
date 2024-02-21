@@ -3,7 +3,7 @@ package ec2
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestASCheckEnableAtRestEncryption(t *testing.T) {
 			input: ec2.EC2{
 				LaunchConfigurations: []ec2.LaunchConfiguration{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						RootBlockDevice: &ec2.BlockDevice{
-							Metadata:  defsecTypes.NewTestMetadata(),
-							Encrypted: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata:  trivyTypes.NewTestMetadata(),
+							Encrypted: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,11 +39,11 @@ func TestASCheckEnableAtRestEncryption(t *testing.T) {
 			input: ec2.EC2{
 				LaunchConfigurations: []ec2.LaunchConfiguration{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						EBSBlockDevices: []*ec2.BlockDevice{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								Encrypted: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								Encrypted: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -56,15 +56,15 @@ func TestASCheckEnableAtRestEncryption(t *testing.T) {
 			input: ec2.EC2{
 				LaunchConfigurations: []ec2.LaunchConfiguration{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						RootBlockDevice: &ec2.BlockDevice{
-							Metadata:  defsecTypes.NewTestMetadata(),
-							Encrypted: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:  trivyTypes.NewTestMetadata(),
+							Encrypted: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 						EBSBlockDevices: []*ec2.BlockDevice{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								Encrypted: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								Encrypted: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

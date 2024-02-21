@@ -3,7 +3,7 @@ package redshift
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckAddDescriptionToSecurityGroup(t *testing.T) {
 			input: redshift.Redshift{
 				SecurityGroups: []redshift.SecurityGroup{
 					{
-						Metadata:    defsecTypes.NewTestMetadata(),
-						Description: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+						Metadata:    trivyTypes.NewTestMetadata(),
+						Description: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckAddDescriptionToSecurityGroup(t *testing.T) {
 			input: redshift.Redshift{
 				SecurityGroups: []redshift.SecurityGroup{
 					{
-						Metadata:    defsecTypes.NewTestMetadata(),
-						Description: defsecTypes.String("security group description", defsecTypes.NewTestMetadata()),
+						Metadata:    trivyTypes.NewTestMetadata(),
+						Description: trivyTypes.String("security group description", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

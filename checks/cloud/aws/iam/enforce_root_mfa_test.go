@@ -3,7 +3,7 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckRootMFAEnabled(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("root", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("root", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckRootMFAEnabled(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("other", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("other", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -48,12 +48,12 @@ func TestCheckRootMFAEnabled(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("root", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("root", trivyTypes.NewTestMetadata()),
 						MFADevices: []iam.MFADevice{
 							{
-								Metadata:  defsecTypes.NewTestMetadata(),
-								IsVirtual: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata:  trivyTypes.NewTestMetadata(),
+								IsVirtual: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

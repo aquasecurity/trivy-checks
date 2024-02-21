@@ -3,7 +3,7 @@ package apigateway
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	v1 "github.com/aquasecurity/trivy/pkg/iac/providers/aws/apigateway/v1"
 
@@ -25,14 +25,14 @@ func TestCheckEnableCache(t *testing.T) {
 			input: v1.APIGateway{
 				APIs: []v1.API{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Stages: []v1.Stage{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								RESTMethodSettings: []v1.RESTMethodSettings{
 									{
-										Metadata:     defsecTypes.NewTestMetadata(),
-										CacheEnabled: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+										Metadata:     trivyTypes.NewTestMetadata(),
+										CacheEnabled: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 									},
 								},
 							},
@@ -48,14 +48,14 @@ func TestCheckEnableCache(t *testing.T) {
 			input: v1.APIGateway{
 				APIs: []v1.API{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Stages: []v1.Stage{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								RESTMethodSettings: []v1.RESTMethodSettings{
 									{
-										Metadata:     defsecTypes.NewTestMetadata(),
-										CacheEnabled: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+										Metadata:     trivyTypes.NewTestMetadata(),
+										CacheEnabled: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 									},
 								},
 							},

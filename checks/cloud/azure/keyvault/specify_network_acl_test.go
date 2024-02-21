@@ -3,7 +3,7 @@ package keyvault
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckSpecifyNetworkAcl(t *testing.T) {
 			input: keyvault.KeyVault{
 				Vaults: []keyvault.Vault{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkACLs: keyvault.NetworkACLs{
-							Metadata:      defsecTypes.NewTestMetadata(),
-							DefaultAction: defsecTypes.String("Allow", defsecTypes.NewTestMetadata()),
+							Metadata:      trivyTypes.NewTestMetadata(),
+							DefaultAction: trivyTypes.String("Allow", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckSpecifyNetworkAcl(t *testing.T) {
 			input: keyvault.KeyVault{
 				Vaults: []keyvault.Vault{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkACLs: keyvault.NetworkACLs{
-							Metadata:      defsecTypes.NewTestMetadata(),
-							DefaultAction: defsecTypes.String("Deny", defsecTypes.NewTestMetadata()),
+							Metadata:      trivyTypes.NewTestMetadata(),
+							DefaultAction: trivyTypes.String("Deny", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

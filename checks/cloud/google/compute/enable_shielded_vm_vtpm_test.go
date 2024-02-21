@@ -3,7 +3,7 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckEnableShieldedVMVTPM(t *testing.T) {
 			input: compute.Compute{
 				Instances: []compute.Instance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ShieldedVM: compute.ShieldedVMConfig{
-							Metadata:    defsecTypes.NewTestMetadata(),
-							VTPMEnabled: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata:    trivyTypes.NewTestMetadata(),
+							VTPMEnabled: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckEnableShieldedVMVTPM(t *testing.T) {
 			input: compute.Compute{
 				Instances: []compute.Instance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						ShieldedVM: compute.ShieldedVMConfig{
-							Metadata:    defsecTypes.NewTestMetadata(),
-							VTPMEnabled: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:    trivyTypes.NewTestMetadata(),
+							VTPMEnabled: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

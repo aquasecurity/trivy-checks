@@ -3,7 +3,7 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckNoRootAccessKeys(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Name:       defsecTypes.String("root", defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Name:       trivyTypes.String("root", trivyTypes.NewTestMetadata()),
 						AccessKeys: nil,
 					},
 				},
@@ -37,8 +37,8 @@ func TestCheckNoRootAccessKeys(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Name:       defsecTypes.String("other", defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Name:       trivyTypes.String("other", trivyTypes.NewTestMetadata()),
 						AccessKeys: nil,
 					},
 				},
@@ -50,15 +50,15 @@ func TestCheckNoRootAccessKeys(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("other", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("other", trivyTypes.NewTestMetadata()),
 						AccessKeys: []iam.AccessKey{
 							{
-								Metadata:     defsecTypes.NewTestMetadata(),
-								AccessKeyId:  defsecTypes.String("BLAH", defsecTypes.NewTestMetadata()),
-								Active:       defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-								CreationDate: defsecTypes.TimeUnresolvable(defsecTypes.NewTestMetadata()),
-								LastAccess:   defsecTypes.TimeUnresolvable(defsecTypes.NewTestMetadata()),
+								Metadata:     trivyTypes.NewTestMetadata(),
+								AccessKeyId:  trivyTypes.String("BLAH", trivyTypes.NewTestMetadata()),
+								Active:       trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								CreationDate: trivyTypes.TimeUnresolvable(trivyTypes.NewTestMetadata()),
+								LastAccess:   trivyTypes.TimeUnresolvable(trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -71,15 +71,15 @@ func TestCheckNoRootAccessKeys(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("root", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("root", trivyTypes.NewTestMetadata()),
 						AccessKeys: []iam.AccessKey{
 							{
-								Metadata:     defsecTypes.NewTestMetadata(),
-								AccessKeyId:  defsecTypes.String("BLAH", defsecTypes.NewTestMetadata()),
-								Active:       defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-								CreationDate: defsecTypes.TimeUnresolvable(defsecTypes.NewTestMetadata()),
-								LastAccess:   defsecTypes.TimeUnresolvable(defsecTypes.NewTestMetadata()),
+								Metadata:     trivyTypes.NewTestMetadata(),
+								AccessKeyId:  trivyTypes.String("BLAH", trivyTypes.NewTestMetadata()),
+								Active:       trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								CreationDate: trivyTypes.TimeUnresolvable(trivyTypes.NewTestMetadata()),
+								LastAccess:   trivyTypes.TimeUnresolvable(trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -92,15 +92,15 @@ func TestCheckNoRootAccessKeys(t *testing.T) {
 			input: iam.IAM{
 				Users: []iam.User{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("root", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("root", trivyTypes.NewTestMetadata()),
 						AccessKeys: []iam.AccessKey{
 							{
-								Metadata:     defsecTypes.NewTestMetadata(),
-								AccessKeyId:  defsecTypes.String("BLAH", defsecTypes.NewTestMetadata()),
-								Active:       defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-								CreationDate: defsecTypes.TimeUnresolvable(defsecTypes.NewTestMetadata()),
-								LastAccess:   defsecTypes.TimeUnresolvable(defsecTypes.NewTestMetadata()),
+								Metadata:     trivyTypes.NewTestMetadata(),
+								AccessKeyId:  trivyTypes.String("BLAH", trivyTypes.NewTestMetadata()),
+								Active:       trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								CreationDate: trivyTypes.TimeUnresolvable(trivyTypes.NewTestMetadata()),
+								LastAccess:   trivyTypes.TimeUnresolvable(trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

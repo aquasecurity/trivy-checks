@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/iam"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
@@ -29,8 +29,8 @@ func TestCheckRemoveExpiredCertificates(t *testing.T) {
 			input: iam.IAM{
 				ServerCertificates: []iam.ServerCertificate{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Expiration: defsecTypes.Time(time.Now().Add(time.Hour), defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Expiration: trivyTypes.Time(time.Now().Add(time.Hour), trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -41,8 +41,8 @@ func TestCheckRemoveExpiredCertificates(t *testing.T) {
 			input: iam.IAM{
 				ServerCertificates: []iam.ServerCertificate{
 					{
-						Metadata:   defsecTypes.NewTestMetadata(),
-						Expiration: defsecTypes.Time(time.Now().Add(-time.Hour), defsecTypes.NewTestMetadata()),
+						Metadata:   trivyTypes.NewTestMetadata(),
+						Expiration: trivyTypes.Time(time.Now().Add(-time.Hour), trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

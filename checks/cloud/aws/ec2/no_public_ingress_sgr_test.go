@@ -3,7 +3,7 @@ package ec2
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/ec2"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
@@ -24,12 +24,12 @@ func TestCheckNoPublicIngressSgr(t *testing.T) {
 			input: ec2.EC2{
 				SecurityGroups: []ec2.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						IngressRules: []ec2.SecurityGroupRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								CIDRs: []defsecTypes.StringValue{
-									defsecTypes.String("0.0.0.0/0", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								CIDRs: []trivyTypes.StringValue{
+									trivyTypes.String("0.0.0.0/0", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -43,12 +43,12 @@ func TestCheckNoPublicIngressSgr(t *testing.T) {
 			input: ec2.EC2{
 				SecurityGroups: []ec2.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						IngressRules: []ec2.SecurityGroupRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								CIDRs: []defsecTypes.StringValue{
-									defsecTypes.String("10.0.0.0/16", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								CIDRs: []trivyTypes.StringValue{
+									trivyTypes.String("10.0.0.0/16", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},

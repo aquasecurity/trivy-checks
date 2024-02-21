@@ -3,7 +3,7 @@ package eks
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,7 +24,7 @@ func TestCheckNoPublicClusterAccess(t *testing.T) {
 			input: eks.EKS{
 				Clusters: []eks.Cluster{
 					{
-						PublicAccessEnabled: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						PublicAccessEnabled: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -35,7 +35,7 @@ func TestCheckNoPublicClusterAccess(t *testing.T) {
 			input: eks.EKS{
 				Clusters: []eks.Cluster{
 					{
-						PublicAccessEnabled: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						PublicAccessEnabled: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

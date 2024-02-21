@@ -3,7 +3,7 @@ package network
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,25 +24,25 @@ func TestCheckDisableRdpFromInternet(t *testing.T) {
 			input: network.Network{
 				SecurityGroups: []network.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Rules: []network.SecurityGroupRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Outbound: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-								Allow:    defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-								SourceAddresses: []defsecTypes.StringValue{
-									defsecTypes.String("*", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Outbound: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								Allow:    trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								SourceAddresses: []trivyTypes.StringValue{
+									trivyTypes.String("*", trivyTypes.NewTestMetadata()),
 								},
 								SourcePorts:          nil,
 								DestinationAddresses: nil,
 								DestinationPorts: []network.PortRange{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
+										Metadata: trivyTypes.NewTestMetadata(),
 										Start:    3310,
 										End:      3390,
 									},
 								},
-								Protocol: defsecTypes.String("Tcp", defsecTypes.NewTestMetadata()),
+								Protocol: trivyTypes.String("Tcp", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -55,23 +55,23 @@ func TestCheckDisableRdpFromInternet(t *testing.T) {
 			input: network.Network{
 				SecurityGroups: []network.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Rules: []network.SecurityGroupRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Allow:    defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-								Outbound: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Allow:    trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								Outbound: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 								DestinationPorts: []network.PortRange{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
+										Metadata: trivyTypes.NewTestMetadata(),
 										Start:    3310,
 										End:      3390,
 									},
 								},
-								SourceAddresses: []defsecTypes.StringValue{
-									defsecTypes.String("4.53.160.75", defsecTypes.NewTestMetadata()),
+								SourceAddresses: []trivyTypes.StringValue{
+									trivyTypes.String("4.53.160.75", trivyTypes.NewTestMetadata()),
 								},
-								Protocol: defsecTypes.String("Tcp", defsecTypes.NewTestMetadata()),
+								Protocol: trivyTypes.String("Tcp", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -84,25 +84,25 @@ func TestCheckDisableRdpFromInternet(t *testing.T) {
 			input: network.Network{
 				SecurityGroups: []network.SecurityGroup{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Rules: []network.SecurityGroupRule{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Outbound: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
-								Allow:    defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
-								SourceAddresses: []defsecTypes.StringValue{
-									defsecTypes.String("*", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Outbound: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								Allow:    trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								SourceAddresses: []trivyTypes.StringValue{
+									trivyTypes.String("*", trivyTypes.NewTestMetadata()),
 								},
 								SourcePorts:          nil,
 								DestinationAddresses: nil,
 								DestinationPorts: []network.PortRange{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
+										Metadata: trivyTypes.NewTestMetadata(),
 										Start:    3310,
 										End:      3390,
 									},
 								},
-								Protocol: defsecTypes.String("Icmp", defsecTypes.NewTestMetadata()),
+								Protocol: trivyTypes.String("Icmp", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

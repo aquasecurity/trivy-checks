@@ -3,7 +3,7 @@ package gke
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,12 +24,12 @@ func TestCheckMetadataEndpointsDisabled(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NodeConfig: gke.NodeConfig{
-							Metadata:              defsecTypes.NewTestMetadata(),
-							EnableLegacyEndpoints: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:              trivyTypes.NewTestMetadata(),
+							EnableLegacyEndpoints: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
-						RemoveDefaultNodePool: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						RemoveDefaultNodePool: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -40,12 +40,12 @@ func TestCheckMetadataEndpointsDisabled(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NodeConfig: gke.NodeConfig{
-							Metadata:              defsecTypes.NewTestMetadata(),
-							EnableLegacyEndpoints: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata:              trivyTypes.NewTestMetadata(),
+							EnableLegacyEndpoints: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
-						RemoveDefaultNodePool: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						RemoveDefaultNodePool: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -56,17 +56,17 @@ func TestCheckMetadataEndpointsDisabled(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NodeConfig: gke.NodeConfig{
-							Metadata:              defsecTypes.NewTestMetadata(),
-							EnableLegacyEndpoints: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:              trivyTypes.NewTestMetadata(),
+							EnableLegacyEndpoints: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
-						RemoveDefaultNodePool: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						RemoveDefaultNodePool: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						NodePools: []gke.NodePool{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								NodeConfig: gke.NodeConfig{
-									EnableLegacyEndpoints: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+									EnableLegacyEndpoints: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -80,17 +80,17 @@ func TestCheckMetadataEndpointsDisabled(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NodeConfig: gke.NodeConfig{
-							Metadata:              defsecTypes.NewTestMetadata(),
-							EnableLegacyEndpoints: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:              trivyTypes.NewTestMetadata(),
+							EnableLegacyEndpoints: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
-						RemoveDefaultNodePool: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						RemoveDefaultNodePool: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						NodePools: []gke.NodePool{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								NodeConfig: gke.NodeConfig{
-									EnableLegacyEndpoints: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+									EnableLegacyEndpoints: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 								},
 							},
 						},

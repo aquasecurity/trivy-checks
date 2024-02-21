@@ -3,7 +3,7 @@ package ec2
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/ec2"
 
@@ -25,9 +25,9 @@ func TestCheckRequireVPCFlowLogs(t *testing.T) {
 			input: ec2.EC2{
 				VPCs: []ec2.VPC{
 					{
-						Metadata:        defsecTypes.NewTestMetadata(),
-						ID:              defsecTypes.String("vpc-12345678", defsecTypes.NewTestMetadata()),
-						FlowLogsEnabled: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:        trivyTypes.NewTestMetadata(),
+						ID:              trivyTypes.String("vpc-12345678", trivyTypes.NewTestMetadata()),
+						FlowLogsEnabled: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -38,9 +38,9 @@ func TestCheckRequireVPCFlowLogs(t *testing.T) {
 			input: ec2.EC2{
 				VPCs: []ec2.VPC{
 					{
-						Metadata:        defsecTypes.NewTestMetadata(),
-						ID:              defsecTypes.String("vpc-12345678", defsecTypes.NewTestMetadata()),
-						FlowLogsEnabled: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:        trivyTypes.NewTestMetadata(),
+						ID:              trivyTypes.String("vpc-12345678", trivyTypes.NewTestMetadata()),
+						FlowLogsEnabled: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

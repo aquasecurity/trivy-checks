@@ -3,7 +3,7 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,8 +24,8 @@ func TestCheckNoProjectWideSshKeys(t *testing.T) {
 			input: compute.Compute{
 				Instances: []compute.Instance{
 					{
-						Metadata:                    defsecTypes.NewTestMetadata(),
-						EnableProjectSSHKeyBlocking: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:                    trivyTypes.NewTestMetadata(),
+						EnableProjectSSHKeyBlocking: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckNoProjectWideSshKeys(t *testing.T) {
 			input: compute.Compute{
 				Instances: []compute.Instance{
 					{
-						Metadata:                    defsecTypes.NewTestMetadata(),
-						EnableProjectSSHKeyBlocking: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:                    trivyTypes.NewTestMetadata(),
+						EnableProjectSSHKeyBlocking: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

@@ -3,7 +3,7 @@ package monitor
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,9 +24,9 @@ func TestCheckCaptureAllActivities(t *testing.T) {
 			input: monitor.Monitor{
 				LogProfiles: []monitor.LogProfile{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Categories: []defsecTypes.StringValue{
-							defsecTypes.String("Write", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Categories: []trivyTypes.StringValue{
+							trivyTypes.String("Write", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -38,11 +38,11 @@ func TestCheckCaptureAllActivities(t *testing.T) {
 			input: monitor.Monitor{
 				LogProfiles: []monitor.LogProfile{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Categories: []defsecTypes.StringValue{
-							defsecTypes.String("Action", defsecTypes.NewTestMetadata()),
-							defsecTypes.String("Write", defsecTypes.NewTestMetadata()),
-							defsecTypes.String("Delete", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Categories: []trivyTypes.StringValue{
+							trivyTypes.String("Action", trivyTypes.NewTestMetadata()),
+							trivyTypes.String("Write", trivyTypes.NewTestMetadata()),
+							trivyTypes.String("Delete", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

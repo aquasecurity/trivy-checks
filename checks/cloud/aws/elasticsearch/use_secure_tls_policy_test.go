@@ -3,7 +3,7 @@ package elasticsearch
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: elasticsearch.Elasticsearch{
 				Domains: []elasticsearch.Domain{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Endpoint: elasticsearch.Endpoint{
-							Metadata:  defsecTypes.NewTestMetadata(),
-							TLSPolicy: defsecTypes.String("Policy-Min-TLS-1-0-2019-07", defsecTypes.NewTestMetadata()),
+							Metadata:  trivyTypes.NewTestMetadata(),
+							TLSPolicy: trivyTypes.String("Policy-Min-TLS-1-0-2019-07", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 			input: elasticsearch.Elasticsearch{
 				Domains: []elasticsearch.Domain{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Endpoint: elasticsearch.Endpoint{
-							Metadata:  defsecTypes.NewTestMetadata(),
-							TLSPolicy: defsecTypes.String("Policy-Min-TLS-1-2-2019-07", defsecTypes.NewTestMetadata()),
+							Metadata:  trivyTypes.NewTestMetadata(),
+							TLSPolicy: trivyTypes.String("Policy-Min-TLS-1-2-2019-07", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

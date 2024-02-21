@@ -3,7 +3,7 @@ package network
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,16 +24,16 @@ func TestCheckHttpNotUsed(t *testing.T) {
 			input: network.Network{
 				ElasticLoadBalancers: []network.ElasticLoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkInterfaces: []network.NetworkInterface{{
-							Metadata:     defsecTypes.NewTestMetadata(),
-							NetworkID:    defsecTypes.String("net-COMMON_GLOBAL", defsecTypes.NewTestMetadata()),
-							IsVipNetwork: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:     trivyTypes.NewTestMetadata(),
+							NetworkID:    trivyTypes.String("net-COMMON_GLOBAL", trivyTypes.NewTestMetadata()),
+							IsVipNetwork: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						}},
 						Listeners: []network.ElasticLoadBalancerListener{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Protocol: defsecTypes.String("HTTP", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Protocol: trivyTypes.String("HTTP", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -46,16 +46,16 @@ func TestCheckHttpNotUsed(t *testing.T) {
 			input: network.Network{
 				ElasticLoadBalancers: []network.ElasticLoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkInterfaces: []network.NetworkInterface{{
-							Metadata:     defsecTypes.NewTestMetadata(),
-							NetworkID:    defsecTypes.String("some-network", defsecTypes.NewTestMetadata()),
-							IsVipNetwork: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:     trivyTypes.NewTestMetadata(),
+							NetworkID:    trivyTypes.String("some-network", trivyTypes.NewTestMetadata()),
+							IsVipNetwork: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						}},
 						Listeners: []network.ElasticLoadBalancerListener{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Protocol: defsecTypes.String("HTTP", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Protocol: trivyTypes.String("HTTP", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -68,16 +68,16 @@ func TestCheckHttpNotUsed(t *testing.T) {
 			input: network.Network{
 				ElasticLoadBalancers: []network.ElasticLoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						NetworkInterfaces: []network.NetworkInterface{{
-							Metadata:     defsecTypes.NewTestMetadata(),
-							NetworkID:    defsecTypes.String("net-COMMON_GLOBAL", defsecTypes.NewTestMetadata()),
-							IsVipNetwork: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:     trivyTypes.NewTestMetadata(),
+							NetworkID:    trivyTypes.String("net-COMMON_GLOBAL", trivyTypes.NewTestMetadata()),
+							IsVipNetwork: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						}},
 						Listeners: []network.ElasticLoadBalancerListener{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Protocol: defsecTypes.String("HTTPS", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Protocol: trivyTypes.String("HTTPS", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -90,11 +90,11 @@ func TestCheckHttpNotUsed(t *testing.T) {
 			input: network.Network{
 				LoadBalancers: []network.LoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Listeners: []network.LoadBalancerListener{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Protocol: defsecTypes.String("HTTP", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Protocol: trivyTypes.String("HTTP", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -107,11 +107,11 @@ func TestCheckHttpNotUsed(t *testing.T) {
 			input: network.Network{
 				LoadBalancers: []network.LoadBalancer{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Listeners: []network.LoadBalancerListener{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
-								Protocol: defsecTypes.String("HTTPS", defsecTypes.NewTestMetadata()),
+								Metadata: trivyTypes.NewTestMetadata(),
+								Protocol: trivyTypes.String("HTTPS", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

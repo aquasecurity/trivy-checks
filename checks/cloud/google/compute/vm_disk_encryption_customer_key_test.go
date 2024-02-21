@@ -3,7 +3,7 @@ package compute
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,13 +24,13 @@ func TestCheckVmDiskEncryptionCustomerKey(t *testing.T) {
 			input: compute.Compute{
 				Instances: []compute.Instance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						BootDisks: []compute.Disk{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Encryption: compute.DiskEncryption{
-									Metadata:   defsecTypes.NewTestMetadata(),
-									KMSKeyLink: defsecTypes.String("", defsecTypes.NewTestMetadata()),
+									Metadata:   trivyTypes.NewTestMetadata(),
+									KMSKeyLink: trivyTypes.String("", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -44,13 +44,13 @@ func TestCheckVmDiskEncryptionCustomerKey(t *testing.T) {
 			input: compute.Compute{
 				Instances: []compute.Instance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						AttachedDisks: []compute.Disk{
 							{
-								Metadata: defsecTypes.NewTestMetadata(),
+								Metadata: trivyTypes.NewTestMetadata(),
 								Encryption: compute.DiskEncryption{
-									Metadata:   defsecTypes.NewTestMetadata(),
-									KMSKeyLink: defsecTypes.String("kms-key-link", defsecTypes.NewTestMetadata()),
+									Metadata:   trivyTypes.NewTestMetadata(),
+									KMSKeyLink: trivyTypes.String("kms-key-link", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},

@@ -3,7 +3,7 @@ package elasticsearch
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,10 +24,10 @@ func TestCheckEnforceHttps(t *testing.T) {
 			input: elasticsearch.Elasticsearch{
 				Domains: []elasticsearch.Domain{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Endpoint: elasticsearch.Endpoint{
-							Metadata:     defsecTypes.NewTestMetadata(),
-							EnforceHTTPS: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+							Metadata:     trivyTypes.NewTestMetadata(),
+							EnforceHTTPS: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -39,10 +39,10 @@ func TestCheckEnforceHttps(t *testing.T) {
 			input: elasticsearch.Elasticsearch{
 				Domains: []elasticsearch.Domain{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Endpoint: elasticsearch.Endpoint{
-							Metadata:     defsecTypes.NewTestMetadata(),
-							EnforceHTTPS: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+							Metadata:     trivyTypes.NewTestMetadata(),
+							EnforceHTTPS: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

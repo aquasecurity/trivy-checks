@@ -3,7 +3,7 @@ package gke
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,11 +24,11 @@ func TestCheckNoPublicControlPlane(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						MasterAuthorizedNetworks: gke.MasterAuthorizedNetworks{
-							Metadata: defsecTypes.NewTestMetadata(),
-							CIDRs: []defsecTypes.StringValue{
-								defsecTypes.String("0.0.0.0/0", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							CIDRs: []trivyTypes.StringValue{
+								trivyTypes.String("0.0.0.0/0", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -41,11 +41,11 @@ func TestCheckNoPublicControlPlane(t *testing.T) {
 			input: gke.GKE{
 				Clusters: []gke.Cluster{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						MasterAuthorizedNetworks: gke.MasterAuthorizedNetworks{
-							Metadata: defsecTypes.NewTestMetadata(),
-							CIDRs: []defsecTypes.StringValue{
-								defsecTypes.String("10.10.128.0/24", defsecTypes.NewTestMetadata()),
+							Metadata: trivyTypes.NewTestMetadata(),
+							CIDRs: []trivyTypes.StringValue{
+								trivyTypes.String("10.10.128.0/24", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

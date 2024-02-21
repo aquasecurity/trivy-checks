@@ -3,7 +3,7 @@ package ec2
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/ec2"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
@@ -24,8 +24,8 @@ func TestCheckNoPublicIpSubnet(t *testing.T) {
 			input: ec2.EC2{
 				Subnets: []ec2.Subnet{
 					{
-						Metadata:            defsecTypes.NewTestMetadata(),
-						MapPublicIpOnLaunch: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+						Metadata:            trivyTypes.NewTestMetadata(),
+						MapPublicIpOnLaunch: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -36,8 +36,8 @@ func TestCheckNoPublicIpSubnet(t *testing.T) {
 			input: ec2.EC2{
 				Subnets: []ec2.Subnet{
 					{
-						Metadata:            defsecTypes.NewTestMetadata(),
-						MapPublicIpOnLaunch: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+						Metadata:            trivyTypes.NewTestMetadata(),
+						MapPublicIpOnLaunch: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

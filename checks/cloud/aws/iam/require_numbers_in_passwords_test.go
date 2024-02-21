@@ -3,7 +3,7 @@ package iam
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -23,8 +23,8 @@ func TestCheckRequireNumbersInPasswords(t *testing.T) {
 			name: "IAM password policy numbers not required",
 			input: iam.IAM{
 				PasswordPolicy: iam.PasswordPolicy{
-					Metadata:       defsecTypes.NewTestMetadata(),
-					RequireNumbers: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+					Metadata:       trivyTypes.NewTestMetadata(),
+					RequireNumbers: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: true,
@@ -33,8 +33,8 @@ func TestCheckRequireNumbersInPasswords(t *testing.T) {
 			name: "IAM password policy numbers required",
 			input: iam.IAM{
 				PasswordPolicy: iam.PasswordPolicy{
-					Metadata:       defsecTypes.NewTestMetadata(),
-					RequireNumbers: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+					Metadata:       trivyTypes.NewTestMetadata(),
+					RequireNumbers: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 				},
 			},
 			expected: false,

@@ -3,7 +3,7 @@ package sql
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -24,12 +24,12 @@ func TestCheckEncryptInTransitData(t *testing.T) {
 			input: sql.SQL{
 				Instances: []sql.DatabaseInstance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Settings: sql.Settings{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							IPConfiguration: sql.IPConfiguration{
-								Metadata:   defsecTypes.NewTestMetadata(),
-								RequireTLS: defsecTypes.Bool(false, defsecTypes.NewTestMetadata()),
+								Metadata:   trivyTypes.NewTestMetadata(),
+								RequireTLS: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -42,12 +42,12 @@ func TestCheckEncryptInTransitData(t *testing.T) {
 			input: sql.SQL{
 				Instances: []sql.DatabaseInstance{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						Settings: sql.Settings{
-							Metadata: defsecTypes.NewTestMetadata(),
+							Metadata: trivyTypes.NewTestMetadata(),
 							IPConfiguration: sql.IPConfiguration{
-								Metadata:   defsecTypes.NewTestMetadata(),
-								RequireTLS: defsecTypes.Bool(true, defsecTypes.NewTestMetadata()),
+								Metadata:   trivyTypes.NewTestMetadata(),
+								RequireTLS: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

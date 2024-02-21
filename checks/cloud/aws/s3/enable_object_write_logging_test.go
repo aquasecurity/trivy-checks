@@ -3,7 +3,7 @@ package s3
 import (
 	"testing"
 
-	defsecTypes "github.com/aquasecurity/trivy/pkg/iac/types"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
@@ -26,8 +26,8 @@ func TestCheckEnableObjectWriteLogging(t *testing.T) {
 			s3: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("test-bucket", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("test-bucket", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -38,25 +38,25 @@ func TestCheckEnableObjectWriteLogging(t *testing.T) {
 			s3: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("test-bucket", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("test-bucket", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
 			cloudtrail: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						EventSelectors: []cloudtrail.EventSelector{
 							{
-								Metadata:      defsecTypes.NewTestMetadata(),
-								ReadWriteType: defsecTypes.String("ReadOnly", defsecTypes.NewTestMetadata()),
+								Metadata:      trivyTypes.NewTestMetadata(),
+								ReadWriteType: trivyTypes.String("ReadOnly", trivyTypes.NewTestMetadata()),
 								DataResources: []cloudtrail.DataResource{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Type:     defsecTypes.String("AWS::S3::Object", defsecTypes.NewTestMetadata()),
-										Values: []defsecTypes.StringValue{
-											defsecTypes.String("arn:aws:s3", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Type:     trivyTypes.String("AWS::S3::Object", trivyTypes.NewTestMetadata()),
+										Values: []trivyTypes.StringValue{
+											trivyTypes.String("arn:aws:s3", trivyTypes.NewTestMetadata()),
 										},
 									},
 								},
@@ -72,25 +72,25 @@ func TestCheckEnableObjectWriteLogging(t *testing.T) {
 			s3: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("test-bucket", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("test-bucket", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
 			cloudtrail: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						EventSelectors: []cloudtrail.EventSelector{
 							{
-								Metadata:      defsecTypes.NewTestMetadata(),
-								ReadWriteType: defsecTypes.String("WriteOnly", defsecTypes.NewTestMetadata()),
+								Metadata:      trivyTypes.NewTestMetadata(),
+								ReadWriteType: trivyTypes.String("WriteOnly", trivyTypes.NewTestMetadata()),
 								DataResources: []cloudtrail.DataResource{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Type:     defsecTypes.String("AWS::S3::Object", defsecTypes.NewTestMetadata()),
-										Values: []defsecTypes.StringValue{
-											defsecTypes.String("arn:aws:s3", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Type:     trivyTypes.String("AWS::S3::Object", trivyTypes.NewTestMetadata()),
+										Values: []trivyTypes.StringValue{
+											trivyTypes.String("arn:aws:s3", trivyTypes.NewTestMetadata()),
 										},
 									},
 								},
@@ -106,25 +106,25 @@ func TestCheckEnableObjectWriteLogging(t *testing.T) {
 			s3: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("test-bucket", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("test-bucket", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
 			cloudtrail: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						EventSelectors: []cloudtrail.EventSelector{
 							{
-								Metadata:      defsecTypes.NewTestMetadata(),
-								ReadWriteType: defsecTypes.String("All", defsecTypes.NewTestMetadata()),
+								Metadata:      trivyTypes.NewTestMetadata(),
+								ReadWriteType: trivyTypes.String("All", trivyTypes.NewTestMetadata()),
 								DataResources: []cloudtrail.DataResource{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Type:     defsecTypes.String("AWS::S3::Object", defsecTypes.NewTestMetadata()),
-										Values: []defsecTypes.StringValue{
-											defsecTypes.String("arn:aws:s3", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Type:     trivyTypes.String("AWS::S3::Object", trivyTypes.NewTestMetadata()),
+										Values: []trivyTypes.StringValue{
+											trivyTypes.String("arn:aws:s3", trivyTypes.NewTestMetadata()),
 										},
 									},
 								},
@@ -140,25 +140,25 @@ func TestCheckEnableObjectWriteLogging(t *testing.T) {
 			s3: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("test-bucket", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("test-bucket", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
 			cloudtrail: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						EventSelectors: []cloudtrail.EventSelector{
 							{
-								Metadata:      defsecTypes.NewTestMetadata(),
-								ReadWriteType: defsecTypes.String("All", defsecTypes.NewTestMetadata()),
+								Metadata:      trivyTypes.NewTestMetadata(),
+								ReadWriteType: trivyTypes.String("All", trivyTypes.NewTestMetadata()),
 								DataResources: []cloudtrail.DataResource{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Type:     defsecTypes.String("AWS::S3::Object", defsecTypes.NewTestMetadata()),
-										Values: []defsecTypes.StringValue{
-											defsecTypes.String("arn:aws:s3:::test-bucket/", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Type:     trivyTypes.String("AWS::S3::Object", trivyTypes.NewTestMetadata()),
+										Values: []trivyTypes.StringValue{
+											trivyTypes.String("arn:aws:s3:::test-bucket/", trivyTypes.NewTestMetadata()),
 										},
 									},
 								},
@@ -174,25 +174,25 @@ func TestCheckEnableObjectWriteLogging(t *testing.T) {
 			s3: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("test-bucket", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("test-bucket", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
 			cloudtrail: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						EventSelectors: []cloudtrail.EventSelector{
 							{
-								Metadata:      defsecTypes.NewTestMetadata(),
-								ReadWriteType: defsecTypes.String("All", defsecTypes.NewTestMetadata()),
+								Metadata:      trivyTypes.NewTestMetadata(),
+								ReadWriteType: trivyTypes.String("All", trivyTypes.NewTestMetadata()),
 								DataResources: []cloudtrail.DataResource{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Type:     defsecTypes.String("AWS::S3::Object", defsecTypes.NewTestMetadata()),
-										Values: []defsecTypes.StringValue{
-											defsecTypes.String("arn:aws:s3:::test-bucket2/", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Type:     trivyTypes.String("AWS::S3::Object", trivyTypes.NewTestMetadata()),
+										Values: []trivyTypes.StringValue{
+											trivyTypes.String("arn:aws:s3:::test-bucket2/", trivyTypes.NewTestMetadata()),
 										},
 									},
 								},
@@ -208,25 +208,25 @@ func TestCheckEnableObjectWriteLogging(t *testing.T) {
 			s3: s3.S3{
 				Buckets: []s3.Bucket{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
-						Name:     defsecTypes.String("test-bucket", defsecTypes.NewTestMetadata()),
+						Metadata: trivyTypes.NewTestMetadata(),
+						Name:     trivyTypes.String("test-bucket", trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
 			cloudtrail: cloudtrail.CloudTrail{
 				Trails: []cloudtrail.Trail{
 					{
-						Metadata: defsecTypes.NewTestMetadata(),
+						Metadata: trivyTypes.NewTestMetadata(),
 						EventSelectors: []cloudtrail.EventSelector{
 							{
-								Metadata:      defsecTypes.NewTestMetadata(),
-								ReadWriteType: defsecTypes.String("All", defsecTypes.NewTestMetadata()),
+								Metadata:      trivyTypes.NewTestMetadata(),
+								ReadWriteType: trivyTypes.String("All", trivyTypes.NewTestMetadata()),
 								DataResources: []cloudtrail.DataResource{
 									{
-										Metadata: defsecTypes.NewTestMetadata(),
-										Type:     defsecTypes.String("AWS::S3::Object", defsecTypes.NewTestMetadata()),
-										Values: []defsecTypes.StringValue{
-											defsecTypes.String("arn:aws:s3:::test-bucket", defsecTypes.NewTestMetadata()),
+										Metadata: trivyTypes.NewTestMetadata(),
+										Type:     trivyTypes.String("AWS::S3::Object", trivyTypes.NewTestMetadata()),
+										Values: []trivyTypes.StringValue{
+											trivyTypes.String("arn:aws:s3:::test-bucket", trivyTypes.NewTestMetadata()),
 										},
 									},
 								},
