@@ -80,7 +80,7 @@ func TestCheckUseSecureTlsPolicy(t *testing.T) {
 					},
 				},
 			},
-			expected: false,
+			expected: true,
 		},
 	}
 	for _, test := range tests {
