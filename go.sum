@@ -23,8 +23,6 @@ github.com/anmitsu/go-shlex v0.0.0-20200514113438-38f4b401e2be h1:9AeTilPcZAjCFI
 github.com/anmitsu/go-shlex v0.0.0-20200514113438-38f4b401e2be/go.mod h1:ySMOLuWl6zY27l47sB3qLNK6tF2fkHG55UZxx8oIVo4=
 github.com/apparentlymart/go-textseg/v15 v15.0.0 h1:uYvfpb3DyLSCGWnctWKGj857c6ew1u1fNQOlOtuGxQY=
 github.com/apparentlymart/go-textseg/v15 v15.0.0/go.mod h1:K8XmNZdhEBkdlyDdvbmmsvpAG721bKi0joRfFdHIWJ4=
-github.com/aquasecurity/defsec v0.94.1 h1:lk44bfUltm0f0Dw4DbO3Ka9d/bf3N8cWclSdHXMyKF4=
-github.com/aquasecurity/defsec v0.94.1/go.mod h1:wiX9BX0SOG0ZWjVIPYGPl46fyO3Gu8lJnk4rmhFR7IA=
 github.com/aquasecurity/trivy v0.49.2-0.20240227072422-e1ea02c7b80d h1:8blpO32ScytuunqlzXAhHNQZpfdtNp789JCnbYvOwJ0=
 github.com/aquasecurity/trivy v0.49.2-0.20240227072422-e1ea02c7b80d/go.mod h1:6ZFbl/AndPa4JFViS8cgoNTuwIC3Ckjj+6KpKRA0mn8=
 github.com/arbovm/levenshtein v0.0.0-20160628152529-48b4e1c0c4d0 h1:jfIu9sQUG6Ig+0+Ap1h4unLjW6YQJpKZVmUzxsD4E/Q=

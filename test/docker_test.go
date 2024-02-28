@@ -9,10 +9,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/rego"
-	"github.com/aquasecurity/defsec/pkg/scan"
-	"github.com/aquasecurity/defsec/pkg/scanners/options"
+	"github.com/aquasecurity/trivy/pkg/iac/rego"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 	"github.com/aquasecurity/trivy/pkg/iac/scanners/dockerfile"
+	"github.com/aquasecurity/trivy/pkg/iac/scanners/options"
 	"github.com/liamg/memoryfs"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -71,6 +71,7 @@ func Test_Docker_RegoPoliciesFromDisk(t *testing.T) {
 	require.NoError(t, err)
 	scanner := dockerfile.NewScanner(
 		options.ScannerWithPolicyDirs(filepath.Base(policiesPath)),
+		options.ScannerWithEmbeddedLibraries(true),
 	)
 	memfs := memoryfs.New()
 	// add policies

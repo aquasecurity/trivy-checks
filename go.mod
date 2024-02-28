@@ -3,7 +3,6 @@ module github.com/aquasecurity/trivy-policies
 go 1.21
 
 require (
-	github.com/aquasecurity/defsec v0.94.1
 	github.com/aquasecurity/trivy v0.49.2-0.20240227072422-e1ea02c7b80d
 	github.com/docker/docker v25.0.2+incompatible
 	github.com/liamg/iamgo v0.0.9

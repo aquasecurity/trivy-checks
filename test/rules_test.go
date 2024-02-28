@@ -3,8 +3,8 @@ package test
 import (
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/framework"
-	"github.com/aquasecurity/defsec/pkg/rules"
+	"github.com/aquasecurity/trivy/pkg/iac/framework"
+	"github.com/aquasecurity/trivy/pkg/iac/rules"
 )
 
 func TestAVDIDs(t *testing.T) {
