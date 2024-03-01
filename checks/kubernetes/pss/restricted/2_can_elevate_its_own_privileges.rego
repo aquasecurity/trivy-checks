@@ -42,9 +42,8 @@ getNoPrivilegeEscalationContainers[container] {
 # getPrivilegeEscalationContainers returns the names of all containers which have
 # securityContext.allowPrivilegeEscalation set to true or not set.
 getPrivilegeEscalationContainers[container] {
-	containerName := kubernetes.containers[_].name
-	not getNoPrivilegeEscalationContainers[containerName]
 	container := kubernetes.containers[_]
+	not getNoPrivilegeEscalationContainers[container.name]
 }
 
 deny[res] {
