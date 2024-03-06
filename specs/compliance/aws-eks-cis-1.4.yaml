@@ -9,7 +9,7 @@ spec:
   - id: 2.1.1
     name: Enable audit Logs (Automated)
     description: |
-      Control plane logs provide visibility into operation of the EKS Control plane components ystems. 
+      Control plane logs provide visibility into operation of the EKS Control plane components systems. 
       The API server audit logs record all accepted and rejected requests in the cluster. 
       When enabled via EKS configuration the control plane logs for a cluster are exported to a CloudWatch 
       Log Group for persistence.
