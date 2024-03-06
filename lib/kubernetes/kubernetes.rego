@@ -51,8 +51,15 @@ is_cronjob {
 
 default is_controller = false
 
+api_version = object.apiVersion
+
 is_controller {
 	kind = "Deployment"
+}
+
+is_controller {
+	api_version = "apps.openshift.io/v1"
+	kind = "DeploymentConfig"
 }
 
 is_controller {

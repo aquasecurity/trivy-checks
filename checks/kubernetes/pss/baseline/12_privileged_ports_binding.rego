@@ -21,6 +21,7 @@
 #         - kind: replicaset
 #         - kind: replicationcontroller
 #         - kind: deployment
+#         - kind: deploymentconfig
 #         - kind: statefulset
 #         - kind: daemonset
 #         - kind: cronjob

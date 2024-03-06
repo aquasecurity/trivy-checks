@@ -64,6 +64,42 @@ test_deployment {
 	test_pods[_].spec.containers[_].name == "hello-deployment"
 }
 
+test_deploymentconfig {
+	# spec -> template
+	mock = {
+		"apiVersion": "apps.openshift.io/v1",
+		"kind": "DeploymentConfig",
+		"metadata": {"name": "hello"},
+		"spec": {"template": {"spec": {
+			"containers": [{
+				"command": [
+					"sh",
+					"-c",
+					"echo 'Hello !' && sleep 1h",
+				],
+				"image": "busybox",
+				"name": "hello-deploymentconfig-1",
+			}],
+			"volumes": [
+				{
+					"name": "hello-volume-1",
+					"emptyDir": {},
+				},
+				{
+					"name": "hello-volume-2",
+					"emptyDir": {},
+				},
+			],
+		}}},
+	}
+
+	test_containers := containers with input as mock
+	test_volumes := volumes with input as mock
+
+	test_containers[_].name == "hello-deploymentconfig-1"
+	test_volumes[_].name == "hello-volume-2"
+}
+
 test_stateful_set {
 	# spec -> template
 	test_pods := pods with input as {
