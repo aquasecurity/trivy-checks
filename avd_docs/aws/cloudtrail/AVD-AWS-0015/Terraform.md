@@ -1,5 +1,5 @@
 
-Enable encryption at rest
+Use Customer managed key
 
 ```hcl
  resource "aws_cloudtrail" "good_example" {
