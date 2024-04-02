@@ -7,7 +7,7 @@ spec:
   - https://www.cisecurity.org/benchmark/amazon_web_services
   controls:
   - id: 2.1.1
-    name: Enable audit Logs (Automated)
+    name: Enable audit Logs (Manual)
     description: |
       Control plane logs provide visibility into operation of the EKS Control plane components systems. 
       The API server audit logs record all accepted and rejected requests in the cluster. 
@@ -26,13 +26,13 @@ spec:
     checks: null
     severity: HIGH
   - id: 3.1.2
-    name: Ensure that the kubelet service file ownership is set to root:root (Manual)
+    name: Ensure that the kubelet service file ownership is set to root:root (Automated)
     description: Ensure that the kubelet service file ownership is set to root:root
     checks:
       - id: AVD-KCV-0070
     severity: HIGH
   - id: 3.1.3
-    name: Ensure that the kubelet configuration file has permissions set to 644 or more restrictive (Manual)
+    name: Ensure that the kubelet configuration file has permissions set to 644 or more restrictive (Automated)
     description: |
       Ensure that if the kubelet refers to a configuration file with the
       --config argument, that file has permissions of 600 or more restrictive
@@ -40,7 +40,7 @@ spec:
       - id: AVD-KCV-0077
     severity: HIGH
   - id: 3.1.4
-    name: Ensure that the kubelet configuration file ownership is set to root:root (Manual)
+    name: Ensure that the kubelet configuration file ownership is set to root:root (Automated)
     description: |
       Ensure that if the kubelet refers to a configuration file with the
       --config argument, that file is owned by root:root
@@ -66,7 +66,7 @@ spec:
       - id: AVD-KCV-0081
     severity: CRITICAL
   - id: 3.2.4
-    name: Ensure that the --read-only-port is disabled (Manual)
+    name: Ensure that the --read-only-port is disabled (Automated)
     description: |
       The Kubelet process provides a read-only API in addition to the main Kubelet API.
       Unauthenticated access is provided to this read-only API which could possibly retrieve
@@ -87,7 +87,7 @@ spec:
       - id: AVD-KCV-0084
     severity: HIGH
   - id: 3.2.7
-    name: Ensure that the --eventRecordQPS argument is set to 0 or a level which ensures appropriate event capture (Automated)
+    name: Ensure that the --eventRecordQPS argument is set to 0 or a level which ensures appropriate event capture (Manual)
     description: |
       Security relevant information should be captured. The eventRecordQPS on the Kubelet
       configuration can be used to limit the rate at which events are gathered and sets the
@@ -97,7 +97,7 @@ spec:
     checks: null
     severity: HIGH
   - id: 3.2.8
-    name: Ensure that the --rotate-certificates argument is not present or is set to true (Manual)
+    name: Ensure that the --rotate-certificates argument is not present or is set to true (Automated)
     description: Enable kubelet client certificate rotation.
     checks:
       - id: AVD-KCV-0090
@@ -118,7 +118,7 @@ spec:
     checks: null
     severity: HIGH
   - id: 4.1.1
-    name: Ensure that the cluster-admin role is only used where required (Manual)
+    name: Ensure that the cluster-admin role is only used where required (Automated)
     description: |
       The RBAC role cluster-admin provides wide-ranging powers over the environment and
       should be used only where and when needed.
@@ -126,7 +126,7 @@ spec:
       - id: AVD-KSV-0111
     severity: HIGH
   - id: 4.1.2
-    name: Minimize access to secrets (Manual)
+    name: Minimize access to secrets (Automated)
     description: |
       The Kubernetes API stores secrets, which may be service account tokens for the
       Kubernetes API or credentials used by workloads in the cluster. Access to these secrets
@@ -190,31 +190,31 @@ spec:
     checks: null
     severity: CRITICAL
   - id: 4.2.1
-    name: Minimize the admission of privileged containers (Manual)
+    name: Minimize the admission of privileged containers (Automated)
     description: Do not generally permit containers to be run with the securityContext.privileged flag set to true.
     checks:
       - id: AVD-KSV-0017
     severity: HIGH
   - id: 4.2.2
-    name: Minimize the admission of containers wishing to share the host process ID namespace (Manual)
+    name: Minimize the admission of containers wishing to share the host process ID namespace (Automated)
     description: Do not generally permit containers to be run with the hostPID flag set to true.
     checks:
       - id: AVD-KSV-0010
     severity: HIGH
   - id: 4.2.3
-    name: Minimize the admission of containers wishing to share the host IPC namespace (Manual)
+    name: Minimize the admission of containers wishing to share the host IPC namespace (Automated)
     description: Do not generally permit containers to be run with the hostIPC flag set to true.
     checks:
       - id: AVD-KSV-0008
     severity: HIGH
   - id: 4.2.4
-    name: Minimize the admission of containers wishing to share the host network namespace (Manual)
+    name: Minimize the admission of containers wishing to share the host network namespace (Automated)
     description: Do not generally permit containers to be run with the hostNetwork flag set to true.
     checks:
       - id: AVD-KSV-0009
     severity: HIGH
   - id: 4.2.5
-    name: Minimize the admission of containers with allowPrivilegeEscalation (Manual)
+    name: Minimize the admission of containers with allowPrivilegeEscalation (Automated)
     description: |
       Do not generally permit containers to be run with the allowPrivilegeEscalation flag set
       to true. Allowing this right can lead to a process running a container getting more rights
@@ -223,19 +223,19 @@ spec:
       - id: AVD-KSV-0001
     severity: HIGH
   - id: 4.2.6
-    name: Minimize the admission of root containers (Manual)
+    name: Minimize the admission of root containers (Automated)
     description: Do not generally permit containers to be run as the root user.
     checks:
       - id: AVD-KSV-0012
     severity: MEDIUM
   - id: 4.2.7
-    name: Minimize the admission of containers with added capabilities (Manual)
+    name: Minimize the admission of containers with added capabilities (Automated)
     description: Do not generally permit containers with capabilities assigned beyond the default set.
     checks:
       - id: AVD-KSV-0004
     severity: LOW
   - id: 4.2.8
-    name: Minimize the admission of containers with capabilities assigned (Manual)
+    name: Minimize the admission of containers with capabilities assigned (Automated)
     description: Do not generally permit containers with capabilities
     checks: 
       - id: AVD-KSV-0103
@@ -250,7 +250,7 @@ spec:
     checks: null
     severity: MEDIUM
   - id: 4.3.2
-    name: Ensure that all Namespaces have Network Policies defined (Manual)
+    name: Ensure that all Namespaces have Network Policies defined (Automated)
     description: Use network policies to isolate traffic in your cluster network.
     checks:
       - id: AVD-KSV-0038
@@ -278,7 +278,7 @@ spec:
     checks: null
     severity: MEDIUM
   - id: 4.5.2
-    name: Apply Security Context to Your Pods and Containers (Manual)
+    name: Apply Security Context to Your Pods and Containers (Automated)
     description: Apply Security Context to Your Pods and Containers
     checks:
       - id: AVD-KSV-0021
@@ -289,7 +289,7 @@ spec:
       - id: AVD-KSV-0030
     severity: HIGH
   - id: 4.5.3
-    name: The default namespace should not be used (Manual)
+    name: The default namespace should not be used (Automated)
     description: |
       Kubernetes provides a default namespace, where objects are placed if no namespace
       is specified for them. Placing objects in this namespace makes application of RBAC and
@@ -334,23 +334,23 @@ spec:
     checks: null
     severity: MEDIUM
   - id: 5.4.1
-    name: Restrict Access to the Control Plane Endpoint (Automated)
+    name: Restrict Access to the Control Plane Endpoint (Manual)
     description: Enable Endpoint Private Access to restrict access to the cluster's control plane to only an allowlist of authorized IPs
     checks: null
     severity: MEDIUM
   - id: 5.4.2
-    name: Ensure clusters are created with Private Endpoint Enabled and Public Access Disabled (Automated)
+    name: Ensure clusters are created with Private Endpoint Enabled and Public Access Disabled (Manual)
     description: Disable access to the Kubernetes API from outside the node network if it is not required.
     checks: null
     severity: MEDIUM
   - id: 5.4.3
-    name: Ensure clusters are created with Private Nodes (Automated)
+    name: Ensure clusters are created with Private Nodes (Manual)
     description: Disable public IP addresses for cluster nodes, so that they only have private IP addresses. 
         Private Nodes are nodes with no public IP addresses.
     checks: null
     severity: MEDIUM
   - id: 5.4.4
-    name: Ensure Network Policy is Enabled and set as appropriate (Automated)
+    name: Ensure Network Policy is Enabled and set as appropriate (Manual)
     description: |
             Amazon EKS provides two ways to implement network policy. You choose a network
             policy option when you create an EKS cluster. The policy option can't be changed after the cluster is created:
