@@ -1,7 +1,7 @@
 package documentdb
 
 import (
-	"github.com/aquasecurity/trivy-policies/pkg/rules"
+	"github.com/aquasecurity/trivy-checks/pkg/rules"
 	"github.com/aquasecurity/trivy/pkg/iac/providers"
 	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/documentdb"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"

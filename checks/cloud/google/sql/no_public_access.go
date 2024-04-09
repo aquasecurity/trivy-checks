@@ -1,8 +1,8 @@
 package sql
 
 import (
-	"github.com/aquasecurity/trivy-policies/internal/cidr"
-	"github.com/aquasecurity/trivy-policies/pkg/rules"
+	"github.com/aquasecurity/trivy-checks/internal/cidr"
+	"github.com/aquasecurity/trivy-checks/pkg/rules"
 	"github.com/aquasecurity/trivy/pkg/iac/providers"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
 	"github.com/aquasecurity/trivy/pkg/iac/severity"

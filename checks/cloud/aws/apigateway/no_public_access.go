@@ -1,7 +1,7 @@
 package apigateway
 
 import (
-	"github.com/aquasecurity/trivy-policies/pkg/rules"
+	"github.com/aquasecurity/trivy-checks/pkg/rules"
 	"github.com/aquasecurity/trivy/pkg/iac/providers"
 	v1 "github.com/aquasecurity/trivy/pkg/iac/providers/aws/apigateway/v1"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"

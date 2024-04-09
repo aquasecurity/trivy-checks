@@ -1,7 +1,7 @@
 package ssm
 
 import (
-	"github.com/aquasecurity/trivy-policies/pkg/rules"
+	"github.com/aquasecurity/trivy-checks/pkg/rules"
 	"github.com/aquasecurity/trivy/pkg/iac/providers"
 	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/ssm"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"

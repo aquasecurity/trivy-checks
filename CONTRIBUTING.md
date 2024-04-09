@@ -1,10 +1,10 @@
 # Contributing
 
-Welcome, and thank you for considering contributing to trivy-policies!
+Welcome, and thank you for considering contributing to trivy-checks!
 
 The following guide gives an overview of the project and some directions on how to make common types of contribution. If something is missing, or you get stuck, please [start a discussion](https://github.com/aquasecurity/trivy/discussions/new) and we'll do our best to help.
 
-### Writing Rules
+### Writing Checks
 
 Writing a new rule can be relatively simple, but there are a few things to keep in mind. The following guide will help you get started.
 

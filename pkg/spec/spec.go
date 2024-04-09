@@ -1,7 +1,7 @@
 package spec
 
 import (
-	"github.com/aquasecurity/trivy-policies/specs"
+	"github.com/aquasecurity/trivy-checks/specs"
 )
 
 // Loader access compliance specs
