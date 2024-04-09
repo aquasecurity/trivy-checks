@@ -69,7 +69,7 @@ func createTrivyContainer(ctx context.Context, regIP string) testcontainers.Cont
 		HostConfigModifier: func(config *container.HostConfig) {
 			config.NetworkMode = "host"
 		},
-		WaitingFor: wait.ForLog("Checks successfully loaded from disk"),
+		WaitingFor: wait.ForLog("Policies successfully loaded from disk"),
 	}
 	trivyC, err := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: reqTrivy,
