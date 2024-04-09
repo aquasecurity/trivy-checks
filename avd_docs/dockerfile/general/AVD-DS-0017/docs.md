@@ -8,6 +8,6 @@ The instruction 'RUN <package-manager> update' should always be followed by '<pa
 {{ remediationActions }}
 
 ### Links
-- https://docs.docker.com/develop/develop-images/instructions/#run
+- https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#run
 
 

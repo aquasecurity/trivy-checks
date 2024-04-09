@@ -1,5 +1,5 @@
 
-Use Customer managed key
+Enable encryption at rest
 
 ```yaml---
 Resources:
@@ -15,6 +15,4 @@ Resources:
 
 ```
 
-#### Remediation Links
- - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-kmskeyid
 

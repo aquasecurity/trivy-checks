@@ -5,7 +5,7 @@ Use terraform-module/enforce-mfa/aws to ensure that MFA is enforced
 resource "aws_iam_group" "support" {
   name =  "support"
 }
-resource "aws_iam_group_policy" "mfa" {
+resource aws_iam_group_policy mfa {
    
     group = aws_iam_group.support.name
     policy = <<EOF
@@ -33,7 +33,7 @@ EOF
 resource "aws_iam_group" "support" {
   name =  "support"
 }
-resource "aws_iam_policy" "mfa" {
+resource aws_iam_policy mfa {
    
     name = "something"
     policy = <<EOF
@@ -55,7 +55,7 @@ resource "aws_iam_policy" "mfa" {
 }
 EOF
 }
-resource "aws_iam_group_policy_attachment" "attach" {
+resource aws_iam_group_policy_attachment attach {
     group = aws_iam_group.support.name
     policy_arn = aws_iam_policy.mfa.id
 }
@@ -65,7 +65,7 @@ resource "aws_iam_group_policy_attachment" "attach" {
 resource "aws_iam_group" "support" {
   name =  "support"
 }
-resource "aws_iam_group_policy" "mfa" {
+resource aws_iam_group_policy mfa {
   group = aws_iam_group.support.name
   policy = data.aws_iam_policy_document.combined.json
 }

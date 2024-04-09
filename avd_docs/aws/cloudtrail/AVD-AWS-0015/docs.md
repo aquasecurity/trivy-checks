@@ -1,15 +1,13 @@
 
-Using Customer managed keys provides comprehensive control over cryptographic keys, enabling management of policies, permissions, and rotation, thus enhancing security and compliance measures for sensitive data and systems.
+Cloudtrail logs should be encrypted at rest to secure the sensitive data. Cloudtrail logs record all activity that occurs in the the account through API calls and would be one of the first places to look when reacting to a breach.
 
 ### Impact
-Using AWS managed keys does not allow for fine grained control
+Data can be freely read if compromised
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
 
 ### Links
 - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/encrypting-cloudtrail-log-files-with-aws-kms.html
-
-- https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-mgmt
 
 
