@@ -22,7 +22,15 @@ jobs:
           registry: ghcr.io
           username: ${{ env.GH_USER }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Deploy to GitHub Packages Container registry
+      - name: Deploy policy bundle to ghcr.io (for backwards compatibility)
+        run: |
+          tags=(latest ${{ env.RELEASE_VERSION}} ${{env.MINOR_VERSION }} ${{ env.MAJOR_VERSION }})
+          for tag in ${tags[@]}; do
+              oras push ghcr.io/aquasecurity/trivy-policies:${tag} \
+              --config /dev/null:application/vnd.cncf.openpolicyagent.config.v1+json \
+              bundle.tar.gz:application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip
+          done
+      - name: Deploy checks bundle to ghcr.io
         run: |
           tags=(latest ${{ env.RELEASE_VERSION}} ${{env.MINOR_VERSION }} ${{ env.MAJOR_VERSION }})
           for tag in ${tags[@]}; do
