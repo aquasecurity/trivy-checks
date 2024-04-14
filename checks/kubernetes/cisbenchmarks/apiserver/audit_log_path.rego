@@ -19,14 +19,18 @@ package builtin.kubernetes.KCV0019
 
 import data.lib.kubernetes
 
-check_flag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
-	not kubernetes.command_has_flag(container.command, "--audit-log-path")
+check_flag(container) {
+	kubernetes.command_has_flag(container.command, "--audit-log-path")
+}
+
+check_flag(container) {
+	kubernetes.command_has_flag(container.args, "--audit-log-path")
 }
 
 deny[res] {
-	output := check_flag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_apiserver(container)
+	not check_flag(container)
 	msg := "Ensure that the --audit-log-path argument is set"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

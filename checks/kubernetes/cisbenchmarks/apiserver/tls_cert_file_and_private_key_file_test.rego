@@ -65,6 +65,28 @@ test_tls_cert_file_and_private_key_file_are_set {
 	count(r) == 0
 }
 
+test_tls_cert_file_and_private_key_file_are_set_args {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {
+			"name": "apiserver",
+			"labels": {
+				"component": "kube-apiserver",
+				"tier": "control-plane",
+			},
+		},
+		"spec": {"containers": [{
+			"command": ["kube-apiserver"],
+			"args": ["--advertise-address=192.168.49.2", "--tls-cert-file=<file>", "--tls-private-key-file=<file>"],
+			"image": "busybox",
+			"name": "hello",
+		}]},
+	}
+
+	count(r) == 0
+}
+
 test_tls_cert_file_and_private_key_file_are_not_set {
 	r := deny with input as {
 		"apiVersion": "v1",

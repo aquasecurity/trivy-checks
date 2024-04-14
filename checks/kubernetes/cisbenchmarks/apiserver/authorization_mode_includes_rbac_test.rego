@@ -42,6 +42,28 @@ test_authorization_mode_includes_rbac {
 	count(r) == 0
 }
 
+test_authorization_mode_includes_rbac_args {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {
+			"name": "apiserver",
+			"labels": {
+				"component": "kube-apiserver",
+				"tier": "control-plane",
+			},
+		},
+		"spec": {"containers": [{
+			"command": ["kube-apiserver"],
+			"args": ["--authorization-mode=Node,RBAC", "--anonymous-auth=false"],
+			"image": "busybox",
+			"name": "hello",
+		}]},
+	}
+
+	count(r) == 0
+}
+
 test_authorization_mode_default_value {
 	r := deny with input as {
 		"apiVersion": "v1",

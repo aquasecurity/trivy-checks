@@ -19,20 +19,20 @@ package builtin.kubernetes.KCV0045
 
 import data.lib.kubernetes
 
-checkFlag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_etcd(container)
-	not kubernetes.command_has_flag(container.command, "--peer-cert-file")
+checkFlag(container) {
+	kubernetes.command_has_flag(container.command, "--peer-cert-file")
+	kubernetes.command_has_flag(container.command, "--peer-key-file")
 }
 
-checkFlag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_etcd(container)
-	not kubernetes.command_has_flag(container.command, "--peer-key-file")
+checkFlag(container) {
+	kubernetes.command_has_flag(container.args, "--peer-cert-file")
+	kubernetes.command_has_flag(container.args, "--peer-key-file")
 }
 
 deny[res] {
-	output := checkFlag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_etcd(container)
+	not checkFlag(container)
 	msg := "Ensure that the --peer-cert-file and --peer-key-file arguments are set as appropriate"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

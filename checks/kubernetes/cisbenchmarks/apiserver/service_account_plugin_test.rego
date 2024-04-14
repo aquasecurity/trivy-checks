@@ -42,3 +42,25 @@ test_service_account_plugin_is_not_disabled {
 
 	count(r) == 0
 }
+
+test_service_account_plugin_is_not_disabled_args {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {
+			"name": "apiserver",
+			"labels": {
+				"component": "kube-apiserver",
+				"tier": "control-plane",
+			},
+		},
+		"spec": {"containers": [{
+			"command": ["kube-apiserver"],
+			"args": ["--disable-admission-plugins=AlwaysAdmit"],
+			"image": "busybox",
+			"name": "hello",
+		}]},
+	}
+
+	count(r) == 0
+}

@@ -19,14 +19,18 @@ package builtin.kubernetes.KCV0029
 
 import data.lib.kubernetes
 
-check_flag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
-	not kubernetes.command_has_flag(container.command, "--etcd-cafile")
+check_flag(container) {
+	kubernetes.command_has_flag(container.command, "--etcd-cafile")
+}
+
+check_flag(container) {
+	kubernetes.command_has_flag(container.args, "--etcd-cafile")
 }
 
 deny[res] {
-	output := check_flag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_apiserver(container)
+	not check_flag(container)
 	msg := "Ensure that the --etcd-cafile argument is set as appropriate"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

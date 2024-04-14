@@ -19,21 +19,24 @@ package builtin.kubernetes.KCV0016
 
 import data.lib.kubernetes
 
-check_flag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
-	not kubernetes.command_has_flag(container.command, "--enable-admission-plugins")
-}
-
-check_flag[container] {
-	container := kubernetes.containers[_]
+check_flag(container) {
+	kubernetes.command_has_flag(container.command, "--enable-admission-plugins")
 	some i
 	output := regex.find_all_string_submatch_n(`--enable-admission-plugins=([^\s]+)`, container.command[i], -1)
-	not regex.match("NodeRestriction", output[0][1])
+	regex.match("NodeRestriction", output[0][1])
+}
+
+check_flag(container) {
+	kubernetes.command_has_flag(container.args, "--enable-admission-plugins")
+	some i
+	output := regex.find_all_string_submatch_n(`--enable-admission-plugins=([^\s]+)`, container.args[i], -1)
+	regex.match("NodeRestriction", output[0][1])
 }
 
 deny[res] {
-	output := check_flag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_apiserver(container)
+	not check_flag(container)
 	msg := "Ensure that the admission control plugin NodeRestriction is set"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

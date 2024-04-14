@@ -19,15 +19,20 @@ package builtin.kubernetes.KCV0002
 
 import data.lib.kubernetes
 
-check_flag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
+check_flag(container) {
 	some i
 	regex.match("--token-auth-file", container.command[i])
 }
 
+check_flag(container) {
+	some i
+	regex.match("--token-auth-file", container.args[i])
+}
+
 deny[res] {
-	output := check_flag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_apiserver(container)
+	check_flag(container)
 	msg := "Ensure that the --token-auth-file parameter is not set"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

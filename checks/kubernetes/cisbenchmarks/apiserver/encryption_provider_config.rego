@@ -19,14 +19,18 @@ package builtin.kubernetes.KCV0030
 
 import data.lib.kubernetes
 
-check_flag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
+check_flag(container) {
 	kubernetes.command_has_flag(container.command, "--encryption-provider-config")
 }
 
+check_flag(container) {
+	kubernetes.command_has_flag(container.args, "--encryption-provider-config")
+}
+
 deny[res] {
-	output := check_flag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_apiserver(container)
+	check_flag(container)
 	msg := "Ensure that the --encryption-provider-config argument is set as appropriate"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

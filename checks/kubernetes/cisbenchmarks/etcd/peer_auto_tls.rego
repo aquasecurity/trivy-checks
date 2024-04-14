@@ -19,14 +19,18 @@ package builtin.kubernetes.KCV0047
 
 import data.lib.kubernetes
 
-checkFlag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_etcd(container)
+checkFlag(container) {
 	kubernetes.command_has_flag(container.command, "--peer-auto-tls=true")
 }
 
+checkFlag(container) {
+	kubernetes.command_has_flag(container.args, "--peer-auto-tls=true")
+}
+
 deny[res] {
-	output := checkFlag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_etcd(container)
+	checkFlag(container)
 	msg := "Ensure that the --peer-auto-tls argument is not set to true"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

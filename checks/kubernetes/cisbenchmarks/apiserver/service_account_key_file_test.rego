@@ -21,6 +21,28 @@ test_service_account_key_file_is_set {
 	count(r) == 0
 }
 
+test_service_account_key_file_is_set_args {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {
+			"name": "apiserver",
+			"labels": {
+				"component": "kube-apiserver",
+				"tier": "control-plane",
+			},
+		},
+		"spec": {"containers": [{
+			"command": ["kube-apiserver"],
+			"args": ["--authorization-mode=AlwaysAllow", "--service-account-key-file=<file>", "--anonymous-auth=false"],
+			"image": "busybox",
+			"name": "hello",
+		}]},
+	}
+
+	count(r) == 0
+}
+
 test_service_account_key_file_is_not_set {
 	r := deny with input as {
 		"apiVersion": "v1",

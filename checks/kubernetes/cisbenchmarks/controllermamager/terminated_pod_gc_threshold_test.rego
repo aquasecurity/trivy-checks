@@ -42,3 +42,25 @@ test_terminated_pod_gc_threshold_is_not_set {
 
 	count(r) == 0
 }
+
+test_terminated_pod_gc_threshold_is_not_set_args {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {
+			"name": "apiserver",
+			"labels": {
+				"component": "kube-conrtoller-manager",
+				"tier": "control-plane",
+			},
+		},
+		"spec": {"containers": [{
+			"command": ["kube-controller-manager"],
+			"args": ["--allocate-node-cidrs=true", "--terminated-pod-gc-threshold=10"],
+			"image": "busybox",
+			"name": "hello",
+		}]},
+	}
+
+	count(r) == 0
+}

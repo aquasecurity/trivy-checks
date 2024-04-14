@@ -19,14 +19,18 @@ package builtin.kubernetes.KCV0034
 
 import data.lib.kubernetes
 
-checkFlag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_controllermanager(container)
-	not kubernetes.command_has_flag(container.command, "--profiling=false")
+checkFlag(container) {
+	kubernetes.command_has_flag(container.command, "--profiling=false")
+}
+
+checkFlag(container) {
+	kubernetes.command_has_flag(container.args, "--profiling=false")
 }
 
 deny[res] {
-	output := checkFlag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_controllermanager(container)
+	not checkFlag(container)
 	msg := "Ensure that the --profiling argument is set to false"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

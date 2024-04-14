@@ -19,20 +19,20 @@ package builtin.kubernetes.KCV0026
 
 import data.lib.kubernetes
 
-check_flag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
-	not kubernetes.command_has_flag(container.command, "--etcd-certfile")
+check_flag(container) {
+	kubernetes.command_has_flag(container.command, "--etcd-certfile")
+	kubernetes.command_has_flag(container.command, "--etcd-keyfile")
 }
 
-check_flag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
-	not kubernetes.command_has_flag(container.command, "--etcd-keyfile")
+check_flag(container) {
+	kubernetes.command_has_flag(container.args, "--etcd-certfile")
+	kubernetes.command_has_flag(container.args, "--etcd-certfile")
 }
 
 deny[res] {
-	output := check_flag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_apiserver(container)
+	not check_flag(container)
 	msg := "Ensure that the --etcd-certfile and --etcd-keyfile arguments are set as appropriate"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

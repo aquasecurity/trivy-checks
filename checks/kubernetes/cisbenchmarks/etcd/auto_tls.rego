@@ -19,14 +19,18 @@ package builtin.kubernetes.KCV0044
 
 import data.lib.kubernetes
 
-checkFlag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_etcd(container)
+checkFlag(container) {
 	kubernetes.command_has_flag(container.command, "--auto-tls=true")
 }
 
+checkFlag(container) {
+	kubernetes.command_has_flag(container.args, "--auto-tls=true")
+}
+
 deny[res] {
-	output := checkFlag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_etcd(container)
+	checkFlag(container)
 	msg := "Ensure that the --auto-tls argument is not set to true"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

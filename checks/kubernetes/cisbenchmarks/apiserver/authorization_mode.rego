@@ -19,16 +19,16 @@ package builtin.kubernetes.KCV0007
 
 import data.lib.kubernetes
 
-check_flag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
+check_flag(container) {
 	some i
 	output := regex.find_all_string_submatch_n(`--authorization-mode=([^\s]+)`, container.command[i], -1)
 	regex.match("AlwaysAllow", output[0][1])
 }
 
 deny[res] {
-	output := check_flag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_apiserver(container)
+	check_flag(container)
 	msg := "Ensure that the --authorization-mode argument is not set to AlwaysAllow"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

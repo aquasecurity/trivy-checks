@@ -21,6 +21,28 @@ test_profiling_is_set_to_false {
 	count(r) == 0
 }
 
+test_profiling_is_set_to_false_args {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {
+			"name": "apiserver",
+			"labels": {
+				"component": "kube-apiserver",
+				"tier": "control-plane",
+			},
+		},
+		"spec": {"containers": [{
+			"command": ["kube-apiserver"],
+			"args": ["--advertise-address=192.168.49.2", "--profiling=false", "--secure-port=0"],
+			"image": "busybox",
+			"name": "hello",
+		}]},
+	}
+
+	count(r) == 0
+}
+
 test_profiling_is_set_to_true {
 	r := deny with input as {
 		"apiVersion": "v1",

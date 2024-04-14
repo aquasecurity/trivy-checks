@@ -43,6 +43,28 @@ test_enable_admission_plugins_is_not_configured {
 	count(r) == 0
 }
 
+test_enable_admission_plugins_is_not_configured_args {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {
+			"name": "apiserver",
+			"labels": {
+				"component": "kube-apiserver",
+				"tier": "control-plane",
+			},
+		},
+		"spec": {"containers": [{
+			"command": ["kube-apiserver"],
+			"args": ["--authorization-mode=Node,RBAC", "--anonymous-auth=false"],
+			"image": "busybox",
+			"name": "hello",
+		}]},
+	}
+
+	count(r) == 0
+}
+
 test_deny_service_external_ips_is_not_enabled {
 	r := deny with input as {
 		"apiVersion": "v1",
