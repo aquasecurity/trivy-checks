@@ -19,14 +19,18 @@ package builtin.kubernetes.KCV0046
 
 import data.lib.kubernetes
 
-checkFlag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_etcd(container)
-	not kubernetes.command_has_flag(container.command, "--peer-client-cert-auth=true")
+checkFlag(container) {
+	kubernetes.command_has_flag(container.command, "--peer-client-cert-auth=true")
+}
+
+checkFlag(container) {
+	kubernetes.command_has_flag(container.command, "--peer-client-cert-auth=true")
 }
 
 deny[res] {
-	output := checkFlag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_etcd(container)
+	not checkFlag(container)
 	msg := "Ensure that the --peer-client-cert-auth argument is set to true"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

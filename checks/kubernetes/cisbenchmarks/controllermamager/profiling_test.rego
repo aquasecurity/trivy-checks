@@ -21,6 +21,28 @@ test_profiling_is_set_to_false {
 	count(r) == 0
 }
 
+test_profiling_is_set_to_false_args {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {
+			"name": "controller-manager",
+			"labels": {
+				"component": "kube-controller-manager",
+				"tier": "control-plane",
+			},
+		},
+		"spec": {"containers": [{
+			"command": ["kube-controller-manager"],
+			"args": ["--allocate-node-cidrs=true", "--profiling=false"],
+			"image": "busybox",
+			"name": "hello",
+		}]},
+	}
+
+	count(r) == 0
+}
+
 test_profiling_is_set_to_true {
 	r := deny with input as {
 		"apiVersion": "v1",

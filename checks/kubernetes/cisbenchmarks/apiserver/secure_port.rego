@@ -19,14 +19,18 @@ package builtin.kubernetes.KCV0017
 
 import data.lib.kubernetes
 
-check_flag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
+check_flag(container) {
 	kubernetes.command_has_flag(container.command, "--secure-port=0")
 }
 
+check_flag(container) {
+	kubernetes.command_has_flag(container.args, "--secure-port=0")
+}
+
 deny[res] {
-	output := check_flag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_apiserver(container)
+	check_flag(container)
 	msg := "Ensure that the --secure-port argument is not set to 0"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

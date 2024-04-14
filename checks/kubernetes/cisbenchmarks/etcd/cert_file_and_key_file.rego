@@ -19,20 +19,20 @@ package builtin.kubernetes.KCV0042
 
 import data.lib.kubernetes
 
-checkFlag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_etcd(container)
-	not kubernetes.command_has_flag(container.command, "--cert-file")
+checkFlag(container) {
+	kubernetes.command_has_flag(container.command, "--cert-file")
+	kubernetes.command_has_flag(container.command, "--key-file")
 }
 
-checkFlag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_etcd(container)
-	not kubernetes.command_has_flag(container.command, "--key-file")
+checkFlag(container) {
+	kubernetes.command_has_flag(container.args, "--cert-file")
+	kubernetes.command_has_flag(container.args, "--key-file")
 }
 
 deny[res] {
-	output := checkFlag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_etcd(container)
+	not checkFlag(container)
 	msg := "Ensure that the --cert-file and --key-file arguments are set as appropriate"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

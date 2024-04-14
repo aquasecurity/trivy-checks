@@ -19,20 +19,20 @@ package builtin.kubernetes.KCV0005
 
 import data.lib.kubernetes
 
-check_flag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
-	not kubernetes.command_has_flag(container.command, "--kubelet-client-certificate")
+check_flag(container) {
+	kubernetes.command_has_flag(container.command, "--kubelet-client-certificate")
+	kubernetes.command_has_flag(container.command, "--kubelet-client-key")
 }
 
-check_flag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
-	not kubernetes.command_has_flag(container.command, "--kubelet-client-key")
+check_flag(container) {
+	kubernetes.command_has_flag(container.args, "--kubelet-client-certificate")
+	kubernetes.command_has_flag(container.args, "--kubelet-client-key")
 }
 
 deny[res] {
-	output := check_flag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_apiserver(container)
+	not check_flag(container)
 	msg := "Ensure that the --kubelet-client-certificate and --kubelet-client-key arguments are set as appropriate"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

@@ -19,16 +19,20 @@ package builtin.kubernetes.KCV0001
 
 import data.lib.kubernetes
 
-check_flag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
-	some i
-	flag := container.command[i]
-	not kubernetes.command_has_flag(container.command, "--anonymous-auth=false")
+check_flag(container) {
+	arg := kubernetes.containers[_].args[_]
+	contains(arg, "--anonymous-auth=false")
+}
+
+check_flag(container) {
+	cmd := kubernetes.containers[_].command[_]
+	contains(cmd, "--anonymous-auth=false")
 }
 
 deny[res] {
-	output := check_flag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_apiserver(container)
+	not check_flag(container)
 	msg := "Ensure that the --anonymous-auth argument is set to false"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

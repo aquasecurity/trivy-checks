@@ -19,14 +19,18 @@ package builtin.kubernetes.KCV0037
 
 import data.lib.kubernetes
 
-checkFlag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_controllermanager(container)
-	not kubernetes.command_has_flag(container.command, "--root-ca-file")
+checkFlag(container) {
+	kubernetes.command_has_flag(container.command, "--root-ca-file")
+}
+
+checkFlag(container) {
+	kubernetes.command_has_flag(container.args, "--root-ca-file")
 }
 
 deny[res] {
-	output := checkFlag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_controllermanager(container)
+	not checkFlag(container)
 	msg := "Ensure that the --root-ca-file argument is set as appropriate"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

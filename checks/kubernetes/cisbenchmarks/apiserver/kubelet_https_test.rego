@@ -43,6 +43,28 @@ test_kubelet_https_is_true {
 	count(r) == 0
 }
 
+test_kubelet_https_is_true_args {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {
+			"name": "apiserver",
+			"labels": {
+				"component": "kube-apiserver",
+				"tier": "control-plane",
+			},
+		},
+		"spec": {"containers": [{
+			"command": ["kube-apiserver"],
+			"args": ["--authorization-mode=AlwaysAllow", "--kubelet-https=true", "--anonymous-auth=false"],
+			"image": "busybox",
+			"name": "hello",
+		}]},
+	}
+
+	count(r) == 0
+}
+
 test_kubelet_https_is_not_configured {
 	r := deny with input as {
 		"apiVersion": "v1",

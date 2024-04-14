@@ -21,6 +21,28 @@ test_peer_auto_tls_is_set_to_false {
 	count(r) == 0
 }
 
+test_peer_auto_tls_is_set_to_false_args {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {
+			"name": "etcd",
+			"labels": {
+				"component": "etcd",
+				"tier": "control-plane",
+			},
+		},
+		"spec": {"containers": [{
+			"command": ["etcd"],
+			"args": ["--advertise-client-urls=https://192.168.49.2:2379", "--peer-auto-tls=false"],
+			"image": "busybox",
+			"name": "hello",
+		}]},
+	}
+
+	count(r) == 0
+}
+
 test_peer_auto_tls_is_set_to_true {
 	r := deny with input as {
 		"apiVersion": "v1",
