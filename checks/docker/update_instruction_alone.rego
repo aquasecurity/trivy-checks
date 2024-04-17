@@ -47,29 +47,31 @@ deny[res] {
 	run_cmd := concat(" ", run.Value)
 	cmds := regex.split(`\s*&&\s*`, run_cmd)
 
-	update_res = has_update(cmds)
-	not update_followed_by_install(cmds, update_res)
+	some package_manager
+	update_indexes := has_update(cmds, package_managers[package_manager])
+	not update_followed_by_install(cmds, package_manager, update_indexes)
 
 	msg := "The instruction 'RUN <package-manager> update' should always be followed by '<package-manager> install' in the same RUN statement."
 	res := result.new(msg, run)
 }
 
-has_update(cmds) = {
-	"package_manager": package_manager,
-	"cmd_index": index,
-} {
-	index := contains_cmd_with_package_manager(cmds, update_cmds, package_managers[package_manager])
+has_update(cmds, package_manager) = indexes {
+	indexes := contains_cmd_with_package_manager(cmds, update_cmds, package_manager)
 }
 
-update_followed_by_install(cmds, update_res) {
-	install_index := contains_cmd_with_package_manager(cmds, install_cmds, update_res.package_manager)
-	update_res.cmd_index < install_index
+update_followed_by_install(cmds, package_manager, update_indexes) {
+	install_index := contains_cmd_with_package_manager(cmds, install_cmds, package_manager)
+	update_indexes[_] < install_index[_]
 }
 
-contains_cmd_with_package_manager(cmds, cmds_to_check, package_manager) = cmd_index {
-	cmd_parts := split(cmds[cmd_index], " ")
-	some i, j
-	cmd_parts[i] == package_manager[_]
-	cmd_parts[j] == cmds_to_check[_]
-	i < j
+contains_cmd_with_package_manager(cmds, cmds_to_check, package_manager) = cmd_indexes {
+	cmd_indexes = [idx |
+		cmd_parts := split(cmds[idx], " ")
+		some i, j
+		i != j
+		cmd_parts[i] == package_manager[_]
+		cmd_parts[j] == cmds_to_check[_]
+		i < j
+	]
+	count(cmd_indexes) != 0
 }

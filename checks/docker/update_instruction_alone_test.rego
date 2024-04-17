@@ -68,6 +68,28 @@ test_chained_denied {
 	r[_].msg == "The instruction 'RUN <package-manager> update' should always be followed by '<package-manager> install' in the same RUN statement."
 }
 
+test_multiple_package_managers {
+	r := deny with input as {"Stages": [{
+		"Name": "ubuntu:18.04",
+		"Commands": [
+			{
+				"Cmd": "from",
+				"Value": ["ubuntu:18.04"],
+			},
+			{
+				"Cmd": "run",
+				"Value": ["apt-get update -y && apt-get upgrade -y && apt-get install -y curl && apk-update"],
+			},
+			{
+				"Cmd": "entrypoint",
+				"Value": ["mysql"],
+			},
+		],
+	}]}
+
+	count(r) == 0
+}
+
 test_allowed {
 	r := deny with input as {"Stages": [{"Name": "ubuntu:18.04", "Commands": [
 		{
@@ -93,6 +115,25 @@ test_allowed {
 		{
 			"Cmd": "run",
 			"Value": ["apt-get install -y nginx"],
+		},
+		{
+			"Cmd": "entrypoint",
+			"Value": ["mysql"],
+		},
+	]}]}
+
+	count(r) == 0
+}
+
+test_allowed_multiple_install_cmds {
+	r := deny with input as {"Stages": [{"Name": "ubuntu:18.04", "Commands": [
+		{
+			"Cmd": "from",
+			"Value": ["ubuntu:18.04"],
+		},
+		{
+			"Cmd": "run",
+			"Value": ["apt-get update -y && apt-get upgrade -y && apt-get install -y curl"],
 		},
 		{
 			"Cmd": "entrypoint",
