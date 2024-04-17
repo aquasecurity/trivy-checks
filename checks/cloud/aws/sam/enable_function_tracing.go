@@ -1,7 +1,7 @@
 package sam
 
 import (
-	"github.com/aquasecurity/trivy-policies/pkg/rules"
+	"github.com/aquasecurity/trivy-checks/pkg/rules"
 	"github.com/aquasecurity/trivy/pkg/iac/providers"
 	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/sam"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"

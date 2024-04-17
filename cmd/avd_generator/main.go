@@ -11,7 +11,7 @@ import (
 	"strings"
 	"text/template"
 
-	policies "github.com/aquasecurity/trivy-policies"
+	policies "github.com/aquasecurity/trivy-checks"
 	"github.com/aquasecurity/trivy/pkg/iac/framework"
 	_ "github.com/aquasecurity/trivy/pkg/iac/rego"
 	registered "github.com/aquasecurity/trivy/pkg/iac/rules"
