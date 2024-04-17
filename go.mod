@@ -4,7 +4,7 @@ go 1.22.0
 
 require (
 	github.com/aquasecurity/trivy v0.50.2-0.20240412195250-183eaafb4e42
-	github.com/docker/docker v26.0.0+incompatible
+	github.com/docker/docker v26.0.1+incompatible
 	github.com/liamg/iamgo v0.0.9
 	github.com/liamg/memoryfs v1.6.0
 	github.com/open-policy-agent/opa v0.62.0
