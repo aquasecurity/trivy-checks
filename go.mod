@@ -189,3 +189,6 @@ require (
 	oras.land/oras-go/v2 v2.3.1 // indirect
 	sigs.k8s.io/yaml v1.4.0 // indirect
 )
+
+// needed until the new name is used everywhere
+replace github.com/aquasecurity/trivy-policies v0.10.0 => github.com/aquasecurity/trivy-checks v0.10.2-0.20240417031955-932169bbd75f
