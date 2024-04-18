@@ -16,7 +16,13 @@ import (
 	"github.com/liamg/memoryfs"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	builtinrego "github.com/aquasecurity/trivy-checks/pkg/rego"
 )
+
+func init() {
+	builtinrego.RegisterBuiltins()
+}
 
 func getFileName(fpath string, info os.FileInfo, typePolicy bool) string {
 	pathParts := strings.Split(fpath, filepath.FromSlash("/"))
