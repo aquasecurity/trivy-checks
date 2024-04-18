@@ -125,6 +125,25 @@ test_allowed {
 	count(r) == 0
 }
 
+test_allowed_cmds_separated_by_semicolon {
+	r := deny with input as {"Stages": [{"Name": "ubuntu:18.04", "Commands": [
+		{
+			"Cmd": "from",
+			"Value": ["ubuntu:18.04"],
+		},
+		{
+			"Cmd": "run",
+			"Value": ["apt-get update -y ; apt-get install -y curl"],
+		},
+		{
+			"Cmd": "entrypoint",
+			"Value": ["mysql"],
+		},
+	]}]}
+
+	count(r) == 0
+}
+
 test_allowed_multiple_install_cmds {
 	r := deny with input as {"Stages": [{"Name": "ubuntu:18.04", "Commands": [
 		{

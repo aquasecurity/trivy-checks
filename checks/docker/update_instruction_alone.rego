@@ -45,7 +45,7 @@ package_managers = {
 deny[res] {
 	run := docker.run[_]
 	run_cmd := concat(" ", run.Value)
-	cmds := regex.split(`\s*&&\s*`, run_cmd)
+	cmds := sh.parse_commands(run_cmd)
 
 	some package_manager
 	update_indexes := has_update(cmds, package_managers[package_manager])
@@ -66,7 +66,7 @@ update_followed_by_install(cmds, package_manager, update_indexes) {
 
 contains_cmd_with_package_manager(cmds, cmds_to_check, package_manager) = cmd_indexes {
 	cmd_indexes = [idx |
-		cmd_parts := split(cmds[idx], " ")
+		cmd_parts := cmds[idx]
 		some i, j
 		i != j
 		cmd_parts[i] == package_manager[_]
