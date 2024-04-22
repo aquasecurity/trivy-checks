@@ -18,14 +18,14 @@ Resources:
 var cloudFormationCheckEncryptionCustomerKeyBadExamples = []string{
 	`---
 Resources:
-BadExample:
-  Type: AWS::S3::Bucket
-  Properties:
-    BucketEncryption:
-      ServerSideEncryptionConfiguration:
-        - BucketKeyEnabled: false
-          ServerSideEncryptionByDefault:
-            SSEAlgorithm: AES256
+  BadExample:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - BucketKeyEnabled: false
+            ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
 `,
 }
 
