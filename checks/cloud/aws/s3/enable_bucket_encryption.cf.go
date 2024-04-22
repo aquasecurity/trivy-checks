@@ -24,8 +24,8 @@ Resources:
         ServerSideEncryptionConfiguration:
           - BucketKeyEnabled: false
             ServerSideEncryptionByDefault:
-              KMSMasterKeyID: asdf
-              SSEAlgorithm: asdf # TODO
+              KMSMasterKeyID: alias/alias-name
+              SSEAlgorithm: aws:kms
 `,
 }
 

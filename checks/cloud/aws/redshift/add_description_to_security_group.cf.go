@@ -7,7 +7,6 @@ Resources:
     Type: AWS::Redshift::ClusterSecurityGroup
     Properties:
       Description: "Disallow bad stuff"
-      # TODO
 `,
 }
 
@@ -18,7 +17,6 @@ Resources:
     Type: AWS::Redshift::ClusterSecurityGroup
     Properties:
       Description: ""
-      # TODO
 `,
 }
 

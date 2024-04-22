@@ -8,7 +8,6 @@ Resources:
     Properties:
       Encrypted: true
       KmsKeyId: "something"
-
 `,
 }
 
