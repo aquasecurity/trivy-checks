@@ -2,10 +2,8 @@ package sam
 
 var cloudFormationEnableHttpApiAccessLoggingGoodExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good Example of SAM API
 Resources:
-  ApiGatewayApi:
+  GoodExample:
     Type: AWS::Serverless::HttpApi
     Properties:
       Name: Good SAM API example
@@ -19,10 +17,8 @@ Resources:
 
 var cloudFormationEnableHttpApiAccessLoggingBadExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Bad Example of SAM API
 Resources:
-  HttpApi:
+  BadExample:
     Type: AWS::Serverless::HttpApi
     Properties:
       Name: Good SAM API example

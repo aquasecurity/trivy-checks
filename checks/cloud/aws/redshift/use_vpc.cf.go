@@ -22,7 +22,7 @@ Resources:
     Type: AWS::Redshift::Cluster
     Properties:
       ClusterSubnetGroupName: ""
-
+      # TODO
 `,
 }
 

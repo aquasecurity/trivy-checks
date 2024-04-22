@@ -2,8 +2,6 @@ package sam
 
 var cloudFormationNoFunctionPolicyWildcardsGoodExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good Example of SAM Function
 Resources:
   GoodFunction:
     Type: AWS::Serverless::Function
@@ -30,8 +28,6 @@ Resources:
 
 var cloudFormationNoFunctionPolicyWildcardsBadExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Bad Example of SAM Function
 Resources:
   BadFunction:
     Type: AWS::Serverless::Function

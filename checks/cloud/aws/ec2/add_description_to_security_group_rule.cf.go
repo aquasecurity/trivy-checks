@@ -2,8 +2,6 @@ package ec2
 
 var cloudFormationAddDescriptionToSecurityGroupRuleGoodExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good example of SGR description
 Resources:
   GoodSecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -18,8 +16,6 @@ Resources:
 
 var cloudFormationAddDescriptionToSecurityGroupRuleBadExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Bad example of SGR description
 Resources:
   BadSecurityGroup:
     Type: AWS::EC2::SecurityGroup

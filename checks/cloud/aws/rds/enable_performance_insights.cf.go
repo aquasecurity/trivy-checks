@@ -2,10 +2,8 @@ package rds
 
 var cloudFormationEnablePerformanceInsightsGoodExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good example
 Resources:
-  Queue:
+  GoodExample:
     Type: AWS::RDS::DBInstance
     Properties:
       EnablePerformanceInsights: true
@@ -16,14 +14,11 @@ Resources:
 
 var cloudFormationEnablePerformanceInsightsBadExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Bad example
 Resources:
-  Queue:
+  BadExample:
     Type: AWS::RDS::DBInstance
     Properties:
       EnablePerformanceInsights: false
-
 `,
 }
 

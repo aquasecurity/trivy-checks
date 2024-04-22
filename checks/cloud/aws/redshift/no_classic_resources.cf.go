@@ -5,7 +5,7 @@ var cloudFormationNoClassicResourcesGoodExamples = []string{
 AWSTemplateFormatVersion: 2010-09-09
 Description: Good example of redshift sgr
 Resources:
-
+# TODO
 `,
 }
 
@@ -18,7 +18,7 @@ Resources:
     Type: AWS::Redshift::ClusterSecurityGroup
     Properties:
       Description: ""
-
+      # TODO
 `,
 }
 

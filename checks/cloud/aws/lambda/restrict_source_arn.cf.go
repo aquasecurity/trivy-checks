@@ -28,7 +28,6 @@ Resources:
       Action: lambda:InvokeFunction
       Principal: s3.amazonaws.com
       SourceArn: "lambda.amazonaws.com"
-  
 `,
 }
 
@@ -59,7 +58,6 @@ Resources:
       FunctionName: !Ref BadExample
       Action: lambda:InvokeFunction
       Principal: s3.amazonaws.com
-
 `,
 }
 

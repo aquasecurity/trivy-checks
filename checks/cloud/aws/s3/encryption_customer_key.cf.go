@@ -4,6 +4,7 @@ var cloudFormationCheckEncryptionCustomerKeyGoodExamples = []string{
 	`
 Resources:
   GoodExample:
+    Type: AWS::S3::Bucket
     Properties:
       BucketEncryption:
         ServerSideEncryptionConfiguration:
@@ -11,21 +12,20 @@ Resources:
             ServerSideEncryptionByDefault:
               KMSMasterKeyID: kms-arn
               SSEAlgorithm: aws:kms
-    Type: AWS::S3::Bucket
 `,
 }
 
 var cloudFormationCheckEncryptionCustomerKeyBadExamples = []string{
 	`---
 Resources:
-  BadExample:
-    Properties:
-      BucketEncryption:
-        ServerSideEncryptionConfiguration:
-          - BucketKeyEnabled: false
-            ServerSideEncryptionByDefault:
-              SSEAlgorithm: AES256
-    Type: AWS::S3::Bucket
+BadExample:
+  Type: AWS::S3::Bucket
+  Properties:
+    BucketEncryption:
+      ServerSideEncryptionConfiguration:
+        - BucketKeyEnabled: false
+          ServerSideEncryptionByDefault:
+            SSEAlgorithm: AES256
 `,
 }
 

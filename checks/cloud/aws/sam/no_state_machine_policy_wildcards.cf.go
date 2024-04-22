@@ -2,8 +2,6 @@ package sam
 
 var cloudFormationNoStateMachinePolicyWildcardsGoodExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good Example of SAM Function
 Resources:
   GoodFunction:
     Type: AWS::Serverless::StateMachine
@@ -32,8 +30,6 @@ Resources:
 
 var cloudFormationNoStateMachinePolicyWildcardsBadExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Bad Example of SAM Function
 Resources:
   BadFunction:
     Type: AWS::Serverless::StateMachine

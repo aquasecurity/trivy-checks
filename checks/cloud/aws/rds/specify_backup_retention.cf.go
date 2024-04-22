@@ -2,26 +2,20 @@ package rds
 
 var cloudFormationSpecifyBackupRetentionGoodExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good example
 Resources:
-  Queue:
+  GoodExample:
     Type: AWS::RDS::DBInstance
     Properties:
       BackupRetentionPeriod: 30
-
 `,
 }
 
 var cloudFormationSpecifyBackupRetentionBadExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Bad example
 Resources:
-  Queue:
+  BadExample:
     Type: AWS::RDS::DBInstance
     Properties:
-
 `,
 }
 

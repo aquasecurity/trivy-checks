@@ -4,10 +4,10 @@ var cloudFormationEnableVersioningGoodExamples = []string{
 	`---
 Resources:
   GoodExample:
+    Type: AWS::S3::Bucket
     Properties:
       VersioningConfiguration:
         Status: Enabled
-    Type: AWS::S3::Bucket
 `,
 }
 

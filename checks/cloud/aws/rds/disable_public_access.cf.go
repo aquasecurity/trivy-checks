@@ -2,27 +2,21 @@ package rds
 
 var cloudFormationNoPublicDbAccessGoodExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good example
 Resources:
-  Queue:
+  GoodQueue:
     Type: AWS::RDS::DBInstance
     Properties:
       PubliclyAccessible: false
-
 `,
 }
 
 var cloudFormationNoPublicDbAccessBadExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Bad example
 Resources:
-  Queue:
+  BadQueue:
     Type: AWS::RDS::DBInstance
     Properties:
       PubliclyAccessible: true
-
 `,
 }
 

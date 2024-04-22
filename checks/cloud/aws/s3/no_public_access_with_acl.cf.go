@@ -4,9 +4,9 @@ var cloudFormationNoPublicAccessWithAclGoodExamples = []string{
 	`---
 Resources:
   GoodExample:
+    Type: AWS::S3::Bucket
     Properties:
       AccessControl: Private
-    Type: AWS::S3::Bucket
 `,
 }
 
@@ -14,9 +14,9 @@ var cloudFormationNoPublicAccessWithAclBadExamples = []string{
 	`---
 Resources:
   BadExample:
+    Type: AWS::S3::Bucket
     Properties:
       AccessControl: AuthenticatedRead
-    Type: AWS::S3::Bucket
 `,
 }
 

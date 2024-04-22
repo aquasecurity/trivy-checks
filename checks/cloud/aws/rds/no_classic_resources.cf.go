@@ -2,23 +2,19 @@ package rds
 
 var cloudFormationNoClassicResourcesGoodExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good example of rds sgr
 Resources:
-
+# TODO
 `,
 }
 
 var cloudFormationNoClassicResourcesBadExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Bad example of rds sgr
 Resources:
-  Queue:
+  BadExample:
     Type: AWS::RDS::DBSecurityGroup
     Properties:
       Description: ""
-
+      # TODO
 `,
 }
 

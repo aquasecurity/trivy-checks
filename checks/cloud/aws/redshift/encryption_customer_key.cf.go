@@ -2,10 +2,8 @@ package redshift
 
 var cloudFormationEncryptionCustomerKeyGoodExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good example of redshift cluster
 Resources:
-  Queue:
+  GoodExample:
     Type: AWS::Redshift::Cluster
     Properties:
       Encrypted: true
@@ -16,13 +14,11 @@ Resources:
 
 var cloudFormationEncryptionCustomerKeyBadExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Bad example of redshift cluster
 Resources:
-  Queue:
+  BadExample:
     Type: AWS::Redshift::Cluster
     Properties:
-      Encrypted: true
+      Encrypted: false
 `,
 }
 

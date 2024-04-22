@@ -2,8 +2,6 @@ package iam
 
 var cloudFormationNoPolicyWildcardsGoodExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good example of policy
 Resources:
   GoodPolicy:
     Type: 'AWS::IAM::Policy'
@@ -21,8 +19,6 @@ Resources:
 
 var cloudFormationNoPolicyWildcardsBadExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Bad example of policy
 Resources:
   BadPolicy:
     Type: 'AWS::IAM::Policy'
