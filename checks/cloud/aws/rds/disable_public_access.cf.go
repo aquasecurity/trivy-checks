@@ -3,7 +3,7 @@ package rds
 var cloudFormationNoPublicDbAccessGoodExamples = []string{
 	`---
 Resources:
-  GoodQueue:
+  GoodExample:
     Type: AWS::RDS::DBInstance
     Properties:
       PubliclyAccessible: false
@@ -13,7 +13,7 @@ Resources:
 var cloudFormationNoPublicDbAccessBadExamples = []string{
 	`---
 Resources:
-  BadQueue:
+  BadExample:
     Type: AWS::RDS::DBInstance
     Properties:
       PubliclyAccessible: true
