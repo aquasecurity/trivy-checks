@@ -3,14 +3,14 @@ module github.com/aquasecurity/trivy-checks
 go 1.22.0
 
 require (
-	github.com/aquasecurity/trivy v0.50.2
-	github.com/docker/docker v26.0.0+incompatible
+	github.com/aquasecurity/trivy v0.50.4
+	github.com/docker/docker v26.0.1+incompatible
 	github.com/liamg/iamgo v0.0.9
 	github.com/liamg/memoryfs v1.6.0
 	github.com/open-policy-agent/opa v0.62.0
 	github.com/owenrumney/squealer v1.2.2
 	github.com/stretchr/testify v1.9.0
-	github.com/testcontainers/testcontainers-go v0.30.0
+	github.com/testcontainers/testcontainers-go v0.28.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 
@@ -67,7 +67,6 @@ require (
 	github.com/go-ini/ini v1.67.0 // indirect
 	github.com/go-logr/logr v1.4.1 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
-	github.com/go-ole/go-ole v1.2.6 // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/glog v1.2.0 // indirect
@@ -94,7 +93,6 @@ require (
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
 	github.com/klauspost/compress v1.17.2 // indirect
 	github.com/liamg/jfather v0.0.7 // indirect
-	github.com/lufia/plan9stats v0.0.0-20211012122336-39d0f177ccd0 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
 	github.com/mattn/go-runewidth v0.0.14 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
@@ -117,7 +115,6 @@ require (
 	github.com/pjbgf/sha1cd v0.3.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
-	github.com/power-devops/perfstat v0.0.0-20210106213030-5aafc221ea8c // indirect
 	github.com/prometheus/client_golang v1.19.0 // indirect
 	github.com/prometheus/client_model v0.5.0 // indirect
 	github.com/prometheus/common v0.48.0 // indirect
@@ -128,8 +125,6 @@ require (
 	github.com/sagikazarmark/slog-shim v0.1.0 // indirect
 	github.com/samber/lo v1.39.0 // indirect
 	github.com/sergi/go-diff v1.3.1 // indirect
-	github.com/shirou/gopsutil/v3 v3.23.12 // indirect
-	github.com/shoenig/go-m1cpu v0.1.6 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/skeema/knownhosts v1.2.1 // indirect
 	github.com/sourcegraph/conc v0.3.0 // indirect
@@ -140,14 +135,11 @@ require (
 	github.com/spf13/viper v1.18.2 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
 	github.com/tchap/go-patricia/v2 v2.3.1 // indirect
-	github.com/tklauser/go-sysconf v0.3.12 // indirect
-	github.com/tklauser/numcpus v0.6.1 // indirect
 	github.com/ulikunitz/xz v0.5.11 // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20190905194746-02993c407bfb // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/yashtewari/glob-intersection v0.2.0 // indirect
-	github.com/yusufpapurcu/wmi v1.2.3 // indirect
 	github.com/zclconf/go-cty v1.14.1 // indirect
 	github.com/zclconf/go-cty-yaml v1.0.3 // indirect
 	go.opencensus.io v0.24.0 // indirect
@@ -189,3 +181,5 @@ require (
 
 // needed until the new name is used everywhere
 replace github.com/aquasecurity/trivy-policies v0.10.0 => github.com/aquasecurity/trivy-checks v0.10.2-0.20240417031955-932169bbd75f
+
+replace github.com/testcontainers/testcontainers-go => github.com/testcontainers/testcontainers-go v0.23.0
