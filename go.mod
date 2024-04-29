@@ -1,6 +1,8 @@
 module github.com/aquasecurity/trivy-checks
 
-go 1.22.0
+go 1.22
+
+toolchain go1.22.0
 
 require (
 	github.com/aquasecurity/trivy v0.50.2-0.20240426104424-3d66cb8d887e
