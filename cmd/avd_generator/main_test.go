@@ -54,15 +54,13 @@ func Test_AVDPageGeneration(t *testing.T) {
 
 	b, err = os.ReadFile(filepath.Join(tmpDir, "aws/rds/AVD-AWS-0077", "CloudFormation.md"))
 	require.NoError(t, err)
-	assert.Contains(t, string(b), `yaml---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good example
-Resources:
-  Queue:
-    Type: AWS::RDS::DBInstance
-    Properties:
-      BackupRetentionPeriod: 30
-`)
+	assert.Contains(t, string(b), `---
+	Resources:
+		GoodExample:
+			Type: AWS::RDS::DBInstance
+			Properties:
+				BackupRetentionPeriod: 30
+	`)
 
 	// check rego policies
 	b, err = os.ReadFile(filepath.Join(tmpDir, "aws/rds/AVD-AWS-0180", "Terraform.md"))
@@ -74,12 +72,11 @@ Resources:
 
 	b, err = os.ReadFile(filepath.Join(tmpDir, "aws/rds/AVD-AWS-0180", "CloudFormation.md"))
 	require.NoError(t, err)
-	assert.Contains(t, string(b), `yaml---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good example
-Resources:
-  Queue:
-    Type: AWS::RDS::DBInstance
-    Properties:
-      PubliclyAccessible: false`)
+	assert.Contains(t, string(b), `---
+	Resources:
+		GoodExample:
+			Type: AWS::RDS::DBInstance
+			Properties:
+				PubliclyAccessible: false
+	`)
 }
