@@ -12,7 +12,7 @@ require (
 	github.com/open-policy-agent/opa v0.64.1
 	github.com/owenrumney/squealer v1.2.2
 	github.com/stretchr/testify v1.9.0
-	github.com/testcontainers/testcontainers-go v0.30.0
+	github.com/testcontainers/testcontainers-go v0.31.0
 	gopkg.in/yaml.v3 v3.0.1
 	mvdan.cc/sh/v3 v3.8.0
 )
