@@ -2,8 +2,6 @@
 Specify the exact permissions required, and to which resources they should apply instead of using wildcards.
 
 ```yaml---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good Example of SAM Function
 Resources:
   GoodFunction:
     Type: AWS::Serverless::StateMachine

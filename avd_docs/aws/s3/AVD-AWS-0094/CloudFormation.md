@@ -4,6 +4,7 @@ Define a aws_s3_bucket_public_access_block for the given bucket to control publi
 ```yaml---
 Resources:
   GoodExample:
+    Type: AWS::S3::Bucket
     Properties:
       AccessControl: Private
       PublicAccessBlockConfiguration:
@@ -11,7 +12,6 @@ Resources:
         BlockPublicPolicy: true
         IgnorePublicAcls: true
         RestrictPublicBuckets: true
-    Type: AWS::S3::Bucket
 
 ```
 

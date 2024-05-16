@@ -2,8 +2,6 @@
 Add descriptions for all security groups rules
 
 ```yaml---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good example of SGR description
 Resources:
   GoodSecurityGroup:
     Type: AWS::EC2::SecurityGroup
