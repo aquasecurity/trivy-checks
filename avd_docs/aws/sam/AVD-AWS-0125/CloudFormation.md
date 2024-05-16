@@ -2,8 +2,6 @@
 Enable tracing
 
 ```yaml---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good Example of SAM Function
 Resources:
   GoodFunction:
     Type: AWS::Serverless::Function

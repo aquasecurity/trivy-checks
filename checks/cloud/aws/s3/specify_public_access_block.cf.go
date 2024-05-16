@@ -4,6 +4,7 @@ var cloudFormationSpecifyPublicAccessBlockGoodExamples = []string{
 	`---
 Resources:
   GoodExample:
+    Type: AWS::S3::Bucket
     Properties:
       AccessControl: Private
       PublicAccessBlockConfiguration:
@@ -11,7 +12,6 @@ Resources:
         BlockPublicPolicy: true
         IgnorePublicAcls: true
         RestrictPublicBuckets: true
-    Type: AWS::S3::Bucket
 `,
 }
 
@@ -19,9 +19,9 @@ var cloudFormationSpecifyPublicAccessBlockBadExamples = []string{
 	`---
 Resources:
   BadExample:
+    Type: AWS::S3::Bucket
     Properties:
       AccessControl: AuthenticatedRead
-    Type: AWS::S3::Bucket
 `,
 }
 

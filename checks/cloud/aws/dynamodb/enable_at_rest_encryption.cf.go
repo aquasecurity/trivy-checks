@@ -3,14 +3,14 @@ package dynamodb
 var cloudFormationEnableAtRestEncryptionGoodExamples = []string{
 	`---
 Resources:
-  daxCluster:
+  GoodExample:
     Type: AWS::DAX::Cluster
     Properties:
       ClusterName: "MyDAXCluster"
       NodeType: "dax.r3.large"
       ReplicationFactor: 1
       IAMRoleARN: "arn:aws:iam::111122223333:role/DaxAccess"
-      Description: "DAX cluster created with CloudFormation"
+      Description: "DAX cluster with encryption at rest"
       SSESpecification:
         SSEEnabled: true
 `,
@@ -19,14 +19,14 @@ Resources:
 var cloudFormationEnableAtRestEncryptionBadExamples = []string{
 	`---
 Resources:
-  daxCluster:
+  BadExample:
     Type: AWS::DAX::Cluster
     Properties:
       ClusterName: "MyDAXCluster"
       NodeType: "dax.r3.large"
       ReplicationFactor: 1
       IAMRoleARN: "arn:aws:iam::111122223333:role/DaxAccess"
-      Description: "DAX cluster created with CloudFormation"
+      Description: "DAX cluster without encryption at rest"
       SubnetGroupName: !Ref subnetGroupClu
 `,
 }

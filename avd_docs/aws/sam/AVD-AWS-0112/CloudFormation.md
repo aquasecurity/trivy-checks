@@ -2,10 +2,8 @@
 Use the most modern TLS/SSL policies available
 
 ```yaml---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good Example of SAM API
 Resources:
-  ApiGatewayApi:
+  GoodExample:
     Type: AWS::Serverless::Api
     Properties:
       Name: Good SAM API example

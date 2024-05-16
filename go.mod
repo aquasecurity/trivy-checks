@@ -5,7 +5,7 @@ go 1.22
 toolchain go1.22.0
 
 require (
-	github.com/aquasecurity/trivy v0.51.2-0.20240514170658-7c22ee3df5ee
+	github.com/aquasecurity/trivy v0.51.2-0.20240516011451-88702cfd5918
 	github.com/docker/docker v26.0.2+incompatible
 	github.com/liamg/iamgo v0.0.9
 	github.com/liamg/memoryfs v1.6.0

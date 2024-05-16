@@ -4,18 +4,16 @@ var cloudFormationEnableBucketLoggingGoodExamples = []string{
 	`---
 Resources:
   GoodExample:
+    Type: AWS::S3::Bucket
     Properties:
       LoggingConfiguration:
         DestinationBucketName: logging-bucket
         LogFilePrefix: accesslogs/
-    Type: AWS::S3::Bucket
 `,
 	`---
 Resources:
-  MyS3Bucket:
+  GoodExample:
     Type: AWS::S3::Bucket
-    DeletionPolicy: Retain
-    UpdateReplacePolicy: Retain
     Properties:
       BucketName: !Sub my-s3-bucket-${BucketSuffix}
       LoggingConfiguration:
@@ -33,7 +31,7 @@ Resources:
 var cloudFormationEnableBucketLoggingBadExamples = []string{
 	`---
 Resources:
-  DisabledEncryptionBucket:
+  BadExample:
     Properties:
     Type: AWS::S3::Bucket
 `,

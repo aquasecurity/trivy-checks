@@ -32,7 +32,6 @@ Resources:
         -
           Key: Environment 
           Value: Production
-
 `,
 }
 

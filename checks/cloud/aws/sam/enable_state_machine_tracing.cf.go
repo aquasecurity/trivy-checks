@@ -2,8 +2,6 @@ package sam
 
 var cloudFormationEnableStateMachineTracingGoodExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good Example of SAM API
 Resources:
   GoodStateMachine:
     Type: AWS::Serverless::StateMachine
@@ -23,8 +21,6 @@ Resources:
 
 var cloudFormationEnableStateMachineTracingBadExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Bad Example of SAM API
 Resources:
   BadStateMachine:
     Type: AWS::Serverless::StateMachine
@@ -40,8 +36,6 @@ Resources:
       Tracing:
         Enabled: false
 `, `---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Bad Example of SAM API
 Resources:
   BadStateMachine:
     Type: AWS::Serverless::StateMachine

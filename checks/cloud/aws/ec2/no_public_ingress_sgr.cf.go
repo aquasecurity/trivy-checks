@@ -2,10 +2,8 @@ package ec2
 
 var cloudFormationNoPublicIngressSgrGoodExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good example of ingress rule
 Resources:
-  BadSecurityGroup:
+  GoodSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Limits security group egress traffic
@@ -17,8 +15,6 @@ Resources:
 
 var cloudFormationNoPublicIngressSgrBadExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Bad example of ingress rule
 Resources:
   BadSecurityGroup:
     Type: AWS::EC2::SecurityGroup
