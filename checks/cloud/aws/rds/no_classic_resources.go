@@ -11,6 +11,7 @@ import (
 var CheckNoClassicResources = rules.Register(
 	scan.Rule{
 		AVDID:      "AVD-AWS-0081",
+		Deprecated: true,
 		Provider:   providers.AWSProvider,
 		Service:    "rds",
 		ShortCode:  "no-classic-resources",
