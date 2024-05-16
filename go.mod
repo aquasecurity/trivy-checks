@@ -6,7 +6,7 @@ toolchain go1.22.0
 
 require (
 	github.com/aquasecurity/trivy v0.51.2-0.20240516011451-88702cfd5918
-	github.com/docker/docker v26.0.2+incompatible
+	github.com/docker/docker v26.1.2+incompatible
 	github.com/liamg/iamgo v0.0.9
 	github.com/liamg/memoryfs v1.6.0
 	github.com/open-policy-agent/opa v0.64.1
