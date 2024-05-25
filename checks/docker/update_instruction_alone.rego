@@ -56,22 +56,10 @@ deny[res] {
 }
 
 has_update(cmds, package_manager) = indexes {
-	indexes := contains_cmd_with_package_manager(cmds, update_cmds, package_manager)
+	indexes := docker.command_indexes(cmds, update_cmds, package_manager)
 }
 
 update_followed_by_install(cmds, package_manager, update_indexes) {
-	install_index := contains_cmd_with_package_manager(cmds, install_cmds, package_manager)
+	install_index := docker.command_indexes(cmds, install_cmds, package_manager)
 	update_indexes[_] < install_index[_]
-}
-
-contains_cmd_with_package_manager(cmds, cmds_to_check, package_manager) = cmd_indexes {
-	cmd_indexes = [idx |
-		cmd_parts := cmds[idx]
-		some i, j
-		i != j
-		cmd_parts[i] == package_manager[_]
-		cmd_parts[j] == cmds_to_check[_]
-		i < j
-	]
-	count(cmd_indexes) != 0
 }

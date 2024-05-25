@@ -74,3 +74,15 @@ healthcheck[instruction] {
 	instruction := input.Stages[_].Commands[_]
 	instruction.Cmd == "healthcheck"
 }
+
+command_indexes(cmds, cmds_to_check, package_manager) = cmd_indexes {
+	cmd_indexes = [idx |
+		cmd_parts := cmds[idx]
+		some i, j
+		i != j
+		cmd_parts[i] == package_manager[_]
+		cmd_parts[j] == cmds_to_check[_]
+		i < j
+	]
+	count(cmd_indexes) != 0
+}
