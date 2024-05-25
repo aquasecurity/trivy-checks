@@ -17,29 +17,29 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS015
 
+import future.keywords.in
+
 import data.lib.docker
 
-get_yum[output] {
-	run := docker.run[_]
-	arg := run.Value[0]
-
-	regex.match("yum (-[a-zA-Z]+ *)*install", arg)
-
-	not contains_clean_after_yum(arg)
-	output := {
-		"cmd": run,
-		"arg": arg,
-	}
-}
-
 deny[res] {
-	output := get_yum[_]
-	msg := sprintf("'yum clean all' is missed: %s", [output.arg])
-	res := result.new(msg, output.cmd)
+	run := docker.run[_]
+	run_cmd := concat(" ", run.Value)
+	cmds := sh.parse_commands(run_cmd)
+
+	install_indexes := has_install(cmds, {"yum"})
+	not install_followed_by_clean(cmds, {"yum"}, install_indexes)
+
+	msg := sprintf("'yum clean all' is missed: %s", [run_cmd])
+	res := result.new(msg, run)
 }
 
-contains_clean_after_yum(cmd) {
-	yum_commands := regex.find_n("(yum (-[a-zA-Z]+ *)*install)|(yum clean all)", cmd, -1)
+has_install(cmds, package_manager) = indexes {
+	indexes := docker.command_indexes(cmds, ["install"], package_manager)
+}
 
-	yum_commands[count(yum_commands) - 1] == "yum clean all"
+install_followed_by_clean(cmds, package_manager, install_indexes) {
+	clean_indexes := docker.command_indexes(cmds, ["clean"], package_manager)
+	clean_all_indexes = [idx | cmd := cmds[idx]; "all" in cmd]
+	count(clean_all_indexes) > 0
+	install_indexes[count(install_indexes) - 1] < clean_all_indexes[count(clean_all_indexes) - 1]
 }
