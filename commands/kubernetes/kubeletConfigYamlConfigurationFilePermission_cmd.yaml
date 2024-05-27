@@ -1,0 +1,8 @@
+---
+- id: CMD-0030
+  key: kubeletConfigYamlConfigurationFilePermission
+  title: kubelet config.yaml configuration file permissions
+  nodeType: worker
+  audit: stat -c %a $kubelet.confs
+  platforms:
+    - k8s

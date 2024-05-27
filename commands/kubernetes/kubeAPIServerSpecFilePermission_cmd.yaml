@@ -1,0 +1,9 @@
+---
+- id: CMD-0001
+  key: kubeAPIServerSpecFilePermission
+  title: API server pod specification file permissions
+  nodeType: master
+  audit: stat -c %a $apiserver.confs
+  platforms:
+    - k8s
+  

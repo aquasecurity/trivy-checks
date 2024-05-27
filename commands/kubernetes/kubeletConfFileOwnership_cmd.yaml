@@ -1,0 +1,8 @@
+---
+- id: CMD-0027
+  key: kubeletConfFileOwnership
+  title: kubelet.conf file ownership
+  nodeType: worker
+  audit: stat -c %U:%G $kubelet.kubeconfig
+  platforms:
+    - k8s

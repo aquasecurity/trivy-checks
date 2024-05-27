@@ -1,0 +1,9 @@
+---
+- id: CMD-0032
+  key: kubeletAnonymousAuthArgumentSet
+  title: kubelet --anonymous-auth argument is set
+  nodeType: worker
+  audit: ps -ef | grep $kubelet.bins |grep ' --anonymous-auth' | grep -o '
+    --anonymous-auth=[^"]\S*' | awk -F "=" '{print $2}' |awk 'FNR <= 1'
+  platforms:
+    - k8s

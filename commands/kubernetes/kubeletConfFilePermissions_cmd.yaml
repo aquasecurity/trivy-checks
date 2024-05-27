@@ -1,0 +1,8 @@
+---
+- id: CMD-0026
+  key: kubeletConfFilePermissions
+  title: kubelet.conf file permissions
+  nodeType: worker
+  audit: stat -c %a $kubelet.kubeconfig
+  platforms:
+    - k8s

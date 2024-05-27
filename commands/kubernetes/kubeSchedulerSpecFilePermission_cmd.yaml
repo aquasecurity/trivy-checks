@@ -1,0 +1,8 @@
+---
+- id: CMD-0005
+  key: kubeSchedulerSpecFilePermission
+  title: Scheduler pod specification file permissions
+  nodeType: master
+  audit: stat -c %a $scheduler.confs
+  platforms:
+    - k8s

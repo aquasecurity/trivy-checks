@@ -1,0 +1,9 @@
+---
+- id: CMD-0034
+  key: kubeletClientCaFileArgumentSet
+  title: kubelet --client-ca-file argument is set
+  nodeType: worker
+  audit: ps -ef | grep $kubelet.bins |grep ' --client-ca-file' | grep -o '
+    --client-ca-file=[^"]\S*' | awk -F "=" '{print $2}' |awk 'FNR <= 1'
+  platforms:
+    - k8s

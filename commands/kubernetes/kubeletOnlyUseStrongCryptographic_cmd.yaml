@@ -1,0 +1,9 @@
+---
+- id: CMD-0045
+  key: kubeletOnlyUseStrongCryptographic
+  title: Kubelet only makes use of Strong Cryptographic
+  nodeType: worker
+  audit: ps -ef | grep $kubelet.bins |grep 'TLSCipherSuites' | grep -o
+    'TLSCipherSuites=[^"]\S*' | awk -F "=" '{print $2}' |awk 'FNR <= 1'
+  platforms:
+    - k8s

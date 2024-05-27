@@ -1,0 +1,10 @@
+---
+- id: CMD-0037
+  key: kubeletProtectKernelDefaultsArgumentSet
+  title: kubelet --protect-kernel-defaults argument is set
+  nodeType: worker
+  audit: ps -ef | grep $kubelet.bins |grep ' --protect-kernel-defaults' | grep -o
+    ' --protect-kernel-defaults=[^"]\S*' | awk -F "=" '{print $2}' |awk 'FNR <=
+    1'
+  platforms:
+    - k8s

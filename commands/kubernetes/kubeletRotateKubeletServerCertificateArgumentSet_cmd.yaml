@@ -1,0 +1,10 @@
+---
+- id: CMD-0044
+  key: kubeletRotateKubeletServerCertificateArgumentSet
+  title: kubelet RotateKubeletServerCertificate argument is set
+  nodeType: worker
+  audit: ps -ef | grep $kubelet.bins |grep 'RotateKubeletServerCertificate' | grep
+    -o 'RotateKubeletServerCertificate=[^"]\S*' | awk -F "=" '{print $2}' |awk
+    'FNR <= 1'
+  platforms:
+    - k8s

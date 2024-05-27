@@ -1,0 +1,9 @@
+---
+- id: CMD-0042
+  key: kubeletTlsPrivateKeyFileArgumentSet
+  title: kubelet --tls-private-key-file argument is set
+  nodeType: worker
+  audit: ps -ef | grep $kubelet.bins |grep ' --tls-private-key-file' | grep -o '
+    --tls-private-key-file=[^"]\S*' | awk -F "=" '{print $2}' |awk 'FNR <= 1'
+  platforms:
+    - k8s

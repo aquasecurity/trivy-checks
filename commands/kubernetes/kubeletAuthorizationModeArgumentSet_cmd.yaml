@@ -1,0 +1,9 @@
+---
+- id: CMD-0033
+  key: kubeletAuthorizationModeArgumentSet
+  title: kubelet --authorization-mode argument is set
+  nodeType: worker
+  audit: ps -ef | grep $kubelet.bins |grep ' --authorization-mode' | grep -o '
+    --authorization-mode=[^"]\S*' | awk -F "=" '{print $2}' |awk 'FNR <= 1'
+  platforms:
+    - k8s

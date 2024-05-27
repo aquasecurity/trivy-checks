@@ -1,0 +1,8 @@
+---
+- id: CMD-0022
+  key: kubeletServiceFilePermissions
+  title: Kubelet service file permissions
+  nodeType: worker
+  audit: stat -c %a $kubelet.svc
+  platforms:
+    - k8s

@@ -1,0 +1,10 @@
+---
+- id: CMD-0036
+  key: kubeletStreamingConnectionIdleTimeoutArgumentSet
+  title: kubelet --streaming-connection-idle-timeout argument is set
+  nodeType: worker
+  audit: ps -ef | grep $kubelet.bins |grep ' --streamingConnectionIdleTimeout' |
+    grep -o ' --streamingConnectionIdleTimeout=[^"]\S*' | awk -F "=" '{print
+    $2}' |awk 'FNR <= 1'
+  platforms:
+    - k8s

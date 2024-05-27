@@ -1,0 +1,8 @@
+---
+- id: CMD-0023
+  key: kubeletServiceFileOwnership
+  title: Kubelet service file ownership
+  nodeType: worker
+  audit: stat -c %U:%G $kubelet.svc
+  platforms:
+    - k8s

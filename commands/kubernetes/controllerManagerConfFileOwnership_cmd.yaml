@@ -1,0 +1,8 @@
+---
+- id: CMD-0018
+  key: controllerManagerConfFileOwnership
+  title: controller-manager.conf file ownership
+  nodeType: master
+  audit: stat -c %U:%G $controllermanager.kubeconfig
+  platforms:
+    - k8s

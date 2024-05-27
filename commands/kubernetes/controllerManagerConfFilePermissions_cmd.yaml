@@ -1,0 +1,8 @@
+---
+- id: CMD-0017
+  key: controllerManagerConfFilePermissions
+  title: controller-manager.conf file permissions
+  nodeType: master
+  audit: stat -c %a $controllermanager.kubeconfig
+  platforms:
+    - k8s

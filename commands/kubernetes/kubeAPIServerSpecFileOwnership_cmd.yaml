@@ -1,0 +1,8 @@
+---
+- id: CMD-0002
+  key: kubeAPIServerSpecFileOwnership
+  title: API server pod specification file ownership
+  nodeType: master
+  audit: stat -c %U:%G $apiserver.confs
+  platforms:
+    - k8s

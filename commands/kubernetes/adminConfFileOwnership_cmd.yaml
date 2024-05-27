@@ -1,0 +1,8 @@
+---
+- id: CMD-0014
+  key: adminConfFileOwnership
+  title: admin.conf file ownership
+  nodeType: master
+  audit: stat -c %U:%G /etc/kubernetes/admin.conf
+  platforms:
+    - k8s

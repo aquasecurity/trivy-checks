@@ -1,0 +1,9 @@
+---
+- id: CMD-0041
+  key: kubeletTlsCertFileTlsArgumentSet
+  title: kubelet --tls-cert-file argument is set
+  nodeType: worker
+  audit: ps -ef | grep $kubelet.bins |grep ' --tls-cert-file' | grep -o '
+    --tls-cert-file=[^"]\S*' | awk -F "=" '{print $2}' |awk 'FNR <= 1'
+  platforms:
+    - k8s

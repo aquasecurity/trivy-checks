@@ -1,0 +1,8 @@
+---
+- id: CMD-0007
+  key: kubeEtcdSpecFilePermission
+  title: Etcd pod specification file permissions
+  nodeType: master
+  audit: stat -c %a $etcd.confs
+  platforms:
+    - k8s

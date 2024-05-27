@@ -1,0 +1,9 @@
+---
+- id: CMD-0039
+  key: kubeletHostnameOverrideArgumentSet
+  title: kubelet hostname-override argument is set
+  nodeType: worker
+  audit: ps -ef | grep $kubelet.bins |grep ' --hostname-override' | grep -o '
+    --hostname-override=[^"]\S*' | awk -F "=" '{print $2}' |awk 'FNR <= 1'
+  platforms:
+    - k8s

@@ -1,0 +1,10 @@
+---
+- id: CMD-0038
+  key: kubeletMakeIptablesUtilChainsArgumentSet
+  title: kubelet --make-iptables-util-chains argument is set
+  nodeType: worker
+  audit: ps -ef | grep $kubelet.bins |grep ' --make-iptables-util-chains' | grep
+    -o ' --make-iptables-util-chains=[^"]\S*' | awk -F "=" '{print $2}' |awk
+    'FNR <= 1'
+  platforms:
+    - k8s

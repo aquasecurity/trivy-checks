@@ -1,0 +1,10 @@
+---
+- id: CMD-0028
+  key: certificateAuthoritiesFilePermissions
+  title: Client certificate authorities file permissions
+  nodeType: worker
+  audit: stat -c %a $(ps -ef | grep kubelet |grep 'client-ca-file' | grep -o
+    'client-ca-file=[^"]\S*' | awk -F "=" '{print $2}' |awk 'FNR <= 1') 2>
+    /dev/null
+  platforms:
+    - k8s

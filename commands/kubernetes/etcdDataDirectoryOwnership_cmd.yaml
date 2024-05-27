@@ -1,0 +1,8 @@
+---
+- id: CMD-0012
+  key: etcdDataDirectoryOwnership
+  title: Etcd data directory Ownership
+  nodeType: master
+  audit: stat -c %U:%G $etcd.datadirs
+  platforms:
+    - k8s

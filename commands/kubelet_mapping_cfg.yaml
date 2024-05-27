@@ -1,0 +1,16 @@
+## this file repesent node kubelet-config api mapping param to the collector config params
+## example kubectl get --raw "/api/v1/nodes/<node name>/proxy/configz"
+---
+kubeletAnonymousAuthArgumentSet: kubeletconfig.authentication.anonymous.enabled
+kubeletAuthorizationModeArgumentSet: kubeletconfig.authorization.mode
+kubeletClientCaFileArgumentSet: kubeletconfig.authentication.x509.clientCAFile
+kubeletReadOnlyPortArgumentSet: kubeletconfig.readOnlyPort
+kubeletStreamingConnectionIdleTimeoutArgumentSet: kubeletconfig.streamingConnectionIdleTimeout
+kubeletProtectKernelDefaultsArgumentSet: kubeletconfig.protectKernelDefaults
+kubeletMakeIptablesUtilChainsArgumentSet: kubeletconfig.makeIPTablesUtilChains
+kubeletEventQpsArgumentSet: kubeletconfig.eventRecordQPS",
+kubeletRotateKubeletServerCertificateArgumentSet: kubeletconfig.featureGates.RotateKubeletServerCertificate
+kubeletRotateCertificatesArgumentSet: kubeletconfig.rotateCertificates
+kubeletTlsCertFileTlsArgumentSet: kubeletconfig.tlsCertFile
+kubeletTlsPrivateKeyFileArgumentSet: kubeletconfig.tlsPrivateKeyFile
+kubeletOnlyUseStrongCryptographic: kubeletconfig.tlsCipherSuites

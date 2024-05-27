@@ -1,0 +1,10 @@
+---
+- id: CMD-0021
+  key: kubePKIKeyFilePermissions
+  title: Kubernetes PKI certificate file permissions
+  nodeType: master
+  audit: stat -c %a $(ls -aR $kubelet.cafile | awk
+    '/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{print s"/"$0}' |
+    grep \.key$)
+  platforms:
+    - k8s
