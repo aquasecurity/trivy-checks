@@ -1,0 +1,8 @@
+---
+- id: CMD-0016
+  key: schedulerConfFileOwnership
+  title: scheduler.conf file ownership
+  nodeType: master
+  audit: stat -c %U:%G $scheduler.kubeconfig
+  platforms:
+    - k8s

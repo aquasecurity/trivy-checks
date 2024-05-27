@@ -1,0 +1,8 @@
+---
+- id: CMD-0006
+  key: kubeSchedulerSpecFileOwnership
+  title: Scheduler pod specification file ownership
+  nodeType: master
+  audit: stat -c %U:%G $scheduler.confs
+  platforms:
+    - k8s

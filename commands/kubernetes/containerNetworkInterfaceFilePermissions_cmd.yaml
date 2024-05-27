@@ -1,0 +1,8 @@
+---
+- id: CMD-0009
+  key: containerNetworkInterfaceFilePermissions
+  title: Container Network Interface file permissions
+  nodeType: master
+  audit: stat -c %a /*/cni/*
+  platforms:
+    - k8s

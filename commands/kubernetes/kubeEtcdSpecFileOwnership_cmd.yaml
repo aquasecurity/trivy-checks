@@ -1,0 +1,8 @@
+---
+- id: CMD-0008
+  key: kubeEtcdSpecFileOwnership
+  title: Etcd pod specification file ownership
+  nodeType: master
+  audit: stat -c %U:%G $etcd.confs
+  platforms:
+    - k8s

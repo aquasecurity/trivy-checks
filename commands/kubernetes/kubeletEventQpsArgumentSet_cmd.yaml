@@ -1,0 +1,9 @@
+---
+- id: CMD-0040
+  key: kubeletEventQpsArgumentSet
+  title: kubelet --event-qps argument is set
+  nodeType: worker
+  audit: ps -ef | grep $kubelet.bins |grep ' --event-qps' | grep -o '
+    --event-qps=[^"]\S*' | awk -F "=" '{print $2}' |awk 'FNR <= 1'
+  platforms:
+    - k8s

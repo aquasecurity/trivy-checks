@@ -1,0 +1,8 @@
+---
+- id: CMD-0004
+  key: kubeControllerManagerSpecFileOwnership
+  title: Controller manager pod specification file ownership is set to root:root
+  nodeType: master
+  audit: stat -c %U:%G $controllermanager.confs
+  platforms:
+    - k8s

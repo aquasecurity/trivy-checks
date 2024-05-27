@@ -1,0 +1,8 @@
+---
+- id: CMD-0015
+  key: schedulerConfFilePermissions
+  title: scheduler.conf file permissions
+  nodeType: master
+  audit: stat -c %a $scheduler.kubeconfig
+  platforms:
+    - k8s

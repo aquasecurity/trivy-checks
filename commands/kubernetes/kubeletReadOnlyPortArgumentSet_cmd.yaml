@@ -1,0 +1,9 @@
+---
+- id: CMD-0035
+  key: kubeletReadOnlyPortArgumentSet
+  title: kubelet --read-only-port argument is set
+  nodeType: worker
+  audit: ps -ef | grep $kubelet.bins |grep ' --read-only-port' | grep -o '
+    --read-only-port=[^"]\S*' | awk -F "=" '{print $2}' |awk 'FNR <= 1'
+  platforms:
+    - k8s

@@ -1,0 +1,8 @@
+---
+- id: CMD-0013
+  key: adminConfFilePermissions
+  title: admin.conf file permissions
+  nodeType: master
+  audit: stat -c %a /etc/kubernetes/admin.conf
+  platforms:
+    - k8s

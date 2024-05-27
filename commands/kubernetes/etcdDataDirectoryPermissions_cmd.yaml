@@ -1,0 +1,8 @@
+---
+- id: CMD-0011
+  key: etcdDataDirectoryPermissions
+  title: Etcd data directory permissions
+  nodeType: master
+  audit: stat -c %a $etcd.datadirs
+  platforms:
+    - k8s
