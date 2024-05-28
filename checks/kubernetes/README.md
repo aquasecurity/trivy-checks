@@ -1,7 +1,7 @@
 ## Comprehensive REGO library for Kubernetes workload configuration checks
 
 Examples:
-- Use our REGO policies with tools such as OPA Gatekeeper and Conftest to check kubernetes resources configurations
+- Use our REGO checks with tools such as OPA Gatekeeper and Conftest to check kubernetes resources configurations
 - Ensure pods and controllers are not running as privileged
 - Ensure pods images are hosted in a trusted ECR/GCR/ACR registry
 - And more checks to comply with PSP, PSS and additional standards
@@ -16,14 +16,13 @@ mkdir myPolicy
 ```
 2. Download the main library and the desired checks(s) into "myPolicy" directory - in this example we use the "host_ipc" check only
 ```
-wget https://github.com/aquasecurity/defsec/raw/master/policies/kubernetes/lib/kubernetes.rego
-wget https://github.com/aquasecurity/defsec/raw/master/policies/kubernetes/lib/utils.rego
-wget https://github.com/aquasecurity/defsec/raw/master/policies/defsec/lib/defsec.rego
-wget https://github.com/aquasecurity/defsec/raw/master/policies/kubernetes/policies/pss/baseline/1_host_ipc.rego
+wget https://github.com/aquasecurity/trivy-checks/raw/main/lib/kubernetes/kubernetes.rego
+wget https://github.com/aquasecurity/trivy-checks/raw/main/lib/kubernetes/utils.rego
+wget https://github.com/aquasecurity/trivy-checks/raw/main/checks/kubernetes/pss/baseline/1_host_ipc.rego
 ```
 3. Download an example of a non-compliant kubernetes deployment (in yaml format) 
 ```
-wget https://github.com/aquasecurity/defsec/raw/master/test/testdata/kubernetes/KSV008/denied.yaml
+wget https://github.com/aquasecurity/trivy-checks/raw/main/test/testdata/kubernetes/KSV008/denied.yaml
 ```
 4. Use any tool that supports REGO to test the example file. In this example we are using conftest
 ```
@@ -52,7 +51,7 @@ PSS has 14 controls that are grouped into three standards: Baseline, Restricted 
  | 8-/proc Mount Type	     | 13-The Allowed Proc Mount types for the container                |
  | 9-Sysctls	              | 16-The sysctl profile used by containers                         |
 
-The REGO rules are available [here](https://github.com/aquasecurity/defsec/tree/master/policies/kubernetes/policies/pss)
+The REGO rules are available [here](https://github.com/aquasecurity/trivy-checks/tree/main/checks/kubernetes/policies/pss)
 
 ### PSS - Restricted
 
@@ -64,7 +63,7 @@ The REGO rules are available [here](https://github.com/aquasecurity/defsec/tree/
  | 4-Non-root groups       | 7-Allocating an FSGroup that owns the Pod's volumes. 9-The user and group IDs of the container                   |
  | 5-Seccomp               | 15-The seccomp profile used by containers                                                                        |
 
-The REGO rules are available [here](https://github.com/aquasecurity/defsec/tree/master/policies/kubernetes/policies/pss)
+The REGO rules are available [here](https://github.com/aquasecurity/trivy-checks/tree/main/checks/kubernetes/policies/pss)
 
 ## Optional best practices
 
@@ -78,4 +77,4 @@ Top Examples:
 | Block public registries                  | container(s).image != null or docker.io prefix |
 | HostPath volume mounted with docker.sock | hostPath.path != /var/run/docker.sock          |
 
-Additional REGO rules available [here](https://github.com/aquasecurity/defsec/tree/master/policies/kubernetes/policies/advanced/optional)
+Additional REGO rules available [here](https://github.com/aquasecurity/trivy-checks/tree/main/checks/kubernetes/policies/advanced/optional)

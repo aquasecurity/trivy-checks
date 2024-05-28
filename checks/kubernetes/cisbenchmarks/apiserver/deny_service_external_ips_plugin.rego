@@ -19,15 +19,21 @@ package builtin.kubernetes.KCV0003
 
 import data.lib.kubernetes
 
-check_flag[container] {
-	container := kubernetes.containers[_]
+check_flag(container) {
 	some i
 	output := regex.find_all_string_submatch_n(`--enable-admission-plugins=([^\s]+)`, container.command[i], -1)
 	regex.match("DenyServiceExternalIPs", output[0][1])
 }
 
+check_flag(container) {
+	some i
+	output := regex.find_all_string_submatch_n(`--enable-admission-plugins=([^\s]+)`, container.args[i], -1)
+	regex.match("DenyServiceExternalIPs", output[0][1])
+}
+
 deny[res] {
-	output := check_flag[_]
+	container := kubernetes.containers[_]
+	check_flag(container)
 	msg := "Ensure that the --DenyServiceExternalIPs is not set"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

@@ -13,6 +13,8 @@
 #   service: s3
 #   severity: LOW
 #   short_code: enable-logging
+#   aliases:
+#   - s3-bucket-logging
 #   recommended_action: "Add a logging block to the resource to enable access logging"
 #   input:
 #     selector:

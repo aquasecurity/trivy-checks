@@ -85,3 +85,25 @@ test_event_rate_limit_plugin_is_enabled_with_others {
 
 	count(r) == 0
 }
+
+test_event_rate_limit_plugin_is_enabled_with_others_args {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {
+			"name": "apiserver",
+			"labels": {
+				"component": "kube-apiserver",
+				"tier": "control-plane",
+			},
+		},
+		"spec": {"containers": [{
+			"command": ["kube-apiserver"],
+			"args": ["--enable-admission-plugins=NamespaceLifecycle,EventRateLimit,ServiceAccount"],
+			"image": "busybox",
+			"name": "hello",
+		}]},
+	}
+
+	count(r) == 0
+}

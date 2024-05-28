@@ -2,8 +2,6 @@
 Add descriptions for all security groups
 
 ```yaml---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good example of group description
 Resources:
   GoodSecurityGroup:
     Type: AWS::EC2::SecurityGroup

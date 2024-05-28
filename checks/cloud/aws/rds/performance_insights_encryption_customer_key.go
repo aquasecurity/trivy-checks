@@ -9,7 +9,7 @@ import (
 	"github.com/aquasecurity/trivy/pkg/iac/severity"
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 
-	"github.com/aquasecurity/trivy-policies/pkg/rules"
+	"github.com/aquasecurity/trivy-checks/pkg/rules"
 )
 
 var CheckPerformanceInsightsEncryptionCustomerKey = rules.Register(

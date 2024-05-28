@@ -65,6 +65,28 @@ test_etcd_cert_file_and_key_file_are_set {
 	count(r) == 0
 }
 
+test_etcd_cert_file_and_key_file_are_set_args {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {
+			"name": "etcd",
+			"labels": {
+				"component": "etcd",
+				"tier": "control-plane",
+			},
+		},
+		"spec": {"containers": [{
+			"command": ["etcd"],
+			"args": ["--advertise-client-urls=https://192.168.49.2:2379", "--cert-file=<filename>", "--key-file=<filename>"],
+			"image": "busybox",
+			"name": "hello",
+		}]},
+	}
+
+	count(r) == 0
+}
+
 test_etcd_cert_file_and_key_file_are_not_set {
 	r := deny with input as {
 		"apiVersion": "v1",

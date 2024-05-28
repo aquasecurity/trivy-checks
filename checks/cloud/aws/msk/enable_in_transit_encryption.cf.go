@@ -2,10 +2,8 @@ package msk
 
 var cloudFormationEnableInTransitEncryptionGoodExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good example
 Resources:
-  Cluster:
+  GoodCluster:
     Type: AWS::MSK::Cluster
     Properties:
       EncryptionInfo:
@@ -16,10 +14,8 @@ Resources:
 
 var cloudFormationEnableInTransitEncryptionBadExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Bad example
 Resources:
-  Cluster:
+  BadCluster:
     Type: AWS::MSK::Cluster
     Properties:
       EncryptionInfo:

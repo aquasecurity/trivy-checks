@@ -2,14 +2,11 @@
 Disable public access when not required
 
 ```yaml---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good example
 Resources:
-  Broker:
+  GoodBroker:
     Type: AWS::AmazonMQ::Broker
     Properties:
       PubliclyAccessible: false
-
 
 ```
 

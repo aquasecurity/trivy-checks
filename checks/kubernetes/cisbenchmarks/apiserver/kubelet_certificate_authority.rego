@@ -19,14 +19,18 @@ package builtin.kubernetes.KCV0006
 
 import data.lib.kubernetes
 
-check_flag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
-	not kubernetes.command_has_flag(container.command, "--kubelet-certificate-authority")
+check_flag(container) {
+	kubernetes.command_has_flag(container.command, "--kubelet-certificate-authority")
+}
+
+check_flag(container) {
+	kubernetes.command_has_flag(container.args, "--kubelet-certificate-authority")
 }
 
 deny[res] {
-	output := check_flag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_apiserver(container)
+	not check_flag(container)
 	msg := "Ensure that the --kubelet-certificate-authority argument is set as appropriate"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

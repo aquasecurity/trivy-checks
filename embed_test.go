@@ -1,4 +1,4 @@
-package trivy_policies
+package trivy_checks
 
 import (
 	"testing"

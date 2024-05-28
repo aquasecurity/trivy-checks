@@ -1,9 +1,9 @@
 
-Enable encryption at rest
+Use Customer managed key
 
 ```yaml---
 Resources:
-  BadExample:
+  GoodExample:
     Type: AWS::CloudTrail::Trail
     Properties:
       IsLogging: true
@@ -15,4 +15,6 @@ Resources:
 
 ```
 
+#### Remediation Links
+ - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-kmskeyid
 

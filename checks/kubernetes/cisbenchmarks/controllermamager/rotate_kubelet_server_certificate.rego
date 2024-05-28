@@ -19,14 +19,18 @@ package builtin.kubernetes.KCV0038
 
 import data.lib.kubernetes
 
-checkFlag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_controllermanager(container)
-	not kubernetes.command_has_flag(container.command, "RotateKubeletServerCertificate=true")
+checkFlag(container) {
+	kubernetes.command_has_flag(container.command, "RotateKubeletServerCertificate=true")
+}
+
+checkFlag(container) {
+	kubernetes.command_has_flag(container.args, "RotateKubeletServerCertificate=true")
 }
 
 deny[res] {
-	output := checkFlag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_controllermanager(container)
+	not checkFlag(container)
 	msg := "Ensure that the RotateKubeletServerCertificate argument is set to true"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

@@ -2,10 +2,8 @@ package msk
 
 var cloudFormationEnableLoggingGoodExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good example
 Resources:
-  Cluster:
+  GoodCluster:
     Type: AWS::MSK::Cluster
     Properties:
       LoggingInfo:
@@ -19,17 +17,14 @@ Resources:
 
 var cloudFormationEnableLoggingBadExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Bad example
 Resources:
-  Cluster:
+  BadCluster:
     Type: AWS::MSK::Cluster
     Properties:
       LoggingInfo:
         BrokerLogs:
           CloudWatchLogs:
             Enabled: false
-
 `,
 }
 

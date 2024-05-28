@@ -42,3 +42,25 @@ test_root_ca_file_is_set {
 
 	count(r) == 0
 }
+
+test_root_ca_file_is_set_args {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {
+			"name": "apiserver",
+			"labels": {
+				"component": "kube-controller-manager",
+				"tier": "control-plane",
+			},
+		},
+		"spec": {"containers": [{
+			"command": ["kube-controller-manager"],
+			"args": ["--allocate-node-cidrs=true", "--root-ca-file=<filename>"],
+			"image": "busybox",
+			"name": "hello",
+		}]},
+	}
+
+	count(r) == 0
+}

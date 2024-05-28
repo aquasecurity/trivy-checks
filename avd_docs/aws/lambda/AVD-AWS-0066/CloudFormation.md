@@ -3,7 +3,7 @@ Enable tracing
 
 ```yaml---
 Resources:
-  Function:
+  GoodExample:
     Type: AWS::Lambda::Function
     Properties:
       Handler: index.handler

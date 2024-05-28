@@ -2,10 +2,8 @@
 Use customer managed keys
 
 ```yaml---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good example of ingress rule
 Resources:
-  Secret:
+  GoodSecret:
     Type: AWS::SecretsManager::Secret
     Properties:
       Description: "secret"

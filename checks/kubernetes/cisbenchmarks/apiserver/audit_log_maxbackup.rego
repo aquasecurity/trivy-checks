@@ -19,14 +19,18 @@ package builtin.kubernetes.KCV0021
 
 import data.lib.kubernetes
 
-check_flag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
-	not kubernetes.command_has_flag(container.command, "--audit-log-maxbackup")
+check_flag(container) {
+	kubernetes.command_has_flag(container.command, "--audit-log-maxbackup")
+}
+
+check_flag(container) {
+	kubernetes.command_has_flag(container.args, "--audit-log-maxbackup")
 }
 
 deny[res] {
-	output := check_flag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_apiserver(container)
+	not check_flag(container)
 	msg := "Ensure that the --audit-log-maxbackup argument is set to 10 or as appropriate"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

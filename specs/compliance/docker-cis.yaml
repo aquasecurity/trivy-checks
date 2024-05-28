@@ -1,11 +1,11 @@
 ---
 spec:
   id: docker-cis
-  title: CIS Docker Community Edition Benchmark v1.1.0
+  title: CIS Docker Community Edition Benchmark v1.6.0
   description: CIS Docker Community Edition Benchmark
   relatedResources : 
     - https://www.cisecurity.org/benchmark/docker
-  version: "1.1.0"
+  version: "1.6.0"
   controls:
     - id: '4.1'
       name: Ensure a user for the container has been created
@@ -14,7 +14,7 @@ spec:
         - id: AVD-DS-0002
       severity: 'HIGH'
     - id: '4.2'
-      name: Ensure that containers use trusted base images (Manual)
+      name: Ensure that containers use only trusted base images (Manual)
       description: 'Ensure that the container image is written either from scratch or is based on another established and trusted base image downloaded over a secure channel.'
       checks:
       severity: 'HIGH'
@@ -41,7 +41,7 @@ spec:
         - id: AVD-DS-0026
       severity: 'LOW'
     - id: '4.7'
-      name: Ensure update instructions are not use alone in the Dockerfile
+      name: Ensure update instructions are not used alone in the Dockerfile
       description: 'Do not use update instructions such as apt-get update alone or in a single line in the Dockerfile.'
       checks:
         - id: AVD-DS-0017
@@ -52,7 +52,7 @@ spec:
       checks:
       severity: 'HIGH'
     - id: '4.9'
-      name: Ensure COPY is used instead of ADD in Dockerfile
+      name: Ensure COPY is used instead of ADD
       description: 'Use COPY instruction instead of ADD instruction in the Dockerfile.'
       checks:
         - id: AVD-DS-0005
@@ -64,7 +64,12 @@ spec:
         - id: SECRET-CRITICAL # special ID for filtering secrets
       severity: 'CRITICAL'
     - id: '4.11'
-      name: Ensure verified packages are only Installed (Manual)
-      description: 'Verify authenticity of the packages before installing them in the image.'
+      name: Ensure only verified packages are installed (Manual)
+      description: 'Verify the authenticity of packages before installing them into images.'
+      checks: # TODO
+      severity: 'MEDIUM'
+    - id: '4.12'
+      name: Ensure all signed artifacts are validated (Manual)
+      description: 'Validate artifacts signatures before uploading to the package registry.'
       checks: # TODO
       severity: 'MEDIUM'

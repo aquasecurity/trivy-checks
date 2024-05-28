@@ -3,7 +3,7 @@ package lambda
 var cloudFormationEnableTracingGoodExamples = []string{
 	`---
 Resources:
-  Function:
+  GoodExample:
     Type: AWS::Lambda::Function
     Properties:
       Handler: index.handler

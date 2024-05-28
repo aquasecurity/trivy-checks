@@ -1,7 +1,7 @@
 package rds
 
 import (
-	"github.com/aquasecurity/trivy-policies/pkg/rules"
+	"github.com/aquasecurity/trivy-checks/pkg/rules"
 	"github.com/aquasecurity/trivy/pkg/iac/providers"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
 	"github.com/aquasecurity/trivy/pkg/iac/severity"
@@ -11,6 +11,7 @@ import (
 var CheckNoClassicResources = rules.Register(
 	scan.Rule{
 		AVDID:      "AVD-AWS-0081",
+		Deprecated: true,
 		Provider:   providers.AWSProvider,
 		Service:    "rds",
 		ShortCode:  "no-classic-resources",

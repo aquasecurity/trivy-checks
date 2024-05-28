@@ -2,8 +2,6 @@ package sam
 
 var cloudFormationEnableTableEncryptionGoodExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good Example of SAM Table
 Resources:
   GoodFunction:
     Type: AWS::Serverless::SimpleTable
@@ -16,8 +14,6 @@ Resources:
 
 var cloudFormationEnableTableEncryptionBadExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Bad Example of SAM Table
 Resources:
   BadFunction:
     Type: AWS::Serverless::SimpleTable
@@ -26,8 +22,6 @@ Resources:
       SSESpecification:
         SSEEnabled: false
 `, `---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Bad Example of SAM Table
 Resources:
   BadFunction:
     Type: AWS::Serverless::SimpleTable

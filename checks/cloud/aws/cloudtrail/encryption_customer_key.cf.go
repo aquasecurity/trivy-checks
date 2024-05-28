@@ -1,9 +1,9 @@
 package cloudtrail
 
-var cloudFormationEnableAtRestEncryptionGoodExamples = []string{
+var cloudFormationEncryptionCustomerManagedKeyGoodExamples = []string{
 	`---
 Resources:
-  BadExample:
+  GoodExample:
     Type: AWS::CloudTrail::Trail
     Properties:
       IsLogging: true
@@ -15,7 +15,7 @@ Resources:
 `,
 }
 
-var cloudFormationEnableAtRestEncryptionBadExamples = []string{
+var cloudFormationEncryptionCustomerManagedKeyBadExamples = []string{
 	`---
 Resources:
   BadExample:
@@ -29,6 +29,6 @@ Resources:
 `,
 }
 
-var cloudFormationEnableAtRestEncryptionLinks = []string{}
-
-var cloudFormationEnableAtRestEncryptionRemediationMarkdown = ``
+var cloudFormationEncryptionCustomerManagedKeyLinks = []string{
+	"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-kmskeyid",
+}

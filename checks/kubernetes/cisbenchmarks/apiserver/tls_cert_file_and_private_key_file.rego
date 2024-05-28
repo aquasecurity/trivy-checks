@@ -19,20 +19,20 @@ package builtin.kubernetes.KCV0027
 
 import data.lib.kubernetes
 
-check_flag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
-	not kubernetes.command_has_flag(container.command, "--tls-cert-file")
+check_flag(container) {
+	kubernetes.command_has_flag(container.command, "--tls-cert-file")
+	kubernetes.command_has_flag(container.command, "--tls-private-key-file")
 }
 
-check_flag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
-	not kubernetes.command_has_flag(container.command, "--tls-private-key-file")
+check_flag(container) {
+	kubernetes.command_has_flag(container.args, "--tls-cert-file")
+	kubernetes.command_has_flag(container.args, "--tls-private-key-file")
 }
 
 deny[res] {
-	output := check_flag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_apiserver(container)
+	not check_flag(container)
 	msg := "Ensure that the --tls-cert-file and --tls-private-key-file arguments are set as appropriate"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

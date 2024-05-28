@@ -19,14 +19,18 @@ package builtin.kubernetes.KCV0024
 
 import data.lib.kubernetes
 
-check_flag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
+check_flag(container) {
 	kubernetes.command_has_flag(container.command, "--service-account-lookup=false")
 }
 
+check_flag(container) {
+	kubernetes.command_has_flag(container.args, "--service-account-lookup=false")
+}
+
 deny[res] {
-	output := check_flag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_apiserver(container)
+	check_flag(container)
 	msg := "Ensure that the --service-account-lookup argument is set to true"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

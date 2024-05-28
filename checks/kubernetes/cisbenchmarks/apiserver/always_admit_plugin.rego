@@ -19,16 +19,22 @@ package builtin.kubernetes.KCV0011
 
 import data.lib.kubernetes
 
-check_flag[container] {
-	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
-	some i
-	output := regex.find_all_string_submatch_n(`--enable-admission-plugins=([^\s]+)`, container.command[i], -1)
+check_flag(container) {
+	cmd := kubernetes.containers[_].command[_]
+	output := regex.find_all_string_submatch_n(`--enable-admission-plugins=([^\s]+)`, cmd, -1)
+	regex.match("AlwaysAdmit", output[0][1])
+}
+
+check_flag(container) {
+	arg := kubernetes.containers[_].args[_]
+	output := regex.find_all_string_submatch_n(`--enable-admission-plugins=([^\s]+)`, arg, -1)
 	regex.match("AlwaysAdmit", output[0][1])
 }
 
 deny[res] {
-	output := check_flag[_]
+	container := kubernetes.containers[_]
+	kubernetes.is_apiserver(container)
+	check_flag(container)
 	msg := "Ensure that the admission control plugin AlwaysAdmit is not set"
-	res := result.new(msg, output)
+	res := result.new(msg, container)
 }

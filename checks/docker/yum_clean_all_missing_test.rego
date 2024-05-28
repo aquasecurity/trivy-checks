@@ -123,3 +123,49 @@ test_basic_allowed {
 
 	count(r) == 0
 }
+
+test_allow_clean_with_flags {
+	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
+		{
+			"Cmd": "from",
+			"Value": ["alpine:3.5"],
+		},
+		{
+			"Cmd": "run",
+			"Value": [`if [ "$TBB" == "default" ]; then  yum -y install tbb tbb-devel && yum clean -y all; fi`],
+		},
+	]}]}
+
+	count(r) == 0
+}
+
+test_denied_clean_not_all {
+	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
+		{
+			"Cmd": "from",
+			"Value": ["alpine:3.5"],
+		},
+		{
+			"Cmd": "run",
+			"Value": ["yum -y install bash && yum clean metadata"],
+		},
+	]}]}
+
+	count(r) == 1
+	r[_].msg == "'yum clean all' is missed: yum -y install bash && yum clean metadata"
+}
+
+test_allow_only_clean {
+	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
+		{
+			"Cmd": "from",
+			"Value": ["alpine:3.5"],
+		},
+		{
+			"Cmd": "run",
+			"Value": ["yum clean all"],
+		},
+	]}]}
+
+	count(r) == 0
+}

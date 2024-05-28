@@ -2,29 +2,23 @@ package mq
 
 var cloudFormationEnableGeneralLoggingGoodExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Good example
 Resources:
-  Broker:
+  GoodBroker:
     Type: AWS::AmazonMQ::Broker
     Properties:
       Logs:
         General: true
-
 `,
 }
 
 var cloudFormationEnableGeneralLoggingBadExamples = []string{
 	`---
-AWSTemplateFormatVersion: 2010-09-09
-Description: Bad example
 Resources:
-  Broker:
+  BadBroker:
     Type: AWS::AmazonMQ::Broker
     Properties:
       Logs:
         General: false
-
 `,
 }
 

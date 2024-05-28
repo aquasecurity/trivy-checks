@@ -21,6 +21,28 @@ test_bind_address_is_set_to_localhost_ip {
 	count(r) == 0
 }
 
+test_bind_address_is_set_to_localhost_ip_args {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {
+			"name": "controller-manager",
+			"labels": {
+				"component": "kube-controller-manager",
+				"tier": "control-plane",
+			},
+		},
+		"spec": {"containers": [{
+			"command": ["kube-controller-manager"],
+			"args": ["--bind-address=127.0.0.1"],
+			"image": "busybox",
+			"name": "hello",
+		}]},
+	}
+
+	count(r) == 0
+}
+
 test_bind_address_is_set_to_different_ip {
 	r := deny with input as {
 		"apiVersion": "v1",
