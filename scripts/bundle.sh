@@ -22,6 +22,18 @@ for dir in kubernetes docker; do
     rsync -avr --exclude="*_test.rego" --exclude="*.go" lib/$dir/* bundle/policies/$dir/lib
 done
 
+
+for dir in kubernetes; do
+    mkdir -p bundle/commands/$dir
+    rsync -avr commands/$dir/*  bundle/commands/$dir
+done
+
+
+for dir in config; do
+    mkdir -p bundle/commands/$dir
+    rsync -avr commands/$dir/* bundle/commands/$dir
+done
+
 cp checks/.manifest bundle/
 rm bundle/policies/.manifest
 sed -i -e "s/\[GITHUB_SHA\]/${RELEASE_VERSION}/" bundle/.manifest
