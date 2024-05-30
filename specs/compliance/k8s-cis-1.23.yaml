@@ -641,7 +641,7 @@ spec:
         0
       description: Do not disable timeouts on streaming connections
       checks:
-        - id: 
+        - id: AVD-KCV-0085
       commands:
         - id: CMD-0036
       severity: HIGH
