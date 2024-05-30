@@ -16,7 +16,7 @@
 #     selector:
 #     - type: kubernetes
 #       subtypes:
-#         - service: nodeinfo
+#         - kind: nodeinfo
 package builtin.kubernetes.KCV0082
 
 import data.lib.kubernetes
