@@ -49,8 +49,8 @@ func GetCommandIDRange() ([]bool, error) {
 			if commandMap, ok := commandArr[0].(map[any]any); ok {
 				if id, ok := commandMap["id"]; ok {
 					idStr := id.(string)
-					idWithPrefix := strings.TrimPrefix(idStr, "CMD-")
-					idNum, err := strconv.Atoi(idWithPrefix)
+					idWithoutPrefix := strings.TrimPrefix(idStr, "CMD-")
+					idNum, err := strconv.Atoi(idWithoutPrefix)
 					if err != nil {
 						return nil, err
 					}
