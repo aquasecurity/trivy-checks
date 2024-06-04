@@ -19,9 +19,11 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println("The following Command ID id free.")
 	for i := 0; i < len(ids); i++ {
 		if !ids[i] {
-			println(fmt.Sprintf("%s-%04d", "CMD", i+1))
+			println(fmt.Sprintf("%s %s-%04d", "K8s Command:", "CMD", i+1))
+			return
 		}
 	}
 }
