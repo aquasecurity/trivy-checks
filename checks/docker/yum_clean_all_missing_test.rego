@@ -132,7 +132,7 @@ test_allow_clean_with_flags {
 		},
 		{
 			"Cmd": "run",
-			"Value": [`if [ "$TBB" == "default" ]; then  yum -y install tbb tbb-devel && yum clean -y all; fi`],
+			"Value": [`if [ "$TBB" == "default" ]; then  yum -y install tbb tbb-devel && yum clean -y all ; fi`],
 		},
 	]}]}
 

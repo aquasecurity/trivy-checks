@@ -75,6 +75,11 @@ healthcheck[instruction] {
 	instruction.Cmd == "healthcheck"
 }
 
+split_cmd(s) := cmds {
+	cmd_parts := regex.split(`\s*&&\s*`, s)
+	cmds := [split(cmd, " ") | cmd := cmd_parts[_]]
+}
+
 command_indexes(cmds, cmds_to_check, package_manager) = cmd_indexes {
 	cmd_indexes = [idx |
 		cmd_parts := cmds[idx]

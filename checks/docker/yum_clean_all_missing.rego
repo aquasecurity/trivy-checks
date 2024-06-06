@@ -24,7 +24,7 @@ import data.lib.docker
 deny[res] {
 	run := docker.run[_]
 	run_cmd := concat(" ", run.Value)
-	cmds := sh.parse_commands(run_cmd)
+	cmds := docker.split_cmd(run_cmd)
 
 	install_indexes := has_install(cmds, {"yum"})
 	not install_followed_by_clean(cmds, {"yum"}, install_indexes)
