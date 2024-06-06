@@ -45,7 +45,7 @@ package_managers = {
 deny[res] {
 	run := docker.run[_]
 	run_cmd := concat(" ", run.Value)
-	cmds := sh.parse_commands(run_cmd)
+	cmds := docker.split_cmd(run_cmd)
 
 	some package_manager
 	update_indexes := has_update(cmds, package_managers[package_manager])
