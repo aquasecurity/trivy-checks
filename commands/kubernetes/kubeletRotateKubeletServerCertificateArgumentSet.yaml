@@ -8,3 +8,4 @@
     'FNR <= 1'
   platforms:
     - k8s
+    - eks
