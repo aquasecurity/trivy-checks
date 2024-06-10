@@ -120,7 +120,7 @@ test_role_binding_with_system_masters_group_binding {
 		"subjects": [
 			{
 				"kind": "Group",
-				"name": "system:masters",
+				"name": "system:masters2",
 				"apiGroup": "rbac.authorization.k8s.io",
 			},
 			{
