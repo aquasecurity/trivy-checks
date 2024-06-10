@@ -23,7 +23,10 @@ spec:
 
       Check with the following command: 
       > sudo systemctl status kubelet
-    checks: null
+    checks: 
+      - id: AVD-KCV-0071
+    commands:
+      - id: CMD-0024
     severity: HIGH
   - id: 3.1.2
     name: Ensure that the kubelet service file ownership is set to root:root (Automated)
@@ -202,12 +205,13 @@ spec:
     checks: null
     severity: CRITICAL
   - id: 4.1.8
-    name: Limit use of the Bind, Impersonate and Escalate permissions in the Kubernetes cluster (Manual)
+    name: Limit use of the Bind, Impersonate and Escalate permissions in the Kubernetes cluster
     description: |
       The special group system:masters should not be used to grant permissions to any user
       or service account, except where strictly necessary (e.g. bootstrapping access prior to
       RBAC being fully available)
-    checks: null
+    checks:
+      - id: AVD-KSV-0123
     severity: CRITICAL
   - id: 4.2.1
     name: Minimize the admission of privileged containers (Automated)
