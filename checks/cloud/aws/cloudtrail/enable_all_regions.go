@@ -38,7 +38,8 @@ var CheckEnableAllRegions = rules.Register(
 			Links:               cloudFormationEnableAllRegionsLinks,
 			RemediationMarkdown: cloudFormationEnableAllRegionsRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, trail := range s.AWS.CloudTrail.Trails {

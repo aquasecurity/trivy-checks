@@ -31,7 +31,8 @@ var CheckEnableStorageEncryption = rules.Register(
 			Links:               cloudFormationEnableStorageEncryptionLinks,
 			RemediationMarkdown: cloudFormationEnableStorageEncryptionRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.AWS.DocumentDB.Clusters {

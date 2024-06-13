@@ -9,7 +9,7 @@ import (
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 )
 
-var checkNoPublicLogAccess = rules.Register(
+var CheckNoPublicLogAccess = rules.Register(
 	scan.Rule{
 		AVDID:     "AVD-AWS-0161",
 		Provider:  providers.AWSProvider,
@@ -41,7 +41,8 @@ CloudTrail logs a record of every API call made in your account. These log files
 			Links:               cloudFormationNoPublicLogAccessLinks,
 			RemediationMarkdown: cloudFormationNoPublicLogAccessRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, trail := range s.AWS.CloudTrail.Trails {
