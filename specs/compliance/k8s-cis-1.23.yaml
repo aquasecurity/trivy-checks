@@ -1,6 +1,6 @@
 ---
 spec:
-  id: k8s-cis
+  id: k8s-cis-1.23
   title: CIS Kubernetes Benchmarks v1.23
   description: CIS Kubernetes Benchmarks
   version: "1.23"

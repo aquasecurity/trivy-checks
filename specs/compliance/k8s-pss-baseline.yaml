@@ -1,5 +1,5 @@
 spec:
-  id: "k8s-pss-baseline"
+  id: "k8s-pss-baseline-0.1"
   title: "Kubernetes Pod Security Standards - Baseline"
   description: Kubernetes Pod Security Standards - Baseline
   relatedResources :

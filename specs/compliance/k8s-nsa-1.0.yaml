@@ -1,6 +1,6 @@
 ---
 spec:
-  id: k8s-nsa
+  id: k8s-nsa-1.0
   title: National Security Agency - Kubernetes Hardening Guidance v1.0
   description: National Security Agency - Kubernetes Hardening Guidance 
   relatedResources : 
