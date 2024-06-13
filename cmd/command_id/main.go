@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	trivy_checks "github.com/aquasecurity/trivy-checks"
-	"gopkg.in/yaml.v2"
+	"gopkg.in/yaml.v3"
 )
 
 const (

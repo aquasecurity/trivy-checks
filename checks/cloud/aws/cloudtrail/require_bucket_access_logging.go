@@ -9,7 +9,7 @@ import (
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 )
 
-var checkBucketAccessLoggingRequired = rules.Register(
+var CheckBucketAccessLoggingRequired = rules.Register(
 	scan.Rule{
 		AVDID:     "AVD-AWS-0163",
 		Provider:  providers.AWSProvider,
@@ -44,7 +44,8 @@ By enabling S3 bucket logging on target S3 buckets, you can capture all events t
 			Links:               cloudFormationBucketAccessLoggingRequiredLinks,
 			RemediationMarkdown: cloudFormationBucketAccessLoggingRequiredRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, trail := range s.AWS.CloudTrail.Trails {
