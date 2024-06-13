@@ -1,5 +1,5 @@
 spec:
-  id: "k8s-pss-restricted"
+  id: "k8s-pss-restricted-0.1"
   title: "Kubernetes Pod Security Standards - Restricted"
   description: Kubernetes Pod Security Standards - Restricted
   relatedResources :

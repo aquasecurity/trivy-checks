@@ -1,5 +1,5 @@
 spec:
-  id: eks-cis
+  id: eks-cis-1.4
   title: AWS EKS CIS Foundations v1.4
   description: AWS EKS CIS Foundations
   version: "1.4"
