@@ -1,5 +1,4 @@
 
-
 AWS IAM Access Analyzer helps you identify the resources in your organization and
 accounts, such as Amazon S3 buckets or IAM roles, that are shared with an external entity.
 This lets you identify unintended access to your resources and data. Access Analyzer

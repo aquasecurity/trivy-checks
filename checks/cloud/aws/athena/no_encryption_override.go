@@ -33,7 +33,8 @@ var CheckNoEncryptionOverride = rules.Register(
 			Links:               cloudFormationNoEncryptionOverrideLinks,
 			RemediationMarkdown: cloudFormationNoEncryptionOverrideRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, workgroup := range s.AWS.Athena.Workgroups {
