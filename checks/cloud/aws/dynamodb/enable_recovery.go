@@ -29,7 +29,8 @@ By enabling point-in-time-recovery you can restore to a known point in the event
 			Links:               terraformEnableRecoveryLinks,
 			RemediationMarkdown: terraformEnableRecoveryRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.AWS.DynamoDB.DAXClusters {

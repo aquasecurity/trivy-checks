@@ -34,7 +34,8 @@ var CheckEnableLogExport = rules.Register(
 			Links:               cloudFormationEnableLogExportLinks,
 			RemediationMarkdown: cloudFormationEnableLogExportRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.AWS.DocumentDB.Clusters {
