@@ -6,3 +6,4 @@
   audit: stat -c %a /etc/kubernetes/admin.conf
   platforms:
     - k8s
+    - rke2

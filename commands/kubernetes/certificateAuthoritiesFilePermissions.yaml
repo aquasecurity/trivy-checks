@@ -8,3 +8,4 @@
     /dev/null
   platforms:
     - k8s
+    - rke2

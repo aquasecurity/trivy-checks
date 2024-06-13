@@ -6,3 +6,4 @@
   audit: stat -c %U:%G $controllermanager.kubeconfig
   platforms:
     - k8s
+    - rke2

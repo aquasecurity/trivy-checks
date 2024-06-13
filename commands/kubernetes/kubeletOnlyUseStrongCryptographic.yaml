@@ -7,3 +7,4 @@
     'TLSCipherSuites=[^"]\S*' | awk -F "=" '{print $2}' |awk 'FNR <= 1'
   platforms:
     - k8s
+    - rke2
