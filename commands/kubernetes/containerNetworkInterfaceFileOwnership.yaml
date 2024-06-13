@@ -6,3 +6,5 @@
   audit: stat -c %U:%G /*/cni/*
   platforms:
     - k8s
+    - rke2
+

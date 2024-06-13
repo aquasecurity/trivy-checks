@@ -6,3 +6,4 @@
   audit: stat -c %U:%G $scheduler.confs
   platforms:
     - k8s
+    - rke2
