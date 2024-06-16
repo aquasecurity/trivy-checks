@@ -5,6 +5,8 @@ spec:
   relatedResources :
     - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
   version: "0.1"
+  platfrom: k8s
+  type: pss
   controls:
     - name: HostProcess 
       description: "Windows pods offer the ability to run HostProcess containers which enables privileged access to the Windows node. Privileged access to the host is disallowed in the baseline policy" 

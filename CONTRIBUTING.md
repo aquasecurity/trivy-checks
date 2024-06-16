@@ -47,10 +47,10 @@ A simple rule looks like the following example:
 package builtin.aws.rds.aws0176
 
 deny[res] {
-	instance := input.aws.rds.instances[_]
-	instance.engine.value == ["postgres", "mysql"][_]
-	not instance.iamauthenabled.value
-	res := result.new("Instance does not have IAM Authentication enabled", instance.iamauthenabled)
+ instance := input.aws.rds.instances[_]
+ instance.engine.value == ["postgres", "mysql"][_]
+ not instance.iamauthenabled.value
+ res := result.new("Instance does not have IAM Authentication enabled", instance.iamauthenabled)
 }
 ```
 
@@ -65,23 +65,23 @@ Let's break the metadata down.
 - `scope` is used to define the scope of the policy. In this case, we are defining a policy that applies to the entire package. _defsec_ only supports using package scope for metadata at the moment, so this should always be the same.
 - `schemas` tells Rego that it should use the `AWS` schema to validate the use of the input data in the policy. We currently support [these](https://github.com/aquasecurity/defsec/tree/9b3cc255faff5dc57de5ff77ed0ce0009c80a4bb/pkg/rego/schemas) schemas. Using a schema can help you validate your policy faster for syntax issues.
 - `custom` is used to define custom fields that can be used by defsec to provide additional context to the policy and any related detections. This can contain the following:
-    - `avd_id` is the ID of the rule in the [AWS Vulnerability Database](https://avd.aquasec.com/). This is used to link the rule to the AVD entry. You can generate an ID to use for this field using `make id`.
-    - `provider` is the name of the provider the rule targets. This should be the same as the provider name in the `pkg/providers` directory, e.g. `aws`.
-    - `service` is the name of the service the rule targets. This should be the same as the service name in the `pkg/providers` directory, e.g. `rds`.
-    - `severity` is the severity of the rule. This should be one of `LOW`, `MEDIUM`, `HIGH`, or `CRITICAL`.
-    - `short_code` is a short code for the rule. This should be a short, descriptive name for the rule, separating words with hyphens. You should omit provider/service from this.
-    - `recommended_action` is a recommended remediation action for the rule. This should be a short, descriptive sentence describing what the user should do to resolve the issue.
-    - `input` tells _defsec_ what inputs this rule should be applied to. Cloud provider rules should always use the `selector` input, and should always use the `type` selector with `cloud`. Rules targeting Kubernetes yaml can use `kubenetes`, RBAC can use `rbac`, and so on.
-    - `subtypes` aid the engine to determine if it should load this policy or not for scanning. This can aid with the performance of scanning, especially if you have a lot of checks but not all apply to the IaC that you are trying to scan.
+  - `avd_id` is the ID of the rule in the [AWS Vulnerability Database](https://avd.aquasec.com/). This is used to link the rule to the AVD entry. You can generate an ID to use for this field using `make id`.
+  - `provider` is the name of the provider the rule targets. This should be the same as the provider name in the `pkg/providers` directory, e.g. `aws`.
+  - `service` is the name of the service the rule targets. This should be the same as the service name in the `pkg/providers` directory, e.g. `rds`.
+  - `severity` is the severity of the rule. This should be one of `LOW`, `MEDIUM`, `HIGH`, or `CRITICAL`.
+  - `short_code` is a short code for the rule. This should be a short, descriptive name for the rule, separating words with hyphens. You should omit provider/service from this.
+  - `recommended_action` is a recommended remediation action for the rule. This should be a short, descriptive sentence describing what the user should do to resolve the issue.
+  - `input` tells _defsec_ what inputs this rule should be applied to. Cloud provider rules should always use the `selector` input, and should always use the `type` selector with `cloud`. Rules targeting Kubernetes yaml can use `kubenetes`, RBAC can use `rbac`, and so on.
+  - `subtypes` aid the engine to determine if it should load this policy or not for scanning. This can aid with the performance of scanning, especially if you have a lot of checks but not all apply to the IaC that you are trying to scan.
   
 Now you'll need to write the rule logic. This is the code that will be executed to detect the issue. You should define a rule named `deny` and place your code inside this.
 
 ```rego
 deny[res] {
-	instance := input.aws.rds.instances[_]
-	instance.engine.value == ["postgres", "mysql"][_]
-	not instance.iamauthenabled.value
-	res := result.new("Instance does not have IAM Authentication enabled", instance.iamauthenabled)
+ instance := input.aws.rds.instances[_]
+ instance.engine.value == ["postgres", "mysql"][_]
+ not instance.iamauthenabled.value
+ res := result.new("Instance does not have IAM Authentication enabled", instance.iamauthenabled)
 }
 ```
 
