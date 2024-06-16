@@ -1,11 +1,13 @@
 ---
 spec:
-  id: docker-cis
+  id: docker-cis-1.6.0
   title: CIS Docker Community Edition Benchmark v1.6.0
   description: CIS Docker Community Edition Benchmark
   relatedResources : 
     - https://www.cisecurity.org/benchmark/docker
   version: "1.6.0"
+  platfrom: docker
+  type: cis
   controls:
     - id: '4.1'
       name: Ensure a user for the container has been created
