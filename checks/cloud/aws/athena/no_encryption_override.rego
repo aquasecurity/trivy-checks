@@ -1,7 +1,7 @@
 # METADATA
 # title: Athena workgroups should enforce configuration to prevent client disabling encryption
 # description: |
-#   Athena workgroup configuration should be enforced to prevent client side changes to disable encryption settings.
+#   Clients can ignore encryption requirements without enforced configuration. Athena workgroup configuration should be enforced to prevent client side changes to disable encryption settings.
 # scope: package
 # schemas:
 #   - input: schema["cloud"]
@@ -15,7 +15,6 @@
 #   severity: HIGH
 #   short_code: no-encryption-override
 #   recommended_action: Enforce the configuration to prevent client overrides
-#   impact: Clients can ignore encryption requirements
 #   input:
 #     selector:
 #       - type: cloud

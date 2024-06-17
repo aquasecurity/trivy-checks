@@ -1,7 +1,7 @@
 # METADATA
 # title: Cloudtrail should be enabled in all regions regardless of where your AWS resources are generally homed
 # description: |
-#   When creating Cloudtrail in the AWS Management Console the trail is configured by default to be multi-region, this isn't the case with the Terraform resource. Cloudtrail should cover the full AWS account to ensure you can track changes in regions you are not actively operting in.
+#   Activity could be happening in your account in a different region. When creating Cloudtrail in the AWS Management Console the trail is configured by default to be multi-region, this isn't the case with the Terraform resource. Cloudtrail should cover the full AWS account to ensure you can track changes in regions you are not actively operting in.
 # scope: package
 # schemas:
 #   - input: schema["cloud"]
@@ -15,7 +15,6 @@
 #   severity: MEDIUM
 #   short_code: enable-all-regions
 #   recommended_action: Enable Cloudtrail in all regions
-#   impact: Activity could be happening in your account in a different region
 #   frameworks:
 #     cis-aws-1.2:
 #       - "2.5"

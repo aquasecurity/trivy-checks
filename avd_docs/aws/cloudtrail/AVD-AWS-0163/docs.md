@@ -5,7 +5,7 @@ By enabling S3 bucket logging on target S3 buckets, you can capture all events t
 
 
 ### Impact
-There is no way to determine the access to this bucket
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

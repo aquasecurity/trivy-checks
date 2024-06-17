@@ -9,7 +9,7 @@ keys, AWS Lambda functions, and Amazon SQS(Simple Queue Service) queues.
 
 
 ### Impact
-Reduced visibility of externally shared resources.
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

@@ -17,7 +17,6 @@
 #   severity: LOW
 #   short_code: require-bucket-access-logging
 #   recommended_action: Enable access logging on the bucket
-#   impact: There is no way to determine the access to this bucket
 #   frameworks:
 #     cis-aws-1.2:
 #       - "2.6"

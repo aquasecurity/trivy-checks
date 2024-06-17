@@ -21,7 +21,6 @@
 #   severity: LOW
 #   short_code: enable-access-analyzer
 #   recommended_action: Enable IAM Access analyzer across all regions.
-#   impact: Reduced visibility of externally shared resources.
 #   frameworks:
 #     cis-aws-1.4:
 #       - "1.20"

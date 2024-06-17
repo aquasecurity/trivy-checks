@@ -1,7 +1,7 @@
 # METADATA
 # title: Athena databases and workgroup configurations are created unencrypted at rest by default, they should be encrypted
 # description: |
-#   Athena databases and workspace result sets should be encrypted at rests. These databases and query sets are generally derived from data in S3 buckets and should have the same level of at rest protection.
+#   Data can be read if the Athena Database is compromised. Athena databases and workspace result sets should be encrypted at rests. These databases and query sets are generally derived from data in S3 buckets and should have the same level of at rest protection.
 # scope: package
 # schemas:
 #   - input: schema["cloud"]
@@ -15,7 +15,6 @@
 #   severity: HIGH
 #   short_code: enable-at-rest-encryption
 #   recommended_action: Enable encryption at rest for Athena databases and workgroup configurations
-#   impact: Data can be read if the Athena Database is compromised
 #   input:
 #     selector:
 #       - type: cloud
