@@ -2,7 +2,7 @@
 
 ## Define a Compliance spec, based on cis benchmark or other specs
 
-example:
+here is an example for cis compliance report:
 
 ```yaml
 ---
@@ -68,11 +68,11 @@ The version field specifies the version of the compliance report.
 
 - 1.23
 
-### Compliance Check
+### Compliance Check ID
 
-Specify the check that needs to be evaluated based on the information collected from the command data output to assess the control.
+Specify the check ID that needs to be evaluated based on the information collected from the command data output to assess the control.
 
-Example of how to define check data:
+Example of how to define check data under ./checks folder:
 
 ```sh
 # METADATA
@@ -114,13 +114,13 @@ deny[res] {
 
 for additional info on writing checks look at [contribution guide](../CONTRIBUTING.md)
 
-### Compliance Command
+### Compliance Command ID
 
 ***Note:*** This field is not mandatory, it relevant to k8s compliance report when node-collector is in use
 
 Specify the command ID (#ref) that needs to be executed to collect the information required to evaluate the control.
 
-Example of how to define command data:
+Example of how to define command data under ./commands folder:
 
 ```yaml
 ---
@@ -187,16 +187,6 @@ proposed command files location: `https://github.com/aquasecurity/trivy-checks/t
 under command file
 
 Note: command config files will be located under `https://github.com/aquasecurity/trivy-checks/tree/main/commands` as well
-
-### Preparing commands data for compliance report as input for node-colector
-
-When the Trivy command is executed: `trivy k8s --compliance k8s-cis`, the relevant compliance specification will be parsed based on the spec name `k8s-cis` and `k8s_version`. It will build a list of command files to be passed to the node-collector, which will parse and execute them, returning the appropriate output.
-
-### Preparing commands data for cluster infra assessments
-
-When the Trivy command is executed: `trivy k8s --report summary`, the report will include a cluster infrastructure assessment.
-
-Trivy-Kubernetes will detect the running platform, build a list of command files to be passed to the node-collector, which will parse and execute them, and return the appropriate output.
 
 ### Node-collector output
 
