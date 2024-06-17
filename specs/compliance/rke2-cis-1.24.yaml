@@ -1,9 +1,11 @@
 ---
 spec:
-  id: rke2-cis
+  id: rke2-cis-1.24
   title: CIS Kubernetes Benchmarks v1.23
   description: CIS Kubernetes Benchmarks
   version: "1.24"
+  platfrom: rke2
+  type: cis
   relatedResources:
     - https://www.cisecurity.org/benchmark/kubernetes
   controls:
