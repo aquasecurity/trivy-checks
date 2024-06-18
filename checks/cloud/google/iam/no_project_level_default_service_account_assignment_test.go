@@ -22,19 +22,14 @@ func TestCheckNoProjectLevelDefaultServiceAccountAssignment(t *testing.T) {
 		{
 			name: "Default service account disabled but default account used",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Projects: []iam.Project{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
-						Projects: []iam.Project{
+						Members: []iam.Member{
 							{
-								Metadata: trivyTypes.NewTestMetadata(),
-								Members: []iam.Member{
-									{
-										Metadata:              trivyTypes.NewTestMetadata(),
-										DefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
-										Member:                trivyTypes.String("123-compute@developer.gserviceaccount.com", trivyTypes.NewTestMetadata()),
-									},
-								},
+								Metadata:              trivyTypes.NewTestMetadata(),
+								DefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								Member:                trivyTypes.String("123-compute@developer.gserviceaccount.com", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -45,18 +40,13 @@ func TestCheckNoProjectLevelDefaultServiceAccountAssignment(t *testing.T) {
 		{
 			name: "Default account enabled",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Projects: []iam.Project{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
-						Projects: []iam.Project{
+						Bindings: []iam.Binding{
 							{
-								Metadata: trivyTypes.NewTestMetadata(),
-								Bindings: []iam.Binding{
-									{
-										Metadata:                      trivyTypes.NewTestMetadata(),
-										IncludesDefaultServiceAccount: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
-									},
-								},
+								Metadata:                      trivyTypes.NewTestMetadata(),
+								IncludesDefaultServiceAccount: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -67,27 +57,22 @@ func TestCheckNoProjectLevelDefaultServiceAccountAssignment(t *testing.T) {
 		{
 			name: "Default accounts disabled and proper accounts provided",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Projects: []iam.Project{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
-						Projects: []iam.Project{
+						Members: []iam.Member{
 							{
-								Metadata: trivyTypes.NewTestMetadata(),
-								Members: []iam.Member{
-									{
-										Metadata:              trivyTypes.NewTestMetadata(),
-										DefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
-										Member:                trivyTypes.String("proper@email.com", trivyTypes.NewTestMetadata()),
-									},
-								},
-								Bindings: []iam.Binding{
-									{
-										Metadata:                      trivyTypes.NewTestMetadata(),
-										IncludesDefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
-										Members: []trivyTypes.StringValue{
-											trivyTypes.String("proper@email.com", trivyTypes.NewTestMetadata()),
-										},
-									},
+								Metadata:              trivyTypes.NewTestMetadata(),
+								DefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								Member:                trivyTypes.String("proper@email.com", trivyTypes.NewTestMetadata()),
+							},
+						},
+						Bindings: []iam.Binding{
+							{
+								Metadata:                      trivyTypes.NewTestMetadata(),
+								IncludesDefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								Members: []trivyTypes.StringValue{
+									trivyTypes.String("proper@email.com", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},

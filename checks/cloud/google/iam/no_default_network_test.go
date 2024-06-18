@@ -22,15 +22,10 @@ func TestCheckNoDefaultNetwork(t *testing.T) {
 		{
 			name: "Project automatic network creation enabled",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Projects: []iam.Project{
 					{
-						Metadata: trivyTypes.NewTestMetadata(),
-						Projects: []iam.Project{
-							{
-								Metadata:          trivyTypes.NewTestMetadata(),
-								AutoCreateNetwork: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
-							},
-						},
+						Metadata:          trivyTypes.NewTestMetadata(),
+						AutoCreateNetwork: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -39,32 +34,14 @@ func TestCheckNoDefaultNetwork(t *testing.T) {
 		{
 			name: "Project automatic network creation enabled #2",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Projects: []iam.Project{
 					{
-						Metadata: trivyTypes.NewTestMetadata(),
-
-						Folders: []iam.Folder{
-							{
-								Metadata: trivyTypes.NewTestMetadata(),
-								Projects: []iam.Project{
-									{
-										Metadata:          trivyTypes.NewTestMetadata(),
-										AutoCreateNetwork: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
-									},
-								},
-								Folders: []iam.Folder{
-									{
-										Metadata: trivyTypes.NewTestMetadata(),
-										Projects: []iam.Project{
-											{
-												Metadata:          trivyTypes.NewTestMetadata(),
-												AutoCreateNetwork: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
-											},
-										},
-									},
-								},
-							},
-						},
+						Metadata:          trivyTypes.NewTestMetadata(),
+						AutoCreateNetwork: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+					},
+					{
+						Metadata:          trivyTypes.NewTestMetadata(),
+						AutoCreateNetwork: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},
@@ -73,15 +50,10 @@ func TestCheckNoDefaultNetwork(t *testing.T) {
 		{
 			name: "Project automatic network creation disabled",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Projects: []iam.Project{
 					{
-						Metadata: trivyTypes.NewTestMetadata(),
-						Projects: []iam.Project{
-							{
-								Metadata:          trivyTypes.NewTestMetadata(),
-								AutoCreateNetwork: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
-							},
-						},
+						Metadata:          trivyTypes.NewTestMetadata(),
+						AutoCreateNetwork: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 					},
 				},
 			},

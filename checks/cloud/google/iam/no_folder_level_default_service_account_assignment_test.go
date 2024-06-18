@@ -22,20 +22,14 @@ func TestCheckNoFolderLevelDefaultServiceAccountAssignment(t *testing.T) {
 		{
 			name: "Default service account enabled",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Folders: []iam.Folder{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
-
-						Folders: []iam.Folder{
+						Members: []iam.Member{
 							{
-								Metadata: trivyTypes.NewTestMetadata(),
-								Members: []iam.Member{
-									{
-										Metadata:              trivyTypes.NewTestMetadata(),
-										DefaultServiceAccount: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
-										Member:                trivyTypes.String("proper@email.com", trivyTypes.NewTestMetadata()),
-									},
-								},
+								Metadata:              trivyTypes.NewTestMetadata(),
+								DefaultServiceAccount: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								Member:                trivyTypes.String("proper@email.com", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -46,19 +40,14 @@ func TestCheckNoFolderLevelDefaultServiceAccountAssignment(t *testing.T) {
 		{
 			name: "Default service account disabled but default account data provided",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Folders: []iam.Folder{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
-						Folders: []iam.Folder{
+						Members: []iam.Member{
 							{
-								Metadata: trivyTypes.NewTestMetadata(),
-								Members: []iam.Member{
-									{
-										Metadata:              trivyTypes.NewTestMetadata(),
-										DefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
-										Member:                trivyTypes.String("123-compute@developer.gserviceaccount.com", trivyTypes.NewTestMetadata()),
-									},
-								},
+								Metadata:              trivyTypes.NewTestMetadata(),
+								DefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								Member:                trivyTypes.String("123-compute@developer.gserviceaccount.com", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -69,21 +58,15 @@ func TestCheckNoFolderLevelDefaultServiceAccountAssignment(t *testing.T) {
 		{
 			name: "Default service account disabled but default account data provided #2",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Folders: []iam.Folder{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
-
-						Folders: []iam.Folder{
+						Bindings: []iam.Binding{
 							{
-								Metadata: trivyTypes.NewTestMetadata(),
-								Bindings: []iam.Binding{
-									{
-										Metadata:                      trivyTypes.NewTestMetadata(),
-										IncludesDefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
-										Members: []trivyTypes.StringValue{
-											trivyTypes.String("123-compute@developer.gserviceaccount.com", trivyTypes.NewTestMetadata())},
-									},
-								},
+								Metadata:                      trivyTypes.NewTestMetadata(),
+								IncludesDefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								Members: []trivyTypes.StringValue{
+									trivyTypes.String("123-compute@developer.gserviceaccount.com", trivyTypes.NewTestMetadata())},
 							},
 						},
 					},
@@ -94,28 +77,22 @@ func TestCheckNoFolderLevelDefaultServiceAccountAssignment(t *testing.T) {
 		{
 			name: "Default service account disabled and proper account data provided",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Folders: []iam.Folder{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
-
-						Folders: []iam.Folder{
+						Members: []iam.Member{
 							{
-								Metadata: trivyTypes.NewTestMetadata(),
-								Members: []iam.Member{
-									{
-										Metadata:              trivyTypes.NewTestMetadata(),
-										DefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
-										Member:                trivyTypes.String("proper@email.com", trivyTypes.NewTestMetadata()),
-									},
-								},
-								Bindings: []iam.Binding{
-									{
-										Metadata:                      trivyTypes.NewTestMetadata(),
-										IncludesDefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
-										Members: []trivyTypes.StringValue{
-											trivyTypes.String("proper@account.com", trivyTypes.NewTestMetadata()),
-										},
-									},
+								Metadata:              trivyTypes.NewTestMetadata(),
+								DefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								Member:                trivyTypes.String("proper@email.com", trivyTypes.NewTestMetadata()),
+							},
+						},
+						Bindings: []iam.Binding{
+							{
+								Metadata:                      trivyTypes.NewTestMetadata(),
+								IncludesDefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								Members: []trivyTypes.StringValue{
+									trivyTypes.String("proper@account.com", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
