@@ -40,25 +40,15 @@ func TestCheckNoPrivilegedServiceAccounts(t *testing.T) {
 		{
 			name: "Service account granted editor role",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Projects: []iam.Project{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
-						Folders: []iam.Folder{
+						Bindings: []iam.Binding{
 							{
 								Metadata: trivyTypes.NewTestMetadata(),
-								Projects: []iam.Project{
-									{
-										Metadata: trivyTypes.NewTestMetadata(),
-										Bindings: []iam.Binding{
-											{
-												Metadata: trivyTypes.NewTestMetadata(),
-												Role:     trivyTypes.String("roles/editor", trivyTypes.NewTestMetadata()),
-												Members: []trivyTypes.StringValue{
-													trivyTypes.String("serviceAccount:${google_service_account.test.email}", trivyTypes.NewTestMetadata()),
-												},
-											},
-										},
-									},
+								Role:     trivyTypes.String("roles/editor", trivyTypes.NewTestMetadata()),
+								Members: []trivyTypes.StringValue{
+									trivyTypes.String("serviceAccount:${google_service_account.test.email}", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
@@ -70,32 +60,22 @@ func TestCheckNoPrivilegedServiceAccounts(t *testing.T) {
 		{
 			name: "No service account with excessive privileges",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Projects: []iam.Project{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
-						Folders: []iam.Folder{
+						Members: []iam.Member{
 							{
 								Metadata: trivyTypes.NewTestMetadata(),
-								Projects: []iam.Project{
-									{
-										Metadata: trivyTypes.NewTestMetadata(),
-										Members: []iam.Member{
-											{
-												Metadata: trivyTypes.NewTestMetadata(),
-												Role:     trivyTypes.String("roles/owner", trivyTypes.NewTestMetadata()),
-												Member:   trivyTypes.String("proper@email.com", trivyTypes.NewTestMetadata()),
-											},
-										},
-										Bindings: []iam.Binding{
-											{
-												Metadata: trivyTypes.NewTestMetadata(),
-												Role:     trivyTypes.String("roles/logging.logWriter", trivyTypes.NewTestMetadata()),
-												Members: []trivyTypes.StringValue{
-													trivyTypes.String("serviceAccount:${google_service_account.test.email}", trivyTypes.NewTestMetadata()),
-												},
-											},
-										},
-									},
+								Role:     trivyTypes.String("roles/owner", trivyTypes.NewTestMetadata()),
+								Member:   trivyTypes.String("proper@email.com", trivyTypes.NewTestMetadata()),
+							},
+						},
+						Bindings: []iam.Binding{
+							{
+								Metadata: trivyTypes.NewTestMetadata(),
+								Role:     trivyTypes.String("roles/logging.logWriter", trivyTypes.NewTestMetadata()),
+								Members: []trivyTypes.StringValue{
+									trivyTypes.String("serviceAccount:${google_service_account.test.email}", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
