@@ -22,18 +22,13 @@ func TestCheckNoFolderLevelServiceAccountImpersonation(t *testing.T) {
 		{
 			name: "Member role set to service account user",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Folders: []iam.Folder{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
-						Folders: []iam.Folder{
+						Members: []iam.Member{
 							{
 								Metadata: trivyTypes.NewTestMetadata(),
-								Members: []iam.Member{
-									{
-										Metadata: trivyTypes.NewTestMetadata(),
-										Role:     trivyTypes.String("roles/iam.serviceAccountUser", trivyTypes.NewTestMetadata()),
-									},
-								},
+								Role:     trivyTypes.String("roles/iam.serviceAccountUser", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -42,21 +37,16 @@ func TestCheckNoFolderLevelServiceAccountImpersonation(t *testing.T) {
 			expected: true,
 		},
 		{
-			name: "Member role set to service account token creator",
+			name: "Binding role set to service account token creator",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Folders: []iam.Folder{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
-						Folders: []iam.Folder{
+						Bindings: []iam.Binding{
 							{
-								Metadata: trivyTypes.NewTestMetadata(),
-								Bindings: []iam.Binding{
-									{
-										Metadata:                      trivyTypes.NewTestMetadata(),
-										IncludesDefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
-										Role:                          trivyTypes.String("roles/iam.serviceAccountTokenCreator", trivyTypes.NewTestMetadata()),
-									},
-								},
+								Metadata:                      trivyTypes.NewTestMetadata(),
+								IncludesDefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								Role:                          trivyTypes.String("roles/iam.serviceAccountTokenCreator", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -67,25 +57,20 @@ func TestCheckNoFolderLevelServiceAccountImpersonation(t *testing.T) {
 		{
 			name: "Member role set to something particular",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Folders: []iam.Folder{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
-						Folders: []iam.Folder{
+						Members: []iam.Member{
 							{
 								Metadata: trivyTypes.NewTestMetadata(),
-								Members: []iam.Member{
-									{
-										Metadata: trivyTypes.NewTestMetadata(),
-										Role:     trivyTypes.String("roles/nothingInParticular", trivyTypes.NewTestMetadata()),
-									},
-								},
-								Bindings: []iam.Binding{
-									{
-										Metadata:                      trivyTypes.NewTestMetadata(),
-										IncludesDefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
-										Role:                          trivyTypes.String("roles/nothingInParticular", trivyTypes.NewTestMetadata()),
-									},
-								},
+								Role:     trivyTypes.String("roles/nothingInParticular", trivyTypes.NewTestMetadata()),
+							},
+						},
+						Bindings: []iam.Binding{
+							{
+								Metadata:                      trivyTypes.NewTestMetadata(),
+								IncludesDefaultServiceAccount: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								Role:                          trivyTypes.String("roles/nothingInParticular", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

@@ -22,28 +22,23 @@ func TestCheckNoUserGrantedPermissions(t *testing.T) {
 		{
 			name: "Permissions granted to users",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Projects: []iam.Project{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
-						Projects: []iam.Project{
+						Members: []iam.Member{
 							{
 								Metadata: trivyTypes.NewTestMetadata(),
-								Members: []iam.Member{
-									{
-										Metadata: trivyTypes.NewTestMetadata(),
-										Member:   trivyTypes.String("user:test@example.com", trivyTypes.NewTestMetadata()),
-										Role:     trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
-									},
+								Member:   trivyTypes.String("user:test@example.com", trivyTypes.NewTestMetadata()),
+								Role:     trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
+							},
+						},
+						Bindings: []iam.Binding{
+							{
+								Metadata: trivyTypes.NewTestMetadata(),
+								Members: []trivyTypes.StringValue{
+									trivyTypes.String("user:test@example.com", trivyTypes.NewTestMetadata()),
 								},
-								Bindings: []iam.Binding{
-									{
-										Metadata: trivyTypes.NewTestMetadata(),
-										Members: []trivyTypes.StringValue{
-											trivyTypes.String("user:test@example.com", trivyTypes.NewTestMetadata()),
-										},
-										Role: trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
-									},
-								},
+								Role: trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -72,19 +67,14 @@ func TestCheckNoUserGrantedPermissions(t *testing.T) {
 		{
 			name: "Permissions granted to users #3",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Folders: []iam.Folder{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
-						Folders: []iam.Folder{
+						Members: []iam.Member{
 							{
 								Metadata: trivyTypes.NewTestMetadata(),
-								Members: []iam.Member{
-									{
-										Metadata: trivyTypes.NewTestMetadata(),
-										Member:   trivyTypes.String("user:test@example.com", trivyTypes.NewTestMetadata()),
-										Role:     trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
-									},
-								},
+								Member:   trivyTypes.String("user:test@example.com", trivyTypes.NewTestMetadata()),
+								Role:     trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -95,21 +85,16 @@ func TestCheckNoUserGrantedPermissions(t *testing.T) {
 		{
 			name: "Permissions granted to users #4",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Folders: []iam.Folder{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
-						Folders: []iam.Folder{
+						Bindings: []iam.Binding{
 							{
 								Metadata: trivyTypes.NewTestMetadata(),
-								Bindings: []iam.Binding{
-									{
-										Metadata: trivyTypes.NewTestMetadata(),
-										Members: []trivyTypes.StringValue{
-											trivyTypes.String("user:test@example.com", trivyTypes.NewTestMetadata()),
-										},
-										Role: trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
-									},
+								Members: []trivyTypes.StringValue{
+									trivyTypes.String("user:test@example.com", trivyTypes.NewTestMetadata()),
 								},
+								Role: trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -139,18 +124,18 @@ func TestCheckNoUserGrantedPermissions(t *testing.T) {
 								Role: trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
 							},
 						},
-						Folders: []iam.Folder{
+					},
+				},
+				Folders: []iam.Folder{
+					{
+						Metadata: trivyTypes.NewTestMetadata(),
+						Bindings: []iam.Binding{
 							{
 								Metadata: trivyTypes.NewTestMetadata(),
-								Bindings: []iam.Binding{
-									{
-										Metadata: trivyTypes.NewTestMetadata(),
-										Members: []trivyTypes.StringValue{
-											trivyTypes.String("group:test@example.com", trivyTypes.NewTestMetadata()),
-										},
-										Role: trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
-									},
+								Members: []trivyTypes.StringValue{
+									trivyTypes.String("group:test@example.com", trivyTypes.NewTestMetadata()),
 								},
+								Role: trivyTypes.String("some-role", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
