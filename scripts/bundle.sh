@@ -34,6 +34,10 @@ for dir in config; do
     rsync -avr commands/$dir/* bundle/commands/$dir
 done
 
+
+mkdir -p bundle/specs/compliance
+rsync -avr pkg/specs/compliance bundle/specs
+
 cp checks/.manifest bundle/
 rm bundle/policies/.manifest
 sed -i -e "s/\[GITHUB_SHA\]/${RELEASE_VERSION}/" bundle/.manifest
