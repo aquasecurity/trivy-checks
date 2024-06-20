@@ -216,8 +216,8 @@ github.com/apparentlymart/go-textseg/v15 v15.0.0 h1:uYvfpb3DyLSCGWnctWKGj857c6ew
 github.com/apparentlymart/go-textseg/v15 v15.0.0/go.mod h1:K8XmNZdhEBkdlyDdvbmmsvpAG721bKi0joRfFdHIWJ4=
 github.com/aquasecurity/go-version v0.0.0-20240603093900-cf8a8d29271d h1:4zour5Sh9chOg+IqIinIcJ3qtr3cIf8FdFY6aArlXBw=
 github.com/aquasecurity/go-version v0.0.0-20240603093900-cf8a8d29271d/go.mod h1:1cPOp4BaQZ1G2F5fnw4dFz6pkOyXJI9KTuak8ghIl3U=
-github.com/aquasecurity/trivy v0.52.1-0.20240619054236-36b3b772df21 h1:iNOllxng7JZvCjf4UG6IZhZ9FjyGn3qH/+G631u4y7g=
-github.com/aquasecurity/trivy v0.52.1-0.20240619054236-36b3b772df21/go.mod h1:NSz5jJqsVcABONnEr90DYBeUyy0r6voIw+riatbT3XY=
+github.com/aquasecurity/trivy v0.52.2 h1:4WrQXavDKet7T/fE/r92+u2nwdR24wgm1gCQtZWKCU0=
+github.com/aquasecurity/trivy v0.52.2/go.mod h1:vODxo3dNdsZiWhsCXNfTvpRdeD8rtpvbwZnh3wV5UG0=
 github.com/arbovm/levenshtein v0.0.0-20160628152529-48b4e1c0c4d0 h1:jfIu9sQUG6Ig+0+Ap1h4unLjW6YQJpKZVmUzxsD4E/Q=
 github.com/arbovm/levenshtein v0.0.0-20160628152529-48b4e1c0c4d0/go.mod h1:t2tdKJDJF9BV14lnkjHmOQgcvEKgtqs5a1N3LNdJhGE=
 github.com/armon/consul-api v0.0.0-20180202201655-eb2c6b5be1b6/go.mod h1:grANhF5doyWs3UAsr3K4I6qtAmlQcZDesFNEHPZAzj8=
