@@ -136,7 +136,11 @@ Example of how to define command data under ./commands folder:
 
 #### Command ID
 
-Find the next command ID by running the command [ID generator](https://github.com/aquasecurity/trivy-checks/blob/main/cmd/command_id/main.go)
+Find the next command ID by running the command.
+
+```sh
+make command-id
+```
 
 #### Command Key
 
