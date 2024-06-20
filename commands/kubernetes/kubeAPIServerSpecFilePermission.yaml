@@ -6,4 +6,5 @@
   audit: stat -c %a $apiserver.confs
   platforms:
     - k8s
+    - rke2
   

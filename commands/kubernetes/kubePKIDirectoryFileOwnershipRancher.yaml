@@ -1,0 +1,9 @@
+---
+- id: CMD-0048
+  key: kubePKIDirectoryFileOwnership
+  title: Kubernetes PKI directory and file ownership
+  nodeType: master
+  audit: stat -c %U:%G $(ls -R /node/etc/kubernetes/ssl | awk
+    '/:$/&&f{s=$0;f=0}/:$/&&!f{sub(/:$/,"");s=$0;f=1;next}NF&&f{print s"/"$0 }')
+  platforms:
+    - rke2

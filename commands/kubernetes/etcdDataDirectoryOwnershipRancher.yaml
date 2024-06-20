@@ -1,0 +1,8 @@
+---
+- id: CMD-0046
+  key: etcdDataDirectoryOwnership
+  title: Etcd data directory Ownership
+  nodeType: master
+  audit: stat -c %U:%G /node/var/lib/etcd
+  platforms:
+    - rke2

@@ -1,0 +1,8 @@
+---
+- id: CMD-0047
+  key: etcdDataDirectoryPermissions
+  title: Etcd data directory permissions
+  nodeType: master
+  audit: stat -c %a /node/var/lib/etcd
+  platforms:
+    - rke2
