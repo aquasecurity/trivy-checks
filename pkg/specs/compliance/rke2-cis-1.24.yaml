@@ -1,7 +1,7 @@
 ---
 spec:
   id: rke2-cis-1.24
-  title: CIS Kubernetes Benchmark- RKE2 v1.24
+  title: CIS Kubernetes Benchmark - RKE2 v1.24
   description: CIS Kubernetes Benchmarks for RKE2 1.24
   version: "1.24"
   platfrom: rke2
