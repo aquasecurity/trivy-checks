@@ -13,7 +13,6 @@ test_allow_bucket_without_public_access if {
 	test.assert_empty(check.deny) with input as inp
 }
 
-# TODO: count should be 2
 test_disallow_bucket_with_public_access if {
 	inp := {"aws": {
 		"cloudtrail": {"trails": [{"bucketname": {"value": "bucket_name"}}]},
