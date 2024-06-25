@@ -9,7 +9,7 @@ import (
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 )
 
-var checkEnsureCloudwatchIntegration = rules.Register(
+var CheckEnsureCloudwatchIntegration = rules.Register(
 	scan.Rule{
 		AVDID:     "AVD-AWS-0162",
 		Provider:  providers.AWSProvider,
@@ -45,7 +45,8 @@ For a trail that is enabled in all Regions in an account, CloudTrail sends log f
 			Links:               cloudFormationEnsureCloudwatchIntegrationLinks,
 			RemediationMarkdown: cloudFormationEnsureCloudwatchIntegrationRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, trail := range s.AWS.CloudTrail.Trails {

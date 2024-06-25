@@ -33,7 +33,8 @@ var CheckEnableLogValidation = rules.Register(
 			Links:               cloudFormationEnableLogValidationLinks,
 			RemediationMarkdown: cloudFormationEnableLogValidationRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, trail := range s.AWS.CloudTrail.Trails {

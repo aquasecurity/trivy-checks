@@ -19,6 +19,9 @@ func TestAVDIDs(t *testing.T) {
 				t.Errorf("Rule detected with duplicate AVD ID: %s", rule.GetRule().AVDID)
 			}
 		})
-		existing[rule.GetRule().AVDID] = struct{}{}
+
+		if !rule.IsDeprecated() {
+			existing[rule.GetRule().AVDID] = struct{}{}
+		}
 	}
 }
