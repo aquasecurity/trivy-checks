@@ -22,18 +22,13 @@ func TestCheckNoProjectLevelServiceAccountImpersonation(t *testing.T) {
 		{
 			name: "Project member role set to service account user",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Projects: []iam.Project{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
-						Projects: []iam.Project{
+						Members: []iam.Member{
 							{
 								Metadata: trivyTypes.NewTestMetadata(),
-								Members: []iam.Member{
-									{
-										Metadata: trivyTypes.NewTestMetadata(),
-										Role:     trivyTypes.String("roles/iam.serviceAccountUser", trivyTypes.NewTestMetadata()),
-									},
-								},
+								Role:     trivyTypes.String("roles/iam.serviceAccountUser", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -44,18 +39,13 @@ func TestCheckNoProjectLevelServiceAccountImpersonation(t *testing.T) {
 		{
 			name: "Project member role set to service account token creator",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Projects: []iam.Project{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
-						Projects: []iam.Project{
+						Bindings: []iam.Binding{
 							{
 								Metadata: trivyTypes.NewTestMetadata(),
-								Bindings: []iam.Binding{
-									{
-										Metadata: trivyTypes.NewTestMetadata(),
-										Role:     trivyTypes.String("roles/iam.serviceAccountTokenCreator", trivyTypes.NewTestMetadata()),
-									},
-								},
+								Role:     trivyTypes.String("roles/iam.serviceAccountTokenCreator", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
@@ -66,24 +56,19 @@ func TestCheckNoProjectLevelServiceAccountImpersonation(t *testing.T) {
 		{
 			name: "Project members set to custom roles",
 			input: iam.IAM{
-				Organizations: []iam.Organization{
+				Projects: []iam.Project{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
-						Projects: []iam.Project{
+						Members: []iam.Member{
 							{
 								Metadata: trivyTypes.NewTestMetadata(),
-								Members: []iam.Member{
-									{
-										Metadata: trivyTypes.NewTestMetadata(),
-										Role:     trivyTypes.String("roles/specific-role", trivyTypes.NewTestMetadata()),
-									},
-								},
-								Bindings: []iam.Binding{
-									{
-										Metadata: trivyTypes.NewTestMetadata(),
-										Role:     trivyTypes.String("roles/specific-role", trivyTypes.NewTestMetadata()),
-									},
-								},
+								Role:     trivyTypes.String("roles/specific-role", trivyTypes.NewTestMetadata()),
+							},
+						},
+						Bindings: []iam.Binding{
+							{
+								Metadata: trivyTypes.NewTestMetadata(),
+								Role:     trivyTypes.String("roles/specific-role", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},
