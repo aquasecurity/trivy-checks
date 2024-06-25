@@ -39,7 +39,8 @@ var CheckNoPublicAccess = rules.Register(
 			Links:               cloudFormationNoPublicAccessLinks,
 			RemediationMarkdown: cloudFormationNoPublicAccessRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, repo := range s.AWS.ECR.Repositories {
