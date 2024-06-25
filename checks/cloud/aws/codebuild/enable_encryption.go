@@ -34,7 +34,8 @@ var CheckEnableEncryption = rules.Register(
 			Links:               cloudFormationEnableEncryptionLinks,
 			RemediationMarkdown: cloudFormationEnableEncryptionRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, project := range s.AWS.CodeBuild.Projects {
