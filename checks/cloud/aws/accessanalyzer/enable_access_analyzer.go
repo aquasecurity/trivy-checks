@@ -34,7 +34,8 @@ keys, AWS Lambda functions, and Amazon SQS(Simple Queue Service) queues.
 		Links: []string{
 			"https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html",
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		var enabled bool
