@@ -15,6 +15,7 @@ import (
 	"github.com/aquasecurity/trivy/pkg/iac/framework"
 	_ "github.com/aquasecurity/trivy/pkg/iac/rego"
 	registered "github.com/aquasecurity/trivy/pkg/iac/rules"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
 	types "github.com/aquasecurity/trivy/pkg/iac/types/rules"
 )
 
@@ -37,10 +38,12 @@ func writeDocsFile(meta types.RegisteredRule, path string) {
 		fail("error occurred creating the template %v\n", err)
 	}
 
+	rule := meta.GetRule()
+
 	docpath := filepath.Join(path,
-		strings.ToLower(meta.GetRule().Provider.ConstName()),
-		strings.ToLower(strings.ReplaceAll(meta.GetRule().Service, "-", "")),
-		meta.GetRule().AVDID,
+		strings.ToLower(rule.Provider.ConstName()),
+		strings.ToLower(strings.ReplaceAll(rule.Service, "-", "")),
+		rule.AVDID,
 	)
 
 	if err := os.MkdirAll(docpath, os.ModePerm); err != nil {
@@ -52,64 +55,53 @@ func writeDocsFile(meta types.RegisteredRule, path string) {
 		fail("error occurred creating the docs file for %s", docpath)
 	}
 
-	if err := tmpl.Execute(file, meta.GetRule()); err != nil {
+	if err := tmpl.Execute(file, rule); err != nil {
 		fail("error occurred generating the document %v", err)
 	}
-	fmt.Printf("Generating docs file for policy %s\n", meta.GetRule().AVDID)
+	fmt.Printf("Generating docs file for policy %s\n", rule.AVDID)
 
-	if meta.GetRule().Terraform != nil {
-		if len(meta.GetRule().Terraform.GoodExamples) > 0 || len(meta.GetRule().Terraform.Links) > 0 {
-			if meta.GetRule().RegoPackage != "" { // get examples from file as rego rules don't have embedded
-				value, err := GetExampleValueFromFile(meta.GetRule().Terraform.GoodExamples[0], "GoodExamples")
-				if err != nil {
-					fail("error retrieving examples from metadata: %v\n", err)
-				}
-				meta.GetRule().Terraform.GoodExamples = []string{value}
-			}
-
-			tmpl, err := template.New("terraform").Parse(terraformMarkdownTemplate)
-			if err != nil {
-				fail("error occurred creating the template %v\n", err)
-			}
-			file, err := os.Create(filepath.Join(docpath, "Terraform.md"))
-			if err != nil {
-				fail("error occurred creating the Terraform file for %s", docpath)
-			}
-			defer func() { _ = file.Close() }()
-
-			if err := tmpl.Execute(file, meta.GetRule()); err != nil {
-				fail("error occurred generating the document %v", err)
-			}
-			fmt.Printf("Generating Terraform file for policy %s\n", meta.GetRule().AVDID)
-		}
+	if err := generateExamplesForEngine(rule, rule.Terraform, docpath, terraformMarkdownTemplate, "Terraform"); err != nil {
+		fail("error generating examples for terraform: %v\n", err)
 	}
 
-	if meta.GetRule().CloudFormation != nil {
-		if len(meta.GetRule().CloudFormation.GoodExamples) > 0 || len(meta.GetRule().CloudFormation.Links) > 0 {
-			if meta.GetRule().RegoPackage != "" { // get examples from file as rego rules don't have embedded
-				value, err := GetExampleValueFromFile(meta.GetRule().CloudFormation.GoodExamples[0], "GoodExamples")
-				if err != nil {
-					fail("error retrieving examples from metadata: %v\n", err)
-				}
-				meta.GetRule().CloudFormation.GoodExamples = []string{value}
-			}
-
-			tmpl, err := template.New("cloudformation").Parse(cloudformationMarkdownTemplate)
-			if err != nil {
-				fail("error occurred creating the template %v\n", err)
-			}
-			file, err := os.Create(filepath.Join(docpath, "CloudFormation.md"))
-			if err != nil {
-				fail("error occurred creating the CloudFormation file for %s", docpath)
-			}
-			defer func() { _ = file.Close() }()
-
-			if err := tmpl.Execute(file, meta.GetRule()); err != nil {
-				fail("error occurred generating the document %v", err)
-			}
-			fmt.Printf("Generating CloudFormation file for policy %s\n", meta.GetRule().AVDID)
-		}
+	if err := generateExamplesForEngine(rule, rule.CloudFormation, docpath, cloudformationMarkdownTemplate, "CloudFormation"); err != nil {
+		fail("error generating examples for cloudformation: %v\n", err)
 	}
+}
+
+func generateExamplesForEngine(rule scan.Rule, engine *scan.EngineMetadata, docpath, tpl, provider string) error {
+	if engine == nil {
+		return nil
+	}
+
+	if len(engine.GoodExamples) == 0 {
+		return nil
+	}
+
+	if rule.RegoPackage != "" { // get examples from file as rego rules don't have embedded
+		examples, err := GetExampleValuesFromFile(engine.GoodExamples[0], "GoodExamples")
+		if err != nil {
+			fail("error retrieving examples from metadata: %v\n", err)
+		}
+		engine.GoodExamples = examples
+	}
+
+	tmpl, err := template.New(strings.ToLower(provider)).Parse(tpl)
+	if err != nil {
+		fail("error occurred creating the template %v\n", err)
+	}
+	file, err := os.Create(filepath.Join(docpath, fmt.Sprintf("%s.md", provider)))
+	if err != nil {
+		fail("error occurred creating the %s file for %s", provider, docpath)
+	}
+	defer func() { _ = file.Close() }()
+
+	if err := tmpl.Execute(file, rule); err != nil {
+		fail("error occurred generating the document %v", err)
+	}
+	fmt.Printf("Generating %s file for policy %s\n", provider, rule.AVDID)
+
+	return nil
 }
 
 func fail(msg string, args ...interface{}) {
@@ -123,15 +115,17 @@ func readFileFromPolicyFS(path string) (io.Reader, error) {
 
 }
 
-func GetExampleValueFromFile(filename string, exampleType string) (string, error) {
+func GetExampleValuesFromFile(filename string, exampleType string) ([]string, error) {
 	r, err := readFileFromPolicyFS(filename)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 	f, err := parser.ParseFile(token.NewFileSet(), filename, r, parser.AllErrors)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
+
+	res := []string{}
 
 	for _, d := range f.Decls {
 		switch decl := d.(type) {
@@ -142,9 +136,13 @@ func GetExampleValueFromFile(filename string, exampleType string) (string, error
 					for _, id := range spec.Names {
 						switch v := id.Obj.Decl.(*goast.ValueSpec).Values[0].(type) {
 						case *goast.CompositeLit:
-							value := v.Elts[0].(*goast.BasicLit).Value
-							if strings.Contains(id.Name, exampleType) {
-								return strings.ReplaceAll(value, "`", ""), nil
+							for _, e := range v.Elts {
+								switch e := e.(type) {
+								case *goast.BasicLit:
+									if strings.Contains(id.Name, exampleType) {
+										res = append(res, strings.ReplaceAll(e.Value, "`", ""))
+									}
+								}
 							}
 						}
 					}
@@ -152,7 +150,12 @@ func GetExampleValueFromFile(filename string, exampleType string) (string, error
 			}
 		}
 	}
-	return "", fmt.Errorf("exampleType %s not found in file: %s", exampleType, filename)
+
+	if len(res) == 0 {
+		return nil, fmt.Errorf("exampleType %s not found in file: %s", exampleType, filename)
+	}
+
+	return res, nil
 }
 
 var docsMarkdownTemplate = `
