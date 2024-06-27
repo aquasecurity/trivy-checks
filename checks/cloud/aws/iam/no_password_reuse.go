@@ -35,7 +35,8 @@ The account password policy should be set to prevent using any of the last five 
 			Links:               terraformNoPasswordReuseLinks,
 			RemediationMarkdown: terraformNoPasswordReuseRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 

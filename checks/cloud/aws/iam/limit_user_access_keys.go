@@ -32,7 +32,8 @@ Multiple active access keys widens the scope for compromise.
 		Links: []string{
 			"https://console.aws.amazon.com/iam/",
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, user := range s.AWS.IAM.Users {
