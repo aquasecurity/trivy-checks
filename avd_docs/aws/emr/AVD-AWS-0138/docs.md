@@ -1,8 +1,9 @@
 
 Data stored within an EMR cluster should be encrypted to ensure sensitive data is kept private.
 
+
 ### Impact
-In-transit data in the EMR cluster could be compromised if accessed.
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
