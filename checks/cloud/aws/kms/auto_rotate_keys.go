@@ -28,7 +28,8 @@ var CheckAutoRotateKeys = rules.Register(
 			Links:               terraformAutoRotateKeysLinks,
 			RemediationMarkdown: terraformAutoRotateKeysRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, key := range s.AWS.KMS.Keys {

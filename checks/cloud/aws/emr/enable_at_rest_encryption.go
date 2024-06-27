@@ -29,7 +29,8 @@ var CheckEnableAtRestEncryption = rules.Register(
 			Links:               terraformEnableAtRestEncryptionLinks,
 			RemediationMarkdown: terraformEnableAtRestEncryptionRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, conf := range s.AWS.EMR.SecurityConfiguration {

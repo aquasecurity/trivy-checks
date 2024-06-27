@@ -37,7 +37,8 @@ For S3, this should be the ARN of the S3 Bucket. For CloudWatch Events, this sho
 			Links:               cloudFormationRestrictSourceArnLinks,
 			RemediationMarkdown: cloudFormationRestrictSourceArnRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, function := range s.AWS.Lambda.Functions {

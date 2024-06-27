@@ -34,7 +34,8 @@ var CheckEnableTracing = rules.Register(
 			Links:               cloudFormationEnableTracingLinks,
 			RemediationMarkdown: cloudFormationEnableTracingRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, function := range s.AWS.Lambda.Functions {
