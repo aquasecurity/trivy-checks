@@ -33,7 +33,8 @@ var CheckUseSecureTlsPolicy = rules.Register(
 			Links:               cloudFormationUseSecureTlsPolicyLinks,
 			RemediationMarkdown: cloudFormationUseSecureTlsPolicyRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, domain := range s.AWS.Elasticsearch.Domains {

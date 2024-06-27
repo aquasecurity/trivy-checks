@@ -1,8 +1,9 @@
 
 Data stored within an Elasticache replication node should be encrypted to ensure sensitive data is kept private.
 
+
 ### Impact
-At-rest data in the Replication Group could be compromised if accessed.
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
