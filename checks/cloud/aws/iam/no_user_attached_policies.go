@@ -14,7 +14,7 @@ import (
 	"github.com/aquasecurity/trivy/pkg/iac/providers"
 )
 
-var checkNoUserAttachedPolicies = rules.Register(
+var CheckNoUserAttachedPolicies = rules.Register(
 	scan.Rule{
 		AVDID:     "AVD-AWS-0143",
 		Provider:  providers.AWSProvider,
@@ -40,7 +40,8 @@ CIS recommends that you apply IAM policies directly to groups and roles but not 
 			Links:               terraformNoUserAttachedPoliciesLinks,
 			RemediationMarkdown: terraformNoUserAttachedPoliciesRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, user := range s.AWS.IAM.Users {

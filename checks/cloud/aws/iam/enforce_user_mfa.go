@@ -33,7 +33,8 @@ IAM user accounts should be protected with multi factor authentication to add sa
 		Links: []string{
 			"https://console.aws.amazon.com/iam/",
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 

@@ -35,7 +35,8 @@ CIS recommends that you remove or deactivate all credentials that have been unus
 		Links: []string{
 			"https://console.aws.amazon.com/iam/",
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 

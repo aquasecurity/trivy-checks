@@ -35,7 +35,8 @@ When you use virtual MFA for the root user, CIS recommends that the device used 
 		Links: []string{
 			"https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cis-controls.html#securityhub-cis-controls-1.14",
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, user := range s.AWS.IAM.Users {

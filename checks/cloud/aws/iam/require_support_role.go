@@ -34,7 +34,8 @@ IAM Policy to allow Support Center Access in order to manage Incidents with AWS 
 		Links: []string{
 			"https://console.aws.amazon.com/iam/",
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 
