@@ -15,6 +15,7 @@ import (
 
 var bundlePath = "bundle.tar.gz"
 var OrasPush = []string{"--config", "/dev/null:application/vnd.cncf.openpolicyagent.config.v1+json", fmt.Sprintf("%s:application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip", bundlePath)}
+var supportedTrivyVersions = []string{"latest", "canary"} // TODO: add more versions
 
 func createRegistryContainer(ctx context.Context) (testcontainers.Container, string) {
 	reqReg := testcontainers.ContainerRequest{
@@ -63,14 +64,14 @@ func createOrasContainer(ctx context.Context, regIP string, bundlePath string) t
 	return orasC
 }
 
-func createTrivyContainer(ctx context.Context, regIP string) testcontainers.Container {
+func createTrivyContainer(ctx context.Context, trivyVersion string, regIP string) testcontainers.Container {
 	testDataPath, err := filepath.Abs("scripts/testdata")
 	if err != nil {
 		panic(err)
 	}
 
 	reqTrivy := testcontainers.ContainerRequest{
-		Image: "aquasec/trivy:latest",
+		Image: fmt.Sprintf("aquasec/trivy:%s", trivyVersion),
 		Cmd:   []string{"--debug", "config", fmt.Sprintf("--policy-bundle-repository=%s:5111/defsec-test:latest", regIP), "/testdata"},
 		HostConfigModifier: func(config *container.HostConfig) {
 			config.NetworkMode = "host"
@@ -127,28 +128,29 @@ func LoadAndVerifyBundle() {
 		}
 	}()
 
-	trivyC := createTrivyContainer(ctx, regIP)
-	defer func() {
+	fmt.Println(debugLogsForContainer(ctx, regC))
+	fmt.Println(debugLogsForContainer(ctx, orasC))
+
+	for _, trivyVersion := range supportedTrivyVersions {
+		fmt.Println("=======Testing version: ", trivyVersion, "==========")
+		trivyC := createTrivyContainer(ctx, trivyVersion, regIP)
+		fmt.Println(debugLogsForContainer(ctx, trivyC))
+
+		if !assertInLogs(debugLogsForContainer(ctx, trivyC), `Tests: 1 (SUCCESSES: 0, FAILURES: 1, EXCEPTIONS: 0)`) {
+			panic("asserting Trivy logs for misconfigurations failed, check Trivy log output")
+		}
+
 		if err = trivyC.Terminate(ctx); err != nil {
 			panic(err)
 		}
-	}()
-
-	// for debugging
-	fmt.Println(debugLogsForContainer(ctx, regC))
-	fmt.Println(debugLogsForContainer(ctx, orasC))
-	fmt.Println(debugLogsForContainer(ctx, trivyC))
-
-	if !assertInLogs(debugLogsForContainer(ctx, trivyC), `Tests: 1 (SUCCESSES: 0, FAILURES: 1, EXCEPTIONS: 0)`) {
-		panic("asserting Trivy logs for misconfigurations failed, check Trivy log output")
 	}
+
 }
 
 func assertInLogs(containerLogs, assertion string) bool {
 	return strings.Contains(containerLogs, assertion)
 }
 
-// TODO: Verify by using bundle to scan
 func main() {
 	LoadAndVerifyBundle()
 }
