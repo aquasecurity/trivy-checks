@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"path/filepath"
+	"strings"
 
 	"github.com/docker/docker/api/types/container"
 	"github.com/docker/docker/api/types/mount"
@@ -63,13 +64,25 @@ func createOrasContainer(ctx context.Context, regIP string, bundlePath string) t
 }
 
 func createTrivyContainer(ctx context.Context, regIP string) testcontainers.Container {
+	testDataPath, err := filepath.Abs("scripts/testdata")
+	if err != nil {
+		panic(err)
+	}
+
 	reqTrivy := testcontainers.ContainerRequest{
 		Image: "aquasec/trivy:latest",
-		Cmd:   []string{"--debug", "config", fmt.Sprintf("--policy-bundle-repository=%s:5111/defsec-test:latest", regIP), "."},
+		Cmd:   []string{"--debug", "config", fmt.Sprintf("--policy-bundle-repository=%s:5111/defsec-test:latest", regIP), "/testdata"},
 		HostConfigModifier: func(config *container.HostConfig) {
 			config.NetworkMode = "host"
+			config.Mounts = []mount.Mount{
+				{
+					Type:   mount.TypeBind,
+					Source: testDataPath,
+					Target: "/testdata",
+				},
+			}
 		},
-		WaitingFor: wait.ForLog("Policies successfully loaded from disk"),
+		WaitingFor: wait.ForLog("OS is not detected."),
 	}
 	trivyC, err := testcontainers.GenericContainer(ctx, testcontainers.GenericContainerRequest{
 		ContainerRequest: reqTrivy,
@@ -92,7 +105,7 @@ func debugLogsForContainer(ctx context.Context, c testcontainers.Container) stri
 	return string(b)
 }
 
-func LoadBundle() {
+func LoadAndVerifyBundle() {
 	ctx := context.Background()
 
 	bundlePath, err := filepath.Abs("bundle.tar.gz")
@@ -125,9 +138,17 @@ func LoadBundle() {
 	fmt.Println(debugLogsForContainer(ctx, regC))
 	fmt.Println(debugLogsForContainer(ctx, orasC))
 	fmt.Println(debugLogsForContainer(ctx, trivyC))
+
+	if !assertInLogs(debugLogsForContainer(ctx, trivyC), `Tests: 1 (SUCCESSES: 0, FAILURES: 1, EXCEPTIONS: 0)`) {
+		panic("asserting Trivy logs for misconfigurations failed, check Trivy log output")
+	}
+}
+
+func assertInLogs(containerLogs, assertion string) bool {
+	return strings.Contains(containerLogs, assertion)
 }
 
 // TODO: Verify by using bundle to scan
 func main() {
-	LoadBundle()
+	LoadAndVerifyBundle()
 }
