@@ -38,7 +38,7 @@ func isPrivate(ip net.IP) bool {
 }
 
 // CountAddresses calculates the number of addresses within the given CIDR. If the given
-// CIDR is in fact an IP (includes no /), 1 will bne returned. If the number of addresses
+// CIDR is in fact an IP (includes no /), 1 will be returned. If the number of addresses
 // overflows an unsigned 64-bit int, the maximum value of an unsigned 64-bit int will be
 // returned.
 func CountAddresses(inputCIDR string) uint64 {

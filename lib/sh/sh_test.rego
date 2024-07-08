@@ -1,4 +1,4 @@
-package lib.sh
+package lib.sh_test
 
 test_parse_commands_with_ampersands {
 	cmds := sh.parse_commands("apt update && apt install curl")
