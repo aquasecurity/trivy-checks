@@ -1,8 +1,9 @@
 
 By enabling encryption on EBS volumes you protect the volume, the disk I/O and any derived snapshots from compromise if intercepted.
 
+
 ### Impact
-Unencrypted sensitive data is vulnerable to compromise.
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
