@@ -25,6 +25,7 @@ var CheckRequireVPCFlowLogs = rules.Register(
 		Terraform:      &scan.EngineMetadata{},
 		CloudFormation: &scan.EngineMetadata{},
 		Severity:       severity.Medium,
+		Deprecated:     true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, vpc := range s.AWS.EC2.VPCs {

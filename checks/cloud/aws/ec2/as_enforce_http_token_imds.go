@@ -40,7 +40,8 @@ To fully protect IMDS you need to enable session tokens by using <code>metadata_
 			Links:               cloudformationASEnforceHttpTokenImdsLinks,
 			RemediationMarkdown: cloudformationASEnforceHttpTokenImdsRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, configuration := range s.AWS.EC2.LaunchConfigurations {

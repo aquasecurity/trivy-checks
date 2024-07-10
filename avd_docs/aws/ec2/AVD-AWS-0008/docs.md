@@ -1,8 +1,9 @@
 
 Block devices should be encrypted to ensure sensitive data is held securely at rest.
 
+
 ### Impact
-The block device could be compromised and read from
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

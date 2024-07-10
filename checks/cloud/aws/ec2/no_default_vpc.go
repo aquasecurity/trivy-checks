@@ -28,7 +28,8 @@ var CheckNoDefaultVpc = rules.Register(
 			Links:               terraformNoDefaultVpcLinks,
 			RemediationMarkdown: terraformNoDefaultVpcRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, def := range s.AWS.EC2.VPCs {

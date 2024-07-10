@@ -34,7 +34,8 @@ var CheckNoPublicIpSubnet = rules.Register(
 			Links:               cloudFormationNoPublicIpSubnetLinks,
 			RemediationMarkdown: cloudFormationNoPublicIpSubnetRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, subnet := range s.AWS.EC2.Subnets {

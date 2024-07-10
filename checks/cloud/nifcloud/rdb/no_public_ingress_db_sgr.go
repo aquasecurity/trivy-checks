@@ -16,7 +16,7 @@ var CheckNoPublicIngressDBSgr = rules.Register(
 		Provider:    providers.NifcloudProvider,
 		Service:     "rdb",
 		ShortCode:   "no-public-ingress-db-sgr",
-		Summary:     "An ingress db security group rule allows traffic from /0.",
+		Summary:     "An ingress db security group rule allows traffic from public internet.",
 		Impact:      "Your port exposed to the internet",
 		Resolution:  "Set a more restrictive cidr range",
 		Explanation: `Opening up ports to the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that explicitly require it where possible.`,

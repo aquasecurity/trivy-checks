@@ -33,7 +33,8 @@ To fully protect IMDS you need to enable session tokens by using <code>metadata_
 			Links:               terraformEnforceHttpTokenImdsLinks,
 			RemediationMarkdown: terraformEnforceHttpTokenImdsRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.AWS.EC2.Instances {

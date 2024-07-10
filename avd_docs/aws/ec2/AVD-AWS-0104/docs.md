@@ -1,8 +1,9 @@
 
 Opening up ports to connect out to the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that are explicitly required where possible.
 
+
 ### Impact
-Your port is egressing data to the internet
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

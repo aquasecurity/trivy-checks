@@ -29,7 +29,8 @@ security groups which will in-turn reduce the exposure of those resources.
 		Links: []string{
 			"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/default-custom-security-groups.html",
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, vpc := range s.AWS.EC2.VPCs {
