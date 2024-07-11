@@ -47,3 +47,7 @@ verify-bundle:
 	cp bundle.tar.gz scripts/bundle.tar.gz
 	go run ./scripts/verify-bundle.go
 	rm scripts/bundle.tar.gz
+
+.PHONY: generate-specs
+generate-specs:
+	go run ./cmd/specs
