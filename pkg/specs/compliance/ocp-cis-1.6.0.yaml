@@ -1,8 +1,8 @@
 ---
 spec:
   id: ocp-cis-1.6.0
-  title: CIS Kubernetes Benchmark - RKE2 v1.24
-  description: CIS Kubernetes Benchmarks for RKE2 1.24
+  title: CIS Red Hat OpenShift Container Platform Benchmark 1.6.0
+  description: CIS Red Hat OpenShift Container Platform Benchmark 1.6.0
   version: "1.6.0"
   platfrom: ocp
   type: cis
