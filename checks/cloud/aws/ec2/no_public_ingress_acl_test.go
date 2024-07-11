@@ -3,70 +3,126 @@ package ec2
 import (
 	"testing"
 
-	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
-
-	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/ec2"
-
-	"github.com/aquasecurity/trivy/pkg/iac/state"
-
-	"github.com/aquasecurity/trivy/pkg/iac/scan"
-
 	"github.com/stretchr/testify/assert"
+
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws"
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/ec2"
+	"github.com/aquasecurity/trivy/pkg/iac/scan"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 )
 
 func TestCheckNoPublicIngress(t *testing.T) {
 	tests := []struct {
 		name     string
-		input    ec2.EC2
+		input    ec2.NetworkACLRule
 		expected bool
 	}{
 		{
-			name: "AWS VPC network ACL rule with wildcard address",
-			input: ec2.EC2{
-				NetworkACLs: []ec2.NetworkACL{
-					{
-						Metadata: trivyTypes.NewTestMetadata(),
-						Rules: []ec2.NetworkACLRule{
-							{
-								Metadata: trivyTypes.NewTestMetadata(),
-								Type:     trivyTypes.String(ec2.TypeIngress, trivyTypes.NewTestMetadata()),
-								Action:   trivyTypes.String(ec2.ActionAllow, trivyTypes.NewTestMetadata()),
-								CIDRs: []trivyTypes.StringValue{
-									trivyTypes.String("0.0.0.0/0", trivyTypes.NewTestMetadata()),
-								},
-							},
-						},
-					},
+			name: "The rule allow traffic from all possible IPv4 addresses",
+			input: ec2.NetworkACLRule{
+				Type:   trivyTypes.StringTest(ec2.TypeIngress),
+				Action: trivyTypes.StringTest(ec2.ActionAllow),
+				CIDRs: []trivyTypes.StringValue{
+					trivyTypes.StringTest("0.0.0.0/0"),
 				},
+				Protocol: trivyTypes.StringTest("tcp"),
+				FromPort: trivyTypes.IntTest(22),
+				ToPort:   trivyTypes.IntTest(22),
 			},
 			expected: true,
 		},
 		{
-			name: "AWS VPC network ACL rule with private address",
-			input: ec2.EC2{
-				NetworkACLs: []ec2.NetworkACL{
-					{
-						Metadata: trivyTypes.NewTestMetadata(),
-						Rules: []ec2.NetworkACLRule{
-							{
-								Metadata: trivyTypes.NewTestMetadata(),
-								Type:     trivyTypes.String(ec2.TypeIngress, trivyTypes.NewTestMetadata()),
-								Action:   trivyTypes.String(ec2.ActionAllow, trivyTypes.NewTestMetadata()),
-								CIDRs: []trivyTypes.StringValue{
-									trivyTypes.String("10.0.0.0/16", trivyTypes.NewTestMetadata()),
-								},
-							},
-						},
-					},
+			name: "The rule allow traffic from restricted IPv4 addresses",
+			input: ec2.NetworkACLRule{
+				Type:   trivyTypes.StringTest(ec2.TypeIngress),
+				Action: trivyTypes.StringTest(ec2.ActionAllow),
+				CIDRs: []trivyTypes.StringValue{
+					trivyTypes.StringTest("10.0.0.0/16"),
 				},
+				Protocol: trivyTypes.StringTest("-1"),
+			},
+			expected: false,
+		},
+		{
+			name: "The rule allow traffic from all possible IPv6 addresses",
+			input: ec2.NetworkACLRule{
+				Type:   trivyTypes.StringTest(ec2.TypeIngress),
+				Action: trivyTypes.StringTest(ec2.ActionAllow),
+				CIDRs: []trivyTypes.StringValue{
+					trivyTypes.StringTest("::/0"),
+					trivyTypes.StringTest("0000:0000:0000:0000:0000:0000:0000:0000/0"),
+				},
+				Protocol: trivyTypes.StringTest("-1"),
+			},
+			expected: true,
+		},
+		{
+			name: "The rule allow traffic from restricted IPv6 addresses",
+			input: ec2.NetworkACLRule{
+				Type:   trivyTypes.StringTest(ec2.TypeIngress),
+				Action: trivyTypes.StringTest(ec2.ActionAllow),
+				CIDRs: []trivyTypes.StringValue{
+					trivyTypes.StringTest("2b5b:1e49:8d01:c2ac:fffd:833e:dfee:13a4/64"),
+				},
+				Protocol: trivyTypes.StringTest("-1"),
+			},
+			expected: false,
+		},
+		{
+			name: "The rule deny traffic from all possible IPv4 addresses",
+			input: ec2.NetworkACLRule{
+				Type:   trivyTypes.StringTest(ec2.TypeIngress),
+				Action: trivyTypes.StringTest(ec2.ActionDeny),
+				CIDRs: []trivyTypes.StringValue{
+					trivyTypes.StringTest("0.0.0.0/0"),
+				},
+				Protocol: trivyTypes.StringTest("tcp"),
+				FromPort: trivyTypes.IntTest(22),
+				ToPort:   trivyTypes.IntTest(22),
+			},
+			expected: false,
+		},
+		{
+			name: "The rule allow traffic to non administrative ports",
+			input: ec2.NetworkACLRule{
+				Type:   trivyTypes.StringTest(ec2.TypeIngress),
+				Action: trivyTypes.StringTest(ec2.ActionAllow),
+				CIDRs: []trivyTypes.StringValue{
+					trivyTypes.StringTest("0.0.0.0/0"),
+				},
+				Protocol: trivyTypes.StringTest("tcp"),
+				FromPort: trivyTypes.IntTest(16),
+				ToPort:   trivyTypes.IntTest(16),
+			},
+			expected: false,
+		},
+		{
+			name: "The egress rule",
+			input: ec2.NetworkACLRule{
+				Type:   trivyTypes.StringTest(ec2.TypeEgress),
+				Action: trivyTypes.StringTest(ec2.ActionAllow),
+				CIDRs: []trivyTypes.StringValue{
+					trivyTypes.StringTest("0.0.0.0/0"),
+				},
+				Protocol: trivyTypes.StringTest("tcp"),
+				FromPort: trivyTypes.IntTest(22),
+				ToPort:   trivyTypes.IntTest(22),
 			},
 			expected: false,
 		},
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			var testState state.State
-			testState.AWS.EC2 = test.input
+			testState := state.State{
+				AWS: aws.AWS{EC2: ec2.EC2{NetworkACLs: []ec2.NetworkACL{
+					{
+						Rules: []ec2.NetworkACLRule{
+							test.input,
+						},
+					},
+				}}},
+			}
 			results := CheckNoPublicIngress.Evaluate(&testState)
 			var found bool
 			for _, result := range results {

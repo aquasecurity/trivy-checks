@@ -1,5 +1,5 @@
 
-Set a more restrictive cidr range
+Set a more restrictive CIDR range
 
 ```hcl
  resource "aws_security_group_rule" "good_example" {
