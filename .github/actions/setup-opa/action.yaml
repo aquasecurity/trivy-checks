@@ -3,11 +3,11 @@ description: Setup OPA CLI
 runs:
   using: composite
   steps:
-    - name: Setup OPA v0.58.0
+    - name: Setup OPA
       shell: bash
       run: |
-        curl --retry 3 -L -o opa_linux_amd64_static https://github.com/open-policy-agent/opa/releases/download/v0.58.0/opa_linux_amd64_static 
-        curl -L -o checksum https://github.com/open-policy-agent/opa/releases/download/v0.58.0/opa_linux_amd64_static.sha256
+        curl --retry 3 -L -o opa_linux_amd64_static https://github.com/open-policy-agent/opa/releases/download/v0.65.0/opa_linux_amd64_static
+        curl -L -o checksum https://github.com/open-policy-agent/opa/releases/download/v0.65.0/opa_linux_amd64_static.sha256
         sha256sum -c checksum
         chmod 755 ./opa_linux_amd64_static
         sudo mv ./opa_linux_amd64_static /usr/local/bin/opa
