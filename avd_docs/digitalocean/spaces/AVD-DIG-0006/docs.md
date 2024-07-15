@@ -1,8 +1,9 @@
 
 Space bucket and bucket object permissions should be set to deny public access unless explicitly required.
 
+
 ### Impact
-The contents of the space can be accessed publicly
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
