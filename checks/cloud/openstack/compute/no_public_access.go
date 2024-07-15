@@ -26,7 +26,8 @@ var CheckNoPublicAccess = rules.Register(
 			Links:               terraformNoPublicAccessLinks,
 			RemediationMarkdown: terraformNoPublicAccessRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, rule := range s.OpenStack.Compute.Firewall.AllowRules {
