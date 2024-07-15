@@ -25,7 +25,8 @@ var CheckNoPlaintextPassword = rules.Register(
 			Links:               terraformNoPlaintextPasswordLinks,
 			RemediationMarkdown: terraformNoPlaintextPasswordRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.OpenStack.Compute.Instances {
