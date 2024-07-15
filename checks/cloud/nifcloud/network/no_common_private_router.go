@@ -28,7 +28,8 @@ var CheckNoCommonPrivateRouter = rules.Register(
 			Links:               terraformNoCommonPrivateRouterLinks,
 			RemediationMarkdown: terraformNoCommonPrivateRouterRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, router := range s.Nifcloud.Network.Routers {
