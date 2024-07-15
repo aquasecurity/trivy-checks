@@ -1,8 +1,9 @@
 
 Automated backups are not enabled by default. Backups are an easy way to restore data in a corruption or data-loss scenario.
 
+
 ### Impact
-No recovery of lost or corrupted data
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
