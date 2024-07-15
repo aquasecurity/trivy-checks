@@ -29,7 +29,8 @@ var CheckNoPublicIngressNASSgr = rules.Register(
 			Links:               terraformNoPublicIngressNASSgrLinks,
 			RemediationMarkdown: terraformNoPublicIngressNASSgrRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, group := range s.Nifcloud.NAS.NASSecurityGroups {
