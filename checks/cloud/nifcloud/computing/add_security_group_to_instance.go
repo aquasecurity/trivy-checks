@@ -28,7 +28,8 @@ var CheckAddSecurityGroupToInstance = rules.Register(
 			Links:               terraformAddSecurityGroupToInstanceLinks,
 			RemediationMarkdown: terraformAddSecurityGroupToInstanceRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.Nifcloud.Computing.Instances {

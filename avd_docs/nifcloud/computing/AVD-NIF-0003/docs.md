@@ -3,8 +3,9 @@ Security group rules should include a description for auditing purposes.
 
 Simplifies auditing, debugging, and managing security groups.
 
+
 ### Impact
-Descriptions provide context for the firewall rule reasons
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

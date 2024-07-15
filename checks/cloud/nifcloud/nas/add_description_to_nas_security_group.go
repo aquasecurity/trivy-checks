@@ -30,7 +30,8 @@ Simplifies auditing, debugging, and managing nas security groups.`,
 			Links:               terraformAddDescriptionToNASSecurityGroupLinks,
 			RemediationMarkdown: terraformAddDescriptionToNASSecurityGroupRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, group := range s.Nifcloud.NAS.NASSecurityGroups {

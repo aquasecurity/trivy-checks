@@ -29,7 +29,8 @@ var CheckNoPublicIngressDBSgr = rules.Register(
 			Links:               terraformNoPublicIngressDBSgrLinks,
 			RemediationMarkdown: terraformNoPublicIngressDBSgrRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, group := range s.Nifcloud.RDB.DBSecurityGroups {

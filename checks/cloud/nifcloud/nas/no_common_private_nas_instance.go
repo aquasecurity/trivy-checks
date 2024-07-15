@@ -28,7 +28,8 @@ var CheckNoCommonPrivateNASInstance = rules.Register(
 			Links:               terraformNoCommonPrivateNASInstanceLinks,
 			RemediationMarkdown: terraformNoCommonPrivateNASInstanceRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.Nifcloud.NAS.NASInstances {

@@ -30,7 +30,8 @@ Simplifies auditing, debugging, and managing security groups.`,
 			Links:               terraformAddDescriptionToSecurityGroupLinks,
 			RemediationMarkdown: terraformAddDescriptionToSecurityGroupRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, group := range s.Nifcloud.Computing.SecurityGroups {
