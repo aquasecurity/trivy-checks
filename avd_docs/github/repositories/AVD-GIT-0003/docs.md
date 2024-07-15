@@ -3,8 +3,9 @@ GitHub repository should be set to use vulnerability alerts.
 
 You can do this by setting the <code>vulnerability_alerts</code> attribute to 'true'.
 
+
 ### Impact
-Known vulnerabilities may not be discovered
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
