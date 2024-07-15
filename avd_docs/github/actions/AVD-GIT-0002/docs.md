@@ -1,8 +1,9 @@
 
 For the purposes of security, the contents of the plaintext_value field have been marked as sensitive to Terraform, but this does not hide it from state files. State should be treated as sensitive always.
 
+
 ### Impact
-Unencrypted sensitive plaintext value can be easily accessible in code.
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
