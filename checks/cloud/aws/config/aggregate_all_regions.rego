@@ -36,7 +36,7 @@ import rego.v1
 
 deny contains res if {
 	cfg_aggregator := input.aws.config.configurationaggregrator
-	cfg_aggregator.__defsec_metadata.managed
+	isManaged(cfg_aggregator)
 	not cfg_aggregator.sourceallregions.value
 	res := result.new("Configuration aggregation is not set to source from all regions.", cfg_aggregator.sourceallregions)
 }
