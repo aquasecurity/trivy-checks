@@ -1,8 +1,9 @@
 
 Setting the minimum log severity too high will cause errors not to be logged
 
+
 ### Impact
-Loss of error logging
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

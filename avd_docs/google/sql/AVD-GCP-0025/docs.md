@@ -1,8 +1,9 @@
 
 Logging checkpoints provides useful diagnostic data, which can identify performance issues in an application and potential DoS vectors.
 
+
 ### Impact
-Insufficient diagnostic data.
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

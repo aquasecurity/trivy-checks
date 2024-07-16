@@ -27,7 +27,8 @@ var CheckEncryptInTransitData = rules.Register(
 			Links:               terraformEncryptInTransitDataLinks,
 			RemediationMarkdown: terraformEncryptInTransitDataRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.Google.SQL.Instances {

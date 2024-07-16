@@ -1,8 +1,9 @@
 
 Database instances should be configured so that they are not available over the public internet, but to internal compute resources which access them.
 
+
 ### Impact
-Public exposure of sensitive data
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

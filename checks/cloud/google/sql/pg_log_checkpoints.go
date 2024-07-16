@@ -28,7 +28,8 @@ var CheckPgLogCheckpoints = rules.Register(
 			Links:               terraformPgLogCheckpointsLinks,
 			RemediationMarkdown: terraformPgLogCheckpointsRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.Google.SQL.Instances {

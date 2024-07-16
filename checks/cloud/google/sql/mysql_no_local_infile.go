@@ -28,7 +28,8 @@ var CheckMysqlNoLocalInfile = rules.Register(
 			Links:               terraformMysqlNoLocalInfileLinks,
 			RemediationMarkdown: terraformMysqlNoLocalInfileRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.Google.SQL.Instances {
