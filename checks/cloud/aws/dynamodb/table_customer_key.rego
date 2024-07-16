@@ -39,6 +39,11 @@ deny contains res if {
 deny contains res if {
 	some table in input.aws.dynamodb.tables
 	table.serversideencryption.enabled.value
-	table.serversideencryption.kmskeyid.value == ""
+	not valid_key(table.serversideencryption.kmskeyid.value)
 	res := result.new("Table encryption explicitly uses the default KMS key.", table.serversideencryption.kmskeyid)
+}
+
+valid_key(k) if {
+	k != ""
+	k != "alias/aws/dynamodb"
 }
