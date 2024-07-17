@@ -1,5 +1,5 @@
 
-Use managed keys 
+Use managed keys
 
 ```hcl
  resource "google_service_account" "default" {

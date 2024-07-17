@@ -1,8 +1,9 @@
 
 Sensitive values such as raw encryption keys should not be included in your Terraform code, and should be stored securely by a secrets manager.
 
+
 ### Impact
-The encryption key should be considered compromised as it is not stored securely.
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

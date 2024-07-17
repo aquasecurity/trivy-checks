@@ -25,7 +25,8 @@ var CheckNoDefaultServiceAccount = rules.Register(
 			Links:               terraformNoDefaultServiceAccountLinks,
 			RemediationMarkdown: terraformNoDefaultServiceAccountRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.Google.Compute.Instances {
