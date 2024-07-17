@@ -25,7 +25,8 @@ var CheckVmDiskEncryptionCustomerKey = rules.Register(
 			Links:               terraformVmDiskEncryptionCustomerKeyLinks,
 			RemediationMarkdown: terraformVmDiskEncryptionCustomerKeyRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.Google.Compute.Instances {

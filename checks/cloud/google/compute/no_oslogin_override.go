@@ -25,7 +25,8 @@ var CheckNoOsloginOverride = rules.Register(
 			Links:               terraformNoOsloginOverrideLinks,
 			RemediationMarkdown: terraformNoOsloginOverrideRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.Google.Compute.Instances {

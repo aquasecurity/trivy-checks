@@ -1,8 +1,9 @@
 
 Integrity monitoring helps you understand and make decisions about the state of your VM instances.
 
+
 ### Impact
-No visibility of VM instance boot state.
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
