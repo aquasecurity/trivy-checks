@@ -26,7 +26,8 @@ var CheckNodePoolUsesCos = rules.Register(
 			Links:               terraformNodePoolUsesCosLinks,
 			RemediationMarkdown: terraformNodePoolUsesCosRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.Google.GKE.Clusters {

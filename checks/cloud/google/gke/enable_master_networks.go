@@ -25,7 +25,8 @@ var CheckEnableMasterNetworks = rules.Register(
 			Links:               terraformEnableMasterNetworksLinks,
 			RemediationMarkdown: terraformEnableMasterNetworksRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.Google.GKE.Clusters {

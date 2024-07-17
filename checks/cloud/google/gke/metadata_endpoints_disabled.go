@@ -33,7 +33,8 @@ When setting the <code>metadata</code> block, the default value for <code>disabl
 			Links:               terraformMetadataEndpointsDisabledLinks,
 			RemediationMarkdown: terraformMetadataEndpointsDisabledRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.Google.GKE.Clusters {
