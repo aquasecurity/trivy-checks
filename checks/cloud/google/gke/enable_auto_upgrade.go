@@ -25,7 +25,8 @@ var CheckEnableAutoUpgrade = rules.Register(
 			Links:               terraformEnableAutoUpgradeLinks,
 			RemediationMarkdown: terraformEnableAutoUpgradeRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.Google.GKE.Clusters {

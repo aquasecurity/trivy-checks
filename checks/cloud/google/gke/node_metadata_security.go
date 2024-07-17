@@ -29,7 +29,8 @@ The attribute should be set to <code>SECURE</code> to use metadata concealment, 
 			Links:               terraformNodeMetadataSecurityLinks,
 			RemediationMarkdown: terraformNodeMetadataSecurityRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.Google.GKE.Clusters {
