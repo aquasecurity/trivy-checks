@@ -27,7 +27,8 @@ var CheckNoProjectLevelServiceAccountImpersonation = rules.Register(
 			Links:               terraformNoProjectLevelServiceAccountImpersonationLinks,
 			RemediationMarkdown: terraformNoProjectLevelServiceAccountImpersonationRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, project := range s.Google.IAM.AllProjects() {

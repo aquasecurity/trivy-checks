@@ -27,7 +27,8 @@ var CheckNoOrgLevelServiceAccountImpersonation = rules.Register(
 			Links:               terraformNoOrgLevelServiceAccountImpersonationLinks,
 			RemediationMarkdown: terraformNoOrgLevelServiceAccountImpersonationRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, org := range s.Google.IAM.Organizations {

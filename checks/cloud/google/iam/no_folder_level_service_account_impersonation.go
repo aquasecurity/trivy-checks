@@ -27,7 +27,8 @@ var CheckNoFolderLevelServiceAccountImpersonation = rules.Register(
 			Links:               terraformNoFolderLevelServiceAccountImpersonationLinks,
 			RemediationMarkdown: terraformNoFolderLevelServiceAccountImpersonationRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, folder := range s.Google.IAM.AllFolders() {
