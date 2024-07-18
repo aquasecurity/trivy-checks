@@ -27,7 +27,8 @@ var CheckUseRbacPermissions = rules.Register(
 			Links:               terraformUseRbacPermissionsLinks,
 			RemediationMarkdown: terraformUseRbacPermissionsRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.Azure.Container.KubernetesClusters {

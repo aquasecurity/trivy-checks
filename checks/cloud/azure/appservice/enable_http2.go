@@ -25,7 +25,8 @@ var CheckEnableHttp2 = rules.Register(
 			Links:               terraformEnableHttp2Links,
 			RemediationMarkdown: terraformEnableHttp2RemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, service := range s.Azure.AppService.Services {
