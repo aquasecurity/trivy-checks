@@ -1,8 +1,9 @@
 
 Images in the ECR repository are encrypted by default using AWS managed encryption keys. To increase control of the encryption and control the management of factors like key rotation, use a Customer Managed Key.
 
+
 ### Impact
-Using AWS managed keys does not allow for fine grained control
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

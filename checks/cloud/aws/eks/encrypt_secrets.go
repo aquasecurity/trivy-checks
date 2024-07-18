@@ -33,7 +33,8 @@ var CheckEncryptSecrets = rules.Register(
 			Links:               cloudFormationEncryptSecretsLinks,
 			RemediationMarkdown: cloudFormationEncryptSecretsRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.AWS.EKS.Clusters {

@@ -35,7 +35,8 @@ var CheckNoPublicClusterAccessToCidr = rules.Register(
 			Links:               terraformNoPublicClusterAccessToCidrLinks,
 			RemediationMarkdown: terraformNoPublicClusterAccessToCidrRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.AWS.EKS.Clusters {

@@ -27,7 +27,8 @@ var CheckEnableControlPlaneLogging = rules.Register(
 			Links:               terraformEnableControlPlaneLoggingLinks,
 			RemediationMarkdown: terraformEnableControlPlaneLoggingRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.AWS.EKS.Clusters {

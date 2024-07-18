@@ -33,7 +33,8 @@ var CheckEnableImageScans = rules.Register(
 			Links:               cloudFormationEnableImageScansLinks,
 			RemediationMarkdown: cloudFormationEnableImageScansRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, repo := range s.AWS.ECR.Repositories {
