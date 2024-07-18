@@ -3,8 +3,9 @@ When Auditing is configured for a SQL database, if the retention period is not s
 
 If the retention period is to be explicitly set, it should be set for no less than 90 days.
 
+
 ### Impact
-Short logging retention could result in missing valuable historical information
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

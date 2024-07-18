@@ -27,7 +27,8 @@ var CheckEnableDiskEncryption = rules.Register(
 			Links:               terraformEnableDiskEncryptionLinks,
 			RemediationMarkdown: terraformEnableDiskEncryptionRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, disk := range s.Azure.Compute.ManagedDisks {

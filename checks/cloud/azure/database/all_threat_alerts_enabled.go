@@ -25,7 +25,8 @@ var CheckAllThreatAlertsEnabled = rules.Register(
 			Links:               terraformAllThreatAlertsEnabledLinks,
 			RemediationMarkdown: terraformAllThreatAlertsEnabledRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, server := range s.Azure.Database.MSSQLServers {

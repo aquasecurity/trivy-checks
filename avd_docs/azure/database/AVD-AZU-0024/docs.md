@@ -1,8 +1,9 @@
 
 Postgresql can generate logs for checkpoints to improve visibility for audit and configuration issue resolution.
 
+
 ### Impact
-No error and query logs generated on checkpoint
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
