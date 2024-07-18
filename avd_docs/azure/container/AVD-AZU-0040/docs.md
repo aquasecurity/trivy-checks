@@ -1,8 +1,9 @@
 
 Ensure AKS logging to Azure Monitoring is configured for containers to monitor the performance of workloads.
 
+
 ### Impact
-Logging provides valuable information about access and usage
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

@@ -28,7 +28,8 @@ var CheckEnforceHttps = rules.Register(
 			Links:               terraformEnforceHttpsLinks,
 			RemediationMarkdown: terraformEnforceHttpsRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, functionApp := range s.Azure.AppService.FunctionApps {
