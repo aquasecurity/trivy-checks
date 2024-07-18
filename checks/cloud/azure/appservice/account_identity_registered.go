@@ -25,7 +25,8 @@ var CheckAccountIdentityRegistered = rules.Register(
 			Links:               terraformAccountIdentityRegisteredLinks,
 			RemediationMarkdown: terraformAccountIdentityRegisteredRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, service := range s.Azure.AppService.Services {
