@@ -14,10 +14,10 @@ var CheckPrivate = rules.Register(
 		Provider:   providers.GitHubProvider,
 		Service:    "repositories",
 		ShortCode:  "private",
-		Summary:    "Github repository shouldn't be public.",
+		Summary:    "GitHub repository shouldn't be public.",
 		Impact:     "Anyone can read the contents of the GitHub repository and leak IP",
 		Resolution: "Make sensitive or commercially important repositories private",
-		Explanation: `Github repository should be set to be private.
+		Explanation: `GitHub repository should be set to be private.
 
 You can do this by either setting <code>private</code> attribute to 'true' or <code>visibility</code> attribute to 'internal' or 'private'.`,
 		Links: []string{
@@ -30,7 +30,8 @@ You can do this by either setting <code>private</code> attribute to 'true' or <c
 			Links:               terraformPrivateLinks,
 			RemediationMarkdown: terraformPrivateRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, repo := range s.GitHub.Repositories {
