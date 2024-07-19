@@ -1,5 +1,5 @@
 
- Set alert notifications to be on
+Set alert notifications to be on
 
 ```hcl
 		resource "azurerm_security_center_contact" "good_example" {
