@@ -1,8 +1,9 @@
 
 Log profiles should capture all regions to ensure that all events are logged
 
+
 ### Impact
-Activity may be occurring in locations that aren't being monitored
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

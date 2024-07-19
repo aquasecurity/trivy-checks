@@ -35,7 +35,8 @@ var CheckCaptureAllRegions = rules.Register(
 			Links:               terraformCaptureAllRegionsLinks,
 			RemediationMarkdown: terraformCaptureAllRegionsRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, profile := range s.Azure.Monitor.LogProfiles {

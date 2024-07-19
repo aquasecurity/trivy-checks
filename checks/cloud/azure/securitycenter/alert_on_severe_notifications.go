@@ -28,7 +28,8 @@ Microsoft will notify the security contact directly in the event of a security i
 			Links:               terraformAlertOnSevereNotificationsLinks,
 			RemediationMarkdown: terraformAlertOnSevereNotificationsRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, contact := range s.Azure.SecurityCenter.Contacts {

@@ -30,7 +30,8 @@ Setting an retention policy will help ensure as much information is available fo
 			Links:               terraformRetentionPolicySetLinks,
 			RemediationMarkdown: terraformRetentionPolicySetRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, flowLog := range s.Azure.Network.NetworkWatcherFlowLogs {
