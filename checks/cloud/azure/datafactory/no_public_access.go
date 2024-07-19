@@ -29,7 +29,8 @@ Disabling public network access is applicable only to the self-hosted integratio
 			Links:               terraformNoPublicAccessLinks,
 			RemediationMarkdown: terraformNoPublicAccessRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, factory := range s.Azure.DataFactory.DataFactories {

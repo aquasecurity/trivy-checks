@@ -3,8 +3,9 @@ Expiration Date is an optional Key Vault Secret behavior and is not set by defau
 
 Set when the resource will be become inactive.
 
+
 ### Impact
-Long life secrets increase the opportunity for compromise
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
