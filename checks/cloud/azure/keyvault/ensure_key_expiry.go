@@ -29,7 +29,8 @@ Set when the resource will be become inactive.`,
 			Links:               terraformEnsureKeyExpiryLinks,
 			RemediationMarkdown: terraformEnsureKeyExpiryRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, vault := range s.Azure.KeyVault.Vaults {
