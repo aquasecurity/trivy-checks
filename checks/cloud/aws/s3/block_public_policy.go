@@ -36,7 +36,8 @@ S3 bucket policy should have block public policy to prevent users from putting a
 			Links:               cloudFormationBlockPublicPolicyLinks,
 			RemediationMarkdown: cloudFormationBlockPublicPolicyRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, bucket := range s.AWS.S3.Buckets {

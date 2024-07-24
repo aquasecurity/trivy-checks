@@ -33,7 +33,8 @@ var CheckBucketsHavePublicAccessBlocks = rules.Register(
 			Links:               cloudFormationSpecifyPublicAccessBlockLinks,
 			RemediationMarkdown: cloudFormationSpecifyPublicAccessBlockRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, bucket := range s.AWS.S3.Buckets {
