@@ -33,7 +33,8 @@ var CheckPublicBucketsAreRestricted = rules.Register(
 			Links:               cloudFormationNoPublicBucketsLinks,
 			RemediationMarkdown: cloudFormationNoPublicBucketsRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, bucket := range s.AWS.S3.Buckets {

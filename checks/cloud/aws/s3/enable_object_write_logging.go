@@ -36,6 +36,7 @@ Enabling object-level logging will help you meet data compliance requirements wi
 			Links:               terraformEnableObjectWriteLoggingLinks,
 			RemediationMarkdown: terraformEnableObjectWriteLoggingRemediationMarkdown,
 		},
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, bucket := range s.AWS.S3.Buckets {

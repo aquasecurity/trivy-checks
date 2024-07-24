@@ -1,10 +1,9 @@
 
-
 S3 bucket policy should have block public policy to prevent users from putting a policy that enable public access.
 
 
 ### Impact
-Users could put a policy that allows public access
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
