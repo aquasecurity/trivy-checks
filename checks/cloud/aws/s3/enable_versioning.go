@@ -37,7 +37,8 @@ With versioning you can recover more easily from both unintended user actions an
 			Links:               cloudFormationEnableVersioningLinks,
 			RemediationMarkdown: cloudFormationEnableVersioningRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, bucket := range s.AWS.S3.Buckets {
