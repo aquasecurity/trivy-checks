@@ -27,7 +27,8 @@ The compute instance has the ability to be reached from outside, you might want 
 			Links:               terraformNoPublicIpLinks,
 			RemediationMarkdown: terraformNoPublicIpRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, reservation := range s.Oracle.Compute.AddressReservations {
