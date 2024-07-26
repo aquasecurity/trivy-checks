@@ -27,7 +27,8 @@ var CheckAclNoPublicRead = rules.Register(
 			Links:               terraformAclNoPublicReadLinks,
 			RemediationMarkdown: terraformAclNoPublicReadRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, bucket := range s.DigitalOcean.Spaces.Buckets {
