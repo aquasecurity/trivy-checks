@@ -1,5 +1,5 @@
 
-Set a more restrictive cidr range
+Set a more restrictive CIDR range
 
 ```yaml---
 AWSTemplateFormatVersion: 2010-09-09

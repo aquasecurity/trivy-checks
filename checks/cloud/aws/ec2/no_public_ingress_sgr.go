@@ -1,13 +1,17 @@
 package ec2
 
 import (
-	"github.com/aquasecurity/trivy-checks/internal/cidr"
 	"github.com/aquasecurity/trivy-checks/pkg/rules"
 	"github.com/aquasecurity/trivy/pkg/iac/framework"
 	"github.com/aquasecurity/trivy/pkg/iac/providers"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
 	"github.com/aquasecurity/trivy/pkg/iac/severity"
 	"github.com/aquasecurity/trivy/pkg/iac/state"
+)
+
+const (
+	sshPort = 22
+	rdpPort = 3389
 )
 
 var CheckNoPublicIngressSgr = rules.Register(
@@ -20,11 +24,14 @@ var CheckNoPublicIngressSgr = rules.Register(
 		Frameworks: map[framework.Framework][]string{
 			framework.Default:     nil,
 			framework.CIS_AWS_1_2: {"4.1", "4.2"},
+			framework.CIS_AWS_1_4: {"5.2"},
 		},
-		Summary:     "An ingress security group rule allows traffic from /0.",
-		Impact:      "Your port exposed to the internet",
-		Resolution:  "Set a more restrictive cidr range",
-		Explanation: `Opening up ports to the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that explicitly require it where possible.`,
+		Summary:    "Security groups should not allow ingress from 0.0.0.0/0 or ::/0 to port 22 or port 3389.",
+		Impact:     "Public access to remote server administration ports, such as 22 and 3389, increases resource attack surface and unnecessarily raises the risk of resource compromise.",
+		Resolution: "Set a more restrictive CIDR range",
+		Explanation: `Security groups provide stateful filtering of ingress and egress network traffic to AWS
+resources. It is recommended that no security group allows unrestricted ingress access to
+remote server administration ports, such as SSH to port 22 and RDP to port 3389.`,
 		Links: []string{
 			"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html",
 		},
@@ -40,18 +47,22 @@ var CheckNoPublicIngressSgr = rules.Register(
 			Links:               cloudFormationNoPublicIngressSgrLinks,
 			RemediationMarkdown: cloudFormationNoPublicIngressSgrRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity: severity.High,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, group := range s.AWS.EC2.SecurityGroups {
 			for _, rule := range group.IngressRules {
+				if !(rule.Protocol.IsOneOf("-1", "all") ||
+					isSSHOrRDP(rule.FromPort.Value(), rule.ToPort.Value())) {
+					continue
+				}
 				var failed bool
-				for _, block := range rule.CIDRs {
-					if cidr.IsPublic(block.Value()) && cidr.CountAddresses(block.Value()) > 1 {
+				for _, cidr := range rule.CIDRs {
+					if isAllIPAddress(cidr.Value()) {
 						failed = true
 						results.Add(
-							"Security group rule allows ingress from public internet.",
-							block,
+							"Security group rule allows ingress from 0.0.0.0/0 or ::/0 to port 22 or port 3389.",
+							cidr,
 						)
 					}
 				}
@@ -63,3 +74,15 @@ var CheckNoPublicIngressSgr = rules.Register(
 		return
 	},
 )
+
+func isSSHOrRDP(from, to int) bool {
+	return containsPort(from, to, sshPort) || containsPort(from, to, rdpPort)
+}
+
+func isAllIPAddress(cidr string) bool {
+	return cidr == "0.0.0.0/0" || cidr == "0000:0000:0000:0000:0000:0000:0000:0000/0" || cidr == "::/0"
+}
+
+func containsPort(from, to, port int) bool {
+	return from <= port && port <= to
+}
