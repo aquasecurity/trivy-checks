@@ -33,7 +33,8 @@ var CheckEnableDomainEncryption = rules.Register(
 			Links:               cloudFormationEnableDomainEncryptionLinks,
 			RemediationMarkdown: cloudFormationEnableDomainEncryptionRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, domain := range s.AWS.Elasticsearch.Domains {

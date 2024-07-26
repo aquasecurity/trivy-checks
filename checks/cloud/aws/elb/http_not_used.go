@@ -30,7 +30,8 @@ You should use HTTPS, which is HTTP over an encrypted (TLS) connection, meaning 
 			Links:               terraformHttpNotUsedLinks,
 			RemediationMarkdown: terraformHttpNotUsedRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, lb := range s.AWS.ELB.LoadBalancers {

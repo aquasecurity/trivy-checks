@@ -1,8 +1,9 @@
 
 Traffic flowing between Elasticsearch nodes should be encrypted to ensure sensitive data is kept private.
 
+
 ### Impact
-In transit data between nodes could be read if intercepted
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
