@@ -28,7 +28,8 @@ var CheckNoCommonPrivateInstance = rules.Register(
 			Links:               terraformNoCommonPrivateInstanceLinks,
 			RemediationMarkdown: terraformNoCommonPrivateInstanceRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.Nifcloud.Computing.Instances {

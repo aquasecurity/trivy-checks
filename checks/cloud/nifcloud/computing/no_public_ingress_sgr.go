@@ -31,7 +31,8 @@ When publishing web applications, use a load balancer instead of publishing dire
 			Links:               terraformNoPublicIngressSgrLinks,
 			RemediationMarkdown: terraformNoPublicIngressSgrRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, group := range s.Nifcloud.Computing.SecurityGroups {

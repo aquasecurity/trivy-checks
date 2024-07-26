@@ -1,8 +1,9 @@
 
 Backup retention periods should be set to a period that is a balance on cost and limiting risk.
 
+
 ### Impact
-Potential loss of data and short opportunity for recovery
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

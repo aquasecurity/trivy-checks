@@ -1,8 +1,9 @@
 
 When handling sensitive data between servers, please consider using a private LAN to isolate the private side network from the shared network.
 
+
 ### Impact
-The common private network is shared with other users
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

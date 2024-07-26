@@ -28,7 +28,8 @@ var CheckNoCommonPrivateDBInstance = rules.Register(
 			Links:               terraformNoCommonPrivateDBInstanceLinks,
 			RemediationMarkdown: terraformNoCommonPrivateDBInstanceRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.Nifcloud.RDB.DBInstances {
