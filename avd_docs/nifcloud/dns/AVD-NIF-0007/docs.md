@@ -1,10 +1,11 @@
 
+Removing verified record of TXT auth the risk that
 
-Removing verified record of TXT auth the risk that 
 If the authentication record remains, anyone can register the zone
 
+
 ### Impact
-Risk of DNS records be used by others
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
