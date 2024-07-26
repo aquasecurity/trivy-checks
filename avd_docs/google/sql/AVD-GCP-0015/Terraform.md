@@ -15,7 +15,7 @@ Enforce SSL for all connections
  				value           = "108.12.12.0/24"
  				name            = "internal"
  			}
- 			require_ssl = true
+ 			ssl_mode = "ENCRYPTED_ONLY"
  		}
  	}
  }
