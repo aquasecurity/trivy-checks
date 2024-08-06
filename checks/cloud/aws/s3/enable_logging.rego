@@ -29,9 +29,36 @@
 #       good_examples: "checks/cloud/aws/s3/enable_bucket_logging.cf.go"
 package builtin.aws.s3.aws0089
 
+import future.keywords.if
+import future.keywords.in
+
 deny[res] {
 	bucket := input.aws.s3.buckets[_]
-	not bucket.acl.value == "log-delivery-write"
+	not bucket_has_server_logging_access(bucket)
 	not bucket.logging.enabled.value
 	res := result.new("Bucket has logging disabled", bucket.logging.enabled)
+}
+
+bucket_has_server_logging_access(bucket) if {
+	bucket.acl.value == "log-delivery-write"
+}
+
+bucket_has_server_logging_access(bucket) if {
+	grant := bucket.grants[_]
+	has_write_acl_permission(grant.permissions)
+}
+
+has_write_acl_permission(permissions) if {
+	permission := permissions[_]
+	permission.value in {"WRITE", "FULL_CONTROL"}
+}
+
+bucket_has_server_logging_access(bucket) if {
+	policy := bucket.bucketpolicies[_]
+	doc := json.unmarshal(policy.document.value)
+	print(doc)
+	statement := doc.Statement[_]
+	statement.Effect == "Allow"
+	"s3:PutObject" in statement.Action
+	"logging.s3.amazonaws.com" in statement.Principal.Service
 }
