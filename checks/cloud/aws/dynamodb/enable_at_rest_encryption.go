@@ -34,7 +34,8 @@ var CheckEnableAtRestEncryption = rules.Register(
 			Links:               cloudFormationEnableAtRestEncryptionLinks,
 			RemediationMarkdown: cloudFormationEnableAtRestEncryptionRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.AWS.DynamoDB.DAXClusters {

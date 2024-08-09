@@ -1,4 +1,5 @@
 
+Realtime log analysis is not available without enabling CloudWatch logging.
 
 CloudTrail is a web service that records AWS API calls made in a given account. The recorded information includes the identity of the API caller, the time of the API call, the source IP address of the API caller, the request parameters, and the response elements returned by the AWS service.
 
@@ -8,7 +9,7 @@ For a trail that is enabled in all Regions in an account, CloudTrail sends log f
 
 
 ### Impact
-Realtime log analysis is not available without enabling CloudWatch logging
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

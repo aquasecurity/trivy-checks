@@ -17,7 +17,7 @@ for dir in kubernetes cloud docker; do
 done
 
 
-for dir in kubernetes docker; do
+for dir in kubernetes docker cloud test; do
     mkdir -p bundle/policies/$dir/lib
     rsync -avr --exclude="*_test.rego" --exclude="*.go" lib/$dir/* bundle/policies/$dir/lib
 done
