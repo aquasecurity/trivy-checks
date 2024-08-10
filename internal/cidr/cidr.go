@@ -42,7 +42,7 @@ func isPrivate(ip net.IP) bool {
 // overflows an unsigned 64-bit int, the maximum value of an unsigned 64-bit int will be
 // returned.
 func CountAddresses(inputCIDR string) uint64 {
-	if inputCIDR == "*" || inputCIDR == "internet" || inputCIDR == "any" {
+	if inputCIDR == "*" || strings.EqualFold(inputCIDR, "internet") || strings.EqualFold(inputCIDR, "any") {
 		return 0xffffffffffffffff
 	}
 	if !strings.Contains(inputCIDR, "/") {
@@ -67,9 +67,8 @@ func CountAddresses(inputCIDR string) uint64 {
 // IsPublic returns true if a provided IP is outside of the designated public ranges, or
 // true if either of the min/max addresses of a provided CIDR are outside of these ranges.
 func IsPublic(cidr string) bool {
-
 	// some providers use wildcards etc. instead of "0.0.0.0/0" :/
-	if cidr == "*" || cidr == "internet" || cidr == "any" {
+	if cidr == "*" || strings.EqualFold(cidr, "internet") || strings.EqualFold(cidr, "any") {
 		return true
 	}
 
