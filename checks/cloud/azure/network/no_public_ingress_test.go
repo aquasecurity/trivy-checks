@@ -20,7 +20,7 @@ func TestCheckNoPublicIngress(t *testing.T) {
 		expected bool
 	}{
 		{
-			name: "Security group inbound rule with wildcard source address",
+			name: "Security group inbound rule with asterisk wildcard source address",
 			input: network.Network{
 				SecurityGroups: []network.SecurityGroup{
 					{
@@ -32,6 +32,48 @@ func TestCheckNoPublicIngress(t *testing.T) {
 								Outbound: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
 								SourceAddresses: []trivyTypes.StringValue{
 									trivyTypes.String("*", trivyTypes.NewTestMetadata()),
+								},
+							},
+						},
+					},
+				},
+			},
+			expected: true,
+		},
+		{
+			name: "Security group inbound rule with lower case internet wildcard source address",
+			input: network.Network{
+				SecurityGroups: []network.SecurityGroup{
+					{
+						Metadata: trivyTypes.NewTestMetadata(),
+						Rules: []network.SecurityGroupRule{
+							{
+								Metadata: trivyTypes.NewTestMetadata(),
+								Allow:    trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								Outbound: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								SourceAddresses: []trivyTypes.StringValue{
+									trivyTypes.String("internet", trivyTypes.NewTestMetadata()),
+								},
+							},
+						},
+					},
+				},
+			},
+			expected: true,
+		},
+		{
+			name: "Security group inbound rule with upper case internet wildcard source address",
+			input: network.Network{
+				SecurityGroups: []network.SecurityGroup{
+					{
+						Metadata: trivyTypes.NewTestMetadata(),
+						Rules: []network.SecurityGroupRule{
+							{
+								Metadata: trivyTypes.NewTestMetadata(),
+								Allow:    trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								Outbound: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								SourceAddresses: []trivyTypes.StringValue{
+									trivyTypes.String("Internet", trivyTypes.NewTestMetadata()),
 								},
 							},
 						},
