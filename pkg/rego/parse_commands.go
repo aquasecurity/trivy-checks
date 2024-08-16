@@ -19,7 +19,7 @@ var shParseCommandsDecl = &rego.Function{
 	Memoize:     true,
 }
 
-var shParseCommandsImpl = func(c rego.BuiltinContext, a *ast.Term) (*ast.Term, error) {
+var shParseCommandsImpl = func(_ rego.BuiltinContext, a *ast.Term) (*ast.Term, error) {
 	astr, err := builtins.StringOperand(a.Value, 0)
 	if err != nil {
 		return nil, fmt.Errorf("invalid parameter type: %w", err)

@@ -75,6 +75,25 @@ func TestCheckNoExcessivePortAccess(t *testing.T) {
 			},
 			expected: false,
 		},
+		{
+			name: "Deny with protocol set to all",
+			input: ec2.EC2{
+				NetworkACLs: []ec2.NetworkACL{
+					{
+						Metadata: trivyTypes.NewTestMetadata(),
+						Rules: []ec2.NetworkACLRule{
+							{
+								Metadata: trivyTypes.NewTestMetadata(),
+								Protocol: trivyTypes.String("all", trivyTypes.NewTestMetadata()),
+								Type:     trivyTypes.String("ingress", trivyTypes.NewTestMetadata()),
+								Action:   trivyTypes.String("deny", trivyTypes.NewTestMetadata()),
+							},
+						},
+					},
+				},
+			},
+			expected: false,
+		},
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {

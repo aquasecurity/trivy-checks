@@ -1,8 +1,9 @@
 
 All artifacts produced by your CodeBuild project pipeline should always be encrypted
 
+
 ### Impact
-CodeBuild project artifacts are unencrypted
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
