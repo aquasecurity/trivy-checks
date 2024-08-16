@@ -14,3 +14,8 @@ bucket_has_public_exposure_acl(bucket) if {
 	not bucket.publicaccessblock.ignorepublicacls.value
 	not bucket.publicaccessblock.blockpublicacls.value
 }
+
+bucket_has_public_exposure_acl(bucket) if {
+	bucket.acl.value in public_acls
+	not bucket.publicaccessblock
+}

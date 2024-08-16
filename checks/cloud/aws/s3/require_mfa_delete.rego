@@ -35,6 +35,7 @@ import rego.v1
 
 deny contains res if {
 	some bucket in input.aws.s3.buckets
+	isManaged(bucket.versioning.mfadelete)
 	not bucket.versioning.mfadelete.value
 	res := result.new(
 		"Bucket does not have MFA deletion protection enabled",
