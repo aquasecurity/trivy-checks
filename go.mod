@@ -9,7 +9,7 @@ require (
 	github.com/docker/docker v26.1.3+incompatible
 	github.com/liamg/iamgo v0.0.9
 	github.com/liamg/memoryfs v1.6.0
-	github.com/open-policy-agent/opa v0.67.0
+	github.com/open-policy-agent/opa v0.67.1
 	github.com/owenrumney/squealer v1.2.2
 	github.com/samber/lo v1.39.0
 	github.com/stretchr/testify v1.9.0
