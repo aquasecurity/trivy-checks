@@ -49,7 +49,7 @@ has_ecr_action(statement) if {
 }
 
 has_public_access(statement) if {
-	statement.Principal.All
+	statement.Principal == "*"
 }
 
 has_public_access(statement) if {

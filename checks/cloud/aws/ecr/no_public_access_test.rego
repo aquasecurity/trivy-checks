@@ -18,7 +18,7 @@ test_allow_without_public_access if {
 test_deny_with_public_access_all if {
 	inp := {"aws": {"ecr": {"repositories": [{"policies": [{"document": {"value": json.marshal({"Statement": [{
 		"Action": ["ecr:*"],
-		"Principal": {"All": true},
+		"Principal": "*",
 	}]})}}]}]}}}
 
 	test.assert_equal_message("Policy provides public access to the ECR repository", check.deny) with input as inp

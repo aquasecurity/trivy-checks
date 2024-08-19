@@ -32,9 +32,9 @@ import rego.v1
 
 deny contains res if {
     some cluster in input.aws.eks.clusters
-    cluster.publicaccesenabled.value == true
-    some cidr in cluster.publicaccescidrs
-    cidr.is_public(cidr)
-    message := sprintf("Cluster allows access from a public CIDR: %s", [cidr.value])
-    res := result.new(message, cidr)
+    cluster.publicaccessenabled.value == true
+    some c in cluster.publicaccesscidrs
+    cidr.is_public(c.value)
+    message := sprintf("Cluster allows access from a public CIDR: %s", [c.value])
+    res := result.new(message, c)
 }

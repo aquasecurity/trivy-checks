@@ -11,10 +11,10 @@ test_deny_eks_cluster_with_public_access_and_public_cidr if {
             "eks": {
                 "clusters": [
                     {
-                        "publicaccesenabled": {
+                        "publicaccessenabled": {
                             "value": true
                         },
-                        "publicaccescidrs": [
+                        "publicaccesscidrs": [
                             {
                                 "value": "0.0.0.0/0"
                             }
@@ -34,10 +34,10 @@ test_allow_eks_cluster_without_public_access_and_public_cidr if {
             "eks": {
                 "clusters": [
                     {
-                        "publicaccesenabled": {
+                        "publicaccessenabled": {
                             "value": false
                         },
-                        "publicaccescidrs": [
+                        "publicaccesscidrs": [
                             {
                                 "value": "0.0.0.0/0"
                             }
@@ -57,10 +57,10 @@ test_allow_eks_cluster_without_public_access_and_public_cidr if {
             "eks": {
                 "clusters": [
                     {
-                        "publicaccesenabled": {
+                        "publicaccessenabled": {
                             "value": false
                         },
-                        "publicaccescidrs": [
+                        "publicaccesscidrs": [
                             {
                                 "value": "0.0.0.0/0"
                             }
