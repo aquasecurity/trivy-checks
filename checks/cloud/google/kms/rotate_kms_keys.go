@@ -25,7 +25,8 @@ var CheckRotateKmsKeys = rules.Register(
 			Links:               terraformRotateKmsKeysLinks,
 			RemediationMarkdown: terraformRotateKmsKeysRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, keyring := range s.Google.KMS.KeyRings {
