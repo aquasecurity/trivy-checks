@@ -54,9 +54,15 @@ func TestRegoChecks(t *testing.T) {
 		awsDocumentDBTestCases,
 		awsDynamodbTestCases,
 
-		googleDnsTestCases,
+    googleDnsTestCases,
 		googleKmsTestCases,
 		googleBigQueryTestCases,
+
+    githubTestCases,
+
+    nifcloudDnsTestCases,
+		nifcloudNetworkTestCases,
+		nifcloudSslCertificateTestCases,
 	)
 
 	regoScanner := rego.NewScanner(trivyTypes.SourceCloud)
