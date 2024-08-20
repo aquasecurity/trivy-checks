@@ -49,6 +49,7 @@ deny contains res if {
 
 deny contains res if {
 	some cluster in input.google.gke.clusters
+	not cluster.removedefaultnodepool.value
 	cluster.nodeconfig.enablelegacyendpoints.value == true
 	res := result.new(
 		"Cluster has legacy metadata endpoints enabled.",

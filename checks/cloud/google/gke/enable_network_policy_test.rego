@@ -8,8 +8,6 @@ import data.lib.test
 test_deny_network_policy_disabled if {
 	inp := {"google": {"gke": {"clusters": [{
 		"networkpolicy": {"enabled": {"value": false}},
-		"enableautpilot": {"value": false},
-		"datapathprovider": {"value": ""},
 	}]}}}
 
 	res := check.deny with input as inp

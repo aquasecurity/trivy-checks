@@ -30,8 +30,18 @@ import rego.v1
 
 deny contains res if {
 	some cluster in input.google.gke.clusters
-	cluster.networkpolicy.enabled.value == false
-	cluster.enableautpilot.value == false
-	cluster.datapathprovider.value != "ADVANCED_DATAPATH"
-	res := result.new("Cluster does not have a network policy enabled.", cluster.networkpolicy.enabled)
+	isManaged(cluster)
+	not networkpolicy_enabled(cluster)
+	not autopilot_enabled(cluster)
+	not dataplane_v2_enabled(cluster)
+	res := result.new(
+		"Cluster does not have a network policy enabled.", 
+		object.get(cluster.networkpolicy, "enabled", cluster.networkpolicy),
+	)
 }
+
+networkpolicy_enabled(cluster) if cluster.networkpolicy.enabled.value
+
+autopilot_enabled(cluster) if cluster.enableautpilot.value
+
+dataplane_v2_enabled(cluster) if cluster.datapathprovider.value == "ADVANCED_DATAPATH"
