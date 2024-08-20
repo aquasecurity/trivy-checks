@@ -30,10 +30,10 @@ package builtin.nifcloud.rdb.nifcloud0011
 
 import rego.v1
 
-# deny contains res if {
-#     some sg in input.nifcloud.rdb.dbsecuritygroups
-#     some cidr in sg.cidrs
-#     cidr.is_public(cidr.value)
-#     cidr.count_addresses(cidr.value) > 1
-#     res := result.new("DB Security group rule allows ingress from public internet.", cidr)
-# }
+deny contains res if {
+	some sg in input.nifcloud.rdb.dbsecuritygroups
+	some c in sg.cidrs
+	cidr.is_public(c.value)
+	cidr.count_addresses(c.value) > 1
+	res := result.new("DB Security group rule allows ingress from public internet.", c)
+}
