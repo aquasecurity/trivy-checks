@@ -3,8 +3,9 @@ GitHub branch protection should be set to require signed commits.
 
 You can do this by setting the <code>require_signed_commits</code> attribute to 'true'.
 
+
 ### Impact
-Commits may not be verified and signed as coming from a trusted developer
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
