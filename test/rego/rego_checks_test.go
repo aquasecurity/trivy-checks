@@ -54,7 +54,9 @@ func TestRegoChecks(t *testing.T) {
 		awsDocumentDBTestCases,
 		awsDynamodbTestCases,
 
-		nifcloudDnsTestCases,
+		githubTestCases,
+
+    nifcloudDnsTestCases,
 		nifcloudNetworkTestCases,
 		nifcloudSslCertificateTestCases,
 	)
