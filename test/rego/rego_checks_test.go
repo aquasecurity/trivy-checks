@@ -54,6 +54,10 @@ func TestRegoChecks(t *testing.T) {
 		awsDocumentDBTestCases,
 		awsDynamodbTestCases,
 
+		azureAppServiceTestCases,
+		azureAuthorizationTestCases,
+		azureContainerTestCases,
+
     googleDnsTestCases,
 		googleKmsTestCases,
 		googleBigQueryTestCases,

@@ -1,27 +1,17 @@
-package authorization
+package test
 
 import (
-	"testing"
-
-	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
-
-	"github.com/aquasecurity/trivy/pkg/iac/state"
-
+	"github.com/aquasecurity/trivy/pkg/iac/providers/azure"
 	"github.com/aquasecurity/trivy/pkg/iac/providers/azure/authorization"
-	"github.com/aquasecurity/trivy/pkg/iac/scan"
-
-	"github.com/stretchr/testify/assert"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 )
 
-func TestCheckLimitRoleActions(t *testing.T) {
-	tests := []struct {
-		name     string
-		input    authorization.Authorization
-		expected bool
-	}{
+var azureAuthorizationTestCases = testCases{
+	"AVD-AZU-0030": {
 		{
 			name: "Wildcard action with all scopes",
-			input: authorization.Authorization{
+			input: state.State{Azure: azure.Azure{Authorization: authorization.Authorization{
 				RoleDefinitions: []authorization.RoleDefinition{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
@@ -38,12 +28,12 @@ func TestCheckLimitRoleActions(t *testing.T) {
 						},
 					},
 				},
-			},
+			}}},
 			expected: true,
 		},
 		{
 			name: "Wildcard action with specific scope",
-			input: authorization.Authorization{
+			input: state.State{Azure: azure.Azure{Authorization: authorization.Authorization{
 				RoleDefinitions: []authorization.RoleDefinition{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
@@ -60,26 +50,8 @@ func TestCheckLimitRoleActions(t *testing.T) {
 						},
 					},
 				},
-			},
+			}}},
 			expected: false,
 		},
-	}
-	for _, test := range tests {
-		t.Run(test.name, func(t *testing.T) {
-			var testState state.State
-			testState.Azure.Authorization = test.input
-			results := CheckLimitRoleActions.Evaluate(&testState)
-			var found bool
-			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckLimitRoleActions.LongID() {
-					found = true
-				}
-			}
-			if test.expected {
-				assert.True(t, found, "Rule should have been found")
-			} else {
-				assert.False(t, found, "Rule should not have been found")
-			}
-		})
-	}
+	},
 }
