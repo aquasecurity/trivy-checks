@@ -35,7 +35,7 @@ deny contains res if {
 	not autopilot_enabled(cluster)
 	not dataplane_v2_enabled(cluster)
 	res := result.new(
-		"Cluster does not have a network policy enabled.", 
+		"Cluster does not have a network policy enabled.",
 		object.get(cluster.networkpolicy, "enabled", cluster.networkpolicy),
 	)
 }
