@@ -42,15 +42,17 @@ deny contains res if {
 
 deny contains res if {
 	some elb in input.nifcloud.network.elasticloadbalancers
-	not is_private_lb(elb)
+	is_public_lb(elb)
 	some listener in elb.listeners
 	listener.protocol.value == "HTTP"
 	res := result.new("Listener for multi load balancer does not use HTTPS.", listener.protocol)
 }
 
-is_private_lb(lb) if {
+is_public_lb(lb) if {
 	some ni in lb.networkinterfaces
-	print(ni)
-	ni.networkid.value != "net-COMMON_GLOBAL"
-	ni.isvipnetwork.value == false
+	not is_private_network(ni)
 }
+
+is_private_network(network) if network.networkid.value != "net-COMMON_GLOBAL"
+
+is_private_network(network) if network.isvipnetwork.value == false

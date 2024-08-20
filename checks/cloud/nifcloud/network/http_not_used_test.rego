@@ -17,7 +17,7 @@ test_deny_elastic_lb_with_http_protocol_on_global if {
 
 test_allow_elastic_lb_with_http_protocol_on_internal if {
 	inp := build_elb_input({
-		"networkinterfaces": [{"networkid": {"value": "some-network"}, "isvipnetwork": {"value": false}}],
+		"networkinterfaces": [{"networkid": {"value": "some-network"}, "isvipnetwork": {"value": true}}],
 		"listeners": [{"protocol": {"value": "HTTP"}}],
 	})
 
@@ -32,7 +32,6 @@ test_allow_elastic_lb_with_https_protocol_on_global if {
 	})
 
 	res := check.deny with input as inp
-	print(res)
 	res == set()
 }
 
