@@ -57,6 +57,16 @@ func TestRegoChecks(t *testing.T) {
 		azureAppServiceTestCases,
 		azureAuthorizationTestCases,
 		azureContainerTestCases,
+
+    googleDnsTestCases,
+		googleKmsTestCases,
+		googleBigQueryTestCases,
+
+    githubTestCases,
+
+    nifcloudDnsTestCases,
+		nifcloudNetworkTestCases,
+		nifcloudSslCertificateTestCases,
 	)
 
 	regoScanner := rego.NewScanner(trivyTypes.SourceCloud)

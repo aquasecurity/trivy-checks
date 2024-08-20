@@ -26,7 +26,8 @@ var CheckNoPublicAccess = rules.Register(
 			Links:               terraformNoPublicAccessLinks,
 			RemediationMarkdown: terraformNoPublicAccessRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, dataset := range s.Google.BigQuery.Datasets {
