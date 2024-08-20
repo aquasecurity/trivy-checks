@@ -34,7 +34,7 @@ package builtin.github.repositories.github0001
 import rego.v1
 
 deny contains res if {
-    some repo in input.github.repositories
-    repo.public.value == true
-    res := result.new("Repository is public.", repo.public)
+	some repo in input.github.repositories
+	repo.public.value == true
+	res := result.new("Repository is public.", repo.public)
 }

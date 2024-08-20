@@ -15,7 +15,7 @@
 #   id: AVD-GIT-0004
 #   avd_id: AVD-GIT-0004
 #   provider: github
-#   service: branch_protections
+#   service: branchprotections
 #   severity: HIGH
 #   short_code: require_signed_commits
 #   recommended_action: Require signed commits
@@ -23,7 +23,7 @@
 #     selector:
 #       - type: cloud
 #         subtypes:
-#           - service: branch_protections
+#           - service: branchprotections
 #             provider: github
 #   terraform:
 #     links:
@@ -35,7 +35,7 @@ package builtin.github.branch_protections.github0004
 import rego.v1
 
 deny contains res if {
-    some protection in input.github.branchprotections
-    protection.requiresignedcommits.value == false
-    res := result.new("Branch protection does not require signed commits.", protection.requiresignedcommits)
+	some protection in input.github.branchprotections
+	protection.requiresignedcommits.value == false
+	res := result.new("Branch protection does not require signed commits.", protection.requiresignedcommits)
 }
