@@ -35,12 +35,12 @@ deny contains res if {
 	res := result.new("Firewall rule does not restrict destination address internally.", rule)
 }
 
-# deny contains res if {
-#     some rule in input.openstack.compute.firewall.allowrules
-#     is_rule_enabled(rule)
-#     cidr.is_public(rule.destination.value)
-#     res := result.new("Firewall rule allows public egress.", rule.destination)
-# }
+deny contains res if {
+	some rule in input.openstack.compute.firewall.allowrules
+	is_rule_enabled(rule)
+	cidr.is_public(rule.destination.value)
+	res := result.new("Firewall rule allows public egress.", rule.destination)
+}
 
 deny contains res if {
 	some rule in input.openstack.compute.firewall.allowrules
@@ -49,11 +49,11 @@ deny contains res if {
 	res := result.new("Firewall rule does not restrict source address internally.", rule.source)
 }
 
-# deny contains res if {
-#     some rule in input.openstack.compute.firewall.allowrules
-#     is_rule_enabled(rule)
-#     cidr.is_public(rule.source.value)
-#     res := result.new("Firewall rule allows public ingress.", rule.source)
-# }
+deny contains res if {
+	some rule in input.openstack.compute.firewall.allowrules
+	is_rule_enabled(rule)
+	cidr.is_public(rule.source.value)
+	res := result.new("Firewall rule allows public ingress.", rule.source)
+}
 
 is_rule_enabled(rule) := rule.enabled.value == true

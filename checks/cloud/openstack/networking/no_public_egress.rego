@@ -26,11 +26,15 @@
 #     bad_examples: checks/cloud/openstack/networking/no_public_egress.tf.go
 package builtin.openstack.networking.openstack0004
 
-# deny contains res if {
-#     some sg in openstack.networking.securitygroups
-#     some rule in sg.rules
-#     rule.isingress.value == false
-#     cidr.is_public(rule.cidr.value)
-#     cidr.count_addresses(rule.cidr.value) > 1
-#     res := result.new("Security group rule allows egress to multiple public addresses.", rule.cidr)
-# }
+import rego.v1
+
+deny contains res if {
+	some sg in input.openstack.networking.securitygroups
+	some rule in sg.rules
+	not is_ingress(rule)
+	cidr.is_public(rule.cidr.value)
+	cidr.count_addresses(rule.cidr.value) > 1
+	res := result.new("Security group rule allows egress to multiple public addresses.", rule.cidr)
+}
+
+is_ingress(rule) := rule.isingress.value == true

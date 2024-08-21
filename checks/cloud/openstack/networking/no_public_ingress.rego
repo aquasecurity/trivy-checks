@@ -28,11 +28,11 @@ package builtin.openstack.networking.openstack0003
 
 import rego.v1
 
-# deny contains res if {
-#     some sg in openstack.networking.securitygroups
-#     some rule in sg.rules
-#     rule.isingress.value == true
-#     cidr.is_public(rule.cidr.value)
-#     cidr.count_addresses(rule.cidr.value) > 1
-#     res := result.new("Security group rule allows egress to multiple public addresses.", rule.cidr)
-# }
+deny contains res if {
+	some sg in input.openstack.networking.securitygroups
+	some rule in sg.rules
+	rule.isingress.value == true
+	cidr.is_public(rule.cidr.value)
+	cidr.count_addresses(rule.cidr.value) > 1
+	res := result.new("Security group rule allows egress to multiple public addresses.", rule.cidr)
+}
