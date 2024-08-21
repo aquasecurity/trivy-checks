@@ -28,7 +28,8 @@ var CheckAddSecurityGroupToRouter = rules.Register(
 			Links:               terraformAddSecurityGroupToRouterLinks,
 			RemediationMarkdown: terraformAddSecurityGroupToRouterRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, router := range s.Nifcloud.Network.Routers {

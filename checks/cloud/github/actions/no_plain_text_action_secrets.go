@@ -28,7 +28,8 @@ var CheckNoPlainTextActionEnvironmentSecrets = rules.Register(
 			Links:               terraformNoPlainTextActionSecretsLinks,
 			RemediationMarkdown: terraformNoPlainTextActionSecretsRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, environmentSecret := range s.GitHub.EnvironmentSecrets {

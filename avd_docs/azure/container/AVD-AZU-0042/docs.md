@@ -1,8 +1,9 @@
 
 Using Kubernetes role-based access control (RBAC), you can grant users, groups, and service accounts access to only the resources they need.
 
+
 ### Impact
-No role based access control is in place for the AKS cluster
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
