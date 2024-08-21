@@ -36,7 +36,8 @@ var CheckNoPublicIngress = rules.Register(
 			Links:               cloudFormationNoPublicIngressAclLinks,
 			RemediationMarkdown: cloudFormationNoPublicIngressAclRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, acl := range s.AWS.EC2.NetworkACLs {

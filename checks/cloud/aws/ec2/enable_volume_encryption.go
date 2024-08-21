@@ -32,7 +32,8 @@ var CheckEnableVolumeEncryption = rules.Register(
 			Links:               cloudFormationEnableVolumeEncryptionLinks,
 			RemediationMarkdown: cloudFormationEnableVolumeEncryptionRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, volume := range s.AWS.EC2.Volumes {

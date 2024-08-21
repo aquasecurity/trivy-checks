@@ -33,7 +33,8 @@ var CheckEnableAtRestEncryption = rules.Register(
 			Links:               cloudFormationEnableAtRestEncryptionLinks,
 			RemediationMarkdown: cloudFormationEnableAtRestEncryptionRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.AWS.EC2.Instances {

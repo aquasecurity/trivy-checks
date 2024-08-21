@@ -35,7 +35,8 @@ var CheckNoPublicEgressSgr = rules.Register(
 			Links:               cloudFormationNoPublicEgressSgrLinks,
 			RemediationMarkdown: cloudFormationNoPublicEgressSgrRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, group := range s.AWS.EC2.SecurityGroups {

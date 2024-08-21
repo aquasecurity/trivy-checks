@@ -39,7 +39,8 @@ var CheckNoSecretsInUserData = rules.Register(
 			Links:               cloudFormationNoSecretsInUserDataLinks,
 			RemediationMarkdown: cloudFormationNoSecretsInUserDataRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.AWS.EC2.Instances {
