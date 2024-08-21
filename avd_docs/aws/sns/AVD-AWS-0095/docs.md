@@ -1,8 +1,9 @@
 
 Topics should be encrypted to protect their contents.
 
+
 ### Impact
-The SNS topic messages could be read if compromised
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

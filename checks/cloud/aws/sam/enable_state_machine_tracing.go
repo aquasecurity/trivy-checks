@@ -27,7 +27,8 @@ var CheckEnableStateMachineTracing = rules.Register(
 			Links:               cloudFormationEnableStateMachineTracingLinks,
 			RemediationMarkdown: cloudFormationEnableStateMachineTracingRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, stateMachine := range s.AWS.SAM.StateMachines {

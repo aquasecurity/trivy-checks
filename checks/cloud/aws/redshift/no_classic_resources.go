@@ -28,7 +28,8 @@ resources in a VPC instead.`,
 			Links:               cloudFormationNoClassicResourcesLinks,
 			RemediationMarkdown: cloudFormationNoClassicResourcesRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, group := range s.AWS.Redshift.SecurityGroups {

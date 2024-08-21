@@ -28,7 +28,8 @@ var CheckEnableFunctionTracing = rules.Register(
 			Links:               cloudFormationEnableFunctionTracingLinks,
 			RemediationMarkdown: cloudFormationEnableFunctionTracingRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, function := range s.AWS.SAM.Functions {
