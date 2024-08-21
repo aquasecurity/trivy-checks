@@ -32,6 +32,11 @@ import rego.v1
 
 deny contains res if {
 	some provider in input.google.iam.workloadidentitypoolproviders
-	provider.attributecondition.value == ""
-	res := result.new("This workload identity pool provider configuration has no conditions set.", provider.attributecondition)
+	not has_conditions(provider)
+	res := result.new(
+		"This workload identity pool provider configuration has no conditions set.",
+		object.get(provider, "attributecondition", provider),
+	)
 }
+
+has_conditions(provider) := provider.attributecondition.value != ""
