@@ -1,8 +1,9 @@
 
 S3 Buckets should be encrypted to protect the data that is stored within them if access is compromised.
 
+
 ### Impact
-The bucket objects could be read if compromised
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
