@@ -35,7 +35,8 @@ Simplifies auditing, debugging, and managing security groups.`,
 			Links:               cloudFormationAddDescriptionForSecurityGroupLinks,
 			RemediationMarkdown: cloudFormationAddDescriptionForSecurityGroupRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, sg := range s.AWS.ElastiCache.SecurityGroups {

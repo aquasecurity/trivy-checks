@@ -39,7 +39,8 @@ All the logs are disabled by default.`,
 			Links:               cloudFormationEnableDomainLoggingLinks,
 			RemediationMarkdown: cloudFormationEnableDomainLoggingRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, domain := range s.AWS.Elasticsearch.Domains {
