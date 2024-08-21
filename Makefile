@@ -47,3 +47,6 @@ verify-bundle:
 	cp bundle.tar.gz scripts/bundle.tar.gz
 	go run ./scripts/verify-bundle.go
 	rm scripts/bundle.tar.gz
+
+build-opa:
+	go build ./cmd/opa
