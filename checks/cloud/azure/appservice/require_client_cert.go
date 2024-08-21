@@ -25,7 +25,8 @@ var CheckRequireClientCert = rules.Register(
 			Links:               terraformRequireClientCertLinks,
 			RemediationMarkdown: terraformRequireClientCertRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, service := range s.Azure.AppService.Services {

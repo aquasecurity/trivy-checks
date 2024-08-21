@@ -25,7 +25,8 @@ var CheckLimitRoleActions = rules.Register(
 			Links:               terraformLimitRoleActionsLinks,
 			RemediationMarkdown: terraformLimitRoleActionsRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, roleDef := range s.Azure.Authorization.RoleDefinitions {

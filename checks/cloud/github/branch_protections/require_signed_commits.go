@@ -31,7 +31,8 @@ You can do this by setting the <code>require_signed_commits</code> attribute to 
 			Links:               terraformRequireSignedCommitsLinks,
 			RemediationMarkdown: terraformRequireSignedCommitsRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, branchProtection := range s.GitHub.BranchProtections {
