@@ -37,8 +37,8 @@ deny contains res if {
 	is_public_access_enabled(server)
 	res := result.new(
 		"Database server does not have public access enabled.",
-		object.get(server, "publicnetworkaccessenabled", server),
+		object.get(server, "enablepublicnetworkaccess", server),
 	)
 }
 
-is_public_access_enabled(server) := server.publicnetworkaccessenabled.value == true
+is_public_access_enabled(server) := server.enablepublicnetworkaccess.value == true

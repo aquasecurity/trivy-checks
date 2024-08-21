@@ -27,13 +27,13 @@ test_deny_postgresql_server_public_access_enabled if {
 
 test_allow_servers_public_access_disabled if {
 	inp := {"azure": {"database": {
-		"mysqlservers": [{"server": {"publicnetworkaccessenabled": {"value": false}}}],
-		"mssqlservers": [{"server": {"publicnetworkaccessenabled": {"value": false}}}],
-		"mariadbservers": [{"server": {"publicnetworkaccessenabled": {"value": false}}}],
-		"postgresqlservers": [{"server": {"publicnetworkaccessenabled": {"value": false}}}],
+		"mysqlservers": [{"server": {"enablepublicnetworkaccess": {"value": false}}}],
+		"mssqlservers": [{"server": {"enablepublicnetworkaccess": {"value": false}}}],
+		"mariadbservers": [{"server": {"enablepublicnetworkaccess": {"value": false}}}],
+		"postgresqlservers": [{"server": {"enablepublicnetworkaccess": {"value": false}}}],
 	}}}
 	res := check.deny with input as inp
 	count(res) == 0
 }
 
-build_input(db_type, public_access) := {"azure": {"database": {db_type: [{"server": {"publicnetworkaccessenabled": {"value": public_access}}}]}}}
+build_input(db_type, public_access) := {"azure": {"database": {db_type: [{"server": {"enablepublicnetworkaccess": {"value": public_access}}}]}}}

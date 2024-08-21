@@ -34,8 +34,10 @@ import data.lib.azure.database
 
 recommended_tls_version := "TLS1_2"
 
+recommended_mssql_tls_version := "1.2"
+
 deny contains res if {
-	some server in database.servers(["mssqlservers", "mysqlservers", "postgresqlservers"])
+	some server in database.servers(["mysqlservers", "postgresqlservers"])
 	not is_recommended_tls(server)
 	res := result.new(
 		"Database server does not require a secure TLS version.",
@@ -43,4 +45,15 @@ deny contains res if {
 	)
 }
 
+deny contains res if {
+	some server in database.servers(["mssqlservers"])
+	not is_recommended_mssql_tls(server)
+	res := result.new(
+		"Database server does not require a secure TLS version.",
+		object.get(server, "minimumtlsversion", server),
+	)
+}
+
 is_recommended_tls(server) := server.minimumtlsversion.value == recommended_tls_version
+
+is_recommended_mssql_tls(server) := server.minimumtlsversion.value == recommended_mssql_tls_version

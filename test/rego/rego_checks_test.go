@@ -60,14 +60,16 @@ func TestRegoChecks(t *testing.T) {
 		azureAppServiceTestCases,
 		azureAuthorizationTestCases,
 		azureContainerTestCases,
+		azureDatabaseTestCases,
+		azureComputeTestCases,
 
-    googleDnsTestCases,
+		googleDnsTestCases,
 		googleKmsTestCases,
 		googleBigQueryTestCases,
 
-    githubTestCases,
+		githubTestCases,
 
-    nifcloudDnsTestCases,
+		nifcloudDnsTestCases,
 		nifcloudNetworkTestCases,
 		nifcloudSslCertificateTestCases,
 	)
