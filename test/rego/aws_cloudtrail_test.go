@@ -8,6 +8,10 @@ import (
 	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 )
 
+func init() {
+	addTests(awsCloudTrailTestCases)
+}
+
 var awsCloudTrailTestCases = testCases{
 	"AVD-AWS-0014": {
 		{

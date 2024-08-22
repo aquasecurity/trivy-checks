@@ -4,10 +4,8 @@ go 1.22.0
 
 toolchain go1.22.2
 
-replace github.com/aquasecurity/trivy => github.com/nikpivkin/trivy v0.0.0-20240819083403-f6177e042fdf
-
 require (
-	github.com/aquasecurity/trivy v0.54.1-0.20240820044857-c5c62d5ff054
+	github.com/aquasecurity/trivy v0.54.1-0.20240822002139-6fe672732b46
 	github.com/liamg/iamgo v0.0.9
 	github.com/liamg/memoryfs v1.6.0
 	github.com/open-policy-agent/opa v0.67.1
