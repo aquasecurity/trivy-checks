@@ -7,6 +7,10 @@ import (
 	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 )
 
+func init() {
+	addTests(digitalOceanSpacesTestCases)
+}
+
 var digitalOceanSpacesTestCases = testCases{
 	"AVD-DIG-0006": {
 		{
