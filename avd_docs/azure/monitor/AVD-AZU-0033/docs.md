@@ -1,8 +1,9 @@
 
 Log profiles should capture all categories to ensure that all events are logged
 
+
 ### Impact
-Log profile must capture all activity to be able to ensure that all relevant information possible is available for an investigation
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

@@ -16,6 +16,39 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+type testCase struct {
+	name     string
+	input    state.State
+	expected bool
+}
+
+type testCases map[string][]testCase
+
+var tests = make(testCases)
+
+func addTests(tc testCases) {
+	tests = lo.Assign(tests, tc)
+}
+
+func TestRegoChecks(t *testing.T) {
+	regoScanner := rego.NewScanner(trivyTypes.SourceCloud)
+	err := regoScanner.LoadPolicies(true, false, checks.EmbeddedPolicyFileSystem, []string{"."}, nil)
+	require.NoError(t, err)
+
+	missedIDs, _ := lo.Difference(getMigratedChecksIDs(), lo.Keys(tests))
+	assert.Emptyf(t, missedIDs, "Checks %v not covered", missedIDs)
+
+	for id, cases := range tests {
+		t.Run(id, func(t *testing.T) {
+			for _, tc := range cases {
+				t.Run(tc.name, func(t *testing.T) {
+					scanState(t, regoScanner, tc.input, id, tc.expected)
+				})
+			}
+		})
+	}
+}
+
 func scanState(t *testing.T, regoScanner *rego.Scanner, s state.State, checkID string, expected bool) {
 	results, err := regoScanner.ScanInput(context.TODO(), rego.Input{
 		Contents: s.ToRego(),
@@ -33,64 +66,6 @@ func scanState(t *testing.T, regoScanner *rego.Scanner, s state.State, checkID s
 		assert.True(t, found, "Rule should have been found")
 	} else {
 		assert.False(t, found, "Rule should not have been found")
-	}
-}
-
-type testCase struct {
-	name     string
-	input    state.State
-	expected bool
-}
-
-type testCases map[string][]testCase
-
-func TestRegoChecks(t *testing.T) {
-	tests := lo.Assign(
-		awsAccessAnalyzerTestCases,
-		awsAthenaTestCases,
-		awsCloudTrailTestCases,
-		awsCodeBuildTestCases,
-		awsConfigTestCases,
-		awsDocumentDBTestCases,
-		awsDynamodbTestCases,
-		awsS3TestCases,
-		awsRedshiftTestCases,
-		awsSamTestCases,
-		awsSnsTestCases,
-
-		azureDataFactoryTestCases,
-		azureDataLakeTestCases,
-		azureKeyVaultTestCases,
-		azureAppServiceTestCases,
-		azureAuthorizationTestCases,
-		azureContainerTestCases,
-
-		googleDnsTestCases,
-		googleKmsTestCases,
-		googleBigQueryTestCases,
-
-		githubTestCases,
-
-		nifcloudDnsTestCases,
-		nifcloudNetworkTestCases,
-		nifcloudSslCertificateTestCases,
-	)
-
-	regoScanner := rego.NewScanner(trivyTypes.SourceCloud)
-	err := regoScanner.LoadPolicies(true, false, checks.EmbeddedPolicyFileSystem, []string{"."}, nil)
-	require.NoError(t, err)
-
-	missedIDs, _ := lo.Difference(getMigratedChecksIDs(), lo.Keys(tests))
-	assert.Emptyf(t, missedIDs, "Checks %v not covered", missedIDs)
-
-	for id, cases := range tests {
-		t.Run(id, func(t *testing.T) {
-			for _, tc := range cases {
-				t.Run(tc.name, func(t *testing.T) {
-					scanState(t, regoScanner, tc.input, id, tc.expected)
-				})
-			}
-		})
 	}
 }
 
