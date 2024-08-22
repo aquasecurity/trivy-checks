@@ -29,7 +29,8 @@ var CheckNoPublicFirewallAccess = rules.Register(
 			Links:               terraformNoPublicFirewallAccessLinks,
 			RemediationMarkdown: terraformNoPublicFirewallAccessRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, server := range s.Azure.Database.MariaDBServers {

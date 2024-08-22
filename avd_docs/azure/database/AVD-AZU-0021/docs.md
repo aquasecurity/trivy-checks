@@ -1,8 +1,9 @@
 
 Postgresql can generate logs for connection throttling to improve visibility for audit and configuration issue resolution.
 
+
 ### Impact
-No log information to help diagnosing connection contention issues
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
