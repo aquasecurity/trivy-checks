@@ -35,7 +35,8 @@ The account password policy should be set to enforce minimum password length of 
 			Links:               terraformSetMinimumPasswordLengthLinks,
 			RemediationMarkdown: terraformSetMinimumPasswordLengthRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		policy := s.AWS.IAM.PasswordPolicy

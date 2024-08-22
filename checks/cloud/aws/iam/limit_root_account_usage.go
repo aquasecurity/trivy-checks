@@ -16,7 +16,7 @@ import (
 	"github.com/aquasecurity/trivy/pkg/iac/providers"
 )
 
-var checkLimitRootAccountUsage = rules.Register(
+var CheckLimitRootAccountUsage = rules.Register(
 	scan.Rule{
 		AVDID:     "AVD-AWS-0140",
 		Provider:  providers.AWSProvider,
@@ -36,7 +36,8 @@ The root user has unrestricted access to all services and resources in an AWS ac
 		Links: []string{
 			"https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, user := range s.AWS.IAM.Users {

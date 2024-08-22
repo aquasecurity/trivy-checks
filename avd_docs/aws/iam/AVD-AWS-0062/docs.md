@@ -1,10 +1,11 @@
 
-IAM account password policies should have a maximum age specified. 
-		
+IAM account password policies should have a maximum age specified.
+
 The account password policy should be set to expire passwords after 90 days or less.
 
+
 ### Impact
-Long life password increase the likelihood of a password eventually being compromised
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

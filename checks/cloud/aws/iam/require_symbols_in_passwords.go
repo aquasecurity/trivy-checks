@@ -32,7 +32,8 @@ var CheckRequireSymbolsInPasswords = rules.Register(
 			Links:               terraformRequireSymbolsInPasswordsLinks,
 			RemediationMarkdown: terraformRequireSymbolsInPasswordsRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		policy := s.AWS.IAM.PasswordPolicy

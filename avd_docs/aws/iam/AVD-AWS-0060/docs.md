@@ -1,8 +1,9 @@
 
 IAM account password policies should ensure that passwords content including a symbol.
 
+
 ### Impact
-Short, simple passwords are easier to compromise
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
