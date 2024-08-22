@@ -1,8 +1,9 @@
 
 Encryption using AWS keys provides protection for your S3 buckets. To increase control of the encryption and manage factors like rotation use customer managed keys.
 
+
 ### Impact
-Using AWS managed keys does not allow for fine grained control
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

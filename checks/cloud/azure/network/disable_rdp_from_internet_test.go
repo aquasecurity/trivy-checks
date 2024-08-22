@@ -38,8 +38,8 @@ func TestCheckDisableRdpFromInternet(t *testing.T) {
 								DestinationPorts: []network.PortRange{
 									{
 										Metadata: trivyTypes.NewTestMetadata(),
-										Start:    3310,
-										End:      3390,
+										Start:    trivyTypes.IntTest(3310),
+										End:      trivyTypes.IntTest(3390),
 									},
 								},
 								Protocol: trivyTypes.String("Tcp", trivyTypes.NewTestMetadata()),
@@ -64,8 +64,8 @@ func TestCheckDisableRdpFromInternet(t *testing.T) {
 								DestinationPorts: []network.PortRange{
 									{
 										Metadata: trivyTypes.NewTestMetadata(),
-										Start:    3310,
-										End:      3390,
+										Start:    trivyTypes.IntTest(3310),
+										End:      trivyTypes.IntTest(3390),
 									},
 								},
 								SourceAddresses: []trivyTypes.StringValue{
@@ -98,8 +98,8 @@ func TestCheckDisableRdpFromInternet(t *testing.T) {
 								DestinationPorts: []network.PortRange{
 									{
 										Metadata: trivyTypes.NewTestMetadata(),
-										Start:    3310,
-										End:      3390,
+										Start:    trivyTypes.IntTest(3310),
+										End:      trivyTypes.IntTest(3390),
 									},
 								},
 								Protocol: trivyTypes.String("Icmp", trivyTypes.NewTestMetadata()),

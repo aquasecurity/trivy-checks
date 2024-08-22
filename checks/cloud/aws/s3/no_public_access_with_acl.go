@@ -42,7 +42,8 @@ Buckets should not have ACLs that allow public access
 			Links:               cloudFormationNoPublicAccessWithAclLinks,
 			RemediationMarkdown: cloudFormationNoPublicAccessWithAclRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, bucket := range s.AWS.S3.Buckets {

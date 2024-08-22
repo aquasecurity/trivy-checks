@@ -34,7 +34,8 @@ var CheckEncryptionIsEnabled = rules.Register(
 			Links:               cloudFormationEnableBucketEncryptionLinks,
 			RemediationMarkdown: cloudFormationEnableBucketEncryptionRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, bucket := range s.AWS.S3.Buckets {

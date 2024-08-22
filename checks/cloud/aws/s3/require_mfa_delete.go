@@ -34,6 +34,7 @@ Adding MFA delete to an S3 bucket, requires additional authentication when you c
 			Links:               terraformRequireMFADeleteLinks,
 			RemediationMarkdown: terraformRequireMFADeleteRemediationMarkdown,
 		},
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, bucket := range s.AWS.S3.Buckets {
