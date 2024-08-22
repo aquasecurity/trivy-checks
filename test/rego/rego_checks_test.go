@@ -76,6 +76,7 @@ func TestRegoChecks(t *testing.T) {
 		nifcloudNetworkTestCases,
 		nifcloudSslCertificateTestCases,
 
+		digitalOceanSpacesTestCases,
 		oracleTestCases,
 	)
 
