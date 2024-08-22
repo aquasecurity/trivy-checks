@@ -9,6 +9,10 @@ import (
 	"github.com/liamg/iamgo"
 )
 
+func init() {
+	addTests(awsSqsTestCases)
+}
+
 var awsSqsTestCases = testCases{
 	"AVD-AWS-0096": {
 		{
