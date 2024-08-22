@@ -1,8 +1,9 @@
 
 Datalake storage encryption defaults to Enabled, it shouldn't be overridden to Disabled.
 
+
 ### Impact
-Data could be read if compromised
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

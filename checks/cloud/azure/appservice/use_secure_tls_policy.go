@@ -25,7 +25,8 @@ var CheckUseSecureTlsPolicy = rules.Register(
 			Links:               terraformUseSecureTlsPolicyLinks,
 			RemediationMarkdown: terraformUseSecureTlsPolicyRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, service := range s.Azure.AppService.Services {

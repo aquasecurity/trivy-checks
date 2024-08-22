@@ -32,7 +32,8 @@ recommended to delete expired certificates.
 		Links: []string{
 			"https://pfs.nifcloud.com/help/ssl/del.htm",
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, certificate := range s.Nifcloud.SSLCertificate.ServerCertificates {

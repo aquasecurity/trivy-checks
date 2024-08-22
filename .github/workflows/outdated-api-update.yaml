@@ -6,6 +6,9 @@ on:
 permissions:
   contents: write
 
+env:
+  GO_VERSION: '1.22'
+
 jobs:
   outdated:
     runs-on: ubuntu-latest
@@ -14,6 +17,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.AUTO_COMMIT_TOKEN }}
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
       - name: Fetch outdated API data from trivy-db-data repo
         id: outdatedapi
         uses: fjogeleit/http-request-action@v1
@@ -25,8 +33,10 @@ jobs:
           OUTDATE_API_DATA: ${{ toJson(steps.outdatedapi.outputs.response) }}
         run: |
           make outdated-api-updated
+      
       - name: Setup OPA
         uses: ./.github/actions/setup-opa
+
       - name: OPA Format
         run: |
           opa fmt -w . | grep -v vendor || true
