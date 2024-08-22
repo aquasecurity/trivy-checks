@@ -25,7 +25,8 @@ var CheckEnableSslEnforcement = rules.Register(
 			Links:               terraformEnableSslEnforcementLinks,
 			RemediationMarkdown: terraformEnableSslEnforcementRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, server := range s.Azure.Database.MariaDBServers {

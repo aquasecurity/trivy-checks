@@ -1,8 +1,9 @@
 
 S3 buckets should restrict public policies for the bucket. By enabling, the restrict_public_buckets, only the bucket owner and AWS Services can access if it has a public policy.
 
+
 ### Impact
-Public buckets can be accessed by anyone
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

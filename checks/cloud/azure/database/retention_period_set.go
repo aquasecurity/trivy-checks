@@ -29,7 +29,8 @@ If the retention period is to be explicitly set, it should be set for no less th
 			Links:               terraformRetentionPeriodSetLinks,
 			RemediationMarkdown: terraformRetentionPeriodSetRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, server := range s.Azure.Database.MSSQLServers {

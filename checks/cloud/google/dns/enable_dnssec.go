@@ -25,7 +25,8 @@ var CheckEnableDnssec = rules.Register(
 			Links:               terraformEnableDnssecLinks,
 			RemediationMarkdown: terraformEnableDnssecRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, zone := range s.Google.DNS.ManagedZones {
