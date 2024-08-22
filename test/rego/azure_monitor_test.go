@@ -1,27 +1,99 @@
-package monitor
+package test
 
 import (
-	"testing"
-
-	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
-
-	"github.com/aquasecurity/trivy/pkg/iac/state"
-
+	"github.com/aquasecurity/trivy/pkg/iac/providers/azure"
 	"github.com/aquasecurity/trivy/pkg/iac/providers/azure/monitor"
-	"github.com/aquasecurity/trivy/pkg/iac/scan"
-
-	"github.com/stretchr/testify/assert"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 )
 
-func TestCheckCaptureAllRegions(t *testing.T) {
-	tests := []struct {
-		name     string
-		input    monitor.Monitor
-		expected bool
-	}{
+var azureMonitorTestCases = testCases{
+	"AVD-AZU-0031": {
+		{
+			name: "Log retention policy disabled",
+			input: state.State{Azure: azure.Azure{Monitor: monitor.Monitor{
+				LogProfiles: []monitor.LogProfile{
+					{
+						Metadata: trivyTypes.NewTestMetadata(),
+						RetentionPolicy: monitor.RetentionPolicy{
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+							Days:     trivyTypes.Int(365, trivyTypes.NewTestMetadata()),
+						},
+					},
+				},
+			}}},
+			expected: true,
+		},
+		{
+			name: "Log retention policy enabled for 90 days",
+			input: state.State{Azure: azure.Azure{Monitor: monitor.Monitor{
+				LogProfiles: []monitor.LogProfile{
+					{
+						Metadata: trivyTypes.NewTestMetadata(),
+						RetentionPolicy: monitor.RetentionPolicy{
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							Days:     trivyTypes.Int(90, trivyTypes.NewTestMetadata()),
+						},
+					},
+				},
+			}}},
+			expected: true,
+		},
+		{
+			name: "Log retention policy enabled for 365 days",
+			input: state.State{Azure: azure.Azure{Monitor: monitor.Monitor{
+				LogProfiles: []monitor.LogProfile{
+					{
+						Metadata: trivyTypes.NewTestMetadata(),
+						RetentionPolicy: monitor.RetentionPolicy{
+							Metadata: trivyTypes.NewTestMetadata(),
+							Enabled:  trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							Days:     trivyTypes.Int(365, trivyTypes.NewTestMetadata()),
+						},
+					},
+				},
+			}}},
+			expected: false,
+		},
+	},
+	"AVD-AZU-0033": {
+		{
+			name: "Log profile captures only write activities",
+			input: state.State{Azure: azure.Azure{Monitor: monitor.Monitor{
+				LogProfiles: []monitor.LogProfile{
+					{
+						Metadata: trivyTypes.NewTestMetadata(),
+						Categories: []trivyTypes.StringValue{
+							trivyTypes.String("Write", trivyTypes.NewTestMetadata()),
+						},
+					},
+				},
+			}}},
+			expected: true,
+		},
+		{
+			name: "Log profile captures action, write, delete activities",
+			input: state.State{Azure: azure.Azure{Monitor: monitor.Monitor{
+				LogProfiles: []monitor.LogProfile{
+					{
+						Metadata: trivyTypes.NewTestMetadata(),
+						Categories: []trivyTypes.StringValue{
+							trivyTypes.String("Action", trivyTypes.NewTestMetadata()),
+							trivyTypes.String("Write", trivyTypes.NewTestMetadata()),
+							trivyTypes.String("Delete", trivyTypes.NewTestMetadata()),
+						},
+					},
+				},
+			}}},
+			expected: false,
+		},
+	},
+	"AVD-AZU-0032": {
 		{
 			name: "Log profile captures only eastern US region",
-			input: monitor.Monitor{
+			input: state.State{Azure: azure.Azure{Monitor: monitor.Monitor{
 				LogProfiles: []monitor.LogProfile{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
@@ -30,12 +102,12 @@ func TestCheckCaptureAllRegions(t *testing.T) {
 						},
 					},
 				},
-			},
+			}}},
 			expected: true,
 		},
 		{
 			name: "Log profile captures all regions",
-			input: monitor.Monitor{
+			input: state.State{Azure: azure.Azure{Monitor: monitor.Monitor{
 				LogProfiles: []monitor.LogProfile{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
@@ -111,26 +183,8 @@ func TestCheckCaptureAllRegions(t *testing.T) {
 						},
 					},
 				},
-			},
+			}}},
 			expected: false,
 		},
-	}
-	for _, test := range tests {
-		t.Run(test.name, func(t *testing.T) {
-			var testState state.State
-			testState.Azure.Monitor = test.input
-			results := CheckCaptureAllRegions.Evaluate(&testState)
-			var found bool
-			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckCaptureAllRegions.LongID() {
-					found = true
-				}
-			}
-			if test.expected {
-				assert.True(t, found, "Rule should have been found")
-			} else {
-				assert.False(t, found, "Rule should not have been found")
-			}
-		})
-	}
+	},
 }

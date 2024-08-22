@@ -31,7 +31,8 @@ RDP access should not be permitted from the internet (*, 0.0.0.0, /0, internet, 
 			Links:               terraformDisableRdpFromInternetLinks,
 			RemediationMarkdown: terraformDisableRdpFromInternetRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, group := range s.Azure.Network.SecurityGroups {

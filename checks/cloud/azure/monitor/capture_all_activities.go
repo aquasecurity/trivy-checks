@@ -35,7 +35,8 @@ var CheckCaptureAllActivities = rules.Register(
 			Links:               terraformCaptureAllActivitiesLinks,
 			RemediationMarkdown: terraformCaptureAllActivitiesRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		required := []string{
