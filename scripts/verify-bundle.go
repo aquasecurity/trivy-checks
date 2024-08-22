@@ -65,7 +65,7 @@ func createOrasContainer(ctx context.Context, regIP string, bundlePath string) t
 }
 
 func createTrivyContainer(ctx context.Context, trivyVersion string, regIP string) testcontainers.Container {
-	testDataPath, err := filepath.Abs("scripts/testdata")
+	testDataPath, err := filepath.Abs("testdata")
 	if err != nil {
 		panic(err)
 	}

@@ -35,7 +35,8 @@ S3 buckets should block public ACLs on buckets and any objects they contain. By 
 			Links:               cloudFormationBlockPublicAclsLinks,
 			RemediationMarkdown: cloudFormationBlockPublicAclsRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, bucket := range s.AWS.S3.Buckets {
