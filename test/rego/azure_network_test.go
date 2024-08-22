@@ -28,8 +28,8 @@ var azureNetworkTestCases = testCases{
 								DestinationPorts: []network.PortRange{
 									{
 										Metadata: trivyTypes.NewTestMetadata(),
-										Start:    3310,
-										End:      3390,
+										Start:    trivyTypes.IntTest(3310),
+										End:      trivyTypes.IntTest(3390),
 									},
 								},
 								Protocol: trivyTypes.String("Tcp", trivyTypes.NewTestMetadata()),
@@ -54,8 +54,8 @@ var azureNetworkTestCases = testCases{
 								DestinationPorts: []network.PortRange{
 									{
 										Metadata: trivyTypes.NewTestMetadata(),
-										Start:    3310,
-										End:      3390,
+										Start:    trivyTypes.IntTest(3310),
+										End:      trivyTypes.IntTest(3390),
 									},
 								},
 								SourceAddresses: []trivyTypes.StringValue{
@@ -88,8 +88,8 @@ var azureNetworkTestCases = testCases{
 								DestinationPorts: []network.PortRange{
 									{
 										Metadata: trivyTypes.NewTestMetadata(),
-										Start:    3310,
-										End:      3390,
+										Start:    trivyTypes.IntTest(3310),
+										End:      trivyTypes.IntTest(3390),
 									},
 								},
 								Protocol: trivyTypes.String("Icmp", trivyTypes.NewTestMetadata()),
@@ -254,8 +254,8 @@ var azureNetworkTestCases = testCases{
 								DestinationPorts: []network.PortRange{
 									{
 										Metadata: trivyTypes.NewTestMetadata(),
-										Start:    22,
-										End:      22,
+										Start:    trivyTypes.IntTest(22),
+										End:      trivyTypes.IntTest(22),
 									},
 								},
 								SourceAddresses: []trivyTypes.StringValue{
@@ -283,8 +283,8 @@ var azureNetworkTestCases = testCases{
 								DestinationPorts: []network.PortRange{
 									{
 										Metadata: trivyTypes.NewTestMetadata(),
-										Start:    22,
-										End:      22,
+										Start:    trivyTypes.IntTest(22),
+										End:      trivyTypes.IntTest(22),
 									},
 								},
 								SourceAddresses: []trivyTypes.StringValue{
@@ -312,8 +312,8 @@ var azureNetworkTestCases = testCases{
 								DestinationPorts: []network.PortRange{
 									{
 										Metadata: trivyTypes.NewTestMetadata(),
-										Start:    22,
-										End:      22,
+										Start:    trivyTypes.IntTest(22),
+										End:      trivyTypes.IntTest(22),
 									},
 								},
 								SourceAddresses: []trivyTypes.StringValue{
