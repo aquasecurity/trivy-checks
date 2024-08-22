@@ -65,6 +65,8 @@ func TestRegoChecks(t *testing.T) {
 		azureAppServiceTestCases,
 		azureAuthorizationTestCases,
 		azureContainerTestCases,
+		azureDatabaseTestCases,
+		azureComputeTestCases,
 
 		googleDnsTestCases,
 		googleKmsTestCases,
