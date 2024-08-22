@@ -27,7 +27,8 @@ var CheckVersioningEnabled = rules.Register(
 			Links:               terraformVersioningEnabledLinks,
 			RemediationMarkdown: terraformVersioningEnabledRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, bucket := range s.DigitalOcean.Spaces.Buckets {

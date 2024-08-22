@@ -7,6 +7,10 @@ import (
 	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 )
 
+func init() {
+	addTests(awsEmrTestCases)
+}
+
 var awsEmrTestCases = testCases{
 	"AVD-AWS-0137": {
 		{

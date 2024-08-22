@@ -7,6 +7,10 @@ import (
 	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 )
 
+func init() {
+	addTests(awsLambdaTestCases)
+}
+
 var awsLambdaTestCases = testCases{
 	"AVD-AWS-0066": {
 		{
