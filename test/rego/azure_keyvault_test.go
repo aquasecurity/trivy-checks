@@ -9,6 +9,10 @@ import (
 	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 )
 
+func init() {
+	addTests(azureKeyVaultTestCases)
+}
+
 var azureKeyVaultTestCases = testCases{
 	"AVD-AZU-0015": {
 		{
