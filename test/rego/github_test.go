@@ -6,6 +6,10 @@ import (
 	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 )
 
+func init() {
+	addTests(githubTestCases)
+}
+
 var githubTestCases = testCases{
 	"AVD-GIT-0004": {
 		{

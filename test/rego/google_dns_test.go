@@ -7,6 +7,10 @@ import (
 	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 )
 
+func init() {
+	addTests(googleDnsTestCases)
+}
+
 var googleDnsTestCases = testCases{
 	"AVD-GCP-0013": {
 		{

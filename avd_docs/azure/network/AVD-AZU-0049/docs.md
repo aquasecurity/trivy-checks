@@ -1,11 +1,13 @@
 
-Flow logs are the source of truth for all network activity in your cloud environment. 
-To enable analysis in security event that was detected late, you need to have the logs available. 
-			
+Flow logs are the source of truth for all network activity in your cloud environment.
+
+To enable analysis in security event that was detected late, you need to have the logs available.
+
 Setting an retention policy will help ensure as much information is available for review.
 
+
 ### Impact
-Not enabling retention or having short expiry on flow logs could lead to compromise being undetected limiting time for analysis
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
