@@ -33,8 +33,8 @@ func TestCheckSshBlockedFromInternet(t *testing.T) {
 								DestinationPorts: []network.PortRange{
 									{
 										Metadata: trivyTypes.NewTestMetadata(),
-										Start:    22,
-										End:      22,
+										Start:    trivyTypes.IntTest(22),
+										End:      trivyTypes.IntTest(22),
 									},
 								},
 								SourceAddresses: []trivyTypes.StringValue{
@@ -62,8 +62,8 @@ func TestCheckSshBlockedFromInternet(t *testing.T) {
 								DestinationPorts: []network.PortRange{
 									{
 										Metadata: trivyTypes.NewTestMetadata(),
-										Start:    22,
-										End:      22,
+										Start:    trivyTypes.IntTest(22),
+										End:      trivyTypes.IntTest(22),
 									},
 								},
 								SourceAddresses: []trivyTypes.StringValue{
@@ -91,8 +91,8 @@ func TestCheckSshBlockedFromInternet(t *testing.T) {
 								DestinationPorts: []network.PortRange{
 									{
 										Metadata: trivyTypes.NewTestMetadata(),
-										Start:    22,
-										End:      22,
+										Start:    trivyTypes.IntTest(22),
+										End:      trivyTypes.IntTest(22),
 									},
 								},
 								SourceAddresses: []trivyTypes.StringValue{
