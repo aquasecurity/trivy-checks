@@ -11,8 +11,11 @@ on:
       - "**/*.md"
       - "LICENSE"
   merge_group:
+  workflow_dispatch:
+
 env:
-  GO_VERSION: "1.21"
+  GO_VERSION: "1.22"
+
 jobs:
   opa-tests:
     name: OPA tests
@@ -20,6 +23,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
 
       - name: Setup OPA
         uses: ./.github/actions/setup-opa
@@ -32,10 +39,6 @@ jobs:
             echo "$files"
             exit 1
           fi
-
-      - uses: actions/setup-go@v5
-        with:
-          go-version-file: go.mod
 
       - name: Test Rego checks
         run: make test-rego

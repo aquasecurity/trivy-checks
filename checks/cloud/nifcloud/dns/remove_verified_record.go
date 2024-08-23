@@ -28,7 +28,8 @@ If the authentication record remains, anyone can register the zone`,
 		Links: []string{
 			"https://pfs.nifcloud.com/guide/dns/zone_new.htm",
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, record := range s.Nifcloud.DNS.Records {

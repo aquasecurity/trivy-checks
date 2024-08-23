@@ -35,7 +35,8 @@ This will help limit the risk of any unmonitored configuration in regions that a
 			Links:               cloudFormationAggregateAllRegionsLinks,
 			RemediationMarkdown: cloudFormationAggregateAllRegionsRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		if s.AWS.Config.ConfigurationAggregrator.Metadata.IsUnmanaged() {

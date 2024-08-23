@@ -27,7 +27,8 @@ var CheckLimitAuthorizedIps = rules.Register(
 			Links:               terraformLimitAuthorizedIpsLinks,
 			RemediationMarkdown: terraformLimitAuthorizedIpsRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.Azure.Container.KubernetesClusters {

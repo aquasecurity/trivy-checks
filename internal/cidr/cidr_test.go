@@ -98,6 +98,22 @@ func TestPublicDetection(t *testing.T) {
 			input:  "nonsense",
 			public: false,
 		},
+		{
+			input:  "internet",
+			public: true,
+		},
+		{
+			input:  "Internet",
+			public: true,
+		},
+		{
+			input:  "any",
+			public: true,
+		},
+		{
+			input:  "Any",
+			public: true,
+		},
 	}
 
 	for _, test := range tests {
@@ -127,6 +143,22 @@ func TestCountCIDRAddresses(t *testing.T) {
 		},
 		{
 			cidr:     "::0/0",
+			expected: math.MaxUint64,
+		},
+		{
+			cidr:     "internet",
+			expected: math.MaxUint64,
+		},
+		{
+			cidr:     "Internet",
+			expected: math.MaxUint64,
+		},
+		{
+			cidr:     "any",
+			expected: math.MaxUint64,
+		},
+		{
+			cidr:     "Any",
 			expected: math.MaxUint64,
 		},
 	}
