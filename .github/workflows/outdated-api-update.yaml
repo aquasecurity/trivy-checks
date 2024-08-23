@@ -6,6 +6,9 @@ on:
 permissions:
   contents: write
 
+env:
+  GO_VERSION: '1.22'
+
 jobs:
   outdated:
     runs-on: ubuntu-latest
