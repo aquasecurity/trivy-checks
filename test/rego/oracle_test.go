@@ -6,6 +6,10 @@ import (
 	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 )
 
+func init() {
+	addTests(oracleTestCases)
+}
+
 var oracleTestCases = testCases{
 	"AVD-OCI-0001": {
 		{

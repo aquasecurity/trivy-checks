@@ -7,6 +7,10 @@ import (
 	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 )
 
+func init() {
+	addTests(azureDatabaseTestCases)
+}
+
 var azureDatabaseTestCases = testCases{
 	"AVD-AZU-0028": {
 		{
