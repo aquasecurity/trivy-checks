@@ -7,6 +7,10 @@ import (
 	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 )
 
+func init() {
+	addTests(googleIamTestCases)
+}
+
 var googleIamTestCases = testCases{
 	"AVD-GCP-0068": {
 		{

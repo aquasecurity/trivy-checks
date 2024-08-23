@@ -7,6 +7,10 @@ import (
 	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 )
 
+func init() {
+	addTests(awsAccessAnalyzerTestCases)
+}
+
 var awsAccessAnalyzerTestCases = testCases{
 	"AVD-AWS-0175": {
 		// TODO: Trivy does not export empty structures into Rego
