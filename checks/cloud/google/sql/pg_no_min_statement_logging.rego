@@ -35,7 +35,7 @@ import data.lib.google
 deny contains res if {
 	some instance in input.google.sql.instances
 	google.is_postgres(instance)
-	instance.settings.flags.logmindurationstatement.value != 1
+	instance.settings.flags.logmindurationstatement.value != -1
 	res := result.new(
 		"Database instance is configured to log statements.",
 		instance.settings.flags.logmindurationstatement,

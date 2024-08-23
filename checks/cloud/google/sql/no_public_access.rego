@@ -39,13 +39,12 @@ deny contains res if {
 	)
 }
 
-# TODO: Add support for public CIDRs
-# deny contains res if {
-#     some instance in input.google.sql.instances
-#     some network in instance.settings.ipconfiguration.authorizednetworks
-#     cidr.is_public(network.cidr.value)
-#     res := result.new(
-#         "Database instance allows access from the public internet.",
-#         network.cidr
-#     )
-# }
+deny contains res if {
+	some instance in input.google.sql.instances
+	some network in instance.settings.ipconfiguration.authorizednetworks
+	cidr.is_public(network.cidr.value)
+	res := result.new(
+		"Database instance allows access from the public internet.",
+		network.cidr,
+	)
+}
