@@ -28,7 +28,8 @@ var CheckAddSecurityGroupToVpnGateway = rules.Register(
 			Links:               terraformAddSecurityGroupToVpnGatewayLinks,
 			RemediationMarkdown: terraformAddSecurityGroupToVpnGatewayRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, vpnGateway := range s.Nifcloud.Network.VpnGateways {

@@ -1,10 +1,9 @@
 
-
 Buckets should not have ACLs that allow public access
 
 
 ### Impact
-Public access to the bucket can lead to data leakage
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

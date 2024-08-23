@@ -29,7 +29,8 @@ Purge protection can only be enabled once soft-delete is enabled. It can be turn
 			Links:               terraformNoPurgeLinks,
 			RemediationMarkdown: terraformNoPurgeRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, vault := range s.Azure.KeyVault.Vaults {

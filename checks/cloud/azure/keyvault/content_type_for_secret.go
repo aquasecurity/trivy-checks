@@ -29,7 +29,8 @@ Clients may specify the content type of a secret to assist in interpreting the s
 			Links:               terraformContentTypeForSecretLinks,
 			RemediationMarkdown: terraformContentTypeForSecretRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, vault := range s.Azure.KeyVault.Vaults {

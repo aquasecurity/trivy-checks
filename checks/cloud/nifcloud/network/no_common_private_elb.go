@@ -28,7 +28,8 @@ var CheckNoCommonPrivateElasticLoadBalancer = rules.Register(
 			Links:               terraformNoCommonPrivateElasticLoadBalancerLinks,
 			RemediationMarkdown: terraformNoCommonPrivateElasticLoadBalancerRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, elb := range s.Nifcloud.Network.ElasticLoadBalancers {

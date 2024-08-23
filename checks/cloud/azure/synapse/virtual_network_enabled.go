@@ -31,7 +31,8 @@ Managed private endpoints are private endpoints created in a Managed Virtual Net
 			Links:               terraformVirtualNetworkEnabledLinks,
 			RemediationMarkdown: terraformVirtualNetworkEnabledRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, workspace := range s.Azure.Synapse.Workspaces {

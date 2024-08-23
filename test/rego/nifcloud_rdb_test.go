@@ -7,6 +7,10 @@ import (
 	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 )
 
+func init() {
+	addTests(nifcloudRdbTestCases)
+}
+
 var nifcloudRdbTestCases = testCases{
 	"AVD-NIF-0012": {
 		{

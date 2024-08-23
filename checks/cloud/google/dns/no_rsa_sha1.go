@@ -27,7 +27,8 @@ var CheckNoRsaSha1 = rules.Register(
 			Links:               terraformNoRsaSha1Links,
 			RemediationMarkdown: terraformNoRsaSha1RemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, zone := range s.Google.DNS.ManagedZones {

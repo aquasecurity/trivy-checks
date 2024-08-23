@@ -25,7 +25,8 @@ var CheckDisablePasswordAuthentication = rules.Register(
 			Links:               terraformDisablePasswordAuthenticationLinks,
 			RemediationMarkdown: terraformDisablePasswordAuthenticationRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, vm := range s.Azure.Compute.LinuxVirtualMachines {
