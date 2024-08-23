@@ -5,6 +5,7 @@ go 1.22.0
 toolchain go1.22.2
 
 require (
+	github.com/antchfx/htmlquery v1.3.2
 	github.com/aquasecurity/trivy v0.54.1-0.20240822002139-6fe672732b46
 	github.com/liamg/iamgo v0.0.9
 	github.com/liamg/memoryfs v1.6.0
@@ -12,6 +13,8 @@ require (
 	github.com/owenrumney/squealer v1.2.3
 	github.com/samber/lo v1.46.0
 	github.com/stretchr/testify v1.9.0
+	golang.org/x/net v0.28.0
+	golang.org/x/sync v0.8.0
 	gopkg.in/yaml.v3 v3.0.1
 	mvdan.cc/sh/v3 v3.8.0
 )
@@ -25,6 +28,7 @@ require (
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/agnivade/levenshtein v1.1.1 // indirect
 	github.com/alecthomas/chroma v0.10.0 // indirect
+	github.com/antchfx/xpath v1.3.1 // indirect
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bytecodealliance/wasmtime-go/v3 v3.0.2 // indirect
@@ -127,8 +131,6 @@ require (
 	golang.org/x/crypto v0.26.0 // indirect
 	golang.org/x/exp v0.0.0-20231110203233-9a3e6036ecaa // indirect
 	golang.org/x/mod v0.20.0 // indirect
-	golang.org/x/net v0.28.0 // indirect
-	golang.org/x/sync v0.8.0 // indirect
 	golang.org/x/sys v0.23.0 // indirect
 	golang.org/x/text v0.17.0 // indirect
 	golang.org/x/time v0.5.0 // indirect
