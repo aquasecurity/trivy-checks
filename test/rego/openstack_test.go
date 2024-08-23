@@ -6,6 +6,10 @@ import (
 	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 )
 
+func init() {
+	addTests(openStackTestCases)
+}
+
 var openStackTestCases = testCases{
 	"AVD-OPNSTK-0001": {
 		{

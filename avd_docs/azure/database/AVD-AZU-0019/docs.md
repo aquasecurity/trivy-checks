@@ -1,8 +1,9 @@
 
 Postgresql can generate logs for successful connections to improve visibility for audit and configuration issue resolution.
 
+
 ### Impact
-No visibility of successful connections
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
