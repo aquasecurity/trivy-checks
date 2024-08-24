@@ -3,8 +3,9 @@ DB security groups should include a description for auditing purposes.
 
 Simplifies auditing, debugging, and managing db security groups.
 
+
 ### Impact
-Descriptions provide context for the firewall rule reasons
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
