@@ -1,8 +1,9 @@
 
 Instances should not be publicly exposed to the internet
 
+
 ### Impact
-Direct exposure of an instance to the public internet
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
