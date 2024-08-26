@@ -2,7 +2,7 @@
 # title: ECR images tags shouldn't be mutable.
 # description: |
 #   ECR images should be set to IMMUTABLE to prevent code injection through image mutation.
-#   This can be done by setting <code>image_tab_mutability</code> to <code>IMMUTABLE</code>
+#   This can be done by setting <code>image_tag_mutability</code> to <code>IMMUTABLE</code>
 # scope: package
 # schemas:
 #   - input: schema["cloud"]
