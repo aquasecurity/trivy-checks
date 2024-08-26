@@ -40,7 +40,8 @@ The encryption key specified in ` + "`" + `performance_insights_kms_key_id` + "`
 			Links:               cloudFormationPerformanceInsightsEncryptionCustomerKeyLinks,
 			RemediationMarkdown: cloudFormationPerformanceInsightsEncryptionCustomerKeyRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 

@@ -33,7 +33,8 @@ var CheckEnableContainerInsight = rules.Register(
 			Links:               cloudFormationEnableContainerInsightLinks,
 			RemediationMarkdown: cloudFormationEnableContainerInsightRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.AWS.ECS.Clusters {
