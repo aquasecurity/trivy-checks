@@ -25,7 +25,8 @@ var CheckEnableVPCFlowLogs = rules.Register(
 			Links:               terraformEnableVpcFlowLogsLinks,
 			RemediationMarkdown: terraformEnableVpcFlowLogsRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, network := range s.Google.Compute.Networks {

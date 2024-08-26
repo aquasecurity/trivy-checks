@@ -28,7 +28,8 @@ var CheckPgNoMinStatementLogging = rules.Register(
 			Links:               terraformPgNoMinStatementLoggingLinks,
 			RemediationMarkdown: terraformPgNoMinStatementLoggingRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.Google.SQL.Instances {
