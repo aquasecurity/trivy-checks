@@ -1,8 +1,9 @@
 
 EKS cluster resources should have the encryption_config block set with protection of the secrets resource.
 
+
 ### Impact
-EKS secrets could be read if compromised
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

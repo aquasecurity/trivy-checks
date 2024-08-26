@@ -35,7 +35,8 @@ This can be done by setting <code>image_tag_mutability</code> to <code>IMMUTABLE
 			Links:               cloudFormationEnforceImmutableRepositoryLinks,
 			RemediationMarkdown: cloudFormationEnforceImmutableRepositoryRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, repo := range s.AWS.ECR.Repositories {
