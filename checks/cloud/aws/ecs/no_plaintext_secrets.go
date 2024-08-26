@@ -43,7 +43,8 @@ var CheckNoPlaintextSecrets = rules.Register(
 			Links:               cloudFormationNoPlaintextSecretsLinks,
 			RemediationMarkdown: cloudFormationNoPlaintextSecretsRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 

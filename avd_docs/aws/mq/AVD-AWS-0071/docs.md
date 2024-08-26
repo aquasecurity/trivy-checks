@@ -1,8 +1,9 @@
 
 Logging should be enabled to allow tracing of issues and activity to be investigated more fully. Logs provide additional information and context which is often invalauble during investigation
 
+
 ### Impact
-Without logging it is difficult to trace issues
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

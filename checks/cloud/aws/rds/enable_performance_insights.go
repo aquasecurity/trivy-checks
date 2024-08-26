@@ -35,7 +35,8 @@ For example, information about active sessions could help diagose a compromise o
 			Links:               cloudFormationEnablePerformanceInsightsLinks,
 			RemediationMarkdown: cloudFormationEnablePerformanceInsightsRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.AWS.RDS.Clusters {
