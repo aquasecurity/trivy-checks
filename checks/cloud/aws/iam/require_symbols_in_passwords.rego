@@ -35,6 +35,7 @@ import rego.v1
 
 deny contains res if {
 	policy := input.aws.iam.passwordpolicy
+	isManaged(policy)
 	not policy.requiresymbols.value
 
 	res := result.new("Password policy does not require symbols.", policy.requiresymbols)

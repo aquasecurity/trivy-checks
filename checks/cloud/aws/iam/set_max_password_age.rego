@@ -37,6 +37,7 @@ import rego.v1
 
 deny contains res if {
 	policy := input.aws.iam.passwordpolicy
+	isManaged(policy)
 	policy.maxagedays.value > 90
 	res := result.new("Password policy allows a maximum password age of greater than 90 days.", policy.maxagedays)
 }

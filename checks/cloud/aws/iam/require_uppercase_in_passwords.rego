@@ -37,6 +37,7 @@ import rego.v1
 
 deny contains res if {
 	policy := input.aws.iam.passwordpolicy
+	isManaged(policy)
 	not policy.requireuppercase.value
 
 	res := result.new("Password policy does not require uppercase characters.", policy.requireuppercase)

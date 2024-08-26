@@ -41,6 +41,7 @@ msg := "Password policy allows a maximum password age of greater than 90 days"
 
 deny contains res if {
 	policy := input.aws.iam.passwordpolicy
+	isManaged(policy)
 	policy.minimumlength.value < 14
 	res := result.new("Password policy allows a maximum password age of greater than 90 days", policy.minimumlength)
 }
