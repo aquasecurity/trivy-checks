@@ -71,8 +71,9 @@ func createTrivyContainer(ctx context.Context, trivyVersion string, regIP string
 	}
 
 	reqTrivy := testcontainers.ContainerRequest{
-		Image: fmt.Sprintf("aquasec/trivy:%s", trivyVersion),
-		Cmd:   []string{"--debug", "config", fmt.Sprintf("--policy-bundle-repository=%s:5111/defsec-test:latest", regIP), "/testdata"},
+		Image:           fmt.Sprintf("aquasec/trivy:%s", trivyVersion),
+		AlwaysPullImage: true,
+		Cmd:             []string{"--debug", "config", fmt.Sprintf("--policy-bundle-repository=%s:5111/defsec-test:latest", regIP), "/testdata"},
 		HostConfigModifier: func(config *container.HostConfig) {
 			config.NetworkMode = "host"
 			config.Mounts = []mount.Mount{
