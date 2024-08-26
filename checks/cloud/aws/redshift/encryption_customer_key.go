@@ -33,7 +33,8 @@ var CheckEncryptionCustomerKey = rules.Register(
 			Links:               cloudFormationEncryptionCustomerKeyLinks,
 			RemediationMarkdown: cloudFormationEncryptionCustomerKeyRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.AWS.Redshift.Clusters {

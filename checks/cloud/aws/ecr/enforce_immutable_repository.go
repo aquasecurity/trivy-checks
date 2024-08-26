@@ -19,7 +19,7 @@ var CheckEnforceImmutableRepository = rules.Register(
 		Resolution: "Only use immutable images in ECR",
 		Explanation: `ECR images should be set to IMMUTABLE to prevent code injection through image mutation.
 
-This can be done by setting <code>image_tab_mutability</code> to <code>IMMUTABLE</code>`,
+This can be done by setting <code>image_tag_mutability</code> to <code>IMMUTABLE</code>`,
 		Links: []string{
 			"https://sysdig.com/blog/toctou-tag-mutability/",
 		},
@@ -35,7 +35,8 @@ This can be done by setting <code>image_tab_mutability</code> to <code>IMMUTABLE
 			Links:               cloudFormationEnforceImmutableRepositoryLinks,
 			RemediationMarkdown: cloudFormationEnforceImmutableRepositoryRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, repo := range s.AWS.ECR.Repositories {

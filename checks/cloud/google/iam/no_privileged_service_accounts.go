@@ -33,7 +33,8 @@ var CheckNoPrivilegedServiceAccounts = rules.Register(
 			Links:               terraformNoPrivilegedServiceAccountsLinks,
 			RemediationMarkdown: terraformNoPrivilegedServiceAccountsRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, project := range s.Google.IAM.AllProjects() {

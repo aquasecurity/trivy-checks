@@ -43,7 +43,8 @@ This ensures that the queue itself cannot be modified or deleted, and prevents p
 			Links:               cloudFormationNoWildcardsInPolicyDocumentsLinks,
 			RemediationMarkdown: cloudFormationNoWildcardsInPolicyDocumentsRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, queue := range s.AWS.SQS.Queues {

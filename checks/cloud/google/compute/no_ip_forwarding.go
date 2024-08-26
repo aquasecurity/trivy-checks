@@ -25,7 +25,8 @@ var CheckNoIpForwarding = rules.Register(
 			Links:               terraformNoIpForwardingLinks,
 			RemediationMarkdown: terraformNoIpForwardingRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.Google.Compute.Instances {

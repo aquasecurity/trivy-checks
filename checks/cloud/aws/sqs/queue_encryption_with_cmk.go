@@ -33,7 +33,8 @@ var CheckQueueEncryptionUsesCMK = rules.Register(
 			Links:               cloudFormationQueueEncryptionUsesCMKLinks,
 			RemediationMarkdown: cloudFormationQueueEncryptionUsesCMKRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, queue := range s.AWS.SQS.Queues {

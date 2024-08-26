@@ -18,5 +18,3 @@ Use specialised service accounts for specific purposes.
 #### Remediation Links
  - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam
 
- - 
-

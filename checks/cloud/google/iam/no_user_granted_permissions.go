@@ -32,7 +32,8 @@ Permissions should be granted on roles, groups, services accounts instead.`,
 			Links:               terraformNoUserGrantedPermissionsLinks,
 			RemediationMarkdown: terraformNoUserGrantedPermissionsRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, project := range s.Google.IAM.AllProjects() {
