@@ -26,7 +26,8 @@ var CheckNoPublicControlPlane = rules.Register(
 			Links:               terraformNoPublicControlPlaneLinks,
 			RemediationMarkdown: terraformNoPublicControlPlaneRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.Google.GKE.Clusters {

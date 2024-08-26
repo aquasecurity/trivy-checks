@@ -1,8 +1,9 @@
 
 Database resources should not publicly available. You should limit all access to the minimum that is required for your application to function.
 
+
 ### Impact
-The database instance is publicly accessible
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

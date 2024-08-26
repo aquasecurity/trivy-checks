@@ -25,7 +25,8 @@ var CheckNoSerialPort = rules.Register(
 			Links:               terraformNoSerialPortLinks,
 			RemediationMarkdown: terraformNoSerialPortRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.Google.Compute.Instances {
