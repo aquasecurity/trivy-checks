@@ -33,7 +33,8 @@ var CheckEnableAuditLogging = rules.Register(
 			Links:               cloudFormationEnableAuditLoggingLinks,
 			RemediationMarkdown: cloudFormationEnableAuditLoggingRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, broker := range s.AWS.MQ.Brokers {

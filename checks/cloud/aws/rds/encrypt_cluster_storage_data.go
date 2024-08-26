@@ -35,7 +35,8 @@ When enabling encryption by setting the kms_key_id, the storage_encrypted must a
 			Links:               cloudFormationEncryptClusterStorageDataLinks,
 			RemediationMarkdown: cloudFormationEncryptClusterStorageDataRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.AWS.RDS.Clusters {
