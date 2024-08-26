@@ -25,7 +25,8 @@ var CheckUseSecureTlsPolicy = rules.Register(
 			Links:               terraformUseSecureTlsPolicyLinks,
 			RemediationMarkdown: terraformUseSecureTlsPolicyRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, policy := range s.Google.Compute.SSLPolicies {

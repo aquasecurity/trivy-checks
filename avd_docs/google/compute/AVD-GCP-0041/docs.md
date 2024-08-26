@@ -1,8 +1,9 @@
 
 The virtual TPM provides numerous security measures to your VM.
 
+
 ### Impact
-Unable to prevent unwanted system state modification
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
