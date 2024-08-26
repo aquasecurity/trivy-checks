@@ -1,8 +1,9 @@
 
 Allowing public access to the ECR repository risks leaking sensitive of abusable information
 
+
 ### Impact
-Risk of potential data leakage of sensitive artifacts
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

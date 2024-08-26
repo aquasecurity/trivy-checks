@@ -27,7 +27,8 @@ var CheckNoPublicDbAccess = rules.Register(
 			Links:               terraformNoPublicDbAccessLinks,
 			RemediationMarkdown: terraformNoPublicDbAccessRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.Nifcloud.RDB.DBInstances {

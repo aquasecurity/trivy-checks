@@ -30,7 +30,8 @@ By setting drop_invalid_header_fields to true, anything that doe not conform to 
 			Links:               terraformDropInvalidHeadersLinks,
 			RemediationMarkdown: terraformDropInvalidHeadersRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, lb := range s.AWS.ELB.LoadBalancers {

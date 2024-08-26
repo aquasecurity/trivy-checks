@@ -35,7 +35,8 @@ You should use HTTPS, which is HTTP over an encrypted (TLS) connection, meaning 
 			Links:               cloudFormationEnforceHttpsLinks,
 			RemediationMarkdown: cloudFormationEnforceHttpsRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, domain := range s.AWS.Elasticsearch.Domains {

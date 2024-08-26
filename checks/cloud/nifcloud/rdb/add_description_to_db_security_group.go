@@ -30,7 +30,8 @@ Simplifies auditing, debugging, and managing db security groups.`,
 			Links:               terraformAddDescriptionToDBSecurityGroupLinks,
 			RemediationMarkdown: terraformAddDescriptionToDBSecurityGroupRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, group := range s.Nifcloud.RDB.DBSecurityGroups {

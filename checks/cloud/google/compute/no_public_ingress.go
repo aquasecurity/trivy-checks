@@ -30,7 +30,8 @@ Where possible, segments should be broken into smaller subnets and avoid using t
 			Links:               terraformNoPublicIngressLinks,
 			RemediationMarkdown: terraformNoPublicIngressRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, network := range s.Google.Compute.Networks {

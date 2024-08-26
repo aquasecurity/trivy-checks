@@ -25,7 +25,8 @@ var CheckNoDefaultNetwork = rules.Register(
 			Links:               terraformNoDefaultNetworkLinks,
 			RemediationMarkdown: terraformNoDefaultNetworkRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		// TODO: check constraints before auto_create_network

@@ -25,7 +25,8 @@ var CheckSecurityGroupHasDescription = rules.Register(
 			Links:               terraformSecurityGroupHasDescriptionLinks,
 			RemediationMarkdown: terraformSecurityGroupHasDescriptionRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, group := range s.OpenStack.Networking.SecurityGroups {
