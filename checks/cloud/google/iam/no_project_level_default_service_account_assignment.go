@@ -27,7 +27,8 @@ var CheckNoProjectLevelDefaultServiceAccountAssignment = rules.Register(
 			Links:               terraformNoProjectLevelDefaultServiceAccountAssignmentLinks,
 			RemediationMarkdown: terraformNoProjectLevelDefaultServiceAccountAssignmentRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, project := range s.Google.IAM.AllProjects() {
