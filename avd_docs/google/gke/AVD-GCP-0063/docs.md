@@ -1,8 +1,9 @@
 
 Automatic repair will monitor nodes and attempt repair when a node fails multiple subsequent health checks
 
+
 ### Impact
-Failing nodes will require manual repair.
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
