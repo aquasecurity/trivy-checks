@@ -1,27 +1,21 @@
-package workspaces
+package test
 
 import (
-	"testing"
-
-	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
-
-	"github.com/aquasecurity/trivy/pkg/iac/state"
-
+	"github.com/aquasecurity/trivy/pkg/iac/providers/aws"
 	"github.com/aquasecurity/trivy/pkg/iac/providers/aws/workspaces"
-	"github.com/aquasecurity/trivy/pkg/iac/scan"
-
-	"github.com/stretchr/testify/assert"
+	"github.com/aquasecurity/trivy/pkg/iac/state"
+	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 )
 
-func TestCheckEnableDiskEncryption(t *testing.T) {
-	tests := []struct {
-		name     string
-		input    workspaces.WorkSpaces
-		expected bool
-	}{
+func init() {
+	addTests(awsWorkspacesTestCases)
+}
+
+var awsWorkspacesTestCases = testCases{
+	"AVD-AWS-0109": {
 		{
 			name: "AWS Workspace with unencrypted root volume",
-			input: workspaces.WorkSpaces{
+			input: state.State{AWS: aws.AWS{WorkSpaces: workspaces.WorkSpaces{
 				WorkSpaces: []workspaces.WorkSpace{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
@@ -41,12 +35,12 @@ func TestCheckEnableDiskEncryption(t *testing.T) {
 						},
 					},
 				},
-			},
+			}}},
 			expected: true,
 		},
 		{
 			name: "AWS Workspace with unencrypted user volume",
-			input: workspaces.WorkSpaces{
+			input: state.State{AWS: aws.AWS{WorkSpaces: workspaces.WorkSpaces{
 				WorkSpaces: []workspaces.WorkSpace{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
@@ -66,13 +60,13 @@ func TestCheckEnableDiskEncryption(t *testing.T) {
 						},
 					},
 				},
-			},
+			}}},
 			expected: true,
 		},
 
 		{
 			name: "AWS Workspace with encrypted user and root volumes",
-			input: workspaces.WorkSpaces{
+			input: state.State{AWS: aws.AWS{WorkSpaces: workspaces.WorkSpaces{
 				WorkSpaces: []workspaces.WorkSpace{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
@@ -92,26 +86,8 @@ func TestCheckEnableDiskEncryption(t *testing.T) {
 						},
 					},
 				},
-			},
+			}}},
 			expected: false,
 		},
-	}
-	for _, test := range tests {
-		t.Run(test.name, func(t *testing.T) {
-			var testState state.State
-			testState.AWS.WorkSpaces = test.input
-			results := CheckEnableDiskEncryption.Evaluate(&testState)
-			var found bool
-			for _, result := range results {
-				if result.Status() == scan.StatusFailed && result.Rule().LongID() == CheckEnableDiskEncryption.LongID() {
-					found = true
-				}
-			}
-			if test.expected {
-				assert.True(t, found, "Rule should have been found")
-			} else {
-				assert.False(t, found, "Rule should not have been found")
-			}
-		})
-	}
+	},
 }

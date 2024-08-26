@@ -34,7 +34,8 @@ var CheckSecretUseCustomerKey = rules.Register(
 			Links:               cloudFormationSecretUseCustomerKeyLinks,
 			RemediationMarkdown: cloudFormationSecretUseCustomerKeyRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, secret := range s.AWS.SSM.Secrets {
