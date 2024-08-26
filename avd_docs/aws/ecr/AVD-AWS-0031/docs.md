@@ -1,10 +1,10 @@
 
 ECR images should be set to IMMUTABLE to prevent code injection through image mutation.
-
 This can be done by setting <code>image_tag_mutability</code> to <code>IMMUTABLE</code>
 
+
 ### Impact
-Image tags could be overwritten with compromised images
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

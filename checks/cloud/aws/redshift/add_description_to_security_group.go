@@ -29,7 +29,8 @@ Simplifies auditing, debugging, and managing security groups.`,
 			Links:               cloudFormationAddDescriptionToSecurityGroupLinks,
 			RemediationMarkdown: cloudFormationAddDescriptionToSecurityGroupRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, group := range s.AWS.Redshift.SecurityGroups {

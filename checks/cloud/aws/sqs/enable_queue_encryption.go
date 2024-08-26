@@ -33,7 +33,8 @@ var CheckEnableQueueEncryption = rules.Register(
 			Links:               cloudFormationEnableQueueEncryptionLinks,
 			RemediationMarkdown: cloudFormationEnableQueueEncryptionRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, queue := range s.AWS.SQS.Queues {
