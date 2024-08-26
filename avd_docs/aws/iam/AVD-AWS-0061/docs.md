@@ -1,9 +1,11 @@
 
 ,
+
 IAM account password policies should ensure that passwords content including at least one uppercase character.
 
+
 ### Impact
-Short, simple passwords are easier to compromise
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

@@ -33,7 +33,8 @@ IAM account password policies should ensure that passwords content including at 
 			Links:               terraformRequireUppercaseInPasswordsLinks,
 			RemediationMarkdown: terraformRequireUppercaseInPasswordsRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		policy := s.AWS.IAM.PasswordPolicy
