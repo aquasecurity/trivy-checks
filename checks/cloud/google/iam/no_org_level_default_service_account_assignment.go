@@ -18,16 +18,14 @@ var CheckNoOrgLevelDefaultServiceAccountAssignment = rules.Register(
 		Impact:      "Violation of principal of least privilege",
 		Resolution:  "Use specialised service accounts for specific purposes.",
 		Explanation: `Default service accounts should not be used - consider creating specialised service accounts for individual purposes.`,
-		Links: []string{
-			"",
-		},
 		Terraform: &scan.EngineMetadata{
 			GoodExamples:        terraformNoOrgLevelDefaultServiceAccountAssignmentGoodExamples,
 			BadExamples:         terraformNoOrgLevelDefaultServiceAccountAssignmentBadExamples,
 			Links:               terraformNoOrgLevelDefaultServiceAccountAssignmentLinks,
 			RemediationMarkdown: terraformNoOrgLevelDefaultServiceAccountAssignmentRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, org := range s.Google.IAM.Organizations {
