@@ -1,8 +1,9 @@
 
 Users with ALTER permissions on users can grant access to a contained database without the knowledge of an administrator
 
+
 ### Impact
-Access can be granted without knowledge of the database administrator
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

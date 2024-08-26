@@ -26,7 +26,8 @@ var CheckNoPublicIngress = rules.Register(
 			Links:               terraformNoPublicIngressLinks,
 			RemediationMarkdown: terraformNoPublicIngressRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, group := range s.OpenStack.Networking.SecurityGroups {
