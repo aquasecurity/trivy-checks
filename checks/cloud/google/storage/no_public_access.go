@@ -27,7 +27,8 @@ var CheckNoPublicAccess = rules.Register(
 			Links:               terraformNoPublicAccessLinks,
 			RemediationMarkdown: terraformNoPublicAccessRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, bucket := range s.Google.Storage.Buckets {

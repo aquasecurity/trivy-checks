@@ -29,7 +29,8 @@ var CheckEnableInTransitEncryption = rules.Register(
 			Links:               terraformEnableInTransitEncryptionLinks,
 			RemediationMarkdown: terraformEnableInTransitEncryptionRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, conf := range s.AWS.EMR.SecurityConfiguration {

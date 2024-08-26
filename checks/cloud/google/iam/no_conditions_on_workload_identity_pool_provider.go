@@ -27,7 +27,8 @@ var CheckNoConditionOnWorkloadIdentityPoolProvider = rules.Register(
 			Links:               terraformNoConditionOnWorkloadIdentityPoolProviderLinks,
 			RemediationMarkdown: terraformNoConditionOnWorkloadIdentityPoolProviderMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, provider := range s.Google.IAM.WorkloadIdentityPoolProviders {

@@ -25,7 +25,8 @@ var CheckProjectLevelOslogin = rules.Register(
 			Links:               terraformProjectLevelOsloginLinks,
 			RemediationMarkdown: terraformProjectLevelOsloginRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		if s.Google.Compute.ProjectMetadata.Metadata.IsManaged() {

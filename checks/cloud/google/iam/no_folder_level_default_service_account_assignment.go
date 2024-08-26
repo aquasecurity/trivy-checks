@@ -33,7 +33,8 @@ var CheckNoFolderLevelDefaultServiceAccountAssignment = rules.Register(
 			Links:               terraformNoFolderLevelDefaultServiceAccountAssignmentLinks,
 			RemediationMarkdown: terraformNoFolderLevelDefaultServiceAccountAssignmentRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, folder := range s.Google.IAM.AllFolders() {

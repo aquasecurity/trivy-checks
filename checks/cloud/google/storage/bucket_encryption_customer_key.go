@@ -27,7 +27,8 @@ var CheckBucketEncryptionCustomerKey = rules.Register(
 			Links:               terraformBucketEncryptionCustomerKeyLinks,
 			RemediationMarkdown: terraformBucketEncryptionCustomerKeyRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, bucket := range s.Google.Storage.Buckets {

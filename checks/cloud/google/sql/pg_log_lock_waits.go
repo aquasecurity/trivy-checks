@@ -28,7 +28,8 @@ var CheckPgLogLockWaits = rules.Register(
 			Links:               terraformPgLogLockWaitsLinks,
 			RemediationMarkdown: terraformPgLogLockWaitsRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.Google.SQL.Instances {

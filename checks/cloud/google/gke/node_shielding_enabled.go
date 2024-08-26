@@ -29,7 +29,8 @@ Shielded GKE Nodes provide strong, verifiable node identity and integrity to inc
 			Links:               terraformNodeShieldingEnabledLinks,
 			RemediationMarkdown: terraformNodeShieldingEnabledRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.Google.GKE.Clusters {

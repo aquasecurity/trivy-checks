@@ -25,7 +25,8 @@ var CheckDiskEncryptionCustomerKey = rules.Register(
 			Links:               terraformDiskEncryptionCustomerKeyLinks,
 			RemediationMarkdown: terraformDiskEncryptionCustomerKeyRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, disk := range s.Google.Compute.Disks {

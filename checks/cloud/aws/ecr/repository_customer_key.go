@@ -34,7 +34,8 @@ var CheckRepositoryCustomerKey = rules.Register(
 			Links:               cloudFormationRepositoryCustomerKeyLinks,
 			RemediationMarkdown: cloudFormationRepositoryCustomerKeyRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, repo := range s.AWS.ECR.Repositories {
