@@ -33,7 +33,8 @@ var CheckEnableTopicEncryption = rules.Register(
 			Links:               cloudFormationEnableTopicEncryptionLinks,
 			RemediationMarkdown: cloudFormationEnableTopicEncryptionRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, topic := range s.AWS.SNS.Topics {

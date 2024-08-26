@@ -1,8 +1,9 @@
 
 Encryption should be enabled at all available levels to ensure that data is protected if compromised.
 
+
 ### Impact
-Data stored in the table that is unencrypted may be vulnerable to compromise
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

@@ -27,7 +27,8 @@ var CheckEnableTableEncryption = rules.Register(
 			Links:               cloudFormationEnableTableEncryptionLinks,
 			RemediationMarkdown: cloudFormationEnableTableEncryptionRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, table := range s.AWS.SAM.SimpleTables {

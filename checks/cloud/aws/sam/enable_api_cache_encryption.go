@@ -27,7 +27,8 @@ var CheckEnableApiCacheEncryption = rules.Register(
 			Links:               cloudFormationEnableApiCacheEncryptionLinks,
 			RemediationMarkdown: cloudFormationEnableApiCacheEncryptionRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, api := range s.AWS.SAM.APIs {

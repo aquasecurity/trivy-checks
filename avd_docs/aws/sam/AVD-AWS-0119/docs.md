@@ -1,8 +1,9 @@
 
 Logging enables end-to-end debugging and analysis of all state machine activities.
 
+
 ### Impact
-Without logging enabled it is difficult to identify suspicious activity
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

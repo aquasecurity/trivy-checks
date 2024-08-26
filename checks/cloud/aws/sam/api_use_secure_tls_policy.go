@@ -27,7 +27,8 @@ var CheckApiUseSecureTlsPolicy = rules.Register(
 			Links:               cloudFormationApiUseSecureTlsPolicyLinks,
 			RemediationMarkdown: cloudFormationApiUseSecureTlsPolicyRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, api := range s.AWS.SAM.APIs {
