@@ -1,8 +1,9 @@
 
 While upgrading your cluster, workloads will temporarily be moved to new nodes. A small cost will follow, but as a bonus, you won't experience downtime.
 
+
 ### Impact
-Upgrades may influence availability of your Kubernetes cluster
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

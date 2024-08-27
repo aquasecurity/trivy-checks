@@ -35,7 +35,8 @@ rolled back.
 		Links: []string{
 			"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html",
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, trail := range s.AWS.CloudTrail.MultiRegionTrails() {

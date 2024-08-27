@@ -28,7 +28,7 @@ package builtin.aws.iam.aws0144
 
 import rego.v1
 
-import data.lib.iam
+import data.lib.aws.iam
 
 days_to_check = 90
 

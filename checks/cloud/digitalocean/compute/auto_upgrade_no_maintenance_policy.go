@@ -22,12 +22,13 @@ var CheckAutoUpgrade = rules.Register(
 			"https://docs.digitalocean.com/products/kubernetes/resources/best-practices/",
 		},
 		Terraform: &scan.EngineMetadata{
-			GoodExamples:        terraformKubernetesClusterAutoUpgradeGoodExample,
-			BadExamples:         terraformKubernetesClusterAutoUpgradeBadExample,
+			GoodExamples:        terraformKubernetesClusterAutoUpgradeGoodExamples,
+			BadExamples:         terraformKubernetesClusterAutoUpgradeBadExamples,
 			Links:               terraformKubernetesClusterAutoUpgradeLinks,
 			RemediationMarkdown: terraformKubernetesAutoUpgradeMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, kc := range s.DigitalOcean.Compute.KubernetesClusters {

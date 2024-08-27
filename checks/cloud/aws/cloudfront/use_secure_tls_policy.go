@@ -39,7 +39,8 @@ The only option when using the cloudfront.net domain name is to ignore this rule
 			Links:               cloudFormationUseSecureTlsPolicyLinks,
 			RemediationMarkdown: cloudFormationUseSecureTlsPolicyRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, dist := range s.AWS.Cloudfront.Distributions {

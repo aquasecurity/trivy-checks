@@ -25,7 +25,8 @@ var CheckEnableTracing = rules.Register(
 			Links:               terraformEnableTracingLinks,
 			RemediationMarkdown: terraformEnableTracingRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, api := range s.AWS.APIGateway.V1.APIs {

@@ -28,12 +28,12 @@
 #             provider: aws
 package builtin.aws.iam.aws0146
 
-import data.lib.datetime
 import rego.v1
+
+import data.lib.datetime
 
 deny contains res if {
 	some user in input.aws.iam.users
-
 	some key in user.accesskeys
 	key.active.value
 

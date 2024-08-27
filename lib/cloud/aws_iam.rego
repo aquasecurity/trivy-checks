@@ -1,11 +1,17 @@
-package lib.iam
+# METADATA
+# custom:
+#   library: true
+#   input:
+#     selector:
+#     - type: cloud
+package lib.aws.iam
 
 import rego.v1
 
 import data.lib.datetime
 
 is_user_logged_in(user) if {
-	not datetime.time_is_never(user.lastaccess.value)
+	not datetime.is_never(user.lastaccess.value)
 }
 
 user_has_mfa_devices(user) if count(user.mfadevices) > 0

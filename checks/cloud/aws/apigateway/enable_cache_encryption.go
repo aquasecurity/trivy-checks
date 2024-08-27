@@ -25,7 +25,8 @@ var CheckEnableCacheEncryption = rules.Register(
 			Links:               terraformEnableCacheEncryptionLinks,
 			RemediationMarkdown: terraformEnableCacheEncryptionRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, api := range s.AWS.APIGateway.V1.APIs {
