@@ -33,7 +33,8 @@ var CheckEnableWaf = rules.Register(
 			Links:               cloudFormationEnableWafLinks,
 			RemediationMarkdown: cloudFormationEnableWafRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, dist := range s.AWS.Cloudfront.Distributions {

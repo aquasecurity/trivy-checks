@@ -27,7 +27,8 @@ var CheckUseSecureTlsPolicy = rules.Register(
 			Links:               terraformUseSecureTlsPolicyLinks,
 			RemediationMarkdown: terraformUseSecureTlsPolicyRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, domain := range s.AWS.APIGateway.V1.DomainNames {

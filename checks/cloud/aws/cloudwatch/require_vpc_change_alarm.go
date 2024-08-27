@@ -38,6 +38,7 @@ CIS recommends that you create a metric filter and alarm for changes to VPCs. Mo
 		Terraform:      &scan.EngineMetadata{},
 		CloudFormation: &scan.EngineMetadata{},
 		Severity:       severity.Low,
+		Deprecated:     true,
 	},
 	func(s *state.State) (results scan.Results) {
 

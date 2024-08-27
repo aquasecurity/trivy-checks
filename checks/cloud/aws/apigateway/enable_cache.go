@@ -25,7 +25,8 @@ var CheckEnableCache = rules.Register(
 			Links:               terraformEnableCacheLinks,
 			RemediationMarkdown: terraformEnableCacheRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, api := range s.AWS.APIGateway.V1.APIs {

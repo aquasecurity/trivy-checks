@@ -37,6 +37,7 @@ var requireCMKDisabledAlarm = rules.Register(
 		Terraform:      &scan.EngineMetadata{},
 		CloudFormation: &scan.EngineMetadata{},
 		Severity:       severity.Low,
+		Deprecated:     true,
 	},
 	func(s *state.State) (results scan.Results) {
 
