@@ -1,3 +1,6 @@
+# METADATA
+# custom:
+#   library: true
 package lib.test
 
 import rego.v1

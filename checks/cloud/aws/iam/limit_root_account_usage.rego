@@ -28,9 +28,10 @@
 #             provider: aws
 package builtin.aws.iam.aws0140
 
-import data.lib.datetime
-import data.lib.iam
 import rego.v1
+
+import data.lib.aws.iam
+import data.lib.datetime
 
 deny contains res if {
 	some user in input.aws.iam.users

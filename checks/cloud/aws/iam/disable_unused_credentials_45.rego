@@ -26,8 +26,9 @@
 #             provider: aws
 package builtin.aws.iam.aws0166
 
-import data.lib.iam
 import rego.v1
+
+import data.lib.aws.iam
 
 days_to_check = 45
 

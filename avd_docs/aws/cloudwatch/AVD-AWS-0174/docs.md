@@ -1,5 +1,4 @@
 
-
 Monitoring AWS Organizations changes can help you prevent any unwanted, accidental or
 intentional modifications that may lead to unauthorized access or other security breaches.
 This monitoring technique helps you to ensure that any unexpected changes performed
@@ -8,7 +7,7 @@ rolled back.
 
 
 ### Impact
-Lack of observability into critical organisation changes
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
