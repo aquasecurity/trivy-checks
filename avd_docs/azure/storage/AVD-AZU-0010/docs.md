@@ -1,10 +1,10 @@
 
-Some Microsoft services that interact with storage accounts operate from networks that can't be granted access through network rules. 
-
+Some Microsoft services that interact with storage accounts operate from networks that can't be granted access through network rules.
 To help this type of service work as intended, allow the set of trusted Microsoft services to bypass the network rules
 
+
 ### Impact
-Trusted Microsoft Services won't be able to access storage account unless rules set to allow
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
