@@ -36,7 +36,8 @@ var CheckNoFunctionPolicyWildcards = rules.Register(
 			Links:               cloudFormationNoFunctionPolicyWildcardsLinks,
 			RemediationMarkdown: cloudFormationNoFunctionPolicyWildcardsRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 
