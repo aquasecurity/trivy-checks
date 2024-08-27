@@ -28,7 +28,8 @@ var CheckNoPublicEgress = rules.Register(
 			Links:               terraformNoPublicEgressLinks,
 			RemediationMarkdown: terraformNoPublicEgressRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, firewall := range s.DigitalOcean.Compute.Firewalls {

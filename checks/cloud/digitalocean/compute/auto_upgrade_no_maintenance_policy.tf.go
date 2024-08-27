@@ -1,6 +1,6 @@
 package compute
 
-var terraformKubernetesClusterAutoUpgradeBadExample = []string{
+var terraformKubernetesClusterAutoUpgradeBadExamples = []string{
 	`
 resource "digitalocean_kubernetes_cluster" "foo" {
 	name    	 = "foo"
@@ -19,7 +19,7 @@ resource "digitalocean_kubernetes_cluster" "foo" {
 `,
 }
 
-var terraformKubernetesClusterAutoUpgradeGoodExample = []string{
+var terraformKubernetesClusterAutoUpgradeGoodExamples = []string{
 	`
 resource "digitalocean_kubernetes_cluster" "foo" {
 	name    	 = "foo"

@@ -2,7 +2,7 @@
 
 
 ### Impact
-Not running the latest security patches on your Kubernetes cluster can make it a target for penetration.
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
