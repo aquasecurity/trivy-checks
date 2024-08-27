@@ -1,10 +1,10 @@
 
 The default_action for network rules should come into effect when no other rules are matched.
-
 The default action should be set to Deny.
 
+
 ### Impact
-Network rules that allow could cause data to be exposed publicly
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

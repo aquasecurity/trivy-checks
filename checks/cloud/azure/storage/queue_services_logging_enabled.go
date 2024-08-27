@@ -31,7 +31,8 @@ Requests are logged on a best-effort basis.`,
 			Links:               terraformQueueServicesLoggingEnabledLinks,
 			RemediationMarkdown: terraformQueueServicesLoggingEnabledRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, account := range s.Azure.Storage.Accounts {

@@ -1,12 +1,11 @@
 
-Storage Analytics logs detailed information about successful and failed requests to a storage service. 
-
-This information can be used to monitor individual requests and to diagnose issues with a storage service. 
-
+Storage Analytics logs detailed information about successful and failed requests to a storage service.
+This information can be used to monitor individual requests and to diagnose issues with a storage service.
 Requests are logged on a best-effort basis.
 
+
 ### Impact
-Logging provides valuable information about access and usage
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
