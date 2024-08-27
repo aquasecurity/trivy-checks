@@ -26,7 +26,8 @@ var CheckNoPublicAccess = rules.Register(
 			Links:               terraformNoPublicAccessLinks,
 			RemediationMarkdown: terraformNoPublicAccessRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, api := range s.AWS.APIGateway.V1.APIs {

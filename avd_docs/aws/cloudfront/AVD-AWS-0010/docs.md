@@ -1,8 +1,9 @@
 
 You should configure CloudFront Access Logging to create log files that contain detailed information about every user request that CloudFront receives
 
+
 ### Impact
-Logging provides vital information about access and usage
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

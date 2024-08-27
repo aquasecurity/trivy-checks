@@ -33,7 +33,8 @@ var CheckLogGroupCustomerKey = rules.Register(
 			Links:               cloudFormationLogGroupCustomerKeyLinks,
 			RemediationMarkdown: cloudFormationLogGroupCustomerKeyRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, group := range s.AWS.CloudWatch.LogGroups {
