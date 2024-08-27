@@ -30,11 +30,11 @@ package builtin.google.sql.google0021
 
 import rego.v1
 
-import data.lib.google
+import data.lib.google.database
 
 deny contains res if {
 	some instance in input.google.sql.instances
-	google.is_postgres(instance)
+	database.is_postgres(instance)
 	instance.settings.flags.logmindurationstatement.value != -1
 	res := result.new(
 		"Database instance is configured to log statements.",

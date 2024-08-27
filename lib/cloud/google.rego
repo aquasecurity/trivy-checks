@@ -1,7 +1,10 @@
 # METADATA
 # custom:
 #   library: true
-package lib.google
+#   input:
+#     selector:
+#     - type: cloud
+package lib.google.database
 
 import rego.v1
 

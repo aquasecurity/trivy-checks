@@ -3,7 +3,7 @@ package builtin.azure.keyvault.azure0014_test
 import rego.v1
 
 import data.builtin.azure.keyvault.azure0014 as check
-import data.lib.date
+import data.lib.datetime
 import data.lib.test
 
 test_deny_expiration_date_not_specified if {
@@ -14,7 +14,7 @@ test_deny_expiration_date_not_specified if {
 }
 
 test_deny_expiration_date_is_zero if {
-	inp := {"azure": {"keyvault": {"vaults": [{"keys": [{"expirydate": {"value": date.zero_date}}]}]}}}
+	inp := {"azure": {"keyvault": {"vaults": [{"keys": [{"expirydate": {"value": datetime.zero_time_string}}]}]}}}
 
 	res := check.deny with input as inp
 	count(res) == 1

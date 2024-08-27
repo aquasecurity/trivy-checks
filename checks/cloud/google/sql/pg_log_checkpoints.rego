@@ -30,11 +30,11 @@ package builtin.google.sql.google0025
 
 import rego.v1
 
-import data.lib.google
+import data.lib.google.database
 
 deny contains res if {
 	some instance in input.google.sql.instances
-	google.is_postgres(instance)
+	database.is_postgres(instance)
 	instance.settings.flags.logcheckpoints.value == false
 	res := result.new(
 		"Database instance is not configured to log checkpoints.",
