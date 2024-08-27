@@ -27,7 +27,8 @@ var CheckKubernetesSurgeUpgrades = rules.Register(
 			Links:               terraformKubernetesClusterSurgeUpgradeLinks,
 			RemediationMarkdown: terraformKubernetesClusterSurgeUpgradesMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, kc := range s.DigitalOcean.Compute.KubernetesClusters {
