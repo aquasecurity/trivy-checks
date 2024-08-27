@@ -30,11 +30,11 @@ package builtin.google.sql.google0019
 
 import rego.v1
 
-import data.lib.google
+import data.lib.google.database
 
 deny contains res if {
 	some instance in input.google.sql.instances
-	google.is_sql_server(instance)
+	database.is_sql_server(instance)
 	instance.settings.flags.crossdbownershipchaining.value == true
 	res := result.new(
 		"Database instance has cross database ownership chaining enabled.",

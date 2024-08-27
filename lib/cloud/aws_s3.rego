@@ -1,3 +1,9 @@
+# METADATA
+# custom:
+#   library: true
+#   input:
+#     selector:
+#     - type: cloud
 package lib.aws.s3
 
 import rego.v1

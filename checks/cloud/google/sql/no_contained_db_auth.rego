@@ -30,11 +30,11 @@ package builtin.google.sql.google0023
 
 import rego.v1
 
-import data.lib.google
+import data.lib.google.database
 
 deny contains res if {
 	some instance in input.google.sql.instances
-	google.is_sql_server(instance)
+	database.is_sql_server(instance)
 	instance.settings.flags.containeddatabaseauthentication.value == true
 	res := result.new(
 		"Database instance has contained database authentication enabled.",

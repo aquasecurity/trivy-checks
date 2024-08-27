@@ -30,11 +30,11 @@ package builtin.google.sql.google0014
 
 import rego.v1
 
-import data.lib.google
+import data.lib.google.database
 
 deny contains res if {
 	some instance in input.google.sql.instances
-	google.is_postgres(instance)
+	database.is_postgres(instance)
 	msg := check_log_temp_file_size(instance.settings.flags.logtempfilesize)
 	msg != ""
 	res := result.new(msg, instance.settings.flags.logtempfilesize)

@@ -31,11 +31,11 @@ package builtin.google.sql.google0026
 
 import rego.v1
 
-import data.lib.google
+import data.lib.google.database
 
 deny contains res if {
 	some instance in input.google.sql.instances
-	google.is_mysql(instance)
+	database.is_mysql(instance)
 	instance.settings.flags.localinfile.value == true
 	res := result.new("Database instance has local file read access enabled.", instance.settings.flags.localinfile)
 }
