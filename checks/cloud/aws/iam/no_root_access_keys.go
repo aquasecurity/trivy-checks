@@ -14,7 +14,7 @@ import (
 	"github.com/aquasecurity/trivy/pkg/iac/providers"
 )
 
-var checkNoRootAccessKeys = rules.Register(
+var CheckNoRootAccessKeys = rules.Register(
 	scan.Rule{
 		AVDID:     "AVD-AWS-0141",
 		Provider:  providers.AWSProvider,
@@ -40,7 +40,8 @@ CIS recommends that all access keys be associated with the root user be removed.
 			Links:               terraformNoRootAccessKeysLinks,
 			RemediationMarkdown: terraformNoRootAccessKeysRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, user := range s.AWS.IAM.Users {

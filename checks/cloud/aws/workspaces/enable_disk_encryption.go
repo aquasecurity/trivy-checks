@@ -33,7 +33,8 @@ var CheckEnableDiskEncryption = rules.Register(
 			Links:               cloudFormationEnableDiskEncryptionLinks,
 			RemediationMarkdown: cloudFormationEnableDiskEncryptionRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, workspace := range s.AWS.WorkSpaces.WorkSpaces {

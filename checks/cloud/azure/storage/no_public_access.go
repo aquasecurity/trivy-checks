@@ -30,7 +30,8 @@ Explicitly overriding publicAccess to anything other than off should be avoided.
 			Links:               terraformNoPublicAccessLinks,
 			RemediationMarkdown: terraformNoPublicAccessRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, account := range s.Azure.Storage.Accounts {

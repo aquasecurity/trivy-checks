@@ -29,7 +29,8 @@ Basic authentication should be disabled by explicitly unsetting the <code>userna
 			Links:               terraformNoLegacyAuthenticationLinks,
 			RemediationMarkdown: terraformNoLegacyAuthenticationRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.Google.GKE.Clusters {

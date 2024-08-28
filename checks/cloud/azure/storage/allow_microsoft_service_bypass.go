@@ -29,7 +29,8 @@ To help this type of service work as intended, allow the set of trusted Microsof
 			Links:               terraformAllowMicrosoftServiceBypassLinks,
 			RemediationMarkdown: terraformAllowMicrosoftServiceBypassRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, account := range s.Azure.Storage.Accounts {

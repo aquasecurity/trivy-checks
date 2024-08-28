@@ -35,7 +35,8 @@ In order to benefit from the additional security features achieved with using an
 			Links:               cloudFormationUseVpcLinks,
 			RemediationMarkdown: cloudFormationUseVpcRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.AWS.Redshift.Clusters {

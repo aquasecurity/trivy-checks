@@ -38,7 +38,8 @@ IAM groups should be protected with multi factor authentication to add safe guar
 			Links:               terraformEnforceMfaLinks,
 			RemediationMarkdown: terraformEnforceMfaRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 

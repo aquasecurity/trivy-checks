@@ -1,8 +1,9 @@
 
 You should configure a Web Application Firewall in front of your CloudFront distribution. This will mitigate many types of attacks on your web application.
 
+
 ### Impact
-Complex web application attacks can more easily be performed without a WAF
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

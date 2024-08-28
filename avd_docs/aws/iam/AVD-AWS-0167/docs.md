@@ -1,10 +1,9 @@
 
-
 Multiple active access keys widens the scope for compromise.
-			
+
 
 ### Impact
-Widened scope for compromise.
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

@@ -32,7 +32,7 @@ package builtin.azure.keyvault.azure0014
 
 import rego.v1
 
-import data.lib.date
+import data.lib.datetime
 
 deny contains res if {
 	some vault in input.azure.keyvault.vaults
@@ -44,4 +44,4 @@ deny contains res if {
 	)
 }
 
-key_has_expiry_date(key) := date.is_valid(key.expirydate.value)
+key_has_expiry_date(key) := datetime.is_valid(key.expirydate.value)

@@ -9,7 +9,7 @@ import (
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 )
 
-var checkRootHardwareMFAEnabled = rules.Register(
+var CheckRootHardwareMFAEnabled = rules.Register(
 	scan.Rule{
 		AVDID:     "AVD-AWS-0165",
 		Provider:  providers.AWSProvider,
@@ -27,7 +27,8 @@ Hardware MFA adds an extra layer of protection on top of a user name and passwor
 		Links: []string{
 			"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html",
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, user := range s.AWS.IAM.Users {

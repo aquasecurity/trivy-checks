@@ -27,7 +27,8 @@ var CheckUseSshKeys = rules.Register(
 			Links:               terraformUseSshKeysLinks,
 			RemediationMarkdown: terraformUseSshKeysRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, droplet := range s.DigitalOcean.Compute.Droplets {

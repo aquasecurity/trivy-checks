@@ -35,7 +35,8 @@ When enabling encryption by setting the kms_key_id.`,
 			Links:               cloudFormationEncryptInstanceStorageDataLinks,
 			RemediationMarkdown: cloudFormationEncryptInstanceStorageDataRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, instance := range s.AWS.RDS.Instances {

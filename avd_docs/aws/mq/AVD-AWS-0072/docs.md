@@ -1,8 +1,9 @@
 
 Public access of the MQ broker should be disabled and only allow routes to applications that require access.
 
+
 ### Impact
-Publicly accessible MQ Broker may be vulnerable to compromise
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

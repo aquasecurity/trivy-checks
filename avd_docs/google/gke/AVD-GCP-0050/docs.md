@@ -1,8 +1,9 @@
 
 You should create and use a minimally privileged service account to run your GKE cluster instead of using the Compute Engine default service account.
 
+
 ### Impact
-Service accounts with wide permissions can increase the risk of compromise
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

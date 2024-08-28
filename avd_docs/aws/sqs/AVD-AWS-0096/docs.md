@@ -1,8 +1,9 @@
 
 Queues should be encrypted to protect queue contents.
 
+
 ### Impact
-The SQS queue messages could be read if compromised
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

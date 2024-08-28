@@ -21,7 +21,8 @@ var CheckEnableStateMachineLogging = rules.Register(
 		Links: []string{
 			"https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html#sam-statemachine-logging",
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, stateMachine := range s.AWS.SAM.StateMachines {

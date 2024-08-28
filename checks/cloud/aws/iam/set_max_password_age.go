@@ -34,7 +34,8 @@ The account password policy should be set to expire passwords after 90 days or l
 			Links:               terraformSetMaxPasswordAgeLinks,
 			RemediationMarkdown: terraformSetMaxPasswordAgeRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		policy := s.AWS.IAM.PasswordPolicy

@@ -31,7 +31,8 @@ Microsoft recommends that you always require secure transfer for all of your sto
 			Links:               terraformEnforceHttpsLinks,
 			RemediationMarkdown: terraformEnforceHttpsRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, account := range s.Azure.Storage.Accounts {

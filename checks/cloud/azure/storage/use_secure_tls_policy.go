@@ -31,7 +31,8 @@ This check will warn if the minimum TLS is not set to TLS1_2.`,
 			Links:               terraformUseSecureTlsPolicyLinks,
 			RemediationMarkdown: terraformUseSecureTlsPolicyRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, account := range s.Azure.Storage.Accounts {

@@ -29,7 +29,8 @@ The default action should be set to Deny.`,
 			Links:               terraformDefaultActionDenyLinks,
 			RemediationMarkdown: terraformDefaultActionDenyRemediationMarkdown,
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, account := range s.Azure.Storage.Accounts {

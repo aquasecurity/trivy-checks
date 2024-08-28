@@ -33,7 +33,8 @@ var CheckBackupRetentionSpecified = rules.Register(
 			Links:               cloudFormationSpecifyBackupRetentionLinks,
 			RemediationMarkdown: cloudFormationSpecifyBackupRetentionRemediationMarkdown,
 		},
-		Severity: severity.Medium,
+		Severity:   severity.Medium,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, cluster := range s.AWS.RDS.Clusters {

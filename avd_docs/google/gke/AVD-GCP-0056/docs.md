@@ -1,8 +1,9 @@
 
 Enabling a network policy allows the segregation of network traffic by namespace
 
+
 ### Impact
-Unrestricted inter-cluster communication
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}

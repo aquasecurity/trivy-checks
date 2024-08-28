@@ -2,8 +2,10 @@ package sqs
 
 var cloudFormationNoWildcardsInPolicyDocumentsGoodExamples = []string{
 	`---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Good example of queue policy
 Resources:
-  GoodQueue:
+  MyQueue:
     Type: AWS::SQS::Queue
     Properties:
       Name: something
@@ -28,8 +30,10 @@ Resources:
 
 var cloudFormationNoWildcardsInPolicyDocumentsBadExamples = []string{
 	`---
+AWSTemplateFormatVersion: 2010-09-09
+Description: Bad example of queue policy
 Resources:
-  BadQueue:
+  MyQueue:
     Type: AWS::SQS::Queue
     Properties:
       Name: something

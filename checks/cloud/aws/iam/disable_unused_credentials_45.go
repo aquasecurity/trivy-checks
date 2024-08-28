@@ -35,7 +35,8 @@ Disabling or removing unnecessary credentials will reduce the window of opportun
 		Links: []string{
 			"https://console.aws.amazon.com/iam/",
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 

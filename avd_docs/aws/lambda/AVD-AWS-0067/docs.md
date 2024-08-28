@@ -1,12 +1,11 @@
 
-When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to. 
-
-Without this, any resource from principal will be granted permission – even if that resource is from another account. 
-
+When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
+Without this, any resource from principal will be granted permission – even if that resource is from another account.
 For S3, this should be the ARN of the S3 Bucket. For CloudWatch Events, this should be the ARN of the CloudWatch Events Rule. For API Gateway, this should be the ARN of the API
 
+
 ### Impact
-Not providing the source ARN allows any resource from principal, even from other accounts
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
