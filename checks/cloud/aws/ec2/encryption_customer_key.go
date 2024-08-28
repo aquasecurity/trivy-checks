@@ -32,7 +32,8 @@ var CheckEncryptionCustomerKey = rules.Register(
 			Links:               cloudFormationEncryptionCustomerKeyLinks,
 			RemediationMarkdown: cloudFormationEncryptionCustomerKeyRemediationMarkdown,
 		},
-		Severity: severity.Low,
+		Severity:   severity.Low,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, volume := range s.AWS.EC2.Volumes {

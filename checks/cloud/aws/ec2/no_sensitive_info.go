@@ -34,7 +34,8 @@ var CheckNoSensitiveInfo = rules.Register(
 			Links:               terraformNoSensitiveInfoLinks,
 			RemediationMarkdown: terraformNoSensitiveInfoRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		scanner := squealer.NewStringScanner()
