@@ -45,7 +45,8 @@ var AvoidLeaksViaHTTP = rules.Register(
 				},
 			},
 		},
-		Severity: severity.Critical,
+		Severity:   severity.Critical,
+		Deprecated: true,
 	},
 	nil,
 )

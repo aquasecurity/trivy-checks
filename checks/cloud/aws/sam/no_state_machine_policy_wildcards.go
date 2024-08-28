@@ -27,7 +27,8 @@ var CheckNoStateMachinePolicyWildcards = rules.Register(
 			Links:               cloudFormationNoStateMachinePolicyWildcardsLinks,
 			RemediationMarkdown: cloudFormationNoStateMachinePolicyWildcardsRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 
