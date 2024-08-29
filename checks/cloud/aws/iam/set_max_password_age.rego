@@ -18,6 +18,8 @@
 #   short_code: set-max-password-age
 #   recommended_action: Limit the password duration with an expiry in the policy
 #   frameworks:
+#     default:
+#       - null
 #     cis-aws-1.2:
 #       - "1.11"
 #   input:

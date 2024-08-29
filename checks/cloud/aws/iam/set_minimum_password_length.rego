@@ -18,6 +18,8 @@
 #   short_code: set-minimum-password-length
 #   recommended_action: Enforce longer, more complex passwords in the policy
 #   frameworks:
+#     default:
+#       - null
 #     cis-aws-1.2:
 #       - "1.9"
 #     cis-aws-1.4:

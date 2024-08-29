@@ -18,6 +18,8 @@
 #   short_code: no-password-reuse
 #   recommended_action: Prevent password reuse in the policy
 #   frameworks:
+#     default:
+#       - null
 #     cis-aws-1.2:
 #       - "1.10"
 #     cis-aws-1.4:

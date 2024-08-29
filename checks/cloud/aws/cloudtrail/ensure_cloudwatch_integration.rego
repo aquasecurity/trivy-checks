@@ -22,6 +22,8 @@
 #   short_code: ensure-cloudwatch-integration
 #   recommended_action: Enable logging to CloudWatch
 #   frameworks:
+#     default:
+#       - null
 #     cis-aws-1.2:
 #       - "2.4"
 #     cis-aws-1.4:
