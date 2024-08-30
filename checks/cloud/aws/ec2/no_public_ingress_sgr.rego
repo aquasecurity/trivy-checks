@@ -16,6 +16,8 @@
 #   short_code: no-public-ingress-sgr
 #   recommended_action: Set a more restrictive cidr range
 #   frameworks:
+#     default:
+#       - null
 #     cis-aws-1.2:
 #       - "4.1"
 #       - "4.2"

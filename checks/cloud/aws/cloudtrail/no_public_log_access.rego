@@ -16,6 +16,8 @@
 #   short_code: no-public-log-access
 #   recommended_action: Restrict public access to the S3 bucket
 #   frameworks:
+#     default:
+#       - null
 #     cis-aws-1.2:
 #       - "2.3"
 #     cis-aws-1.4:

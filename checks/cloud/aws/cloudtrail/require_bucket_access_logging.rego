@@ -18,6 +18,8 @@
 #   short_code: require-bucket-access-logging
 #   recommended_action: Enable access logging on the bucket
 #   frameworks:
+#     default:
+#       - null
 #     cis-aws-1.2:
 #       - "2.6"
 #     cis-aws-1.4:

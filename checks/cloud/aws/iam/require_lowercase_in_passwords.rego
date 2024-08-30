@@ -16,6 +16,8 @@
 #   short_code: require-lowercase-in-passwords
 #   recommended_action: Enforce longer, more complex passwords in the policy
 #   frameworks:
+#     default:
+#       - null
 #     cis-aws-1.2:
 #       - "1.6"
 #   input:
