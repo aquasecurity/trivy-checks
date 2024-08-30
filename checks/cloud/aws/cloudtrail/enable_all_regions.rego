@@ -16,6 +16,8 @@
 #   short_code: enable-all-regions
 #   recommended_action: Enable Cloudtrail in all regions
 #   frameworks:
+#     default:
+#       - null
 #     cis-aws-1.2:
 #       - "2.5"
 #   input:

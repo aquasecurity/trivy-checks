@@ -16,6 +16,8 @@
 #   short_code: no-user-attached-policies
 #   recommended_action: Grant policies at the group level instead.
 #   frameworks:
+#     default:
+#       - null
 #     cis-aws-1.4:
 #       - "1.15"
 #     cis-aws-1.2:

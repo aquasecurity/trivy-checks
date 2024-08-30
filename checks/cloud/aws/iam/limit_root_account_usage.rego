@@ -16,6 +16,8 @@
 #   short_code: limit-root-account-usage
 #   recommended_action: Use lower privileged accounts instead, so only required privileges are available.
 #   frameworks:
+#     default:
+#       - null
 #     cis-aws-1.2:
 #       - "1.1"
 #     cis-aws-1.4:
