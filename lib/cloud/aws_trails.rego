@@ -1,3 +1,9 @@
+# METADATA
+# custom:
+#   library: true
+#   input:
+#     selector:
+#     - type: cloud
 package lib.aws.trails
 
 import rego.v1
