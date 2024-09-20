@@ -12,7 +12,6 @@ import (
 	"github.com/aquasecurity/trivy/pkg/iac/rego"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
 	"github.com/aquasecurity/trivy/pkg/iac/scanners/dockerfile"
-	"github.com/aquasecurity/trivy/pkg/iac/scanners/options"
 	"github.com/liamg/memoryfs"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -76,8 +75,8 @@ func Test_Docker_RegoPoliciesFromDisk(t *testing.T) {
 	policiesPath, err := filepath.Abs("../checks/docker")
 	require.NoError(t, err)
 	scanner := dockerfile.NewScanner(
-		options.ScannerWithPolicyDirs(filepath.Base(policiesPath)),
-		options.ScannerWithEmbeddedLibraries(true),
+		rego.WithPolicyDirs(filepath.Base(policiesPath)),
+		rego.WithEmbeddedLibraries(true),
 	)
 	memfs := memoryfs.New()
 	// add policies
@@ -126,7 +125,7 @@ func Test_Docker_RegoPoliciesEmbedded(t *testing.T) {
 	entries, err := os.ReadDir("./testdata/dockerfile")
 	require.NoError(t, err)
 
-	scanner := dockerfile.NewScanner(options.ScannerWithEmbeddedPolicies(true), options.ScannerWithEmbeddedLibraries(true))
+	scanner := dockerfile.NewScanner(rego.WithEmbeddedPolicies(true), rego.WithEmbeddedLibraries(true))
 	srcFS := os.DirFS("../")
 
 	results, err := scanner.ScanFS(context.TODO(), srcFS, "test/testdata/dockerfile")
