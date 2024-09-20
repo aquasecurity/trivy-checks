@@ -33,7 +33,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail#is_multi_region_trail
 #     good_examples: checks/cloud/aws/cloudtrail/no_public_log_access.tf.go
 #     bad_examples: checks/cloud/aws/cloudtrail/no_public_log_access.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/cloudtrail/no_public_log_access.cf.go
 #     bad_examples: checks/cloud/aws/cloudtrail/no_public_log_access.cf.go
 package builtin.aws.cloudtrail.aws0161

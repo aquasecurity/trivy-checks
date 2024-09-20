@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group#kms_key_id
 #     good_examples: checks/cloud/aws/cloudwatch/log_group_customer_key.tf.go
 #     bad_examples: checks/cloud/aws/cloudwatch/log_group_customer_key.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/cloudwatch/log_group_customer_key.cf.go
 #     bad_examples: checks/cloud/aws/cloudwatch/log_group_customer_key.cf.go
 package builtin.aws.cloudwatch.aws0017

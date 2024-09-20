@@ -22,7 +22,7 @@
 #         subtypes:
 #           - service: redshift
 #             provider: aws
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/redshift/add_description_to_security_group.cf.go
 #     bad_examples: checks/cloud/aws/redshift/add_description_to_security_group.cf.go
 package builtin.aws.redshift.aws0083

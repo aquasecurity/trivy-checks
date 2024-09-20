@@ -22,7 +22,7 @@
 #         subtypes:
 #           - service: redshift
 #             provider: aws
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/redshift/no_classic_resources.cf.go
 #     bad_examples: checks/cloud/aws/redshift/no_classic_resources.cf.go
 package builtin.aws.redshift.aws0085

@@ -30,7 +30,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution#minimum_protocol_version
 #     good_examples: checks/cloud/aws/cloudfront/use_secure_tls_policy.tf.go
 #     bad_examples: checks/cloud/aws/cloudfront/use_secure_tls_policy.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/cloudfront/use_secure_tls_policy.cf.go
 #     bad_examples: checks/cloud/aws/cloudfront/use_secure_tls_policy.cf.go
 package builtin.aws.cloudfront.aws0013

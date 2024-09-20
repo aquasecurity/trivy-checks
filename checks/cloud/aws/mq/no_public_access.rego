@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/mq_broker#publicly_accessible
 #     good_examples: checks/cloud/aws/mq/no_public_access.tf.go
 #     bad_examples: checks/cloud/aws/mq/no_public_access.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/mq/no_public_access.cf.go
 #     bad_examples: checks/cloud/aws/mq/no_public_access.cf.go
 package builtin.aws.mq.aws0072

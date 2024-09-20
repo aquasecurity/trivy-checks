@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution#logging_config
 #     good_examples: checks/cloud/aws/cloudfront/enable_logging.tf.go
 #     bad_examples: checks/cloud/aws/cloudfront/enable_logging.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/cloudfront/enable_logging.cf.go
 #     bad_examples: checks/cloud/aws/cloudfront/enable_logging.cf.go
 package builtin.aws.cloudfront.aws0010

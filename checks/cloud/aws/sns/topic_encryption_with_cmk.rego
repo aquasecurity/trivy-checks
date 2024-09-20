@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic#example-with-server-side-encryption-sse
 #     good_examples: checks/cloud/aws/sns/topic_encryption_with_cmk.tf.go
 #     bad_examples: checks/cloud/aws/sns/topic_encryption_with_cmk.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/sns/topic_encryption_with_cmk.cf.go
 #     bad_examples: checks/cloud/aws/sns/topic_encryption_with_cmk.cf.go
 package builtin.aws.sns.aws0136

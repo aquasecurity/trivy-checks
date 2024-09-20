@@ -27,7 +27,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository
 #     good_examples: checks/cloud/aws/ecr/enforce_immutable_repository.tf.go
 #     bad_examples: checks/cloud/aws/ecr/enforce_immutable_repository.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/ecr/enforce_immutable_repository.cf.go
 #     bad_examples: checks/cloud/aws/ecr/enforce_immutable_repository.cf.go
 package builtin.aws.ecr.aws0031

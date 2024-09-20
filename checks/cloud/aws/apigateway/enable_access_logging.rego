@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/apigatewayv2_stage#access_log_settings
 #     good_examples: checks/cloud/aws/apigateway/enable_access_logging.tf.go
 #     bad_examples: checks/cloud/aws/apigateway/enable_access_logging.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/apigateway/enable_access_logging.cf.go
 #     bad_examples: checks/cloud/aws/apigateway/enable_access_logging.cf.go
 package builtin.aws.apigateway.aws0001

@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_acl_rule#to_port
 #     good_examples: checks/cloud/aws/ec2/no_excessive_port_access.tf.go
 #     bad_examples: checks/cloud/aws/ec2/no_excessive_port_access.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/ec2/no_excessive_port_access.cf.go
 #     bad_examples: checks/cloud/aws/ec2/no_excessive_port_access.cf.go
 package builtin.aws.ec2.aws0102

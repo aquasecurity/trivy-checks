@@ -21,7 +21,7 @@
 #         subtypes:
 #           - service: sam
 #             provider: aws
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/sam/api_use_secure_tls_policy.cf.go
 #     bad_examples: checks/cloud/aws/sam/api_use_secure_tls_policy.cf.go
 package builtin.aws.sam.aws0112

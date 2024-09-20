@@ -27,7 +27,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/codebuild_project#encryption_disabled
 #     good_examples: checks/cloud/aws/codebuild/enable_encryption.tf.go
 #     bad_examples: checks/cloud/aws/codebuild/enable_encryption.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/codebuild/enable_encryption.cf.go
 #     bad_examples: checks/cloud/aws/codebuild/enable_encryption.cf.go
 package builtin.aws.codebuild.aws0018
