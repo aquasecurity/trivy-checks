@@ -18,4 +18,11 @@ test_deny_tls_not_required if {
 	count(res) == 1
 }
 
+test_deny_tls_not_required_but_ssl_mode_require_ssl if {
+	inp := build_input({"requiretls": {"value": false}, "ssl_mode": {"value": check.ssl_mode_trusted_client_certificate_required}})
+
+	res := check.deny with input as inp
+	count(res) == 1
+}
+
 build_input(ipconfig) := {"google": {"sql": {"instances": [{"settings": {"ipconfiguration": ipconfig}}]}}}
