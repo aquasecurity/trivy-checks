@@ -27,7 +27,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/redshift_cluster#cluster_subnet_group_name
 #     good_examples: checks/cloud/aws/redshift/use_vpc.tf.go
 #     bad_examples: checks/cloud/aws/redshift/use_vpc.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/redshift/use_vpc.cf.go
 #     bad_examples: checks/cloud/aws/redshift/use_vpc.cf.go
 package builtin.aws.redshift.aws0127

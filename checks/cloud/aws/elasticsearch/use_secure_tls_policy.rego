@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#tls_security_policy
 #     good_examples: checks/cloud/aws/elasticsearch/use_secure_tls_policy.tf.go
 #     bad_examples: checks/cloud/aws/elasticsearch/use_secure_tls_policy.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/elasticsearch/use_secure_tls_policy.cf.go
 #     bad_examples: checks/cloud/aws/elasticsearch/use_secure_tls_policy.cf.go
 package builtin.aws.elasticsearch.aws0126

@@ -139,7 +139,11 @@ func GetExampleValuesFromFile(filename string, exampleType string) ([]string, er
 				switch spec := spec.(type) {
 				case *goast.ValueSpec:
 					for _, id := range spec.Names {
-						switch v := id.Obj.Decl.(*goast.ValueSpec).Values[0].(type) {
+						valueSpec := id.Obj.Decl.(*goast.ValueSpec)
+						if len(valueSpec.Values) == 0 {
+							continue
+						}
+						switch v := valueSpec.Values[0].(type) {
 						case *goast.CompositeLit:
 							for _, e := range v.Elts {
 								switch e := e.(type) {

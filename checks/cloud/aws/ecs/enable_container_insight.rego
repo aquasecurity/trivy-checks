@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster#setting
 #     good_examples: checks/cloud/aws/ecs/enable_container_insight.tf.go
 #     bad_examples: checks/cloud/aws/ecs/enable_container_insight.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/ecs/enable_container_insight.cf.go
 #     bad_examples: checks/cloud/aws/ecs/enable_container_insight.cf.go
 package builtin.aws.ecs.aws0034

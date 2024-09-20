@@ -35,7 +35,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail#is_multi_region_trail
 #     good_examples: checks/cloud/aws/cloudtrail/require_bucket_access_logging.tf.go
 #     bad_examples: checks/cloud/aws/cloudtrail/require_bucket_access_logging.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/cloudtrail/require_bucket_access_logging.cf.go
 #     bad_examples: checks/cloud/aws/cloudtrail/require_bucket_access_logging.cf.go
 package builtin.aws.cloudtrail.aws0163

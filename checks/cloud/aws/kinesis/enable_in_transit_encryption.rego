@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kinesis_stream#encryption_type
 #     good_examples: checks/cloud/aws/kinesis/enable_in_transit_encryption.tf.go
 #     bad_examples: checks/cloud/aws/kinesis/enable_in_transit_encryption.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/kinesis/enable_in_transit_encryption.cf.go
 #     bad_examples: checks/cloud/aws/kinesis/enable_in_transit_encryption.cf.go
 package builtin.aws.kinesis.aws0064

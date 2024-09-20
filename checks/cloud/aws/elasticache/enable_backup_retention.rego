@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster#snapshot_retention_limit
 #     good_examples: checks/cloud/aws/elasticache/enable_backup_retention.tf.go
 #     bad_examples: checks/cloud/aws/elasticache/enable_backup_retention.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/elasticache/enable_backup_retention.cf.go
 #     bad_examples: checks/cloud/aws/elasticache/enable_backup_retention.cf.go
 package builtin.aws.elasticache.aws0050

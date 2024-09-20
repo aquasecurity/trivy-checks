@@ -27,7 +27,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail#kms_key_id
 #     good_examples: checks/cloud/aws/cloudtrail/encryption_customer_key.tf.go
 #     bad_examples: checks/cloud/aws/cloudtrail/encryption_customer_key.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     links:
 #       - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-kmskeyid
 #     good_examples: checks/cloud/aws/cloudtrail/encryption_customer_key.cf.go

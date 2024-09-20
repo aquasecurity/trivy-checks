@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/docdb_cluster#kms_key_id
 #     good_examples: checks/cloud/aws/documentdb/encryption_customer_key.tf.go
 #     bad_examples: checks/cloud/aws/documentdb/encryption_customer_key.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/documentdb/encryption_customer_key.cf.go
 #     bad_examples: checks/cloud/aws/documentdb/encryption_customer_key.cf.go
 package builtin.aws.documentdb.aws0022

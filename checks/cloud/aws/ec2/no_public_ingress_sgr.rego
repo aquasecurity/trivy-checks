@@ -32,7 +32,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule#cidr_blocks
 #     good_examples: checks/cloud/aws/ec2/no_public_ingress_sgr.tf.go
 #     bad_examples: checks/cloud/aws/ec2/no_public_ingress_sgr.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/ec2/no_public_ingress_sgr.cf.go
 #     bad_examples: checks/cloud/aws/ec2/no_public_ingress_sgr.cf.go
 package builtin.aws.ec2.aws0107

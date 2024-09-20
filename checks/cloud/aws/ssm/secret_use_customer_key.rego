@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret#kms_key_id
 #     good_examples: checks/cloud/aws/ssm/secret_use_customer_key.tf.go
 #     bad_examples: checks/cloud/aws/ssm/secret_use_customer_key.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/ssm/secret_use_customer_key.cf.go
 #     bad_examples: checks/cloud/aws/ssm/secret_use_customer_key.cf.go
 package builtin.aws.ssm.aws0098

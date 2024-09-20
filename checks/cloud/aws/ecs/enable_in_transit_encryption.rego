@@ -27,7 +27,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition#transit_encryption
 #     good_examples: checks/cloud/aws/ecs/enable_in_transit_encryption.tf.go
 #     bad_examples: checks/cloud/aws/ecs/enable_in_transit_encryption.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/ecs/enable_in_transit_encryption.cf.go
 #     bad_examples: checks/cloud/aws/ecs/enable_in_transit_encryption.cf.go
 package builtin.aws.ecs.aws0035
