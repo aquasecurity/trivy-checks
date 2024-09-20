@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet#map_public_ip_on_launch
 #     good_examples: checks/cloud/aws/ec2/no_public_ip_subnet.tf.go
 #     bad_examples: checks/cloud/aws/ec2/no_public_ip_subnet.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/ec2/no_public_ip_subnet.cf.go
 #     bad_examples: checks/cloud/aws/ec2/no_public_ip_subnet.cf.go
 package builtin.aws.ec2.aws0164

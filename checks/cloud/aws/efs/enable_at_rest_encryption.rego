@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_file_system
 #     good_examples: checks/cloud/aws/efs/enable_at_rest_encryption.tf.go
 #     bad_examples: checks/cloud/aws/efs/enable_at_rest_encryption.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/efs/enable_at_rest_encryption.cf.go
 #     bad_examples: checks/cloud/aws/efs/enable_at_rest_encryption.cf.go
 package builtin.aws.efs.aws0037

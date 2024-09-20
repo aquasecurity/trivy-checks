@@ -27,7 +27,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance#backup_retention_period
 #     good_examples: checks/cloud/aws/rds/specify_backup_retention.tf.go
 #     bad_examples: checks/cloud/aws/rds/specify_backup_retention.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/rds/specify_backup_retention.cf.go
 #     bad_examples: checks/cloud/aws/rds/specify_backup_retention.cf.go
 package builtin.aws.rds.aws0077

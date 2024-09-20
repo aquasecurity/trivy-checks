@@ -27,7 +27,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_security_group#description
 #     good_examples: checks/cloud/aws/elasticache/add_description_for_security_group.tf.go
 #     bad_examples: checks/cloud/aws/elasticache/add_description_for_security_group.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/elasticache/add_description_for_security_group.cf.go
 #     bad_examples: checks/cloud/aws/elasticache/add_description_for_security_group.cf.go
 package builtin.aws.elasticache.aws0049

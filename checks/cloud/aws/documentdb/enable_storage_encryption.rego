@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/docdb_cluster#storage_encrypted
 #     good_examples: checks/cloud/aws/documentdb/enable_storage_encryption.tf.go
 #     bad_examples: checks/cloud/aws/documentdb/enable_storage_encryption.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/documentdb/enable_storage_encryption.cf.go
 #     bad_examples: checks/cloud/aws/documentdb/enable_storage_encryption.cf.go
 package builtin.aws.documentdb.aws0021

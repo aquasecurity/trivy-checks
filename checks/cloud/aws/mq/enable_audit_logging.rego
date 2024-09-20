@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/mq_broker#audit
 #     good_examples: checks/cloud/aws/mq/enable_audit_logging.tf.go
 #     bad_examples: checks/cloud/aws/mq/enable_audit_logging.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/mq/enable_audit_logging.cf.go
 #     bad_examples: checks/cloud/aws/mq/enable_audit_logging.cf.go
 package builtin.aws.mq.aws0070

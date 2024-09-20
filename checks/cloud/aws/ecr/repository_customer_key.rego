@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository#encryption_configuration
 #     good_examples: checks/cloud/aws/ecr/repository_customer_key.tf.go
 #     bad_examples: checks/cloud/aws/ecr/repository_customer_key.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/ecr/repository_customer_key.cf.go
 #     bad_examples: checks/cloud/aws/ecr/repository_customer_key.cf.go
 package builtin.aws.ecr.aws0033

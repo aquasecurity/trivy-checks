@@ -29,7 +29,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule
 #     good_examples: checks/cloud/aws/ec2/add_description_to_security_group_rule.tf.go
 #     bad_examples: checks/cloud/aws/ec2/add_description_to_security_group_rule.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/ec2/add_description_to_security_group_rule.cf.go
 #     bad_examples: checks/cloud/aws/ec2/add_description_to_security_group_rule.cf.go
 package builtin.aws.ec2.aws0124
