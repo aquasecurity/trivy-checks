@@ -233,6 +233,12 @@ spec:
     checks:
     - id: AVD-AWS-0155
     severity: LOW
+  - id: "5.1"
+    name: aws-vpc-no-public-ingress-acl
+    description: Network ACLs should not allow ingress from 0.0.0.0/0 to port 22 or port 3389.
+    checks:
+    - id: AVD-AWS-0105
+    severity: MEDIUM
   - id: "5.3"
     name: restrict-all-in-default-sg
     description: Default security group should restrict all traffic

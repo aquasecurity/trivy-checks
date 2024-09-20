@@ -498,6 +498,9 @@ var awsEc2TestCases = testCases{
 								Metadata: trivyTypes.NewTestMetadata(),
 								Type:     trivyTypes.String(ec2.TypeIngress, trivyTypes.NewTestMetadata()),
 								Action:   trivyTypes.String(ec2.ActionAllow, trivyTypes.NewTestMetadata()),
+								Protocol: trivyTypes.StringTest("tcp"),
+								FromPort: trivyTypes.IntTest(22),
+								ToPort:   trivyTypes.IntTest(22),
 								CIDRs: []trivyTypes.StringValue{
 									trivyTypes.String("0.0.0.0/0", trivyTypes.NewTestMetadata()),
 								},
@@ -543,6 +546,9 @@ var awsEc2TestCases = testCases{
 								CIDRs: []trivyTypes.StringValue{
 									trivyTypes.String("0.0.0.0/0", trivyTypes.NewTestMetadata()),
 								},
+								Protocol: trivyTypes.StringTest("tcp"),
+								FromPort: trivyTypes.IntTest(22),
+								ToPort:   trivyTypes.IntTest(22),
 							},
 						},
 					},
