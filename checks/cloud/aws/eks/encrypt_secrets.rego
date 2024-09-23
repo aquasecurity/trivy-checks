@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster#encryption_config
 #     good_examples: checks/cloud/aws/eks/encrypt_secrets.tf.go
 #     bad_examples: checks/cloud/aws/eks/encrypt_secrets.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/eks/encrypt_secrets.cf.go
 #     bad_examples: checks/cloud/aws/eks/encrypt_secrets.cf.go
 package builtin.aws.eks.aws0039

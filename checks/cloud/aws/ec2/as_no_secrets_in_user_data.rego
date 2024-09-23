@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#user_data
 #     good_examples: checks/cloud/aws/ec2/as_no_secrets_in_user_data.tf.go
 #     bad_examples: checks/cloud/aws/ec2/as_no_secrets_in_user_data.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/ec2/as_no_secrets_in_user_data.cf.go
 #     bad_examples: checks/cloud/aws/ec2/as_no_secrets_in_user_data.cf.go
 package builtin.aws.ec2.aws0129

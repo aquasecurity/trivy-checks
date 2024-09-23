@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/athena_workgroup#configuration
 #     good_examples: checks/cloud/aws/athena/no_encryption_override.tf.go
 #     bad_examples: checks/cloud/aws/athena/no_encryption_override.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/athena/no_encryption_override.cf.go
 #     bad_examples: checks/cloud/aws/athena/no_encryption_override.cf.go
 package builtin.aws.athena.aws0007

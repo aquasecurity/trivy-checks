@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository_policy#policy
 #     good_examples: checks/cloud/aws/ecr/no_public_access.tf.go
 #     bad_examples: checks/cloud/aws/ecr/no_public_access.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/ecr/no_public_access.cf.go
 #     bad_examples: checks/cloud/aws/ecr/no_public_access.cf.go
 package builtin.aws.ecr.aws0032

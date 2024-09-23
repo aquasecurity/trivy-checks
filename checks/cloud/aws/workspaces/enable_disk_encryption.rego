@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/workspaces_workspace#root_volume_encryption_enabled
 #     good_examples: checks/cloud/aws/workspaces/enable_disk_encryption.tf.go
 #     bad_examples: checks/cloud/aws/workspaces/enable_disk_encryption.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/workspaces/enable_disk_encryption.cf.go
 #     bad_examples: checks/cloud/aws/workspaces/enable_disk_encryption.cf.go
 package builtin.aws.workspaces.aws0109

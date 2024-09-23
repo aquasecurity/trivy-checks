@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository#image_scanning_configuration
 #     good_examples: checks/cloud/aws/ecr/enable_image_scans.tf.go
 #     bad_examples: checks/cloud/aws/ecr/enable_image_scans.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/ecr/enable_image_scans.cf.go
 #     bad_examples: checks/cloud/aws/ecr/enable_image_scans.cf.go
 package builtin.aws.ecr.aws0030

@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#enable-default-server-side-encryption
 #     good_examples: checks/cloud/aws/s3/enable_bucket_encryption.tf.go
 #     bad_examples: checks/cloud/aws/s3/enable_bucket_encryption.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/s3/enable_bucket_encryption.cf.go
 #     bad_examples: checks/cloud/aws/s3/enable_bucket_encryption.cf.go
 package builtin.aws.s3.aws0088

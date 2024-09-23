@@ -27,7 +27,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution#viewer_protocol_policy
 #     good_examples: checks/cloud/aws/cloudfront/enforce_https.tf.go
 #     bad_examples: checks/cloud/aws/cloudfront/enforce_https.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/cloudfront/enforce_https.cf.go
 #     bad_examples: checks/cloud/aws/cloudfront/enforce_https.cf.go
 package builtin.aws.cloudfront.aws0012

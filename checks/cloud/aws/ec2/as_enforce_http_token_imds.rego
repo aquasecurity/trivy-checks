@@ -30,7 +30,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#metadata-options
 #     good_examples: checks/cloud/aws/ec2/as_enforce_http_token_imds.tf.go
 #     bad_examples: checks/cloud/aws/ec2/as_enforce_http_token_imds.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/ec2/as_enforce_http_token_imds.cf.go
 #     bad_examples: checks/cloud/aws/ec2/as_enforce_http_token_imds.cf.go
 package builtin.aws.ec2.aws0130

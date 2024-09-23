@@ -39,7 +39,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail
 #     good_examples: checks/cloud/aws/cloudtrail/ensure_cloudwatch_integration.tf.go
 #     bad_examples: checks/cloud/aws/cloudtrail/ensure_cloudwatch_integration.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/cloudtrail/ensure_cloudwatch_integration.cf.go
 #     bad_examples: checks/cloud/aws/cloudtrail/ensure_cloudwatch_integration.cf.go
 package builtin.aws.cloudtrail.aws0162

@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block#block_public_acls
 #     good_examples: checks/cloud/aws/s3/block_public_acls.tf.go
 #     bad_examples: checks/cloud/aws/s3/block_public_acls.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/s3/block_public_acls.cf.go
 #     bad_examples: checks/cloud/aws/s3/block_public_acls.cf.go
 package builtin.aws.s3.aws0086

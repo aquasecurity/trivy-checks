@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#encrypt_at_rest
 #     good_examples: checks/cloud/aws/elasticsearch/enable_domain_encryption.tf.go
 #     bad_examples: checks/cloud/aws/elasticsearch/enable_domain_encryption.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/elasticsearch/enable_domain_encryption.cf.go
 #     bad_examples: checks/cloud/aws/elasticsearch/enable_domain_encryption.cf.go
 package builtin.aws.elasticsearch.aws0048

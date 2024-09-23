@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block#restrict_public_buckets¡
 #     good_examples: checks/cloud/aws/s3/no_public_buckets.tf.go
 #     bad_examples: checks/cloud/aws/s3/no_public_buckets.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/s3/no_public_buckets.cf.go
 #     bad_examples: checks/cloud/aws/s3/no_public_buckets.cf.go
 package builtin.aws.s3.aws0093

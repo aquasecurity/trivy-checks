@@ -26,7 +26,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/docdb_cluster#enabled_cloudwatch_logs_exports
 #     good_examples: checks/cloud/aws/documentdb/enable_log_export.tf.go
 #     bad_examples: checks/cloud/aws/documentdb/enable_log_export.tf.go
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/documentdb/enable_log_export.cf.go
 #     bad_examples: checks/cloud/aws/documentdb/enable_log_export.cf.go
 package builtin.aws.documentdb.aws0020
