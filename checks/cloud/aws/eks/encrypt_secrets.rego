@@ -35,13 +35,23 @@ import rego.v1
 
 deny contains res if {
 	some cluster in input.aws.eks.clusters
-	cluster.encryption.secrets.value == false
-	res := result.new("Cluster does not have secret encryption enabled.", cluster.encryption.secrets)
+	not has_secrets(cluster)
+	res := result.new(
+		"Cluster does not have secret encryption enabled.",
+		object.get(cluster, ["encryption", "secrets"], cluster),
+	)
 }
 
 deny contains res if {
 	some cluster in input.aws.eks.clusters
-	cluster.encryption.secrets.value == true
-	cluster.encryption.kmskeyid.value == ""
-	res := result.new("Cluster encryption requires a KMS key ID, which is missing", cluster.encryption.kmskeyid)
+	has_secrets(cluster)
+	not has_key(cluster)
+	res := result.new(
+		"Cluster encryption requires a KMS key ID, which is missing",
+		object.get(cluster, ["encryption", "kmskeyid"], cluster),
+	)
 }
+
+has_secrets(cluster) if cluster.encryption.secrets.value
+
+has_key(cluster) if cluster.encryption.kmskeyid.value != ""

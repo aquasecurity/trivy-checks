@@ -2,11 +2,15 @@
 Enable encryption of EKS secrets
 
 ```hcl
+resource "aws_kms_key" "eks" {
+	enable_key_rotation = true
+}
+
  resource "aws_eks_cluster" "good_example" {
      encryption_config {
          resources = [ "secrets" ]
          provider {
-             key_arn = var.kms_arn
+             key_arn = aws_kms_key.eks.arn
          }
      }
  

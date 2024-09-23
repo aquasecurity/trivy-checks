@@ -35,13 +35,23 @@ import rego.v1
 
 deny contains res if {
 	some stream in input.aws.kinesis.streams
-	stream.encryption.type.value != "KMS"
-	res := result.new("Stream does not use KMS encryption.", stream.encryption.type)
+	not is_kms_encryption(stream)
+	res := result.new(
+		"Stream does not use KMS encryption.",
+		object.get(stream, ["encryption", "type"], stream),
+	)
 }
 
 deny contains res if {
 	some stream in input.aws.kinesis.streams
-	stream.encryption.type.value == "KMS"
-	stream.encryption.kmskeyid.value == ""
-	res := result.new("Stream does not use a custom-managed KMS key.", stream.encryption.kmskeyid)
+	is_kms_encryption(stream)
+	not has_kms_key(stream)
+	res := result.new(
+		"Stream does not use a custom-managed KMS key.",
+		object.get(stream, ["encryption", "kmskeyid"], stream),
+	)
 }
+
+is_kms_encryption(stream) if stream.encryption.type.value == "KMS"
+
+has_kms_key(stream) if stream.encryption.kmskeyid.value != ""

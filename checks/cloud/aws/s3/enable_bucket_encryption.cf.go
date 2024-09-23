@@ -19,13 +19,6 @@ var cloudFormationEnableBucketEncryptionBadExamples = []string{
 Resources:
   BadExample:
     Type: AWS::S3::Bucket
-    Properties:
-      BucketEncryption:
-        ServerSideEncryptionConfiguration:
-          - BucketKeyEnabled: false
-            ServerSideEncryptionByDefault:
-              KMSMasterKeyID: alias/alias-name
-              SSEAlgorithm: aws:kms
 `,
 }
 

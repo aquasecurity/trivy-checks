@@ -11,10 +11,10 @@ Resources:
       RoleArn: >-
         arn:aws:iam::012345678910:role/eks-service-role-good-example
       EncryptionConfig:
-        Provider:
-          KeyArn: alias/eks-kms
-        Resources:
-        - secrets
+        - Provider:
+            KeyArn: alias/eks-kms
+          Resources:
+            - secrets
       ResourcesVpcConfig:
         SecurityGroupIds:
           - sg-6979fe18
