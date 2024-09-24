@@ -14,5 +14,5 @@ obj_by_path(obj, path) := res if {
 		object.subset(path, obj_path)
 	}
 
-	res := occurrenses[max(object.keys(occurrenses))]
+	res := occurrences[max(object.keys(occurrences))]
 } else := obj
