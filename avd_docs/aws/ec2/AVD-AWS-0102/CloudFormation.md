@@ -9,7 +9,7 @@ Resources:
     Type: AWS::EC2::NetworkAcl
     Properties:
       VpcId: "something"
-	  RuleAction: "allow"
+    RuleAction: "allow"
   Rule:
     Type: AWS::EC2::NetworkAclEntry
     Properties:

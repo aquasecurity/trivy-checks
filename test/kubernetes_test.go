@@ -7,9 +7,9 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/aquasecurity/trivy/pkg/iac/rego"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
 	"github.com/aquasecurity/trivy/pkg/iac/scanners/kubernetes"
-	"github.com/aquasecurity/trivy/pkg/iac/scanners/options"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -21,9 +21,9 @@ func Test_Kubernetes_RegoPoliciesFromDisk(t *testing.T) {
 	require.NoError(t, err)
 
 	scanner := kubernetes.NewScanner(
-		options.ScannerWithPerResultTracing(true),
-		options.ScannerWithEmbeddedPolicies(true),
-		options.ScannerWithEmbeddedLibraries(true),
+		rego.WithPerResultTracing(true),
+		rego.WithEmbeddedPolicies(true),
+		rego.WithEmbeddedLibraries(true),
 	)
 
 	srcFS := os.DirFS("../")
@@ -81,7 +81,11 @@ func Test_Kubernetes_RegoPoliciesEmbedded(t *testing.T) {
 	entries, err := os.ReadDir("./testdata/kubernetes")
 	require.NoError(t, err)
 
-	scanner := kubernetes.NewScanner(options.ScannerWithEmbeddedPolicies(true), options.ScannerWithEmbeddedLibraries(true), options.ScannerWithEmbeddedLibraries(true))
+	scanner := kubernetes.NewScanner(
+		rego.WithEmbeddedPolicies(true),
+		rego.WithEmbeddedLibraries(true),
+		rego.WithEmbeddedLibraries(true),
+	)
 
 	srcFS := os.DirFS("../")
 

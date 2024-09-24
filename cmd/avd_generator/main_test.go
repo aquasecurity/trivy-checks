@@ -1,27 +1,13 @@
 package main
 
 import (
-	"fmt"
 	"os"
-	"path"
 	"path/filepath"
-	"runtime"
 	"testing"
 
-	"github.com/aquasecurity/trivy/pkg/iac/framework"
-	registered "github.com/aquasecurity/trivy/pkg/iac/rules"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
-
-func init() { // change the pwd for the test to top level defesc dir
-	_, filename, _, _ := runtime.Caller(0)
-	dir := path.Join(path.Dir(filename), "../..")
-	err := os.Chdir(dir)
-	if err != nil {
-		panic(err)
-	}
-}
 
 func Test_AVDPageGeneration(t *testing.T) {
 	tmpDir := t.TempDir()
@@ -29,12 +15,7 @@ func Test_AVDPageGeneration(t *testing.T) {
 		os.RemoveAll(tmpDir)
 	}()
 
-	var generateCount int
-	for _, metadata := range registered.GetRegistered(framework.ALL) {
-		writeDocsFile(metadata, tmpDir)
-		generateCount++
-	}
-	fmt.Printf("\nGenerated %d files in avd_docs\n", generateCount)
+	generateDocs(tmpDir)
 
 	// check golang policies
 	b, err := os.ReadFile(filepath.Join(tmpDir, "aws/rds/AVD-AWS-0077", "Terraform.md"))

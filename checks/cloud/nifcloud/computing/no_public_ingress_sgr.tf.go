@@ -8,9 +8,14 @@ var terraformNoPublicIngressSgrGoodExamples = []string{
  }
  `,
 	`
-resource "nifcloud_security_group_rule" "allow_partner_rsync" {
+resource "nifcloud_security_group" "example" {
+  group_name        = "allowtcp"
+  availability_zone = "east-11"
+}
+
+resource "nifcloud_security_group_rule" "example" {
   type                 = "IN"
-  security_group_names = [nifcloud_security_group.….group_name]
+  security_group_names = [nifcloud_security_group.example.group_name]
   from_port            = 22
   to_port              = 22
   protocol             = "TCP"

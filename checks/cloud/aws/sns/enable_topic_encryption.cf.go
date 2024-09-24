@@ -4,7 +4,7 @@ var cloudFormationEnableTopicEncryptionGoodExamples = []string{
 	`---
 Resources:
   GoodTopic:
-    Type: AWS::SQS::Topic
+    Type: AWS::SNS::Topic
     Properties:
       TopicName: blah
       KmsMasterKeyId: some-key

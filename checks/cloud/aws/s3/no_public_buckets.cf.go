@@ -17,8 +17,8 @@ Resources:
 var cloudFormationNoPublicBucketsBadExamples = []string{
 	`---
 Resources:
-  Type: AWS::S3::Bucket
   BadExample:
+    Type: AWS::S3::Bucket
     Properties:
       AccessControl: AuthenticatedRead
 `,

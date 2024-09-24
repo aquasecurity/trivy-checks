@@ -29,6 +29,8 @@ package builtin.aws.redshift.aws0085
 
 import rego.v1
 
+# TODO: detection of classic resources needs to be improved. Most likely this check is not relevant for Rego
+# https://github.com/aws-samples/ec2-classic-resource-finder/tree/main
 deny contains res if {
 	some group in input.aws.redshift.securitygroups
 	res := result.new(

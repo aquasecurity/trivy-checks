@@ -5,7 +5,6 @@ import (
 	goast "go/ast"
 	"go/parser"
 	"go/token"
-	"io"
 	"os"
 	"path/filepath"
 	"strings"
@@ -13,21 +12,31 @@ import (
 
 	policies "github.com/aquasecurity/trivy-checks"
 	"github.com/aquasecurity/trivy/pkg/iac/framework"
-	_ "github.com/aquasecurity/trivy/pkg/iac/rego"
-	registered "github.com/aquasecurity/trivy/pkg/iac/rules"
+	"github.com/aquasecurity/trivy/pkg/iac/rego"
+	"github.com/aquasecurity/trivy/pkg/iac/rules"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
 	types "github.com/aquasecurity/trivy/pkg/iac/types/rules"
 )
 
 func main() {
+	generateDocs("avd_docs")
+}
+
+func generateDocs(path string) {
 	var generateCount int
 
-	for _, metadata := range registered.GetRegistered(framework.ALL) {
-		writeDocsFile(metadata, "avd_docs")
+	// Clean up all Go checks
+	rules.Reset()
+
+	// Load Rego checks
+	rego.LoadAndRegister()
+
+	for _, metadata := range rules.GetRegistered(framework.ALL) {
+		writeDocsFile(metadata, path)
 		generateCount++
 	}
 
-	fmt.Printf("\nGenerated %d files in avd_docs\n", generateCount)
+	fmt.Printf("\nGenerated %d files in %s\n", generateCount, path)
 }
 
 // nolint: cyclop
@@ -94,7 +103,7 @@ func generateExamplesForEngine(rule scan.Rule, engine *scan.EngineMetadata, docp
 	if err != nil {
 		fail("error occurred creating the %s file for %s", provider, docpath)
 	}
-	defer func() { _ = file.Close() }()
+	defer file.Close()
 
 	if err := tmpl.Execute(file, rule); err != nil {
 		fail("error occurred generating the document %v", err)
@@ -109,17 +118,13 @@ func fail(msg string, args ...interface{}) {
 	os.Exit(1)
 }
 
-func readFileFromPolicyFS(path string) (io.Reader, error) {
-	path = strings.TrimPrefix(path, "rules/")
-	return policies.EmbeddedPolicyFileSystem.Open(path)
-
-}
-
 func GetExampleValuesFromFile(filename string, exampleType string) ([]string, error) {
-	r, err := readFileFromPolicyFS(filename)
+	r, err := policies.EmbeddedPolicyFileSystem.Open(filename)
 	if err != nil {
 		return nil, err
 	}
+	defer r.Close()
+
 	f, err := parser.ParseFile(token.NewFileSet(), filename, r, parser.AllErrors)
 	if err != nil {
 		return nil, err

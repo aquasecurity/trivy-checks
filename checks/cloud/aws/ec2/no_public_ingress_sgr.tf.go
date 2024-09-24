@@ -8,9 +8,9 @@ var terraformNoPublicIngressSgrGoodExamples = []string{
  }
  `,
 	`
-resource "aws_security_group_rule" "allow_partner_rsync" {
+resource "aws_security_group_rule" "example" {
   type              = "ingress"
-  security_group_id = aws_security_group.….id
+  security_group_id = "sg-123456"
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"

@@ -35,6 +35,11 @@ import rego.v1
 
 deny contains res if {
 	some func in input.aws.lambda.functions
-	func.tracing.mode.value != "Active"
-	res := result.new("Function does not have tracing enabled.", func.tracing.mode)
+	not is_active_mode(func)
+	res := result.new(
+		"Function does not have tracing enabled.",
+		object.get(func, ["tracing", "mode"], func),
+	)
 }
+
+is_active_mode(func) if func.tracing.mode.value == "Active"
