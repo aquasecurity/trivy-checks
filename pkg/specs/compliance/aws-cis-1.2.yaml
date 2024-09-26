@@ -206,7 +206,13 @@ spec:
     severity: LOW
   - id: "4.1"
     name: no-public-ingress-sgr
-    description: An ingress security group rule allows traffic from /0.
+    description: Security groups should not allow ingress from 0.0.0.0/0 or ::/0 to port 22 or port 3389.
     checks:
     - id: AVD-AWS-0107
-    severity: CRITICAL
+    severity: HIGH
+  - id: "4.2"
+    name: no-public-ingress-sgr
+    description: Security groups should not allow ingress from 0.0.0.0/0 or ::/0 to port 22 or port 3389.
+    checks:
+    - id: AVD-AWS-0107
+    severity: HIGH
