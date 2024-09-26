@@ -1,0 +1,21 @@
+name: Verify Specs
+on:
+  pull_request:
+  merge_group:
+jobs:
+  build:
+    name: Verify Specs
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-go@v5
+      with:
+        go-version-file: go.mod
+
+    - run: |
+        make generate-specs
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "Run 'generate-specs' and push it"
+          exit 1
+        fi

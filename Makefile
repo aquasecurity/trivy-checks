@@ -50,3 +50,7 @@ verify-bundle:
 
 build-opa:
 	go build ./cmd/opa
+
+.PHONY: generate-specs
+generate-specs:
+	go run ./cmd/specs
