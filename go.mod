@@ -5,7 +5,7 @@ go 1.22.0
 toolchain go1.22.2
 
 require (
-	github.com/aquasecurity/trivy v0.55.1-0.20240920045012-1f9fc13da4a1
+	github.com/aquasecurity/trivy v0.55.2
 	github.com/liamg/iamgo v0.0.9
 	github.com/liamg/memoryfs v1.6.0
 	github.com/open-policy-agent/opa v0.67.1
@@ -13,7 +13,7 @@ require (
 	github.com/samber/lo v1.47.0
 	github.com/stretchr/testify v1.9.0
 	gopkg.in/yaml.v3 v3.0.1
-	mvdan.cc/sh/v3 v3.8.0
+	mvdan.cc/sh/v3 v3.9.0
 )
 
 require (
