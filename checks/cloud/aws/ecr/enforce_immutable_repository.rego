@@ -34,9 +34,13 @@ package builtin.aws.ecr.aws0031
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some repo in input.aws.ecr.repositories
-	repo.imagetagsimmutable.value == false
-
-	res := result.new("Repository tags are mutable.", repo.imagetagsimmutable)
+	not repo.imagetagsimmutable.value
+	res := result.new(
+		"Repository tags are mutable.",
+		metadata.obj_by_path(repo, ["imagetagsimmutable"]),
+	)
 }

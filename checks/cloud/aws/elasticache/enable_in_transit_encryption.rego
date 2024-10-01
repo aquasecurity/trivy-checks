@@ -33,8 +33,13 @@ package builtin.aws.elasticache.aws0051
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some group in input.aws.elasticache.replicationgroups
-	group.transitencryptionenabled.value == false
-	res := result.new("Replication group does not have transit encryption enabled.", group.transitencryptionenabled)
+	not group.transitencryptionenabled.value
+	res := result.new(
+		"Replication group does not have transit encryption enabled.",
+		metadata.obj_by_path(group, ["transitencryptionenabled"]),
+	)
 }

@@ -33,8 +33,13 @@ package builtin.aws.elasticsearch.aws0043
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some domain in input.aws.elasticsearch.domains
-	domain.transitencryption.enabled.value == false
-	res := result.new("Domain does not have in-transit encryption enabled.", domain.transitencryption.enabled)
+	not domain.transitencryption.enabled.value
+	res := result.new(
+		"Domain does not have in-transit encryption enabled.",
+		metadata.obj_by_path(domain, ["transitencryption", "enabled"]),
+	)
 }

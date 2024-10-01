@@ -7,6 +7,7 @@ import data.lib.test
 
 test_allow_all_logging_enabled if {
 	inp := {"aws": {"eks": {"clusters": [{"logging": {
+		"api": {"value": true},
 		"audit": {"value": true},
 		"authenticator": {"value": true},
 		"controllermanager": {"value": true},
@@ -24,11 +25,12 @@ test_deny_all_logging_disabled if {
 		"scheduler": {"value": false},
 	}}]}}}
 
-	test.assert_count(check.deny, 4) with input as inp
+	test.assert_count(check.deny, 5) with input as inp
 }
 
 test_deny_one_logging_disabled if {
 	inp := {"aws": {"eks": {"clusters": [{"logging": {
+		"api": {"value": true},
 		"audit": {"value": false},
 		"authenticator": {"value": true},
 		"controllermanager": {"value": true},

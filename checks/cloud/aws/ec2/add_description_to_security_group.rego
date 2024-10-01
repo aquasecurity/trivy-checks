@@ -38,16 +38,23 @@ package builtin.aws.ec2.aws0099
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some sg in input.aws.ec2.securitygroups
-	sg.__defsec_metadata.managed
-	sg.description.value == ""
-	res := result.new("Security group does not have a description.", sg)
+	isManaged(sg)
+	not has_description(sg)
+	res := result.new(
+		"Security group does not have a description.",
+		metadata.obj_by_path(sg, ["description"]),
+	)
 }
 
 deny contains res if {
 	some sg in input.aws.ec2.securitygroups
-	sg.__defsec_metadata.managed
+	isManaged(sg)
 	sg.description.value == "Managed by Terraform"
-	res := result.new("Security group explicitly uses the default description.", sg)
+	res := result.new("Security group explicitly uses the default description.", sg.description)
 }
+
+has_description(sg) if sg.description.value != ""

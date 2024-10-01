@@ -35,6 +35,8 @@ package builtin.aws.rds.aws0133
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.aws.rds.clusters
 	some instance in cluster.instances
@@ -42,7 +44,7 @@ deny contains res if {
 	not instance.instance.performanceinsights.enabled.value
 	res := result.new(
 		"Instance does not have performance insights enabled.",
-		object.get(instance.instance.performanceinsights, "enabled", instance.instance.performanceinsights),
+		metadata.obj_by_path(instance.instance, ["performanceinsights", "enabled"]),
 	)
 }
 
@@ -52,6 +54,6 @@ deny contains res if {
 	not instance.performanceinsights.enabled.value
 	res := result.new(
 		"Instance does not have performance insights enabled.",
-		object.get(instance.performanceinsights, "enabled", instance.performanceinsights),
+		metadata.obj_by_path(instance, ["performanceinsights", "enabled"]),
 	)
 }

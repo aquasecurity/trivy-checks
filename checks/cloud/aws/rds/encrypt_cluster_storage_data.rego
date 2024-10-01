@@ -34,13 +34,15 @@ package builtin.aws.rds.aws0079
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.aws.rds.clusters
 	isManaged(cluster)
 	not encryption_enabled(cluster)
 	res := result.new(
 		"Cluster does not have storage encryption enabled.",
-		object.get(cluster.encryption, "encryptstorage", cluster.encryption),
+		metadata.obj_by_path(cluster, ["encryption", "encryptstorage"]),
 	)
 }
 
@@ -51,7 +53,7 @@ deny contains res if {
 	not has_kms_key(cluster)
 	res := result.new(
 		"Cluster does not specify a customer managed key for storage encryption.",
-		object.get(cluster.encryption, "kmskeyid", cluster.encryption),
+		metadata.obj_by_path(cluster, ["encryption", "kmskeyid"]),
 	)
 }
 

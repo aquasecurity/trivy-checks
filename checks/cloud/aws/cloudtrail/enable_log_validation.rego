@@ -33,8 +33,13 @@ package builtin.aws.cloudtrail.aws0016
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some trail in input.aws.cloudtrail.trails
 	not trail.enablelogfilevalidation.value
-	res := result.new("Trail does not have log validation enabled.", trail.enablelogfilevalidation)
+	res := result.new(
+		"Trail does not have log validation enabled.",
+		metadata.obj_by_path(trail, ["enablelogfilevalidation"]),
+	)
 }

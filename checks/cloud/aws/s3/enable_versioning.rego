@@ -37,11 +37,13 @@ package builtin.aws.s3.aws0090
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some bucket in input.aws.s3.buckets
 	not bucket.versioning.enabled.value
 	res := result.new(
 		"Bucket does not have versioning enabled",
-		object.get(bucket, ["versioning", "enabled"], bucket),
+		metadata.obj_by_path(bucket, ["versioning", "enabled"]),
 	)
 }

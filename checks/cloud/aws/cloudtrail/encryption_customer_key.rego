@@ -36,8 +36,15 @@ package builtin.aws.cloudtrail.aws0015
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some trail in input.aws.cloudtrail.trails
-	trail.kmskeyid.value == ""
-	res := result.new("CloudTrail does not use a customer managed key to encrypt the logs.", trail.kmskeyid)
+	not use_cms(trail)
+	res := result.new(
+		"CloudTrail does not use a customer managed key to encrypt the logs.",
+		metadata.obj_by_path(trail, ["kmskeyid"]),
+	)
 }
+
+use_cms(trail) if trail.kmskeyid.value != ""

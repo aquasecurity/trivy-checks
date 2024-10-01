@@ -30,12 +30,14 @@ package builtin.azure.compute.azure0038
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some disk in input.azure.compute.manageddisks
 	isManaged(disk)
 	not disk.encryption.enabled.value
 	res := result.new(
 		"Managed disk is not encrypted.",
-		object.get(disk, ["encryption", "enabled"], disk),
+		metadata.obj_by_path(disk, ["encryption", "enabled"]),
 	)
 }

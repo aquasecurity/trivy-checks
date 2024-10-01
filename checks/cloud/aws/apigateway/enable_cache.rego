@@ -30,6 +30,8 @@ package builtin.aws.apigateway.aws0190
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some api in input.aws.apigateway.v1.apis
 	isManaged(api)
@@ -40,6 +42,6 @@ deny contains res if {
 	not settings.cacheenabled.value
 	res := result.new(
 		"Cache data is not enabled.",
-		object.get(settings, "cacheenabled", settings),
+		metadata.obj_by_path(settings, ["cacheenabled"]),
 	)
 }

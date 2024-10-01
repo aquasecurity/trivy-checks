@@ -33,6 +33,8 @@ package builtin.aws.s3.aws0091
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some bucket in input.aws.s3.buckets
 	not bucket.publicaccessblock
@@ -48,10 +50,6 @@ deny contains res if {
 	not bucket.publicaccessblock.ignorepublicacls.value
 	res := result.new(
 		"Public access block does not ignore public ACLs",
-		object.get(
-			bucket.publicaccessblock,
-			"ignorepublicacls",
-			bucket.publicaccessblock,
-		),
+		metadata.obj_by_path(bucket, ["publicaccessblock", "ignorepublicacls"]),
 	)
 }

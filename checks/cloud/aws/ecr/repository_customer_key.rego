@@ -33,6 +33,8 @@ package builtin.aws.ecr.aws0033
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some repo in input.aws.ecr.repositories
 	not is_encyption_type_kms(repo.encryption.type)
@@ -42,8 +44,13 @@ deny contains res if {
 deny contains res if {
 	some repo in input.aws.ecr.repositories
 	is_encyption_type_kms(repo.encryption.type)
-	repo.encryption.kmskeyid.value == ""
-	res := result.new("Repository encryption does not use a customer managed KMS key.", repo.encryption.kmskeyid)
+	not has_cms(repo)
+	res := result.new(
+		"Repository encryption does not use a customer managed KMS key.",
+		metadata.obj_by_path(repo, ["encryption", "kmskeyid"]),
+	)
 }
 
 is_encyption_type_kms(typ) if typ.value == "KMS"
+
+has_cms(repo) if repo.encryption.kmskeyid.value != ""

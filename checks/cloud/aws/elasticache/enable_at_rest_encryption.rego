@@ -30,8 +30,13 @@ package builtin.aws.elasticache.aws0045
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some group in input.aws.elasticache.replicationgroups
-	group.atrestencryptionenabled.value == false
-	res := result.new("Replication group does not have at-rest encryption enabled.", group.atrestencryptionenabled)
+	not group.atrestencryptionenabled.value
+	res := result.new(
+		"Replication group does not have at-rest encryption enabled.",
+		metadata.obj_by_path(group, ["atrestencryptionenabled"]),
+	)
 }

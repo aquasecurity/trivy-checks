@@ -30,12 +30,14 @@ package builtin.azure.container.azure0040
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.azure.container.kubernetesclusters
 	isManaged(cluster)
 	not cluster.addonprofile.omsagent.enabled.value
 	res := result.new(
 		"Cluster does not have logging enabled via OMS Agent.",
-		object.get(cluster, ["addonprofile", "omsagent", "enabled"], cluster),
+		metadata.obj_by_path(cluster, ["addonprofile", "omsagent", "enabled"]),
 	)
 }

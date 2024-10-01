@@ -33,11 +33,13 @@ package builtin.aws.msk.aws0179
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.aws.msk.clusters
 	not cluster.encryptionatrest.enabled.value
 	res := result.new(
 		"The cluster is not encrypted at rest.",
-		object.get(cluster, ["encryptionatrest", "enabled"], cluster),
+		metadata.obj_by_path(cluster, ["encryptionatrest", "enabled"]),
 	)
 }
