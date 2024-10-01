@@ -36,8 +36,13 @@ package builtin.aws.elasticsearch.aws0042
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some domain in input.aws.elasticsearch.domains
-	domain.logpublishing.auditenabled.value == false
-	res := result.new("Domain audit logging is not enabled.", domain.logpublishing.auditenabled)
+	not domain.logpublishing.auditenabled.value
+	res := result.new(
+		"Domain audit logging is not enabled.",
+		metadata.obj_by_path(domain, ["logpublishing", "auditenabled"]),
+	)
 }

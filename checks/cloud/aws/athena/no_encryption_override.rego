@@ -33,8 +33,13 @@ package builtin.aws.athena.aws0007
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some workgroup in input.aws.athena.workgroups
 	not workgroup.enforceconfiguration.value
-	res := result.new("The workgroup configuration is not enforced.", workgroup.enforceconfiguration)
+	res := result.new(
+		"The workgroup configuration is not enforced.",
+		metadata.obj_by_path(workgroup, ["enforceconfiguration"]),
+	)
 }

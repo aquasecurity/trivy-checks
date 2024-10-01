@@ -33,8 +33,13 @@ package builtin.aws.documentdb.aws0021
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.aws.documentdb.clusters
 	not cluster.storageencrypted.value
-	res := result.new("Cluster storage does not have encryption enabled.", cluster.storageencrypted)
+	res := result.new(
+		"Cluster storage does not have encryption enabled.",
+		metadata.obj_by_path(cluster, ["storageencrypted"]),
+	)
 }

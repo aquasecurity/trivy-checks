@@ -38,8 +38,13 @@ package builtin.aws.cloudtrail.aws0014
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some trail in input.aws.cloudtrail.trails
 	not trail.ismultiregion.value
-	res := result.new("Trail is not enabled across all regions.", trail.ismultiregion)
+	res := result.new(
+		"Trail is not enabled across all regions.",
+		metadata.obj_by_path(trail, ["ismultiregion"]),
+	)
 }

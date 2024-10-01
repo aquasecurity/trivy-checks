@@ -33,11 +33,13 @@ package builtin.aws.ecs.aws0034
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.aws.ecs.clusters
-	cluster.settings.containerinsightsenabled.value == false
+	not cluster.settings.containerinsightsenabled.value
 	res := result.new(
 		"Cluster does not have container insights enabled.",
-		cluster.settings.containerinsightsenabled,
+		metadata.obj_by_path(cluster, ["settings", "containerinsightsenabled"]),
 	)
 }

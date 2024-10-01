@@ -33,9 +33,13 @@ package builtin.aws.ecr.aws0030
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some repo in input.aws.ecr.repositories
-	repo.imagescanning.scanonpush.value == false
-
-	res := result.new("Image scanning is not enabled", repo.imagescanning.scanonpush)
+	not repo.imagescanning.scanonpush.value
+	res := result.new(
+		"Image scanning is not enabled",
+		metadata.obj_by_path(repo, ["imagescanning", "scanonpush"]),
+	)
 }

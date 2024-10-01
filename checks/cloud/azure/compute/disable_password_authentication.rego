@@ -29,12 +29,14 @@ package builtin.azure.compute.azure0039
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some vm in input.azure.compute.linuxvirtualmachines
 	isManaged(vm)
 	not vm.osprofilelinuxconfig.disablepasswordauthentication.value
 	res := result.new(
 		"Linux virtual machine allows password authentication.",
-		object.get(vm, ["osprofilelinuxconfig", "disablepasswordauthentication"], vm),
+		metadata.obj_by_path(vm, ["osprofilelinuxconfig", "disablepasswordauthentication"]),
 	)
 }

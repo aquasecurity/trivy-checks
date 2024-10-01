@@ -34,12 +34,14 @@ package builtin.aws.ecs.aws0035
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some task_definition in input.aws.ecs.taskdefinitions
 	some volume in task_definition.volumes
-	volume.efsvolumeconfiguration.transitencryptionenabled.value == false
+	not volume.efsvolumeconfiguration.transitencryptionenabled.value
 	res := result.new(
 		"Task definition includes a volume which does not have in-transit-encryption enabled.",
-		volume.efsvolumeconfiguration.transitencryptionenabled,
+		metadata.obj_by_path(volume, ["efsvolumeconfiguration", "transitencryptionenabled"]),
 	)
 }

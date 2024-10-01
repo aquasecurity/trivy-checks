@@ -34,12 +34,18 @@ package builtin.aws.ec2.aws0028
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some instance in input.aws.ec2.instances
-	instance.metadataoptions.httptokens.value != "required"
-	instance.metadataoptions.httpendpoint.value != "disabled"
+	not is_tokens_required(instance)
+	not is_endpoint_disabled(instance)
 	res := result.new(
 		"Instance does not require IMDS access to require a token.",
-		instance.metadataoptions.httptokens,
+		metadata.obj_by_path(instance, ["metadataoptions", "httptokens"]),
 	)
 }
+
+is_tokens_required(instance) if instance.metadataoptions.httptokens.value == "required"
+
+is_endpoint_disabled(instance) if instance.metadataoptions.httpendpoint.value == "disabled"

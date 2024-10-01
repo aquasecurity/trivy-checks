@@ -28,10 +28,17 @@ package builtin.aws.elb.aws0053
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some lb in input.aws.elb.loadbalancers
-	lb.type.value != "gateway"
-	lb.internal.value == false
+	not is_gateway(lb)
+	not lb.internal.value
 
-	res := result.new("Load balancer is exposed publicly.", lb.internal)
+	res := result.new(
+		"Load balancer is exposed publicly.",
+		metadata.obj_by_path(lb, ["internal"]),
+	)
 }
+
+is_gateway(lb) if lb.type.value == "gateway"

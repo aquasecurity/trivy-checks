@@ -33,11 +33,13 @@ package builtin.aws.elasticsearch.aws0048
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some domain in input.aws.elasticsearch.domains
-	domain.atrestencryption.enabled.value == false
+	not domain.atrestencryption.enabled.value
 	res := result.new(
 		"Domain does not have at-rest encryption enabled.",
-		domain.atrestencryption.enabled,
+		metadata.obj_by_path(domain, ["atrestencryption", "enabled"]),
 	)
 }

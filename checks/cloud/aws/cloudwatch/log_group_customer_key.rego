@@ -33,8 +33,15 @@ package builtin.aws.cloudwatch.aws0017
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some group in input.aws.cloudwatch.loggroups
-	group.kmskeyid.value == ""
-	res := result.new("Log group is not encrypted.", group)
+	not has_cms(group)
+	res := result.new(
+		"Log group is not encrypted.",
+		metadata.obj_by_path(group, ["kmskeyid"]),
+	)
 }
+
+has_cms(group) if group.kmskeyid.value != ""
