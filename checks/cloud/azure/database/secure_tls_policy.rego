@@ -31,6 +31,7 @@ package builtin.azure.database.azure0026
 import rego.v1
 
 import data.lib.azure.database
+import data.lib.cloud.metadata
 
 recommended_tls_version := "TLS1_2"
 
@@ -41,7 +42,7 @@ deny contains res if {
 	not is_recommended_tls(server)
 	res := result.new(
 		"Database server does not require a secure TLS version.",
-		object.get(server, "minimumtlsversion", server),
+		metadata.obj_by_path(server, "minimumtlsversion"),
 	)
 }
 
@@ -50,7 +51,7 @@ deny contains res if {
 	not is_recommended_mssql_tls(server)
 	res := result.new(
 		"Database server does not require a secure TLS version.",
-		object.get(server, "minimumtlsversion", server),
+		metadata.obj_by_path(server, "minimumtlsversion"),
 	)
 }
 

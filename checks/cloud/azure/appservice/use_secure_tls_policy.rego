@@ -28,6 +28,8 @@ package builtin.azure.appservice.azure0006
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 recommended_tls_version := "1.2"
 
 deny contains res if {
@@ -36,7 +38,7 @@ deny contains res if {
 	not is_recommended_tls_version(service)
 	res := result.new(
 		"App service does not require a secure TLS version.",
-		object.get(service, ["site", "minimumtlsversion"], service),
+		metadata.obj_by_path(service, ["site", "minimumtlsversion"]),
 	)
 }
 

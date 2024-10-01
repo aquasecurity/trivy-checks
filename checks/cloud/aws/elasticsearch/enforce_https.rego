@@ -34,8 +34,13 @@ package builtin.aws.elasticsearch.aws0046
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some domain in input.aws.elasticsearch.domains
-	domain.endpoint.enforcehttps.value == false
-	res := result.new("Domain does not enforce HTTPS.", domain.endpoint.enforcehttps)
+	not domain.endpoint.enforcehttps.value
+	res := result.new(
+		"Domain does not enforce HTTPS.",
+		metadata.obj_by_path(domain, ["endpoint", "enforcehttps"]),
+	)
 }

@@ -30,12 +30,14 @@ package builtin.azure.container.azure0043
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.azure.container.kubernetesclusters
 	not has_network_policy(cluster)
 	res := result.new(
 		"Kubernetes cluster does not have a network policy set.",
-		object.get(cluster, ["networkprofile", "networkpolicy"], cluster),
+		metadata.obj_by_path(cluster, ["networkprofile", "networkpolicy"]),
 	)
 }
 

@@ -33,17 +33,27 @@ package builtin.aws.documentdb.aws0022
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.aws.documentdb.clusters
-	cluster.kmskeyid.value == ""
-
-	res := result.new("Cluster encryption does not use a customer-managed KMS key.", cluster)
+	isManaged(cluster)
+	not has_cms(cluster)
+	res := result.new(
+		"Cluster encryption does not use a customer-managed KMS key.",
+		metadata.obj_by_path(cluster, ["kmskeyid"]),
+	)
 }
 
 deny contains res if {
 	some cluster in input.aws.documentdb.clusters
 	some instance in cluster.instances
-	instance.kmskeyid.value == ""
-
-	res := result.new("Instance encryption does not use a customer-managed KMS key.", cluster)
+	isManaged(instance)
+	not has_cms(instance)
+	res := result.new(
+		"Instance encryption does not use a customer-managed KMS key.",
+		metadata.obj_by_path(instance, ["kmskeyid"]),
+	)
 }
+
+has_cms(obj) if obj.kmskeyid.value != ""

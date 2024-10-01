@@ -30,6 +30,8 @@ package builtin.azure.database.azure0021
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some server in input.azure.database.postgresqlservers
 	isManaged(server)
@@ -37,6 +39,6 @@ deny contains res if {
 	not server.config.connectionthrottling.value
 	res := result.new(
 		"Database server is not configured to throttle connections.",
-		object.get(server, ["config", "connectionthrottling"], server),
+		metadata.obj_by_path(server, ["config", "connectionthrottling"]),
 	)
 }

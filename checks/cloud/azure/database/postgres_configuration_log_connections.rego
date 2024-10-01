@@ -31,12 +31,14 @@ package builtin.azure.database.azure0019
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some server in input.azure.database.postgresqlservers
 	isManaged(server)
 	not server.config.logconnections.value
 	res := result.new(
 		"Database server is not configured to log connections.",
-		object.get(server, ["config", "logconnections"], server),
+		metadata.obj_by_path(server, ["config", "logconnections"]),
 	)
 }
