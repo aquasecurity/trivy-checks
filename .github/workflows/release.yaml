@@ -22,6 +22,12 @@ jobs:
           registry: ghcr.io
           username: ${{ env.GH_USER }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Login to ECR
+        uses: docker/login-action@v3
+        with:
+          registry: public.ecr.aws
+          username: ${{ secrets.ECR_ACCESS_KEY_ID }}
+          password: ${{ secrets.ECR_SECRET_ACCESS_KEY }}
       - name: Deploy policy bundle to ghcr.io (for backwards compatibility)
         run: |
           tags=(latest ${{ env.RELEASE_VERSION}} ${{env.MINOR_VERSION }} ${{ env.MAJOR_VERSION }})
@@ -32,11 +38,18 @@ jobs:
               --annotation "org.opencontainers.image.revision=$GITHUB_SHA" \
               bundle.tar.gz:application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip
           done
-      - name: Deploy checks bundle to ghcr.io
+      - name: Deploy checks bundle to ghcr.io and ECR Public
         run: |
+          registries=(
+            "ghcr.io"
+            "public.ecr.aws"
+          )
           tags=(latest ${{ env.RELEASE_VERSION}} ${{env.MINOR_VERSION }} ${{ env.MAJOR_VERSION }})
-          for tag in ${tags[@]}; do
-              oras push ghcr.io/${{ github.repository }}:${tag} \
+
+          for registry in "${registries[@]}"; do
+            for tag in ${tags[@]}; do
+              oras push ${registry}/${{ github.repository }}:${tag} \
               --config /dev/null:application/vnd.cncf.openpolicyagent.config.v1+json \
               bundle.tar.gz:application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip
+            done
           done
