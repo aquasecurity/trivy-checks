@@ -1,6 +1,9 @@
 # METADATA
 # custom:
 #   library: true
+#   input:
+#     selector:
+#     - type: cloud
 package lib.cloud.metadata
 
 import rego.v1
