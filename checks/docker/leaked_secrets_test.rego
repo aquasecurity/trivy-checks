@@ -96,6 +96,40 @@ test_deny_secret_file_in_arg if {
 	count(res) = 1
 }
 
+test_deny_secret_in_set_command if {
+	inp := {
+		"Stages": [{
+			"Name": "amazon/aws-cli:latest",
+			"Commands": [instruction(
+				"run",
+				["aws configure set aws_access_key_id test-id &&     aws configure set aws_secret_access_key test-key"],
+			)]
+		}]
+	}
+
+	res := check.deny with input as inp
+	count(res) = 1
+}
+
+test_allow_secret_in_set_command_with_secret_mount if {
+	inp := {
+		"Stages": [{
+			"Name": "amazon/aws-cli:latest",
+			"Commands": [{
+				"Cmd": "run",
+				"Value": ["aws configure set aws_access_key_id $(cat /run/secrets/aws-key-id) &&     aws configure set aws_secret_access_key $(cat /run/secrets/aws-secret-key)"],
+				"Flags": [
+					"--mount=type=secret,id=aws-key-id,env=AWS_ACCESS_KEY_ID",
+					"--mount=type=secret,id=aws-secret-key,env=AWS_SECRET_ACCESS_KEY"
+				]
+			}]
+		}]
+	}
+
+	res := check.deny with input as inp
+	count(res) = 0
+}
+
 instruction(cmd, val) := {
 	"Cmd": cmd,
 	"Value": val,

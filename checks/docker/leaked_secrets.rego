@@ -160,3 +160,33 @@ cut_prefix(s, prefix) := substring(s, 1, -1) if {
 cut_suffix(s, suffix) := substring(s, 0, count(s) - 1) if {
 	endswith(s, suffix)
 } else := s
+
+
+deny contains res if {
+	some instruction in final_stage.Commands
+	instruction.Cmd == "run"
+	not has_secret_mount_arg(instruction)
+	use_command_to_setup_credentials(instruction)
+	res := result.new(
+		"Possible exposure of secret in RUN",
+		instruction,
+	)
+}
+
+has_secret_mount_arg(instruction) if {
+	some flag in instruction.Flags
+	startswith(flag, "--mount=type=secret")
+}
+
+setup_creds_commands := {
+	"aws configure set aws_access_key_id", # https://docs.aws.amazon.com/cli/latest/reference/configure/set.html
+	"aws configure set aws_secret_access_key",
+	"gcloud auth activate-service-account", # https://cloud.google.com/sdk/gcloud/reference/auth/activate-service-account
+	"az login", # TODO: check flags
+}
+
+use_command_to_setup_credentials(instruction) if {
+	some val in instruction.Value
+	some cmd in setup_creds_commands
+	contains(val, cmd)
+}
