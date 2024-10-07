@@ -1,1 +1,1 @@
-Collection of docker policies
+Collection of Docker checks
