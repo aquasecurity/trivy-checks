@@ -19,6 +19,7 @@ package builtin.dockerfile.DS031
 import rego.v1
 
 import data.lib.docker
+import data.lib.path
 
 final_stage := last(input.Stages)
 
@@ -38,10 +39,10 @@ deny contains res if {
 deny contains res if {
 	some instruction in final_stage.Commands
 	is_arg_or_env(instruction.Cmd)
-	[name, path] := retrive_name_and_default(instruction)
-	path != ""
+	[name, def] := retrive_name_and_default(instruction)
+	def != ""
 	name in secret_file_envs
-	is_secret_file_copied(path)
+	is_secret_file_copied(def)
 	res := result.new(
 		sprintf("Possible exposure of the copied secret env file %q in %s", [name, upper(instruction.Cmd)]),
 		instruction,
@@ -134,33 +135,12 @@ last(array) := array[count(array) - 1]
 # For example:
 # COPY /src /app
 # ENV GOOGLE_APPLICATION_CREDENTIALS="./app/google-storage-service.json"
-is_secret_file_copied(path) if {
+is_secret_file_copied(p) if {
 	some instruction in final_stage.Commands
 	instruction.Cmd == "copy"
 	dst := last(instruction.Value)
-	is_sub_path(path, dst)
+	path.is_sub_path(p, dst)
 }
-
-is_sub_path(a, b) if startswith(clean_path(a), clean_path(b))
-
-clean_path(path) := remove_trailing_slash(remove_leading_slash(remove_leading_dot(unquote(path))))
-
-unquote(s) := cut_prefix(cut_suffix(s, "\""), "\"")
-
-remove_leading_dot(path) := cut_prefix(path, ".")
-
-remove_leading_slash(path) := cut_prefix(path, "/")
-
-remove_trailing_slash(path) := cut_suffix(path, "/")
-
-cut_prefix(s, prefix) := substring(s, 1, -1) if {
-	startswith(s, prefix)
-} else := s
-
-cut_suffix(s, suffix) := substring(s, 0, count(s) - 1) if {
-	endswith(s, suffix)
-} else := s
-
 
 deny contains res if {
 	some instruction in final_stage.Commands
