@@ -62,15 +62,7 @@ deny contains res if {
 	)
 }
 
-check_args := true
-
-# TODO: Should arguments be checked?
-is_arg_or_env(cmd) if {
-	check_args
-	cmd == "arg"
-}
-
-is_arg_or_env(cmd) if cmd == "env"
+is_arg_or_env(cmd) if cmd in {"env", "arg"}
 
 retrive_name_and_default(instruction) := [instruction.Value[0], ""] if {
 	instruction.Cmd == "env"
