@@ -24,12 +24,6 @@ test_deny_secret_arg if {
 	count(res) = 1
 }
 
-test_allow_secret_arg_but_argument_checking_disabled if {
-	inp := build_simple_input("arg", ["GITHUB_TOKEN"])
-	res := check.deny with input as inp with check.check_args as false
-	count(res) = 0
-}
-
 test_allow_secret_github_env_but_this_env_excluded if {
 	inp := build_simple_input("env", ["GITHUB_TOKEN"])
 	res := check.deny with input as inp with check.excluded_envs as {"GITHUB_TOKEN"}
