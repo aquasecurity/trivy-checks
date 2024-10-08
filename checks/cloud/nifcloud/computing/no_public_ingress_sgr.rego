@@ -36,6 +36,6 @@ deny contains res if {
 	some sg in input.nifcloud.computing.securitygroups
 	some rule in sg.ingressrules
 	cidr.is_public(rule.cidr.value)
-	cidr.count_addresses(rule.cidr.value) > 0
+	cidr.count_addresses(rule.cidr.value) > 1
 	res := result.new("Security group rule allows ingress from public internet.", rule.cidr)
 }
