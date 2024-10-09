@@ -152,15 +152,16 @@ has_secret_mount_arg(instruction) if {
 	startswith(flag, "--mount=type=secret")
 }
 
-setup_creds_commands := {
+cred_setup_commands := {
 	"aws configure set aws_access_key_id", # https://docs.aws.amazon.com/cli/latest/reference/configure/set.html
 	"aws configure set aws_secret_access_key",
 	"gcloud auth activate-service-account", # https://cloud.google.com/sdk/gcloud/reference/auth/activate-service-account
-	"az login", # TODO: check flags
+	`az login.*(-p|--password|--federated-token)\s`, # https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-login
+	`doctl auth init.*(-t|--access-token)\s`, # https://docs.digitalocean.com/reference/doctl/reference/auth/init/
 }
 
 use_command_to_setup_credentials(instruction) if {
 	some val in instruction.Value
-	some cmd in setup_creds_commands
-	contains(val, cmd)
+	some cmd in cred_setup_commands
+	regex.match(cmd, val)
 }
