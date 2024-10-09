@@ -86,10 +86,10 @@ test_deny_secret_file_in_arg if {
 
 test_deny_secret_in_set_command if {
 	inp := {"Stages": [{
-		"Name": "amazon/aws-cli:latest",
+		"Name": "ubuntu:22.04",
 		"Commands": [instruction(
 			"run",
-			["aws configure set aws_access_key_id test-id &&     aws configure set aws_secret_access_key test-key"],
+			[`if [[-z "$GOOGLE_APPLICATION_CREDENTIALS"]]; then gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}; fi`],
 		)],
 	}]}
 
