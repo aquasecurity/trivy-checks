@@ -49,4 +49,7 @@ deny contains res if {
 	)
 }
 
-port_range_includes(from, to, port) if from <= port <= to
+port_range_includes(from, to, port) if {
+	from.value <= port
+	port <= to.value
+}
