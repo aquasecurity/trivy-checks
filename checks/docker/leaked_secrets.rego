@@ -18,6 +18,7 @@ package builtin.dockerfile.DS031
 
 import rego.v1
 
+import data.ds031
 import data.lib.docker
 import data.lib.path
 
@@ -99,7 +100,10 @@ default_envs := {
 
 excluded_envs := set()
 
-included_envs := set()
+included_envs := included if {
+	is_array(ds031.included_envs)
+	included := {e | some e in ds031.included_envs}
+} else := set()
 
 envs := (default_envs - excluded_envs) | included_envs
 
