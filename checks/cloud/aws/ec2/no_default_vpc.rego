@@ -10,6 +10,8 @@
 # custom:
 #   id: AVD-AWS-0101
 #   avd_id: AVD-AWS-0101
+#   aliases:
+#     - aws-vpc-no-default-vpc
 #   provider: aws
 #   service: ec2
 #   severity: HIGH

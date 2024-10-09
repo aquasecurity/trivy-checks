@@ -10,6 +10,8 @@
 # custom:
 #   id: AVD-NIF-0017
 #   avd_id: AVD-NIF-0017
+#   aliases:
+#     - nifcloud-network-no-common-private-router
 #   provider: nifcloud
 #   service: network
 #   severity: LOW

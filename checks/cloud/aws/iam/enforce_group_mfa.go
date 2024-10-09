@@ -16,10 +16,8 @@ import (
 
 var CheckEnforceGroupMFA = rules.Register(
 	scan.Rule{
-		AVDID: "AVD-AWS-0123",
-		Aliases: []string{
-			"aws-iam-enforce-mfa",
-		},
+		AVDID:      "AVD-AWS-0123",
+		Aliases:    []string{"aws-iam-enforce-mfa"},
 		Provider:   providers.AWSProvider,
 		Service:    "iam",
 		ShortCode:  "enforce-group-mfa",

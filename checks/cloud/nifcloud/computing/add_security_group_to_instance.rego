@@ -10,6 +10,8 @@
 # custom:
 #   id: AVD-NIF-0004
 #   avd_id: AVD-NIF-0004
+#   aliases:
+#     - nifcloud-computing-add-security-group-to-instance
 #   provider: nifcloud
 #   service: computing
 #   severity: CRITICAL

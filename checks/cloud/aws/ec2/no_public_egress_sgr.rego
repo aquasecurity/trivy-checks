@@ -10,6 +10,8 @@
 # custom:
 #   id: AVD-AWS-0104
 #   avd_id: AVD-AWS-0104
+#   aliases:
+#     - aws-vpc-no-public-egress-sgr
 #   provider: aws
 #   service: ec2
 #   severity: CRITICAL

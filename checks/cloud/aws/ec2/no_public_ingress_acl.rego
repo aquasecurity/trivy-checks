@@ -14,6 +14,8 @@
 # custom:
 #   id: AVD-AWS-0105
 #   avd_id: AVD-AWS-0105
+#   aliases:
+#     - aws-vpc-no-public-ingress-acl
 #   provider: aws
 #   service: ec2
 #   severity: MEDIUM
