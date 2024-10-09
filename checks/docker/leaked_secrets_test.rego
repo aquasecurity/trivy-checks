@@ -32,7 +32,7 @@ test_allow_secret_github_env_but_this_env_excluded if {
 
 test_deny_custom_secret_env if {
 	inp := build_simple_input("env", ["MY_SECRET"])
-	res := check.deny with input as inp with check.included_envs as {"MY_SECRET"}
+	res := check.deny with input as inp with data.ds031.included_envs as {"MY_SECRET"}
 	count(res) = 1
 }
 
