@@ -10,6 +10,8 @@
 # custom:
 #   id: AVD-NIF-0010
 #   avd_id: AVD-NIF-0010
+#   aliases:
+#     - nifcloud-rdb-no-common-private-db-instance
 #   provider: nifcloud
 #   service: rdb
 #   severity: LOW

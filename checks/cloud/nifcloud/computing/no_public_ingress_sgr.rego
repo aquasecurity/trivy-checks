@@ -12,6 +12,8 @@
 # custom:
 #   id: AVD-NIF-0001
 #   avd_id: AVD-NIF-0001
+#   aliases:
+#     - nifcloud-computing-no-public-ingress-sgr
 #   provider: nifcloud
 #   service: computing
 #   severity: CRITICAL

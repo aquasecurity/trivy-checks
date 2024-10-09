@@ -10,6 +10,8 @@
 # custom:
 #   id: AVD-AWS-0029
 #   avd_id: AVD-AWS-0029
+#   aliases:
+#     - aws-autoscaling-no-public-ip
 #   provider: aws
 #   service: ec2
 #   severity: CRITICAL

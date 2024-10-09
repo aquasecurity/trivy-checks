@@ -12,6 +12,8 @@
 # custom:
 #   id: AVD-AWS-0124
 #   avd_id: AVD-AWS-0124
+#   aliases:
+#     - aws-vpc-add-description-to-security-group-rule
 #   provider: aws
 #   service: ec2
 #   severity: LOW

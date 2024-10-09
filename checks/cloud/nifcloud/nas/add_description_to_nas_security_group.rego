@@ -12,6 +12,8 @@
 # custom:
 #   id: AVD-NIF-0015
 #   avd_id: AVD-NIF-0015
+#   aliases:
+#     - nifcloud-nas-add-description-to-nas-security-group
 #   provider: nifcloud
 #   service: nas
 #   severity: LOW

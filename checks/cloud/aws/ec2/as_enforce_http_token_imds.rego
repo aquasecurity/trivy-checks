@@ -14,6 +14,8 @@
 # custom:
 #   id: AVD-AWS-0130
 #   avd_id: AVD-AWS-0130
+#   aliases:
+#     - aws-autoscaling-enforce-http-token-imds
 #   provider: aws
 #   service: ec2
 #   severity: HIGH
