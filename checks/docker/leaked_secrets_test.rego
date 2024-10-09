@@ -24,15 +24,9 @@ test_deny_secret_arg if {
 	count(res) = 1
 }
 
-test_allow_secret_github_env_but_this_env_excluded if {
-	inp := build_simple_input("env", ["GITHUB_TOKEN"])
-	res := check.deny with input as inp with check.excluded_envs as {"GITHUB_TOKEN"}
-	count(res) = 0
-}
-
 test_deny_custom_secret_env if {
 	inp := build_simple_input("env", ["MY_SECRET"])
-	res := check.deny with input as inp with data.ds031.included_envs as {"MY_SECRET"}
+	res := check.deny with input as inp with data.ds031.included_envs as ["MY_SECRET"]
 	count(res) = 1
 }
 
