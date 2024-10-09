@@ -14,7 +14,7 @@ import (
 )
 
 var bundlePath = "bundle.tar.gz"
-var OrasPush = []string{"--config", "/dev/null:application/vnd.cncf.openpolicyagent.config.v1+json", fmt.Sprintf("%s:application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip", bundlePath)}
+var OrasPush = []string{"--artifact-type", "application/vnd.cncf.openpolicyagent.config.v1+json", fmt.Sprintf("%s:application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip", bundlePath)}
 var supportedTrivyVersions = []string{"latest", "canary"} // TODO: add more versions
 
 func createRegistryContainer(ctx context.Context) (testcontainers.Container, string) {
