@@ -8,12 +8,15 @@ import (
 	"strings"
 
 	"github.com/aquasecurity/trivy/pkg/iac/framework"
+	"github.com/aquasecurity/trivy/pkg/iac/rego"
 	_ "github.com/aquasecurity/trivy/pkg/iac/rego"
 	"github.com/aquasecurity/trivy/pkg/iac/rules"
 )
 
 func main() {
 
+	rules.Reset()
+	rego.LoadAndRegister()
 	// organise existing rules by provider
 	keyMap := make(map[string][]string)
 	for _, rule := range rules.GetRegistered(framework.ALL) {
