@@ -12,6 +12,8 @@
 # custom:
 #   id: AVD-NIF-0003
 #   avd_id: AVD-NIF-0003
+#   aliases:
+#     - nifcloud-computing-add-description-to-security-group-rule
 #   provider: nifcloud
 #   service: computing
 #   severity: LOW

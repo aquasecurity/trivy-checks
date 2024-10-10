@@ -12,6 +12,8 @@
 # custom:
 #   id: AVD-AWS-0099
 #   avd_id: AVD-AWS-0099
+#   aliases:
+#     - aws-vpc-add-description-to-security-group
 #   provider: aws
 #   service: ec2
 #   severity: LOW

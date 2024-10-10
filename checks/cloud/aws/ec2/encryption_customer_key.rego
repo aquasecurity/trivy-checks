@@ -10,6 +10,8 @@
 # custom:
 #   id: AVD-AWS-0027
 #   avd_id: AVD-AWS-0027
+#   aliases:
+#     - aws-ebs-encryption-customer-key
 #   provider: aws
 #   service: ec2
 #   severity: LOW

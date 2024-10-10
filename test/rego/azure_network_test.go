@@ -104,6 +104,37 @@ var azureNetworkTestCases = testCases{
 			}}},
 			expected: false,
 		},
+		{
+			name: "Security group inbound rule allowing non RDP access from public internet",
+			input: state.State{Azure: azure.Azure{Network: network.Network{
+				SecurityGroups: []network.SecurityGroup{
+					{
+						Metadata: trivyTypes.NewTestMetadata(),
+						Rules: []network.SecurityGroupRule{
+							{
+								Metadata: trivyTypes.NewTestMetadata(),
+								Outbound: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								Allow:    trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								SourceAddresses: []trivyTypes.StringValue{
+									trivyTypes.String("*", trivyTypes.NewTestMetadata()),
+								},
+								SourcePorts:          nil,
+								DestinationAddresses: nil,
+								DestinationPorts: []network.PortRange{
+									{
+										Metadata: trivyTypes.NewTestMetadata(),
+										Start:    trivyTypes.IntTest(8080),
+										End:      trivyTypes.IntTest(8080),
+									},
+								},
+								Protocol: trivyTypes.String("Tcp", trivyTypes.NewTestMetadata()),
+							},
+						},
+					},
+				},
+			}}},
+			expected: false,
+		},
 	},
 	"AVD-AZU-0051": {
 		{
@@ -295,6 +326,35 @@ var azureNetworkTestCases = testCases{
 									trivyTypes.String("*", trivyTypes.NewTestMetadata()),
 								},
 								Protocol: trivyTypes.String("Icmp", trivyTypes.NewTestMetadata()),
+							},
+						},
+					},
+				},
+			}}},
+			expected: false,
+		},
+		{
+			name: "Security group rule allowing non SSH access from the public internet",
+			input: state.State{Azure: azure.Azure{Network: network.Network{
+				SecurityGroups: []network.SecurityGroup{
+					{
+						Metadata: trivyTypes.NewTestMetadata(),
+						Rules: []network.SecurityGroupRule{
+							{
+								Metadata: trivyTypes.NewTestMetadata(),
+								Allow:    trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+								Outbound: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+								DestinationPorts: []network.PortRange{
+									{
+										Metadata: trivyTypes.NewTestMetadata(),
+										Start:    trivyTypes.IntTest(8080),
+										End:      trivyTypes.IntTest(8080),
+									},
+								},
+								SourceAddresses: []trivyTypes.StringValue{
+									trivyTypes.String("82.102.23.23", trivyTypes.NewTestMetadata()),
+								},
+								Protocol: trivyTypes.String("Tcp", trivyTypes.NewTestMetadata()),
 							},
 						},
 					},

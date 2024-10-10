@@ -10,6 +10,8 @@
 # custom:
 #   id: AVD-AWS-0008
 #   avd_id: AVD-AWS-0008
+#   aliases:
+#     - aws-autoscaling-enable-at-rest-encryption
 #   provider: aws
 #   service: ec2
 #   severity: HIGH

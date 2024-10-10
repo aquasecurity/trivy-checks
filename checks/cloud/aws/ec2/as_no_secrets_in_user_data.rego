@@ -10,6 +10,8 @@
 # custom:
 #   id: AVD-AWS-0129
 #   avd_id: AVD-AWS-0129
+#   aliases:
+#     - aws-autoscaling-no-secrets-in-user-data
 #   provider: aws
 #   service: ec2
 #   severity: CRITICAL

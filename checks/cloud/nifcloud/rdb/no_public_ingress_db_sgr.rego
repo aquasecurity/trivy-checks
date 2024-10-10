@@ -10,6 +10,8 @@
 # custom:
 #   id: AVD-NIF-0011
 #   avd_id: AVD-NIF-0011
+#   aliases:
+#     - nifcloud-rdb-no-public-ingress-db-sgr
 #   provider: nifcloud
 #   service: rdb
 #   severity: CRITICAL
