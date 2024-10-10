@@ -29,7 +29,7 @@ deny contains res if {
 	some instruction in final_stage.Commands
 	is_arg_or_env(instruction.Cmd)
 	[name, _] := retrive_name_and_default(instruction)
-	is_secret_env(name)
+	is_secret(name)
 	res := result.new(
 		sprintf("Possible exposure of secret env %q in %s", [name, upper(instruction.Cmd)]),
 		instruction,
@@ -105,6 +105,16 @@ included_envs := included if {
 
 envs := default_envs | included_envs
 
+is_secret(str) if {
+	is_secret_env(str)
+}
+
+is_secret(str) if {
+	not is_secret_env(str)
+	not str in secret_file_envs
+	is_secret_key(str)
+}
+
 is_secret_env(str) if str in envs
 
 env_prefixes := {
@@ -156,8 +166,8 @@ cred_setup_commands := {
 	"aws configure set aws_access_key_id", # https://docs.aws.amazon.com/cli/latest/reference/configure/set.html
 	"aws configure set aws_secret_access_key",
 	"gcloud auth activate-service-account", # https://cloud.google.com/sdk/gcloud/reference/auth/activate-service-account
-	`az login.*(-p|--password|--federated-token)\s`, # https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-login
-	`doctl auth init.*(-t|--access-token)\s`, # https://docs.digitalocean.com/reference/doctl/reference/auth/init/
+	`az login.*(?:-p|--password|--federated-token)\s`, # https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-login
+	`doctl auth init.*(?:-t|--access-token)\s`, # https://docs.digitalocean.com/reference/doctl/reference/auth/init/
 }
 
 use_command_to_setup_credentials(instruction) if {
@@ -165,3 +175,27 @@ use_command_to_setup_credentials(instruction) if {
 	some cmd in cred_setup_commands
 	regex.match(cmd, val)
 }
+
+is_secret_key(s) if {
+	regex.match(deny_secrets_pattern, s)
+	not regex.match(allow_secrets_pattern, s)
+}
+
+# adopt https://github.com/moby/buildkit/blob/62bda5c1caae9935a2051e96443d554f7ab7ef2d/frontend/dockerfile/dockerfile2llb/convert.go#L2469
+secrets_regex_pattern := `(?i)(?:_|^)(?:%s)(?:_|$)`
+
+build_secrets_pattern(tokens) := sprintf(secrets_regex_pattern, [concat("|", tokens)])
+
+# these tokens cover the following keywords
+# https://github.com/danielmiessler/SecLists/blob/master/Discovery/Variables/secret-keywords.txt
+deny_secrets_tokens := {
+	"apikey", "auth", "credential",
+	"credentials", "key", "password",
+	"pword", "passwd", "secret", "token",
+}
+
+deny_secrets_pattern := build_secrets_pattern(deny_secrets_tokens)
+
+allow_secrets_tokens := {"public"}
+
+allow_secrets_pattern := build_secrets_pattern(allow_secrets_tokens)
