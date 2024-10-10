@@ -42,7 +42,7 @@ deny contains res if {
 	is_arg_or_env(instruction.Cmd)
 	some [name, def] in retrive_name_and_default(instruction)
 	def != ""
-	name in secret_file_envs
+	is_secret_file_env(name)
 	is_secret_file_copied(def)
 	res := result.new(
 		sprintf("Possible exposure of the copied secret env file %q in %s", [name, upper(instruction.Cmd)]),
@@ -50,13 +50,15 @@ deny contains res if {
 	)
 }
 
+is_secret_file_env(name) if name in secret_file_envs
+
 # check if a secret file is copied
 deny contains res if {
 	some instruction in final_stage.Commands
 	instruction.Cmd == "copy"
 	count(instruction.Value) == 2
 	env := trim_prefix(instruction.Value[1], "$")
-	env in secret_file_envs
+	is_secret_file_env(env)
 	res := result.new(
 		sprintf("Possible exposure of secret file %q in COPY", [env]),
 		instruction,
@@ -138,8 +140,8 @@ is_secret(str) if {
 }
 
 is_secret(str) if {
-	not is_secret_env(str)
-	not str in secret_file_envs
+	not is_secret_env(str) # to avoid duplication of results
+	not is_secret_file_env(str) # files require checking that they have been copied
 	is_secret_key(str)
 }
 
