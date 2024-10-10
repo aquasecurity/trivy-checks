@@ -5,11 +5,6 @@ import rego.v1
 import data.builtin.dockerfile.DS031 as check
 
 test_deny_secret_env_variable if {
-	res := check.deny with input as build_simple_input("env", ["GITHUB_TOKEN"])
-	count(res) = 1
-}
-
-test_deny_secret_env_variable_with_default if {
 	res := check.deny with input as build_simple_input("env", ["GITHUB_TOKEN", "placeholder", "="])
 	count(res) = 1
 }
@@ -25,13 +20,31 @@ test_deny_secret_arg if {
 }
 
 test_deny_custom_secret_env if {
-	inp := build_simple_input("env", ["MY_SECRET"])
+	inp := build_simple_input("env", ["MY_SECRET", "test", "="])
 	res := check.deny with input as inp with data.ds031.included_envs as ["MY_SECRET"]
 	count(res) = 1
 }
 
 test_deny_secret_arg_with_prefix if {
 	inp := build_simple_input("arg", ["VITE_AWS_ACCESS_KEY_ID=REPLACE_WITH_YOUR_OWN"])
+	res := check.deny with input as inp
+	count(res) = 1
+}
+
+test_deny_multiply_args_in_same_line if {
+	inp := build_simple_input("arg", ["FOO=test", "GITHUB_TOKEN"])
+	res := check.deny with input as inp
+	count(res) = 1
+}
+
+test_deny_env_legacy_format if {
+	inp := build_simple_input("env", ["GITHUB_TOKEN", "test", ""])
+	res := check.deny with input as inp
+	count(res) = 1
+}
+
+test_deny_multiply_envs_in_same_line if {
+	inp := build_simple_input("env", ["FOO", "test", "=", "GITHUB_TOKEN", "test", "="])
 	res := check.deny with input as inp
 	count(res) = 1
 }
@@ -51,7 +64,7 @@ test_allow_secret_file_without_copy if {
 test_allow_secret_file_copy_with_other_base_path if {
 	inp := build_input([
 		instruction("copy", ["/src", "/src"]),
-		instruction("env", ["GOOGLE_APPLICATION_CREDENTIALS=./app/google-storage-service.json"]),
+		instruction("env", ["GOOGLE_APPLICATION_CREDENTIALS", "=", "./app/google-storage-service.json"]),
 	])
 	res := check.deny with input as inp
 	count(res) = 0
@@ -116,11 +129,11 @@ test_allow_secret_in_set_command_with_secret_mount if {
 
 test_deny_secret_key if {
 	# starts with uppercase secret token
-	case1 := check.deny with input as build_simple_input("env", ["SECRET_PASSPHRASE"])
+	case1 := check.deny with input as build_simple_input("env", ["SECRET_PASSPHRASE", "test", "="])
 	count(case1) = 1
 
 	# starts with lowercase secret token
-	case2 := check.deny with input as build_simple_input("env", ["password"])
+	case2 := check.deny with input as build_simple_input("env", ["password", "test", "="])
 	count(case2) = 1
 
 	# contains uppercase secret token after underscore
@@ -130,7 +143,7 @@ test_deny_secret_key if {
 
 test_allow_secret_key if {
 	# starts with uppercase secret token
-	case1 := check.deny with input as build_simple_input("env", ["PUBLIC_KEY"])
+	case1 := check.deny with input as build_simple_input("env", ["PUBLIC_KEY", "test", "="])
 	count(case1) = 0
 
 	# starts with lowercase secret token
