@@ -93,9 +93,20 @@ default_envs := {
 	"AWS_SESSION_TOKEN",
 	"AZURE_CLIENT_ID", # https://learn.microsoft.com/en-us/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet
 	"AZURE_CLIENT_SECRET",
-	"GITHUB_TOKEN", # https://docs.github.com/en/actions/security-for-github-actions/security-guides/automatic-token-authentication#about-the-github_token-secret
+	"GITHUB_TOKEN", # https://docs.github.com/en/actions/security-for-github-actions/security-guides/automatic-token-authentication#about-the-github_token-secret,
+	"GH_TOKEN", # https://cli.github.com/manual/gh_help_environment
+	"GH_ENTERPRISE_TOKEN",
+	"GITHUB_ENTERPRISE_TOKEN",
 	"OPENAI_API_KEY", # https://platform.openai.com/docs/quickstart/create-and-export-an-api-key
 	"HF_TOKEN", # https://huggingface.co/docs/huggingface_hub/en/package_reference/environment_variables#hftoken
+	"DIGITALOCEAN_ACCESS_TOKEN", # https://github.com/digitalocean/doctl?tab=readme-ov-file#authenticating-with-digitalocean
+	"DOCKERHUB_PASSWORD", # https://circleci.com/docs/private-images/
+	"FIREBASE_TOKEN", # https://firebase.google.com/docs/cli,
+	"CI_DEPLOY_PASSWORD", # https://docs.gitlab.com/ee/user/project/deploy_tokens/
+	"GOOGLE_API_KEY", # https://python.langchain.com/docs/integrations/tools/google_search/
+	"LANGSMITH_API_KEY", # https://docs.smith.langchain.com/how_to_guides/setup/create_account_api_key
+	"LANGCHAIN_API_KEY",
+	"HEROKU_API_KEY", # https://devcenter.heroku.com/articles/authentication
 }
 
 included_envs := included if {
