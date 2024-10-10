@@ -28,7 +28,7 @@ final_stage := last(input.Stages)
 deny contains res if {
 	some instruction in final_stage.Commands
 	is_arg_or_env(instruction.Cmd)
-	[name, _] := retrive_name_and_default(instruction)
+	some [name, _] in retrive_name_and_default(instruction)
 	is_secret(name)
 	res := result.new(
 		sprintf("Possible exposure of secret env %q in %s", [name, upper(instruction.Cmd)]),
@@ -40,7 +40,7 @@ deny contains res if {
 deny contains res if {
 	some instruction in final_stage.Commands
 	is_arg_or_env(instruction.Cmd)
-	[name, def] := retrive_name_and_default(instruction)
+	some [name, def] in retrive_name_and_default(instruction)
 	def != ""
 	name in secret_file_envs
 	is_secret_file_copied(def)
@@ -65,26 +65,43 @@ deny contains res if {
 
 is_arg_or_env(cmd) if cmd in {"env", "arg"}
 
-retrive_name_and_default(instruction) := [instruction.Value[0], ""] if {
+# returns an array of pairs consisting of environment variable names and their default values
+retrive_name_and_default(instruction) := vals if {
 	instruction.Cmd == "env"
-	count(instruction.Value) == 1
+
+	count(instruction.Value) % 3 == 0
+	count_envs = count(instruction.Value) / 3
+
+	vals := [
+	[name, def] |
+		some idx in numbers.range(0, count_envs - 1)
+
+		# ENV must have two arguments
+		# Trivy returns `ENV FOO=bar` as [“FOO”, “bar”, “=”], so we skip the delimiter
+		name := instruction.Value[idx * 3]
+		def := instruction.Value[(idx * 3) + 1]
+	]
 }
 
-retrive_name_and_default(instruction) := [instruction.Value[0], instruction.Value[1]] if {
-	instruction.Cmd == "env"
-	count(instruction.Value) > 1
-}
-
-retrive_name_and_default(instruction) := [parts[0], ""] if {
+# returns an array of pairs consisting of the argument names and their default values.
+retrive_name_and_default(instruction) := vals if {
 	instruction.Cmd == "arg"
-	parts := split(instruction.Value[0], "=")
+	vals := [
+	v |
+		some val in instruction.Value
+		v := split_args(val)
+	]
+}
+
+split_args(arg) := [name, ""] if {
+	parts := split(arg, "=")
 	count(parts) == 1
+	name := parts[0]
 }
 
-retrive_name_and_default(instruction) := [parts[0], parts[1]] if {
-	instruction.Cmd == "arg"
-	parts := split(instruction.Value[0], "=")
-	count(parts) > 1
+split_args(arg) := parts if {
+	parts := split(arg, "=")
+	count(parts) == 2
 }
 
 default_envs := {
