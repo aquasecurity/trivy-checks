@@ -35,15 +35,24 @@ package builtin.aws.ec2.aws0008
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cfg in input.aws.ec2.launchconfigurations
-	cfg.rootblockdevice.encrypted.value == false
-	res := result.new("Root block device is not encrypted.", cfg.rootblockdevice.encrypted)
+	cfg.rootblockdevice
+	not cfg.rootblockdevice.encrypted.value
+	res := result.new(
+		"Root block device is not encrypted.",
+		metadata.obj_by_path(cfg, ["rootblockdevice", "encrypted"]),
+	)
 }
 
 deny contains res if {
 	some cfg in input.aws.ec2.launchconfigurations
 	some device in cfg.ebsblockdevices
-	device.encrypted.value == false
-	res := result.new("EBS block device is not encrypted.", device.encrypted.value)
+	not device.encrypted.value
+	res := result.new(
+		"EBS block device is not encrypted.",
+		metadata.obj_by_path(device, ["encrypted"]),
+	)
 }

@@ -33,11 +33,13 @@ package builtin.aws.neptune.aws0075
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.aws.neptune.clusters
 	not cluster.logging.audit.value
 	res := result.new(
 		"Cluster does not have audit logging enabled.",
-		object.get(cluster.logging, "audit", cluster.logging),
+		metadata.obj_by_path(cluster, ["logging", "audit"]),
 	)
 }

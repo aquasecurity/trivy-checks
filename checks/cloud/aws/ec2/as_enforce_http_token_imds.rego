@@ -39,25 +39,28 @@ package builtin.aws.ec2.aws0130
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some config in input.aws.ec2.launchconfigurations
-	opts_do_not_require_token(config.metadataoptions)
+	not is_tokens_required(config)
+	not is_endpoint_disabled(config)
 	res := result.new(
 		"Launch configuration does not require IMDS access to require a token",
-		config.metadataoptions.httptokens,
+		metadata.obj_by_path(config, ["metadataoptions", "httptokens"]),
 	)
 }
 
 deny contains res if {
 	some tpl in input.aws.ec2.launchtemplates
-	opts_do_not_require_token(tpl.instance.metadataoptions)
+	not is_tokens_required(tpl.instance)
+	not is_endpoint_disabled(tpl.instance)
 	res := result.new(
 		"Launch template does not require IMDS access to require a token",
-		tpl.instance.metadataoptions.httptokens,
+		metadata.obj_by_path(tpl.instance, ["metadataoptions", "httptokens"]),
 	)
 }
 
-opts_do_not_require_token(opts) if {
-	opts.httptokens.value != "required"
-	opts.httpendpoint.value != "disabled"
-}
+is_tokens_required(instance) if instance.metadataoptions.httptokens.value == "required"
+
+is_endpoint_disabled(instance) if instance.metadataoptions.httpendpoint.value == "disabled"

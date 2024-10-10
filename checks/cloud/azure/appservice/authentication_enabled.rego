@@ -28,12 +28,14 @@ package builtin.azure.appservice.azure0003
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some service in input.azure.appservice.services
 	isManaged(service)
 	not service.authentication.enabled.value
 	res := result.new(
 		"App service does not have authentication enabled.",
-		object.get(service, ["authentication", "enabled"], service),
+		metadata.obj_by_path(service, ["authentication", "enabled"]),
 	)
 }

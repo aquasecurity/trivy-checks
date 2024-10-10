@@ -33,12 +33,14 @@ package builtin.aws.cloudfront.aws0010
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some dist in input.aws.cloudfront.distributions
 	not has_logging_bucket(dist)
 	res := result.new(
 		"Distribution does not have logging enabled",
-		object.get(dist, ["logging", "bucket"], dist),
+		metadata.obj_by_path(dist, ["logging", "bucket"]),
 	)
 }
 

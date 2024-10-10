@@ -34,9 +34,14 @@ package builtin.aws.config.aws0019
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	cfg_aggregator := input.aws.config.configurationaggregrator
-	cfg_aggregator.__defsec_metadata.managed
+	isManaged(cfg_aggregator)
 	not cfg_aggregator.sourceallregions.value
-	res := result.new("Configuration aggregation is not set to source from all regions.", cfg_aggregator.sourceallregions)
+	res := result.new(
+		"Configuration aggregation is not set to source from all regions.",
+		metadata.obj_by_path(cfg_aggregator, ["sourceallregions"]),
+	)
 }

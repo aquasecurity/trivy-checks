@@ -32,13 +32,15 @@ package builtin.azure.keyvault.azure0013
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some vault in input.azure.keyvault.vaults
 	isManaged(vault)
 	not block_access_by_default(vault)
 	res := result.new(
 		"Vault network ACL does not block access by default.",
-		object.get(vault, ["networkacls", "defaultaction"], vault),
+		metadata.obj_by_path(vault, ["networkacls", "defaultaction"]),
 	)
 }
 

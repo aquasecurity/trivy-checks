@@ -38,12 +38,19 @@ package builtin.aws.ec2.aws0124
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some group in input.aws.ec2.securitygroups
 	some rule in array.concat(
 		object.get(group, "egressrules", []),
 		object.get(group, "ingressrules", []),
 	)
-	rule.description.value == ""
-	res := result.new("Security group rule does not have a description.", rule.description)
+	not has_description(rule)
+	res := result.new(
+		"Security group rule does not have a description.",
+		metadata.obj_by_path(rule, ["description"]),
+	)
 }
+
+has_description(rule) if rule.description.value != ""

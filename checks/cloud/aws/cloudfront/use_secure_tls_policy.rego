@@ -39,13 +39,15 @@ import rego.v1
 
 protocol_version_tls1_2_2021 = "TLSv1.2_2021"
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some dist in input.aws.cloudfront.distributions
 	not dist.viewercertificate.cloudfrontdefaultcertificate.value
 	not is_tls_1_2(dist)
 	res := result.new(
 		"Distribution allows unencrypted communications.",
-		object.get(dist, ["viewercertificate", "minimumprotocolversion"], dist),
+		metadata.obj_by_path(dist, ["viewercertificate", "minimumprotocolversion"]),
 	)
 }
 

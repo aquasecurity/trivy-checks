@@ -31,13 +31,14 @@ package builtin.azure.database.azure0022
 import rego.v1
 
 import data.lib.azure.database
+import data.lib.cloud.metadata
 
 deny contains res if {
 	some server in database.all_servers
 	is_public_access_enabled(server)
 	res := result.new(
 		"Database server does not have public access enabled.",
-		object.get(server, "enablepublicnetworkaccess", server),
+		metadata.obj_by_path(server, "enablepublicnetworkaccess"),
 	)
 }
 

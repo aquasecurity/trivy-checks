@@ -28,6 +28,8 @@ package builtin.aws.apigateway.aws0003
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some api in input.aws.apigateway.v1.apis
 	isManaged(api)
@@ -36,6 +38,6 @@ deny contains res if {
 	not stage.xraytracingenabled.value
 	res := result.new(
 		"X-Ray tracing is not enabled.",
-		object.get(stage, "xraytracingenabled", stage),
+		metadata.obj_by_path(stage, ["xraytracingenabled"]),
 	)
 }

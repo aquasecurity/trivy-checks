@@ -28,6 +28,8 @@ package builtin.google.gke.google0056
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.google.gke.clusters
 	isManaged(cluster)
@@ -36,7 +38,7 @@ deny contains res if {
 	not dataplane_v2_enabled(cluster)
 	res := result.new(
 		"Cluster does not have a network policy enabled.",
-		object.get(cluster.networkpolicy, "enabled", cluster.networkpolicy),
+		metadata.obj_by_path(cluster, ["networkpolicy", "enabled"]),
 	)
 }
 

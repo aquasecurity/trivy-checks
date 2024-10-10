@@ -30,12 +30,14 @@ package builtin.azure.container.azure0042
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.azure.container.kubernetesclusters
 	isManaged(cluster)
 	not cluster.rolebasedaccesscontrol.enabled.value
 	res := result.new(
 		"RBAC is not enabled on cluster",
-		object.get(cluster, ["rolebasedaccesscontrol", "enabled"], cluster),
+		metadata.obj_by_path(cluster, ["rolebasedaccesscontrol", "enabled"]),
 	)
 }
