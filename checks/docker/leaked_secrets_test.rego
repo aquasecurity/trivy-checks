@@ -114,6 +114,30 @@ test_allow_secret_in_set_command_with_secret_mount if {
 	count(res) = 0
 }
 
+test_deny_secret_key if {
+	# starts with uppercase secret token
+	case1 := check.deny with input as build_simple_input("env", ["SECRET_PASSPHRASE"])
+	count(case1) = 1
+
+	# starts with lowercase secret token
+	case2 := check.deny with input as build_simple_input("env", ["password"])
+	count(case2) = 1
+
+	# contains uppercase secret token after underscore
+	case3 := check.deny with input as build_simple_input("arg", ["AWS_SECRET_ACCESS_KEY"])
+	count(case3) = 1
+}
+
+test_allow_secret_key if {
+	# starts with uppercase secret token
+	case1 := check.deny with input as build_simple_input("env", ["PUBLIC_KEY"])
+	count(case1) = 0
+
+	# starts with lowercase secret token
+	case2 := check.deny with input as build_simple_input("arg", ["public_token"])
+	count(case2) = 0
+}
+
 instruction(cmd, val) := {
 	"Cmd": cmd,
 	"Value": val,
