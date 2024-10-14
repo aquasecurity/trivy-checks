@@ -2,20 +2,17 @@ package main
 
 import (
 	"fmt"
-	goast "go/ast"
-	"go/parser"
-	"go/token"
 	"os"
 	"path/filepath"
 	"strings"
 	"text/template"
 
-	policies "github.com/aquasecurity/trivy-checks"
 	"github.com/aquasecurity/trivy/pkg/iac/framework"
 	"github.com/aquasecurity/trivy/pkg/iac/rego"
 	"github.com/aquasecurity/trivy/pkg/iac/rules"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
 	types "github.com/aquasecurity/trivy/pkg/iac/types/rules"
+	"gopkg.in/yaml.v3"
 )
 
 func main() {
@@ -78,6 +75,16 @@ func writeDocsFile(meta types.RegisteredRule, path string) {
 	}
 }
 
+type checkExamples struct {
+	Terraform      providerExamples `yaml:"terraform,omitempty"`
+	CloudFormation providerExamples `yaml:"cloudformation,omitempty"`
+}
+
+type providerExamples struct {
+	Good []string `yaml:"good,omitempty"`
+	Bad  []string `yaml:"bad,omitempty"`
+}
+
 func generateExamplesForEngine(rule scan.Rule, engine *scan.EngineMetadata, docpath, tpl, provider string) error {
 	if engine == nil {
 		return nil
@@ -87,12 +94,25 @@ func generateExamplesForEngine(rule scan.Rule, engine *scan.EngineMetadata, docp
 		return nil
 	}
 
-	if rule.RegoPackage != "" { // get examples from file as rego rules don't have embedded
-		examples, err := GetExampleValuesFromFile(engine.GoodExamples[0], "GoodExamples")
-		if err != nil {
-			fail("error retrieving examples from metadata: %v\n", err)
-		}
-		engine.GoodExamples = examples
+	b, err := os.ReadFile(engine.GoodExamples[0])
+	if err != nil {
+		return err
+	}
+
+	var exmpls checkExamples
+	if err := yaml.Unmarshal(b, &exmpls); err != nil {
+		return err
+	}
+
+	switch provider {
+	case "Terraform":
+		engine.GoodExamples = exmpls.Terraform.Good
+	case "CloudFormation":
+		engine.GoodExamples = exmpls.CloudFormation.Good
+	}
+
+	for i := range engine.GoodExamples {
+		engine.GoodExamples[i] = "\n" + engine.GoodExamples[i]
 	}
 
 	tmpl, err := template.New(strings.ToLower(provider)).Parse(tpl)
@@ -116,55 +136,6 @@ func generateExamplesForEngine(rule scan.Rule, engine *scan.EngineMetadata, docp
 func fail(msg string, args ...interface{}) {
 	fmt.Printf(msg, args...)
 	os.Exit(1)
-}
-
-func GetExampleValuesFromFile(filename string, exampleType string) ([]string, error) {
-	r, err := policies.EmbeddedPolicyFileSystem.Open(filename)
-	if err != nil {
-		return nil, err
-	}
-	defer r.Close()
-
-	f, err := parser.ParseFile(token.NewFileSet(), filename, r, parser.AllErrors)
-	if err != nil {
-		return nil, err
-	}
-
-	res := []string{}
-
-	for _, d := range f.Decls {
-		switch decl := d.(type) {
-		case *goast.GenDecl:
-			for _, spec := range decl.Specs {
-				switch spec := spec.(type) {
-				case *goast.ValueSpec:
-					for _, id := range spec.Names {
-						valueSpec := id.Obj.Decl.(*goast.ValueSpec)
-						if len(valueSpec.Values) == 0 {
-							continue
-						}
-						switch v := valueSpec.Values[0].(type) {
-						case *goast.CompositeLit:
-							for _, e := range v.Elts {
-								switch e := e.(type) {
-								case *goast.BasicLit:
-									if strings.Contains(id.Name, exampleType) {
-										res = append(res, strings.ReplaceAll(e.Value, "`", ""))
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	if len(res) == 0 {
-		return nil, fmt.Errorf("exampleType %s not found in file: %s", exampleType, filename)
-	}
-
-	return res, nil
 }
 
 var docsMarkdownTemplate = `
