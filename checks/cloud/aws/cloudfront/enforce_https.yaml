@@ -1,0 +1,50 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::CloudFront::Distribution
+          Properties:
+            DistributionConfig:
+              DefaultCacheBehavior:
+                TargetOriginId: target
+                ViewerProtocolPolicy: https-only
+              Enabled: true
+              Logging:
+                Bucket: logging-bucket
+              Origins:
+                - DomainName: https://some.domain
+                  Id: somedomain1
+              WebACLId: waf_id
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::CloudFront::Distribution
+          Properties:
+            DistributionConfig:
+              DefaultCacheBehavior:
+                TargetOriginId: target
+                ViewerProtocolPolicy: allow-all
+              Enabled: true
+              Logging:
+                Bucket: logging-bucket
+              Origins:
+                - DomainName: https://some.domain
+                  Id: somedomain1
+              WebACLId: waf_id
+terraform:
+  good:
+    - |-
+      resource "aws_cloudfront_distribution" "good_example" {
+        default_cache_behavior {
+          viewer_protocol_policy = "redirect-to-https"
+        }
+      }
+  bad:
+    - |-
+      resource "aws_cloudfront_distribution" "bad_example" {
+        default_cache_behavior {
+          viewer_protocol_policy = "allow-all"
+        }
+      }

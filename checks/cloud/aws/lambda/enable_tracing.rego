@@ -24,11 +24,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function#mode
-#     good_examples: checks/cloud/aws/lambda/enable_tracing.tf.go
-#     bad_examples: checks/cloud/aws/lambda/enable_tracing.tf.go
+#     good_examples: checks/cloud/aws/lambda/enable_tracing.yaml
+#     bad_examples: checks/cloud/aws/lambda/enable_tracing.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/lambda/enable_tracing.cf.go
-#     bad_examples: checks/cloud/aws/lambda/enable_tracing.cf.go
+#     good_examples: checks/cloud/aws/lambda/enable_tracing.yaml
+#     bad_examples: checks/cloud/aws/lambda/enable_tracing.yaml
 package builtin.aws.lambda.aws0066
 
 import rego.v1

@@ -1,0 +1,34 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::ECS::Cluster
+          Properties:
+            ClusterName: MyCluster
+            ClusterSettings:
+              - Name: containerInsights
+                Value: enabled
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::ECS::Cluster
+          Properties:
+            ClusterName: MyCluster
+terraform:
+  good:
+    - |-
+      resource "aws_ecs_cluster" "good_example" {
+        name = "services-cluster"
+
+        setting {
+          name  = "containerInsights"
+          value = "enabled"
+        }
+      }
+  bad:
+    - |-
+      resource "aws_ecs_cluster" "bad_example" {
+        name = "services-cluster"
+      }

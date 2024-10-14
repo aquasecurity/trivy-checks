@@ -7,10 +7,9 @@ resource "aws_s3_bucket" "good_example" {
 }
 
 resource "aws_s3_bucket_public_access_block" "good_example" {
-  bucket = aws_s3_bucket.good_example.id
+  bucket            = aws_s3_bucket.good_example.id
   block_public_acls = true
 }
- 
 ```
 
 #### Remediation Links

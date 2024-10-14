@@ -3,19 +3,18 @@ Enable Object-level logging for S3 buckets.
 
 ```hcl
 resource "aws_s3_bucket" "good_example" {
-	bucket = "my-bucket"
+  bucket = "my-bucket"
 }
 
 resource "aws_cloudtrail" "example" {
   event_selector {
-    read_write_type           = "WriteOnly" # or "All"
+    read_write_type = "WriteOnly" # or "All"
     data_resource {
-      type = "AWS::S3::Object"
+      type   = "AWS::S3::Object"
       values = ["arn:aws:s3:::${aws_s3_bucket.good_example.bucket}/"]
     }
   }
 }
-
 ```
 
 #### Remediation Links

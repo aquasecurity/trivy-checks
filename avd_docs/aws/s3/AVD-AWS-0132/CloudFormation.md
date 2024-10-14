@@ -12,7 +12,6 @@ Resources:
             ServerSideEncryptionByDefault:
               KMSMasterKeyID: kms-arn
               SSEAlgorithm: aws:kms
-
 ```
 
 

@@ -24,11 +24,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic#example-with-server-side-encryption-sse
-#     good_examples: checks/cloud/aws/sns/enable_topic_encryption.tf.go
-#     bad_examples: checks/cloud/aws/sns/enable_topic_encryption.tf.go
+#     good_examples: checks/cloud/aws/sns/enable_topic_encryption.yaml
+#     bad_examples: checks/cloud/aws/sns/enable_topic_encryption.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/sns/enable_topic_encryption.cf.go
-#     bad_examples: checks/cloud/aws/sns/enable_topic_encryption.cf.go
+#     good_examples: checks/cloud/aws/sns/enable_topic_encryption.yaml
+#     bad_examples: checks/cloud/aws/sns/enable_topic_encryption.yaml
 package builtin.aws.sns.aws0095
 
 import rego.v1

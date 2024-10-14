@@ -29,11 +29,11 @@
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule
-#     good_examples: checks/cloud/aws/ec2/add_description_to_security_group.tf.go
-#     bad_examples: checks/cloud/aws/ec2/add_description_to_security_group.tf.go
+#     good_examples: checks/cloud/aws/ec2/add_description_to_security_group.yaml
+#     bad_examples: checks/cloud/aws/ec2/add_description_to_security_group.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/ec2/add_description_to_security_group.cf.go
-#     bad_examples: checks/cloud/aws/ec2/add_description_to_security_group.cf.go
+#     good_examples: checks/cloud/aws/ec2/add_description_to_security_group.yaml
+#     bad_examples: checks/cloud/aws/ec2/add_description_to_security_group.yaml
 package builtin.aws.ec2.aws0099
 
 import rego.v1

@@ -24,11 +24,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/mq_broker#publicly_accessible
-#     good_examples: checks/cloud/aws/mq/no_public_access.tf.go
-#     bad_examples: checks/cloud/aws/mq/no_public_access.tf.go
+#     good_examples: checks/cloud/aws/mq/no_public_access.yaml
+#     bad_examples: checks/cloud/aws/mq/no_public_access.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/mq/no_public_access.cf.go
-#     bad_examples: checks/cloud/aws/mq/no_public_access.cf.go
+#     good_examples: checks/cloud/aws/mq/no_public_access.yaml
+#     bad_examples: checks/cloud/aws/mq/no_public_access.yaml
 package builtin.aws.mq.aws0072
 
 import rego.v1

@@ -1,0 +1,29 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::EC2::Subnet
+          Properties:
+            VpcId: vpc-123456
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::EC2::Subnet
+          Properties:
+            MapPublicIpOnLaunch: true
+            VpcId: vpc-123456
+terraform:
+  good:
+    - |-
+      resource "aws_subnet" "good_example" {
+        vpc_id                  = "vpc-123456"
+        map_public_ip_on_launch = false
+      }
+  bad:
+    - |-
+      resource "aws_subnet" "bad_example" {
+        vpc_id                  = "vpc-123456"
+        map_public_ip_on_launch = true
+      }

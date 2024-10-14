@@ -27,8 +27,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository
-#     good_examples: checks/cloud/github/repositories/private.tf.go
-#     bad_examples: checks/cloud/github/repositories/private.tf.go
+#     good_examples: checks/cloud/github/repositories/private_repository.yaml
+#     bad_examples: checks/cloud/github/repositories/private_repository.yaml
 package builtin.github.repositories.github0001
 
 import rego.v1

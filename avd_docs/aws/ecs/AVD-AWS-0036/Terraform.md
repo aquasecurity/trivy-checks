@@ -2,8 +2,8 @@
 Use secrets for the task definition
 
 ```hcl
- resource "aws_ecs_task_definition" "good_example" {
-   container_definitions = <<EOF
+resource "aws_ecs_task_definition" "good_example" {
+  container_definitions = <<EOF
  [
    {
      "name": "my_service",
@@ -15,9 +15,8 @@ Use secrets for the task definition
    }
  ]
  EOF
- 
- }
- 
+
+}
 ```
 
 #### Remediation Links

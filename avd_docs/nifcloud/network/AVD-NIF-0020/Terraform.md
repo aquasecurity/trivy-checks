@@ -2,12 +2,11 @@
 Use a more recent TLS/SSL policy for the load balancer
 
 ```hcl
- resource "nifcloud_load_balancer" "good_example" {
-    load_balancer_port  = 443
-    policy_type         = "standard"
-    ssl_policy_name     = "Standard Ciphers D ver1"
- }
- 
+resource "nifcloud_load_balancer" "good_example" {
+  load_balancer_port = 443
+  policy_type        = "standard"
+  ssl_policy_name    = "Standard Ciphers D ver1"
+}
 ```
 
 #### Remediation Links

@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster#vpc_config
-#     good_examples: checks/cloud/aws/eks/no_public_cluster_access_to_cidr.tf.go
-#     bad_examples: checks/cloud/aws/eks/no_public_cluster_access_to_cidr.tf.go
+#     good_examples: checks/cloud/aws/eks/no_public_cluster_access_to_cidr.yaml
+#     bad_examples: checks/cloud/aws/eks/no_public_cluster_access_to_cidr.yaml
 package builtin.aws.eks.aws0041
 
 import rego.v1

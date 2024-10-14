@@ -29,11 +29,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail#is_multi_region_trail
-#     good_examples: checks/cloud/aws/cloudtrail/enable_all_regions.tf.go
-#     bad_examples: checks/cloud/aws/cloudtrail/enable_all_regions.tf.go
+#     good_examples: checks/cloud/aws/cloudtrail/enable_all_regions.yaml
+#     bad_examples: checks/cloud/aws/cloudtrail/enable_all_regions.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/cloudtrail/enable_all_regions.cf.go
-#     bad_examples: checks/cloud/aws/cloudtrail/enable_all_regions.cf.go
+#     good_examples: checks/cloud/aws/cloudtrail/enable_all_regions.yaml
+#     bad_examples: checks/cloud/aws/cloudtrail/enable_all_regions.yaml
 package builtin.aws.cloudtrail.aws0014
 
 import rego.v1

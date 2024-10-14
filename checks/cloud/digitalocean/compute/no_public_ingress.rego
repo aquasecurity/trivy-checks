@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/firewall
-#     good_examples: checks/cloud/digitalocean/compute/no_public_ingress.tf.go
-#     bad_examples: checks/cloud/digitalocean/compute/no_public_ingress.tf.go
+#     good_examples: checks/cloud/digitalocean/compute/no_public_ingress.yaml
+#     bad_examples: checks/cloud/digitalocean/compute/no_public_ingress.yaml
 package builtin.digitalocean.compute.digitalocean0001
 
 import rego.v1

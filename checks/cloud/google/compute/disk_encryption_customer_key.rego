@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_disk#kms_key_self_link
-#     good_examples: checks/cloud/google/compute/disk_encryption_customer_key.tf.go
-#     bad_examples: checks/cloud/google/compute/disk_encryption_customer_key.tf.go
+#     good_examples: checks/cloud/google/compute/disk_encryption_customer_key.yaml
+#     bad_examples: checks/cloud/google/compute/disk_encryption_customer_key.yaml
 package builtin.google.compute.google0034
 
 import rego.v1

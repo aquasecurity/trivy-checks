@@ -24,11 +24,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#tls_security_policy
-#     good_examples: checks/cloud/aws/elasticsearch/use_secure_tls_policy.tf.go
-#     bad_examples: checks/cloud/aws/elasticsearch/use_secure_tls_policy.tf.go
+#     good_examples: checks/cloud/aws/elasticsearch/use_secure_tls_policy.yaml
+#     bad_examples: checks/cloud/aws/elasticsearch/use_secure_tls_policy.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/elasticsearch/use_secure_tls_policy.cf.go
-#     bad_examples: checks/cloud/aws/elasticsearch/use_secure_tls_policy.cf.go
+#     good_examples: checks/cloud/aws/elasticsearch/use_secure_tls_policy.yaml
+#     bad_examples: checks/cloud/aws/elasticsearch/use_secure_tls_policy.yaml
 package builtin.aws.elasticsearch.aws0126
 
 import rego.v1

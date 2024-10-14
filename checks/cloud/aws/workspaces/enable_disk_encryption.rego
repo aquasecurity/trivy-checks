@@ -24,11 +24,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/workspaces_workspace#root_volume_encryption_enabled
-#     good_examples: checks/cloud/aws/workspaces/enable_disk_encryption.tf.go
-#     bad_examples: checks/cloud/aws/workspaces/enable_disk_encryption.tf.go
+#     good_examples: checks/cloud/aws/workspaces/enable_disk_encryption.yaml
+#     bad_examples: checks/cloud/aws/workspaces/enable_disk_encryption.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/workspaces/enable_disk_encryption.cf.go
-#     bad_examples: checks/cloud/aws/workspaces/enable_disk_encryption.cf.go
+#     good_examples: checks/cloud/aws/workspaces/enable_disk_encryption.yaml
+#     bad_examples: checks/cloud/aws/workspaces/enable_disk_encryption.yaml
 package builtin.aws.workspaces.aws0109
 
 import rego.v1

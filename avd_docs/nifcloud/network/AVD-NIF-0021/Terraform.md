@@ -2,16 +2,14 @@
 Switch to HTTPS to benefit from TLS security features
 
 ```hcl
- resource "nifcloud_elb" "good_example" {
-     protocol = "HTTPS"
- }
- 
+resource "nifcloud_elb" "good_example" {
+  protocol = "HTTPS"
+}
 ```
 ```hcl
 resource "nifcloud_load_balancer" "good_example" {
-    load_balancer_port = 443
+  load_balancer_port = 443
 }
-
 ```
 
 #### Remediation Links

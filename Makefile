@@ -15,7 +15,7 @@ fmt-rego:
 
 .PHONY: test-rego
 test-rego:
-	go run ./cmd/opa test --explain=fails lib/ checks/
+	go run ./cmd/opa test --explain=fails lib/ checks/ --ignore '*.yaml'
 
 .PHONY: bundle
 bundle: create-bundle verify-bundle
@@ -52,6 +52,10 @@ verify-bundle:
 
 build-opa:
 	go build ./cmd/opa
+
+.PHONY: fmt-examples
+fmt-examples:
+	go run ./cmd/fmt-examples
 
 start-registry:
 	docker run --rm -it -d -p ${REGISTRY_PORT}:5000 --name registry registry:2 

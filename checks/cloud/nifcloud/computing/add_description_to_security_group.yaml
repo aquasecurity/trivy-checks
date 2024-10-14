@@ -1,0 +1,13 @@
+terraform:
+  good:
+    - |-
+      resource "nifcloud_security_group" "good_example" {
+        group_name  = "http"
+        description = "Allow inbound HTTP traffic"
+      }
+  bad:
+    - |-
+      resource "nifcloud_security_group" "bad_example" {
+        group_name  = "http"
+        description = ""
+      }

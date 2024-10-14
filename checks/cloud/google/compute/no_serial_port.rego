@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#
-#     good_examples: checks/cloud/google/compute/no_serial_port.tf.go
-#     bad_examples: checks/cloud/google/compute/no_serial_port.tf.go
+#     good_examples: checks/cloud/google/compute/no_serial_port.yaml
+#     bad_examples: checks/cloud/google/compute/no_serial_port.yaml
 package builtin.google.compute.google0032
 
 import rego.v1

@@ -22,8 +22,8 @@
 #           - service: sam
 #             provider: aws
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/sam/enable_table_encryption.cf.go
-#     bad_examples: checks/cloud/aws/sam/enable_table_encryption.cf.go
+#     good_examples: checks/cloud/aws/sam/enable_table_encryption.yaml
+#     bad_examples: checks/cloud/aws/sam/enable_table_encryption.yaml
 package builtin.aws.sam.aws0121
 
 import rego.v1

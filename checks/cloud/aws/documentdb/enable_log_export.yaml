@@ -1,0 +1,68 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::DocDB::DBCluster
+          Properties:
+            BackupRetentionPeriod: 8
+            DBClusterIdentifier: sample-cluster
+            DBClusterParameterGroupName: default.docdb3.6
+            EnableCloudwatchLogsExports:
+              - audit
+              - profiler
+            KmsKeyId: your-kms-key-id
+
+        InstanceInstanceExample:
+          Type: AWS::DocDB::DBInstance
+          Properties:
+            AutoMinorVersionUpgrade: true
+            AvailabilityZone: us-east-1c
+            DBClusterIdentifier: sample-cluster
+            DBInstanceClass: db.r5.large
+            DBInstanceIdentifier: sample-cluster-instance-0
+            PreferredMaintenanceWindow: sat:06:54-sat:07:24
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::DocDB::DBCluster
+          Properties:
+            BackupRetentionPeriod: 8
+            DBClusterIdentifier: sample-cluster
+            DBClusterParameterGroupName: default.docdb3.6
+
+        BadInstanceExample:
+          Type: AWS::DocDB::DBInstance
+          Properties:
+            AutoMinorVersionUpgrade: true
+            AvailabilityZone: us-east-1c
+            DBClusterIdentifier: sample-cluster
+            DBInstanceClass: db.r5.large
+            DBInstanceIdentifier: sample-cluster-instance-0
+            PreferredMaintenanceWindow: sat:06:54-sat:07:24
+terraform:
+  good:
+    - |-
+      resource "aws_docdb_cluster" "good_example" {
+        cluster_identifier              = "my-docdb-cluster"
+        engine                          = "docdb"
+        master_username                 = "foo"
+        master_password                 = "mustbeeightchars"
+        backup_retention_period         = 5
+        preferred_backup_window         = "07:00-09:00"
+        skip_final_snapshot             = true
+        enabled_cloudwatch_logs_exports = "audit"
+      }
+  bad:
+    - |-
+      resource "aws_docdb_cluster" "bad_example" {
+        cluster_identifier              = "my-docdb-cluster"
+        engine                          = "docdb"
+        master_username                 = "foo"
+        master_password                 = "mustbeeightchars"
+        backup_retention_period         = 5
+        preferred_backup_window         = "07:00-09:00"
+        skip_final_snapshot             = true
+        enabled_cloudwatch_logs_exports = "something"
+      }

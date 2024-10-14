@@ -25,11 +25,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#enforce_https
-#     good_examples: checks/cloud/aws/elasticsearch/enforce_https.tf.go
-#     bad_examples: checks/cloud/aws/elasticsearch/enforce_https.tf.go
+#     good_examples: checks/cloud/aws/elasticsearch/enforce_https.yaml
+#     bad_examples: checks/cloud/aws/elasticsearch/enforce_https.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/elasticsearch/enforce_https.cf.go
-#     bad_examples: checks/cloud/aws/elasticsearch/enforce_https.cf.go
+#     good_examples: checks/cloud/aws/elasticsearch/enforce_https.yaml
+#     bad_examples: checks/cloud/aws/elasticsearch/enforce_https.yaml
 package builtin.aws.elasticsearch.aws0046
 
 import rego.v1

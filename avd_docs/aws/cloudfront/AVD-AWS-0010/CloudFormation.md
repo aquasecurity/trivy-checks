@@ -1,9 +1,10 @@
 
 Enable logging for CloudFront distributions
 
-```yaml---
+```yaml
 Resources:
   GoodExample:
+    Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
         DefaultCacheBehavior:
@@ -15,8 +16,6 @@ Resources:
         Origins:
           - DomainName: https://some.domain
             Id: somedomain1
-    Type: AWS::CloudFront::Distribution
-
 ```
 
 

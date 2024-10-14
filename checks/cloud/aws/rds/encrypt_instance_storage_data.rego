@@ -25,11 +25,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance
-#     good_examples: checks/cloud/aws/rds/encrypt_instance_storage_data.tf.go
-#     bad_examples: checks/cloud/aws/rds/encrypt_instance_storage_data.tf.go
+#     good_examples: checks/cloud/aws/rds/encrypt_instance_storage_data.yaml
+#     bad_examples: checks/cloud/aws/rds/encrypt_instance_storage_data.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/rds/encrypt_instance_storage_data.cf.go
-#     bad_examples: checks/cloud/aws/rds/encrypt_instance_storage_data.cf.go
+#     good_examples: checks/cloud/aws/rds/encrypt_instance_storage_data.yaml
+#     bad_examples: checks/cloud/aws/rds/encrypt_instance_storage_data.yaml
 package builtin.aws.rds.aws0080
 
 import rego.v1

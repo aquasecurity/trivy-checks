@@ -26,8 +26,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/security_center_contact#phone
-#     good_examples: checks/cloud/azure/securitycenter/set_required_contact_details.tf.go
-#     bad_examples: checks/cloud/azure/securitycenter/set_required_contact_details.tf.go
+#     good_examples: checks/cloud/azure/securitycenter/set_required_contact_details.yaml
+#     bad_examples: checks/cloud/azure/securitycenter/set_required_contact_details.yaml
 package builtin.azure.securitycenter.azure0046
 
 import rego.v1

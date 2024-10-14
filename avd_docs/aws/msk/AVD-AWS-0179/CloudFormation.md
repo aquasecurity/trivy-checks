@@ -1,15 +1,14 @@
 
 Enable at rest encryption
 
-```yaml---
+```yaml
 Resources:
   GoodCluster:
     Type: AWS::MSK::Cluster
     Properties:
       EncryptionInfo:
         EncryptionAtRest:
-          DataVolumeKMSKeyId: "foo-bar-key"
-
+          DataVolumeKMSKeyId: foo-bar-key
 ```
 
 

@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/iam_workload_identity_pool_provider#attribute_condition
-#     good_examples: checks/cloud/google/iam/no_conditions_on_workload_identity_pool_provider.tf.go
-#     bad_examples: checks/cloud/google/iam/no_conditions_on_workload_identity_pool_provider.tf.go
+#     good_examples: checks/cloud/google/iam/no_conditions_on_workload_identity_pool_provider.yaml
+#     bad_examples: checks/cloud/google/iam/no_conditions_on_workload_identity_pool_provider.yaml
 package builtin.google.iam.google0068
 
 import rego.v1

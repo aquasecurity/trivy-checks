@@ -24,11 +24,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster#snapshot_retention_limit
-#     good_examples: checks/cloud/aws/elasticache/enable_backup_retention.tf.go
-#     bad_examples: checks/cloud/aws/elasticache/enable_backup_retention.tf.go
+#     good_examples: checks/cloud/aws/elasticache/enable_backup_retention.yaml
+#     bad_examples: checks/cloud/aws/elasticache/enable_backup_retention.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/elasticache/enable_backup_retention.cf.go
-#     bad_examples: checks/cloud/aws/elasticache/enable_backup_retention.cf.go
+#     good_examples: checks/cloud/aws/elasticache/enable_backup_retention.yaml
+#     bad_examples: checks/cloud/aws/elasticache/enable_backup_retention.yaml
 package builtin.aws.elasticache.aws0050
 
 import rego.v1

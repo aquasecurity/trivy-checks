@@ -1,14 +1,13 @@
 
 Enable general logging
 
-```yaml---
+```yaml
 Resources:
   GoodBroker:
     Type: AWS::AmazonMQ::Broker
     Properties:
       Logs:
         General: true
-
 ```
 
 

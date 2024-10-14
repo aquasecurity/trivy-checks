@@ -4,11 +4,10 @@ Enable versioning to protect against accidental/malicious removal or modificatio
 ```hcl
 resource "aws_s3_bucket" "good_example" {
 
-	versioning {
-		enabled = true
-	}
+  versioning {
+    enabled = true
+  }
 }
-
 ```
 ```hcl
 resource "aws_s3_bucket" "example" {

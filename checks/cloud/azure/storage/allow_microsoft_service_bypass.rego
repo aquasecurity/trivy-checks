@@ -26,8 +26,8 @@
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account#bypass
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account_network_rules#bypass
-#     good_examples: checks/cloud/azure/storage/allow_microsoft_service_bypass.tf.go
-#     bad_examples: checks/cloud/azure/storage/allow_microsoft_service_bypass.tf.go
+#     good_examples: checks/cloud/azure/storage/allow_microsoft_service_bypass.yaml
+#     bad_examples: checks/cloud/azure/storage/allow_microsoft_service_bypass.yaml
 package builtin.azure.storage.azure0010
 
 import rego.v1

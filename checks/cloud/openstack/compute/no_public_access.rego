@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/fw_rule_v1
-#     good_examples: checks/cloud/openstack/compute/no_public_access.tf.go
-#     bad_examples: checks/cloud/openstack/compute/no_public_access.tf.go
+#     good_examples: checks/cloud/openstack/compute/no_public_access.yaml
+#     bad_examples: checks/cloud/openstack/compute/no_public_access.yaml
 package builtin.openstack.compute.openstack0002
 
 import rego.v1

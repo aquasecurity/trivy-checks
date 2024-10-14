@@ -25,8 +25,8 @@
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/opc/latest/docs/resources/opc_compute_ip_address_reservation
 #       - https://registry.terraform.io/providers/hashicorp/opc/latest/docs/resources/opc_compute_instance
-#     good_examples: checks/cloud/oracle/compute/no_public_ip.tf.go
-#     bad_examples: checks/cloud/oracle/compute/no_public_ip.tf.go
+#     good_examples: checks/cloud/oracle/compute/no_public_ip.yaml
+#     bad_examples: checks/cloud/oracle/compute/no_public_ip.yaml
 package builtin.oracle.compute.oracle0001
 
 import rego.v1

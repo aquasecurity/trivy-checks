@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_domain_name#security_policy
-#     good_examples: checks/cloud/aws/apigateway/use_secure_tls_policy.tf.go
-#     bad_examples: checks/cloud/aws/apigateway/use_secure_tls_policy.tf.go
+#     good_examples: checks/cloud/aws/apigateway/use_secure_tls_policy.yaml
+#     bad_examples: checks/cloud/aws/apigateway/use_secure_tls_policy.yaml
 package builtin.aws.apigateway.aws0005
 
 import rego.v1

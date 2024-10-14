@@ -27,8 +27,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_versioning
-#     good_examples: checks/cloud/aws/s3/require_mfa_delete.tf.go
-#     bad_examples: checks/cloud/aws/s3/require_mfa_delete.tf.go
+#     good_examples: checks/cloud/aws/s3/require_mfa_delete.yaml
+#     bad_examples: checks/cloud/aws/s3/require_mfa_delete.yaml
 package builtin.aws.s3.aws0170
 
 import rego.v1

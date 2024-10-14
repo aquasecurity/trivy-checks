@@ -1,0 +1,14 @@
+terraform:
+  good:
+    - |-
+      resource "digitalocean_spaces_bucket" "good_example" {
+        name   = "foobar"
+        region = "nyc3"
+      }
+  bad:
+    - |-
+      resource "digitalocean_spaces_bucket" "bad_example" {
+        name          = "foobar"
+        region        = "nyc3"
+        force_destroy = true
+      }

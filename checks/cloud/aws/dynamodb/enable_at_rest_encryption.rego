@@ -25,11 +25,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dax_cluster#server_side_encryption
-#     good_examples: checks/cloud/aws/dynamodb/enable_at_rest_encryption.tf.go
-#     bad_examples: checks/cloud/aws/dynamodb/enable_at_rest_encryption.tf.go
+#     good_examples: checks/cloud/aws/dynamodb/enable_at_rest_encryption.yaml
+#     bad_examples: checks/cloud/aws/dynamodb/enable_at_rest_encryption.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/dynamodb/enable_at_rest_encryption.cf.go
-#     bad_examples: checks/cloud/aws/dynamodb/enable_at_rest_encryption.cf.go
+#     good_examples: checks/cloud/aws/dynamodb/enable_at_rest_encryption.yaml
+#     bad_examples: checks/cloud/aws/dynamodb/enable_at_rest_encryption.yaml
 package builtin.aws.dynamodb.aws0023
 
 import rego.v1

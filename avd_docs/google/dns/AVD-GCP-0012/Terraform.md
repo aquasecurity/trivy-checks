@@ -12,13 +12,12 @@ resource "google_dns_managed_zone" "example-zone" {
       algorithm = "rsasha512"
       key_type  = "keySigning"
     }
-	default_key_specs {
+    default_key_specs {
       algorithm = "rsasha512"
       key_type  = "zoneSigning"
     }
   }
 }
- 
 ```
 
 #### Remediation Links

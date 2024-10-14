@@ -33,8 +33,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_account_password_policy
-#     good_examples: checks/cloud/aws/iam/no_password_reuse.tf.go
-#     bad_examples: checks/cloud/aws/iam/no_password_reuse.tf.go
+#     good_examples: checks/cloud/aws/iam/no_password_reuse.yaml
+#     bad_examples: checks/cloud/aws/iam/no_password_reuse.yaml
 package builtin.aws.iam.aws0056
 
 import rego.v1

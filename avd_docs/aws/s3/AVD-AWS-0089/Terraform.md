@@ -3,11 +3,10 @@ Add a logging block to the resource to enable access logging
 
 ```hcl
 resource "aws_s3_bucket" "good_example" {
-	logging {
-		target_bucket = "target-bucket"
-	}
+  logging {
+    target_bucket = "target-bucket"
+  }
 }
-
 ```
 ```hcl
 resource "aws_s3_bucket" "example" {
@@ -21,7 +20,6 @@ resource "aws_s3_bucket_logging" "example" {
   target_bucket = aws_s3_bucket.log_bucket.id
   target_prefix = "log/"
 }
-
 ```
 
 #### Remediation Links

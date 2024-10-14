@@ -1,24 +1,22 @@
 
 Turn on encryption for all block devices
 
-```yaml---
+```yaml
 Resources:
   GoodExample:
     Type: AWS::EC2::Instance
     Properties:
-      ImageId: "ami-79fd7eee"
-      KeyName: "testkey"
-      UserData: export SSM_PATH=/database/creds
       BlockDeviceMappings:
-        - DeviceName: "/dev/sdm"
+        - DeviceName: /dev/sdm
           Ebs:
-            Encrypted: True
-            VolumeType: "io1"
-            Iops: "200"
             DeleteOnTermination: "false"
+            Encrypted: true
+            Iops: "200"
             VolumeSize: "20"
-
-
+            VolumeType: io1
+      ImageId: ami-79fd7eee
+      KeyName: testkey
+      UserData: export SSM_PATH=/database/creds
 ```
 
 

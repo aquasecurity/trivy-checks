@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#service_account
-#     good_examples: checks/cloud/google/gke/use_service_account.tf.go
-#     bad_examples: checks/cloud/google/gke/use_service_account.tf.go
+#     good_examples: checks/cloud/google/gke/use_service_account.yaml
+#     bad_examples: checks/cloud/google/gke/use_service_account.yaml
 package builtin.google.gke.google0050
 
 import rego.v1

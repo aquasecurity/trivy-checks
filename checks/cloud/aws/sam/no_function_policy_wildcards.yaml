@@ -1,0 +1,46 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+          GoodFunction:
+              Properties:
+                  ImageConfig:
+                      Command:
+                          - app.lambda_handler
+                      EntryPoint:
+                          - entrypoint1
+                      WorkingDirectory: workDir
+                  ImageUri: account-id.dkr.ecr.region.amazonaws.com/ecr-repo-name:image-name
+                  PackageType: Image
+                  Policies:
+                      - AWSLambdaExecute
+                      - Statement:
+                          - Action:
+                              - s3:GetObject
+                              - s3:GetObjectACL
+                            Effect: Allow
+                            Resource: arn:aws:s3:::my-bucket/*
+                        Version: "2012-10-17"
+              Type: AWS::Serverless::Function
+  bad:
+    - |-
+      Resources:
+          BadFunction:
+              Properties:
+                  ImageConfig:
+                      Command:
+                          - app.lambda_handler
+                      EntryPoint:
+                          - entrypoint1
+                      WorkingDirectory: workDir
+                  ImageUri: account-id.dkr.ecr.region.amazonaws.com/ecr-repo-name:image-name
+                  PackageType: Image
+                  Policies:
+                      - AWSLambdaExecute
+                      - Statement:
+                          - Action:
+                              - s3:*
+                            Effect: Allow
+                            Resource: arn:aws:s3:::my-bucket/*
+                        Version: "2012-10-17"
+              Type: AWS::Serverless::Function

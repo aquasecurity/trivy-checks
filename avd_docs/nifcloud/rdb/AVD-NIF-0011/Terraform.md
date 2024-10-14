@@ -2,12 +2,11 @@
 Set a more restrictive cidr range
 
 ```hcl
- resource "nifcloud_db_security_group" "good_example" {
-   rule {
-     cidr_ip = "10.0.0.0/16"
-   }
- }
- 
+resource "nifcloud_db_security_group" "good_example" {
+  rule {
+    cidr_ip = "10.0.0.0/16"
+  }
+}
 ```
 
 #### Remediation Links

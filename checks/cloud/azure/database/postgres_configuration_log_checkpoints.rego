@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_configuration
-#     good_examples: checks/cloud/azure/database/postgres_configuration_log_checkpoints.tf.go
-#     bad_examples: checks/cloud/azure/database/postgres_configuration_log_checkpoints.tf.go
+#     good_examples: checks/cloud/azure/database/postgres_configuration_log_checkpoints.yaml
+#     bad_examples: checks/cloud/azure/database/postgres_configuration_log_checkpoints.yaml
 package builtin.azure.database.azure0024
 
 import rego.v1

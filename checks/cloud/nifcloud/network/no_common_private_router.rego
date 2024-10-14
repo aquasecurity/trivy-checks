@@ -26,8 +26,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/router#network_id
-#     good_examples: checks/cloud/nifcloud/network/no_common_private_router.tf.go
-#     bad_examples: checks/cloud/nifcloud/network/no_common_private_router.tf.go
+#     good_examples: checks/cloud/nifcloud/network/no_common_private_router.yaml
+#     bad_examples: checks/cloud/nifcloud/network/no_common_private_router.yaml
 package builtin.nifcloud.network.nifcloud0017
 
 import rego.v1

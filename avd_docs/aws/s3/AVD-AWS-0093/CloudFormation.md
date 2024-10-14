@@ -1,7 +1,7 @@
 
 Limit the access to public buckets to only the owner or AWS Services (eg; CloudFront)
 
-```yaml---
+```yaml
 Resources:
   GoodExample:
     Type: AWS::S3::Bucket
@@ -11,7 +11,6 @@ Resources:
         BlockPublicPolicy: true
         IgnorePublicAcls: true
         RestrictPublicBuckets: true
-
 ```
 
 

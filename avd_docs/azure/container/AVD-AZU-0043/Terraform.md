@@ -2,12 +2,11 @@
 Configure a network policy
 
 ```hcl
- resource "azurerm_kubernetes_cluster" "good_example" {
- 	network_profile {
- 	  network_policy = "calico"
- 	  }
- }
- 
+resource "azurerm_kubernetes_cluster" "good_example" {
+  network_profile {
+    network_policy = "calico"
+  }
+}
 ```
 
 #### Remediation Links

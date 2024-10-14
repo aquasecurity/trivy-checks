@@ -2,12 +2,11 @@
 Enable CMK encryption of CloudWatch Log Groups
 
 ```hcl
- resource "aws_cloudwatch_log_group" "good_example" {
- 	name = "good_example"
- 
- 	kms_key_id = aws_kms_key.log_key.arn
- }
- 
+resource "aws_cloudwatch_log_group" "good_example" {
+  name = "good_example"
+
+  kms_key_id = aws_kms_key.log_key.arn
+}
 ```
 
 #### Remediation Links

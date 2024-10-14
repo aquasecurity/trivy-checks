@@ -2,13 +2,12 @@
 Set an expiry for secrets
 
 ```hcl
- resource "azurerm_key_vault_secret" "good_example" {
-   name            = "secret-sauce"
-   value           = "szechuan"
-   key_vault_id    = azurerm_key_vault.example.id
-   expiration_date = "1982-12-31T00:00:00Z"
- }
- 
+resource "azurerm_key_vault_secret" "good_example" {
+  name            = "secret-sauce"
+  value           = "szechuan"
+  key_vault_id    = azurerm_key_vault.example.id
+  expiration_date = "1982-12-31T00:00:00Z"
+}
 ```
 ```hcl
 resource "azuread_application" "myapp" {
@@ -30,7 +29,6 @@ resource "azurerm_key_vault_secret" "myapp_pass" {
   expiration_date = azuread_application_password.myapp.end_date
   content_type    = "Password"
 }
-
 ```
 
 #### Remediation Links

@@ -2,15 +2,14 @@
 Enable logging for CloudFront distributions
 
 ```hcl
- resource "aws_cloudfront_distribution" "good_example" {
- 	// other config
- 	logging_config {
- 		include_cookies = false
- 		bucket          = "mylogs.s3.amazonaws.com"
- 		prefix          = "myprefix"
- 	}
- }
- 
+resource "aws_cloudfront_distribution" "good_example" {
+  // other config
+  logging_config {
+    include_cookies = false
+    bucket          = "mylogs.s3.amazonaws.com"
+    prefix          = "myprefix"
+  }
+}
 ```
 
 #### Remediation Links

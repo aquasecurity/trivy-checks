@@ -26,8 +26,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/security_center_subscription_pricing#tier
-#     good_examples: checks/cloud/azure/securitycenter/enable_standard_subscription.tf.go
-#     bad_examples: checks/cloud/azure/securitycenter/enable_standard_subscription.tf.go
+#     good_examples: checks/cloud/azure/securitycenter/enable_standard_subscription.yaml
+#     bad_examples: checks/cloud/azure/securitycenter/enable_standard_subscription.yaml
 package builtin.azure.securitycenter.azure0045
 
 import rego.v1

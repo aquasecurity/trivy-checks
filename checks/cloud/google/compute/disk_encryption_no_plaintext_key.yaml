@@ -1,0 +1,15 @@
+terraform:
+  good:
+    - |-
+      resource "google_compute_disk" "good_example" {
+        disk_encryption_key {
+          kms_key_self_link = google_kms_crypto_key.my_crypto_key.id
+        }
+      }
+  bad:
+    - |-
+      resource "google_compute_disk" "bad_example" {
+        disk_encryption_key {
+          raw_key = "b2ggbm8gdGhpcyBpcyBiYWQ="
+        }
+      }

@@ -1,9 +1,10 @@
 
 Use the most modern TLS/SSL policies available
 
-```yaml---
+```yaml
 Resources:
   GoodExample:
+    Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
         DefaultCacheBehavior:
@@ -17,8 +18,6 @@ Resources:
             Id: somedomain1
         ViewerCertificate:
           MinimumProtocolVersion: TLSv1.2_2021
-    Type: AWS::CloudFront::Distribution
-
 ```
 
 

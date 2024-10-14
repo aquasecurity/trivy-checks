@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/data_lake_store
-#     good_examples: checks/cloud/azure/datalake/enable_at_rest_encryption.tf.go
-#     bad_examples: checks/cloud/azure/datalake/enable_at_rest_encryption.tf.go
+#     good_examples: checks/cloud/azure/datalake/enable_at_rest_encryption.yaml
+#     bad_examples: checks/cloud/azure/datalake/enable_at_rest_encryption.yaml
 package builtin.azure.datalake.azure0036
 
 import rego.v1

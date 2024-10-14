@@ -20,8 +20,8 @@
 #           - service: networking
 #             provider: openstack
 #   terraform:
-#     good_examples: checks/cloud/openstack/networking/add_description_to_security_group.tf.go
-#     bad_examples: checks/cloud/openstack/networking/add_description_to_security_group.tf.go
+#     good_examples: checks/cloud/openstack/networking/add_description_to_security_group.yaml
+#     bad_examples: checks/cloud/openstack/networking/add_description_to_security_group.yaml
 package builtin.openstack.networking.openstack0005
 
 import rego.v1

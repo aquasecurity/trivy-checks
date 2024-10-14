@@ -24,11 +24,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/msk_cluster#
-#     good_examples: checks/cloud/aws/msk/enable_logging.tf.go
-#     bad_examples: checks/cloud/aws/msk/enable_logging.tf.go
+#     good_examples: checks/cloud/aws/msk/enable_logging.yaml
+#     bad_examples: checks/cloud/aws/msk/enable_logging.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/msk/enable_logging.cf.go
-#     bad_examples: checks/cloud/aws/msk/enable_logging.cf.go
+#     good_examples: checks/cloud/aws/msk/enable_logging.yaml
+#     bad_examples: checks/cloud/aws/msk/enable_logging.yaml
 package builtin.aws.msk.aws0074
 
 import rego.v1

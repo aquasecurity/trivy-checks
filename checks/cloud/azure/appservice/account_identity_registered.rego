@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#identity
-#     good_examples: checks/cloud/azure/appservice/account_identity_registered.tf.go
-#     bad_examples: checks/cloud/azure/appservice/account_identity_registered.tf.go
+#     good_examples: checks/cloud/azure/appservice/account_identity_registered.yaml
+#     bad_examples: checks/cloud/azure/appservice/account_identity_registered.yaml
 package builtin.azure.appservice.azure0002
 
 import rego.v1

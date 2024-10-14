@@ -2,22 +2,20 @@
 Enable logging for AKS
 
 ```hcl
- resource "azurerm_kubernetes_cluster" "good_example" {
-     addon_profile {
- 		oms_agent {
- 			enabled = true
- 		}
- 	}
- }
- 
+resource "azurerm_kubernetes_cluster" "good_example" {
+  addon_profile {
+    oms_agent {
+      enabled = true
+    }
+  }
+}
 ```
 ```hcl
- resource "azurerm_kubernetes_cluster" "good_example" {
- 		oms_agent {
-			log_analytics_workspace_id = "whatever"
- 		}
- }
- 
+resource "azurerm_kubernetes_cluster" "good_example" {
+  oms_agent {
+    log_analytics_workspace_id = "whatever"
+  }
+}
 ```
 
 #### Remediation Links

@@ -1,7 +1,7 @@
 
 Enable in transit encryption
 
-```yaml---
+```yaml
 Resources:
   GoodExample:
     Type: AWS::Kinesis::Stream
@@ -13,10 +13,8 @@ Resources:
         EncryptionType: KMS
         KeyId: alis/key
       Tags:
-        -
-          Key: Environment 
+        - Key: Environment
           Value: Production
-
 ```
 
 

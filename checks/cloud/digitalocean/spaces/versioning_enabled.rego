@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/spaces_bucket#versioning
-#     good_examples: checks/cloud/digitalocean/spaces/versioning_enabled.tf.go
-#     bad_examples: checks/cloud/digitalocean/spaces/versioning_enabled.tf.go
+#     good_examples: checks/cloud/digitalocean/spaces/versioning_enabled.yaml
+#     bad_examples: checks/cloud/digitalocean/spaces/versioning_enabled.yaml
 package builtin.digitalocean.spaces.digitalocean0007
 
 import rego.v1

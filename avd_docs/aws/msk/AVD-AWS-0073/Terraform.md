@@ -2,15 +2,14 @@
 Enable in transit encryption
 
 ```hcl
- resource "aws_msk_cluster" "good_example" {
- 	encryption_info {
- 		encryption_in_transit {
- 			client_broker = "TLS"
- 			in_cluster = true
- 		}
- 	}
- }
- 
+resource "aws_msk_cluster" "good_example" {
+  encryption_info {
+    encryption_in_transit {
+      client_broker = "TLS"
+      in_cluster    = true
+    }
+  }
+}
 ```
 
 #### Remediation Links

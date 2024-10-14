@@ -2,14 +2,13 @@
 Enforce the use of HTTPS for ElasticSearch
 
 ```hcl
- resource "aws_elasticsearch_domain" "good_example" {
-   domain_name = "domain-foo"
- 
-   domain_endpoint_options {
-     enforce_https = true
-   }
- }
- 
+resource "aws_elasticsearch_domain" "good_example" {
+  domain_name = "domain-foo"
+
+  domain_endpoint_options {
+    enforce_https = true
+  }
+}
 ```
 
 #### Remediation Links

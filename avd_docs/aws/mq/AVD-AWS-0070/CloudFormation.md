@@ -1,14 +1,13 @@
 
 Enable audit logging
 
-```yaml---
+```yaml
 Resources:
   GoodBroker:
     Type: AWS::AmazonMQ::Broker
     Properties:
       Logs:
         Audit: true
-
 ```
 
 
