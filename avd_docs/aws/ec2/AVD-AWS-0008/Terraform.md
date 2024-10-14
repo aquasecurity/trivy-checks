@@ -2,12 +2,11 @@
 Turn on encryption for all block devices
 
 ```hcl
- resource "aws_launch_configuration" "good_example" {
- 	root_block_device {
- 		encrypted = true
- 	}
- }
- 
+resource "aws_launch_configuration" "good_example" {
+  root_block_device {
+    encrypted = true
+  }
+}
 ```
 
 #### Remediation Links

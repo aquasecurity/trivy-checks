@@ -2,10 +2,9 @@
 Enable encryption for RDS instances
 
 ```hcl
- resource "aws_db_instance" "good_example" {
- 	storage_encrypted  = true
- }
- 
+resource "aws_db_instance" "good_example" {
+  storage_encrypted = true
+}
 ```
 
 #### Remediation Links

@@ -2,10 +2,9 @@
 Switch to HTTPS to benefit from TLS security features
 
 ```hcl
- resource "aws_alb_listener" "good_example" {
- 	protocol = "HTTPS"
- }
- 
+resource "aws_alb_listener" "good_example" {
+  protocol = "HTTPS"
+}
 ```
 
 #### Remediation Links

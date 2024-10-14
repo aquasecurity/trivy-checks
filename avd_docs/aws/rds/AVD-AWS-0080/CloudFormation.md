@@ -1,14 +1,13 @@
 
 Enable encryption for RDS instances
 
-```yaml---
+```yaml
 Resources:
-  GoodExample:
-    Type: AWS::RDS::DBInstance
-    Properties:
-      StorageEncrypted: true
-      KmsKeyId: "something"
-
+    GoodExample:
+        Properties:
+            KmsKeyId: something
+            StorageEncrypted: true
+        Type: AWS::RDS::DBInstance
 
 ```
 

@@ -1,14 +1,14 @@
 
 Enable tracing
 
-```yaml---
+```yaml
 Resources:
-  GoodExample:
-    Type: AWS::Serverless::Api
-    Properties:
-      Name: Good SAM API example
-      StageName: Prod
-      TracingEnabled: true
+    GoodExample:
+        Properties:
+            Name: Good SAM API example
+            StageName: Prod
+            TracingEnabled: true
+        Type: AWS::Serverless::Api
 
 ```
 

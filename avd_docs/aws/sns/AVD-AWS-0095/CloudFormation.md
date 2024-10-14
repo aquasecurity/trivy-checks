@@ -1,13 +1,13 @@
 
 Turn on SNS Topic encryption
 
-```yaml---
+```yaml
 Resources:
-  GoodTopic:
-    Type: AWS::SQS::Topic
-    Properties:
-      TopicName: blah
-      KmsMasterKeyId: some-key
+    GoodTopic:
+        Properties:
+            KmsMasterKeyId: some-key
+            TopicName: blah
+        Type: AWS::SQS::Topic
 
 ```
 

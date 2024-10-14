@@ -2,11 +2,10 @@
 Set a more restrictive CIDR range
 
 ```hcl
- resource "aws_security_group_rule" "good_example" {
- 	type = "ingress"
- 	cidr_blocks = ["10.0.0.0/16"]
- }
- 
+resource "aws_security_group_rule" "good_example" {
+  type        = "ingress"
+  cidr_blocks = ["10.0.0.0/16"]
+}
 ```
 ```hcl
 resource "aws_security_group_rule" "allow_partner_rsync" {
@@ -20,7 +19,6 @@ resource "aws_security_group_rule" "allow_partner_rsync" {
     "4.5.6.7/32",
   ]
 }
-
 ```
 
 #### Remediation Links

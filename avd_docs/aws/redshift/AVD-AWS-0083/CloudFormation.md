@@ -1,12 +1,12 @@
 
 Add descriptions for all security groups and rules
 
-```yaml---
+```yaml
 Resources:
-  GoodExample:
-    Type: AWS::Redshift::ClusterSecurityGroup
-    Properties:
-      Description: "Disallow bad stuff"
+    GoodExample:
+        Properties:
+            Description: Disallow bad stuff
+        Type: AWS::Redshift::ClusterSecurityGroup
 
 ```
 

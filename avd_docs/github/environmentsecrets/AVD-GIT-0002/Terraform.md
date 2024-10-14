@@ -3,12 +3,11 @@ Do not store plaintext values in your code but rather populate the encrypted_val
 
 ```hcl
 resource "github_actions_environment_secret" "good_example" {
-	repository       = "my repository name"
-	environment       = "my environment"
-	secret_name       = "my secret name"
-	encrypted_value   = var.some_encrypted_secret_string
+  repository      = "my repository name"
+  environment     = "my environment"
+  secret_name     = "my secret name"
+  encrypted_value = var.some_encrypted_secret_string
 }
-
 ```
 
 #### Remediation Links

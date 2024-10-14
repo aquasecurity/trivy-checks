@@ -1,15 +1,15 @@
 
 Enable HTTP token requirement for IMDS
 
-```yaml---
+```yaml
 Resources:
-  GoodExample:
-    Type: AWS::AutoScaling::LaunchConfiguration
-    Properties:
-      MetadataOptions:
-        HttpTokens: required
-        HttpEndpoint: enabled
- 
+    GoodExample:
+        Properties:
+            MetadataOptions:
+                HttpEndpoint: enabled
+                HttpTokens: required
+        Type: AWS::AutoScaling::LaunchConfiguration
+
 ```
 
 

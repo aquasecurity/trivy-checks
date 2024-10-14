@@ -1,14 +1,13 @@
 
 Enable performance insights
 
-```yaml---
+```yaml
 Resources:
-  GoodExample:
-    Type: AWS::RDS::DBInstance
-    Properties:
-      EnablePerformanceInsights: true
-      PerformanceInsightsKMSKeyId: "something"
-
+    GoodExample:
+        Properties:
+            EnablePerformanceInsights: true
+            PerformanceInsightsKMSKeyId: something
+        Type: AWS::RDS::DBInstance
 
 ```
 

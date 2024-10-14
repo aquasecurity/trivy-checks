@@ -2,10 +2,9 @@
 Use a CMK for SNS Topic encryption
 
 ```hcl
- resource "aws_sns_topic" "good_example" {
- 	kms_master_key_id = "/blah"
- }
- 
+resource "aws_sns_topic" "good_example" {
+  kms_master_key_id = "/blah"
+}
 ```
 
 #### Remediation Links

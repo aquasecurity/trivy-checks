@@ -1,17 +1,15 @@
 
 Enable logging
 
-```yaml---
+```yaml
 Resources:
-  GoodCluster:
-    Type: AWS::MSK::Cluster
-    Properties:
-      LoggingInfo:
-        BrokerLogs:
-          S3:
-            Enabled: true
-
-
+    GoodCluster:
+        Properties:
+            LoggingInfo:
+                BrokerLogs:
+                    S3:
+                        Enabled: true
+        Type: AWS::MSK::Cluster
 
 ```
 

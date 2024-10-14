@@ -1,12 +1,12 @@
 
 Set the instance to not be publicly accessible
 
-```yaml---
+```yaml
 Resources:
-  GoodExample:
-    Properties:
-      VpcId: vpc-123456
-    Type: AWS::EC2::Subnet
+    GoodExample:
+        Properties:
+            VpcId: vpc-123456
+        Type: AWS::EC2::Subnet
 
 ```
 

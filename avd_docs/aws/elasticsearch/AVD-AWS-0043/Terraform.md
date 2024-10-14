@@ -2,14 +2,13 @@
 Enable encrypted node to node communication
 
 ```hcl
- resource "aws_elasticsearch_domain" "good_example" {
-   domain_name = "domain-foo"
- 
-   node_to_node_encryption {
-     enabled = true
-   }
- }
- 
+resource "aws_elasticsearch_domain" "good_example" {
+  domain_name = "domain-foo"
+
+  node_to_node_encryption {
+    enabled = true
+  }
+}
 ```
 
 #### Remediation Links

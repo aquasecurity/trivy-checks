@@ -1,14 +1,14 @@
 
 Enable in transit encryption
 
-```yaml---
+```yaml
 Resources:
-  GoodCluster:
-    Type: AWS::MSK::Cluster
-    Properties:
-      EncryptionInfo:
-        EncryptionInTransit:
-          ClientBroker: "TLS"
+    GoodCluster:
+        Properties:
+            EncryptionInfo:
+                EncryptionInTransit:
+                    ClientBroker: TLS
+        Type: AWS::MSK::Cluster
 
 ```
 

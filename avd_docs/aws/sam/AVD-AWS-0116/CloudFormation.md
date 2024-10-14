@@ -1,17 +1,17 @@
 
 Enable logging for API Gateway stages
 
-```yaml---
+```yaml
 Resources:
-  GoodExample:
-    Type: AWS::Serverless::HttpApi
-    Properties:
-      Name: Good SAM API example
-      StageName: Prod
-      Tracing: Activey
-      AccessLogSettings:
-        DestinationArn: gateway-logging
-        Format: json
+    GoodExample:
+        Properties:
+            AccessLogSettings:
+                DestinationArn: gateway-logging
+                Format: json
+            Name: Good SAM API example
+            StageName: Prod
+            Tracing: Activey
+        Type: AWS::Serverless::HttpApi
 
 ```
 

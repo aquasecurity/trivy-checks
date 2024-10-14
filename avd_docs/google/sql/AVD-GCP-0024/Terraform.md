@@ -2,17 +2,17 @@
 Enable automated backups
 
 ```hcl
- resource "google_sql_database_instance" "db" {
- 	name             = "db"
- 	database_version = "POSTGRES_12"
- 	region           = "us-central1"
- 	settings {
- 		backup_configuration {
- 			enabled = true
- 		}
- 	}
- }
- 			
+resource "google_sql_database_instance" "db" {
+  name             = "db"
+  database_version = "POSTGRES_12"
+  region           = "us-central1"
+  settings {
+    backup_configuration {
+      enabled = true
+    }
+  }
+}
+    
 ```
 ```hcl
 resource "google_sql_database_instance" "new_instance_sql_replica" {
@@ -28,7 +28,6 @@ resource "google_sql_database_instance" "new_instance_sql_replica" {
     master_heartbeat_period = 0
   }
 }
-
 ```
 
 #### Remediation Links

@@ -1,19 +1,19 @@
 
 Restrict public access to the S3 bucket
 
-```yaml---
+```yaml
 Resources:
-  GoodExampleTrail:
-    Type: AWS::CloudTrail::Trail
-    Properties:
-      IsLogging: true
-      S3BucketName: "my-bucket"
-      TrailName: "Cloudtrail"
-  GoodExampleBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: "my-bucket"
-      AccessControl: Private
+    GoodExampleBucket:
+        Properties:
+            AccessControl: Private
+            BucketName: my-bucket
+        Type: AWS::S3::Bucket
+    GoodExampleTrail:
+        Properties:
+            IsLogging: true
+            S3BucketName: my-bucket
+            TrailName: Cloudtrail
+        Type: AWS::CloudTrail::Trail
 
 ```
 

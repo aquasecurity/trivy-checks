@@ -1,13 +1,13 @@
 
 Remove the public endpoint from the RDS instance.
 
-```yaml---
+```yaml
+---
 Resources:
   GoodExample:
     Type: AWS::RDS::DBInstance
     Properties:
       PubliclyAccessible: false
-
 ```
 
 

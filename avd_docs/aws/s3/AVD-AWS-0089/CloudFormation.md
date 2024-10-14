@@ -1,7 +1,8 @@
 
 Add a logging block to the resource to enable access logging
 
-```yaml---
+```yaml
+---
 Resources:
   GoodExample:
     Type: AWS::S3::Bucket
@@ -11,7 +12,8 @@ Resources:
         LogFilePrefix: accesslogs/
 
 ```
-```yaml---
+```yaml
+---
 Resources:
   GoodExample:
     Type: AWS::S3::Bucket

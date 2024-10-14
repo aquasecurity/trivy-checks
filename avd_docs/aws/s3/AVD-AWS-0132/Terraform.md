@@ -7,33 +7,31 @@ resource "aws_kms_key" "good_example" {
 }
 
 resource "aws_s3_bucket" "good_example" {
-   bucket = "mybucket"
- 
-   server_side_encryption_configuration {
-     rule {
-       apply_server_side_encryption_by_default {
-         kms_master_key_id = aws_kms_key.example.arn
-         sse_algorithm     = "aws:kms"
-       }
-     }
-   }
- }
- 
+  bucket = "mybucket"
+
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        kms_master_key_id = aws_kms_key.example.arn
+        sse_algorithm     = "aws:kms"
+      }
+    }
+  }
+}
 ```
 ```hcl
 resource "aws_s3_bucket" "good_example" {
-   bucket = "mybucket" 
-   acl    = "log-delivery-write"
- 
-   server_side_encryption_configuration {
-     rule {
-       apply_server_side_encryption_by_default {
-         sse_algorithm     = "AES256"
-       }
-     }
-   }
- }
- 
+  bucket = "mybucket"
+  acl    = "log-delivery-write"
+
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
+}
 ```
 
 #### Remediation Links

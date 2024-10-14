@@ -1,13 +1,13 @@
 
 Enable export logs
 
-```yaml---
+```yaml
 Resources:
-  GoodCluster:
-    Type: AWS::Neptune::DBCluster
-    Properties:
-      EnableCloudwatchLogsExports:
-        - audit
+    GoodCluster:
+        Properties:
+            EnableCloudwatchLogsExports:
+                - audit
+        Type: AWS::Neptune::DBCluster
 
 ```
 

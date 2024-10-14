@@ -1,17 +1,17 @@
 
 Turn on log validation for Cloudtrail
 
-```yaml---
+```yaml
 Resources:
-  GoodExample:
-    Type: AWS::CloudTrail::Trail
-    Properties:
-      IsLogging: true
-      IsMultiRegionTrail: true
-      EnableLogFileValidation: true
-      S3BucketName: "CloudtrailBucket"
-      S3KeyPrefix: "/trailing"
-      TrailName: "Cloudtrail"
+    GoodExample:
+        Properties:
+            EnableLogFileValidation: true
+            IsLogging: true
+            IsMultiRegionTrail: true
+            S3BucketName: CloudtrailBucket
+            S3KeyPrefix: /trailing
+            TrailName: Cloudtrail
+        Type: AWS::CloudTrail::Trail
 
 ```
 

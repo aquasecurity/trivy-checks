@@ -1,13 +1,13 @@
 
 Enable encryption using CMK
 
-```yaml---
+```yaml
 Resources:
-  GoodExample:
-    Type: AWS::Redshift::Cluster
-    Properties:
-      Encrypted: true
-      KmsKeyId: "something"
+    GoodExample:
+        Properties:
+            Encrypted: true
+            KmsKeyId: something
+        Type: AWS::Redshift::Cluster
 
 ```
 

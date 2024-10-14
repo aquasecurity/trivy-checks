@@ -2,13 +2,12 @@
 Require signed commits
 
 ```hcl
- resource "github_branch_protection" "good_example" {
-   repository_id = "example"
-   pattern       = "main"
+resource "github_branch_protection" "good_example" {
+  repository_id = "example"
+  pattern       = "main"
 
-   require_signed_commits = true
- }
- 
+  require_signed_commits = true
+}
 ```
 
 #### Remediation Links

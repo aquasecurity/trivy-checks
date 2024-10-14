@@ -2,11 +2,10 @@
 Enable standard subscription tier to benefit from Azure Defender
 
 ```hcl
- resource "azurerm_security_center_subscription_pricing" "good_example" {
-   tier          = "Standard"
-   resource_type = "VirtualMachines"
- }
- 
+resource "azurerm_security_center_subscription_pricing" "good_example" {
+  tier          = "Standard"
+  resource_type = "VirtualMachines"
+}
 ```
 
 #### Remediation Links

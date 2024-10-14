@@ -2,10 +2,9 @@
 Use private LAN
 
 ```hcl
- resource "nifcloud_db_instance" "good_example" {
-   network_id = nifcloud_private_lan.main.id
- }
- 
+resource "nifcloud_db_instance" "good_example" {
+  network_id = nifcloud_private_lan.main.id
+}
 ```
 
 #### Remediation Links

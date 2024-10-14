@@ -2,21 +2,20 @@
 Enable encryption of EKS secrets
 
 ```hcl
- resource "aws_eks_cluster" "good_example" {
-     encryption_config {
-         resources = [ "secrets" ]
-         provider {
-             key_arn = var.kms_arn
-         }
-     }
- 
-     name = "good_example_cluster"
-     role_arn = var.cluster_arn
-     vpc_config {
-         endpoint_public_access = false
-     }
- }
- 
+resource "aws_eks_cluster" "good_example" {
+  encryption_config {
+    resources = ["secrets"]
+    provider {
+      key_arn = var.kms_arn
+    }
+  }
+
+  name     = "good_example_cluster"
+  role_arn = var.cluster_arn
+  vpc_config {
+    endpoint_public_access = false
+  }
+}
 ```
 
 #### Remediation Links
