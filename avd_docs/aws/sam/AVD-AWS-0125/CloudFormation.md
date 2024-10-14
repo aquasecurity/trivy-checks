@@ -1,21 +1,20 @@
 
 Enable tracing
 
-```yaml---
+```yaml
 Resources:
   GoodFunction:
     Type: AWS::Serverless::Function
     Properties:
-      PackageType: Image
-      ImageUri: account-id.dkr.ecr.region.amazonaws.com/ecr-repo-name:image-name
       ImageConfig:
         Command:
-          - "app.lambda_handler"
+          - app.lambda_handler
         EntryPoint:
-          - "entrypoint1"
-        WorkingDirectory: "workDir"
+          - entrypoint1
+        WorkingDirectory: workDir
+      ImageUri: account-id.dkr.ecr.region.amazonaws.com/ecr-repo-name:image-name
+      PackageType: Image
       Tracing: Active
-
 ```
 
 

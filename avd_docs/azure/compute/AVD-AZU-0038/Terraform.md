@@ -2,11 +2,11 @@
 Enable encryption on managed disks
 
 ```hcl
- resource "azurerm_managed_disk" "good_example" {
- 	encryption_settings {
- 		enabled = true
- 	}
- }
+resource "azurerm_managed_disk" "good_example" {
+  encryption_settings {
+    enabled = true
+  }
+}
 ```
 
 #### Remediation Links

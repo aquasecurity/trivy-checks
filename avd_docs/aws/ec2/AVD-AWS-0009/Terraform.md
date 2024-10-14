@@ -2,10 +2,9 @@
 Set the instance to not be publicly accessible
 
 ```hcl
- resource "aws_launch_configuration" "good_example" {
- 	associate_public_ip_address = false
- }
- 
+resource "aws_launch_configuration" "good_example" {
+  associate_public_ip_address = false
+}
 ```
 
 #### Remediation Links

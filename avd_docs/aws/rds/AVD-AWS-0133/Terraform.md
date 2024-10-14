@@ -3,11 +3,10 @@ Enable performance insights
 
 ```hcl
 resource "aws_rds_cluster_instance" "good_example" {
-	name = "bar"
-	performance_insights_enabled = true
-	performance_insights_kms_key_id = "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+  name                            = "bar"
+  performance_insights_enabled    = true
+  performance_insights_kms_key_id = "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
 }
-		
 ```
 
 #### Remediation Links

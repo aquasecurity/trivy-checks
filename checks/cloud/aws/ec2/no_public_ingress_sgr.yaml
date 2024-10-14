@@ -1,0 +1,46 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodSecurityGroup:
+          Type: AWS::EC2::SecurityGroup
+          Properties:
+            GroupDescription: Limits security group egress traffic
+            SecurityGroupIngress:
+              - CidrIp: 127.0.0.1/32
+                IpProtocol: "6"
+  bad:
+    - |-
+      Resources:
+        BadSecurityGroup:
+          Type: AWS::EC2::SecurityGroup
+          Properties:
+            GroupDescription: Limits security group egress traffic
+            SecurityGroupIngress:
+              - CidrIp: 0.0.0.0/0
+                IpProtocol: "6"
+terraform:
+  good:
+    - |-
+      resource "aws_security_group_rule" "good_example" {
+        type        = "ingress"
+        cidr_blocks = ["10.0.0.0/16"]
+      }
+    - |-
+      resource "aws_security_group_rule" "allow_partner_rsync" {
+        type              = "ingress"
+        security_group_id = aws_security_group.….id
+        from_port         = 22
+        to_port           = 22
+        protocol          = "tcp"
+        cidr_blocks = [
+          "1.2.3.4/32",
+          "4.5.6.7/32",
+        ]
+      }
+  bad:
+    - |-
+      resource "aws_security_group_rule" "bad_example" {
+        type        = "ingress"
+        cidr_blocks = ["0.0.0.0/0"]
+      }

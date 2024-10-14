@@ -2,15 +2,14 @@
 Turn on SQS Queue encryption
 
 ```hcl
- resource "aws_sqs_queue" "good_example" {
- 	kms_master_key_id = "/blah"
- }
- 
+resource "aws_sqs_queue" "good_example" {
+  kms_master_key_id = "/blah"
+}
 ```
 ```hcl
 resource "aws_sqs_queue" "terraform_queue" {
-   name                    = "terraform-example-queue"
-   sqs_managed_sse_enabled = true
+  name                    = "terraform-example-queue"
+  sqs_managed_sse_enabled = true
 }
 ```
 

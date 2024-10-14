@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset#special_group
-#     good_examples: checks/cloud/google/bigquery/no_public_access.tf.go
-#     bad_examples: checks/cloud/google/bigquery/no_public_access.tf.go
+#     good_examples: checks/cloud/google/bigquery/no_public_access.yaml
+#     bad_examples: checks/cloud/google/bigquery/no_public_access.yaml
 package builtin.google.bigquery.google0046
 
 import rego.v1

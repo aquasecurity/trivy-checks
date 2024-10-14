@@ -1,0 +1,43 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          DeletionPolicy: Snapshot
+          Type: AWS::EC2::Volume
+          Properties:
+            Encrypted: true
+            KmsKeyId: alias/volumeEncrypt
+            Size: 100
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          DeletionPolicy: Snapshot
+          Type: AWS::EC2::Volume
+          Properties:
+            AvailabilityZone: Ec2Instance.AvailabilityZone
+            Size: 100
+terraform:
+  good:
+    - |-
+      resource "aws_ebs_volume" "good_example" {
+        availability_zone = "us-west-2a"
+        size              = 40
+
+        tags = {
+          Name = "HelloWorld"
+        }
+        encrypted = true
+      }
+  bad:
+    - |-
+      resource "aws_ebs_volume" "bad_example" {
+        availability_zone = "us-west-2a"
+        size              = 40
+
+        tags = {
+          Name = "HelloWorld"
+        }
+        encrypted = false
+      }

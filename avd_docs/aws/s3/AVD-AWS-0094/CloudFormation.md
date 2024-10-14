@@ -1,7 +1,7 @@
 
 Define a aws_s3_bucket_public_access_block for the given bucket to control public access policies
 
-```yaml---
+```yaml
 Resources:
   GoodExample:
     Type: AWS::S3::Bucket
@@ -12,7 +12,6 @@ Resources:
         BlockPublicPolicy: true
         IgnorePublicAcls: true
         RestrictPublicBuckets: true
-
 ```
 
 

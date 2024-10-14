@@ -33,10 +33,9 @@ resource "google_compute_firewall" "test" {
     ports    = ["8443"]
   }
 
-  target_tags   = [ "k8s-node-pool" ]
+  target_tags   = ["k8s-node-pool"]
   source_ranges = [google_container_cluster.my_cluster_name.private_cluster_config[0].master_ipv4_cidr_block]
 }
-
 ```
 
 #### Remediation Links

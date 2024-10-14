@@ -1,0 +1,39 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodCluster:
+          Type: AWS::Redshift::Cluster
+          Properties:
+            ClusterSubnetGroupName: my-subnet-group
+  bad:
+    - |-
+      Resources:
+        BadCluster:
+          Type: AWS::Redshift::Cluster
+          Properties:
+            ClusterType: single-node
+            DBName: mydb
+terraform:
+  good:
+    - |-
+      resource "aws_redshift_cluster" "good_example" {
+        cluster_identifier = "tf-redshift-cluster"
+        database_name      = "mydb"
+        master_username    = "foo"
+        master_password    = "Mustbe8characters"
+        node_type          = "dc1.large"
+        cluster_type       = "single-node"
+
+        cluster_subnet_group_name = "redshift_subnet"
+      }
+  bad:
+    - |-
+      resource "aws_redshift_cluster" "bad_example" {
+        cluster_identifier = "tf-redshift-cluster"
+        database_name      = "mydb"
+        master_username    = "foo"
+        master_password    = "Mustbe8characters"
+        node_type          = "dc1.large"
+        cluster_type       = "single-node"
+      }

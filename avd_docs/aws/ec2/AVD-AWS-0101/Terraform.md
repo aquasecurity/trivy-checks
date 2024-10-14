@@ -2,8 +2,7 @@
 Create a non-default vpc for resources to be created in
 
 ```hcl
- # no aws default vpc present
- 
+# no aws default vpc present
 ```
 
 #### Remediation Links

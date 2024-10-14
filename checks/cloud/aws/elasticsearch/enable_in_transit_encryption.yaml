@@ -1,0 +1,65 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::Elasticsearch::Domain
+          Properties:
+            DomainName: test
+            EBSOptions:
+              EBSEnabled: true
+              Iops: "0"
+              VolumeSize: "20"
+              VolumeType: gp2
+            ElasticsearchClusterConfig:
+              DedicatedMasterCount: "3"
+              DedicatedMasterEnabled: true
+              DedicatedMasterType: m3.medium.elasticsearch
+              InstanceCount: "2"
+              InstanceType: m3.medium.elasticsearch
+              ZoneAwarenessEnabled: true
+            ElasticsearchVersion: "7.10"
+            EncryptionAtRestOptions:
+              Enabled: true
+              KmsKeyId: alias/kmskey
+            NodeToNodeEncryptionOptions:
+              Enabled: true
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::Elasticsearch::Domain
+          Properties:
+            DomainName: test
+            EBSOptions:
+              EBSEnabled: true
+              Iops: "0"
+              VolumeSize: "20"
+              VolumeType: gp2
+            ElasticsearchClusterConfig:
+              DedicatedMasterCount: "3"
+              DedicatedMasterEnabled: true
+              DedicatedMasterType: m3.medium.elasticsearch
+              InstanceCount: "2"
+              InstanceType: m3.medium.elasticsearch
+              ZoneAwarenessEnabled: true
+            ElasticsearchVersion: "7.10"
+terraform:
+  good:
+    - |-
+      resource "aws_elasticsearch_domain" "good_example" {
+        domain_name = "domain-foo"
+
+        node_to_node_encryption {
+          enabled = true
+        }
+      }
+  bad:
+    - |-
+      resource "aws_elasticsearch_domain" "bad_example" {
+        domain_name = "domain-foo"
+
+        node_to_node_encryption {
+          enabled = false
+        }
+      }

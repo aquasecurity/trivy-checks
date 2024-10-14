@@ -2,15 +2,12 @@ package main
 
 import (
 	"fmt"
-	goast "go/ast"
-	"go/parser"
-	"go/token"
 	"os"
 	"path/filepath"
 	"strings"
 	"text/template"
 
-	policies "github.com/aquasecurity/trivy-checks"
+	"github.com/aquasecurity/trivy-checks/internal/examples"
 	"github.com/aquasecurity/trivy/pkg/iac/framework"
 	"github.com/aquasecurity/trivy/pkg/iac/rego"
 	"github.com/aquasecurity/trivy/pkg/iac/rules"
@@ -65,36 +62,41 @@ func writeDocsFile(meta types.RegisteredRule, path string) {
 	}
 
 	if err := tmpl.Execute(file, rule); err != nil {
-		fail("error occurred generating the document %v", err)
+		fail("error occurred generating the document %s", err.Error())
 	}
 	fmt.Printf("Generating docs file for policy %s\n", rule.AVDID)
 
-	if err := generateExamplesForEngine(rule, rule.Terraform, docpath, terraformMarkdownTemplate, "Terraform"); err != nil {
+	exmpls, path, err := examples.GetCheckExamples(rule)
+	if err != nil {
+		fail("failed to get check examples: %s", err.Error())
+	}
+
+	if path == "" {
+		return
+	}
+
+	if err := generateExamplesForEngine(rule, rule.Terraform, exmpls, docpath, terraformMarkdownTemplate, "Terraform"); err != nil {
 		fail("error generating examples for terraform: %v\n", err)
 	}
 
-	if err := generateExamplesForEngine(rule, rule.CloudFormation, docpath, cloudformationMarkdownTemplate, "CloudFormation"); err != nil {
+	if err := generateExamplesForEngine(rule, rule.CloudFormation, exmpls, docpath, cloudformationMarkdownTemplate, "CloudFormation"); err != nil {
 		fail("error generating examples for cloudformation: %v\n", err)
 	}
 }
 
-func generateExamplesForEngine(rule scan.Rule, engine *scan.EngineMetadata, docpath, tpl, provider string) error {
-	if engine == nil {
+func generateExamplesForEngine(rule scan.Rule, engine *scan.EngineMetadata, exmpls examples.CheckExamples, docpath, tpl, provider string) error {
+
+	providerExampls := exmpls[strings.ToLower(provider)]
+
+	if providerExampls.IsEmpty() {
 		return nil
 	}
 
-	if len(engine.GoodExamples) == 0 {
-		return nil
-	}
+	engine.GoodExamples = providerExampls.Good.ToStrings()
 
-	if rule.RegoPackage != "" { // get examples from file as rego rules don't have embedded
-		examples, err := GetExampleValuesFromFile(engine.GoodExamples[0], "GoodExamples")
-		if err != nil {
-			fail("error retrieving examples from metadata: %v\n", err)
-		}
-		engine.GoodExamples = examples
+	for i := range engine.GoodExamples {
+		engine.GoodExamples[i] = "\n" + engine.GoodExamples[i]
 	}
-
 	tmpl, err := template.New(strings.ToLower(provider)).Parse(tpl)
 	if err != nil {
 		fail("error occurred creating the template %v\n", err)
@@ -116,55 +118,6 @@ func generateExamplesForEngine(rule scan.Rule, engine *scan.EngineMetadata, docp
 func fail(msg string, args ...interface{}) {
 	fmt.Printf(msg, args...)
 	os.Exit(1)
-}
-
-func GetExampleValuesFromFile(filename string, exampleType string) ([]string, error) {
-	r, err := policies.EmbeddedPolicyFileSystem.Open(filename)
-	if err != nil {
-		return nil, err
-	}
-	defer r.Close()
-
-	f, err := parser.ParseFile(token.NewFileSet(), filename, r, parser.AllErrors)
-	if err != nil {
-		return nil, err
-	}
-
-	res := []string{}
-
-	for _, d := range f.Decls {
-		switch decl := d.(type) {
-		case *goast.GenDecl:
-			for _, spec := range decl.Specs {
-				switch spec := spec.(type) {
-				case *goast.ValueSpec:
-					for _, id := range spec.Names {
-						valueSpec := id.Obj.Decl.(*goast.ValueSpec)
-						if len(valueSpec.Values) == 0 {
-							continue
-						}
-						switch v := valueSpec.Values[0].(type) {
-						case *goast.CompositeLit:
-							for _, e := range v.Elts {
-								switch e := e.(type) {
-								case *goast.BasicLit:
-									if strings.Contains(id.Name, exampleType) {
-										res = append(res, strings.ReplaceAll(e.Value, "`", ""))
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	if len(res) == 0 {
-		return nil, fmt.Errorf("exampleType %s not found in file: %s", exampleType, filename)
-	}
-
-	return res, nil
 }
 
 var docsMarkdownTemplate = `

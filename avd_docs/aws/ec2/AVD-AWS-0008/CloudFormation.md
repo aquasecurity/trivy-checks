@@ -1,9 +1,10 @@
 
 Turn on encryption for all block devices
 
-```yaml---
+```yaml
 Resources:
   GoodExample:
+    Type: AWS::AutoScaling::LaunchConfiguration
     Properties:
       BlockDeviceMappings:
         - DeviceName: root
@@ -11,8 +12,6 @@ Resources:
             Encrypted: true
       ImageId: ami-123456
       InstanceType: t2.small
-    Type: AWS::AutoScaling::LaunchConfiguration
-
 ```
 
 

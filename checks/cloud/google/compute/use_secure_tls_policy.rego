@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_policy#min_tls_version
-#     good_examples: checks/cloud/google/compute/use_secure_tls_policy.tf.go
-#     bad_examples: checks/cloud/google/compute/use_secure_tls_policy.tf.go
+#     good_examples: checks/cloud/google/compute/use_secure_tls_policy.yaml
+#     bad_examples: checks/cloud/google/compute/use_secure_tls_policy.yaml
 package builtin.google.compute.google0039
 
 import rego.v1

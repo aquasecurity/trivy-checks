@@ -2,15 +2,14 @@
 Enable Container Insights
 
 ```hcl
- resource "aws_ecs_cluster" "good_example" {
- 	name = "services-cluster"
-   
- 	setting {
- 	  name  = "containerInsights"
- 	  value = "enabled"
- 	}
- }
- 
+resource "aws_ecs_cluster" "good_example" {
+  name = "services-cluster"
+
+  setting {
+    name  = "containerInsights"
+    value = "enabled"
+  }
+}
 ```
 
 #### Remediation Links

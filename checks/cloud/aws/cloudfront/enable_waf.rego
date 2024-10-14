@@ -24,11 +24,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution#web_acl_id
-#     good_examples: checks/cloud/aws/cloudfront/enable_waf.tf.go
-#     bad_examples: checks/cloud/aws/cloudfront/enable_waf.tf.go
+#     good_examples: checks/cloud/aws/cloudfront/enable_waf.yaml
+#     bad_examples: checks/cloud/aws/cloudfront/enable_waf.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/cloudfront/enable_waf.cf.go
-#     bad_examples: checks/cloud/aws/cloudfront/enable_waf.cf.go
+#     good_examples: checks/cloud/aws/cloudfront/enable_waf.yaml
+#     bad_examples: checks/cloud/aws/cloudfront/enable_waf.yaml
 package builtin.aws.cloudfront.aws0011
 
 import rego.v1

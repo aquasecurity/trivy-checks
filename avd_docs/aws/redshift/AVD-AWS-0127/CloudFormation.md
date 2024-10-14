@@ -1,13 +1,12 @@
 
 Deploy Redshift cluster into a non default VPC
 
-```yaml---
+```yaml
 Resources:
   GoodCluster:
     Type: AWS::Redshift::Cluster
     Properties:
-      ClusterSubnetGroupName: "my-subnet-group"
-
+      ClusterSubnetGroupName: my-subnet-group
 ```
 
 

@@ -25,8 +25,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/loadbalancer
-#     good_examples: checks/cloud/digitalocean/compute/enforce_https.tf.go
-#     bad_examples: checks/cloud/digitalocean/compute/enforce_https.tf.go
+#     good_examples: checks/cloud/digitalocean/compute/enforce_https.yaml
+#     bad_examples: checks/cloud/digitalocean/compute/enforce_https.yaml
 package builtin.digitalocean.compute.digitalocean0002
 
 import rego.v1

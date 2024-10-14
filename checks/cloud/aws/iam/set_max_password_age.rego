@@ -31,8 +31,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_account_password_policy
-#     good_examples: checks/cloud/aws/iam/set_max_password_age.tf.go
-#     bad_examples: checks/cloud/aws/iam/set_max_password_age.tf.go
+#     good_examples: checks/cloud/aws/iam/set_max_password_age.yaml
+#     bad_examples: checks/cloud/aws/iam/set_max_password_age.yaml
 package builtin.aws.iam.aws0062
 
 import rego.v1

@@ -1,0 +1,15 @@
+terraform:
+  good:
+    - |-
+      resource "nifcloud_nas_security_group" "good_example" {
+        rule {
+          cidr_ip = "10.0.0.0/16"
+        }
+      }
+  bad:
+    - |-
+      resource "nifcloud_nas_security_group" "bad_example" {
+        rule {
+          cidr_ip = "0.0.0.0/0"
+        }
+      }

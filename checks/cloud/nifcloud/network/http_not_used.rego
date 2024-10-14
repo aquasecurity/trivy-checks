@@ -27,8 +27,8 @@
 #     links:
 #       - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/elb#protocol
 #       - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/load_balancer#load_balancer_port
-#     good_examples: checks/cloud/nifcloud/network/http_not_used.tf.go
-#     bad_examples: checks/cloud/nifcloud/network/http_not_used.tf.go
+#     good_examples: checks/cloud/nifcloud/network/http_not_used.yaml
+#     bad_examples: checks/cloud/nifcloud/network/http_not_used.yaml
 package builtin.nifcloud.network.nifcloud0021
 
 import rego.v1

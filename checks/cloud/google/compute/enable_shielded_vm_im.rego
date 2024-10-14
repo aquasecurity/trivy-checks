@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#enable_vtpm
-#     good_examples: checks/cloud/google/compute/enable_shielded_vm_im.tf.go
-#     bad_examples: checks/cloud/google/compute/enable_shielded_vm_im.tf.go
+#     good_examples: checks/cloud/google/compute/enable_shielded_vm_im.yaml
+#     bad_examples: checks/cloud/google/compute/enable_shielded_vm_im.yaml
 package builtin.google.compute.google0045
 
 import rego.v1

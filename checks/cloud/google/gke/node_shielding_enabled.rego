@@ -26,8 +26,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#enable_shielded_nodes
-#     good_examples: checks/cloud/google/gke/node_shielding_enabled.tf.go
-#     bad_examples: checks/cloud/google/gke/node_shielding_enabled.tf.go
+#     good_examples: checks/cloud/google/gke/node_shielding_enabled.yaml
+#     bad_examples: checks/cloud/google/gke/node_shielding_enabled.yaml
 package builtin.google.gke.google0055
 
 import rego.v1

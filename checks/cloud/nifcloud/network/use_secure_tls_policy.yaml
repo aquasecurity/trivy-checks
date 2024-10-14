@@ -1,0 +1,15 @@
+terraform:
+  good:
+    - |-
+      resource "nifcloud_load_balancer" "good_example" {
+        load_balancer_port = 443
+        policy_type        = "standard"
+        ssl_policy_name    = "Standard Ciphers D ver1"
+      }
+  bad:
+    - |-
+      resource "nifcloud_load_balancer" "bad_example" {
+        load_balancer_port = 443
+        policy_type        = "standard"
+        ssl_policy_name    = ""
+      }

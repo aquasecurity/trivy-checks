@@ -23,8 +23,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/kubernetes_cluster#auto-upgrade-example
-#     good_examples: checks/cloud/digitalocean/compute/auto_upgrade_no_maintenance_policy.tf.go
-#     bad_examples: checks/cloud/digitalocean/compute/auto_upgrade_no_maintenance_policy.tf.go
+#     good_examples: checks/cloud/digitalocean/compute/auto_upgrade_no_maintenance_policy.yaml
+#     bad_examples: checks/cloud/digitalocean/compute/auto_upgrade_no_maintenance_policy.yaml
 package builtin.digitalocean.compute.digitalocean0008
 
 import rego.v1

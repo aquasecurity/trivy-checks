@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/cloudstack/latest/docs/resources/instance#
-#     good_examples: checks/cloud/cloudstack/compute/no_sensitive_info.tf.go
-#     bad_examples: checks/cloud/cloudstack/compute/no_sensitive_info.tf.go
+#     good_examples: checks/cloud/cloudstack/compute/no_sensitive_info.yaml
+#     bad_examples: checks/cloud/cloudstack/compute/no_sensitive_info.yaml
 package builtin.cloudstack.compute.cloudstack0001
 
 import rego.v1

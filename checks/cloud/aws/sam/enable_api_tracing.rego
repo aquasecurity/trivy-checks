@@ -22,8 +22,8 @@
 #           - service: sam
 #             provider: aws
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/sam/enable_api_tracing.cf.go
-#     bad_examples: checks/cloud/aws/sam/enable_api_tracing.cf.go
+#     good_examples: checks/cloud/aws/sam/enable_api_tracing.yaml
+#     bad_examples: checks/cloud/aws/sam/enable_api_tracing.yaml
 package builtin.aws.sam.aws0111
 
 import rego.v1

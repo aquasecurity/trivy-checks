@@ -26,8 +26,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/instance#security_group
-#     good_examples: checks/cloud/nifcloud/computing/add_security_group_to_instance.tf.go
-#     bad_examples: checks/cloud/nifcloud/computing/add_security_group_to_instance.tf.go
+#     good_examples: checks/cloud/nifcloud/computing/add_security_group_to_instance.yaml
+#     bad_examples: checks/cloud/nifcloud/computing/add_security_group_to_instance.yaml
 package builtin.nifcloud.computing.nifcloud0004
 
 import rego.v1

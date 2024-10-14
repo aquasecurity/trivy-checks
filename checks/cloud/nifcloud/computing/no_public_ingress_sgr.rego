@@ -28,8 +28,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/security_group_rule#cidr_ip
-#     good_examples: checks/cloud/nifcloud/computing/no_public_ingress_sgr.tf.go
-#     bad_examples: checks/cloud/nifcloud/computing/no_public_ingress_sgr.tf.go
+#     good_examples: checks/cloud/nifcloud/computing/no_public_ingress_sgr.yaml
+#     bad_examples: checks/cloud/nifcloud/computing/no_public_ingress_sgr.yaml
 package builtin.nifcloud.computing.nifcloud0001
 
 import rego.v1

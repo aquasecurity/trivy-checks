@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server_extended_auditing_policy
-#     good_examples: checks/cloud/azure/database/enable_audit.tf.go
-#     bad_examples: checks/cloud/azure/database/enable_audit.tf.go
+#     good_examples: checks/cloud/azure/database/enable_audit.yaml
+#     bad_examples: checks/cloud/azure/database/enable_audit.yaml
 package builtin.azure.database.azure0027
 
 import rego.v1

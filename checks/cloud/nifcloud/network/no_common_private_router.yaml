@@ -1,0 +1,19 @@
+terraform:
+  good:
+    - |-
+      resource "nifcloud_router" "good_example" {
+        security_group = nifcloud_security_group.example.group_name
+
+        network_interface {
+          network_id = nifcloud_private_lan.main.id
+        }
+      }
+  bad:
+    - |-
+      resource "nifcloud_router" "bad_example" {
+        security_group = nifcloud_security_group.example.group_name
+
+        network_interface {
+          network_id = "net-COMMON_PRIVATE"
+        }
+      }

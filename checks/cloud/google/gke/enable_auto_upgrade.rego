@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool#auto_upgrade
-#     good_examples: checks/cloud/google/gke/enable_auto_upgrade.tf.go
-#     bad_examples: checks/cloud/google/gke/enable_auto_upgrade.tf.go
+#     good_examples: checks/cloud/google/gke/enable_auto_upgrade.yaml
+#     bad_examples: checks/cloud/google/gke/enable_auto_upgrade.yaml
 package builtin.google.gke.google0058
 
 import rego.v1

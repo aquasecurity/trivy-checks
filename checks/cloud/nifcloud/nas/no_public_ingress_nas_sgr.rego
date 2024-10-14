@@ -26,8 +26,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/nas_security_group#cidr_ip
-#     good_examples: checks/cloud/nifcloud/nas/no_public_ingress_nas_sgr.tf.go
-#     bad_examples: checks/cloud/nifcloud/nas/no_public_ingress_nas_sgr.tf.go
+#     good_examples: checks/cloud/nifcloud/nas/no_public_ingress_nas_sgr.yaml
+#     bad_examples: checks/cloud/nifcloud/nas/no_public_ingress_nas_sgr.yaml
 package builtin.nifcloud.nas.nifcloud0014
 
 import rego.v1

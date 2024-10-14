@@ -29,8 +29,8 @@
 #   terraform:
 #     links:
 #       - https://www.terraform.io/docs/providers/google/d/iam_policy.html#members
-#     good_examples: checks/cloud/google/iam/no_user_granted_permissions.tf.go
-#     bad_examples: checks/cloud/google/iam/no_user_granted_permissions.tf.go
+#     good_examples: checks/cloud/google/iam/no_user_granted_permissions.yaml
+#     bad_examples: checks/cloud/google/iam/no_user_granted_permissions.yaml
 package builtin.google.iam.google0003
 
 import rego.v1

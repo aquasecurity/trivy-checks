@@ -26,8 +26,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/security_center_contact#alert_notifications
-#     good_examples: checks/cloud/azure/securitycenter/alert_on_severe_notifications.tf.go
-#     bad_examples: checks/cloud/azure/securitycenter/alert_on_severe_notifications.tf.go
+#     good_examples: checks/cloud/azure/securitycenter/alert_on_severe_notifications.yaml
+#     bad_examples: checks/cloud/azure/securitycenter/alert_on_severe_notifications.yaml
 package builtin.azure.securitycenter.azure0044
 
 import rego.v1

@@ -2,9 +2,9 @@
 Enable node shielding
 
 ```hcl
- resource "google_container_cluster" "good_example" {
- 	enable_shielded_nodes = "true"
- }
+resource "google_container_cluster" "good_example" {
+  enable_shielded_nodes = "true"
+}
 ```
 
 #### Remediation Links

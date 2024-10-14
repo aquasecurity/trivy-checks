@@ -2,11 +2,10 @@
 Add descriptions for all security groups
 
 ```hcl
- resource "nifcloud_security_group" "good_example" {
-   group_name  = "http"
-   description = "Allow inbound HTTP traffic"
- }
- 
+resource "nifcloud_security_group" "good_example" {
+  group_name  = "http"
+  description = "Allow inbound HTTP traffic"
+}
 ```
 
 #### Remediation Links

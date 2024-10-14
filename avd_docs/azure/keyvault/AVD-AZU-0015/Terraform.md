@@ -2,13 +2,12 @@
 Provide content type for secrets to aid interpretation on retrieval
 
 ```hcl
- resource "azurerm_key_vault_secret" "good_example" {
-   name         = "secret-sauce"
-   value        = "szechuan"
-   key_vault_id = azurerm_key_vault.example.id
-   content_type = "password"
- }
- 
+resource "azurerm_key_vault_secret" "good_example" {
+  name         = "secret-sauce"
+  value        = "szechuan"
+  key_vault_id = azurerm_key_vault.example.id
+  content_type = "password"
+}
 ```
 
 #### Remediation Links

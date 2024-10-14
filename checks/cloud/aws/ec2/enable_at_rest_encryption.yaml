@@ -1,0 +1,72 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::EC2::Instance
+          Properties:
+            BlockDeviceMappings:
+              - DeviceName: /dev/sdm
+                Ebs:
+                  DeleteOnTermination: "false"
+                  Encrypted: true
+                  Iops: "200"
+                  VolumeSize: "20"
+                  VolumeType: io1
+            ImageId: ami-79fd7eee
+            KeyName: testkey
+            UserData: export SSM_PATH=/database/creds
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::EC2::Instance
+          Properties:
+            BlockDeviceMappings:
+              - DeviceName: /dev/sdm
+                Ebs:
+                  DeleteOnTermination: "false"
+                  Encrypted: false
+                  Iops: "200"
+                  VolumeSize: "20"
+                  VolumeType: io1
+            ImageId: ami-79fd7eee
+            KeyName: testkey
+            UserData: export DATABASE_PASSWORD=password1234
+terraform:
+  good:
+    - |-
+      resource "aws_instance" "good_example" {
+        ami           = "ami-7f89a64f"
+        instance_type = "t1.micro"
+
+        root_block_device {
+          encrypted = true
+        }
+
+        ebs_block_device {
+          device_name           = "/dev/sdg"
+          volume_size           = 5
+          volume_type           = "gp2"
+          delete_on_termination = false
+          encrypted             = true
+        }
+      }
+  bad:
+    - |-
+      resource "aws_instance" "bad_example" {
+        ami           = "ami-7f89a64f"
+        instance_type = "t1.micro"
+
+        root_block_device {
+          encrypted = false
+        }
+
+        ebs_block_device {
+          device_name           = "/dev/sdg"
+          volume_size           = 5
+          volume_type           = "gp2"
+          delete_on_termination = false
+          encrypted             = false
+        }
+      }

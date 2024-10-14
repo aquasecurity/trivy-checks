@@ -1,24 +1,22 @@
 
 Remove sensitive data from the EC2 instance user-data
 
-```yaml---
+```yaml
 Resources:
   GoodExample:
     Type: AWS::EC2::Instance
     Properties:
-      ImageId: "ami-79fd7eee"
-      KeyName: "testkey"
-      UserData: export SSM_PATH=/database/creds
       BlockDeviceMappings:
-        - DeviceName: "/dev/sdm"
+        - DeviceName: /dev/sdm
           Ebs:
-            VolumeType: "io1"
-            Iops: "200"
             DeleteOnTermination: "false"
+            Iops: "200"
             VolumeSize: "20"
-        - DeviceName: "/dev/sdk"
-
-
+            VolumeType: io1
+        - DeviceName: /dev/sdk
+      ImageId: ami-79fd7eee
+      KeyName: testkey
+      UserData: export SSM_PATH=/database/creds
 ```
 
 

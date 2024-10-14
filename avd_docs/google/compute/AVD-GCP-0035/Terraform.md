@@ -2,7 +2,7 @@
 Set a more restrictive cidr range
 
 ```hcl
- resource "google_compute_firewall" "good_example" {
+resource "google_compute_firewall" "good_example" {
   direction = "EGRESS"
   allow {
     protocol = "icmp"

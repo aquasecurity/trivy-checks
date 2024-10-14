@@ -1,27 +1,25 @@
 
 Enable encryption using customer managed keys
 
-```yaml---
+```yaml
 Resources:
   GoodExample:
-    Type: AWS::EC2::Volume
-    Properties: 
-      Size: 100
-      Encrypted: true
-      KmsKeyId: "alias/volumeEncrypt"
     DeletionPolicy: Snapshot
-
+    Type: AWS::EC2::Volume
+    Properties:
+      Encrypted: true
+      KmsKeyId: alias/volumeEncrypt
+      Size: 100
 ```
-```yaml---
+```yaml
 Resources:
   GoodExample:
-    Type: AWS::EC2::Volume
-    Properties: 
-      Size: 100
-      Encrypted: true
-      KmsKeyId: !ImportValue "MyStack:Key"
     DeletionPolicy: Snapshot
-
+    Type: AWS::EC2::Volume
+    Properties:
+      Encrypted: true
+      KmsKeyId: MyStack:Key
+      Size: 100
 ```
 
 

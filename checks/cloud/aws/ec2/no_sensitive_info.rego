@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_configuration#user_data,user_data_base64
-#     good_examples: checks/cloud/aws/ec2/no_sensitive_info.tf.go
-#     bad_examples: checks/cloud/aws/ec2/no_sensitive_info.tf.go
+#     good_examples: checks/cloud/aws/ec2/no_sensitive_info.yaml
+#     bad_examples: checks/cloud/aws/ec2/no_sensitive_info.yaml
 package builtin.aws.ec2.aws0122
 
 import rego.v1

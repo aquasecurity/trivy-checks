@@ -1,0 +1,33 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::Logs::LogGroup
+          Properties:
+            KmsKeyId: arn:aws:kms:us-west-2:111122223333:key/lambdalogging
+            LogGroupName: aws/lambda/goodExample
+            RetentionInDays: 30
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::Logs::LogGroup
+          Properties:
+            KmsKeyId: ""
+            LogGroupName: aws/lambda/badExample
+            RetentionInDays: 30
+terraform:
+  good:
+    - |-
+      resource "aws_cloudwatch_log_group" "good_example" {
+        name = "good_example"
+
+        kms_key_id = aws_kms_key.log_key.arn
+      }
+  bad:
+    - |-
+      resource "aws_cloudwatch_log_group" "bad_example" {
+        name = "bad_example"
+
+      }

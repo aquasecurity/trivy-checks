@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server_security_alert_policy#email_account_admins
-#     good_examples: checks/cloud/azure/database/threat_alert_email_to_owner.tf.go
-#     bad_examples: checks/cloud/azure/database/threat_alert_email_to_owner.tf.go
+#     good_examples: checks/cloud/azure/database/threat_alert_email_to_owner.yaml
+#     bad_examples: checks/cloud/azure/database/threat_alert_email_to_owner.yaml
 package builtin.azure.database.azure0023
 
 import rego.v1

@@ -1,0 +1,15 @@
+terraform:
+  good:
+    - |-
+      resource "google_compute_project_metadata" "default" {
+        metadata = {
+          enable-oslogin = true
+        }
+      }
+  bad:
+    - |-
+      resource "google_compute_project_metadata" "default" {
+        metadata = {
+          enable-oslogin = false
+        }
+      }

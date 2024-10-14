@@ -2,14 +2,13 @@
 Enable ElasticSearch domain encryption
 
 ```hcl
- resource "aws_elasticsearch_domain" "good_example" {
-   domain_name = "domain-foo"
- 
-   encrypt_at_rest {
-     enabled = true
-   }
- }
- 
+resource "aws_elasticsearch_domain" "good_example" {
+  domain_name = "domain-foo"
+
+  encrypt_at_rest {
+    enabled = true
+  }
+}
 ```
 
 #### Remediation Links

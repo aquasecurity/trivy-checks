@@ -2,10 +2,10 @@
 Enable at-rest encryption for EMR cluster
 
 ```hcl
-  resource "aws_emr_security_configuration" "good_example" {
-    name = "emrsc_other"
-  
-    configuration = <<EOF
+resource "aws_emr_security_configuration" "good_example" {
+  name = "emrsc_other"
+
+  configuration = <<EOF
   {
     "EncryptionConfiguration": {
       "AtRestEncryptionConfiguration": {
@@ -22,7 +22,7 @@ Enable at-rest encryption for EMR cluster
     }
   }
   EOF
-  }
+}
 ```
 
 #### Remediation Links

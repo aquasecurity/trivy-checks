@@ -1,0 +1,21 @@
+terraform:
+  good:
+    - |-
+      resource "azurerm_kubernetes_cluster" "good_example" {
+        addon_profile {
+          oms_agent {
+            enabled = true
+          }
+        }
+      }
+    - |-
+      resource "azurerm_kubernetes_cluster" "good_example" {
+        oms_agent {
+          log_analytics_workspace_id = "whatever"
+        }
+      }
+  bad:
+    - |-
+      resource "azurerm_kubernetes_cluster" "bad_example" {
+        addon_profile {}
+      }

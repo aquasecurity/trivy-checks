@@ -2,11 +2,10 @@
 Disable public access to storage containers
 
 ```hcl
- resource "azurerm_storage_container" "good_example" {
- 	name                  = "terraform-container-storage"
- 	container_access_type = "private"
- }
- 
+resource "azurerm_storage_container" "good_example" {
+  name                  = "terraform-container-storage"
+  container_access_type = "private"
+}
 ```
 
 #### Remediation Links

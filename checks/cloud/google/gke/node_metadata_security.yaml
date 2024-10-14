@@ -1,0 +1,19 @@
+terraform:
+  good:
+    - |-
+      resource "google_container_node_pool" "good_example" {
+        node_config {
+          workload_metadata_config {
+            node_metadata = "SECURE"
+          }
+        }
+      }
+  bad:
+    - |-
+      resource "google_container_node_pool" "bad_example" {
+        node_config {
+          workload_metadata_config {
+            node_metadata = "EXPOSE"
+          }
+        }
+      }

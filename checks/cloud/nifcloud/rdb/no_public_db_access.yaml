@@ -1,0 +1,11 @@
+terraform:
+  good:
+    - |-
+      resource "nifcloud_db_instance" "good_example" {
+        publicly_accessible = false
+      }
+  bad:
+    - |-
+      resource "nifcloud_db_instance" "bad_example" {
+        publicly_accessible = true
+      }

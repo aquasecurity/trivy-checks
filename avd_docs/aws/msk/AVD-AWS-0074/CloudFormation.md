@@ -1,7 +1,7 @@
 
 Enable logging
 
-```yaml---
+```yaml
 Resources:
   GoodCluster:
     Type: AWS::MSK::Cluster
@@ -10,9 +10,6 @@ Resources:
         BrokerLogs:
           S3:
             Enabled: true
-
-
-
 ```
 
 

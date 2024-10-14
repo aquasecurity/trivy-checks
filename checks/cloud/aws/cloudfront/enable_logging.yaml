@@ -1,0 +1,48 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::CloudFront::Distribution
+          Properties:
+            DistributionConfig:
+              DefaultCacheBehavior:
+                TargetOriginId: target
+                ViewerProtocolPolicy: https-only
+              Enabled: true
+              Logging:
+                Bucket: logging-bucket
+              Origins:
+                - DomainName: https://some.domain
+                  Id: somedomain1
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::CloudFront::Distribution
+          Properties:
+            DistributionConfig:
+              DefaultCacheBehavior:
+                TargetOriginId: target
+                ViewerProtocolPolicy: https-only
+              Enabled: true
+              Origins:
+                - DomainName: https://some.domain
+                  Id: somedomain1
+terraform:
+  good:
+    - |-
+      resource "aws_cloudfront_distribution" "good_example" {
+        // other config
+        logging_config {
+          include_cookies = false
+          bucket          = "mylogs.s3.amazonaws.com"
+          prefix          = "myprefix"
+        }
+      }
+  bad:
+    - |-
+      resource "aws_cloudfront_distribution" "bad_example" {
+        // other config
+        // no logging_config
+      }

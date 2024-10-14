@@ -1,14 +1,13 @@
 
 Enable encryption using customer managed keys
 
-```yaml---
+```yaml
 Resources:
   GoodCluster:
     Type: AWS::Neptune::DBCluster
     Properties:
+      KmsKeyId: something
       StorageEncrypted: true
-      KmsKeyId: "something"
-
 ```
 
 

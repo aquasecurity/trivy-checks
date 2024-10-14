@@ -21,9 +21,9 @@
 #         - service: rds
 #           provider: aws
 #   terraform:
-#       good_examples: "checks/cloud/aws/rds/disable_public_access.tf.go"
+#       good_examples: "checks/cloud/aws/rds/disable_public_access.yaml"
 #   cloud_formation:
-#       good_examples: "checks/cloud/aws/rds/disable_public_access.cf.go"
+#       good_examples: "checks/cloud/aws/rds/disable_public_access.yaml"
 
 package builtin.aws.rds.aws0180
 

@@ -24,8 +24,8 @@
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/network_security_group#security_rule
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_rule#source_port_ranges
-#     good_examples: checks/cloud/azure/network/ssh_blocked_from_internet.tf.go
-#     bad_examples: checks/cloud/azure/network/ssh_blocked_from_internet.tf.go
+#     good_examples: checks/cloud/azure/network/ssh_blocked_from_internet.yaml
+#     bad_examples: checks/cloud/azure/network/ssh_blocked_from_internet.yaml
 package builtin.azure.network.azure0050
 
 import rego.v1

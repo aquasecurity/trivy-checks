@@ -1,0 +1,69 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::Athena::WorkGroup
+          Properties:
+            Name: goodExample
+            WorkGroupConfiguration:
+              EnforceWorkGroupConfiguration: true
+              ResultConfiguration:
+                EncryptionConfiguration:
+                  EncryptionOption: SSE_KMS
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::Athena::WorkGroup
+          Properties:
+            Name: badExample
+            WorkGroupConfiguration:
+              EnforceWorkGroupConfiguration: false
+              ResultConfiguration:
+                EncryptionConfiguration:
+                  EncryptionOption: SSE_KMS
+terraform:
+  good:
+    - |-
+      resource "aws_athena_workgroup" "good_example" {
+        name = "example"
+
+        configuration {
+          enforce_workgroup_configuration    = true
+          publish_cloudwatch_metrics_enabled = true
+
+          result_configuration {
+            output_location = "s3://${aws_s3_bucket.example.bucket}/output/"
+
+            encryption_configuration {
+              encryption_option = "SSE_KMS"
+              kms_key_arn       = aws_kms_key.example.arn
+            }
+          }
+        }
+      }
+  bad:
+    - |-
+      resource "aws_athena_workgroup" "bad_example" {
+        name = "example"
+
+        configuration {
+          enforce_workgroup_configuration    = false
+          publish_cloudwatch_metrics_enabled = true
+
+          result_configuration {
+            output_location = "s3://${aws_s3_bucket.example.bucket}/output/"
+
+            encryption_configuration {
+              encryption_option = "SSE_KMS"
+              kms_key_arn       = aws_kms_key.example.arn
+            }
+          }
+        }
+      }
+
+      resource "aws_athena_workgroup" "bad_example" {
+        name = "example"
+
+      }

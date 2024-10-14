@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/compute_instance_v2#admin_pass
-#     good_examples: checks/cloud/openstack/compute/no_plaintext_password.tf.go
-#     bad_examples: checks/cloud/openstack/compute/no_plaintext_password.tf.go
+#     good_examples: checks/cloud/openstack/compute/no_plaintext_password.yaml
+#     bad_examples: checks/cloud/openstack/compute/no_plaintext_password.yaml
 package builtin.openstack.compute.openstack0001
 
 import rego.v1

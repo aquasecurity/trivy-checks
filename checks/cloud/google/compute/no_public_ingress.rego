@@ -26,8 +26,8 @@
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall#source_ranges
 #       - https://www.terraform.io/docs/providers/google/r/compute_firewall.html
-#     good_examples: checks/cloud/google/compute/no_public_ingress.tf.go
-#     bad_examples: checks/cloud/google/compute/no_public_ingress.tf.go
+#     good_examples: checks/cloud/google/compute/no_public_ingress.yaml
+#     bad_examples: checks/cloud/google/compute/no_public_ingress.yaml
 package builtin.google.compute.google0027
 
 import rego.v1
