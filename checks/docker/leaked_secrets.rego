@@ -222,6 +222,7 @@ deny_secrets_tokens := {
 	"apikey", "auth", "credential",
 	"credentials", "key", "password",
 	"pword", "passwd", "secret", "token",
+	"usr", "psw",
 }
 
 deny_secrets_pattern := build_secrets_pattern(deny_secrets_tokens)

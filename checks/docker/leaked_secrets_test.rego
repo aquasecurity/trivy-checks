@@ -139,6 +139,12 @@ test_deny_secret_key if {
 	# contains uppercase secret token after underscore
 	case3 := check.deny with input as build_simple_input("arg", ["AWS_SECRET_ACCESS_KEY"])
 	count(case3) = 1
+
+	case4 := check.deny with input as build_simple_input("arg", ["ARTIFACTORY_USR"])
+	count(case4) = 1
+
+	case5 := check.deny with input as build_simple_input("arg", ["ARTIFACTORY_PSW"])
+	count(case5) = 1
 }
 
 test_allow_secret_key if {
