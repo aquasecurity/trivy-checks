@@ -1,0 +1,20 @@
+terraform:
+  good:
+    - "resource \"azurerm_monitor_log_profile\" \"good_example\" {\n  name = \"bad_example\"\n\n  categories = []\n\n  locations = [\n    \"eastus\",\n    \"eastus2\",\n    \"southcentralus\",\n    \"westus2\",\n    \"westus3\",\n    \"australiaeast\",\n    \"southeastasia\",\n    \"northeurope\",\n    \"swedencentral\",\n    \"uksouth\",\n    \"westeurope\",\n    \"centralus\",\n    \"northcentralus\",\n    \"westus\",\n    \"southafricanorth\",\n    \"centralindia\",\n    \"eastasia\",\n    \"japaneast\",\n    \"jioindiawest\",\n    \"koreacentral\",\n    \"canadacentral\",\n    \"francecentral\",\n    \"germanywestcentral\",\n    \"norwayeast\",\n    \"switzerlandnorth\",\n    \"uaenorth\",\n    \"brazilsouth\",\n    \"centralusstage\",\n    \"eastusstage\",\n    \"eastus2stage\",\n    \"northcentralusstage\",\n    \"southcentralusstage\",\n    \"westusstage\",\n    \"westus2stage\",\n    \"asia\",\n    \"asiapacific\",\n    \"australia\",\n    \"brazil\",\n    \"canada\",\n    \"europe\",\n    \"global\",\n    \"india\",\n    \"japan\",\n    \"uk\",\n    \"unitedstates\",\n    \"eastasiastage\",\n    \"southeastasiastage\",\n    \"centraluseuap\",\n    \"eastus2euap\",\n    \"westcentralus\",\n    \"southafricawest\",\n    \"australiacentral\",\n    \"australiacentral2\",\n    \"australiasoutheast\",\n    \"japanwest\",\n    \"jioindiacentral\",\n    \"koreasouth\",\n    \"southindia\",\n    \"westindia\",\n    \"canadaeast\",\n    \"francesouth\",\n    \"germanynorth\",\n    \"norwaywest\",\n    \"swedensouth\",\n    \"switzerlandwest\",\n    \"ukwest\",\n    \"uaecentral\",\n    \"brazilsoutheast\",\n  ]\n\n  retention_policy {\n    enabled = true\n    days    = 7\n  }\n}\n\n    "
+  bad:
+    - |-
+      resource "azurerm_monitor_log_profile" "bad_example" {
+        name = "bad_example"
+
+        categories = []
+
+        locations = [
+          "westus",
+          "global",
+        ]
+
+        retention_policy {
+          enabled = true
+          days    = 7
+        }
+      }

@@ -1,0 +1,24 @@
+terraform:
+  good:
+    - |-
+      resource "nifcloud_elb" "good_example" {
+        protocol = "HTTPS"
+      }
+    - |-
+      resource "nifcloud_load_balancer" "good_example" {
+        load_balancer_port = 443
+      }
+  bad:
+    - |-
+      resource "nifcloud_elb" "bad_example" {
+        protocol = "HTTP"
+
+        network_interface {
+          network_id     = "net-COMMON_GLOBAL"
+          is_vip_network = true
+        }
+      }
+    - |-
+      resource "nifcloud_load_balancer" "bad_example" {
+        load_balancer_port = 80
+      }

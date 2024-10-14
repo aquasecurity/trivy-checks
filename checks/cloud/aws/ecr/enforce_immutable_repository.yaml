@@ -1,0 +1,44 @@
+terraform:
+  good:
+    - |-
+      resource "aws_ecr_repository" "good_example" {
+        name                 = "bar"
+        image_tag_mutability = "IMMUTABLE"
+
+        image_scanning_configuration {
+          scan_on_push = true
+        }
+      }
+  bad:
+    - |-
+      resource "aws_ecr_repository" "bad_example" {
+        name                 = "bar"
+        image_tag_mutability = "MUTABLE"
+
+        image_scanning_configuration {
+          scan_on_push = true
+        }
+      }
+cloudformation:
+  good:
+    - |
+      Resources:
+          GoodExample:
+              Properties:
+                  EncryptionConfiguration:
+                      EncryptionType: KMS
+                      KmsKey: alias/ecr-key
+                  ImageScanningConfiguration:
+                      ScanOnPush: false
+                  ImageTagMutability: IMMUTABLE
+                  RepositoryName: test-repository
+              Type: AWS::ECR::Repository
+  bad:
+    - |
+      Resources:
+          BadExample:
+              Properties:
+                  ImageScanningConfiguration:
+                      ScanOnPush: false
+                  RepositoryName: test-repository
+              Type: AWS::ECR::Repository

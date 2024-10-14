@@ -1,0 +1,43 @@
+terraform:
+  good:
+    - |-
+      resource "aws_launch_configuration" "good_example" {
+        root_block_device {
+          encrypted = true
+        }
+      }
+  bad:
+    - |-
+      resource "aws_launch_configuration" "bad_example" {
+        root_block_device {
+          encrypted = false
+        }
+      }
+cloudformation:
+  good:
+    - |
+      Resources:
+          GoodExample:
+              Properties:
+                  BlockDeviceMappings:
+                      - DeviceName: root
+                        Ebs:
+                          Encrypted: true
+                  ImageId: ami-123456
+                  InstanceType: t2.small
+              Type: AWS::AutoScaling::LaunchConfiguration
+  bad:
+    - |
+      Resources:
+          BadExample:
+              Properties:
+                  BlockDeviceMappings:
+                      - DeviceName: root
+                        Ebs:
+                          Encrypted: true
+                      - DeviceName: data
+                        Ebs:
+                          Encrypted: false
+                  ImageId: ami-123456
+                  InstanceType: t2.small
+              Type: AWS::AutoScaling::LaunchConfiguration

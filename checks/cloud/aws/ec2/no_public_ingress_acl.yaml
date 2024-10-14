@@ -1,0 +1,56 @@
+terraform:
+  good:
+    - |-
+      resource "aws_network_acl_rule" "good_example" {
+        egress      = false
+        protocol    = "tcp"
+        from_port   = 22
+        to_port     = 22
+        rule_action = "allow"
+        cidr_block  = "10.0.0.0/16"
+      }
+  bad:
+    - |-
+      resource "aws_network_acl_rule" "bad_example" {
+        egress      = false
+        protocol    = "tcp"
+        from_port   = 22
+        to_port     = 22
+        rule_action = "allow"
+        cidr_block  = "0.0.0.0/0"
+      }
+cloudformation:
+  good:
+    - |
+      AWSTemplateFormatVersion: 2010-09-09T00:00:00Z
+      Description: Godd example of excessive ports
+      Resources:
+          NetworkACL:
+              Properties:
+                  VpcId: something
+              Type: AWS::EC2::NetworkAcl
+          Rule:
+              Properties:
+                  CidrBlock: 10.0.0.0/8
+                  NetworkAclId:
+                      Ref: NetworkACL
+                  Protocol: 6
+                  RuleAction: allow
+              Type: AWS::EC2::NetworkAclEntry
+  bad:
+    - |
+      AWSTemplateFormatVersion: 2010-09-09T00:00:00Z
+      Description: Bad example of excessive ports
+      Resources:
+          NetworkACL:
+              Properties:
+                  VpcId: something
+              Type: AWS::EC2::NetworkAcl
+          Rule:
+              Properties:
+                  CidrBlock: 0.0.0.0/0
+                  NetworkAclId:
+                      Ref: NetworkACL
+                  Protocol: 6
+                  RuleAction: allow
+              Type: AWS::EC2::NetworkAclEntry

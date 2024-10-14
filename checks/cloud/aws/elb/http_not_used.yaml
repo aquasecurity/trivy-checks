@@ -1,0 +1,11 @@
+terraform:
+  good:
+    - |-
+      resource "aws_alb_listener" "good_example" {
+        protocol = "HTTPS"
+      }
+  bad:
+    - |-
+      resource "aws_alb_listener" "bad_example" {
+        protocol = "HTTP"
+      }

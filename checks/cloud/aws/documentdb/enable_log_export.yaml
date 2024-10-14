@@ -1,0 +1,66 @@
+terraform:
+  good:
+    - |-
+      resource "aws_docdb_cluster" "good_example" {
+        cluster_identifier              = "my-docdb-cluster"
+        engine                          = "docdb"
+        master_username                 = "foo"
+        master_password                 = "mustbeeightchars"
+        backup_retention_period         = 5
+        preferred_backup_window         = "07:00-09:00"
+        skip_final_snapshot             = true
+        enabled_cloudwatch_logs_exports = "audit"
+      }
+  bad:
+    - |-
+      resource "aws_docdb_cluster" "bad_example" {
+        cluster_identifier              = "my-docdb-cluster"
+        engine                          = "docdb"
+        master_username                 = "foo"
+        master_password                 = "mustbeeightchars"
+        backup_retention_period         = 5
+        preferred_backup_window         = "07:00-09:00"
+        skip_final_snapshot             = true
+        enabled_cloudwatch_logs_exports = "something"
+      }
+cloudformation:
+  good:
+    - |
+      Resources:
+          GoodExample:
+              Properties:
+                  BackupRetentionPeriod: 8
+                  DBClusterIdentifier: sample-cluster
+                  DBClusterParameterGroupName: default.docdb3.6
+                  EnableCloudwatchLogsExports:
+                      - audit
+                      - profiler
+                  KmsKeyId: your-kms-key-id
+              Type: AWS::DocDB::DBCluster
+          InstanceInstanceExample:
+              Properties:
+                  AutoMinorVersionUpgrade: true
+                  AvailabilityZone: us-east-1c
+                  DBClusterIdentifier: sample-cluster
+                  DBInstanceClass: db.r5.large
+                  DBInstanceIdentifier: sample-cluster-instance-0
+                  PreferredMaintenanceWindow: sat:06:54-sat:07:24
+              Type: AWS::DocDB::DBInstance
+  bad:
+    - |
+      Resources:
+          BadExample:
+              Properties:
+                  BackupRetentionPeriod: 8
+                  DBClusterIdentifier: sample-cluster
+                  DBClusterParameterGroupName: default.docdb3.6
+              Type: AWS::DocDB::DBCluster
+          BadInstanceExample:
+              Properties:
+                  AutoMinorVersionUpgrade: true
+                  AvailabilityZone: us-east-1c
+                  DBClusterIdentifier: sample-cluster
+                  DBInstanceClass: db.r5.large
+                  DBInstanceIdentifier: sample-cluster-instance-0
+                  PreferredMaintenanceWindow: sat:06:54-sat:07:24
+              Type: AWS::DocDB::DBInstance

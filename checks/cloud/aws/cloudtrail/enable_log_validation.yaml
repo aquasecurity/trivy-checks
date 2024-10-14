@@ -1,0 +1,56 @@
+terraform:
+  good:
+    - |-
+      resource "aws_cloudtrail" "good_example" {
+        is_multi_region_trail      = true
+        enable_log_file_validation = true
+
+        event_selector {
+          read_write_type           = "All"
+          include_management_events = true
+
+          data_resource {
+            type   = "AWS::S3::Object"
+            values = ["${data.aws_s3_bucket.important-bucket.arn}/"]
+          }
+        }
+      }
+  bad:
+    - |-
+      resource "aws_cloudtrail" "bad_example" {
+        is_multi_region_trail = true
+
+        event_selector {
+          read_write_type           = "All"
+          include_management_events = true
+
+          data_resource {
+            type   = "AWS::S3::Object"
+            values = ["${data.aws_s3_bucket.important-bucket.arn}/"]
+          }
+        }
+      }
+cloudformation:
+  good:
+    - |
+      Resources:
+          GoodExample:
+              Properties:
+                  EnableLogFileValidation: true
+                  IsLogging: true
+                  IsMultiRegionTrail: true
+                  S3BucketName: CloudtrailBucket
+                  S3KeyPrefix: /trailing
+                  TrailName: Cloudtrail
+              Type: AWS::CloudTrail::Trail
+  bad:
+    - |
+      Resources:
+          BadExample:
+              Properties:
+                  IsLogging: true
+                  IsMultiRegionTrail: false
+                  S3BucketName: CloudtrailBucket
+                  S3KeyPrefix: /trailing
+                  TrailName: Cloudtrail
+              Type: AWS::CloudTrail::Trail

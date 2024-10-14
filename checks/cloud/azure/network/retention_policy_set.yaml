@@ -1,0 +1,5 @@
+terraform:
+  good:
+    - "resource \"azurerm_network_watcher_flow_log\" \"good_watcher\" {\n  network_watcher_name = \"good_watcher\"\n  resource_group_name  = \"resource-group\"\n\n  network_security_group_id = azurerm_network_security_group.test.id\n  storage_account_id        = azurerm_storage_account.test.id\n  enabled                   = true\n\n  retention_policy {\n    enabled = true\n    days    = 90\n  }\n}\n "
+  bad:
+    - "resource \"azurerm_network_watcher_flow_log\" \"bad_watcher\" {\n  network_watcher_name = \"bad_watcher\"\n  resource_group_name  = \"resource-group\"\n\n  network_security_group_id = azurerm_network_security_group.test.id\n  storage_account_id        = azurerm_storage_account.test.id\n  enabled                   = true\n\n  retention_policy {\n    enabled = true\n    days    = 7\n  }\n}\n  "

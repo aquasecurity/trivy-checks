@@ -1,0 +1,55 @@
+terraform:
+  good:
+    - |-
+      resource "aws_elasticache_cluster" "good_example" {
+        cluster_id           = "cluster-example"
+        engine               = "redis"
+        node_type            = "cache.m4.large"
+        num_cache_nodes      = 1
+        parameter_group_name = "default.redis3.2"
+        engine_version       = "3.2.10"
+        port                 = 6379
+
+        snapshot_retention_limit = 5
+      }
+  bad:
+    - |-
+      resource "aws_elasticache_cluster" "bad_example" {
+        cluster_id           = "cluster-example"
+        engine               = "redis"
+        node_type            = "cache.m4.large"
+        num_cache_nodes      = 1
+        parameter_group_name = "default.redis3.2"
+        engine_version       = "3.2.10"
+        port                 = 6379
+      }
+cloudformation:
+  good:
+    - |
+      Resources:
+          GoodExample:
+              Properties:
+                  AZMode: cross-az
+                  CacheNodeType: cache.m3.medium
+                  Engine: redis
+                  NumCacheNodes: "3"
+                  PreferredAvailabilityZones:
+                      - us-west-2a
+                      - us-west-2a
+                      - us-west-2b
+                  SnapshotRetentionLimit: 7
+              Type: AWS::ElastiCache::CacheCluster
+  bad:
+    - |
+      Resources:
+          BadExample:
+              Properties:
+                  AZMode: cross-az
+                  CacheNodeType: cache.m3.medium
+                  Engine: redis
+                  NumCacheNodes: "3"
+                  PreferredAvailabilityZones:
+                      - us-west-2a
+                      - us-west-2a
+                      - us-west-2b
+              Type: AWS::ElastiCache::CacheCluster

@@ -1,0 +1,5 @@
+terraform:
+  good:
+    - "resource \"google_sql_database_instance\" \"db\" {\n  name             = \"db\"\n  database_version = \"MYSQL_5_6\"\n  region           = \"us-central1\"\n  settings {\n    database_flags {\n      name  = \"local_infile\"\n      value = \"off\"\n    }\n  }\n}\n    "
+  bad:
+    - "resource \"google_sql_database_instance\" \"db\" {\n  name             = \"db\"\n  database_version = \"MYSQL_5_6\"\n  region           = \"us-central1\"\n  settings {\n    database_flags {\n      name  = \"local_infile\"\n      value = \"on\"\n    }\n  }\n}\n    "

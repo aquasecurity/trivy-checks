@@ -1,0 +1,40 @@
+terraform:
+  good:
+    - |-
+      resource "aws_msk_cluster" "good_example" {
+        encryption_info {
+          encryption_in_transit {
+            client_broker = "TLS"
+            in_cluster    = true
+          }
+        }
+      }
+  bad:
+    - |-
+      resource "aws_msk_cluster" "bad_example" {
+        encryption_info {
+          encryption_in_transit {
+            client_broker = "TLS_PLAINTEXT"
+            in_cluster    = true
+          }
+        }
+      }
+cloudformation:
+  good:
+    - |
+      Resources:
+          GoodCluster:
+              Properties:
+                  EncryptionInfo:
+                      EncryptionInTransit:
+                          ClientBroker: TLS
+              Type: AWS::MSK::Cluster
+  bad:
+    - |
+      Resources:
+          BadCluster:
+              Properties:
+                  EncryptionInfo:
+                      EncryptionInTransit:
+                          ClientBroker: TLS_PLAINTEXT
+              Type: AWS::MSK::Cluster

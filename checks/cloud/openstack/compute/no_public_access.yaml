@@ -1,0 +1,5 @@
+terraform:
+  good:
+    - "resource \"openstack_fw_rule_v1\" \"rule_1\" {\n  name                   = \"my_rule\"\n  description            = \"don't let just anyone in\"\n  action                 = \"allow\"\n  protocol               = \"tcp\"\n  destination_ip_address = \"10.10.10.1\"\n  source_ip_address      = \"10.10.10.2\"\n  destination_port       = \"22\"\n  enabled                = \"true\"\n}\n    "
+  bad:
+    - "resource \"openstack_fw_rule_v1\" \"rule_1\" {\n  name             = \"my_rule\"\n  description      = \"let anyone in\"\n  action           = \"allow\"\n  protocol         = \"tcp\"\n  destination_port = \"22\"\n  enabled          = \"true\"\n}\n    "

@@ -1,0 +1,56 @@
+terraform:
+  good:
+    - |-
+      resource "aws_kms_key" "ebs_encryption" {
+        enable_key_rotation = true
+      }
+
+      resource "aws_ebs_volume" "example" {
+        availability_zone = "us-west-2a"
+        size              = 40
+
+        kms_key_id = aws_kms_key.ebs_encryption.arn
+
+        tags = {
+          Name = "HelloWorld"
+        }
+      }
+  bad:
+    - |-
+      resource "aws_ebs_volume" "example" {
+        availability_zone = "us-west-2a"
+        size              = 40
+
+        tags = {
+          Name = "HelloWorld"
+        }
+      }
+cloudformation:
+  good:
+    - |
+      Resources:
+          GoodExample:
+              DeletionPolicy: Snapshot
+              Properties:
+                  Encrypted: true
+                  KmsKeyId: alias/volumeEncrypt
+                  Size: 100
+              Type: AWS::EC2::Volume
+    - |
+      Resources:
+          GoodExample:
+              DeletionPolicy: Snapshot
+              Properties:
+                  Encrypted: true
+                  KmsKeyId: MyStack:Key
+                  Size: 100
+              Type: AWS::EC2::Volume
+  bad:
+    - |
+      Resources:
+          BadExample:
+              DeletionPolicy: Snapshot
+              Properties:
+                  AvailabilityZone: Ec2Instance.AvailabilityZone
+                  Size: 100
+              Type: AWS::EC2::Volume

@@ -1,0 +1,5 @@
+terraform:
+  good:
+    - "resource \"aws_iam_access_key\" \"good_example\" {\n  user = \"lowprivuser\"\n}\n    "
+  bad:
+    - "resource \"aws_iam_access_key\" \"good_example\" {\n  user = \"root\"\n}\n    "

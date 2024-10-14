@@ -1,0 +1,5 @@
+terraform:
+  good:
+    - "resource \"google_sql_database_instance\" \"db\" {\n  name             = \"db\"\n  database_version = \"POSTGRES_12\"\n  region           = \"us-central1\"\n  settings {\n    database_flags {\n      name  = \"log_min_duration_statement\"\n      value = \"-1\"\n    }\n  }\n}\n    "
+  bad:
+    - "resource \"google_sql_database_instance\" \"db\" {\n  name             = \"db\"\n  database_version = \"POSTGRES_12\"\n  region           = \"us-central1\"\n  settings {\n    database_flags {\n      name  = \"log_min_duration_statement\"\n      value = \"99\"\n    }\n  }\n}\n    "

@@ -1,0 +1,41 @@
+terraform:
+  good:
+    - "resource \"aws_security_group\" \"bar\" {\n  name = \"security-group\"\n}\n\nresource \"aws_elasticache_security_group\" \"good_example\" {\n  name                 = \"elasticache-security-group\"\n  security_group_names = [aws_security_group.bar.name]\n  description          = \"something\"\n}\n "
+  bad:
+    - "resource \"aws_security_group\" \"bar\" {\n  name = \"security-group\"\n}\n\nresource \"aws_elasticache_security_group\" \"bad_example\" {\n  name                 = \"elasticache-security-group\"\n  security_group_names = [aws_security_group.bar.name]\n  description          = \"\"\n}\n  "
+cloudformation:
+  good:
+    - |
+      Resources:
+          GoodExampleCacheGroup:
+              Properties:
+                  Description: Some description
+              Type: AWS::ElastiCache::SecurityGroup
+          GoodExampleEc2SecurityGroup:
+              Properties:
+                  GroupDescription: Good Elasticache Security Group
+                  GroupName: GoodExample
+              Type: AWS::EC2::SecurityGroup
+          GoodSecurityGroupIngress:
+              Properties:
+                  CacheSecurityGroupName: GoodExampleCacheGroup
+                  EC2SecurityGroupName: GoodExampleEc2SecurityGroup
+              Type: AWS::ElastiCache::SecurityGroupIngress
+  bad:
+    - |
+      Resources:
+          BadExampleCacheGroup:
+              Properties:
+                  Tags:
+                      - Name: BadExample
+              Type: AWS::ElastiCache::SecurityGroup
+          BadExampleEc2SecurityGroup:
+              Properties:
+                  GroupDescription: Bad Elasticache Security Group
+                  GroupName: BadExample
+              Type: AWS::EC2::SecurityGroup
+          BadSecurityGroupIngress:
+              Properties:
+                  CacheSecurityGroupName: BadExampleCacheGroup
+                  EC2SecurityGroupName: BadExampleEc2SecurityGroup
+              Type: AWS::ElastiCache::SecurityGroupIngress

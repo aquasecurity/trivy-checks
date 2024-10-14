@@ -1,0 +1,40 @@
+terraform:
+  good:
+    - |-
+      resource "aws_kinesis_stream" "good_example" {
+        encryption_type = "KMS"
+        kms_key_id      = "my/special/key"
+      }
+  bad:
+    - |-
+      resource "aws_kinesis_stream" "bad_example" {
+        encryption_type = "NONE"
+      }
+cloudformation:
+  good:
+    - |
+      Resources:
+          GoodExample:
+              Properties:
+                  Name: GoodExample
+                  RetentionPeriodHours: 168
+                  ShardCount: 3
+                  StreamEncryption:
+                      EncryptionType: KMS
+                      KeyId: alis/key
+                  Tags:
+                      - Key: Environment
+                        Value: Production
+              Type: AWS::Kinesis::Stream
+  bad:
+    - |
+      Resources:
+          BadExample:
+              Properties:
+                  Name: BadExample
+                  RetentionPeriodHours: 168
+                  ShardCount: 3
+                  Tags:
+                      - Key: Environment
+                        Value: Production
+              Type: AWS::Kinesis::Stream

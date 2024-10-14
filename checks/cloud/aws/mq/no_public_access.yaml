@@ -1,0 +1,58 @@
+terraform:
+  good:
+    - |-
+      resource "aws_mq_broker" "good_example" {
+        broker_name = "example"
+
+        configuration {
+          id       = aws_mq_configuration.test.id
+          revision = aws_mq_configuration.test.latest_revision
+        }
+
+        engine_type        = "ActiveMQ"
+        engine_version     = "5.15.0"
+        host_instance_type = "mq.t2.micro"
+        security_groups    = [aws_security_group.test.id]
+
+        user {
+          username = "ExampleUser"
+          password = "MindTheGap"
+        }
+        publicly_accessible = false
+      }
+  bad:
+    - |-
+      resource "aws_mq_broker" "bad_example" {
+        broker_name = "example"
+
+        configuration {
+          id       = aws_mq_configuration.test.id
+          revision = aws_mq_configuration.test.latest_revision
+        }
+
+        engine_type        = "ActiveMQ"
+        engine_version     = "5.15.0"
+        host_instance_type = "mq.t2.micro"
+        security_groups    = [aws_security_group.test.id]
+
+        user {
+          username = "ExampleUser"
+          password = "MindTheGap"
+        }
+        publicly_accessible = true
+      }
+cloudformation:
+  good:
+    - |
+      Resources:
+          GoodBroker:
+              Properties:
+                  PubliclyAccessible: false
+              Type: AWS::AmazonMQ::Broker
+  bad:
+    - |
+      Resources:
+          BadBroker:
+              Properties:
+                  PubliclyAccessible: true
+              Type: AWS::AmazonMQ::Broker

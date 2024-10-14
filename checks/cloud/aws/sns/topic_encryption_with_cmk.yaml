@@ -1,0 +1,28 @@
+terraform:
+  good:
+    - |-
+      resource "aws_sns_topic" "good_example" {
+        kms_master_key_id = "/blah"
+      }
+  bad:
+    - |-
+      resource "aws_sns_topic" "bad_example" {
+        kms_master_key_id = "alias/aws/sns"
+      }
+cloudformation:
+  good:
+    - |
+      Resources:
+          GoodTopic:
+              Properties:
+                  KmsMasterKeyId: some-key
+                  TopicName: blah
+              Type: AWS::SQS::Topic
+  bad:
+    - |
+      Resources:
+          BadTopic:
+              Properties:
+                  KmsMasterKeyId: alias/aws/sns
+                  TopicName: blah
+              Type: AWS::SNS::Topic

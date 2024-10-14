@@ -1,0 +1,44 @@
+terraform:
+  good:
+    - |-
+      resource "aws_neptune_cluster" "good_example" {
+        cluster_identifier                  = "neptune-cluster-demo"
+        engine                              = "neptune"
+        backup_retention_period             = 5
+        preferred_backup_window             = "07:00-09:00"
+        skip_final_snapshot                 = true
+        iam_database_authentication_enabled = true
+        apply_immediately                   = true
+        storage_encrypted                   = true
+        kms_key_arn                         = aws_kms_key.example.arn
+      }
+  bad:
+    - |-
+      resource "aws_neptune_cluster" "bad_example" {
+        cluster_identifier                  = "neptune-cluster-demo"
+        engine                              = "neptune"
+        backup_retention_period             = 5
+        preferred_backup_window             = "07:00-09:00"
+        skip_final_snapshot                 = true
+        iam_database_authentication_enabled = true
+        apply_immediately                   = true
+        storage_encrypted                   = false
+      }
+cloudformation:
+  good:
+    - |
+      Resources:
+          GoodCluster:
+              Properties:
+                  KmsKeyId: something
+                  StorageEncrypted: true
+              Type: AWS::Neptune::DBCluster
+  bad:
+    - |
+      AWSTemplateFormatVersion: 2010-09-09T00:00:00Z
+      Description: Bad example
+      Resources:
+          BadCluster:
+              Properties:
+                  StorageEncrypted: false
+              Type: AWS::Neptune::DBCluster

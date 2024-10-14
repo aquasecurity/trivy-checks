@@ -1,0 +1,5 @@
+terraform:
+  good:
+    - "resource \"aws_iam_group\" \"developers\" {\n  name = \"developers\"\n  path = \"/users/\"\n}\n\nresource \"aws_iam_user\" \"jim\" {\n  name = \"jim\"\n}\n\nresource \"aws_iam_group_membership\" \"devteam\" {\n  name = \"developers-team\"\n\n  users = [\n    aws_iam_user.jim.name,\n  ]\n\n  group = aws_iam_group.developers.name\n}\n\nresource \"aws_iam_group_policy\" \"ec2policy\" {\n  name  = \"test\"\n  group = aws_iam_group.developers.name\n\n  policy = <<EOF\n{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": [\n        \"ec2:Describe*\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": \"*\"\n    }\n  ]\n}\nEOF\n}\n    "
+  bad:
+    - "resource \"aws_iam_user\" \"jim\" {\n  name = \"jim\"\n}\n\nresource \"aws_iam_user_policy\" \"ec2policy\" {\n  name = \"test\"\n  user = aws_iam_user.jim.name\n\n  policy = <<EOF\n{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": [\n        \"ec2:Describe*\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": \"*\"\n    }\n  ]\n}\nEOF\n}\n    "

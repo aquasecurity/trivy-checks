@@ -1,0 +1,19 @@
+terraform:
+  good:
+    - "resource \"google_sql_database_instance\" \"db\" {\n  name             = \"db\"\n  database_version = \"POSTGRES_12\"\n  region           = \"us-central1\"\n  settings {\n    backup_configuration {\n      enabled = true\n    }\n  }\n}\n    "
+    - |-
+      resource "google_sql_database_instance" "new_instance_sql_replica" {
+        name                 = "replica"
+        region               = "europe-west3"
+        database_version     = "POSTGRES_14"
+        master_instance_name = google_sql_database_instance.instance[0].name
+        deletion_protection  = terraform.workspace == "prod" ? true : false
+
+        replica_configuration {
+          connect_retry_interval  = 0
+          failover_target         = false
+          master_heartbeat_period = 0
+        }
+      }
+  bad:
+    - "resource \"google_sql_database_instance\" \"db\" {\n  name             = \"db\"\n  database_version = \"POSTGRES_12\"\n  region           = \"us-central1\"\n  settings {\n    backup_configuration {\n      enabled = false\n    }\n  }\n}\n    "

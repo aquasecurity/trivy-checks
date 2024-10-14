@@ -1,0 +1,48 @@
+terraform:
+  good:
+    - |-
+      resource "aws_s3_bucket" "example" {
+        bucket = "bucket"
+      }
+
+      resource "aws_s3_bucket_public_access_block" "good_example" {
+        bucket = aws_s3_bucket.example.id
+
+        ignore_public_acls = true
+      }
+  bad:
+    - |-
+      resource "aws_s3_bucket" "example" {
+        bucket = "bucket"
+      }
+
+
+      resource "aws_s3_bucket_public_access_block" "bad_example" {
+        bucket = aws_s3_bucket.example.id
+      }
+
+      resource "aws_s3_bucket_public_access_block" "bad_example" {
+        bucket = aws_s3_bucket.example.id
+
+        ignore_public_acls = false
+      }
+cloudformation:
+  good:
+    - |
+      Resources:
+          GoodExample:
+              Properties:
+                  AccessControl: Private
+                  PublicAccessBlockConfiguration:
+                      BlockPublicAcls: true
+                      BlockPublicPolicy: true
+                      IgnorePublicAcls: true
+                      RestrictPublicBuckets: true
+              Type: AWS::S3::Bucket
+  bad:
+    - |
+      Resources:
+          BadExample:
+              Properties:
+                  AccessControl: AuthenticatedRead
+              Type: AWS::S3::Bucket

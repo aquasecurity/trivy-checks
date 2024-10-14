@@ -1,0 +1,30 @@
+terraform:
+  good:
+    - |-
+      resource "aws_rds_cluster" "good_example" {
+        name              = "bar"
+        kms_key_id        = "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+        storage_encrypted = true
+      }
+  bad:
+    - |-
+      resource "aws_rds_cluster" "bad_example" {
+        name       = "bar"
+        kms_key_id = ""
+      }
+cloudformation:
+  good:
+    - |
+      Resources:
+          GoodExample:
+              Properties:
+                  KmsKeyId: something
+                  StorageEncrypted: true
+              Type: AWS::RDS::DBCluster
+  bad:
+    - |
+      Resources:
+          BadExample:
+              Properties:
+                  StorageEncrypted: false
+              Type: AWS::RDS::DBCluster

@@ -1,0 +1,49 @@
+terraform:
+  good:
+    - |-
+      resource "aws_security_group" "good_example" {
+        name        = "http"
+        description = "Allow inbound HTTP traffic"
+
+        ingress {
+          description = "HTTP from VPC"
+          from_port   = 80
+          to_port     = 80
+          protocol    = "tcp"
+          cidr_blocks = [aws_vpc.main.cidr_block]
+        }
+      }
+  bad:
+    - |-
+      resource "aws_security_group" "bad_example" {
+        name        = "http"
+        description = ""
+
+        ingress {
+          description = "HTTP from VPC"
+          from_port   = 80
+          to_port     = 80
+          protocol    = "tcp"
+          cidr_blocks = [aws_vpc.main.cidr_block]
+        }
+      }
+cloudformation:
+  good:
+    - |
+      Resources:
+          GoodSecurityGroup:
+              Properties:
+                  GroupDescription: Limits security group egress traffic
+                  SecurityGroupEgress:
+                      - CidrIp: 127.0.0.1/32
+                        IpProtocol: "-1"
+              Type: AWS::EC2::SecurityGroup
+  bad:
+    - |
+      Resources:
+          BadSecurityGroup:
+              Properties:
+                  SecurityGroupEgress:
+                      - CidrIp: 127.0.0.1/32
+                        IpProtocol: "-1"
+              Type: AWS::EC2::SecurityGroup
