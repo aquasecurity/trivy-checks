@@ -14,7 +14,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodCluster:
               Properties:
@@ -23,7 +23,7 @@ cloudformation:
                           DataVolumeKMSKeyId: foo-bar-key
               Type: AWS::MSK::Cluster
   bad:
-    - |
+    - |-
       Resources:
           BadCluster:
               Properties: null

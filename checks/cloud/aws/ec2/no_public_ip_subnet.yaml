@@ -13,14 +13,14 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
                   VpcId: vpc-123456
               Type: AWS::EC2::Subnet
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

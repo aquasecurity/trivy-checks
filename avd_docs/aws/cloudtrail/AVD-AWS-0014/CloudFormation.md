@@ -11,7 +11,6 @@ Resources:
             S3KeyPrefix: /trailing
             TrailName: Cloudtrail
         Type: AWS::CloudTrail::Trail
-
 ```
 
 

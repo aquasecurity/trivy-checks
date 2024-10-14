@@ -21,7 +21,6 @@ Resources:
                     - subnet-071f712345678e7c8
                     - subnet-07fd123456788a036
         Type: AWS::Lambda::Function
-
 ```
 
 

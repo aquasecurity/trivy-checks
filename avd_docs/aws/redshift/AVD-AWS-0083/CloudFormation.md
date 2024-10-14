@@ -7,7 +7,6 @@ Resources:
         Properties:
             Description: Disallow bad stuff
         Type: AWS::Redshift::ClusterSecurityGroup
-
 ```
 
 

@@ -13,7 +13,6 @@ Resources:
             PerformanceMode: generalPurpose
             ThroughputMode: bursting
         Type: AWS::EFS::FileSystem
-
 ```
 
 

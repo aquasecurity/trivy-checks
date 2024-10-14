@@ -5,7 +5,6 @@ Enforce longer, more complex passwords in the policy
 resource "aws_iam_account_password_policy" "good_example" {
   minimum_password_length = 14
 }
- 
 ```
 
 #### Remediation Links

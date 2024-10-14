@@ -61,7 +61,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodProject:
               Properties:
@@ -87,7 +87,7 @@ cloudformation:
                         Type: String
               Type: AWS::CodeBuild::Project
   bad:
-    - |
+    - |-
       Resources:
           GoodProject:
               Properties:
@@ -112,7 +112,7 @@ cloudformation:
                         Path: String
                         Type: String
               Type: AWS::CodeBuild::Project
-    - |
+    - |-
       Resources:
           GoodProject:
               Properties:

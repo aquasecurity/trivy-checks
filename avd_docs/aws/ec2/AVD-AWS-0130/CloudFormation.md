@@ -9,7 +9,6 @@ Resources:
                 HttpEndpoint: enabled
                 HttpTokens: required
         Type: AWS::AutoScaling::LaunchConfiguration
-
 ```
 
 

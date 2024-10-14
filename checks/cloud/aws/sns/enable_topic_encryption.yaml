@@ -11,7 +11,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodTopic:
               Properties:
@@ -19,7 +19,7 @@ cloudformation:
                   TopicName: blah
               Type: AWS::SQS::Topic
   bad:
-    - |
+    - |-
       Resources:
           BadTopic:
               Properties:

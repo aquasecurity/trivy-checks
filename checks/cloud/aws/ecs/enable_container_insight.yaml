@@ -16,7 +16,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -26,7 +26,7 @@ cloudformation:
                         Value: enabled
               Type: AWS::ECS::Cluster
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

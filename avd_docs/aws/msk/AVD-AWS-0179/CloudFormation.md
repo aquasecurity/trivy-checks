@@ -9,7 +9,6 @@ Resources:
                 EncryptionAtRest:
                     DataVolumeKMSKeyId: foo-bar-key
         Type: AWS::MSK::Cluster
-
 ```
 
 

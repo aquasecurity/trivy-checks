@@ -10,7 +10,6 @@ resource "openstack_networking_secgroup_rule_v2" "rule_1" {
   port_range_max   = 22
   remote_ip_prefix = "1.2.3.4/32"
 }
-    
 ```
 
 #### Remediation Links

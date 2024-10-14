@@ -37,7 +37,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -54,7 +54,7 @@ cloudformation:
                   UserData: export SSM_PATH=/database/creds
               Type: AWS::EC2::Instance
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodStateMachine:
               Properties:
@@ -16,7 +16,7 @@ cloudformation:
                       Enabled: true
               Type: AWS::Serverless::StateMachine
   bad:
-    - |
+    - |-
       Resources:
           BadStateMachine:
               Properties:
@@ -31,7 +31,7 @@ cloudformation:
                   Tracing:
                       Enabled: false
               Type: AWS::Serverless::StateMachine
-    - |
+    - |-
       Resources:
           BadStateMachine:
               Properties:

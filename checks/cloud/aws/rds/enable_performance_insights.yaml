@@ -15,7 +15,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -23,7 +23,7 @@ cloudformation:
                   PerformanceInsightsKMSKeyId: something
               Type: AWS::RDS::DBInstance
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

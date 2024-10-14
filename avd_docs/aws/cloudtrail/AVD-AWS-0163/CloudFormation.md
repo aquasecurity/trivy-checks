@@ -16,7 +16,6 @@ Resources:
             S3BucketName: my-bucket
             TrailName: Cloudtrail
         Type: AWS::CloudTrail::Trail
-
 ```
 
 

@@ -8,7 +8,6 @@ Resources:
             EnableCloudwatchLogsExports:
                 - audit
         Type: AWS::Neptune::DBCluster
-
 ```
 
 

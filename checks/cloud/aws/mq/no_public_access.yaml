@@ -43,14 +43,14 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodBroker:
               Properties:
                   PubliclyAccessible: false
               Type: AWS::AmazonMQ::Broker
   bad:
-    - |
+    - |-
       Resources:
           BadBroker:
               Properties:

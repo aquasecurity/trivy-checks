@@ -26,7 +26,6 @@ Resources:
                 AUDIT_LOGS:
                     Enabled: true
         Type: AWS::Elasticsearch::Domain
-
 ```
 
 

@@ -8,7 +8,6 @@ Resources:
             VersioningConfiguration:
                 Status: Enabled
         Type: AWS::S3::Bucket
-
 ```
 
 

@@ -25,7 +25,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodCluster:
               Properties:
@@ -33,7 +33,7 @@ cloudformation:
                       - audit
               Type: AWS::Neptune::DBCluster
   bad:
-    - |
+    - |-
       Resources:
           BadCluster:
               Properties:

@@ -17,7 +17,6 @@ Resources:
             CacheSecurityGroupName: GoodExampleCacheGroup
             EC2SecurityGroupName: GoodExampleEc2SecurityGroup
         Type: AWS::ElastiCache::SecurityGroupIngress
-
 ```
 
 

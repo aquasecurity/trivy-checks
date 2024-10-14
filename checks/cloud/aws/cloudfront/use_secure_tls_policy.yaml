@@ -17,7 +17,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -35,7 +35,7 @@ cloudformation:
                           MinimumProtocolVersion: TLSv1.2_2021
               Type: AWS::CloudFront::Distribution
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

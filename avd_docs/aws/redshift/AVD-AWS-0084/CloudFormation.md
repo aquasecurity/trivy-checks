@@ -8,7 +8,6 @@ Resources:
             Encrypted: true
             KmsKeyId: something
         Type: AWS::Redshift::Cluster
-
 ```
 
 

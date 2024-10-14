@@ -12,7 +12,6 @@ Resources:
                         KMSMasterKeyID: kms-arn
                         SSEAlgorithm: aws:kms
         Type: AWS::S3::Bucket
-
 ```
 
 

@@ -17,7 +17,6 @@ Resources:
             Ref: NetworkACL
             RuleAction: allow
         Type: AWS::EC2::NetworkAclEntry
-
 ```
 
 

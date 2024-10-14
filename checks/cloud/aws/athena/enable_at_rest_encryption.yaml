@@ -49,7 +49,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -60,7 +60,7 @@ cloudformation:
                               EncryptionOption: SSE_KMS
               Type: AWS::Athena::WorkGroup
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

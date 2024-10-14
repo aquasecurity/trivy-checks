@@ -7,7 +7,6 @@ Resources:
         Properties:
             BackupRetentionPeriod: 30
         Type: AWS::RDS::DBInstance
-
 ```
 
 

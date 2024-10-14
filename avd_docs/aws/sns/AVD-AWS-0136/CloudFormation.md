@@ -8,7 +8,6 @@ Resources:
             KmsMasterKeyId: some-key
             TopicName: blah
         Type: AWS::SQS::Topic
-
 ```
 
 

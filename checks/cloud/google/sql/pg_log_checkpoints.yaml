@@ -1,5 +1,27 @@
 terraform:
   good:
-    - "resource \"google_sql_database_instance\" \"db\" {\n  name             = \"db\"\n  database_version = \"POSTGRES_12\"\n  region           = \"us-central1\"\n  settings {\n    database_flags {\n      name  = \"log_checkpoints\"\n      value = \"on\"\n    }\n  }\n}\n    "
+    - |-
+      resource "google_sql_database_instance" "db" {
+        name             = "db"
+        database_version = "POSTGRES_12"
+        region           = "us-central1"
+        settings {
+          database_flags {
+            name  = "log_checkpoints"
+            value = "on"
+          }
+        }
+      }
   bad:
-    - "resource \"google_sql_database_instance\" \"db\" {\n  name             = \"db\"\n  database_version = \"POSTGRES_12\"\n  region           = \"us-central1\"\n  settings {\n    database_flags {\n      name  = \"log_checkpoints\"\n      value = \"off\"\n    }\n  }\n}\n    "
+    - |-
+      resource "google_sql_database_instance" "db" {
+        name             = "db"
+        database_version = "POSTGRES_12"
+        region           = "us-central1"
+        settings {
+          database_flags {
+            name  = "log_checkpoints"
+            value = "off"
+          }
+        }
+      }

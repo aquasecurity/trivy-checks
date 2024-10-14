@@ -25,7 +25,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -40,7 +40,7 @@ cloudformation:
                   SnapshotRetentionLimit: 7
               Type: AWS::ElastiCache::CacheCluster
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

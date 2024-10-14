@@ -26,7 +26,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodCluster:
               Properties:
@@ -34,7 +34,7 @@ cloudformation:
                   StorageEncrypted: true
               Type: AWS::Neptune::DBCluster
   bad:
-    - |
+    - |-
       AWSTemplateFormatVersion: 2010-09-09T00:00:00Z
       Description: Bad example
       Resources:

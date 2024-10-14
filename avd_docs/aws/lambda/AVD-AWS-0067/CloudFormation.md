@@ -28,7 +28,6 @@ Resources:
             Principal: s3.amazonaws.com
             SourceArn: lambda.amazonaws.com
         Type: AWS::Lambda::Permission
-
 ```
 
 

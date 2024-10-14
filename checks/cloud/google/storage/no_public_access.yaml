@@ -1,5 +1,19 @@
 terraform:
   good:
-    - "resource \"google_storage_bucket_iam_binding\" \"binding\" {\n  bucket = google_storage_bucket.default.name\n  role   = \"roles/storage.admin\"\n  members = [\n    \"user:jane@example.com\",\n  ]\n}\n    "
+    - |-
+      resource "google_storage_bucket_iam_binding" "binding" {
+        bucket = google_storage_bucket.default.name
+        role   = "roles/storage.admin"
+        members = [
+          "user:jane@example.com",
+        ]
+      }
   bad:
-    - "resource \"google_storage_bucket_iam_binding\" \"binding\" {\n  bucket = google_storage_bucket.default.name\n  role   = \"roles/storage.admin\"\n  members = [\n    \"allAuthenticatedUsers\",\n  ]\n}\n    "
+    - |-
+      resource "google_storage_bucket_iam_binding" "binding" {
+        bucket = google_storage_bucket.default.name
+        role = "roles/storage.admin"
+        members = [
+          "allAuthenticatedUsers",
+        ]
+      }

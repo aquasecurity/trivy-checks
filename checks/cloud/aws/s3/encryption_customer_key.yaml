@@ -45,7 +45,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -57,7 +57,7 @@ cloudformation:
                               SSEAlgorithm: aws:kms
               Type: AWS::S3::Bucket
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

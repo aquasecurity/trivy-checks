@@ -16,7 +16,6 @@ Resources:
                     - DomainName: https://some.domain
                       Id: somedomain1
         Type: AWS::CloudFront::Distribution
-
 ```
 
 

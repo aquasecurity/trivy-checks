@@ -13,7 +13,6 @@ Resources:
             StageName: Prod
             TracingEnabled: false
         Type: AWS::Serverless::Api
-
 ```
 
 

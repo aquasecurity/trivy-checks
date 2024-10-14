@@ -11,7 +11,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       AWSTemplateFormatVersion: 2010-09-09T00:00:00Z
       Description: Good example of queue
       Resources:
@@ -21,7 +21,7 @@ cloudformation:
                   QueueName: my-queue
               Type: AWS::SQS::Queue
   bad:
-    - |
+    - |-
       AWSTemplateFormatVersion: 2010-09-09T00:00:00Z
       Description: Bad example of queue
       Resources:

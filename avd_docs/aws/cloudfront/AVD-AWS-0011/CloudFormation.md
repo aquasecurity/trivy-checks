@@ -17,7 +17,6 @@ Resources:
                       Id: somedomain1
                 WebACLId: waf_id
         Type: AWS::CloudFront::Distribution
-
 ```
 
 

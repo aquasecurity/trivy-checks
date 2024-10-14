@@ -24,7 +24,6 @@ Resources:
             Queues:
                 - Ref: MyQueue
         Type: AWS::SQS::QueuePolicy
-
 ```
 
 

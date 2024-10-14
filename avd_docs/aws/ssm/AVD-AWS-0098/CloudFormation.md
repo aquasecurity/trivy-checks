@@ -12,7 +12,6 @@ Resources:
             Name: blah
             SecretString: don't tell anyone
         Type: AWS::SecretsManager::Secret
-
 ```
 
 

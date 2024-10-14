@@ -20,7 +20,6 @@ Resources:
             RoleArn: arn:aws:iam::012345678910:role/eks-service-role-good-example
             Version: "1.14"
         Type: AWS::EKS::Cluster
-
 ```
 
 

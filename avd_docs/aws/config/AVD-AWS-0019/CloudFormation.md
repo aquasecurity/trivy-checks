@@ -9,7 +9,6 @@ Resources:
                 - AllAwsRegions: true
             ConfigurationAggregatorName: GoodAccountLevelAggregation
         Type: AWS::Config::ConfigurationAggregator
-
 ```
 ```yaml
 Resources:
@@ -19,7 +18,6 @@ Resources:
             OrganizationAggregationSource:
                 AllAwsRegions: true
         Type: AWS::Config::ConfigurationAggregator
-
 ```
 
 

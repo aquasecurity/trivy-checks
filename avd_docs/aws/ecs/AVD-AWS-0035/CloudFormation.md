@@ -37,7 +37,6 @@ Resources:
                     TransitEncryption: ENABLED
                   Name: jenkins-home
         Type: AWS::ECS::TaskDefinition
-
 ```
 
 

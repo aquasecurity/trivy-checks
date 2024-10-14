@@ -21,7 +21,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -46,7 +46,7 @@ cloudformation:
                       KmsKeyId: alias/kmskey
               Type: AWS::Elasticsearch::Domain
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

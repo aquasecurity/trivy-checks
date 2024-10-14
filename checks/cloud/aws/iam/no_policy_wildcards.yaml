@@ -73,7 +73,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodPolicy:
               Properties:
@@ -87,7 +87,7 @@ cloudformation:
                   PolicyName: CFNUsers
               Type: AWS::IAM::Policy
   bad:
-    - |
+    - |-
       Resources:
           BadPolicy:
               Properties:

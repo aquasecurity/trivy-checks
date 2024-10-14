@@ -8,7 +8,6 @@ Resources:
             KmsKeyId: something
             StorageEncrypted: true
         Type: AWS::RDS::DBInstance
-
 ```
 
 

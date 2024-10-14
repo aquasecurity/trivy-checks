@@ -15,7 +15,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -27,7 +27,7 @@ cloudformation:
                   InstanceType: t2.small
               Type: AWS::AutoScaling::LaunchConfiguration
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

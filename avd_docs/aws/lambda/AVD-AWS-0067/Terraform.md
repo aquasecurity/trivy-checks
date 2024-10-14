@@ -9,7 +9,6 @@ resource "aws_lambda_permission" "good_example" {
   principal     = "sns.amazonaws.com"
   source_arn    = aws_sns_topic.default.arn
 }
-  
 ```
 
 #### Remediation Links

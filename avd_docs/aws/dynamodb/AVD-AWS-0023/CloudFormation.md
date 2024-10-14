@@ -13,7 +13,6 @@ Resources:
             SSESpecification:
                 SSEEnabled: true
         Type: AWS::DAX::Cluster
-
 ```
 
 

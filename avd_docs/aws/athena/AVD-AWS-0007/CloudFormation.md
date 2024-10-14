@@ -12,7 +12,6 @@ Resources:
                     EncryptionConfiguration:
                         EncryptionOption: SSE_KMS
         Type: AWS::Athena::WorkGroup
-
 ```
 
 

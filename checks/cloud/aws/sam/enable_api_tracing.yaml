@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -9,7 +9,7 @@ cloudformation:
                   TracingEnabled: true
               Type: AWS::Serverless::Api
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:
@@ -17,7 +17,7 @@ cloudformation:
                   StageName: Prod
                   TracingEnabled: false
               Type: AWS::Serverless::Api
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

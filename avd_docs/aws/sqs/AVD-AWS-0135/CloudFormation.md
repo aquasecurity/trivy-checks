@@ -10,7 +10,6 @@ Resources:
             KmsMasterKeyId: some-key
             QueueName: my-queue
         Type: AWS::SQS::Queue
-
 ```
 
 

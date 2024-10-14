@@ -10,7 +10,6 @@ Resources:
                 - Name: containerInsights
                   Value: enabled
         Type: AWS::ECS::Cluster
-
 ```
 
 

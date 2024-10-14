@@ -35,7 +35,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       AWSTemplateFormatVersion: 2010-09-09T00:00:00Z
       Description: Good Example of ApiGateway
       Resources:
@@ -50,7 +50,7 @@ cloudformation:
                   StageName: GoodApiStage
               Type: AWS::ApiGatewayV2::Stage
   bad:
-    - |
+    - |-
       AWSTemplateFormatVersion: 2010-09-09T00:00:00Z
       Description: Bad Example of ApiGateway
       Resources:

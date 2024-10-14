@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodFunction:
               Properties:
@@ -23,7 +23,7 @@ cloudformation:
                         Version: "2012-10-17"
               Type: AWS::Serverless::Function
   bad:
-    - |
+    - |-
       Resources:
           BadFunction:
               Properties:

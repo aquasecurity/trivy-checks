@@ -12,7 +12,6 @@ resource "openstack_fw_rule_v1" "rule_1" {
   destination_port       = "22"
   enabled                = "true"
 }
-    
 ```
 
 #### Remediation Links

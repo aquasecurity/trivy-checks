@@ -89,7 +89,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -110,7 +110,7 @@ cloudformation:
                           - subnet-07fd123456788a036
               Type: AWS::Lambda::Function
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

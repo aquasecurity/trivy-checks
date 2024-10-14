@@ -7,13 +7,12 @@ resource "google_sql_database_instance" "db" {
   database_version = "POSTGRES_12"
   region           = "us-central1"
   settings {
-    database_flags {
-      name  = "log_temp_files"
-      value = "0"
+      database_flags {
+        name  = "log_temp_files"
+        value = "0"
     }
   }
 }
-    
 ```
 
 #### Remediation Links

@@ -5,7 +5,6 @@ Use lower privileged accounts instead, so only required privileges are available
 resource "aws_iam_access_key" "good_example" {
   user = "lowprivuser"
 }
-    
 ```
 
 #### Remediation Links

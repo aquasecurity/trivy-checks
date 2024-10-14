@@ -131,7 +131,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodCluster:
               Properties:
@@ -141,7 +141,7 @@ cloudformation:
                               Enabled: true
               Type: AWS::MSK::Cluster
   bad:
-    - |
+    - |-
       Resources:
           BadCluster:
               Properties:

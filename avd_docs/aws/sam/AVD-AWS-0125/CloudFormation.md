@@ -15,7 +15,6 @@ Resources:
             PackageType: Image
             Tracing: Active
         Type: AWS::Serverless::Function
-
 ```
 
 

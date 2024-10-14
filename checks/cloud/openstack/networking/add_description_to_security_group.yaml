@@ -1,5 +1,9 @@
 terraform:
   good:
-    - "resource \"openstack_networking_secgroup_v2\" \"group_1\" {\n  description = \"don't let just anyone in\"\n}\n    "
+    - |-
+      resource "openstack_networking_secgroup_v2" "group_1" {
+        description = "don't let just anyone in"
+      }
   bad:
-    - "resource \"openstack_networking_secgroup_v2\" \"group_1\" {\n}\n    "
+    - |-
+      resource "openstack_networking_secgroup_v2" "group_1" {}

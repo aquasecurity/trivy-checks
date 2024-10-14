@@ -33,7 +33,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -41,7 +41,7 @@ cloudformation:
                   UserName: admin
                   UserVolumeEncryptionEnabled: true
               Type: AWS::WorkSpaces::Workspace
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -50,7 +50,7 @@ cloudformation:
                   UserVolumeEncryptionEnabled: true
               Type: AWS::WorkSpaces::Workspace
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:
@@ -58,7 +58,7 @@ cloudformation:
                   UserName: admin
                   UserVolumeEncryptionEnabled: false
               Type: AWS::WorkSpaces::Workspace
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

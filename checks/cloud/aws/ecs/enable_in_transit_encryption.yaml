@@ -41,7 +41,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -78,7 +78,7 @@ cloudformation:
                         Name: jenkins-home
               Type: AWS::ECS::TaskDefinition
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

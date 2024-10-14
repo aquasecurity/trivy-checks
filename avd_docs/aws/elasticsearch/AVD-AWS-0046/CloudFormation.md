@@ -25,7 +25,6 @@ Resources:
                 Enabled: true
                 KmsKeyId: alias/kmskey
         Type: AWS::Elasticsearch::Domain
-
 ```
 
 

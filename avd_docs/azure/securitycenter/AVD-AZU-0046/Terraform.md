@@ -9,7 +9,6 @@ resource "azurerm_security_center_contact" "good_example" {
   alert_notifications = true
   alerts_to_admins    = true
 }
- 
 ```
 
 #### Remediation Links

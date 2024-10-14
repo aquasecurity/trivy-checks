@@ -11,7 +11,6 @@ Resources:
                       ServerSideEncryptionByDefault:
                         SSEAlgorithm: AES256
         Type: AWS::S3::Bucket
-
 ```
 
 

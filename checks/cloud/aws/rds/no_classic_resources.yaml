@@ -11,12 +11,12 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       AWSTemplateFormatVersion: 2010-09-09T00:00:00Z
       Description: Good example of rds sgr
       Resources: null
   bad:
-    - |
+    - |-
       AWSTemplateFormatVersion: 2010-09-09T00:00:00Z
       Description: Bad example of rds sgr
       Resources:

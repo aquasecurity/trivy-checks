@@ -7,7 +7,6 @@ Resources:
         Properties:
             ClusterSubnetGroupName: my-subnet-group
         Type: AWS::Redshift::Cluster
-
 ```
 
 

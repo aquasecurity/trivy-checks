@@ -20,7 +20,6 @@ resource "google_sql_database_instance" "postgres" {
     }
   }
 }
-    
 ```
 ```hcl
 # For terraform-provider-google >= 6.0.1
@@ -41,7 +40,6 @@ resource "google_sql_database_instance" "postgres" {
     }
   }
 }
-    
 ```
 
 #### Remediation Links

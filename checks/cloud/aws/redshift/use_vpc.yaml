@@ -23,14 +23,14 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodCluster:
               Properties:
                   ClusterSubnetGroupName: my-subnet-group
               Type: AWS::Redshift::Cluster
   bad:
-    - |
+    - |-
       Resources:
           BadCluster:
               Properties:

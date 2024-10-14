@@ -27,7 +27,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -35,7 +35,7 @@ cloudformation:
                   KmsKeyId: something
               Type: AWS::Redshift::Cluster
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

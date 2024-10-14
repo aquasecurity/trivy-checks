@@ -25,7 +25,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodSecurityGroup:
               Properties:
@@ -35,7 +35,7 @@ cloudformation:
                         IpProtocol: "6"
               Type: AWS::EC2::SecurityGroup
   bad:
-    - |
+    - |-
       Resources:
           BadSecurityGroup:
               Properties:

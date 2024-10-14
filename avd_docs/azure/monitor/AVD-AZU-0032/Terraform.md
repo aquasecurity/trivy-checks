@@ -83,8 +83,6 @@ resource "azurerm_monitor_log_profile" "good_example" {
     days    = 7
   }
 }
-
-    
 ```
 
 #### Remediation Links

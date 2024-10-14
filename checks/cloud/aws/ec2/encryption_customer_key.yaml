@@ -27,7 +27,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               DeletionPolicy: Snapshot
@@ -36,7 +36,7 @@ cloudformation:
                   KmsKeyId: alias/volumeEncrypt
                   Size: 100
               Type: AWS::EC2::Volume
-    - |
+    - |-
       Resources:
           GoodExample:
               DeletionPolicy: Snapshot
@@ -46,7 +46,7 @@ cloudformation:
                   Size: 100
               Type: AWS::EC2::Volume
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               DeletionPolicy: Snapshot

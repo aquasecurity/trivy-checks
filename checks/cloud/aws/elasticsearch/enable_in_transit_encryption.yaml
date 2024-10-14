@@ -19,7 +19,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -44,7 +44,7 @@ cloudformation:
                       Enabled: true
               Type: AWS::Elasticsearch::Domain
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

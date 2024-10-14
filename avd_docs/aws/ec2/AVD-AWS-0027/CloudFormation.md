@@ -10,7 +10,6 @@ Resources:
             KmsKeyId: alias/volumeEncrypt
             Size: 100
         Type: AWS::EC2::Volume
-
 ```
 ```yaml
 Resources:
@@ -21,7 +20,6 @@ Resources:
             KmsKeyId: MyStack:Key
             Size: 100
         Type: AWS::EC2::Volume
-
 ```
 
 

@@ -8,7 +8,6 @@ Resources:
             Logs:
                 Audit: true
         Type: AWS::AmazonMQ::Broker
-
 ```
 
 

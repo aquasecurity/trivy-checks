@@ -13,7 +13,6 @@ resource "google_project_iam_member" "project" {
   role    = "roles/logging.logWriter"
   member  = "serviceAccount:${google_service_account.test.email}"
 }
-    
 ```
 
 #### Remediation Links

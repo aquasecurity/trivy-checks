@@ -17,7 +17,6 @@ Resources:
             KeyName: testkey
             UserData: export SSM_PATH=/database/creds
         Type: AWS::EC2::Instance
-
 ```
 
 

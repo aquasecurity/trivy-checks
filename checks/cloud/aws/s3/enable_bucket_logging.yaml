@@ -25,7 +25,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       ---
       Resources:
         GoodExample:
@@ -34,7 +34,7 @@ cloudformation:
             LoggingConfiguration:
               DestinationBucketName: logging-bucket
               LogFilePrefix: accesslogs/
-    - |
+    - |-
       ---
       Resources:
         GoodExample:
@@ -51,7 +51,7 @@ cloudformation:
               IgnorePublicAcls: true
               RestrictPublicBuckets: true
   bad:
-    - |
+    - |-
       ---
       Resources:
         BadExample:

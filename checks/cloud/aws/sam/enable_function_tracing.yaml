@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodFunction:
               Properties:
@@ -15,7 +15,7 @@ cloudformation:
                   Tracing: Active
               Type: AWS::Serverless::Function
   bad:
-    - |
+    - |-
       Resources:
           BadFunction:
               Properties:

@@ -15,7 +15,6 @@ Resources:
                 - Key: Environment
                   Value: Production
         Type: AWS::Kinesis::Stream
-
 ```
 
 

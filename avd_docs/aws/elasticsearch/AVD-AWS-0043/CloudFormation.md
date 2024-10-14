@@ -25,7 +25,6 @@ Resources:
             NodeToNodeEncryptionOptions:
                 Enabled: true
         Type: AWS::Elasticsearch::Domain
-
 ```
 
 

@@ -11,7 +11,6 @@ Resources:
                   Description: Can connect to loopback
                   IpProtocol: "-1"
         Type: AWS::EC2::SecurityGroup
-
 ```
 
 

@@ -29,7 +29,6 @@ Resources:
                       Sid: AllowPushPull
                 Version: "2012-10-17"
         Type: AWS::ECR::Repository
-
 ```
 
 

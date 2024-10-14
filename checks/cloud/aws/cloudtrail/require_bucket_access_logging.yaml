@@ -43,7 +43,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExampleBucket:
               Properties:
@@ -59,7 +59,7 @@ cloudformation:
                   TrailName: Cloudtrail
               Type: AWS::CloudTrail::Trail
   bad:
-    - |
+    - |-
       Resources:
           BadExampleBucket:
               Properties:

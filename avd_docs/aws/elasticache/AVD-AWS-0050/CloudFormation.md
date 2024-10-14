@@ -15,7 +15,6 @@ Resources:
                 - us-west-2b
             SnapshotRetentionLimit: 7
         Type: AWS::ElastiCache::CacheCluster
-
 ```
 
 

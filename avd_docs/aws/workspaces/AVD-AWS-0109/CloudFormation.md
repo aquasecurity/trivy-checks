@@ -9,7 +9,6 @@ Resources:
             UserName: admin
             UserVolumeEncryptionEnabled: true
         Type: AWS::WorkSpaces::Workspace
-
 ```
 ```yaml
 Resources:
@@ -19,7 +18,6 @@ Resources:
             UserName: admin
             UserVolumeEncryptionEnabled: true
         Type: AWS::WorkSpaces::Workspace
-
 ```
 
 

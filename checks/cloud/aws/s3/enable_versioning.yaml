@@ -27,7 +27,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -35,7 +35,7 @@ cloudformation:
                       Status: Enabled
               Type: AWS::S3::Bucket
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Type: AWS::S3::Bucket

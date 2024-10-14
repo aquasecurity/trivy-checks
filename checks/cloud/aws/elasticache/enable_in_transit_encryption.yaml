@@ -15,7 +15,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -36,7 +36,7 @@ cloudformation:
                   TransitEncryptionEnabled: true
               Type: AWS::ElastiCache::ReplicationGroup
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

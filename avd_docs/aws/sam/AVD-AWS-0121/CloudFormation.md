@@ -9,7 +9,6 @@ Resources:
                 SSEEnabled: true
             TableName: GoodTable
         Type: AWS::Serverless::SimpleTable
-
 ```
 
 

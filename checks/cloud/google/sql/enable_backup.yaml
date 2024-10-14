@@ -1,6 +1,16 @@
 terraform:
   good:
-    - "resource \"google_sql_database_instance\" \"db\" {\n  name             = \"db\"\n  database_version = \"POSTGRES_12\"\n  region           = \"us-central1\"\n  settings {\n    backup_configuration {\n      enabled = true\n    }\n  }\n}\n    "
+    - |-
+      resource "google_sql_database_instance" "db" {
+        name             = "db"
+        database_version = "POSTGRES_12"
+        region           = "us-central1"
+        settings {
+          backup_configuration {
+            enabled = true
+          }
+        }
+      }
     - |-
       resource "google_sql_database_instance" "new_instance_sql_replica" {
         name                 = "replica"
@@ -16,4 +26,14 @@ terraform:
         }
       }
   bad:
-    - "resource \"google_sql_database_instance\" \"db\" {\n  name             = \"db\"\n  database_version = \"POSTGRES_12\"\n  region           = \"us-central1\"\n  settings {\n    backup_configuration {\n      enabled = false\n    }\n  }\n}\n    "
+    - |-
+      resource "google_sql_database_instance" "db" {
+        name             = "db"
+        database_version = "POSTGRES_12"
+        region           = "us-central1"
+        settings {
+          backup_configuration {
+            enabled = false
+          }
+        }
+      }

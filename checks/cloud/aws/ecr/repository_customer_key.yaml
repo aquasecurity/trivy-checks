@@ -30,7 +30,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -43,7 +43,7 @@ cloudformation:
                   RepositoryName: test-repository
               Type: AWS::ECR::Repository
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

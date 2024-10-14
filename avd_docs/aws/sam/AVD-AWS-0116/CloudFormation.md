@@ -12,7 +12,6 @@ Resources:
             StageName: Prod
             Tracing: Activey
         Type: AWS::Serverless::HttpApi
-
 ```
 
 

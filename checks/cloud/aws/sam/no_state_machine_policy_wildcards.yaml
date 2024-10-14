@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodFunction:
               Properties:
@@ -25,7 +25,7 @@ cloudformation:
                       Enabled: true
               Type: AWS::Serverless::StateMachine
   bad:
-    - |
+    - |-
       Resources:
           BadFunction:
               Properties:

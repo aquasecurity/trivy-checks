@@ -1,11 +1,24 @@
 terraform:
   good:
-    - "resource \"aws_lambda_permission\" \"good_example\" {\n  statement_id  = \"AllowExecutionFromSNS\"\n  action        = \"lambda:InvokeFunction\"\n  function_name = aws_lambda_function.func.function_name\n  principal     = \"sns.amazonaws.com\"\n  source_arn    = aws_sns_topic.default.arn\n}\n  "
+    - |-
+      resource "aws_lambda_permission" "good_example" {
+        statement_id  = "AllowExecutionFromSNS"
+        action        = "lambda:InvokeFunction"
+        function_name = aws_lambda_function.func.function_name
+        principal     = "sns.amazonaws.com"
+        source_arn    = aws_sns_topic.default.arn
+      }
   bad:
-    - "resource \"aws_lambda_permission\" \"bad_example\" {\n  statement_id  = \"AllowExecutionFromSNS\"\n  action        = \"lambda:InvokeFunction\"\n  function_name = aws_lambda_function.func.function_name\n  principal     = \"sns.amazonaws.com\"\n}\n  "
+    - |-
+      resource "aws_lambda_permission" "bad_example" {
+        statement_id  = "AllowExecutionFromSNS"
+        action        = "lambda:InvokeFunction"
+        function_name = aws_lambda_function.func.function_name
+        principal     = "sns.amazonaws.com"
+      }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -33,7 +46,7 @@ cloudformation:
                   SourceArn: lambda.amazonaws.com
               Type: AWS::Lambda::Permission
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

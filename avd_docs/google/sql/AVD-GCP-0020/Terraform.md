@@ -13,7 +13,6 @@ resource "google_sql_database_instance" "db" {
     }
   }
 }
-    
 ```
 
 #### Remediation Links

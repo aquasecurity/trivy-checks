@@ -1,5 +1,12 @@
 terraform:
   good:
-    - "resource \"aws_iam_access_key\" \"good_example\" {\n  user = \"lowprivuser\"\n}\n    "
+    - |-
+      resource "aws_iam_access_key" "good_example" {
+        user = "lowprivuser"
+      }
+
   bad:
-    - "resource \"aws_iam_access_key\" \"good_example\" {\n  user = \"root\"\n}\n    "
+    - |-
+      resource "aws_iam_access_key" "good_example" {
+        user = "root"
+      }

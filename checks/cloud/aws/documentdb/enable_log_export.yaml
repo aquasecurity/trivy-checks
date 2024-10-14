@@ -25,7 +25,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -47,7 +47,7 @@ cloudformation:
                   PreferredMaintenanceWindow: sat:06:54-sat:07:24
               Type: AWS::DocDB::DBInstance
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

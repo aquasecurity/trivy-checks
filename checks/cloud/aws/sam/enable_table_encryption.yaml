@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodFunction:
               Properties:
@@ -9,7 +9,7 @@ cloudformation:
                   TableName: GoodTable
               Type: AWS::Serverless::SimpleTable
   bad:
-    - |
+    - |-
       Resources:
           BadFunction:
               Properties:
@@ -17,7 +17,7 @@ cloudformation:
                       SSEEnabled: false
                   TableName: Bad Table
               Type: AWS::Serverless::SimpleTable
-    - |
+    - |-
       Resources:
           BadFunction:
               Properties:

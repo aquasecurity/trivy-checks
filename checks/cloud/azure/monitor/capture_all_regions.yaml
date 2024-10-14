@@ -1,6 +1,87 @@
 terraform:
   good:
-    - "resource \"azurerm_monitor_log_profile\" \"good_example\" {\n  name = \"bad_example\"\n\n  categories = []\n\n  locations = [\n    \"eastus\",\n    \"eastus2\",\n    \"southcentralus\",\n    \"westus2\",\n    \"westus3\",\n    \"australiaeast\",\n    \"southeastasia\",\n    \"northeurope\",\n    \"swedencentral\",\n    \"uksouth\",\n    \"westeurope\",\n    \"centralus\",\n    \"northcentralus\",\n    \"westus\",\n    \"southafricanorth\",\n    \"centralindia\",\n    \"eastasia\",\n    \"japaneast\",\n    \"jioindiawest\",\n    \"koreacentral\",\n    \"canadacentral\",\n    \"francecentral\",\n    \"germanywestcentral\",\n    \"norwayeast\",\n    \"switzerlandnorth\",\n    \"uaenorth\",\n    \"brazilsouth\",\n    \"centralusstage\",\n    \"eastusstage\",\n    \"eastus2stage\",\n    \"northcentralusstage\",\n    \"southcentralusstage\",\n    \"westusstage\",\n    \"westus2stage\",\n    \"asia\",\n    \"asiapacific\",\n    \"australia\",\n    \"brazil\",\n    \"canada\",\n    \"europe\",\n    \"global\",\n    \"india\",\n    \"japan\",\n    \"uk\",\n    \"unitedstates\",\n    \"eastasiastage\",\n    \"southeastasiastage\",\n    \"centraluseuap\",\n    \"eastus2euap\",\n    \"westcentralus\",\n    \"southafricawest\",\n    \"australiacentral\",\n    \"australiacentral2\",\n    \"australiasoutheast\",\n    \"japanwest\",\n    \"jioindiacentral\",\n    \"koreasouth\",\n    \"southindia\",\n    \"westindia\",\n    \"canadaeast\",\n    \"francesouth\",\n    \"germanynorth\",\n    \"norwaywest\",\n    \"swedensouth\",\n    \"switzerlandwest\",\n    \"ukwest\",\n    \"uaecentral\",\n    \"brazilsoutheast\",\n  ]\n\n  retention_policy {\n    enabled = true\n    days    = 7\n  }\n}\n\n    "
+    - |-
+      resource "azurerm_monitor_log_profile" "good_example" {
+        name = "bad_example"
+
+        categories = []
+
+        locations = [
+          "eastus",
+          "eastus2",
+          "southcentralus",
+          "westus2",
+          "westus3",
+          "australiaeast",
+          "southeastasia",
+          "northeurope",
+          "swedencentral",
+          "uksouth",
+          "westeurope",
+          "centralus",
+          "northcentralus",
+          "westus",
+          "southafricanorth",
+          "centralindia",
+          "eastasia",
+          "japaneast",
+          "jioindiawest",
+          "koreacentral",
+          "canadacentral",
+          "francecentral",
+          "germanywestcentral",
+          "norwayeast",
+          "switzerlandnorth",
+          "uaenorth",
+          "brazilsouth",
+          "centralusstage",
+          "eastusstage",
+          "eastus2stage",
+          "northcentralusstage",
+          "southcentralusstage",
+          "westusstage",
+          "westus2stage",
+          "asia",
+          "asiapacific",
+          "australia",
+          "brazil",
+          "canada",
+          "europe",
+          "global",
+          "india",
+          "japan",
+          "uk",
+          "unitedstates",
+          "eastasiastage",
+          "southeastasiastage",
+          "centraluseuap",
+          "eastus2euap",
+          "westcentralus",
+          "southafricawest",
+          "australiacentral",
+          "australiacentral2",
+          "australiasoutheast",
+          "japanwest",
+          "jioindiacentral",
+          "koreasouth",
+          "southindia",
+          "westindia",
+          "canadaeast",
+          "francesouth",
+          "germanynorth",
+          "norwaywest",
+          "swedensouth",
+          "switzerlandwest",
+          "ukwest",
+          "uaecentral",
+          "brazilsoutheast",
+        ]
+
+        retention_policy {
+          enabled = true
+          days    = 7
+        }
+      }
   bad:
     - |-
       resource "azurerm_monitor_log_profile" "bad_example" {

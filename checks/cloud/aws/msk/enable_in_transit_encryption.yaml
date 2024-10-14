@@ -21,7 +21,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodCluster:
               Properties:
@@ -30,7 +30,7 @@ cloudformation:
                           ClientBroker: TLS
               Type: AWS::MSK::Cluster
   bad:
-    - |
+    - |-
       Resources:
           BadCluster:
               Properties:

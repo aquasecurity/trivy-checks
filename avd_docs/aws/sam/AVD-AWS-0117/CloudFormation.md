@@ -16,7 +16,6 @@ Resources:
             Tracing:
                 Enabled: true
         Type: AWS::Serverless::StateMachine
-
 ```
 
 

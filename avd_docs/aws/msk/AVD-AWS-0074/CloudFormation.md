@@ -10,7 +10,6 @@ Resources:
                     S3:
                         Enabled: true
         Type: AWS::MSK::Cluster
-
 ```
 
 

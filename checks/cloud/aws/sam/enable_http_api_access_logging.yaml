@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -12,7 +12,7 @@ cloudformation:
                   Tracing: Activey
               Type: AWS::Serverless::HttpApi
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

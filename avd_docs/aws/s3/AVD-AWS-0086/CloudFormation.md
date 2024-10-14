@@ -11,7 +11,6 @@ Resources:
                 IgnorePublicAcls: true
                 RestrictPublicBuckets: true
         Type: AWS::S3::Bucket
-
 ```
 
 

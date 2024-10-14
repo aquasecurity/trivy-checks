@@ -28,7 +28,6 @@ Resources:
             Roles:
                 - MyAdminRole
         Type: AWS::IAM::InstanceProfile
-
 ```
 
 

@@ -14,7 +14,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -23,7 +23,7 @@ cloudformation:
                   RetentionInDays: 30
               Type: AWS::Logs::LogGroup
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

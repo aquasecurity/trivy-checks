@@ -9,7 +9,6 @@ resource "google_storage_bucket_iam_binding" "binding" {
     "user:jane@example.com",
   ]
 }
-    
 ```
 
 #### Remediation Links

@@ -19,7 +19,7 @@ cloudformation:
           Properties:
             PubliclyAccessible: false
   bad:
-    - |
+    - |-
       ---
       Resources:
         BadExample:

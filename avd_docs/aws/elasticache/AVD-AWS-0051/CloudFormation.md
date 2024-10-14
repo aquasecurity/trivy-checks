@@ -21,7 +21,6 @@ Resources:
             SnapshotWindow: 10:00-12:00
             TransitEncryptionEnabled: true
         Type: AWS::ElastiCache::ReplicationGroup
-
 ```
 
 

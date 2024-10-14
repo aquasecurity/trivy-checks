@@ -9,7 +9,6 @@ Resources:
             LogGroupName: aws/lambda/goodExample
             RetentionInDays: 30
         Type: AWS::Logs::LogGroup
-
 ```
 
 

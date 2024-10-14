@@ -16,7 +16,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -25,7 +25,7 @@ cloudformation:
                       HttpTokens: required
               Type: AWS::AutoScaling::LaunchConfiguration
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

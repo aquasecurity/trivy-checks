@@ -21,7 +21,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -29,7 +29,7 @@ cloudformation:
                       - AllAwsRegions: true
                   ConfigurationAggregatorName: GoodAccountLevelAggregation
               Type: AWS::Config::ConfigurationAggregator
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -38,7 +38,7 @@ cloudformation:
                       AllAwsRegions: true
               Type: AWS::Config::ConfigurationAggregator
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

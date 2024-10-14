@@ -26,7 +26,6 @@ Resources:
                   Path: String
                   Type: String
         Type: AWS::CodeBuild::Project
-
 ```
 
 

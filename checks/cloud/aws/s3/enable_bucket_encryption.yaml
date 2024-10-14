@@ -83,7 +83,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -94,7 +94,7 @@ cloudformation:
                               SSEAlgorithm: AES256
               Type: AWS::S3::Bucket
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

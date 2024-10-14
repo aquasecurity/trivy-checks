@@ -40,7 +40,6 @@ resource "aws_iam_group_policy" "ec2policy" {
 }
 EOF
 }
-    
 ```
 
 #### Remediation Links

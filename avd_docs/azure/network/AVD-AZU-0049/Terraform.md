@@ -15,7 +15,6 @@ resource "azurerm_network_watcher_flow_log" "good_watcher" {
     days    = 90
   }
 }
- 
 ```
 
 #### Remediation Links

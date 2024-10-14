@@ -15,7 +15,6 @@ Resources:
             ApiId: GoodApi
             StageName: GoodApiStage
         Type: AWS::ApiGatewayV2::Stage
-
 ```
 
 

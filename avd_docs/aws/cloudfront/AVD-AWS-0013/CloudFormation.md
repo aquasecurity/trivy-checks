@@ -18,7 +18,6 @@ Resources:
                 ViewerCertificate:
                     MinimumProtocolVersion: TLSv1.2_2021
         Type: AWS::CloudFront::Distribution
-
 ```
 
 

@@ -8,7 +8,6 @@ Resources:
             EnablePerformanceInsights: true
             PerformanceInsightsKMSKeyId: something
         Type: AWS::RDS::DBInstance
-
 ```
 
 

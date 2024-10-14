@@ -7,7 +7,6 @@ resource "aws_iam_account_password_policy" "good_example" {
   password_reuse_prevention = 5
   # ...
 }
-    
 ```
 
 #### Remediation Links

@@ -12,7 +12,7 @@ terraform:
       }
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
           GoodExample:
               Properties:
@@ -27,7 +27,7 @@ cloudformation:
                         Value: Production
               Type: AWS::Kinesis::Stream
   bad:
-    - |
+    - |-
       Resources:
           BadExample:
               Properties:

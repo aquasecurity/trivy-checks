@@ -9,7 +9,6 @@ Resources:
                 EncryptionInTransit:
                     ClientBroker: TLS
         Type: AWS::MSK::Cluster
-
 ```
 
 

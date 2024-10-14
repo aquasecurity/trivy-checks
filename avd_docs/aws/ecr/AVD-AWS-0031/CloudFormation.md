@@ -13,7 +13,6 @@ Resources:
             ImageTagMutability: IMMUTABLE
             RepositoryName: test-repository
         Type: AWS::ECR::Repository
-
 ```
 
 

@@ -12,7 +12,6 @@ resource "google_sql_database_instance" "db" {
     }
   }
 }
-    
 ```
 ```hcl
 resource "google_sql_database_instance" "new_instance_sql_replica" {

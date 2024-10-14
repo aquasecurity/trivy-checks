@@ -17,7 +17,6 @@ Resources:
             Protocol: 6
             RuleAction: allow
         Type: AWS::EC2::NetworkAclEntry
-
 ```
 
 
