@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#oms_agent
-#     good_examples: checks/cloud/azure/container/logging.tf.go
-#     bad_examples: checks/cloud/azure/container/logging.tf.go
+#     good_examples: checks/cloud/azure/container/logging.yaml
+#     bad_examples: checks/cloud/azure/container/logging.yaml
 package builtin.azure.container.azure0040
 
 import rego.v1

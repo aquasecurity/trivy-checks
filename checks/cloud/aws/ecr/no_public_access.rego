@@ -24,11 +24,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository_policy#policy
-#     good_examples: checks/cloud/aws/ecr/no_public_access.tf.go
-#     bad_examples: checks/cloud/aws/ecr/no_public_access.tf.go
+#     good_examples: checks/cloud/aws/ecr/no_public_access.yaml
+#     bad_examples: checks/cloud/aws/ecr/no_public_access.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/ecr/no_public_access.cf.go
-#     bad_examples: checks/cloud/aws/ecr/no_public_access.cf.go
+#     good_examples: checks/cloud/aws/ecr/no_public_access.yaml
+#     bad_examples: checks/cloud/aws/ecr/no_public_access.yaml
 package builtin.aws.ecr.aws0032
 
 import rego.v1

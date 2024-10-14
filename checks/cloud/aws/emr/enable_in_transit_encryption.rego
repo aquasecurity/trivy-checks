@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/emr_security_configuration
-#     good_examples: checks/cloud/aws/emr/enable_in_transit_encryption.tf.go
-#     bad_examples: checks/cloud/aws/emr/enable_in_transit_encryption.tf.go
+#     good_examples: checks/cloud/aws/emr/enable_in_transit_encryption.yaml
+#     bad_examples: checks/cloud/aws/emr/enable_in_transit_encryption.yaml
 package builtin.aws.emr.aws0138
 
 import rego.v1

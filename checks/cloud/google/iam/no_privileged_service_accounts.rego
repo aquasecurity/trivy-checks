@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam
-#     good_examples: checks/cloud/google/iam/no_privileged_service_accounts.tf.go
-#     bad_examples: checks/cloud/google/iam/no_privileged_service_accounts.tf.go
+#     good_examples: checks/cloud/google/iam/no_privileged_service_accounts.yaml
+#     bad_examples: checks/cloud/google/iam/no_privileged_service_accounts.yaml
 package builtin.google.iam.google0007
 
 import rego.v1

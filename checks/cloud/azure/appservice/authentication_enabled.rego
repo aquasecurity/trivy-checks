@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#enabled
-#     good_examples: checks/cloud/azure/appservice/authentication_enabled.tf.go
-#     bad_examples: checks/cloud/azure/appservice/authentication_enabled.tf.go
+#     good_examples: checks/cloud/azure/appservice/authentication_enabled.yaml
+#     bad_examples: checks/cloud/azure/appservice/authentication_enabled.yaml
 package builtin.azure.appservice.azure0003
 
 import rego.v1

@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_log_profile#retention_policy
-#     good_examples: checks/cloud/azure/monitor/activity_log_retention_set.tf.go
-#     bad_examples: checks/cloud/azure/monitor/activity_log_retention_set.tf.go
+#     good_examples: checks/cloud/azure/monitor/activity_log_retention_set.yaml
+#     bad_examples: checks/cloud/azure/monitor/activity_log_retention_set.yaml
 package builtin.azure.monitor.azure0031
 
 import rego.v1

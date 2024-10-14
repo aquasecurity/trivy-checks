@@ -29,8 +29,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_account_password_policy
-#     good_examples: checks/cloud/aws/iam/require_symbols_in_passwords.tf.go
-#     bad_examples: checks/cloud/aws/iam/require_symbols_in_passwords.tf.go
+#     good_examples: checks/cloud/aws/iam/require_symbols_in_passwords.yaml
+#     bad_examples: checks/cloud/aws/iam/require_symbols_in_passwords.yaml
 package builtin.aws.iam.aws0060
 
 import rego.v1

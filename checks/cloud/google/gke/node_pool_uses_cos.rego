@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool#image_type
-#     good_examples: checks/cloud/google/gke/node_pool_uses_cos.tf.go
-#     bad_examples: checks/cloud/google/gke/node_pool_uses_cos.tf.go
+#     good_examples: checks/cloud/google/gke/node_pool_uses_cos.yaml
+#     bad_examples: checks/cloud/google/gke/node_pool_uses_cos.yaml
 package builtin.google.gke.google0054
 
 import rego.v1

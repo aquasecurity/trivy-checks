@@ -25,11 +25,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_security_group#description
-#     good_examples: checks/cloud/aws/elasticache/add_description_for_security_group.tf.go
-#     bad_examples: checks/cloud/aws/elasticache/add_description_for_security_group.tf.go
+#     good_examples: checks/cloud/aws/elasticache/add_description_for_security_group.yaml
+#     bad_examples: checks/cloud/aws/elasticache/add_description_for_security_group.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/elasticache/add_description_for_security_group.cf.go
-#     bad_examples: checks/cloud/aws/elasticache/add_description_for_security_group.cf.go
+#     good_examples: checks/cloud/aws/elasticache/add_description_for_security_group.yaml
+#     bad_examples: checks/cloud/aws/elasticache/add_description_for_security_group.yaml
 package builtin.aws.elasticache.aws0049
 
 import rego.v1

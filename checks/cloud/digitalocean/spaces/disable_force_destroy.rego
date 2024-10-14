@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/spaces_bucket#force_destroy
-#     good_examples: checks/cloud/digitalocean/spaces/disable_force_destroy.tf.go
-#     bad_examples: checks/cloud/digitalocean/spaces/disable_force_destroy.tf.go
+#     good_examples: checks/cloud/digitalocean/spaces/disable_force_destroy.yaml
+#     bad_examples: checks/cloud/digitalocean/spaces/disable_force_destroy.yaml
 package builtin.digitalocean.spaces.digitalocean0009
 
 import rego.v1

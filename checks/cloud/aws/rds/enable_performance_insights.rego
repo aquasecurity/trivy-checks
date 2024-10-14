@@ -26,11 +26,11 @@
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/rds_cluster_instance#performance_insights_kms_key_id
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance#performance_insights_kms_key_id
-#     good_examples: checks/cloud/aws/rds/enable_performance_insights.tf.go
-#     bad_examples: checks/cloud/aws/rds/enable_performance_insights.tf.go
+#     good_examples: checks/cloud/aws/rds/enable_performance_insights.yaml
+#     bad_examples: checks/cloud/aws/rds/enable_performance_insights.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/rds/enable_performance_insights.cf.go
-#     bad_examples: checks/cloud/aws/rds/enable_performance_insights.cf.go
+#     good_examples: checks/cloud/aws/rds/enable_performance_insights.yaml
+#     bad_examples: checks/cloud/aws/rds/enable_performance_insights.yaml
 package builtin.aws.rds.aws0133
 
 import rego.v1

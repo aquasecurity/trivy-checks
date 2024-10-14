@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/kubernetes_cluster#surge_upgrade
-#     good_examples: checks/cloud/digitalocean/compute/kubernetes_surge_upgrades.tf.go
-#     bad_examples: checks/cloud/digitalocean/compute/kubernetes_surge_upgrades.tf.go
+#     good_examples: checks/cloud/digitalocean/compute/kubernetes_surge_upgrades.yaml
+#     bad_examples: checks/cloud/digitalocean/compute/kubernetes_surge_upgrades.yaml
 package builtin.digitalocean.compute.digitalocean0005
 
 import rego.v1

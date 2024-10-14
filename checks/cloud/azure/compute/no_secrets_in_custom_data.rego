@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine#custom_data
-#     good_examples: checks/cloud/azure/compute/no_secrets_in_custom_data.tf.go
-#     bad_examples: checks/cloud/azure/compute/no_secrets_in_custom_data.tf.go
+#     good_examples: checks/cloud/azure/compute/no_secrets_in_custom_data.yaml
+#     bad_examples: checks/cloud/azure/compute/no_secrets_in_custom_data.yaml
 package builtin.azure.compute.azure0037
 
 import rego.v1

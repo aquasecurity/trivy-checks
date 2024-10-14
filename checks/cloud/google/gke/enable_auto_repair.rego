@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool#auto_repair
-#     good_examples: checks/cloud/google/gke/enable_auto_repair.tf.go
-#     bad_examples: checks/cloud/google/gke/enable_auto_repair.tf.go
+#     good_examples: checks/cloud/google/gke/enable_auto_repair.yaml
+#     bad_examples: checks/cloud/google/gke/enable_auto_repair.yaml
 package builtin.google.gke.google0063
 
 import rego.v1

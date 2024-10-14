@@ -26,11 +26,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_volume#encrypted
-#     good_examples: checks/cloud/aws/ec2/enable_volume_encryption.tf.go
-#     bad_examples: checks/cloud/aws/ec2/enable_volume_encryption.tf.go
+#     good_examples: checks/cloud/aws/ec2/enable_volume_encryption.yaml
+#     bad_examples: checks/cloud/aws/ec2/enable_volume_encryption.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/ec2/enable_volume_encryption.cf.go
-#     bad_examples: checks/cloud/aws/ec2/enable_volume_encryption.cf.go
+#     good_examples: checks/cloud/aws/ec2/enable_volume_encryption.yaml
+#     bad_examples: checks/cloud/aws/ec2/enable_volume_encryption.yaml
 package builtin.aws.ec2.aws0026
 
 import rego.v1

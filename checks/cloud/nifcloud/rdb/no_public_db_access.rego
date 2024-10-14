@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/db_instance#publicly_accessible
-#     good_examples: checks/cloud/nifcloud/rdb/no_public_db_access.tf.go
-#     bad_examples: checks/cloud/nifcloud/rdb/no_public_db_access.tf.go
+#     good_examples: checks/cloud/nifcloud/rdb/no_public_db_access.yaml
+#     bad_examples: checks/cloud/nifcloud/rdb/no_public_db_access.yaml
 package builtin.nifcloud.rdb.nifcloud0008
 
 import rego.v1

@@ -26,8 +26,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault#network_acls
-#     good_examples: checks/cloud/azure/keyvault/specify_network_acl.tf.go
-#     bad_examples: checks/cloud/azure/keyvault/specify_network_acl.tf.go
+#     good_examples: checks/cloud/azure/keyvault/specify_network_acl.yaml
+#     bad_examples: checks/cloud/azure/keyvault/specify_network_acl.yaml
 package builtin.azure.keyvault.azure0013
 
 import rego.v1

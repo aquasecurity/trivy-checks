@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#monitoring_service
-#     good_examples: checks/cloud/google/gke/enable_stackdriver_monitoring.tf.go
-#     bad_examples: checks/cloud/google/gke/enable_stackdriver_monitoring.tf.go
+#     good_examples: checks/cloud/google/gke/enable_stackdriver_monitoring.yaml
+#     bad_examples: checks/cloud/google/gke/enable_stackdriver_monitoring.yaml
 package builtin.google.gke.google0052
 
 import rego.v1

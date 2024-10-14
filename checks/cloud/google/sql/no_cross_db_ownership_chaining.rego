@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance
-#     good_examples: checks/cloud/google/sql/no_cross_db_ownership_chaining.tf.go
-#     bad_examples: checks/cloud/google/sql/no_cross_db_ownership_chaining.tf.go
+#     good_examples: checks/cloud/google/sql/no_cross_db_ownership_chaining.yaml
+#     bad_examples: checks/cloud/google/sql/no_cross_db_ownership_chaining.yaml
 package builtin.google.sql.google0019
 
 import rego.v1

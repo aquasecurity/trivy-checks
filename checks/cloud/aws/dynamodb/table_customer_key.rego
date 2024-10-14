@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_table#server_side_encryption
-#     good_examples: checks/cloud/aws/dynamodb/table_customer_key.tf.go
-#     bad_examples: checks/cloud/aws/dynamodb/table_customer_key.tf.go
+#     good_examples: checks/cloud/aws/dynamodb/table_customer_key.yaml
+#     bad_examples: checks/cloud/aws/dynamodb/table_customer_key.yaml
 package builtin.aws.dynamodb.aws0025
 
 import rego.v1

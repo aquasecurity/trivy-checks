@@ -22,8 +22,8 @@
 #           - service: sam
 #             provider: aws
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/sam/enable_http_api_access_logging.cf.go
-#     bad_examples: checks/cloud/aws/sam/enable_http_api_access_logging.cf.go
+#     good_examples: checks/cloud/aws/sam/enable_http_api_access_logging.yaml
+#     bad_examples: checks/cloud/aws/sam/enable_http_api_access_logging.yaml
 package builtin.aws.sam.aws0116
 
 import rego.v1

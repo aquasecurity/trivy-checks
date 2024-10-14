@@ -31,8 +31,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_access_key
-#     good_examples: checks/cloud/aws/iam/no_root_access_keys.tf.go
-#     bad_examples: checks/cloud/aws/iam/no_root_access_keys.tf.go
+#     good_examples: checks/cloud/aws/iam/no_root_access_keys.yaml
+#     bad_examples: checks/cloud/aws/iam/no_root_access_keys.yaml
 package builtin.aws.iam.aws0141
 
 import rego.v1

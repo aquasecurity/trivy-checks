@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_log_profile#locations
-#     good_examples: checks/cloud/azure/monitor/capture_all_regions.tf.go
-#     bad_examples: checks/cloud/azure/monitor/capture_all_regions.tf.go
+#     good_examples: checks/cloud/azure/monitor/capture_all_regions.yaml
+#     bad_examples: checks/cloud/azure/monitor/capture_all_regions.yaml
 package builtin.azure.monitor.azure0032
 
 import rego.v1

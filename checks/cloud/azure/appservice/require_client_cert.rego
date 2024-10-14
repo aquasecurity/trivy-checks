@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#client_cert_enabled
-#     good_examples: checks/cloud/azure/appservice/require_client_cert.tf.go
-#     bad_examples: checks/cloud/azure/appservice/require_client_cert.tf.go
+#     good_examples: checks/cloud/azure/appservice/require_client_cert.yaml
+#     bad_examples: checks/cloud/azure/appservice/require_client_cert.yaml
 package builtin.azure.appservice.azure0001
 
 import rego.v1

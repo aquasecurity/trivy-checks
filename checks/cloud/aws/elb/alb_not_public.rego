@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb
-#     good_examples: checks/cloud/aws/elb/alb_not_public.tf.go
-#     bad_examples: checks/cloud/aws/elb/alb_not_public.tf.go
+#     good_examples: checks/cloud/aws/elb/alb_not_public.yaml
+#     bad_examples: checks/cloud/aws/elb/alb_not_public.yaml
 package builtin.aws.elb.aws0053
 
 import rego.v1

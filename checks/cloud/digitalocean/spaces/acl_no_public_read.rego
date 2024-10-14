@@ -25,8 +25,8 @@
 #     links:
 #       - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/spaces_bucket#acl
 #       - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/spaces_bucket_object#acl
-#     good_examples: checks/cloud/digitalocean/spaces/acl_no_public_read.tf.go
-#     bad_examples: checks/cloud/digitalocean/spaces/acl_no_public_read.tf.go
+#     good_examples: checks/cloud/digitalocean/spaces/acl_no_public_read.yaml
+#     bad_examples: checks/cloud/digitalocean/spaces/acl_no_public_read.yaml
 package builtin.digitalocean.spaces.digitalocean0006
 
 import rego.v1
