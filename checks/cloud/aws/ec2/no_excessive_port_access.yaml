@@ -1,3 +1,38 @@
+cloudformation:
+  good:
+    - |
+      AWSTemplateFormatVersion: "2010-09-09T00:00:00Z"
+      Description: Good example of excessive ports
+      Resources:
+        NetworkACL:
+          Properties:
+            RuleAction: allow
+            VpcId: something
+          Type: AWS::EC2::NetworkAcl
+        Rule:
+          Properties:
+            NetworkAclId: null
+            Protocol: 6
+            Ref: NetworkACL
+            RuleAction: allow
+          Type: AWS::EC2::NetworkAclEntry
+  bad:
+    - |
+      AWSTemplateFormatVersion: "2010-09-09T00:00:00Z"
+      Description: Bad example of excessive ports
+      Resources:
+        NetworkACL:
+          Properties:
+            RuleAction: allow
+            VpcId: something
+          Type: AWS::EC2::NetworkAcl
+        Rule:
+          Properties:
+            NetworkAclId: null
+            Protocol: -1
+            Ref: NetworkACL
+            RuleAction: allow
+          Type: AWS::EC2::NetworkAclEntry
 terraform:
   good:
     - |-
@@ -17,38 +52,3 @@ terraform:
         rule_action = "allow"
         cidr_block  = "0.0.0.0/0"
       }
-cloudformation:
-  good:
-    - |-
-      AWSTemplateFormatVersion: 2010-09-09T00:00:00Z
-      Description: Good example of excessive ports
-      Resources:
-          NetworkACL:
-              Properties:
-                  RuleAction: allow
-                  VpcId: something
-              Type: AWS::EC2::NetworkAcl
-          Rule:
-              Properties:
-                  NetworkAclId: null
-                  Protocol: 6
-                  Ref: NetworkACL
-                  RuleAction: allow
-              Type: AWS::EC2::NetworkAclEntry
-  bad:
-    - |-
-      AWSTemplateFormatVersion: 2010-09-09T00:00:00Z
-      Description: Bad example of excessive ports
-      Resources:
-          NetworkACL:
-              Properties:
-                  RuleAction: allow
-                  VpcId: something
-              Type: AWS::EC2::NetworkAcl
-          Rule:
-              Properties:
-                  NetworkAclId: null
-                  Protocol: -1
-                  Ref: NetworkACL
-                  RuleAction: allow
-              Type: AWS::EC2::NetworkAclEntry

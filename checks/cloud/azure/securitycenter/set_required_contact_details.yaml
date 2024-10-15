@@ -8,7 +8,6 @@ terraform:
         alert_notifications = true
         alerts_to_admins    = true
       }
-
   bad:
     - |-
       resource "azurerm_security_center_contact" "bad_example" {
@@ -18,4 +17,3 @@ terraform:
         alert_notifications = true
         alerts_to_admins    = true
       }
-

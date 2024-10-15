@@ -1,3 +1,19 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodExampleTrail:
+          Properties:
+            CloudWatchLogsLogGroupArn: arn:aws:logs:us-east-1:123456789012:log-group:CloudTrail/DefaultLogGroup:*
+            TrailName: Cloudtrail
+          Type: AWS::CloudTrail::Trail
+  bad:
+    - |
+      Resources:
+        BadExampleTrail:
+          Properties:
+            TrailName: Cloudtrail
+          Type: AWS::CloudTrail::Trail
 terraform:
   good:
     - |-
@@ -33,19 +49,3 @@ terraform:
           }
         }
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodExampleTrail:
-              Properties:
-                  CloudWatchLogsLogGroupArn: arn:aws:logs:us-east-1:123456789012:log-group:CloudTrail/DefaultLogGroup:*
-                  TrailName: Cloudtrail
-              Type: AWS::CloudTrail::Trail
-  bad:
-    - |-
-      Resources:
-          BadExampleTrail:
-              Properties:
-                  TrailName: Cloudtrail
-              Type: AWS::CloudTrail::Trail

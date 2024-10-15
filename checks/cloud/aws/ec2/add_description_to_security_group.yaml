@@ -1,3 +1,23 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodSecurityGroup:
+          Properties:
+            GroupDescription: Limits security group egress traffic
+            SecurityGroupEgress:
+              - CidrIp: 127.0.0.1/32
+                IpProtocol: "-1"
+          Type: AWS::EC2::SecurityGroup
+  bad:
+    - |
+      Resources:
+        BadSecurityGroup:
+          Properties:
+            SecurityGroupEgress:
+              - CidrIp: 127.0.0.1/32
+                IpProtocol: "-1"
+          Type: AWS::EC2::SecurityGroup
 terraform:
   good:
     - |-
@@ -27,23 +47,3 @@ terraform:
           cidr_blocks = [aws_vpc.main.cidr_block]
         }
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodSecurityGroup:
-              Properties:
-                  GroupDescription: Limits security group egress traffic
-                  SecurityGroupEgress:
-                      - CidrIp: 127.0.0.1/32
-                        IpProtocol: "-1"
-              Type: AWS::EC2::SecurityGroup
-  bad:
-    - |-
-      Resources:
-          BadSecurityGroup:
-              Properties:
-                  SecurityGroupEgress:
-                      - CidrIp: 127.0.0.1/32
-                        IpProtocol: "-1"
-              Type: AWS::EC2::SecurityGroup

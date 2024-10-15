@@ -1,3 +1,30 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodExample:
+          Properties:
+            BackupPolicy:
+              Status: ENABLED
+            Encrypted: true
+            LifecyclePolicies:
+              - TransitionToIA: AFTER_60_DAYS
+            PerformanceMode: generalPurpose
+            ThroughputMode: bursting
+          Type: AWS::EFS::FileSystem
+  bad:
+    - |
+      Resources:
+        BadExample:
+          Properties:
+            BackupPolicy:
+              Status: ENABLED
+            Encrypted: false
+            LifecyclePolicies:
+              - TransitionToIA: AFTER_60_DAYS
+            PerformanceMode: generalPurpose
+            ThroughputMode: bursting
+          Type: AWS::EFS::FileSystem
 terraform:
   good:
     - |-
@@ -13,30 +40,3 @@ terraform:
         encrypted  = false
         kms_key_id = ""
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodExample:
-              Properties:
-                  BackupPolicy:
-                      Status: ENABLED
-                  Encrypted: true
-                  LifecyclePolicies:
-                      - TransitionToIA: AFTER_60_DAYS
-                  PerformanceMode: generalPurpose
-                  ThroughputMode: bursting
-              Type: AWS::EFS::FileSystem
-  bad:
-    - |-
-      Resources:
-          BadExample:
-              Properties:
-                  BackupPolicy:
-                      Status: ENABLED
-                  Encrypted: false
-                  LifecyclePolicies:
-                      - TransitionToIA: AFTER_60_DAYS
-                  PerformanceMode: generalPurpose
-                  ThroughputMode: bursting
-              Type: AWS::EFS::FileSystem

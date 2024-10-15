@@ -12,7 +12,6 @@ terraform:
           repository = "terraform-module-template"
         }
       }
-
   bad:
     - |-
       resource "github_repository" "bad_example" {

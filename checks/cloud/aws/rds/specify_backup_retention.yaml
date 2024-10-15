@@ -1,3 +1,17 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodExample:
+          Properties:
+            BackupRetentionPeriod: 30
+          Type: AWS::RDS::DBInstance
+  bad:
+    - |
+      Resources:
+        BadExample:
+          Properties: null
+          Type: AWS::RDS::DBInstance
 terraform:
   good:
     - |-
@@ -49,17 +63,3 @@ terraform:
         master_password         = "bar"
         preferred_backup_window = "07:00-09:00"
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodExample:
-              Properties:
-                  BackupRetentionPeriod: 30
-              Type: AWS::RDS::DBInstance
-  bad:
-    - |-
-      Resources:
-          BadExample:
-              Properties: null
-              Type: AWS::RDS::DBInstance

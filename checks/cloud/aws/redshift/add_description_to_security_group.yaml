@@ -1,15 +1,15 @@
 cloudformation:
   good:
-    - |-
+    - |
       Resources:
-          GoodExample:
-              Properties:
-                  Description: Disallow bad stuff
-              Type: AWS::Redshift::ClusterSecurityGroup
+        GoodExample:
+          Properties:
+            Description: Disallow bad stuff
+          Type: AWS::Redshift::ClusterSecurityGroup
   bad:
-    - |-
+    - |
       Resources:
-          BadExample:
-              Properties:
-                  Description: ""
-              Type: AWS::Redshift::ClusterSecurityGroup
+        BadExample:
+          Properties:
+            Description: ""
+          Type: AWS::Redshift::ClusterSecurityGroup

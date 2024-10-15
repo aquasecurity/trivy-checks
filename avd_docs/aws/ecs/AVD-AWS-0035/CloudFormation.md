@@ -3,40 +3,41 @@ Enable in transit encryption when using efs
 
 ```yaml
 Resources:
-    GoodExample:
-        Properties:
-            ClusterName: MyCluster
-            ClusterSettings:
-                - Name: containerInsights
-                  Value: enabled
-        Type: AWS::ECS::Cluster
-    GoodTask:
-        Properties:
-            ContainerDefinitions:
-                - Image: cfsec/cfsec:latest
-                  LogConfiguration:
-                    LogDriver: awslogs
-                    Options:
-                        awslogs-group: cfsec-logs
-                        awslogs-region: AWS::Region
-                        awslogs-stream-prefix: cfsec
-                  MountPoints:
-                    - ContainerPath: /src
-                      SourceVolume: src
-                  Name: cfsec
-            Cpu: 512
-            Family: CFSec scan
-            Memory: 1024
-            NetworkMode: awsvpc
-            RequiresCompatibilities:
-                - FARGATE
-                - EC2
-            Volumes:
-                - EFSVolumeConfiguration:
-                    FilesystemId: fs1
-                    TransitEncryption: ENABLED
-                  Name: jenkins-home
-        Type: AWS::ECS::TaskDefinition
+  GoodExample:
+    Properties:
+      ClusterName: MyCluster
+      ClusterSettings:
+        - Name: containerInsights
+          Value: enabled
+    Type: AWS::ECS::Cluster
+  GoodTask:
+    Properties:
+      ContainerDefinitions:
+        - Image: cfsec/cfsec:latest
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: cfsec-logs
+              awslogs-region: AWS::Region
+              awslogs-stream-prefix: cfsec
+          MountPoints:
+            - ContainerPath: /src
+              SourceVolume: src
+          Name: cfsec
+      Cpu: 512
+      Family: CFSec scan
+      Memory: 1024
+      NetworkMode: awsvpc
+      RequiresCompatibilities:
+        - FARGATE
+        - EC2
+      Volumes:
+        - EFSVolumeConfiguration:
+            FilesystemId: fs1
+            TransitEncryption: ENABLED
+          Name: jenkins-home
+    Type: AWS::ECS::TaskDefinition
+
 ```
 
 

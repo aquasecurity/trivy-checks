@@ -1,6 +1,41 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodExample:
+          Properties:
+            RootVolumeEncryptionEnabled: true
+            UserName: admin
+            UserVolumeEncryptionEnabled: true
+          Type: AWS::WorkSpaces::Workspace
+    - |
+      Resources:
+        GoodExample:
+          Properties:
+            RootVolumeEncryptionEnabled: true
+            UserName: admin
+            UserVolumeEncryptionEnabled: true
+          Type: AWS::WorkSpaces::Workspace
+  bad:
+    - |
+      Resources:
+        BadExample:
+          Properties:
+            RootVolumeEncryptionEnabled: false
+            UserName: admin
+            UserVolumeEncryptionEnabled: false
+          Type: AWS::WorkSpaces::Workspace
+    - |
+      Resources:
+        BadExample:
+          Properties:
+            RootVolumeEncryptionEnabled: false
+            UserName: admin
+            UserVolumeEncryptionEnabled: false
+          Type: AWS::WorkSpaces::Workspace
 terraform:
   good:
-    - |2-
+    - |-
       resource "aws_workspaces_workspace" "good_example" {
         directory_id                   = aws_workspaces_directory.test.id
         bundle_id                      = data.aws_workspaces_bundle.value_windows_10.id
@@ -31,38 +66,3 @@ terraform:
           running_mode_auto_stop_timeout_in_minutes = 60
         }
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodExample:
-              Properties:
-                  RootVolumeEncryptionEnabled: true
-                  UserName: admin
-                  UserVolumeEncryptionEnabled: true
-              Type: AWS::WorkSpaces::Workspace
-    - |-
-      Resources:
-          GoodExample:
-              Properties:
-                  RootVolumeEncryptionEnabled: true
-                  UserName: admin
-                  UserVolumeEncryptionEnabled: true
-              Type: AWS::WorkSpaces::Workspace
-  bad:
-    - |-
-      Resources:
-          BadExample:
-              Properties:
-                  RootVolumeEncryptionEnabled: false
-                  UserName: admin
-                  UserVolumeEncryptionEnabled: false
-              Type: AWS::WorkSpaces::Workspace
-    - |-
-      Resources:
-          BadExample:
-              Properties:
-                  RootVolumeEncryptionEnabled: false
-                  UserName: admin
-                  UserVolumeEncryptionEnabled: false
-              Type: AWS::WorkSpaces::Workspace

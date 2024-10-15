@@ -1,3 +1,28 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodExample:
+          Properties:
+            Name: goodExample
+            WorkGroupConfiguration:
+              EnforceWorkGroupConfiguration: true
+              ResultConfiguration:
+                EncryptionConfiguration:
+                  EncryptionOption: SSE_KMS
+          Type: AWS::Athena::WorkGroup
+  bad:
+    - |
+      Resources:
+        BadExample:
+          Properties:
+            Name: badExample
+            WorkGroupConfiguration:
+              EnforceWorkGroupConfiguration: false
+              ResultConfiguration:
+                EncryptionConfiguration:
+                  EncryptionOption: SSE_KMS
+          Type: AWS::Athena::WorkGroup
 terraform:
   good:
     - |-
@@ -42,28 +67,3 @@ terraform:
         name = "example"
 
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodExample:
-              Properties:
-                  Name: goodExample
-                  WorkGroupConfiguration:
-                      EnforceWorkGroupConfiguration: true
-                      ResultConfiguration:
-                          EncryptionConfiguration:
-                              EncryptionOption: SSE_KMS
-              Type: AWS::Athena::WorkGroup
-  bad:
-    - |-
-      Resources:
-          BadExample:
-              Properties:
-                  Name: badExample
-                  WorkGroupConfiguration:
-                      EnforceWorkGroupConfiguration: false
-                      ResultConfiguration:
-                          EncryptionConfiguration:
-                              EncryptionOption: SSE_KMS
-              Type: AWS::Athena::WorkGroup

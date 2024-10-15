@@ -1,3 +1,33 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodExampleBucket:
+          Properties:
+            BucketName: my-bucket
+            LoggingConfiguration:
+              DestinationBucketName: logging-bucket
+              LogFilePrefix: accesslogs/
+          Type: AWS::S3::Bucket
+        GoodExampleTrail:
+          Properties:
+            IsLogging: true
+            S3BucketName: my-bucket
+            TrailName: Cloudtrail
+          Type: AWS::CloudTrail::Trail
+  bad:
+    - |
+      Resources:
+        BadExampleBucket:
+          Properties:
+            BucketName: my-bucket
+          Type: AWS::S3::Bucket
+        BadExampleTrail:
+          Properties:
+            IsLogging: true
+            S3BucketName: my-bucket
+            TrailName: Cloudtrail
+          Type: AWS::CloudTrail::Trail
 terraform:
   good:
     - |-
@@ -41,33 +71,3 @@ terraform:
         bucket = "abcdefgh"
 
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodExampleBucket:
-              Properties:
-                  BucketName: my-bucket
-                  LoggingConfiguration:
-                      DestinationBucketName: logging-bucket
-                      LogFilePrefix: accesslogs/
-              Type: AWS::S3::Bucket
-          GoodExampleTrail:
-              Properties:
-                  IsLogging: true
-                  S3BucketName: my-bucket
-                  TrailName: Cloudtrail
-              Type: AWS::CloudTrail::Trail
-  bad:
-    - |-
-      Resources:
-          BadExampleBucket:
-              Properties:
-                  BucketName: my-bucket
-              Type: AWS::S3::Bucket
-          BadExampleTrail:
-              Properties:
-                  IsLogging: true
-                  S3BucketName: my-bucket
-                  TrailName: Cloudtrail
-              Type: AWS::CloudTrail::Trail

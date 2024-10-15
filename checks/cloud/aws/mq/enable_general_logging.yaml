@@ -1,3 +1,20 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodBroker:
+          Properties:
+            Logs:
+              General: true
+          Type: AWS::AmazonMQ::Broker
+  bad:
+    - |
+      Resources:
+        BadBroker:
+          Properties:
+            Logs:
+              General: false
+          Type: AWS::AmazonMQ::Broker
 terraform:
   good:
     - |-
@@ -45,20 +62,3 @@ terraform:
           general = false
         }
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodBroker:
-              Properties:
-                  Logs:
-                      General: true
-              Type: AWS::AmazonMQ::Broker
-  bad:
-    - |-
-      Resources:
-          BadBroker:
-              Properties:
-                  Logs:
-                      General: false
-              Type: AWS::AmazonMQ::Broker

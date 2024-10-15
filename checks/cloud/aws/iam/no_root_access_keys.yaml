@@ -4,7 +4,6 @@ terraform:
       resource "aws_iam_access_key" "good_example" {
         user = "lowprivuser"
       }
-
   bad:
     - |-
       resource "aws_iam_access_key" "good_example" {

@@ -1,3 +1,81 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodProject:
+          Properties:
+            Artifacts:
+              ArtifactIdentifier: String
+              EncryptionDisabled: false
+              Location: String
+              Name: String
+              NamespaceType: String
+              OverrideArtifactName: false
+              Packaging: String
+              Path: String
+              Type: String
+            SecondaryArtifacts:
+              - ArtifactIdentifier: String
+                EncryptionDisabled: false
+                Location: String
+                Name: String
+                NamespaceType: String
+                OverrideArtifactName: false
+                Packaging: String
+                Path: String
+                Type: String
+          Type: AWS::CodeBuild::Project
+  bad:
+    - |
+      Resources:
+        GoodProject:
+          Properties:
+            Artifacts:
+              ArtifactIdentifier: String
+              EncryptionDisabled: true
+              Location: String
+              Name: String
+              NamespaceType: String
+              OverrideArtifactName: false
+              Packaging: String
+              Path: String
+              Type: String
+            SecondaryArtifacts:
+              - ArtifactIdentifier: String
+                EncryptionDisabled: false
+                Location: String
+                Name: String
+                NamespaceType: String
+                OverrideArtifactName: false
+                Packaging: String
+                Path: String
+                Type: String
+          Type: AWS::CodeBuild::Project
+    - |
+      Resources:
+        GoodProject:
+          Properties:
+            Artifacts:
+              ArtifactIdentifier: String
+              EncryptionDisabled: false
+              Location: String
+              Name: String
+              NamespaceType: String
+              OverrideArtifactName: false
+              Packaging: String
+              Path: String
+              Type: String
+            SecondaryArtifacts:
+              - ArtifactIdentifier: String
+                EncryptionDisabled: true
+                Location: String
+                Name: String
+                NamespaceType: String
+                OverrideArtifactName: false
+                Packaging: String
+                Path: String
+                Type: String
+          Type: AWS::CodeBuild::Project
 terraform:
   good:
     - |-
@@ -59,81 +137,3 @@ terraform:
           encryption_disabled = true
         }
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodProject:
-              Properties:
-                  Artifacts:
-                      ArtifactIdentifier: String
-                      EncryptionDisabled: false
-                      Location: String
-                      Name: String
-                      NamespaceType: String
-                      OverrideArtifactName: false
-                      Packaging: String
-                      Path: String
-                      Type: String
-                  SecondaryArtifacts:
-                      - ArtifactIdentifier: String
-                        EncryptionDisabled: false
-                        Location: String
-                        Name: String
-                        NamespaceType: String
-                        OverrideArtifactName: false
-                        Packaging: String
-                        Path: String
-                        Type: String
-              Type: AWS::CodeBuild::Project
-  bad:
-    - |-
-      Resources:
-          GoodProject:
-              Properties:
-                  Artifacts:
-                      ArtifactIdentifier: String
-                      EncryptionDisabled: true
-                      Location: String
-                      Name: String
-                      NamespaceType: String
-                      OverrideArtifactName: false
-                      Packaging: String
-                      Path: String
-                      Type: String
-                  SecondaryArtifacts:
-                      - ArtifactIdentifier: String
-                        EncryptionDisabled: false
-                        Location: String
-                        Name: String
-                        NamespaceType: String
-                        OverrideArtifactName: false
-                        Packaging: String
-                        Path: String
-                        Type: String
-              Type: AWS::CodeBuild::Project
-    - |-
-      Resources:
-          GoodProject:
-              Properties:
-                  Artifacts:
-                      ArtifactIdentifier: String
-                      EncryptionDisabled: false
-                      Location: String
-                      Name: String
-                      NamespaceType: String
-                      OverrideArtifactName: false
-                      Packaging: String
-                      Path: String
-                      Type: String
-                  SecondaryArtifacts:
-                      - ArtifactIdentifier: String
-                        EncryptionDisabled: true
-                        Location: String
-                        Name: String
-                        NamespaceType: String
-                        OverrideArtifactName: false
-                        Packaging: String
-                        Path: String
-                        Type: String
-              Type: AWS::CodeBuild::Project

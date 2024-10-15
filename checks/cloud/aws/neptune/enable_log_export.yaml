@@ -1,3 +1,20 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodCluster:
+          Properties:
+            EnableCloudwatchLogsExports:
+              - audit
+          Type: AWS::Neptune::DBCluster
+  bad:
+    - |
+      Resources:
+        BadCluster:
+          Properties:
+            EnableCloudwatchLogsExports:
+              - debug
+          Type: AWS::Neptune::DBCluster
 terraform:
   good:
     - |-
@@ -23,20 +40,3 @@ terraform:
         apply_immediately                   = true
         enable_cloudwatch_logs_exports      = []
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodCluster:
-              Properties:
-                  EnableCloudwatchLogsExports:
-                      - audit
-              Type: AWS::Neptune::DBCluster
-  bad:
-    - |-
-      Resources:
-          BadCluster:
-              Properties:
-                  EnableCloudwatchLogsExports:
-                      - debug
-              Type: AWS::Neptune::DBCluster

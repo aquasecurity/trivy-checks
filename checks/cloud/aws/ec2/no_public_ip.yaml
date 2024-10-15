@@ -1,3 +1,21 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodExample:
+          Properties:
+            ImageId: ami-123456
+            InstanceType: t2.small
+          Type: AWS::AutoScaling::LaunchConfiguration
+  bad:
+    - |
+      Resources:
+        BadExample:
+          Properties:
+            AssociatePublicIpAddress: true
+            ImageId: ami-123456
+            InstanceType: t2.small
+          Type: AWS::AutoScaling::LaunchConfiguration
 terraform:
   good:
     - |-
@@ -9,21 +27,3 @@ terraform:
       resource "aws_launch_configuration" "bad_example" {
         associate_public_ip_address = true
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodExample:
-              Properties:
-                  ImageId: ami-123456
-                  InstanceType: t2.small
-              Type: AWS::AutoScaling::LaunchConfiguration
-  bad:
-    - |-
-      Resources:
-          BadExample:
-              Properties:
-                  AssociatePublicIpAddress: true
-                  ImageId: ami-123456
-                  InstanceType: t2.small
-              Type: AWS::AutoScaling::LaunchConfiguration

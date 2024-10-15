@@ -1,3 +1,22 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodExample:
+          Properties:
+            PublicAccessBlockConfiguration:
+              BlockPublicAcls: true
+              BlockPublicPolicy: true
+              IgnorePublicAcls: true
+              RestrictPublicBuckets: true
+          Type: AWS::S3::Bucket
+  bad:
+    - |
+      Resources:
+        BadExample:
+          Properties:
+            AccessControl: AuthenticatedRead
+        Type: AWS::S3::Bucket
 terraform:
   good:
     - |-
@@ -25,22 +44,3 @@ terraform:
 
         restrict_public_buckets = false
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodExample:
-              Properties:
-                  PublicAccessBlockConfiguration:
-                      BlockPublicAcls: true
-                      BlockPublicPolicy: true
-                      IgnorePublicAcls: true
-                      RestrictPublicBuckets: true
-              Type: AWS::S3::Bucket
-  bad:
-    - |-
-      Resources:
-          BadExample:
-              Properties:
-                  AccessControl: AuthenticatedRead
-          Type: AWS::S3::Bucket

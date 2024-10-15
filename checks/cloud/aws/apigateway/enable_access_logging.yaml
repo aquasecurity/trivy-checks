@@ -1,3 +1,33 @@
+cloudformation:
+  good:
+    - |
+      AWSTemplateFormatVersion: "2010-09-09T00:00:00Z"
+      Description: Good Example of ApiGateway
+      Resources:
+        GoodApi:
+          Type: AWS::ApiGatewayV2::Api
+        GoodApiStage:
+          Properties:
+            AccessLogSettings:
+              DestinationArn: gateway-logging
+              Format: json
+            ApiId: GoodApi
+            StageName: GoodApiStage
+          Type: AWS::ApiGatewayV2::Stage
+  bad:
+    - |
+      AWSTemplateFormatVersion: "2010-09-09T00:00:00Z"
+      Description: Bad Example of ApiGateway
+      Resources:
+        BadApi:
+          Type: AWS::ApiGatewayV2::Api
+        BadApiStage:
+          Properties:
+            AccessLogSettings:
+              Format: json
+            ApiId: BadApi
+            StageName: BadApiStage
+          Type: AWS::ApiGatewayV2::Stage
 terraform:
   good:
     - |-
@@ -33,33 +63,3 @@ terraform:
         rest_api_id   = aws_api_gateway_rest_api.example.id
         stage_name    = "example"
       }
-cloudformation:
-  good:
-    - |-
-      AWSTemplateFormatVersion: 2010-09-09T00:00:00Z
-      Description: Good Example of ApiGateway
-      Resources:
-          GoodApi:
-              Type: AWS::ApiGatewayV2::Api
-          GoodApiStage:
-              Properties:
-                  AccessLogSettings:
-                      DestinationArn: gateway-logging
-                      Format: json
-                  ApiId: GoodApi
-                  StageName: GoodApiStage
-              Type: AWS::ApiGatewayV2::Stage
-  bad:
-    - |-
-      AWSTemplateFormatVersion: 2010-09-09T00:00:00Z
-      Description: Bad Example of ApiGateway
-      Resources:
-          BadApi:
-              Type: AWS::ApiGatewayV2::Api
-          BadApiStage:
-              Properties:
-                  AccessLogSettings:
-                      Format: json
-                  ApiId: BadApi
-                  StageName: BadApiStage
-              Type: AWS::ApiGatewayV2::Stage

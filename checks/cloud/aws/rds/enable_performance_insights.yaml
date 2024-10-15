@@ -1,3 +1,19 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodExample:
+          Properties:
+            EnablePerformanceInsights: true
+            PerformanceInsightsKMSKeyId: something
+          Type: AWS::RDS::DBInstance
+  bad:
+    - |
+      Resources:
+        BadExample:
+          Properties:
+            EnablePerformanceInsights: false
+          Type: AWS::RDS::DBInstance
 terraform:
   good:
     - |-
@@ -13,19 +29,3 @@ terraform:
         performance_insights_enabled    = false
         performance_insights_kms_key_id = ""
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodExample:
-              Properties:
-                  EnablePerformanceInsights: true
-                  PerformanceInsightsKMSKeyId: something
-              Type: AWS::RDS::DBInstance
-  bad:
-    - |-
-      Resources:
-          BadExample:
-              Properties:
-                  EnablePerformanceInsights: false
-              Type: AWS::RDS::DBInstance

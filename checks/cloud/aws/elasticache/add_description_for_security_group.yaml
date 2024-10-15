@@ -1,10 +1,46 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodExampleCacheGroup:
+          Properties:
+            Description: Some description
+          Type: AWS::ElastiCache::SecurityGroup
+        GoodExampleEc2SecurityGroup:
+          Properties:
+            GroupDescription: Good Elasticache Security Group
+            GroupName: GoodExample
+          Type: AWS::EC2::SecurityGroup
+        GoodSecurityGroupIngress:
+          Properties:
+            CacheSecurityGroupName: GoodExampleCacheGroup
+            EC2SecurityGroupName: GoodExampleEc2SecurityGroup
+          Type: AWS::ElastiCache::SecurityGroupIngress
+  bad:
+    - |
+      Resources:
+        BadExampleCacheGroup:
+          Properties:
+            Tags:
+              - Name: BadExample
+          Type: AWS::ElastiCache::SecurityGroup
+        BadExampleEc2SecurityGroup:
+          Properties:
+            GroupDescription: Bad Elasticache Security Group
+            GroupName: BadExample
+          Type: AWS::EC2::SecurityGroup
+        BadSecurityGroupIngress:
+          Properties:
+            CacheSecurityGroupName: BadExampleCacheGroup
+            EC2SecurityGroupName: BadExampleEc2SecurityGroup
+          Type: AWS::ElastiCache::SecurityGroupIngress
 terraform:
   good:
     - |-
       resource "aws_security_group" "bar" {
         name = "security-group"
       }
-      
+
       resource "aws_elasticache_security_group" "good_example" {
         name                 = "elasticache-security-group"
         security_group_names = [aws_security_group.bar.name]
@@ -12,48 +48,12 @@ terraform:
       }
   bad:
     - |-
-     resource "aws_security_group" "bar" {
-       name = "security-group"
-     }
-     
-     resource "aws_elasticache_security_group" "bad_example" {
-       name                 = "elasticache-security-group"
-       security_group_names = [aws_security_group.bar.name]
-       description          = ""
-     }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodExampleCacheGroup:
-              Properties:
-                  Description: Some description
-              Type: AWS::ElastiCache::SecurityGroup
-          GoodExampleEc2SecurityGroup:
-              Properties:
-                  GroupDescription: Good Elasticache Security Group
-                  GroupName: GoodExample
-              Type: AWS::EC2::SecurityGroup
-          GoodSecurityGroupIngress:
-              Properties:
-                  CacheSecurityGroupName: GoodExampleCacheGroup
-                  EC2SecurityGroupName: GoodExampleEc2SecurityGroup
-              Type: AWS::ElastiCache::SecurityGroupIngress
-  bad:
-    - |-
-      Resources:
-          BadExampleCacheGroup:
-              Properties:
-                  Tags:
-                      - Name: BadExample
-              Type: AWS::ElastiCache::SecurityGroup
-          BadExampleEc2SecurityGroup:
-              Properties:
-                  GroupDescription: Bad Elasticache Security Group
-                  GroupName: BadExample
-              Type: AWS::EC2::SecurityGroup
-          BadSecurityGroupIngress:
-              Properties:
-                  CacheSecurityGroupName: BadExampleCacheGroup
-                  EC2SecurityGroupName: BadExampleEc2SecurityGroup
-              Type: AWS::ElastiCache::SecurityGroupIngress
+      resource "aws_security_group" "bar" {
+        name = "security-group"
+      }
+
+      resource "aws_elasticache_security_group" "bad_example" {
+        name                 = "elasticache-security-group"
+        security_group_names = [aws_security_group.bar.name]
+        description          = ""
+      }

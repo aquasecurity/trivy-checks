@@ -1,3 +1,19 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodCluster:
+          Properties:
+            ClusterSubnetGroupName: my-subnet-group
+          Type: AWS::Redshift::Cluster
+  bad:
+    - |
+      Resources:
+        BadCluster:
+          Properties:
+            ClusterType: single-node
+            DBName: mydb
+          Type: AWS::Redshift::Cluster
 terraform:
   good:
     - |-
@@ -21,19 +37,3 @@ terraform:
         node_type          = "dc1.large"
         cluster_type       = "single-node"
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodCluster:
-              Properties:
-                  ClusterSubnetGroupName: my-subnet-group
-              Type: AWS::Redshift::Cluster
-  bad:
-    - |-
-      Resources:
-          BadCluster:
-              Properties:
-                  ClusterType: single-node
-                  DBName: mydb
-              Type: AWS::Redshift::Cluster

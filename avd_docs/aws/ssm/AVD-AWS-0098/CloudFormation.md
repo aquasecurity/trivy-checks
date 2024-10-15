@@ -2,16 +2,17 @@
 Use customer managed keys
 
 ```yaml
-AWSTemplateFormatVersion: 2010-09-09T00:00:00Z
+AWSTemplateFormatVersion: "2010-09-09T00:00:00Z"
 Description: Good example of ingress rule
 Resources:
-    Secret:
-        Properties:
-            Description: secret
-            KmsKeyId: my-key-id
-            Name: blah
-            SecretString: don't tell anyone
-        Type: AWS::SecretsManager::Secret
+  Secret:
+    Properties:
+      Description: secret
+      KmsKeyId: my-key-id
+      Name: blah
+      SecretString: don't tell anyone
+    Type: AWS::SecretsManager::Secret
+
 ```
 
 

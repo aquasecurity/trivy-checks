@@ -3,15 +3,16 @@ Use Customer managed key
 
 ```yaml
 Resources:
-    GoodExample:
-        Properties:
-            IsLogging: true
-            IsMultiRegionTrail: true
-            KmsKeyId: alias/CloudtrailKey
-            S3BucketName: CloudtrailBucket
-            S3KeyPrefix: /trailing
-            TrailName: Cloudtrail
-        Type: AWS::CloudTrail::Trail
+  GoodExample:
+    Properties:
+      IsLogging: true
+      IsMultiRegionTrail: true
+      KmsKeyId: alias/CloudtrailKey
+      S3BucketName: CloudtrailBucket
+      S3KeyPrefix: /trailing
+      TrailName: Cloudtrail
+    Type: AWS::CloudTrail::Trail
+
 ```
 
 #### Remediation Links

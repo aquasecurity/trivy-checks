@@ -39,7 +39,6 @@ terraform:
       }
       EOF
       }
-
   bad:
     - |-
       resource "aws_iam_user" "jim" {

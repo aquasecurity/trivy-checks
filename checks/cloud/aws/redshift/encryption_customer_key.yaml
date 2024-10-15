@@ -1,3 +1,19 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodExample:
+          Properties:
+            Encrypted: true
+            KmsKeyId: something
+          Type: AWS::Redshift::Cluster
+  bad:
+    - |
+      Resources:
+        BadExample:
+          Properties:
+            Encrypted: false
+          Type: AWS::Redshift::Cluster
 terraform:
   good:
     - |-
@@ -25,19 +41,3 @@ terraform:
         node_type          = "dc1.large"
         cluster_type       = "single-node"
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodExample:
-              Properties:
-                  Encrypted: true
-                  KmsKeyId: something
-              Type: AWS::Redshift::Cluster
-  bad:
-    - |-
-      Resources:
-          BadExample:
-              Properties:
-                  Encrypted: false
-              Type: AWS::Redshift::Cluster

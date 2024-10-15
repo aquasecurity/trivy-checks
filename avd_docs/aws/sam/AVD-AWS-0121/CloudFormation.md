@@ -3,12 +3,13 @@ Enable server side encryption
 
 ```yaml
 Resources:
-    GoodFunction:
-        Properties:
-            SSESpecification:
-                SSEEnabled: true
-            TableName: GoodTable
-        Type: AWS::Serverless::SimpleTable
+  GoodFunction:
+    Properties:
+      SSESpecification:
+        SSEEnabled: true
+      TableName: GoodTable
+    Type: AWS::Serverless::SimpleTable
+
 ```
 
 

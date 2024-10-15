@@ -1,3 +1,22 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodCluster:
+          Properties:
+            EncryptionInfo:
+              EncryptionInTransit:
+                ClientBroker: TLS
+          Type: AWS::MSK::Cluster
+  bad:
+    - |
+      Resources:
+        BadCluster:
+          Properties:
+            EncryptionInfo:
+              EncryptionInTransit:
+                ClientBroker: TLS_PLAINTEXT
+          Type: AWS::MSK::Cluster
 terraform:
   good:
     - |-
@@ -19,22 +38,3 @@ terraform:
           }
         }
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodCluster:
-              Properties:
-                  EncryptionInfo:
-                      EncryptionInTransit:
-                          ClientBroker: TLS
-              Type: AWS::MSK::Cluster
-  bad:
-    - |-
-      Resources:
-          BadCluster:
-              Properties:
-                  EncryptionInfo:
-                      EncryptionInTransit:
-                          ClientBroker: TLS_PLAINTEXT
-              Type: AWS::MSK::Cluster

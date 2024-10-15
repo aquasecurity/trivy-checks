@@ -1,3 +1,26 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodExample:
+          Properties:
+            IsLogging: true
+            IsMultiRegionTrail: true
+            S3BucketName: CloudtrailBucket
+            S3KeyPrefix: /trailing
+            TrailName: Cloudtrail
+          Type: AWS::CloudTrail::Trail
+  bad:
+    - |
+      Resources:
+        BadExample:
+          Properties:
+            IsLogging: true
+            IsMultiRegionTrail: false
+            S3BucketName: CloudtrailBucket
+            S3KeyPrefix: /trailing
+            TrailName: Cloudtrail
+          Type: AWS::CloudTrail::Trail
 terraform:
   good:
     - |-
@@ -27,26 +50,3 @@ terraform:
           }
         }
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodExample:
-              Properties:
-                  IsLogging: true
-                  IsMultiRegionTrail: true
-                  S3BucketName: CloudtrailBucket
-                  S3KeyPrefix: /trailing
-                  TrailName: Cloudtrail
-              Type: AWS::CloudTrail::Trail
-  bad:
-    - |-
-      Resources:
-          BadExample:
-              Properties:
-                  IsLogging: true
-                  IsMultiRegionTrail: false
-                  S3BucketName: CloudtrailBucket
-                  S3KeyPrefix: /trailing
-                  TrailName: Cloudtrail
-              Type: AWS::CloudTrail::Trail

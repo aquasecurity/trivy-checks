@@ -1,3 +1,33 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodExample:
+          Properties:
+            AZMode: cross-az
+            CacheNodeType: cache.m3.medium
+            Engine: redis
+            NumCacheNodes: "3"
+            PreferredAvailabilityZones:
+              - us-west-2a
+              - us-west-2a
+              - us-west-2b
+            SnapshotRetentionLimit: 7
+          Type: AWS::ElastiCache::CacheCluster
+  bad:
+    - |
+      Resources:
+        BadExample:
+          Properties:
+            AZMode: cross-az
+            CacheNodeType: cache.m3.medium
+            Engine: redis
+            NumCacheNodes: "3"
+            PreferredAvailabilityZones:
+              - us-west-2a
+              - us-west-2a
+              - us-west-2b
+          Type: AWS::ElastiCache::CacheCluster
 terraform:
   good:
     - |-
@@ -23,33 +53,3 @@ terraform:
         engine_version       = "3.2.10"
         port                 = 6379
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodExample:
-              Properties:
-                  AZMode: cross-az
-                  CacheNodeType: cache.m3.medium
-                  Engine: redis
-                  NumCacheNodes: "3"
-                  PreferredAvailabilityZones:
-                      - us-west-2a
-                      - us-west-2a
-                      - us-west-2b
-                  SnapshotRetentionLimit: 7
-              Type: AWS::ElastiCache::CacheCluster
-  bad:
-    - |-
-      Resources:
-          BadExample:
-              Properties:
-                  AZMode: cross-az
-                  CacheNodeType: cache.m3.medium
-                  Engine: redis
-                  NumCacheNodes: "3"
-                  PreferredAvailabilityZones:
-                      - us-west-2a
-                      - us-west-2a
-                      - us-west-2b
-              Type: AWS::ElastiCache::CacheCluster

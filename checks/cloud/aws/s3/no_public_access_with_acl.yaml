@@ -1,3 +1,18 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodExample:
+          Properties:
+            AccessControl: Private
+          Type: AWS::S3::Bucket
+  bad:
+    - |
+      Resources:
+        BadExample:
+          Properties:
+            AccessControl: AuthenticatedRead
+          Type: AWS::S3::Bucket
 terraform:
   good:
     - |-
@@ -27,18 +42,3 @@ terraform:
         bucket = aws_s3_bucket.example.id
         acl    = "authenticated-read"
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodExample:
-              Properties:
-                  AccessControl: Private
-              Type: AWS::S3::Bucket
-  bad:
-    - |-
-      Resources:
-          BadExample:
-              Properties:
-                  AccessControl: AuthenticatedRead
-              Type: AWS::S3::Bucket

@@ -1,3 +1,26 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodExample:
+          Properties:
+            EncryptionConfiguration:
+              EncryptionType: KMS
+              KmsKey: alias/ecr-key
+            ImageScanningConfiguration:
+              ScanOnPush: false
+            ImageTagImmutability: IMMUTABLE
+            RepositoryName: test-repository
+          Type: AWS::ECR::Repository
+  bad:
+    - |
+      Resources:
+        BadExample:
+          Properties:
+            ImageScanningConfiguration:
+              ScanOnPush: false
+            RepositoryName: test-repository
+          Type: AWS::ECR::Repository
 terraform:
   good:
     - |-
@@ -28,26 +51,3 @@ terraform:
           scan_on_push = true
         }
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodExample:
-              Properties:
-                  EncryptionConfiguration:
-                      EncryptionType: KMS
-                      KmsKey: alias/ecr-key
-                  ImageScanningConfiguration:
-                      ScanOnPush: false
-                  ImageTagImmutability: IMMUTABLE
-                  RepositoryName: test-repository
-              Type: AWS::ECR::Repository
-  bad:
-    - |-
-      Resources:
-          BadExample:
-              Properties:
-                  ImageScanningConfiguration:
-                      ScanOnPush: false
-                  RepositoryName: test-repository
-              Type: AWS::ECR::Repository

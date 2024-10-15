@@ -7,12 +7,12 @@ import (
 	"strings"
 	"text/template"
 
+	"github.com/aquasecurity/trivy-checks/internal/examples"
 	"github.com/aquasecurity/trivy/pkg/iac/framework"
 	"github.com/aquasecurity/trivy/pkg/iac/rego"
 	"github.com/aquasecurity/trivy/pkg/iac/rules"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
 	types "github.com/aquasecurity/trivy/pkg/iac/types/rules"
-	"gopkg.in/yaml.v3"
 )
 
 func main() {
@@ -62,59 +62,41 @@ func writeDocsFile(meta types.RegisteredRule, path string) {
 	}
 
 	if err := tmpl.Execute(file, rule); err != nil {
-		fail("error occurred generating the document %v", err)
+		fail("error occurred generating the document %s", err.Error())
 	}
 	fmt.Printf("Generating docs file for policy %s\n", rule.AVDID)
 
-	if err := generateExamplesForEngine(rule, rule.Terraform, docpath, terraformMarkdownTemplate, "Terraform"); err != nil {
+	exmpls, path, err := examples.GetCheckExamples(rule)
+	if err != nil {
+		fail("failed to get check examples: %s", err.Error())
+	}
+
+	if path == "" {
+		return
+	}
+
+	if err := generateExamplesForEngine(rule, rule.Terraform, exmpls, docpath, terraformMarkdownTemplate, "Terraform"); err != nil {
 		fail("error generating examples for terraform: %v\n", err)
 	}
 
-	if err := generateExamplesForEngine(rule, rule.CloudFormation, docpath, cloudformationMarkdownTemplate, "CloudFormation"); err != nil {
+	if err := generateExamplesForEngine(rule, rule.CloudFormation, exmpls, docpath, cloudformationMarkdownTemplate, "CloudFormation"); err != nil {
 		fail("error generating examples for cloudformation: %v\n", err)
 	}
 }
 
-type checkExamples struct {
-	Terraform      providerExamples `yaml:"terraform,omitempty"`
-	CloudFormation providerExamples `yaml:"cloudformation,omitempty"`
-}
+func generateExamplesForEngine(rule scan.Rule, engine *scan.EngineMetadata, exmpls examples.CheckExamples, docpath, tpl, provider string) error {
 
-type providerExamples struct {
-	Good []string `yaml:"good,omitempty"`
-	Bad  []string `yaml:"bad,omitempty"`
-}
+	providerExampls := exmpls[strings.ToLower(provider)]
 
-func generateExamplesForEngine(rule scan.Rule, engine *scan.EngineMetadata, docpath, tpl, provider string) error {
-	if engine == nil {
+	if providerExampls.IsEmpty() {
 		return nil
 	}
 
-	if len(engine.GoodExamples) == 0 {
-		return nil
-	}
-
-	b, err := os.ReadFile(engine.GoodExamples[0])
-	if err != nil {
-		return err
-	}
-
-	var exmpls checkExamples
-	if err := yaml.Unmarshal(b, &exmpls); err != nil {
-		return err
-	}
-
-	switch provider {
-	case "Terraform":
-		engine.GoodExamples = exmpls.Terraform.Good
-	case "CloudFormation":
-		engine.GoodExamples = exmpls.CloudFormation.Good
-	}
+	engine.GoodExamples = providerExampls.Good.ToStrigns()
 
 	for i := range engine.GoodExamples {
 		engine.GoodExamples[i] = "\n" + engine.GoodExamples[i]
 	}
-
 	tmpl, err := template.New(strings.ToLower(provider)).Parse(tpl)
 	if err != nil {
 		fail("error occurred creating the template %v\n", err)

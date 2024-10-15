@@ -1,3 +1,34 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodExample:
+          Properties:
+            DistributionConfig:
+              DefaultCacheBehavior:
+                TargetOriginId: target
+                ViewerProtocolPolicy: https-only
+              Enabled: true
+              Logging:
+                Bucket: logging-bucket
+              Origins:
+                - DomainName: https://some.domain
+                  Id: somedomain1
+          Type: AWS::CloudFront::Distribution
+  bad:
+    - |
+      Resources:
+        BadExample:
+          Properties:
+            DistributionConfig:
+              DefaultCacheBehavior:
+                TargetOriginId: target
+                ViewerProtocolPolicy: https-only
+              Enabled: true
+              Origins:
+                - DomainName: https://some.domain
+                  Id: somedomain1
+          Type: AWS::CloudFront::Distribution
 terraform:
   good:
     - |-
@@ -15,34 +46,3 @@ terraform:
         // other config
         // no logging_config
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodExample:
-              Properties:
-                  DistributionConfig:
-                      DefaultCacheBehavior:
-                          TargetOriginId: target
-                          ViewerProtocolPolicy: https-only
-                      Enabled: true
-                      Logging:
-                          Bucket: logging-bucket
-                      Origins:
-                          - DomainName: https://some.domain
-                            Id: somedomain1
-              Type: AWS::CloudFront::Distribution
-  bad:
-    - |-
-      Resources:
-          BadExample:
-              Properties:
-                  DistributionConfig:
-                      DefaultCacheBehavior:
-                          TargetOriginId: target
-                          ViewerProtocolPolicy: https-only
-                      Enabled: true
-                      Origins:
-                          - DomainName: https://some.domain
-                            Id: somedomain1
-              Type: AWS::CloudFront::Distribution

@@ -1,3 +1,32 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodExampleBucket:
+          Properties:
+            AccessControl: Private
+            BucketName: my-bucket
+          Type: AWS::S3::Bucket
+        GoodExampleTrail:
+          Properties:
+            IsLogging: true
+            S3BucketName: my-bucket
+            TrailName: Cloudtrail
+          Type: AWS::CloudTrail::Trail
+  bad:
+    - |
+      Resources:
+        BadExampleBucket:
+          Properties:
+            AccessControl: AuthenticatedRead
+            BucketName: my-bucket
+          Type: AWS::S3::Bucket
+        BadExampleTrail:
+          Properties:
+            IsLogging: true
+            S3BucketName: my-bucket
+            TrailName: Cloudtrail
+          Type: AWS::CloudTrail::Trail
 terraform:
   good:
     - |-
@@ -39,32 +68,3 @@ terraform:
         bucket = "abcdefgh"
         acl    = "public-read"
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodExampleBucket:
-              Properties:
-                  AccessControl: Private
-                  BucketName: my-bucket
-              Type: AWS::S3::Bucket
-          GoodExampleTrail:
-              Properties:
-                  IsLogging: true
-                  S3BucketName: my-bucket
-                  TrailName: Cloudtrail
-              Type: AWS::CloudTrail::Trail
-  bad:
-    - |-
-      Resources:
-          BadExampleBucket:
-              Properties:
-                  AccessControl: AuthenticatedRead
-                  BucketName: my-bucket
-              Type: AWS::S3::Bucket
-          BadExampleTrail:
-              Properties:
-                  IsLogging: true
-                  S3BucketName: my-bucket
-                  TrailName: Cloudtrail
-              Type: AWS::CloudTrail::Trail

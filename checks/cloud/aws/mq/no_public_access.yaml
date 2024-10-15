@@ -1,3 +1,18 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodBroker:
+          Properties:
+            PubliclyAccessible: false
+          Type: AWS::AmazonMQ::Broker
+  bad:
+    - |
+      Resources:
+        BadBroker:
+          Properties:
+            PubliclyAccessible: true
+          Type: AWS::AmazonMQ::Broker
 terraform:
   good:
     - |-
@@ -41,18 +56,3 @@ terraform:
         }
         publicly_accessible = true
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodBroker:
-              Properties:
-                  PubliclyAccessible: false
-              Type: AWS::AmazonMQ::Broker
-  bad:
-    - |-
-      Resources:
-          BadBroker:
-              Properties:
-                  PubliclyAccessible: true
-              Type: AWS::AmazonMQ::Broker

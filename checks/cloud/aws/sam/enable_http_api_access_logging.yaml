@@ -1,22 +1,22 @@
 cloudformation:
   good:
-    - |-
+    - |
       Resources:
-          GoodExample:
-              Properties:
-                  AccessLogSettings:
-                      DestinationArn: gateway-logging
-                      Format: json
-                  Name: Good SAM API example
-                  StageName: Prod
-                  Tracing: Activey
-              Type: AWS::Serverless::HttpApi
+        GoodExample:
+          Properties:
+            AccessLogSettings:
+              DestinationArn: gateway-logging
+              Format: json
+            Name: Good SAM API example
+            StageName: Prod
+            Tracing: Activey
+          Type: AWS::Serverless::HttpApi
   bad:
-    - |-
+    - |
       Resources:
-          BadExample:
-              Properties:
-                  Name: Good SAM API example
-                  StageName: Prod
-                  Tracing: Passthrough
-              Type: AWS::Serverless::HttpApi
+        BadExample:
+          Properties:
+            Name: Good SAM API example
+            StageName: Prod
+            Tracing: Passthrough
+          Type: AWS::Serverless::HttpApi

@@ -1,3 +1,19 @@
+cloudformation:
+  good:
+    - |
+      Resources:
+        GoodTopic:
+          Properties:
+            KmsMasterKeyId: some-key
+            TopicName: blah
+          Type: AWS::SQS::Topic
+  bad:
+    - |
+      Resources:
+        BadTopic:
+          Properties:
+            TopicName: blah
+          Type: AWS::SNS::Topic
 terraform:
   good:
     - |-
@@ -9,19 +25,3 @@ terraform:
       resource "aws_sns_topic" "bad_example" {
         # no key id specified
       }
-cloudformation:
-  good:
-    - |-
-      Resources:
-          GoodTopic:
-              Properties:
-                  KmsMasterKeyId: some-key
-                  TopicName: blah
-              Type: AWS::SQS::Topic
-  bad:
-    - |-
-      Resources:
-          BadTopic:
-              Properties:
-                  TopicName: blah
-              Type: AWS::SNS::Topic

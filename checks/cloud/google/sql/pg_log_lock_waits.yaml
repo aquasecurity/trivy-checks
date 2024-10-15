@@ -12,7 +12,6 @@ terraform:
           }
         }
       }
-
   bad:
     - |-
       resource "google_sql_database_instance" "db" {
