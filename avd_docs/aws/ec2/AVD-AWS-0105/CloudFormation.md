@@ -2,7 +2,7 @@
 Set a more restrictive CIDR range
 
 ```yaml
-AWSTemplateFormatVersion: "2010-09-09T00:00:00Z"
+AWSTemplateFormatVersion: "2010-09-09"
 Description: Godd example of excessive ports
 Resources:
   NetworkACL:

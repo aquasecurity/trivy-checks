@@ -22,7 +22,7 @@ cloudformation:
             IAMRoleARN: arn:aws:iam::111122223333:role/DaxAccess
             NodeType: dax.r3.large
             ReplicationFactor: 1
-            SubnetGroupName: subnetGroupClu
+            SubnetGroupName: '!Ref subnetGroupClu'
           Type: AWS::DAX::Cluster
 terraform:
   good:

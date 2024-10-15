@@ -1,7 +1,7 @@
 cloudformation:
   good:
     - |
-      AWSTemplateFormatVersion: "2010-09-09T00:00:00Z"
+      AWSTemplateFormatVersion: "2010-09-09"
       Description: Good example of excessive ports
       Resources:
         NetworkACL:
@@ -18,7 +18,7 @@ cloudformation:
           Type: AWS::EC2::NetworkAclEntry
   bad:
     - |
-      AWSTemplateFormatVersion: "2010-09-09T00:00:00Z"
+      AWSTemplateFormatVersion: "2010-09-09"
       Description: Bad example of excessive ports
       Resources:
         NetworkACL:

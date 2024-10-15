@@ -24,7 +24,7 @@ Resources:
   GoodPermission:
     Properties:
       Action: lambda:InvokeFunction
-      FunctionName: BadExample
+      FunctionName: '!Ref GoodExample'
       Principal: s3.amazonaws.com
       SourceArn: lambda.amazonaws.com
     Type: AWS::Lambda::Permission

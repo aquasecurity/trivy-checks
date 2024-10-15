@@ -23,7 +23,7 @@ cloudformation:
         GoodPermission:
           Properties:
             Action: lambda:InvokeFunction
-            FunctionName: BadExample
+            FunctionName: '!Ref GoodExample'
             Principal: s3.amazonaws.com
             SourceArn: lambda.amazonaws.com
           Type: AWS::Lambda::Permission
@@ -51,7 +51,7 @@ cloudformation:
         BadPermission:
           Properties:
             Action: lambda:InvokeFunction
-            FunctionName: BadExample
+            FunctionName: '!Ref BadExample'
             Principal: s3.amazonaws.com
           Type: AWS::Lambda::Permission
 terraform:

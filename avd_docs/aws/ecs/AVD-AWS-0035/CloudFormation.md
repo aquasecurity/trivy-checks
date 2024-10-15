@@ -18,7 +18,7 @@ Resources:
             LogDriver: awslogs
             Options:
               awslogs-group: cfsec-logs
-              awslogs-region: AWS::Region
+              awslogs-region: '!Ref AWS::Region'
               awslogs-stream-prefix: cfsec
           MountPoints:
             - ContainerPath: /src
