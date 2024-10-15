@@ -129,8 +129,8 @@ var awsEcsTestCases = testCases{
 								Metadata:  trivyTypes.NewTestMetadata(),
 								Name:      trivyTypes.String("my_service", trivyTypes.NewTestMetadata()),
 								Image:     trivyTypes.String("my_image", trivyTypes.NewTestMetadata()),
-								CPU:       trivyTypes.Int(2, trivyTypes.NewTestMetadata()),
-								Memory:    trivyTypes.Int(256, trivyTypes.NewTestMetadata()),
+								CPU:       trivyTypes.String("2", trivyTypes.NewTestMetadata()),
+								Memory:    trivyTypes.String("256", trivyTypes.NewTestMetadata()),
 								Essential: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 								Environment: []ecs.EnvVar{
 									{
