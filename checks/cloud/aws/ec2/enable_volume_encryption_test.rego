@@ -15,7 +15,4 @@ test_deny_not_encrypted_volume if {
 	test.assert_equal_message("EBS volume is not encrypted", check.deny) with input as inp
 }
 
-build_input(encryption) := {"aws": {"ec2": {"volumes": [{
-	"__defsec_metadata": {"managed": true},
-	"encryption": encryption,
-}]}}}
+build_input(encryption) := {"aws": {"ec2": {"volumes": [{"encryption": encryption}]}}}

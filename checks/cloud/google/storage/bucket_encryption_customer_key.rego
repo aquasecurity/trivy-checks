@@ -32,7 +32,7 @@ import rego.v1
 
 deny contains res if {
 	some bucket in input.google.storage.buckets
-	bucket.__defsec_metadata.managed
+	isManaged(bucket)
 	bucket.encryption.defaultkmskeyname.value == ""
 	res := result.new("Storage bucket encryption does not use a customer-managed key.", bucket.encryption.defaultkmskeyname)
 }
