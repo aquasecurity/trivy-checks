@@ -3,6 +3,7 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::DAX::Cluster
           Properties:
             ClusterName: MyDAXCluster
             Description: DAX cluster with encryption at rest
@@ -11,19 +12,18 @@ cloudformation:
             ReplicationFactor: 1
             SSESpecification:
               SSEEnabled: true
-          Type: AWS::DAX::Cluster
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::DAX::Cluster
           Properties:
             ClusterName: MyDAXCluster
             Description: DAX cluster without encryption at rest
             IAMRoleARN: arn:aws:iam::111122223333:role/DaxAccess
             NodeType: dax.r3.large
             ReplicationFactor: 1
-            SubnetGroupName: '!Ref subnetGroupClu'
-          Type: AWS::DAX::Cluster
+            SubnetGroupName: !Ref subnetGroupClu
 terraform:
   good:
     - |-

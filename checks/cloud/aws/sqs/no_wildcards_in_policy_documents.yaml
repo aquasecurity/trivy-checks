@@ -2,13 +2,17 @@ cloudformation:
   good:
     - |
       AWSTemplateFormatVersion: "2010-09-09"
+
       Description: Good example of queue policy
+
       Resources:
         MyQueue:
+          Type: AWS::SQS::Queue
           Properties:
             Name: something
-          Type: AWS::SQS::Queue
+
         SampleSQSPolicy:
+          Type: AWS::SQS::QueuePolicy
           Properties:
             PolicyDocument:
               Statement:
@@ -21,18 +25,21 @@ cloudformation:
                       - "111122223333"
                   Resource: arn:aws:sqs:us-east-2:444455556666:queue2
             Queues:
-              - Ref: MyQueue
-          Type: AWS::SQS::QueuePolicy
+              - !Ref MyQueue
   bad:
     - |
       AWSTemplateFormatVersion: "2010-09-09"
+
       Description: Bad example of queue policy
+
       Resources:
         MyQueue:
+          Type: AWS::SQS::Queue
           Properties:
             Name: something
-          Type: AWS::SQS::Queue
+
         SampleSQSPolicy:
+          Type: AWS::SQS::QueuePolicy
           Properties:
             PolicyDocument:
               Statement:
@@ -44,8 +51,7 @@ cloudformation:
                       - "111122223333"
                   Resource: arn:aws:sqs:us-east-2:444455556666:queue2
             Queues:
-              - '!Ref MyQueue'
-          Type: AWS::SQS::QueuePolicy
+              - !Ref MyQueue
 terraform:
   good:
     - |-

@@ -3,6 +3,7 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::Kinesis::Stream
           Properties:
             Name: GoodExample
             RetentionPeriodHours: 168
@@ -13,11 +14,11 @@ cloudformation:
             Tags:
               - Key: Environment
                 Value: Production
-          Type: AWS::Kinesis::Stream
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::Kinesis::Stream
           Properties:
             Name: BadExample
             RetentionPeriodHours: 168
@@ -25,7 +26,6 @@ cloudformation:
             Tags:
               - Key: Environment
                 Value: Production
-          Type: AWS::Kinesis::Stream
 terraform:
   good:
     - |-

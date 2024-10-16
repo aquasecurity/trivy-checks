@@ -3,22 +3,22 @@ cloudformation:
     - |
       Resources:
         GoodCluster:
+          Type: AWS::MSK::Cluster
           Properties:
             LoggingInfo:
               BrokerLogs:
                 S3:
                   Enabled: true
-          Type: AWS::MSK::Cluster
   bad:
     - |
       Resources:
         BadCluster:
+          Type: AWS::MSK::Cluster
           Properties:
             LoggingInfo:
               BrokerLogs:
                 CloudWatchLogs:
                   Enabled: false
-          Type: AWS::MSK::Cluster
 terraform:
   good:
     - |-

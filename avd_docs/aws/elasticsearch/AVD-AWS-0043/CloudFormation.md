@@ -4,6 +4,7 @@ Enable encrypted node to node communication
 ```yaml
 Resources:
   GoodExample:
+    Type: AWS::Elasticsearch::Domain
     Properties:
       DomainName: test
       EBSOptions:
@@ -24,7 +25,6 @@ Resources:
         KmsKeyId: alias/kmskey
       NodeToNodeEncryptionOptions:
         Enabled: true
-    Type: AWS::Elasticsearch::Domain
 
 ```
 

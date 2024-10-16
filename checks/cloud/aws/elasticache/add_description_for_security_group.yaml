@@ -3,37 +3,41 @@ cloudformation:
     - |
       Resources:
         GoodExampleCacheGroup:
+          Type: AWS::ElastiCache::SecurityGroup
           Properties:
             Description: Some description
-          Type: AWS::ElastiCache::SecurityGroup
+
         GoodExampleEc2SecurityGroup:
+          Type: AWS::EC2::SecurityGroup
           Properties:
             GroupDescription: Good Elasticache Security Group
             GroupName: GoodExample
-          Type: AWS::EC2::SecurityGroup
+
         GoodSecurityGroupIngress:
+          Type: AWS::ElastiCache::SecurityGroupIngress
           Properties:
             CacheSecurityGroupName: GoodExampleCacheGroup
             EC2SecurityGroupName: GoodExampleEc2SecurityGroup
-          Type: AWS::ElastiCache::SecurityGroupIngress
   bad:
     - |
       Resources:
         BadExampleCacheGroup:
+          Type: AWS::ElastiCache::SecurityGroup
           Properties:
             Tags:
               - Name: BadExample
-          Type: AWS::ElastiCache::SecurityGroup
+
         BadExampleEc2SecurityGroup:
+          Type: AWS::EC2::SecurityGroup
           Properties:
             GroupDescription: Bad Elasticache Security Group
             GroupName: BadExample
-          Type: AWS::EC2::SecurityGroup
+
         BadSecurityGroupIngress:
+          Type: AWS::ElastiCache::SecurityGroupIngress
           Properties:
             CacheSecurityGroupName: BadExampleCacheGroup
             EC2SecurityGroupName: BadExampleEc2SecurityGroup
-          Type: AWS::ElastiCache::SecurityGroupIngress
 terraform:
   good:
     - |-

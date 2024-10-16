@@ -4,6 +4,7 @@ Only use immutable images in ECR
 ```yaml
 Resources:
   GoodExample:
+    Type: AWS::ECR::Repository
     Properties:
       EncryptionConfiguration:
         EncryptionType: KMS
@@ -12,7 +13,6 @@ Resources:
         ScanOnPush: false
       ImageTagMutability: IMMUTABLE
       RepositoryName: test-repository
-    Type: AWS::ECR::Repository
 
 ```
 

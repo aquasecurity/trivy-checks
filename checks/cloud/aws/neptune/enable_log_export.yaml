@@ -3,18 +3,18 @@ cloudformation:
     - |
       Resources:
         GoodCluster:
+          Type: AWS::Neptune::DBCluster
           Properties:
             EnableCloudwatchLogsExports:
               - audit
-          Type: AWS::Neptune::DBCluster
   bad:
     - |
       Resources:
         BadCluster:
+          Type: AWS::Neptune::DBCluster
           Properties:
             EnableCloudwatchLogsExports:
               - debug
-          Type: AWS::Neptune::DBCluster
 terraform:
   good:
     - |-

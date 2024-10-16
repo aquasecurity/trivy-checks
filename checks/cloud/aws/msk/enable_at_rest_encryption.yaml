@@ -3,17 +3,17 @@ cloudformation:
     - |
       Resources:
         GoodCluster:
+          Type: AWS::MSK::Cluster
           Properties:
             EncryptionInfo:
               EncryptionAtRest:
                 DataVolumeKMSKeyId: foo-bar-key
-          Type: AWS::MSK::Cluster
   bad:
     - |
       Resources:
         BadCluster:
-          Properties: null
           Type: AWS::MSK::Cluster
+          Properties: null
 terraform:
   good:
     - |-

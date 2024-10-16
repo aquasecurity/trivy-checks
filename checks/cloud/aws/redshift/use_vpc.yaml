@@ -3,17 +3,17 @@ cloudformation:
     - |
       Resources:
         GoodCluster:
+          Type: AWS::Redshift::Cluster
           Properties:
             ClusterSubnetGroupName: my-subnet-group
-          Type: AWS::Redshift::Cluster
   bad:
     - |
       Resources:
         BadCluster:
+          Type: AWS::Redshift::Cluster
           Properties:
             ClusterType: single-node
             DBName: mydb
-          Type: AWS::Redshift::Cluster
 terraform:
   good:
     - |-

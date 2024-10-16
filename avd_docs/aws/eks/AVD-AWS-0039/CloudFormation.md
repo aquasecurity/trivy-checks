@@ -4,6 +4,7 @@ Enable encryption of EKS secrets
 ```yaml
 Resources:
   GoodExample:
+    Type: AWS::EKS::Cluster
     Properties:
       EncryptionConfig:
         Provider:
@@ -19,7 +20,6 @@ Resources:
           - subnet-e7e761ac
       RoleArn: arn:aws:iam::012345678910:role/eks-service-role-good-example
       Version: "1.14"
-    Type: AWS::EKS::Cluster
 
 ```
 

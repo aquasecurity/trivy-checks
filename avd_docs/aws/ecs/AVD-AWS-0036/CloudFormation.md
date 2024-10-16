@@ -4,13 +4,15 @@ Use secrets for the task definition
 ```yaml
 Resources:
   GoodExample:
+    Type: AWS::ECS::Cluster
     Properties:
       ClusterName: MyCluster
       ClusterSettings:
         - Name: containerInsights
           Value: enabled
-    Type: AWS::ECS::Cluster
+
   GoodTask:
+    Type: AWS::ECS::TaskDefinition
     Properties:
       ContainerDefinitions:
         - Image: cfsec/cfsec:latest
@@ -18,7 +20,7 @@ Resources:
             LogDriver: awslogs
             Options:
               awslogs-group: cfsec-logs
-              awslogs-region: '!Ref AWS::Region'
+              awslogs-region: !Ref AWS::Region
               awslogs-stream-prefix: cfsec
           MountPoints:
             - ContainerPath: /src
@@ -36,7 +38,6 @@ Resources:
             FilesystemId: fs1
             TransitEncryption: ENABLED
           Name: jenkins-home
-    Type: AWS::ECS::TaskDefinition
 
 ```
 

@@ -3,19 +3,19 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::ECS::Cluster
           Properties:
             ClusterName: MyCluster
             ClusterSettings:
               - Name: containerInsights
                 Value: enabled
-          Type: AWS::ECS::Cluster
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::ECS::Cluster
           Properties:
             ClusterName: MyCluster
-          Type: AWS::ECS::Cluster
 terraform:
   good:
     - |-

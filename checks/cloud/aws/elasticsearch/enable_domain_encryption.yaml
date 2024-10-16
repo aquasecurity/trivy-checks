@@ -3,6 +3,7 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::Elasticsearch::Domain
           Properties:
             DomainName: test
             EBSOptions:
@@ -21,11 +22,11 @@ cloudformation:
             EncryptionAtRestOptions:
               Enabled: true
               KmsKeyId: alias/kmskey
-          Type: AWS::Elasticsearch::Domain
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::Elasticsearch::Domain
           Properties:
             DomainName: test
             EBSOptions:
@@ -41,7 +42,6 @@ cloudformation:
               InstanceType: m3.medium.elasticsearch
               ZoneAwarenessEnabled: true
             ElasticsearchVersion: "7.10"
-          Type: AWS::Elasticsearch::Domain
 terraform:
   good:
     - |-

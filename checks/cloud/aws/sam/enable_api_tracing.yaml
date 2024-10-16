@@ -3,24 +3,24 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::Serverless::Api
           Properties:
             Name: Good SAM API example
             StageName: Prod
             TracingEnabled: true
-          Type: AWS::Serverless::Api
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::Serverless::Api
           Properties:
             Name: Bad SAM API example
             StageName: Prod
             TracingEnabled: false
-          Type: AWS::Serverless::Api
     - |
       Resources:
         BadExample:
+          Type: AWS::Serverless::Api
           Properties:
             Name: Bad SAM API example
             StageName: Prod
-          Type: AWS::Serverless::Api

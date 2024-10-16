@@ -3,10 +3,10 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::S3::Bucket
           Properties:
             VersioningConfiguration:
               Status: Enabled
-          Type: AWS::S3::Bucket
   bad:
     - |
       Resources:

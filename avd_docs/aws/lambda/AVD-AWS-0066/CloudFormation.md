@@ -4,6 +4,7 @@ Enable tracing
 ```yaml
 Resources:
   GoodExample:
+    Type: AWS::Lambda::Function
     Properties:
       Code:
         S3Bucket: my-bucket
@@ -20,7 +21,6 @@ Resources:
         SubnetIds:
           - subnet-071f712345678e7c8
           - subnet-07fd123456788a036
-    Type: AWS::Lambda::Function
 
 ```
 

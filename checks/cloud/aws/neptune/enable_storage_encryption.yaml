@@ -3,19 +3,21 @@ cloudformation:
     - |
       Resources:
         GoodCluster:
+          Type: AWS::Neptune::DBCluster
           Properties:
             KmsKeyId: something
             StorageEncrypted: true
-          Type: AWS::Neptune::DBCluster
   bad:
     - |
       AWSTemplateFormatVersion: "2010-09-09"
+
       Description: Bad example
+
       Resources:
         BadCluster:
+          Type: AWS::Neptune::DBCluster
           Properties:
             StorageEncrypted: false
-          Type: AWS::Neptune::DBCluster
 terraform:
   good:
     - |-

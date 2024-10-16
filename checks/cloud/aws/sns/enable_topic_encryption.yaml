@@ -3,17 +3,17 @@ cloudformation:
     - |
       Resources:
         GoodTopic:
+          Type: AWS::SQS::Topic
           Properties:
             KmsMasterKeyId: some-key
             TopicName: blah
-          Type: AWS::SQS::Topic
   bad:
     - |
       Resources:
         BadTopic:
+          Type: AWS::SNS::Topic
           Properties:
             TopicName: blah
-          Type: AWS::SNS::Topic
 terraform:
   good:
     - |-

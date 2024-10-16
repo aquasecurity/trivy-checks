@@ -3,6 +3,7 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::CloudFront::Distribution
           Properties:
             DistributionConfig:
               DefaultCacheBehavior:
@@ -16,11 +17,11 @@ cloudformation:
                   Id: somedomain1
               ViewerCertificate:
                 MinimumProtocolVersion: TLSv1.2_2021
-          Type: AWS::CloudFront::Distribution
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::CloudFront::Distribution
           Properties:
             DistributionConfig:
               DefaultCacheBehavior:
@@ -34,7 +35,6 @@ cloudformation:
                   Id: somedomain1
               ViewerCertificate:
                 MinimumProtocolVersion: TLSv1.0
-          Type: AWS::CloudFront::Distribution
 terraform:
   good:
     - |-

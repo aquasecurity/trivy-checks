@@ -3,6 +3,7 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::CloudFront::Distribution
           Properties:
             DistributionConfig:
               DefaultCacheBehavior:
@@ -14,11 +15,11 @@ cloudformation:
               Origins:
                 - DomainName: https://some.domain
                   Id: somedomain1
-          Type: AWS::CloudFront::Distribution
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::CloudFront::Distribution
           Properties:
             DistributionConfig:
               DefaultCacheBehavior:
@@ -28,7 +29,6 @@ cloudformation:
               Origins:
                 - DomainName: https://some.domain
                   Id: somedomain1
-          Type: AWS::CloudFront::Distribution
 terraform:
   good:
     - |-

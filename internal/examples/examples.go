@@ -1,13 +1,15 @@
 package examples
 
 import (
-	"bytes"
 	"strings"
+
+	"github.com/aws-cloudformation/rain/cft/format"
+	"github.com/aws-cloudformation/rain/cft/parse"
+	"github.com/hashicorp/hcl/v2/hclwrite"
+	"gopkg.in/yaml.v3"
 
 	trivy_checks "github.com/aquasecurity/trivy-checks"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
-	"github.com/hashicorp/hcl/v2/hclwrite"
-	"gopkg.in/yaml.v3"
 )
 
 func GetCheckExamples(r scan.Rule) (CheckExamples, string, error) {
@@ -97,25 +99,18 @@ func (e CheckExamples) Format() {
 
 var formatterMap = map[string]func(blockString) blockString{
 	"terraform":      formatHCL,
-	"cloudformation": formatYaml,
+	"cloudformation": formatCft,
 }
 
 func formatHCL(b blockString) blockString {
 	return blockString(hclwrite.Format([]byte(strings.Trim(string(b), " \n"))))
 }
 
-func formatYaml(b blockString) blockString {
-	var d any
-	if err := yaml.Unmarshal([]byte(b), &d); err != nil {
+func formatCft(b blockString) blockString {
+	tmpl, err := parse.String(string(b))
+	if err != nil {
 		panic(err)
 	}
 
-	var buf bytes.Buffer
-	enc := yaml.NewEncoder(&buf)
-	enc.SetIndent(2)
-
-	if err := enc.Encode(d); err != nil {
-		panic(err)
-	}
-	return blockString(buf.String())
+	return blockString(format.CftToYaml(tmpl))
 }

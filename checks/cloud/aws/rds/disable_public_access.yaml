@@ -3,16 +3,16 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::RDS::DBInstance
           Properties:
             PubliclyAccessible: false
-          Type: AWS::RDS::DBInstance
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::RDS::DBInstance
           Properties:
             PubliclyAccessible: true
-          Type: AWS::RDS::DBInstance
 terraform:
   good:
     - |-

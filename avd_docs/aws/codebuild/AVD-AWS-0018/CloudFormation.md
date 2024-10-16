@@ -4,6 +4,7 @@ Enable encryption for CodeBuild project artifacts
 ```yaml
 Resources:
   GoodProject:
+    Type: AWS::CodeBuild::Project
     Properties:
       Artifacts:
         ArtifactIdentifier: String
@@ -25,7 +26,6 @@ Resources:
           Packaging: String
           Path: String
           Type: String
-    Type: AWS::CodeBuild::Project
 
 ```
 

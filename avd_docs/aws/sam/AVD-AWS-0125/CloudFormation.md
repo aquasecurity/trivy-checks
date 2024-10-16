@@ -4,6 +4,7 @@ Enable tracing
 ```yaml
 Resources:
   GoodFunction:
+    Type: AWS::Serverless::Function
     Properties:
       ImageConfig:
         Command:
@@ -14,7 +15,6 @@ Resources:
       ImageUri: account-id.dkr.ecr.region.amazonaws.com/ecr-repo-name:image-name
       PackageType: Image
       Tracing: Active
-    Type: AWS::Serverless::Function
 
 ```
 

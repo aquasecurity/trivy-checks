@@ -4,6 +4,7 @@ Enable logging for ElasticSearch domains
 ```yaml
 Resources:
   GoodExample:
+    Type: AWS::Elasticsearch::Domain
     Properties:
       DomainName: test
       EBSOptions:
@@ -25,7 +26,6 @@ Resources:
       LogPublishingOptions:
         AUDIT_LOGS:
           Enabled: true
-    Type: AWS::Elasticsearch::Domain
 
 ```
 

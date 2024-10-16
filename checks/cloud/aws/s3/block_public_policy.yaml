@@ -3,20 +3,20 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::S3::Bucket
           Properties:
             PublicAccessBlockConfiguration:
               BlockPublicAcls: true
               BlockPublicPolicy: true
               IgnorePublicAcls: true
               RestrictPublicBuckets: true
-          Type: AWS::S3::Bucket
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::S3::Bucket
           Properties:
             AccessControl: AuthenticatedRead
-          Type: AWS::S3::Bucket
 terraform:
   good:
     - |-

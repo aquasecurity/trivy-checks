@@ -4,6 +4,7 @@ Enable tracing
 ```yaml
 Resources:
   GoodStateMachine:
+    Type: AWS::Serverless::StateMachine
     Properties:
       Definition:
         StartAt: MyLambdaState
@@ -15,7 +16,6 @@ Resources:
       Role: arn:aws:iam::123456123456:role/service-role/my-sample-role
       Tracing:
         Enabled: true
-    Type: AWS::Serverless::StateMachine
 
 ```
 

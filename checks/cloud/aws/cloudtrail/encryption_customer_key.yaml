@@ -3,6 +3,7 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::CloudTrail::Trail
           Properties:
             IsLogging: true
             IsMultiRegionTrail: true
@@ -10,18 +11,17 @@ cloudformation:
             S3BucketName: CloudtrailBucket
             S3KeyPrefix: /trailing
             TrailName: Cloudtrail
-          Type: AWS::CloudTrail::Trail
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::CloudTrail::Trail
           Properties:
             IsLogging: true
             IsMultiRegionTrail: false
             S3BucketName: CloudtrailBucket
             S3KeyPrefix: /trailing
             TrailName: Cloudtrail
-          Type: AWS::CloudTrail::Trail
 terraform:
   good:
     - |-

@@ -3,19 +3,19 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::AutoScaling::LaunchConfiguration
           Properties:
             ImageId: ami-123456
             InstanceType: t2.small
-          Type: AWS::AutoScaling::LaunchConfiguration
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::AutoScaling::LaunchConfiguration
           Properties:
             AssociatePublicIpAddress: true
             ImageId: ami-123456
             InstanceType: t2.small
-          Type: AWS::AutoScaling::LaunchConfiguration
 terraform:
   good:
     - |-

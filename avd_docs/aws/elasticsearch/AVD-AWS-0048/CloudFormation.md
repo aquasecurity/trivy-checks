@@ -4,6 +4,7 @@ Enable ElasticSearch domain encryption
 ```yaml
 Resources:
   GoodExample:
+    Type: AWS::Elasticsearch::Domain
     Properties:
       DomainName: test
       EBSOptions:
@@ -22,7 +23,6 @@ Resources:
       EncryptionAtRestOptions:
         Enabled: true
         KmsKeyId: alias/kmskey
-    Type: AWS::Elasticsearch::Domain
 
 ```
 

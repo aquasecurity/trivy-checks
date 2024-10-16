@@ -4,6 +4,7 @@ Enable WAF for the CloudFront distribution
 ```yaml
 Resources:
   GoodExample:
+    Type: AWS::CloudFront::Distribution
     Properties:
       DistributionConfig:
         DefaultCacheBehavior:
@@ -16,7 +17,6 @@ Resources:
           - DomainName: https://some.domain
             Id: somedomain1
         WebACLId: waf_id
-    Type: AWS::CloudFront::Distribution
 
 ```
 

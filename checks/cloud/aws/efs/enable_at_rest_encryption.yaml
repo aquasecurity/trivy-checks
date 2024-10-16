@@ -3,6 +3,7 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::EFS::FileSystem
           Properties:
             BackupPolicy:
               Status: ENABLED
@@ -11,11 +12,11 @@ cloudformation:
               - TransitionToIA: AFTER_60_DAYS
             PerformanceMode: generalPurpose
             ThroughputMode: bursting
-          Type: AWS::EFS::FileSystem
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::EFS::FileSystem
           Properties:
             BackupPolicy:
               Status: ENABLED
@@ -24,7 +25,6 @@ cloudformation:
               - TransitionToIA: AFTER_60_DAYS
             PerformanceMode: generalPurpose
             ThroughputMode: bursting
-          Type: AWS::EFS::FileSystem
 terraform:
   good:
     - |-

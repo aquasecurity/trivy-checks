@@ -3,6 +3,7 @@ cloudformation:
     - |
       Resources:
         GoodProject:
+          Type: AWS::CodeBuild::Project
           Properties:
             Artifacts:
               ArtifactIdentifier: String
@@ -24,11 +25,11 @@ cloudformation:
                 Packaging: String
                 Path: String
                 Type: String
-          Type: AWS::CodeBuild::Project
   bad:
     - |
       Resources:
         GoodProject:
+          Type: AWS::CodeBuild::Project
           Properties:
             Artifacts:
               ArtifactIdentifier: String
@@ -50,10 +51,10 @@ cloudformation:
                 Packaging: String
                 Path: String
                 Type: String
-          Type: AWS::CodeBuild::Project
     - |
       Resources:
         GoodProject:
+          Type: AWS::CodeBuild::Project
           Properties:
             Artifacts:
               ArtifactIdentifier: String
@@ -75,7 +76,6 @@ cloudformation:
                 Packaging: String
                 Path: String
                 Type: String
-          Type: AWS::CodeBuild::Project
 terraform:
   good:
     - |-

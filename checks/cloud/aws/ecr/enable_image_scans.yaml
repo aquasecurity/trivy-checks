@@ -3,6 +3,7 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::ECR::Repository
           Properties:
             EncryptionConfiguration:
               EncryptionType: KMS
@@ -11,16 +12,15 @@ cloudformation:
               ScanOnPush: true
             ImageTagImmutability: IMMUTABLE
             RepositoryName: test-repository
-          Type: AWS::ECR::Repository
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::ECR::Repository
           Properties:
             ImageScanningConfiguration:
               ScanOnPush: false
             RepositoryName: test-repository
-          Type: AWS::ECR::Repository
 terraform:
   good:
     - |-

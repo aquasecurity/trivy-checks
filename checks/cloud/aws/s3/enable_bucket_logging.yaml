@@ -3,14 +3,15 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::S3::Bucket
           Properties:
             LoggingConfiguration:
               DestinationBucketName: logging-bucket
               LogFilePrefix: accesslogs/
-          Type: AWS::S3::Bucket
     - |
       Resources:
         GoodExample:
+          Type: AWS::S3::Bucket
           Properties:
             AccessControl: Private
             BucketName: my-s3-bucket-${BucketSuffix}
@@ -25,13 +26,12 @@ cloudformation:
               BlockPublicPolicy: true
               IgnorePublicAcls: true
               RestrictPublicBuckets: true
-          Type: AWS::S3::Bucket
   bad:
     - |
       Resources:
         BadExample:
-          Properties: null
           Type: AWS::S3::Bucket
+          Properties: null
 terraform:
   good:
     - |-

@@ -3,6 +3,7 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::Serverless::Api
           Properties:
             AccessLogSetting:
               DestinationArn: gateway-logging
@@ -12,13 +13,12 @@ cloudformation:
             Name: Good SAM API example
             StageName: Prod
             TracingEnabled: false
-          Type: AWS::Serverless::Api
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::Serverless::Api
           Properties:
             Name: Bad SAM API example
             StageName: Prod
             TracingEnabled: false
-          Type: AWS::Serverless::Api

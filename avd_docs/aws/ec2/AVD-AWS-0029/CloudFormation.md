@@ -4,6 +4,7 @@ Remove sensitive data from the EC2 instance user-data
 ```yaml
 Resources:
   GoodExample:
+    Type: AWS::EC2::Instance
     Properties:
       BlockDeviceMappings:
         - DeviceName: /dev/sdm
@@ -16,7 +17,6 @@ Resources:
       ImageId: ami-79fd7eee
       KeyName: testkey
       UserData: export SSM_PATH=/database/creds
-    Type: AWS::EC2::Instance
 
 ```
 

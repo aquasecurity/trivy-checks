@@ -3,17 +3,17 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::Redshift::Cluster
           Properties:
             Encrypted: true
             KmsKeyId: something
-          Type: AWS::Redshift::Cluster
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::Redshift::Cluster
           Properties:
             Encrypted: false
-          Type: AWS::Redshift::Cluster
 terraform:
   good:
     - |-

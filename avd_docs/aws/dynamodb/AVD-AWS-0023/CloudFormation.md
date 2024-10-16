@@ -4,6 +4,7 @@ Enable encryption at rest for DAX Cluster
 ```yaml
 Resources:
   GoodExample:
+    Type: AWS::DAX::Cluster
     Properties:
       ClusterName: MyDAXCluster
       Description: DAX cluster with encryption at rest
@@ -12,7 +13,6 @@ Resources:
       ReplicationFactor: 1
       SSESpecification:
         SSEEnabled: true
-    Type: AWS::DAX::Cluster
 
 ```
 

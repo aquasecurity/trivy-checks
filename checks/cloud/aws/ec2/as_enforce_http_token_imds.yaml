@@ -3,20 +3,20 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::AutoScaling::LaunchConfiguration
           Properties:
             MetadataOptions:
               HttpEndpoint: enabled
               HttpTokens: required
-          Type: AWS::AutoScaling::LaunchConfiguration
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::AutoScaling::LaunchConfiguration
           Properties:
             MetadataOptions:
               HttpEndpoint: enabled
               HttpTokens: optional
-          Type: AWS::AutoScaling::LaunchConfiguration
 terraform:
   good:
     - |-

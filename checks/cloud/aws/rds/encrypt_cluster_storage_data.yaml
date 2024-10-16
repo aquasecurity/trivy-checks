@@ -3,17 +3,17 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::RDS::DBCluster
           Properties:
             KmsKeyId: something
             StorageEncrypted: true
-          Type: AWS::RDS::DBCluster
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::RDS::DBCluster
           Properties:
             StorageEncrypted: false
-          Type: AWS::RDS::DBCluster
 terraform:
   good:
     - |-

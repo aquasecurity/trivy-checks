@@ -4,6 +4,7 @@ Enable encryption for EFS
 ```yaml
 Resources:
   GoodExample:
+    Type: AWS::EFS::FileSystem
     Properties:
       BackupPolicy:
         Status: ENABLED
@@ -12,7 +13,6 @@ Resources:
         - TransitionToIA: AFTER_60_DAYS
       PerformanceMode: generalPurpose
       ThroughputMode: bursting
-    Type: AWS::EFS::FileSystem
 
 ```
 

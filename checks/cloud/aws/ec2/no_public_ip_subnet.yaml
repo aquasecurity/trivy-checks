@@ -3,17 +3,17 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::EC2::Subnet
           Properties:
             VpcId: vpc-123456
-          Type: AWS::EC2::Subnet
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::EC2::Subnet
           Properties:
             MapPublicIpOnLaunch: true
             VpcId: vpc-123456
-          Type: AWS::EC2::Subnet
 terraform:
   good:
     - |-

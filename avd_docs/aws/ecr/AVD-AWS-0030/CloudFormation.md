@@ -4,6 +4,7 @@ Enable ECR image scanning
 ```yaml
 Resources:
   GoodExample:
+    Type: AWS::ECR::Repository
     Properties:
       EncryptionConfiguration:
         EncryptionType: KMS
@@ -12,7 +13,6 @@ Resources:
         ScanOnPush: true
       ImageTagImmutability: IMMUTABLE
       RepositoryName: test-repository
-    Type: AWS::ECR::Repository
 
 ```
 

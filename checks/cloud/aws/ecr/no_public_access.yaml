@@ -3,6 +3,7 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::ECR::Repository
           Properties:
             EncryptionConfiguration:
               EncryptionType: KMS
@@ -27,11 +28,11 @@ cloudformation:
                       - arn:aws:iam::123456789012:user/Alice
                   Sid: AllowPushPull
               Version: "2012-10-17"
-          Type: AWS::ECR::Repository
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::ECR::Repository
           Properties:
             ImageScanningConfiguration:
               ScanOnPush: false
@@ -52,7 +53,6 @@ cloudformation:
                       - '*'
                   Sid: AllowPushPull
               Version: "2012-10-17"
-          Type: AWS::ECR::Repository
 terraform:
   good:
     - |-

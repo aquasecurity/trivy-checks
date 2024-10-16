@@ -4,6 +4,7 @@ Enable in transit encryption
 ```yaml
 Resources:
   GoodExample:
+    Type: AWS::Kinesis::Stream
     Properties:
       Name: GoodExample
       RetentionPeriodHours: 168
@@ -14,7 +15,6 @@ Resources:
       Tags:
         - Key: Environment
           Value: Production
-    Type: AWS::Kinesis::Stream
 
 ```
 

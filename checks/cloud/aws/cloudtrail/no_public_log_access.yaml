@@ -3,30 +3,32 @@ cloudformation:
     - |
       Resources:
         GoodExampleBucket:
+          Type: AWS::S3::Bucket
           Properties:
             AccessControl: Private
             BucketName: my-bucket
-          Type: AWS::S3::Bucket
+
         GoodExampleTrail:
+          Type: AWS::CloudTrail::Trail
           Properties:
             IsLogging: true
             S3BucketName: my-bucket
             TrailName: Cloudtrail
-          Type: AWS::CloudTrail::Trail
   bad:
     - |
       Resources:
         BadExampleBucket:
+          Type: AWS::S3::Bucket
           Properties:
             AccessControl: AuthenticatedRead
             BucketName: my-bucket
-          Type: AWS::S3::Bucket
+
         BadExampleTrail:
+          Type: AWS::CloudTrail::Trail
           Properties:
             IsLogging: true
             S3BucketName: my-bucket
             TrailName: Cloudtrail
-          Type: AWS::CloudTrail::Trail
 terraform:
   good:
     - |-

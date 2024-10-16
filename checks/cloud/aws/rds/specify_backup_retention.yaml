@@ -3,15 +3,15 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::RDS::DBInstance
           Properties:
             BackupRetentionPeriod: 30
-          Type: AWS::RDS::DBInstance
   bad:
     - |
       Resources:
         BadExample:
-          Properties: null
           Type: AWS::RDS::DBInstance
+          Properties: null
 terraform:
   good:
     - |-

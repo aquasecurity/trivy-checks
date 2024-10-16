@@ -4,6 +4,7 @@ Enable storage encryption
 ```yaml
 Resources:
   GoodExample:
+    Type: AWS::DocDB::DBCluster
     Properties:
       BackupRetentionPeriod: 8
       DBClusterIdentifier: sample-cluster
@@ -13,8 +14,9 @@ Resources:
         - profiler
       KmsKeyId: your-kms-key-id
       StorageEncrypted: true
-    Type: AWS::DocDB::DBCluster
+
   InstanceInstanceExample:
+    Type: AWS::DocDB::DBInstance
     Properties:
       AutoMinorVersionUpgrade: true
       AvailabilityZone: us-east-1c
@@ -22,7 +24,6 @@ Resources:
       DBInstanceClass: db.r5.large
       DBInstanceIdentifier: sample-cluster-instance-0
       PreferredMaintenanceWindow: sat:06:54-sat:07:24
-    Type: AWS::DocDB::DBInstance
 
 ```
 

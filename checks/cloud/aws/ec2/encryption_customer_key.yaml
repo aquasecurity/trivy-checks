@@ -4,29 +4,29 @@ cloudformation:
       Resources:
         GoodExample:
           DeletionPolicy: Snapshot
+          Type: AWS::EC2::Volume
           Properties:
             Encrypted: true
             KmsKeyId: alias/volumeEncrypt
             Size: 100
-          Type: AWS::EC2::Volume
     - |
       Resources:
         GoodExample:
           DeletionPolicy: Snapshot
+          Type: AWS::EC2::Volume
           Properties:
             Encrypted: true
             KmsKeyId: MyStack:Key
             Size: 100
-          Type: AWS::EC2::Volume
   bad:
     - |
       Resources:
         BadExample:
           DeletionPolicy: Snapshot
+          Type: AWS::EC2::Volume
           Properties:
             AvailabilityZone: Ec2Instance.AvailabilityZone
             Size: 100
-          Type: AWS::EC2::Volume
 terraform:
   good:
     - |-

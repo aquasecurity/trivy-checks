@@ -3,23 +3,23 @@ cloudformation:
     - |
       Resources:
         GoodFunction:
+          Type: AWS::Serverless::SimpleTable
           Properties:
             SSESpecification:
               SSEEnabled: true
             TableName: GoodTable
-          Type: AWS::Serverless::SimpleTable
   bad:
     - |
       Resources:
         BadFunction:
+          Type: AWS::Serverless::SimpleTable
           Properties:
             SSESpecification:
               SSEEnabled: false
             TableName: Bad Table
-          Type: AWS::Serverless::SimpleTable
     - |
       Resources:
         BadFunction:
+          Type: AWS::Serverless::SimpleTable
           Properties:
             TableName: Bad Table
-          Type: AWS::Serverless::SimpleTable

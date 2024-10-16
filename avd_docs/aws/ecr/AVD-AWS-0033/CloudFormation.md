@@ -4,6 +4,7 @@ Use customer managed keys
 ```yaml
 Resources:
   GoodExample:
+    Type: AWS::ECR::Repository
     Properties:
       EncryptionConfiguration:
         EncryptionType: KMS
@@ -12,7 +13,6 @@ Resources:
         ScanOnPush: false
       ImageTagImmutability: IMMUTABLE
       RepositoryName: test-repository
-    Type: AWS::ECR::Repository
 
 ```
 

@@ -2,32 +2,38 @@ cloudformation:
   good:
     - |
       AWSTemplateFormatVersion: "2010-09-09"
+
       Description: Good Example of ApiGateway
+
       Resources:
         GoodApi:
           Type: AWS::ApiGatewayV2::Api
+
         GoodApiStage:
+          Type: AWS::ApiGatewayV2::Stage
           Properties:
             AccessLogSettings:
               DestinationArn: gateway-logging
               Format: json
-            ApiId: '!Ref GoodApi'
+            ApiId: !Ref GoodApi
             StageName: GoodApiStage
-          Type: AWS::ApiGatewayV2::Stage
   bad:
     - |
       AWSTemplateFormatVersion: "2010-09-09"
+
       Description: Bad Example of ApiGateway
+
       Resources:
         BadApi:
           Type: AWS::ApiGatewayV2::Api
+
         BadApiStage:
+          Type: AWS::ApiGatewayV2::Stage
           Properties:
             AccessLogSettings:
               Format: json
-            ApiId: '!Ref BadApi'
+            ApiId: !Ref BadApi
             StageName: BadApiStage
-          Type: AWS::ApiGatewayV2::Stage
 terraform:
   good:
     - |-

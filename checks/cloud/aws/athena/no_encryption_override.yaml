@@ -3,6 +3,7 @@ cloudformation:
     - |
       Resources:
         GoodExample:
+          Type: AWS::Athena::WorkGroup
           Properties:
             Name: goodExample
             WorkGroupConfiguration:
@@ -10,11 +11,11 @@ cloudformation:
               ResultConfiguration:
                 EncryptionConfiguration:
                   EncryptionOption: SSE_KMS
-          Type: AWS::Athena::WorkGroup
   bad:
     - |
       Resources:
         BadExample:
+          Type: AWS::Athena::WorkGroup
           Properties:
             Name: badExample
             WorkGroupConfiguration:
@@ -22,7 +23,6 @@ cloudformation:
               ResultConfiguration:
                 EncryptionConfiguration:
                   EncryptionOption: SSE_KMS
-          Type: AWS::Athena::WorkGroup
 terraform:
   good:
     - |-
