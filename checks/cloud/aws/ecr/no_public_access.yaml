@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::ECR::Repository
@@ -29,7 +29,7 @@ cloudformation:
                   Sid: AllowPushPull
               Version: "2012-10-17"
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::ECR::Repository

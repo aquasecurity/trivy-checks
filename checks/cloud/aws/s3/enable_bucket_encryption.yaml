@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::S3::Bucket
@@ -11,7 +11,7 @@ cloudformation:
                   ServerSideEncryptionByDefault:
                     SSEAlgorithm: AES256
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::S3::Bucket

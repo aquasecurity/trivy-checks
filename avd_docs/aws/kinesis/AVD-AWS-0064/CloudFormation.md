@@ -15,7 +15,6 @@ Resources:
       Tags:
         - Key: Environment
           Value: Production
-
 ```
 
 

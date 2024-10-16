@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::ElastiCache::CacheCluster
@@ -15,7 +15,7 @@ cloudformation:
               - us-west-2b
             SnapshotRetentionLimit: 7
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::ElastiCache::CacheCluster

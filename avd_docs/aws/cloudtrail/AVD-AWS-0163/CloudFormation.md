@@ -17,7 +17,6 @@ Resources:
       IsLogging: true
       S3BucketName: my-bucket
       TrailName: Cloudtrail
-
 ```
 
 

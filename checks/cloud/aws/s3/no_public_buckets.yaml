@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::S3::Bucket
@@ -11,7 +11,7 @@ cloudformation:
               IgnorePublicAcls: true
               RestrictPublicBuckets: true
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Properties:

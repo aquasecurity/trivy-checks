@@ -19,7 +19,6 @@ Resources:
       NetworkAclId: !Ref NetworkACL
       Protocol: 6
       RuleAction: allow
-
 ```
 
 

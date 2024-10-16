@@ -13,7 +13,6 @@ Resources:
       ReplicationFactor: 1
       SSESpecification:
         SSEEnabled: true
-
 ```
 
 

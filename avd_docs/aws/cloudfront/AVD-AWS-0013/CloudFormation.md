@@ -18,7 +18,6 @@ Resources:
             Id: somedomain1
         ViewerCertificate:
           MinimumProtocolVersion: TLSv1.2_2021
-
 ```
 
 

@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodCluster:
           Type: AWS::MSK::Cluster
@@ -9,7 +9,7 @@ cloudformation:
               EncryptionAtRest:
                 DataVolumeKMSKeyId: foo-bar-key
   bad:
-    - |
+    - |-
       Resources:
         BadCluster:
           Type: AWS::MSK::Cluster

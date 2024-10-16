@@ -10,7 +10,6 @@ Resources:
         BrokerLogs:
           S3:
             Enabled: true
-
 ```
 
 

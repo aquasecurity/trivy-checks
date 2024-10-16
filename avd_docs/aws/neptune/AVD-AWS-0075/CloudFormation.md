@@ -8,7 +8,6 @@ Resources:
     Properties:
       EnableCloudwatchLogsExports:
         - audit
-
 ```
 
 

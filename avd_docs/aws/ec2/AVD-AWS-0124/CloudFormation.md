@@ -11,7 +11,6 @@ Resources:
         - CidrIp: 127.0.0.1/32
           Description: Can connect to loopback
           IpProtocol: "-1"
-
 ```
 
 

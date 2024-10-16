@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::ElastiCache::ReplicationGroup
@@ -21,7 +21,7 @@ cloudformation:
             SnapshotWindow: 10:00-12:00
             TransitEncryptionEnabled: true
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::ElastiCache::ReplicationGroup

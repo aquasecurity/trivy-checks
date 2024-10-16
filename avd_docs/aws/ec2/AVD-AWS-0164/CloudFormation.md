@@ -7,7 +7,6 @@ Resources:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: vpc-123456
-
 ```
 
 

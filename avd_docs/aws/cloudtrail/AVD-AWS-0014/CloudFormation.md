@@ -11,7 +11,6 @@ Resources:
       S3BucketName: CloudtrailBucket
       S3KeyPrefix: /trailing
       TrailName: Cloudtrail
-
 ```
 
 

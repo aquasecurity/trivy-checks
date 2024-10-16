@@ -27,7 +27,6 @@ Resources:
             Resource: arn:aws:sqs:us-east-2:444455556666:queue2
       Queues:
         - !Ref MyQueue
-
 ```
 
 

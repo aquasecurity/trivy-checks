@@ -17,7 +17,6 @@ Resources:
           - DomainName: https://some.domain
             Id: somedomain1
         WebACLId: waf_id
-
 ```
 
 

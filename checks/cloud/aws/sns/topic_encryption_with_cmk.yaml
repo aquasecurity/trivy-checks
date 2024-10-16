@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodTopic:
           Type: AWS::SQS::Topic
@@ -8,7 +8,7 @@ cloudformation:
             KmsMasterKeyId: some-key
             TopicName: blah
   bad:
-    - |
+    - |-
       Resources:
         BadTopic:
           Type: AWS::SNS::Topic

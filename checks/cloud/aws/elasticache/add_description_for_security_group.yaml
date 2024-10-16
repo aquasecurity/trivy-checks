@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExampleCacheGroup:
           Type: AWS::ElastiCache::SecurityGroup
@@ -19,7 +19,7 @@ cloudformation:
             CacheSecurityGroupName: GoodExampleCacheGroup
             EC2SecurityGroupName: GoodExampleEc2SecurityGroup
   bad:
-    - |
+    - |-
       Resources:
         BadExampleCacheGroup:
           Type: AWS::ElastiCache::SecurityGroup

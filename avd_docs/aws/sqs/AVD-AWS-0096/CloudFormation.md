@@ -12,7 +12,6 @@ Resources:
     Properties:
       KmsMasterKeyId: some-key
       QueueName: my-queue
-
 ```
 
 

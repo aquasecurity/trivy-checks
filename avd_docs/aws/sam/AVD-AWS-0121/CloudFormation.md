@@ -9,7 +9,6 @@ Resources:
       SSESpecification:
         SSEEnabled: true
       TableName: GoodTable
-
 ```
 
 

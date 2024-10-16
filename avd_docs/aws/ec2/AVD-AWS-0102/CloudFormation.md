@@ -20,7 +20,6 @@ Resources:
       Protocol: 6
       Ref: NetworkACL
       RuleAction: allow
-
 ```
 
 

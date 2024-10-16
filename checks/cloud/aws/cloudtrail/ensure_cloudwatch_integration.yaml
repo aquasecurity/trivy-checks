@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExampleTrail:
           Type: AWS::CloudTrail::Trail
@@ -8,7 +8,7 @@ cloudformation:
             CloudWatchLogsLogGroupArn: arn:aws:logs:us-east-1:123456789012:log-group:CloudTrail/DefaultLogGroup:*
             TrailName: Cloudtrail
   bad:
-    - |
+    - |-
       Resources:
         BadExampleTrail:
           Type: AWS::CloudTrail::Trail

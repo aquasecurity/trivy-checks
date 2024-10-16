@@ -7,7 +7,6 @@ Resources:
     Type: AWS::AmazonMQ::Broker
     Properties:
       PubliclyAccessible: false
-
 ```
 
 

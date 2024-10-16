@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::AutoScaling::LaunchConfiguration
@@ -12,7 +12,7 @@ cloudformation:
             ImageId: ami-123456
             InstanceType: t2.small
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::AutoScaling::LaunchConfiguration

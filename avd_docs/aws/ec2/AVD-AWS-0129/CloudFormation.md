@@ -29,7 +29,6 @@ Resources:
       Path: /
       Roles:
         - MyAdminRole
-
 ```
 
 

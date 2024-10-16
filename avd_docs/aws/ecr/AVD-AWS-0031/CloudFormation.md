@@ -13,7 +13,6 @@ Resources:
         ScanOnPush: false
       ImageTagMutability: IMMUTABLE
       RepositoryName: test-repository
-
 ```
 
 

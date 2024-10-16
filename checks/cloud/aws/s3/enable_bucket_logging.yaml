@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::S3::Bucket
@@ -8,7 +8,7 @@ cloudformation:
             LoggingConfiguration:
               DestinationBucketName: logging-bucket
               LogFilePrefix: accesslogs/
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::S3::Bucket
@@ -27,7 +27,7 @@ cloudformation:
               IgnorePublicAcls: true
               RestrictPublicBuckets: true
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::S3::Bucket

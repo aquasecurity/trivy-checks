@@ -9,7 +9,6 @@ Resources:
       EncryptionInfo:
         EncryptionAtRest:
           DataVolumeKMSKeyId: foo-bar-key
-
 ```
 
 

@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::Kinesis::Stream
@@ -15,7 +15,7 @@ cloudformation:
               - Key: Environment
                 Value: Production
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::Kinesis::Stream

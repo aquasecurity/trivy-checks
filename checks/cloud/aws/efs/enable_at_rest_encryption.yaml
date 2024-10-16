@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::EFS::FileSystem
@@ -13,7 +13,7 @@ cloudformation:
             PerformanceMode: generalPurpose
             ThroughputMode: bursting
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::EFS::FileSystem

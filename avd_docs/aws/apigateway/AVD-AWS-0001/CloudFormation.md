@@ -18,7 +18,6 @@ Resources:
         Format: json
       ApiId: !Ref GoodApi
       StageName: GoodApiStage
-
 ```
 
 

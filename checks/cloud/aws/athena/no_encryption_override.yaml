@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::Athena::WorkGroup
@@ -12,7 +12,7 @@ cloudformation:
                 EncryptionConfiguration:
                   EncryptionOption: SSE_KMS
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::Athena::WorkGroup

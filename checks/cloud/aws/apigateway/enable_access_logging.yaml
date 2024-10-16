@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       AWSTemplateFormatVersion: "2010-09-09"
 
       Description: Good Example of ApiGateway
@@ -18,7 +18,7 @@ cloudformation:
             ApiId: !Ref GoodApi
             StageName: GoodApiStage
   bad:
-    - |
+    - |-
       AWSTemplateFormatVersion: "2010-09-09"
 
       Description: Bad Example of ApiGateway

@@ -12,7 +12,6 @@ Resources:
       Name: Good SAM API example
       StageName: Prod
       Tracing: Activey
-
 ```
 
 

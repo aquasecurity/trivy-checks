@@ -12,7 +12,6 @@ Resources:
             Encrypted: true
       ImageId: ami-123456
       InstanceType: t2.small
-
 ```
 
 

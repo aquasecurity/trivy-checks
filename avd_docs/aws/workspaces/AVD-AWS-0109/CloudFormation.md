@@ -9,7 +9,6 @@ Resources:
       RootVolumeEncryptionEnabled: true
       UserName: admin
       UserVolumeEncryptionEnabled: true
-
 ```
 ```yaml
 Resources:
@@ -19,7 +18,6 @@ Resources:
       RootVolumeEncryptionEnabled: true
       UserName: admin
       UserVolumeEncryptionEnabled: true
-
 ```
 
 

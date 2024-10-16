@@ -1,13 +1,13 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodCluster:
           Type: AWS::Redshift::Cluster
           Properties:
             ClusterSubnetGroupName: my-subnet-group
   bad:
-    - |
+    - |-
       Resources:
         BadCluster:
           Type: AWS::Redshift::Cluster

@@ -38,7 +38,6 @@ Resources:
             FilesystemId: fs1
             TransitEncryption: ENABLED
           Name: jenkins-home
-
 ```
 
 

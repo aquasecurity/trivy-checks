@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodCluster:
           Type: AWS::Neptune::DBCluster
@@ -8,7 +8,7 @@ cloudformation:
             KmsKeyId: something
             StorageEncrypted: true
   bad:
-    - |
+    - |-
       Resources:
         BadCluster:
           Type: AWS::Neptune::DBCluster

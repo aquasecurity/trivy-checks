@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::Lambda::Function
@@ -21,7 +21,7 @@ cloudformation:
                 - subnet-071f712345678e7c8
                 - subnet-07fd123456788a036
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::Lambda::Function

@@ -14,7 +14,6 @@ Resources:
       KmsKeyId: my-key-id
       Name: blah
       SecretString: don't tell anyone
-
 ```
 
 

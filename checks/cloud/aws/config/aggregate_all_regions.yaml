@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::Config::ConfigurationAggregator
@@ -8,7 +8,7 @@ cloudformation:
             AccountAggregationSources:
               - AllAwsRegions: true
             ConfigurationAggregatorName: GoodAccountLevelAggregation
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::Config::ConfigurationAggregator
@@ -17,7 +17,7 @@ cloudformation:
             OrganizationAggregationSource:
               AllAwsRegions: true
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::Config::ConfigurationAggregator

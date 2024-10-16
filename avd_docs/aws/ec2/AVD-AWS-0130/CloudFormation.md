@@ -9,7 +9,6 @@ Resources:
       MetadataOptions:
         HttpEndpoint: enabled
         HttpTokens: required
-
 ```
 
 

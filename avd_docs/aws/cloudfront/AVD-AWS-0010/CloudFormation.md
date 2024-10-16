@@ -16,7 +16,6 @@ Resources:
         Origins:
           - DomainName: https://some.domain
             Id: somedomain1
-
 ```
 
 

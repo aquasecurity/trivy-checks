@@ -13,7 +13,6 @@ Resources:
         - TransitionToIA: AFTER_60_DAYS
       PerformanceMode: generalPurpose
       ThroughputMode: bursting
-
 ```
 
 

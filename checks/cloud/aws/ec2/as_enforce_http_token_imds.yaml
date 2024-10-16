@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::AutoScaling::LaunchConfiguration
@@ -9,7 +9,7 @@ cloudformation:
               HttpEndpoint: enabled
               HttpTokens: required
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::AutoScaling::LaunchConfiguration

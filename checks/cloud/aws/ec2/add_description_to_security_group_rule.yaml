@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodSecurityGroup:
           Type: AWS::EC2::SecurityGroup
@@ -11,7 +11,7 @@ cloudformation:
                 Description: Can connect to loopback
                 IpProtocol: "-1"
   bad:
-    - |
+    - |-
       Resources:
         BadSecurityGroup:
           Type: AWS::EC2::SecurityGroup

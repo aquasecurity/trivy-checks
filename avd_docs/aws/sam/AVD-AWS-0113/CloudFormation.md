@@ -14,7 +14,6 @@ Resources:
       Name: Good SAM API example
       StageName: Prod
       TracingEnabled: false
-
 ```
 
 

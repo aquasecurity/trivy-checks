@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::CloudFront::Distribution
@@ -16,7 +16,7 @@ cloudformation:
                 - DomainName: https://some.domain
                   Id: somedomain1
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::CloudFront::Distribution

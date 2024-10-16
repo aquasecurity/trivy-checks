@@ -29,7 +29,6 @@ Resources:
                 - arn:aws:iam::123456789012:user/Alice
             Sid: AllowPushPull
         Version: "2012-10-17"
-
 ```
 
 

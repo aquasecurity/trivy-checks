@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::Lambda::Function
@@ -29,7 +29,7 @@ cloudformation:
             Principal: s3.amazonaws.com
             SourceArn: lambda.amazonaws.com
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::Lambda::Function

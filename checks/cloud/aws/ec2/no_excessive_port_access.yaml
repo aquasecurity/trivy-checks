@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       AWSTemplateFormatVersion: "2010-09-09"
 
       Description: Good example of excessive ports
@@ -20,7 +20,7 @@ cloudformation:
             Ref: NetworkACL
             RuleAction: allow
   bad:
-    - |
+    - |-
       AWSTemplateFormatVersion: "2010-09-09"
 
       Description: Bad example of excessive ports

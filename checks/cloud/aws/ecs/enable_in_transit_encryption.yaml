@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::ECS::Cluster
@@ -38,7 +38,7 @@ cloudformation:
                   TransitEncryption: ENABLED
                 Name: jenkins-home
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::ECS::Cluster

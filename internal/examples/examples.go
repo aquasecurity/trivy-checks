@@ -80,10 +80,14 @@ func (e ProviderExamples) IsEmpty() bool {
 }
 
 func (b blockString) MarshalYAML() (interface{}, error) {
+	value := string(b)
+	if len(value) > 0 && value[len(value)-1] == '\n' {
+		value = value[:len(value)-1] // Remove last '\n'
+	}
 	return &yaml.Node{
 		Kind:  yaml.ScalarNode,
 		Style: yaml.LiteralStyle,
-		Value: string(b),
+		Value: value,
 	}, nil
 }
 

@@ -21,7 +21,6 @@ Resources:
       SnapshotRetentionLimit: 5
       SnapshotWindow: 10:00-12:00
       TransitEncryptionEnabled: true
-
 ```
 
 

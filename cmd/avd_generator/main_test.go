@@ -37,9 +37,9 @@ resource "aws_rds_cluster" "good_example" {
 	require.NoError(t, err)
 	assert.Contains(t, string(b), `Resources:
   GoodExample:
+    Type: AWS::RDS::DBInstance
     Properties:
       BackupRetentionPeriod: 30
-    Type: AWS::RDS::DBInstance
 `)
 
 	// check rego policies
@@ -54,7 +54,7 @@ resource "aws_db_instance" "good_example" {
 	require.NoError(t, err)
 	assert.Contains(t, string(b), `Resources:
   GoodExample:
+    Type: AWS::RDS::DBInstance
     Properties:
-      PubliclyAccessible: false
-    Type: AWS::RDS::DBInstance`)
+      PubliclyAccessible: false`)
 }

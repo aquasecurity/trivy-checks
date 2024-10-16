@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::CloudFront::Distribution
@@ -18,7 +18,7 @@ cloudformation:
               ViewerCertificate:
                 MinimumProtocolVersion: TLSv1.2_2021
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::CloudFront::Distribution

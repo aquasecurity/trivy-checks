@@ -8,7 +8,6 @@ Resources:
     Properties:
       KmsMasterKeyId: some-key
       TopicName: blah
-
 ```
 
 

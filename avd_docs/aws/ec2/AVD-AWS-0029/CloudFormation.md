@@ -17,7 +17,6 @@ Resources:
       ImageId: ami-79fd7eee
       KeyName: testkey
       UserData: export SSM_PATH=/database/creds
-
 ```
 
 

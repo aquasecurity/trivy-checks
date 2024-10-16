@@ -9,7 +9,6 @@ Resources:
       LoggingConfiguration:
         DestinationBucketName: logging-bucket
         LogFilePrefix: accesslogs/
-
 ```
 ```yaml
 Resources:
@@ -29,7 +28,6 @@ Resources:
         BlockPublicPolicy: true
         IgnorePublicAcls: true
         RestrictPublicBuckets: true
-
 ```
 
 

@@ -1,13 +1,13 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodBroker:
           Type: AWS::AmazonMQ::Broker
           Properties:
             PubliclyAccessible: false
   bad:
-    - |
+    - |-
       Resources:
         BadBroker:
           Type: AWS::AmazonMQ::Broker

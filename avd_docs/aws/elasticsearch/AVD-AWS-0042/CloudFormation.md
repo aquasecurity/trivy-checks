@@ -26,7 +26,6 @@ Resources:
       LogPublishingOptions:
         AUDIT_LOGS:
           Enabled: true
-
 ```
 
 

@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::ECR::Repository
@@ -13,7 +13,7 @@ cloudformation:
             ImageTagImmutability: IMMUTABLE
             RepositoryName: test-repository
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::ECR::Repository

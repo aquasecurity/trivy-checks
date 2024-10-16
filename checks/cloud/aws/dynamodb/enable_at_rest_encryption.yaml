@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::DAX::Cluster
@@ -13,7 +13,7 @@ cloudformation:
             SSESpecification:
               SSEEnabled: true
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::DAX::Cluster

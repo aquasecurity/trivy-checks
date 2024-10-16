@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::CloudTrail::Trail
@@ -12,7 +12,7 @@ cloudformation:
             S3KeyPrefix: /trailing
             TrailName: Cloudtrail
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::CloudTrail::Trail

@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::CloudFront::Distribution
@@ -17,7 +17,7 @@ cloudformation:
                   Id: somedomain1
               WebACLId: waf_id
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::CloudFront::Distribution

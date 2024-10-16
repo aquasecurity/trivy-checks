@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodFunction:
           Type: AWS::Serverless::Function
@@ -15,7 +15,7 @@ cloudformation:
             PackageType: Image
             Tracing: Active
   bad:
-    - |
+    - |-
       Resources:
         BadFunction:
           Type: AWS::Serverless::Function

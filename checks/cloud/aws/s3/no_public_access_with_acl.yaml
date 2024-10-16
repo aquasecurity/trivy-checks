@@ -1,13 +1,13 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::S3::Bucket
           Properties:
             AccessControl: Private
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::S3::Bucket

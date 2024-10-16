@@ -19,7 +19,6 @@ Resources:
     Properties:
       CacheSecurityGroupName: GoodExampleCacheGroup
       EC2SecurityGroupName: GoodExampleEc2SecurityGroup
-
 ```
 
 

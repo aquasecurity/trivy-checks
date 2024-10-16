@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodCluster:
           Type: AWS::MSK::Cluster
@@ -9,7 +9,7 @@ cloudformation:
               EncryptionInTransit:
                 ClientBroker: TLS
   bad:
-    - |
+    - |-
       Resources:
         BadCluster:
           Type: AWS::MSK::Cluster

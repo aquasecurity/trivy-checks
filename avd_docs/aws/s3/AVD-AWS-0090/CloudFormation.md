@@ -8,7 +8,6 @@ Resources:
     Properties:
       VersioningConfiguration:
         Status: Enabled
-
 ```
 
 

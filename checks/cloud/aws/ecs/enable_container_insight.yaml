@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::ECS::Cluster
@@ -10,7 +10,7 @@ cloudformation:
               - Name: containerInsights
                 Value: enabled
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::ECS::Cluster

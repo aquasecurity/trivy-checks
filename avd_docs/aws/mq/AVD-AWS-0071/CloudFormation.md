@@ -8,7 +8,6 @@ Resources:
     Properties:
       Logs:
         General: true
-
 ```
 
 

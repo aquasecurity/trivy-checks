@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::Serverless::HttpApi
@@ -12,7 +12,7 @@ cloudformation:
             StageName: Prod
             Tracing: Activey
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::Serverless::HttpApi

@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       AWSTemplateFormatVersion: "2010-09-09"
 
       Description: Godd example of excessive ports
@@ -19,7 +19,7 @@ cloudformation:
             Protocol: 6
             RuleAction: allow
   bad:
-    - |
+    - |-
       AWSTemplateFormatVersion: "2010-09-09"
 
       Description: Bad example of excessive ports

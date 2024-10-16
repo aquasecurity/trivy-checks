@@ -8,7 +8,6 @@ Resources:
     Properties:
       KmsKeyId: something
       StorageEncrypted: true
-
 ```
 
 

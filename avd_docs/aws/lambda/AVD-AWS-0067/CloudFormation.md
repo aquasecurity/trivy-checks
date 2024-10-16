@@ -29,7 +29,6 @@ Resources:
       FunctionName: !Ref GoodExample
       Principal: s3.amazonaws.com
       SourceArn: lambda.amazonaws.com
-
 ```
 
 

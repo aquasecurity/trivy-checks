@@ -7,7 +7,6 @@ Resources:
     Type: AWS::RDS::DBInstance
     Properties:
       PubliclyAccessible: false
-
 ```
 
 

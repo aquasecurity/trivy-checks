@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodProject:
           Type: AWS::CodeBuild::Project
@@ -26,7 +26,7 @@ cloudformation:
                 Path: String
                 Type: String
   bad:
-    - |
+    - |-
       Resources:
         GoodProject:
           Type: AWS::CodeBuild::Project
@@ -51,7 +51,7 @@ cloudformation:
                 Packaging: String
                 Path: String
                 Type: String
-    - |
+    - |-
       Resources:
         GoodProject:
           Type: AWS::CodeBuild::Project

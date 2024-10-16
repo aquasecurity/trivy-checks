@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodCluster:
           Type: AWS::MSK::Cluster
@@ -10,7 +10,7 @@ cloudformation:
                 S3:
                   Enabled: true
   bad:
-    - |
+    - |-
       Resources:
         BadCluster:
           Type: AWS::MSK::Cluster

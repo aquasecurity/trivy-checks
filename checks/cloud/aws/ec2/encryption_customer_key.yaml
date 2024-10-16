@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           DeletionPolicy: Snapshot
@@ -9,7 +9,7 @@ cloudformation:
             Encrypted: true
             KmsKeyId: alias/volumeEncrypt
             Size: 100
-    - |
+    - |-
       Resources:
         GoodExample:
           DeletionPolicy: Snapshot
@@ -19,7 +19,7 @@ cloudformation:
             KmsKeyId: MyStack:Key
             Size: 100
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           DeletionPolicy: Snapshot

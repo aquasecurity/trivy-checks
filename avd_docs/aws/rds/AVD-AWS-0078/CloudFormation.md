@@ -8,7 +8,6 @@ Resources:
     Properties:
       EnablePerformanceInsights: true
       PerformanceInsightsKMSKeyId: something
-
 ```
 
 

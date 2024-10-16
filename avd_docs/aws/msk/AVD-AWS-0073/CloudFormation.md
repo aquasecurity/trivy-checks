@@ -9,7 +9,6 @@ Resources:
       EncryptionInfo:
         EncryptionInTransit:
           ClientBroker: TLS
-
 ```
 
 

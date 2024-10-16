@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::Logs::LogGroup
@@ -9,7 +9,7 @@ cloudformation:
             LogGroupName: aws/lambda/goodExample
             RetentionInDays: 30
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::Logs::LogGroup

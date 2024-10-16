@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::S3::Bucket
@@ -12,7 +12,7 @@ cloudformation:
                     KMSMasterKeyID: kms-arn
                     SSEAlgorithm: aws:kms
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::S3::Bucket

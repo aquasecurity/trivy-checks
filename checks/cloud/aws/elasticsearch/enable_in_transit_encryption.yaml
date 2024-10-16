@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::Elasticsearch::Domain
@@ -25,7 +25,7 @@ cloudformation:
             NodeToNodeEncryptionOptions:
               Enabled: true
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::Elasticsearch::Domain

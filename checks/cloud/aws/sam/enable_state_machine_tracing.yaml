@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodStateMachine:
           Type: AWS::Serverless::StateMachine
@@ -16,7 +16,7 @@ cloudformation:
             Tracing:
               Enabled: true
   bad:
-    - |
+    - |-
       Resources:
         BadStateMachine:
           Type: AWS::Serverless::StateMachine
@@ -31,7 +31,7 @@ cloudformation:
             Role: arn:aws:iam::123456123456:role/service-role/my-sample-role
             Tracing:
               Enabled: false
-    - |
+    - |-
       Resources:
         BadStateMachine:
           Type: AWS::Serverless::StateMachine

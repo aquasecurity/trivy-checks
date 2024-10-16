@@ -25,7 +25,6 @@ Resources:
       EncryptionAtRestOptions:
         Enabled: true
         KmsKeyId: alias/kmskey
-
 ```
 
 

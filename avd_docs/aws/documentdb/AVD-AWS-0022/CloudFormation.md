@@ -23,7 +23,6 @@ Resources:
       DBInstanceClass: db.r5.large
       DBInstanceIdentifier: sample-cluster-instance-0
       PreferredMaintenanceWindow: sat:06:54-sat:07:24
-
 ```
 
 

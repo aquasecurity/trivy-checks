@@ -10,7 +10,6 @@ Resources:
       Encrypted: true
       KmsKeyId: alias/volumeEncrypt
       Size: 100
-
 ```
 ```yaml
 Resources:
@@ -21,7 +20,6 @@ Resources:
       Encrypted: true
       KmsKeyId: MyStack:Key
       Size: 100
-
 ```
 
 

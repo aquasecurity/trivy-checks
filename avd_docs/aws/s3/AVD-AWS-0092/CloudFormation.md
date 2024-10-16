@@ -7,7 +7,6 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       AccessControl: Private
-
 ```
 
 

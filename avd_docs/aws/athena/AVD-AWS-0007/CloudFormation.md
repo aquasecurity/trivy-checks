@@ -12,7 +12,6 @@ Resources:
         ResultConfiguration:
           EncryptionConfiguration:
             EncryptionOption: SSE_KMS
-
 ```
 
 

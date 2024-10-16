@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       AWSTemplateFormatVersion: "2010-09-09"
 
       Description: Good example of egress rule
@@ -14,7 +14,7 @@ cloudformation:
               - CidrIp: 127.0.0.1/32
                 IpProtocol: "6"
   bad:
-    - |
+    - |-
       AWSTemplateFormatVersion: "2010-09-09"
 
       Description: Bad example of egress rule

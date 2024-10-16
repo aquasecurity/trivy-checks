@@ -10,7 +10,6 @@ Resources:
       ClusterSettings:
         - Name: containerInsights
           Value: enabled
-
 ```
 
 

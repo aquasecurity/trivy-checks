@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::WorkSpaces::Workspace
@@ -8,7 +8,7 @@ cloudformation:
             RootVolumeEncryptionEnabled: true
             UserName: admin
             UserVolumeEncryptionEnabled: true
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::WorkSpaces::Workspace
@@ -17,7 +17,7 @@ cloudformation:
             UserName: admin
             UserVolumeEncryptionEnabled: true
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::WorkSpaces::Workspace
@@ -25,7 +25,7 @@ cloudformation:
             RootVolumeEncryptionEnabled: false
             UserName: admin
             UserVolumeEncryptionEnabled: false
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::WorkSpaces::Workspace

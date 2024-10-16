@@ -26,7 +26,6 @@ Resources:
           Packaging: String
           Path: String
           Type: String
-
 ```
 
 

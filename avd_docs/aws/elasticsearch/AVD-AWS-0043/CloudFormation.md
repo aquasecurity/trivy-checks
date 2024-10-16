@@ -25,7 +25,6 @@ Resources:
         KmsKeyId: alias/kmskey
       NodeToNodeEncryptionOptions:
         Enabled: true
-
 ```
 
 

@@ -1,6 +1,6 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExampleBucket:
           Type: AWS::S3::Bucket
@@ -15,7 +15,7 @@ cloudformation:
             S3BucketName: my-bucket
             TrailName: Cloudtrail
   bad:
-    - |
+    - |-
       Resources:
         BadExampleBucket:
           Type: AWS::S3::Bucket

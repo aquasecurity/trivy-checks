@@ -15,7 +15,6 @@ Resources:
         - us-west-2a
         - us-west-2b
       SnapshotRetentionLimit: 7
-
 ```
 
 

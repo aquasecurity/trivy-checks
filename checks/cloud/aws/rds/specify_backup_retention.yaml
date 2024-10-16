@@ -1,13 +1,13 @@
 cloudformation:
   good:
-    - |
+    - |-
       Resources:
         GoodExample:
           Type: AWS::RDS::DBInstance
           Properties:
             BackupRetentionPeriod: 30
   bad:
-    - |
+    - |-
       Resources:
         BadExample:
           Type: AWS::RDS::DBInstance
