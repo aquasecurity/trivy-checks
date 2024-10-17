@@ -25,11 +25,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition
-#     good_examples: checks/cloud/aws/ecs/no_plaintext_secrets.tf.go
-#     bad_examples: checks/cloud/aws/ecs/no_plaintext_secrets.tf.go
+#     good_examples: checks/cloud/aws/ecs/no_plaintext_secrets.yaml
+#     bad_examples: checks/cloud/aws/ecs/no_plaintext_secrets.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/ecs/no_plaintext_secrets.cf.go
-#     bad_examples: checks/cloud/aws/ecs/no_plaintext_secrets.cf.go
+#     good_examples: checks/cloud/aws/ecs/no_plaintext_secrets.yaml
+#     bad_examples: checks/cloud/aws/ecs/no_plaintext_secrets.yaml
 package builtin.aws.ecs.aws0036
 
 import rego.v1

@@ -25,8 +25,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_listener
-#     good_examples: checks/cloud/aws/elb/http_not_used.tf.go
-#     bad_examples: checks/cloud/aws/elb/http_not_used.tf.go
+#     good_examples: checks/cloud/aws/elb/http_not_used.yaml
+#     bad_examples: checks/cloud/aws/elb/http_not_used.yaml
 package builtin.aws.elb.aws0054
 
 import rego.v1

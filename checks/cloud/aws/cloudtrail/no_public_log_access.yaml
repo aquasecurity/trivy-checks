@@ -1,0 +1,72 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExampleBucket:
+          Type: AWS::S3::Bucket
+          Properties:
+            AccessControl: Private
+            BucketName: my-bucket
+
+        GoodExampleTrail:
+          Type: AWS::CloudTrail::Trail
+          Properties:
+            IsLogging: true
+            S3BucketName: my-bucket
+            TrailName: Cloudtrail
+  bad:
+    - |-
+      Resources:
+        BadExampleBucket:
+          Type: AWS::S3::Bucket
+          Properties:
+            AccessControl: AuthenticatedRead
+            BucketName: my-bucket
+
+        BadExampleTrail:
+          Type: AWS::CloudTrail::Trail
+          Properties:
+            IsLogging: true
+            S3BucketName: my-bucket
+            TrailName: Cloudtrail
+terraform:
+  good:
+    - |-
+      resource "aws_cloudtrail" "good_example" {
+        is_multi_region_trail = true
+        s3_bucket_name        = "abcdefgh"
+
+        event_selector {
+          read_write_type           = "All"
+          include_management_events = true
+
+          data_resource {
+            type   = "AWS::S3::Object"
+            values = ["${data.aws_s3_bucket.important-bucket.arn}/"]
+          }
+        }
+      }
+
+      resource "aws_s3_bucket" "good_example" {
+        bucket = "abcdefgh"
+        acl    = "private"
+      }
+  bad:
+    - |-
+      resource "aws_cloudtrail" "bad_example" {
+        s3_bucket_name = "abcdefgh"
+        event_selector {
+          read_write_type           = "All"
+          include_management_events = true
+
+          data_resource {
+            type   = "AWS::S3::Object"
+            values = ["${data.aws_s3_bucket.important-bucket.arn}/"]
+          }
+        }
+      }
+
+      resource "aws_s3_bucket" "good_example" {
+        bucket = "abcdefgh"
+        acl    = "public-read"
+      }

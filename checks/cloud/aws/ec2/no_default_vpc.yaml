@@ -1,0 +1,11 @@
+terraform:
+  good:
+    - |-
+      # no aws default vpc present
+  bad:
+    - |-
+      resource "aws_default_vpc" "default" {
+        tags = {
+          Name = "Default VPC"
+        }
+      }

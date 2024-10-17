@@ -1,7 +1,7 @@
 
 Enable ignoring the application of public ACLs in PUT calls
 
-```yaml---
+```yaml
 Resources:
   GoodExample:
     Type: AWS::S3::Bucket
@@ -12,7 +12,6 @@ Resources:
         BlockPublicPolicy: true
         IgnorePublicAcls: true
         RestrictPublicBuckets: true
-
 ```
 
 

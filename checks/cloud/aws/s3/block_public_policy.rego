@@ -24,11 +24,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block#block_public_policy
-#     good_examples: checks/cloud/aws/s3/block_public_policy.tf.go
-#     bad_examples: checks/cloud/aws/s3/block_public_policy.tf.go
+#     good_examples: checks/cloud/aws/s3/block_public_policy.yaml
+#     bad_examples: checks/cloud/aws/s3/block_public_policy.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/s3/block_public_policy.cf.go
-#     bad_examples: checks/cloud/aws/s3/block_public_policy.cf.go
+#     good_examples: checks/cloud/aws/s3/block_public_policy.yaml
+#     bad_examples: checks/cloud/aws/s3/block_public_policy.yaml
 package builtin.aws.s3.aws0087
 
 import rego.v1

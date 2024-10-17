@@ -2,9 +2,9 @@
 Enable encryption of data lake storage
 
 ```hcl
- resource "azurerm_data_lake_store" "good_example" {
- 	encryption_state = "Enabled"
- }
+resource "azurerm_data_lake_store" "good_example" {
+  encryption_state = "Enabled"
+}
 ```
 
 #### Remediation Links

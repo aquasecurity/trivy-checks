@@ -1,0 +1,77 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::Elasticsearch::Domain
+          Properties:
+            DomainName: test
+            EBSOptions:
+              EBSEnabled: true
+              Iops: "0"
+              VolumeSize: "20"
+              VolumeType: gp2
+            ElasticsearchClusterConfig:
+              DedicatedMasterCount: "3"
+              DedicatedMasterEnabled: true
+              DedicatedMasterType: m3.medium.elasticsearch
+              InstanceCount: "2"
+              InstanceType: m3.medium.elasticsearch
+              ZoneAwarenessEnabled: true
+            ElasticsearchVersion: "7.10"
+            EncryptionAtRestOptions:
+              Enabled: true
+              KmsKeyId: alias/kmskey
+            LogPublishingOptions:
+              AUDIT_LOGS:
+                Enabled: true
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::Elasticsearch::Domain
+          Properties:
+            DomainName: test
+            EBSOptions:
+              EBSEnabled: true
+              Iops: "0"
+              VolumeSize: "20"
+              VolumeType: gp2
+            ElasticsearchClusterConfig:
+              DedicatedMasterCount: "3"
+              DedicatedMasterEnabled: true
+              DedicatedMasterType: m3.medium.elasticsearch
+              InstanceCount: "2"
+              InstanceType: m3.medium.elasticsearch
+              ZoneAwarenessEnabled: true
+            ElasticsearchVersion: "7.10"
+terraform:
+  good:
+    - |-
+      resource "aws_elasticsearch_domain" "good_example" {
+        domain_name           = "example"
+        elasticsearch_version = "1.5"
+
+        log_publishing_options {
+          cloudwatch_log_group_arn = aws_cloudwatch_log_group.example.arn
+          log_type                 = "AUDIT_LOGS"
+          enabled                  = true
+        }
+      }
+  bad:
+    - |-
+      resource "aws_elasticsearch_domain" "bad_example" {
+        domain_name           = "example"
+        elasticsearch_version = "1.5"
+      }
+    - |-
+      resource "aws_elasticsearch_domain" "bad_example" {
+        domain_name           = "example"
+        elasticsearch_version = "1.5"
+
+        log_publishing_options {
+          cloudwatch_log_group_arn = aws_cloudwatch_log_group.example.arn
+          log_type                 = "AUDIT_LOGS"
+          enabled                  = false
+        }
+      }

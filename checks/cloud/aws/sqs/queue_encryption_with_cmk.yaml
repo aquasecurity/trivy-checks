@@ -1,0 +1,36 @@
+cloudformation:
+  good:
+    - |-
+      AWSTemplateFormatVersion: "2010-09-09"
+
+      Description: Good example of queue
+
+      Resources:
+        Queue:
+          Type: AWS::SQS::Queue
+          Properties:
+            KmsMasterKeyId: some-key
+            QueueName: my-queue
+  bad:
+    - |-
+      AWSTemplateFormatVersion: "2010-09-09"
+
+      Description: Bad example of queue
+
+      Resources:
+        Queue:
+          Type: AWS::SQS::Queue
+          Properties:
+            KmsMasterKeyId: alias/aws/sqs
+            QueueName: my-queue
+terraform:
+  good:
+    - |-
+      resource "aws_sqs_queue" "good_example" {
+        kms_master_key_id = "/blah"
+      }
+  bad:
+    - |-
+      resource "aws_sqs_queue" "bad_example" {
+        kms_master_key_id = "alias/aws/sqs"
+      }

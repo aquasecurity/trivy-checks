@@ -23,8 +23,8 @@
 #           - service: redshift
 #             provider: aws
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/redshift/no_classic_resources.cf.go
-#     bad_examples: checks/cloud/aws/redshift/no_classic_resources.cf.go
+#     good_examples: checks/cloud/aws/redshift/no_classic_resources.yaml
+#     bad_examples: checks/cloud/aws/redshift/no_classic_resources.yaml
 package builtin.aws.redshift.aws0085
 
 import rego.v1

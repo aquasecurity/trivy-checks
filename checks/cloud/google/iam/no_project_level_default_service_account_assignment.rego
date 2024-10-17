@@ -23,8 +23,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam
-#     good_examples: checks/cloud/google/iam/no_project_level_default_service_account_assignment.tf.go
-#     bad_examples: checks/cloud/google/iam/no_project_level_default_service_account_assignment.tf.go
+#     good_examples: checks/cloud/google/iam/no_project_level_default_service_account_assignment.yaml
+#     bad_examples: checks/cloud/google/iam/no_project_level_default_service_account_assignment.yaml
 package builtin.google.iam.google0006
 
 import rego.v1

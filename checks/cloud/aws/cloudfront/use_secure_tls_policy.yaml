@@ -1,0 +1,54 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::CloudFront::Distribution
+          Properties:
+            DistributionConfig:
+              DefaultCacheBehavior:
+                TargetOriginId: target
+                ViewerProtocolPolicy: https-only
+              Enabled: true
+              Logging:
+                Bucket: logging-bucket
+              Origins:
+                - DomainName: https://some.domain
+                  Id: somedomain1
+              ViewerCertificate:
+                MinimumProtocolVersion: TLSv1.2_2021
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::CloudFront::Distribution
+          Properties:
+            DistributionConfig:
+              DefaultCacheBehavior:
+                TargetOriginId: target
+                ViewerProtocolPolicy: https-only
+              Enabled: true
+              Logging:
+                Bucket: logging-bucket
+              Origins:
+                - DomainName: https://some.domain
+                  Id: somedomain1
+              ViewerCertificate:
+                MinimumProtocolVersion: TLSv1.0
+terraform:
+  good:
+    - |-
+      resource "aws_cloudfront_distribution" "good_example" {
+        viewer_certificate {
+          cloudfront_default_certificate = false
+          minimum_protocol_version       = "TLSv1.2_2021"
+        }
+      }
+  bad:
+    - |-
+      resource "aws_cloudfront_distribution" "bad_example" {
+        viewer_certificate {
+          cloudfront_default_certificate = false
+          minimum_protocol_version       = "TLSv1.0"
+        }
+      }

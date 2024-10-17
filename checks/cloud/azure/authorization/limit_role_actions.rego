@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition#actions
-#     good_examples: checks/cloud/azure/authorization/limit_role_actions.tf.go
-#     bad_examples: checks/cloud/azure/authorization/limit_role_actions.tf.go
+#     good_examples: checks/cloud/azure/authorization/limit_role_actions.yaml
+#     bad_examples: checks/cloud/azure/authorization/limit_role_actions.yaml
 package builtin.azure.authorization.azure0030
 
 import rego.v1

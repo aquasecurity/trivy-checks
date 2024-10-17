@@ -25,8 +25,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance
-#     good_examples: checks/cloud/google/sql/pg_log_errors.tf.go
-#     bad_examples: checks/cloud/google/sql/pg_log_errors.tf.go
+#     good_examples: checks/cloud/google/sql/pg_log_errors.yaml
+#     bad_examples: checks/cloud/google/sql/pg_log_errors.yaml
 package builtin.google.sql.google0018
 
 import rego.v1

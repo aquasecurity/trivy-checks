@@ -1,0 +1,59 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::S3::Bucket
+          Properties:
+            LoggingConfiguration:
+              DestinationBucketName: logging-bucket
+              LogFilePrefix: accesslogs/
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::S3::Bucket
+          Properties:
+            AccessControl: Private
+            BucketName: my-s3-bucket-${BucketSuffix}
+            LoggingConfiguration:
+              DestinationBucketName:
+                - EnvironmentMapping
+                - s3
+                - logging
+              LogFilePrefix: s3-logs/AWSLogs/${AWS::AccountId}/my-s3-bucket-${BucketSuffix}
+            PublicAccessBlockConfiguration:
+              BlockPublicAcls: true
+              BlockPublicPolicy: true
+              IgnorePublicAcls: true
+              RestrictPublicBuckets: true
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::S3::Bucket
+          Properties: null
+terraform:
+  good:
+    - |-
+      resource "aws_s3_bucket" "good_example" {
+        logging {
+          target_bucket = "target-bucket"
+        }
+      }
+    - |-
+      resource "aws_s3_bucket" "example" {
+        bucket = "yournamehere"
+
+        # ... other configuration ...
+      }
+
+      resource "aws_s3_bucket_logging" "example" {
+        bucket        = aws_s3_bucket.example.id
+        target_bucket = aws_s3_bucket.log_bucket.id
+        target_prefix = "log/"
+      }
+  bad:
+    - |-
+      resource "aws_s3_bucket" "bad_example" {
+
+      }

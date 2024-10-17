@@ -28,8 +28,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_watcher_flow_log#retention_policy
-#     good_examples: checks/cloud/azure/network/retention_policy_set.tf.go
-#     bad_examples: checks/cloud/azure/network/retention_policy_set.tf.go
+#     good_examples: checks/cloud/azure/network/retention_policy_set.yaml
+#     bad_examples: checks/cloud/azure/network/retention_policy_set.yaml
 package builtin.azure.network.azure0049
 
 import rego.v1

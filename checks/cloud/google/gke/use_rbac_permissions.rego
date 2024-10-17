@@ -26,8 +26,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#enable_legacy_abac
-#     good_examples: checks/cloud/google/gke/use_rbac_permissions.tf.go
-#     bad_examples: checks/cloud/google/gke/use_rbac_permissions.tf.go
+#     good_examples: checks/cloud/google/gke/use_rbac_permissions.yaml
+#     bad_examples: checks/cloud/google/gke/use_rbac_permissions.yaml
 package builtin.google.gke.google0062
 
 import rego.v1

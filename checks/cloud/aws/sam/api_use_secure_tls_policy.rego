@@ -22,8 +22,8 @@
 #           - service: sam
 #             provider: aws
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/sam/api_use_secure_tls_policy.cf.go
-#     bad_examples: checks/cloud/aws/sam/api_use_secure_tls_policy.cf.go
+#     good_examples: checks/cloud/aws/sam/api_use_secure_tls_policy.yaml
+#     bad_examples: checks/cloud/aws/sam/api_use_secure_tls_policy.yaml
 package builtin.aws.sam.aws0112
 
 import rego.v1

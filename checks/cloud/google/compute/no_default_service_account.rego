@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#
-#     good_examples: checks/cloud/google/compute/no_default_service_account.tf.go
-#     bad_examples: checks/cloud/google/compute/no_default_service_account.tf.go
+#     good_examples: checks/cloud/google/compute/no_default_service_account.yaml
+#     bad_examples: checks/cloud/google/compute/no_default_service_account.yaml
 package builtin.google.compute.google0044
 
 import rego.v1

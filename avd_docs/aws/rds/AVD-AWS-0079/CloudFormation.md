@@ -1,14 +1,13 @@
 
 Enable encryption for RDS clusters
 
-```yaml---
+```yaml
 Resources:
   GoodExample:
     Type: AWS::RDS::DBCluster
     Properties:
+      KmsKeyId: something
       StorageEncrypted: true
-      KmsKeyId: "something"
-
 ```
 
 

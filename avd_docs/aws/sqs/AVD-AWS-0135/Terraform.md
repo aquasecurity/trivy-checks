@@ -2,10 +2,9 @@
 Encrypt SQS Queue with a customer-managed key
 
 ```hcl
- resource "aws_sqs_queue" "good_example" {
- 	kms_master_key_id = "/blah"
- }
- 
+resource "aws_sqs_queue" "good_example" {
+  kms_master_key_id = "/blah"
+}
 ```
 
 #### Remediation Links

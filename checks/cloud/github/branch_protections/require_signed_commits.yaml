@@ -1,0 +1,17 @@
+terraform:
+  good:
+    - |-
+      resource "github_branch_protection" "good_example" {
+        repository_id = "example"
+        pattern       = "main"
+
+        require_signed_commits = true
+      }
+  bad:
+    - |-
+      resource "github_branch_protection" "good_example" {
+        repository_id = "example"
+        pattern       = "main"
+
+        require_signed_commits = false
+      }

@@ -25,11 +25,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue_policy
-#     good_examples: checks/cloud/aws/sqs/no_wildcards_in_policy_documents.tf.go
-#     bad_examples: checks/cloud/aws/sqs/no_wildcards_in_policy_documents.tf.go
+#     good_examples: checks/cloud/aws/sqs/no_wildcards_in_policy_documents.yaml
+#     bad_examples: checks/cloud/aws/sqs/no_wildcards_in_policy_documents.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/sqs/no_wildcards_in_policy_documents.cf.go
-#     bad_examples: checks/cloud/aws/sqs/no_wildcards_in_policy_documents.cf.go
+#     good_examples: checks/cloud/aws/sqs/no_wildcards_in_policy_documents.yaml
+#     bad_examples: checks/cloud/aws/sqs/no_wildcards_in_policy_documents.yaml
 package builtin.aws.sqs.aws0097
 
 import rego.v1

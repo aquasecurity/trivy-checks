@@ -1,0 +1,44 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::S3::Bucket
+          Properties:
+            AccessControl: Private
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::S3::Bucket
+          Properties:
+            AccessControl: AuthenticatedRead
+terraform:
+  good:
+    - |-
+      resource "aws_s3_bucket" "good_example" {
+        acl = "private"
+      }
+    - |-
+      resource "aws_s3_bucket" "example" {
+        bucket = "yournamehere"
+      }
+
+      resource "aws_s3_bucket_acl" "example" {
+        bucket = aws_s3_bucket.example.id
+        acl    = "private"
+      }
+  bad:
+    - |-
+      resource "aws_s3_bucket" "bad_example" {
+        acl = "public-read"
+      }
+    - |-
+      resource "aws_s3_bucket" "example" {
+        bucket = "yournamehere"
+      }
+
+      resource "aws_s3_bucket_acl" "example" {
+        bucket = aws_s3_bucket.example.id
+        acl    = "authenticated-read"
+      }

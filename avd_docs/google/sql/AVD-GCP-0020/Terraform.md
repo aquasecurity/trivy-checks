@@ -2,18 +2,17 @@
 Enable lock wait logging.
 
 ```hcl
- resource "google_sql_database_instance" "db" {
- 	name             = "db"
- 	database_version = "POSTGRES_12"
- 	region           = "us-central1"
- 	settings {
- 		database_flags {
- 			name  = "log_lock_waits"
- 			value = "on"
- 		}
- 	}
- }
- 			
+resource "google_sql_database_instance" "db" {
+  name             = "db"
+  database_version = "POSTGRES_12"
+  region           = "us-central1"
+  settings {
+    database_flags {
+      name  = "log_lock_waits"
+      value = "on"
+    }
+  }
+}
 ```
 
 #### Remediation Links

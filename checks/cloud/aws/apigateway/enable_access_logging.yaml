@@ -1,0 +1,71 @@
+cloudformation:
+  good:
+    - |-
+      AWSTemplateFormatVersion: "2010-09-09"
+
+      Description: Good Example of ApiGateway
+
+      Resources:
+        GoodApi:
+          Type: AWS::ApiGatewayV2::Api
+
+        GoodApiStage:
+          Type: AWS::ApiGatewayV2::Stage
+          Properties:
+            AccessLogSettings:
+              DestinationArn: gateway-logging
+              Format: json
+            ApiId: !Ref GoodApi
+            StageName: GoodApiStage
+  bad:
+    - |-
+      AWSTemplateFormatVersion: "2010-09-09"
+
+      Description: Bad Example of ApiGateway
+
+      Resources:
+        BadApi:
+          Type: AWS::ApiGatewayV2::Api
+
+        BadApiStage:
+          Type: AWS::ApiGatewayV2::Stage
+          Properties:
+            AccessLogSettings:
+              Format: json
+            ApiId: !Ref BadApi
+            StageName: BadApiStage
+terraform:
+  good:
+    - |-
+      resource "aws_apigatewayv2_stage" "good_example" {
+        api_id = aws_apigatewayv2_api.example.id
+        name   = "example-stage"
+
+        access_log_settings {
+          destination_arn = "arn:aws:logs:region:0123456789:log-group:access_logging"
+          format          = "json"
+        }
+      }
+
+      resource "aws_api_gateway_stage" "good_example" {
+        deployment_id = aws_api_gateway_deployment.example.id
+        rest_api_id   = aws_api_gateway_rest_api.example.id
+        stage_name    = "example"
+
+        access_log_settings {
+          destination_arn = "arn:aws:logs:region:0123456789:log-group:access_logging"
+          format          = "json"
+        }
+      }
+  bad:
+    - |-
+      resource "aws_apigatewayv2_stage" "bad_example" {
+        api_id = aws_apigatewayv2_api.example.id
+        name   = "example-stage"
+      }
+
+      resource "aws_apigatewayv2_stage" "bad_example" {
+        deployment_id = aws_api_gateway_deployment.example.id
+        rest_api_id   = aws_api_gateway_rest_api.example.id
+        stage_name    = "example"
+      }

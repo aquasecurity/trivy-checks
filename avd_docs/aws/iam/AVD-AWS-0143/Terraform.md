@@ -22,7 +22,7 @@ resource "aws_iam_group_membership" "devteam" {
 }
 
 resource "aws_iam_group_policy" "ec2policy" {
-  name = "test"
+  name  = "test"
   group = aws_iam_group.developers.name
 
   policy = <<EOF
@@ -40,7 +40,6 @@ resource "aws_iam_group_policy" "ec2policy" {
 }
 EOF
 }
- 			
 ```
 
 #### Remediation Links

@@ -2,15 +2,14 @@
 Set a retention period that will allow for delayed investigation
 
 ```hcl
- resource "azurerm_monitor_log_profile" "good_example" {
-   name = "good_example"
- 
-   retention_policy {
-     enabled = true
-     days    = 365
-   }
- }
- 
+resource "azurerm_monitor_log_profile" "good_example" {
+  name = "good_example"
+
+  retention_policy {
+    enabled = true
+    days    = 365
+  }
+}
 ```
 
 #### Remediation Links

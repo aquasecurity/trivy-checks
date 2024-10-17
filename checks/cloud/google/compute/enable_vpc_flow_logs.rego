@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork#enable_flow_logs
-#     good_examples: checks/cloud/google/compute/enable_vpc_flow_logs.tf.go
-#     bad_examples: checks/cloud/google/compute/enable_vpc_flow_logs.tf.go
+#     good_examples: checks/cloud/google/compute/enable_vpc_flow_logs.yaml
+#     bad_examples: checks/cloud/google/compute/enable_vpc_flow_logs.yaml
 package builtin.google.compute.google0029
 
 import rego.v1

@@ -1,0 +1,41 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::S3::Bucket
+          Properties:
+            VersioningConfiguration:
+              Status: Enabled
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::S3::Bucket
+terraform:
+  good:
+    - |-
+      resource "aws_s3_bucket" "good_example" {
+
+        versioning {
+          enabled = true
+        }
+      }
+    - |-
+      resource "aws_s3_bucket" "example" {
+        bucket = "yournamehere"
+
+        # ... other configuration ...
+      }
+
+      resource "aws_s3_bucket_versioning" "example" {
+        bucket = aws_s3_bucket.example.id
+        versioning_configuration {
+          status = "Enabled"
+        }
+      }
+  bad:
+    - |-
+      resource "aws_s3_bucket" "bad_example" {
+
+      }

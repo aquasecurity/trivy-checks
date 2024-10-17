@@ -1,0 +1,17 @@
+terraform:
+  good:
+    - |-
+      resource "azurerm_storage_container" "good_example" {
+        name                  = "terraform-container-storage"
+        container_access_type = "private"
+      }
+  bad:
+    - |-
+      resource "azurerm_storage_container" "bad_example" {
+        name                  = "terraform-container-storage"
+        container_access_type = "blob"
+
+        properties = {
+          "publicAccess" = "blob"
+        }
+      }

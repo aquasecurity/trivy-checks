@@ -1,0 +1,42 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::EFS::FileSystem
+          Properties:
+            BackupPolicy:
+              Status: ENABLED
+            Encrypted: true
+            LifecyclePolicies:
+              - TransitionToIA: AFTER_60_DAYS
+            PerformanceMode: generalPurpose
+            ThroughputMode: bursting
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::EFS::FileSystem
+          Properties:
+            BackupPolicy:
+              Status: ENABLED
+            Encrypted: false
+            LifecyclePolicies:
+              - TransitionToIA: AFTER_60_DAYS
+            PerformanceMode: generalPurpose
+            ThroughputMode: bursting
+terraform:
+  good:
+    - |-
+      resource "aws_efs_file_system" "good_example" {
+        name       = "bar"
+        encrypted  = true
+        kms_key_id = "my_kms_key"
+      }
+  bad:
+    - |-
+      resource "aws_efs_file_system" "bad_example" {
+        name       = "bar"
+        encrypted  = false
+        kms_key_id = ""
+      }

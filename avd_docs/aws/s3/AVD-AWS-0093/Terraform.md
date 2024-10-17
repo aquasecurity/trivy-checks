@@ -3,15 +3,14 @@ Limit the access to public buckets to only the owner or AWS Services (eg; CloudF
 
 ```hcl
 resource "aws_s3_bucket" "example" {
-	bucket = "bucket"
+  bucket = "bucket"
 }
 
 resource "aws_s3_bucket_public_access_block" "good_example" {
- 	bucket = aws_s3_bucket.example.id
-   
- 	restrict_public_buckets = true
- }
- 
+  bucket = aws_s3_bucket.example.id
+
+  restrict_public_buckets = true
+}
 ```
 
 #### Remediation Links

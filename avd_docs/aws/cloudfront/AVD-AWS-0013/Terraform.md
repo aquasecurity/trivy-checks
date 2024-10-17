@@ -2,13 +2,12 @@
 Use the most modern TLS/SSL policies available
 
 ```hcl
- resource "aws_cloudfront_distribution" "good_example" {
-   viewer_certificate {
-     cloudfront_default_certificate = false
-     minimum_protocol_version = "TLSv1.2_2021"
-   }
- }
- 
+resource "aws_cloudfront_distribution" "good_example" {
+  viewer_certificate {
+    cloudfront_default_certificate = false
+    minimum_protocol_version       = "TLSv1.2_2021"
+  }
+}
 ```
 
 #### Remediation Links

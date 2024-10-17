@@ -1,0 +1,27 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::RDS::DBInstance
+          Properties:
+            KmsKeyId: something
+            StorageEncrypted: true
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::RDS::DBInstance
+          Properties:
+            StorageEncrypted: false
+terraform:
+  good:
+    - |-
+      resource "aws_db_instance" "good_example" {
+        storage_encrypted = true
+      }
+  bad:
+    - |-
+      resource "aws_db_instance" "bad_example" {
+
+      }

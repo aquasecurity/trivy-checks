@@ -2,11 +2,10 @@
 Don't use force destroy on bucket configuration
 
 ```hcl
- resource "digitalocean_spaces_bucket" "good_example" {
-   name   = "foobar"
-   region = "nyc3"
- }
- 
+resource "digitalocean_spaces_bucket" "good_example" {
+  name   = "foobar"
+  region = "nyc3"
+}
 ```
 
 #### Remediation Links

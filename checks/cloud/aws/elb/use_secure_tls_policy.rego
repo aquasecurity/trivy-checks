@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_listener
-#     good_examples: checks/cloud/aws/elb/use_secure_tls_policy.tf.go
-#     bad_examples: checks/cloud/aws/elb/use_secure_tls_policy.tf.go
+#     good_examples: checks/cloud/aws/elb/use_secure_tls_policy.yaml
+#     bad_examples: checks/cloud/aws/elb/use_secure_tls_policy.yaml
 package builtin.aws.elb.aws0047
 
 import rego.v1

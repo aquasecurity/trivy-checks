@@ -1,0 +1,5 @@
+terraform:
+  good:
+    - "resource \"aws_eks_cluster\" \"good_example\" {\n  // other config \n\n  name     = \"good_example_cluster\"\n  role_arn = var.cluster_arn\n  vpc_config {\n    endpoint_public_access = true\n    public_access_cidrs    = [\"10.2.0.0/8\"]\n  }\n}"
+  bad:
+    - "resource \"aws_eks_cluster\" \"bad_example\" {\n  // other config \n\n  name     = \"bad_example_cluster\"\n  role_arn = var.cluster_arn\n  vpc_config {\n    endpoint_public_access = true\n  }\n}"

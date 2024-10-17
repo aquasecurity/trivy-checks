@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_configuration
-#     good_examples: checks/cloud/azure/database/postgres_configuration_connection_throttling.tf.go
-#     bad_examples: checks/cloud/azure/database/postgres_configuration_connection_throttling.tf.go
+#     good_examples: checks/cloud/azure/database/postgres_configuration_connection_throttling.yaml
+#     bad_examples: checks/cloud/azure/database/postgres_configuration_connection_throttling.yaml
 package builtin.azure.database.azure0021
 
 import rego.v1

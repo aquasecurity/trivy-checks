@@ -1,0 +1,13 @@
+terraform:
+  good:
+    - |-
+      resource "nifcloud_nas_security_group" "good_example" {
+        group_name  = "app"
+        description = "Allow from app traffic"
+      }
+  bad:
+    - |-
+      resource "nifcloud_nas_security_group" "bad_example" {
+        name        = "app"
+        description = ""
+      }

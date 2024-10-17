@@ -2,10 +2,9 @@
 Configure KMS key to auto rotate
 
 ```hcl
- resource "aws_kms_key" "good_example" {
- 	enable_key_rotation = true
- }
- 
+resource "aws_kms_key" "good_example" {
+  enable_key_rotation = true
+}
 ```
 
 #### Remediation Links

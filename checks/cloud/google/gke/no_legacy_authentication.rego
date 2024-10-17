@@ -26,8 +26,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#master_auth
-#     good_examples: checks/cloud/google/gke/no_legacy_authentication.tf.go
-#     bad_examples: checks/cloud/google/gke/no_legacy_authentication.tf.go
+#     good_examples: checks/cloud/google/gke/no_legacy_authentication.yaml
+#     bad_examples: checks/cloud/google/gke/no_legacy_authentication.yaml
 package builtin.google.gke.google0064
 
 import rego.v1

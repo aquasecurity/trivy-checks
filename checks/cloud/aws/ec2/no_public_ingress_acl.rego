@@ -35,11 +35,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_acl_rule#cidr_block
-#     good_examples: checks/cloud/aws/ec2/no_public_ingress_acl.tf.go
-#     bad_examples: checks/cloud/aws/ec2/no_public_ingress_acl.tf.go
+#     good_examples: checks/cloud/aws/ec2/no_public_ingress_acl.yaml
+#     bad_examples: checks/cloud/aws/ec2/no_public_ingress_acl.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/ec2/no_public_ingress_acl.cf.go
-#     bad_examples: checks/cloud/aws/ec2/no_public_ingress_acl.cf.go
+#     good_examples: checks/cloud/aws/ec2/no_public_ingress_acl.yaml
+#     bad_examples: checks/cloud/aws/ec2/no_public_ingress_acl.yaml
 package builtin.aws.ec2.aws0105
 
 import rego.v1

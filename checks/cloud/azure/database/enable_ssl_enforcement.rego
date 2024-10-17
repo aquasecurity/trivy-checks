@@ -24,8 +24,8 @@
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_server#ssl_enforcement_enabled
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_server#ssl_enforcement_enabled
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mariadb_server#ssl_enforcement_enabled
-#     good_examples: checks/cloud/azure/database/enable_ssl_enforcement.tf.go
-#     bad_examples: checks/cloud/azure/database/enable_ssl_enforcement.tf.go
+#     good_examples: checks/cloud/azure/database/enable_ssl_enforcement.yaml
+#     bad_examples: checks/cloud/azure/database/enable_ssl_enforcement.yaml
 package builtin.azure.database.azure0020
 
 import rego.v1

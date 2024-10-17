@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#
-#     good_examples: checks/cloud/google/gke/enable_master_networks.tf.go
-#     bad_examples: checks/cloud/google/gke/enable_master_networks.tf.go
+#     good_examples: checks/cloud/google/gke/enable_master_networks.yaml
+#     bad_examples: checks/cloud/google/gke/enable_master_networks.yaml
 package builtin.google.gke.google0061
 
 import rego.v1

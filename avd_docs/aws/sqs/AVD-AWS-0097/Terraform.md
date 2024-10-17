@@ -2,10 +2,10 @@
 Keep policy scope to the minimum that is required to be effective
 
 ```hcl
- resource "aws_sqs_queue_policy" "good_example" {
-   queue_url = aws_sqs_queue.q.id
- 
-   policy = <<POLICY
+resource "aws_sqs_queue_policy" "good_example" {
+  queue_url = aws_sqs_queue.q.id
+
+  policy = <<POLICY
  {
    "Statement": [
      {
@@ -16,8 +16,7 @@ Keep policy scope to the minimum that is required to be effective
    ]
  }
  POLICY
- }
- 
+}
 ```
 
 #### Remediation Links

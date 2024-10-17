@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_method_settings#cache_enabled
-#     good_examples: checks/cloud/aws/apigateway/enable_cache.tf.go
-#     bad_examples: checks/cloud/aws/apigateway/enable_cache.tf.go
+#     good_examples: checks/cloud/aws/apigateway/enable_cache.yaml
+#     bad_examples: checks/cloud/aws/apigateway/enable_cache.yaml
 package builtin.aws.apigateway.aws0190
 
 import rego.v1

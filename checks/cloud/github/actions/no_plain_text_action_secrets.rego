@@ -26,8 +26,8 @@
 #     links:
 #       - https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_environment_secret
 #       - https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions
-#     good_examples: checks/cloud/github/actions/no_plain_text_action_secrets.tf.go
-#     bad_examples: checks/cloud/github/actions/no_plain_text_action_secrets.tf.go
+#     good_examples: checks/cloud/github/actions/no_plain_text_action_secrets.yaml
+#     bad_examples: checks/cloud/github/actions/no_plain_text_action_secrets.yaml
 package builtin.github.actions.github0002
 
 import rego.v1

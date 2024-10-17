@@ -25,8 +25,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb#drop_invalid_header_fields
-#     good_examples: checks/cloud/aws/elb/drop_invalid_headers.tf.go
-#     bad_examples: checks/cloud/aws/elb/drop_invalid_headers.tf.go
+#     good_examples: checks/cloud/aws/elb/drop_invalid_headers.yaml
+#     bad_examples: checks/cloud/aws/elb/drop_invalid_headers.yaml
 package builtin.aws.elb.aws0052
 
 import rego.v1

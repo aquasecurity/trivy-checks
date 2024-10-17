@@ -2,11 +2,10 @@
 Set a more restrictive cidr range
 
 ```hcl
- resource "nifcloud_security_group_rule" "good_example" {
- 	type    = "IN"
- 	cidr_ip = "10.0.0.0/16"
- }
- 
+resource "nifcloud_security_group_rule" "good_example" {
+  type    = "IN"
+  cidr_ip = "10.0.0.0/16"
+}
 ```
 ```hcl
 resource "nifcloud_security_group_rule" "allow_partner_rsync" {
@@ -17,7 +16,6 @@ resource "nifcloud_security_group_rule" "allow_partner_rsync" {
   protocol             = "TCP"
   cidr_ip              = "10.0.0.0/16"
 }
-
 ```
 
 #### Remediation Links

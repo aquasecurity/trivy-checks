@@ -3,9 +3,8 @@ Use lower privileged accounts instead, so only required privileges are available
 
 ```hcl
 resource "aws_iam_access_key" "good_example" {
- 	user = "lowprivuser"
+  user = "lowprivuser"
 }
- 			
 ```
 
 #### Remediation Links

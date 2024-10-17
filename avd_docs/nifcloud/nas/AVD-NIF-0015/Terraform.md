@@ -2,11 +2,10 @@
 Add descriptions for all nas security groups
 
 ```hcl
- resource "nifcloud_nas_security_group" "good_example" {
-   group_name  = "app"
-   description = "Allow from app traffic"
- }
- 
+resource "nifcloud_nas_security_group" "good_example" {
+  group_name  = "app"
+  description = "Allow from app traffic"
+}
 ```
 
 #### Remediation Links

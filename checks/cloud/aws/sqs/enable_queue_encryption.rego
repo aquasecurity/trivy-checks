@@ -24,11 +24,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue#server-side-encryption-sse
-#     good_examples: checks/cloud/aws/sqs/enable_queue_encryption.tf.go
-#     bad_examples: checks/cloud/aws/sqs/enable_queue_encryption.tf.go
+#     good_examples: checks/cloud/aws/sqs/enable_queue_encryption.yaml
+#     bad_examples: checks/cloud/aws/sqs/enable_queue_encryption.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/sqs/enable_queue_encryption.cf.go
-#     bad_examples: checks/cloud/aws/sqs/enable_queue_encryption.cf.go
+#     good_examples: checks/cloud/aws/sqs/enable_queue_encryption.yaml
+#     bad_examples: checks/cloud/aws/sqs/enable_queue_encryption.yaml
 package builtin.aws.sqs.aws0096
 
 import rego.v1

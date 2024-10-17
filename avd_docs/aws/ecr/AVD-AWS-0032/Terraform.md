@@ -2,14 +2,14 @@
 Do not allow public access in the policy
 
 ```hcl
- resource "aws_ecr_repository" "foo" {
-   name = "bar"
- }
- 
- resource "aws_ecr_repository_policy" "foopolicy" {
-   repository = aws_ecr_repository.foo.name
- 
-   policy = <<EOF
+resource "aws_ecr_repository" "foo" {
+  name = "bar"
+}
+
+resource "aws_ecr_repository_policy" "foopolicy" {
+  repository = aws_ecr_repository.foo.name
+
+  policy = <<EOF
  {
      "Version": "2008-10-17",
      "Statement": [
@@ -37,8 +37,7 @@ Do not allow public access in the policy
      ]
  }
  EOF
- }
- 
+}
 ```
 
 #### Remediation Links

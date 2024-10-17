@@ -1,0 +1,19 @@
+terraform:
+  good:
+    - |-
+      resource "google_container_cluster" "good_example" {
+        node_config {
+          metadata = {
+            disable-legacy-endpoints = true
+          }
+        }
+      }
+  bad:
+    - |-
+      resource "google_container_cluster" "bad_example" {
+        node_config {
+          metadata = {
+            disable-legacy-endpoints = false
+          }
+        }
+      }

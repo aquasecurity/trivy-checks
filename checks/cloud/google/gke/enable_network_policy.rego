@@ -22,8 +22,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#enabled
-#     good_examples: checks/cloud/google/gke/enable_network_policy.tf.go
-#     bad_examples: checks/cloud/google/gke/enable_network_policy.tf.go
+#     good_examples: checks/cloud/google/gke/enable_network_policy.yaml
+#     bad_examples: checks/cloud/google/gke/enable_network_policy.yaml
 package builtin.google.gke.google0056
 
 import rego.v1

@@ -1,7 +1,7 @@
 
 Configure snapshot retention for redis cluster
 
-```yaml---
+```yaml
 Resources:
   GoodExample:
     Type: AWS::ElastiCache::CacheCluster
@@ -9,13 +9,12 @@ Resources:
       AZMode: cross-az
       CacheNodeType: cache.m3.medium
       Engine: redis
-      NumCacheNodes: '3'
-      SnapshotRetentionLimit: 7
+      NumCacheNodes: "3"
       PreferredAvailabilityZones:
         - us-west-2a
         - us-west-2a
-        - us-west-2b 
-
+        - us-west-2b
+      SnapshotRetentionLimit: 7
 ```
 
 

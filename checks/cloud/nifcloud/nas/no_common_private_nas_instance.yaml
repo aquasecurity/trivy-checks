@@ -1,0 +1,11 @@
+terraform:
+  good:
+    - |-
+      resource "nifcloud_nas_instance" "good_example" {
+        network_id = nifcloud_private_lan.main.id
+      }
+  bad:
+    - |-
+      resource "nifcloud_nas_instance" "bad_example" {
+        network_id = "net-COMMON_PRIVATE"
+      }

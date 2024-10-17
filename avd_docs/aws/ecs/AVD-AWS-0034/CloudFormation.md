@@ -1,16 +1,15 @@
 
 Enable Container Insights
 
-```yaml---
+```yaml
 Resources:
   GoodExample:
-    Type: 'AWS::ECS::Cluster'
+    Type: AWS::ECS::Cluster
     Properties:
       ClusterName: MyCluster
       ClusterSettings:
         - Name: containerInsights
           Value: enabled
-
 ```
 
 

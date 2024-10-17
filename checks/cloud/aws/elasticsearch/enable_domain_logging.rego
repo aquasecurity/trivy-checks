@@ -27,11 +27,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#log_type
-#     good_examples: checks/cloud/aws/elasticsearch/enable_domain_logging.tf.go
-#     bad_examples: checks/cloud/aws/elasticsearch/enable_domain_logging.tf.go
+#     good_examples: checks/cloud/aws/elasticsearch/enable_domain_logging.yaml
+#     bad_examples: checks/cloud/aws/elasticsearch/enable_domain_logging.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/elasticsearch/enable_domain_logging.cf.go
-#     bad_examples: checks/cloud/aws/elasticsearch/enable_domain_logging.cf.go
+#     good_examples: checks/cloud/aws/elasticsearch/enable_domain_logging.yaml
+#     bad_examples: checks/cloud/aws/elasticsearch/enable_domain_logging.yaml
 package builtin.aws.elasticsearch.aws0042
 
 import rego.v1

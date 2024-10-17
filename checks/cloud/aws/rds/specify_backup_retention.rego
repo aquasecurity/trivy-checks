@@ -25,11 +25,11 @@
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/rds_cluster#backup_retention_period
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance#backup_retention_period
-#     good_examples: checks/cloud/aws/rds/specify_backup_retention.tf.go
-#     bad_examples: checks/cloud/aws/rds/specify_backup_retention.tf.go
+#     good_examples: checks/cloud/aws/rds/specify_backup_retention.yaml
+#     bad_examples: checks/cloud/aws/rds/specify_backup_retention.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/rds/specify_backup_retention.cf.go
-#     bad_examples: checks/cloud/aws/rds/specify_backup_retention.cf.go
+#     good_examples: checks/cloud/aws/rds/specify_backup_retention.yaml
+#     bad_examples: checks/cloud/aws/rds/specify_backup_retention.yaml
 package builtin.aws.rds.aws0077
 
 import rego.v1

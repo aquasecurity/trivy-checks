@@ -1,0 +1,49 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodSecurityGroup:
+          Type: AWS::EC2::SecurityGroup
+          Properties:
+            GroupDescription: Limits security group egress traffic
+            SecurityGroupEgress:
+              - CidrIp: 127.0.0.1/32
+                Description: Can connect to loopback
+                IpProtocol: "-1"
+  bad:
+    - |-
+      Resources:
+        BadSecurityGroup:
+          Type: AWS::EC2::SecurityGroup
+          Properties:
+            GroupDescription: Limits security group egress traffic
+            SecurityGroupEgress:
+              - CidrIp: 127.0.0.1/32
+                IpProtocol: "-1"
+terraform:
+  good:
+    - |-
+      resource "aws_security_group" "good_example" {
+        name        = "http"
+        description = "Allow inbound HTTP traffic"
+
+        ingress {
+          description = "HTTP from VPC"
+          from_port   = 80
+          to_port     = 80
+          protocol    = "tcp"
+          cidr_blocks = [aws_vpc.main.cidr_block]
+        }
+      }
+  bad:
+    - |-
+      resource "aws_security_group" "bad_example" {
+        name = "http"
+
+        ingress {
+          from_port   = 80
+          to_port     = 80
+          protocol    = "tcp"
+          cidr_blocks = [aws_vpc.main.cidr_block]
+        }
+      }

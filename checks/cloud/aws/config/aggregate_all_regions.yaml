@@ -1,0 +1,46 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::Config::ConfigurationAggregator
+          Properties:
+            AccountAggregationSources:
+              - AllAwsRegions: true
+            ConfigurationAggregatorName: GoodAccountLevelAggregation
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::Config::ConfigurationAggregator
+          Properties:
+            ConfigurationAggregatorName: GoodAccountLevelAggregation
+            OrganizationAggregationSource:
+              AllAwsRegions: true
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::Config::ConfigurationAggregator
+          Properties:
+            ConfigurationAggregatorName: BadAccountLevelAggregation
+terraform:
+  good:
+    - |-
+      resource "aws_config_configuration_aggregator" "good_example" {
+        name = "example"
+
+        account_aggregation_source {
+          account_ids = ["123456789012"]
+          all_regions = true
+        }
+      }
+  bad:
+    - |-
+      resource "aws_config_configuration_aggregator" "bad_example" {
+        name = "example"
+
+        account_aggregation_source {
+          account_ids = ["123456789012"]
+          regions     = ["us-west-2", "eu-west-1"]
+        }
+      }

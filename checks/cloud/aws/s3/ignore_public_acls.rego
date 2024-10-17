@@ -24,11 +24,11 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block#ignore_public_acls
-#     good_examples: checks/cloud/aws/s3/ignore_public_acls.tf.go
-#     bad_examples: checks/cloud/aws/s3/ignore_public_acls.tf.go
+#     good_examples: checks/cloud/aws/s3/ignore_public_acls.yaml
+#     bad_examples: checks/cloud/aws/s3/ignore_public_acls.yaml
 #   cloud_formation:
-#     good_examples: checks/cloud/aws/s3/ignore_public_acls.cf.go
-#     bad_examples: checks/cloud/aws/s3/ignore_public_acls.cf.go
+#     good_examples: checks/cloud/aws/s3/ignore_public_acls.yaml
+#     bad_examples: checks/cloud/aws/s3/ignore_public_acls.yaml
 package builtin.aws.s3.aws0091
 
 import rego.v1

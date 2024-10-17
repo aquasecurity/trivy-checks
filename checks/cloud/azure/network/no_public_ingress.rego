@@ -25,8 +25,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_rule
-#     good_examples: checks/cloud/azure/network/no_public_ingress.tf.go
-#     bad_examples: checks/cloud/azure/network/no_public_ingress.tf.go
+#     good_examples: checks/cloud/azure/network/no_public_ingress.yaml
+#     bad_examples: checks/cloud/azure/network/no_public_ingress.yaml
 package builtin.azure.network.azure0047
 
 import rego.v1

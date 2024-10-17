@@ -2,12 +2,11 @@
 Enable at rest encryption
 
 ```hcl
- resource "aws_msk_cluster" "good_example" {
- 	encryption_info {
-		encryption_at_rest_kms_key_arn = "foo-bar-key"
- 	}
- }
- 
+resource "aws_msk_cluster" "good_example" {
+  encryption_info {
+    encryption_at_rest_kms_key_arn = "foo-bar-key"
+  }
+}
 ```
 
 #### Remediation Links

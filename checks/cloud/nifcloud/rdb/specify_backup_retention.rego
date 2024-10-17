@@ -24,8 +24,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/db_instance#backup_retention_period
-#     good_examples: checks/cloud/nifcloud/rdb/specify_backup_retention.tf.go
-#     bad_examples: checks/cloud/nifcloud/rdb/specify_backup_retention.tf.go
+#     good_examples: checks/cloud/nifcloud/rdb/specify_backup_retention.yaml
+#     bad_examples: checks/cloud/nifcloud/rdb/specify_backup_retention.yaml
 package builtin.nifcloud.rdb.nifcloud0009
 
 import rego.v1

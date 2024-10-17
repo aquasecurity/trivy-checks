@@ -1,0 +1,118 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::ECS::Cluster
+          Properties:
+            ClusterName: MyCluster
+            ClusterSettings:
+              - Name: containerInsights
+                Value: enabled
+
+        GoodTask:
+          Type: AWS::ECS::TaskDefinition
+          Properties:
+            ContainerDefinitions:
+              - Image: cfsec/cfsec:latest
+                LogConfiguration:
+                  LogDriver: awslogs
+                  Options:
+                    awslogs-group: cfsec-logs
+                    awslogs-region: !Ref AWS::Region
+                    awslogs-stream-prefix: cfsec
+                MountPoints:
+                  - ContainerPath: /src
+                    SourceVolume: src
+                Name: cfsec
+            Cpu: 512
+            Family: CFSec scan
+            Memory: 1024
+            NetworkMode: awsvpc
+            RequiresCompatibilities:
+              - FARGATE
+              - EC2
+            Volumes:
+              - EFSVolumeConfiguration:
+                  FilesystemId: fs1
+                  TransitEncryption: ENABLED
+                Name: jenkins-home
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::ECS::Cluster
+          Properties:
+            ClusterName: MyCluster
+            ClusterSettings:
+              - Name: containerInsights
+                Value: enabled
+
+        BadTask:
+          Type: AWS::ECS::TaskDefinition
+          Properties:
+            ContainerDefinitions:
+              - Image: cfsec/cfsec:latest
+                LogConfiguration:
+                  LogDriver: awslogs
+                  Options:
+                    awslogs-group: cfsec-logs
+                    awslogs-region: !Ref AWS::Region
+                    awslogs-stream-prefix: cfsec
+                MountPoints:
+                  - ContainerPath: /src
+                    SourceVolume: src
+                Name: cfsec
+            Cpu: 512
+            Family: CFSec scan
+            Memory: 1024
+            NetworkMode: awsvpc
+            RequiresCompatibilities:
+              - FARGATE
+              - EC2
+            Volumes:
+              - EFSVolumeConfiguration:
+                  FilesystemId: fs1
+                  TransitEncryption: DISABLED
+                Name: jenkins-home
+terraform:
+  good:
+    - |-
+      resource "aws_ecs_task_definition" "good_example" {
+        family                = "service"
+        container_definitions = file("task-definitions/service.json")
+
+        volume {
+          name = "service-storage"
+
+          efs_volume_configuration {
+            file_system_id          = aws_efs_file_system.fs.id
+            root_directory          = "/opt/data"
+            transit_encryption      = "ENABLED"
+            transit_encryption_port = 2999
+            authorization_config {
+              access_point_id = aws_efs_access_point.test.id
+              iam             = "ENABLED"
+            }
+          }
+        }
+      }
+  bad:
+    - |-
+      resource "aws_ecs_task_definition" "bad_example" {
+        family                = "service"
+        container_definitions = file("task-definitions/service.json")
+
+        volume {
+          name = "service-storage"
+
+          efs_volume_configuration {
+            file_system_id = aws_efs_file_system.fs.id
+            root_directory = "/opt/data"
+            authorization_config {
+              access_point_id = aws_efs_access_point.test.id
+              iam             = "ENABLED"
+            }
+          }
+        }
+      }

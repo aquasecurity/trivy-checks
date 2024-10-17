@@ -26,8 +26,8 @@
 #   terraform:
 #     links:
 #       - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/db_instance#network_id
-#     good_examples: checks/cloud/nifcloud/rdb/no_common_private_db_instance.tf.go
-#     bad_examples: checks/cloud/nifcloud/rdb/no_common_private_db_instance.tf.go
+#     good_examples: checks/cloud/nifcloud/rdb/no_common_private_db_instance.yaml
+#     bad_examples: checks/cloud/nifcloud/rdb/no_common_private_db_instance.yaml
 package builtin.nifcloud.rdb.nifcloud0010
 
 import rego.v1
