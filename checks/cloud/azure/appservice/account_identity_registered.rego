@@ -28,13 +28,15 @@ package builtin.azure.appservice.azure0002
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some service in input.azure.appservice.services
 	isManaged(service)
 	not has_identity_type(service)
 	res := result.new(
 		"App service does not have an identity type.",
-		object.get(service, ["identity", "type"], service),
+		metadata.obj_by_path(service, ["identity", "type"]),
 	)
 }
 

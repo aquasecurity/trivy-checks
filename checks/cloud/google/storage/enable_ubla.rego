@@ -33,7 +33,7 @@ import rego.v1
 
 deny contains res if {
 	some bucket in input.google.storage.buckets
-	bucket.__defsec_metadata.managed
+	isManaged(bucket)
 	bucket.enableuniformbucketlevelaccess.value == false
 	res := result.new("Bucket has uniform bucket level access disabled.", bucket.enableuniformbucketlevelaccess)
 }

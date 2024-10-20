@@ -34,20 +34,28 @@ package builtin.aws.athena.aws0006
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 encryption_type_none := ""
 
 deny contains res if {
 	some workgroup in input.aws.athena.workgroups
-	is_encryption_type_none(workgroup.encryption)
-	res := result.new("Workgroup does not have encryption configured.", workgroup)
+	not is_encrypted(workgroup)
+	res := result.new(
+		"Workgroup does not have encryption configured.",
+		metadata.obj_by_path(workgroup, ["encryption", "type"]),
+	)
 }
 
 deny contains res if {
 	some database in input.aws.athena.databases
-	is_encryption_type_none(database.encryption)
-	res := result.new("Database does not have encryption configured.", database)
+	not is_encrypted(database)
+	res := result.new(
+		"Database does not have encryption configured.",
+		metadata.obj_by_path(database, ["encryption", "type"]),
+	)
 }
 
-is_encryption_type_none(encryption) if {
-	encryption.type.value == encryption_type_none
+is_encrypted(obj) if {
+	obj.encryption.type.value != encryption_type_none
 }

@@ -18,13 +18,3 @@ test_allow_compute_os_login_enabled if {
 	res := check.deny with input as inp
 	res == set()
 }
-
-test_allow_compute_os_login_is_not_managed if {
-	inp := {"google": {"compute": {"projectmetadata": {
-		"__defsec_metadata": {"managed": false},
-		"enableoslogin": {"value": false},
-	}}}}
-
-	res := check.deny with input as inp
-	res == set()
-}

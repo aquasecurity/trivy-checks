@@ -10,4 +10,6 @@ The ports which are lower than 1024 receive and transmit various sensitive and p
 ### Links
 - https://kubernetes.io/docs/concepts/security/pod-security-standards/
 
+- https://www.stigviewer.com/stig/kubernetes/2022-12-02/finding/V-242414
+
 

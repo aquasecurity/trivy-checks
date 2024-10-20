@@ -34,16 +34,25 @@ package builtin.aws.codebuild.aws0018
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some project in input.aws.codebuild.projects
-	encryptionenabled := project.artifactsettings.encryptionenabled
-	not encryptionenabled.value
-	res := result.new("Encryption is not enabled for project artifacts.", encryptionenabled)
+	not is_encryption_enabled(project.artifactsettings)
+	res := result.new(
+		"Encryption is not enabled for project artifacts.",
+		metadata.obj_by_path(project, ["artifactsettings", "encryptionenabled"]),
+	)
 }
+
+is_encryption_enabled(settings) if settings.encryptionenabled.value
 
 deny contains res if {
 	some project in input.aws.codebuild.projects
 	some setting in project.secondaryartifactsettings
-	not setting.encryptionenabled.value
-	res := result.new("Encryption is not enabled for secondary project artifacts.", setting.encryptionenabled)
+	not is_encryption_enabled(setting)
+	res := result.new(
+		"Encryption is not enabled for secondary project artifacts.",
+		metadata.obj_by_path(setting, ["encryptionenabled"]),
+	)
 }

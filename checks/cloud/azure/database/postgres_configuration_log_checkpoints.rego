@@ -30,12 +30,14 @@ package builtin.azure.database.azure0024
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some server in input.azure.database.postgresqlservers
 	isManaged(server)
 	not server.config.logcheckpoints.value
 	res := result.new(
 		"Database server is not configured to log checkpoints.",
-		object.get(server, ["config", "logcheckpoints"], server),
+		metadata.obj_by_path(server, ["config", "logcheckpoints"]),
 	)
 }

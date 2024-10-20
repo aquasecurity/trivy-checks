@@ -28,6 +28,8 @@ package builtin.google.compute.google0033
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some instance in input.google.compute.instances
 	disks := array.concat(
@@ -40,7 +42,7 @@ deny contains res if {
 	not disk_is_encrypted(disk)
 	res := result.new(
 		"Instance disk encryption does not use a customer managed key.",
-		object.get(disk, ["encryption", "kmskeylink"], disk),
+		metadata.obj_by_path(disk, ["encryption", "kmskeylink"]),
 	)
 }
 

@@ -31,16 +31,17 @@
 #     good_examples: checks/cloud/aws/s3/enable_bucket_logging.cf.go
 package builtin.aws.s3.aws0089
 
-import future.keywords.if
-import future.keywords.in
+import rego.v1
 
-deny[res] {
+import data.lib.cloud.metadata
+
+deny contains res if {
 	bucket := input.aws.s3.buckets[_]
 	not bucket_has_server_logging_access(bucket)
 	not is_logging_enabled(bucket)
 	res := result.new(
 		"Bucket has logging disabled",
-		object.get(bucket, ["logging", "enabled"], bucket),
+		metadata.obj_by_path(bucket, ["logging", "enabled"]),
 	)
 }
 

@@ -35,9 +35,14 @@ package builtin.aws.ec2.aws0026
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some volume in input.aws.ec2.volumes
-	volume.__defsec_metadata.managed
-	volume.encryption.enabled.value == false
-	res := result.new("EBS volume is not encrypted.", volume.encryption.enabled)
+	isManaged(volume)
+	not volume.encryption.enabled.value
+	res := result.new(
+		"EBS volume is not encrypted.",
+		metadata.obj_by_path(volume, ["encryption", "enabled"]),
+	)
 }

@@ -31,9 +31,14 @@ package builtin.aws.elb.aws0052
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some lb in input.aws.elb.loadbalancers
 	lb.type.value == "application"
-	lb.dropinvalidheaderfields.value == false
-	res := result.new("Application load balancer is not set to drop invalid headers.", lb.dropinvalidheaderfields)
+	not lb.dropinvalidheaderfields.value
+	res := result.new(
+		"Application load balancer is not set to drop invalid headers.",
+		metadata.obj_by_path(lb, ["dropinvalidheaderfields"]),
+	)
 }

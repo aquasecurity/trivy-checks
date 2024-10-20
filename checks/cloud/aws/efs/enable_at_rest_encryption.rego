@@ -33,8 +33,13 @@ package builtin.aws.efs.aws0037
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some fs in input.aws.efs.filesystems
-	fs.encrypted.value == false
-	res := result.new("File system is not encrypted.", fs.encrypted)
+	not fs.encrypted.value
+	res := result.new(
+		"File system is not encrypted.",
+		metadata.obj_by_path(fs, ["encrypted"]),
+	)
 }

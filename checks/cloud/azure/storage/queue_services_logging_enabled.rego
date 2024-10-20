@@ -32,6 +32,8 @@ package builtin.azure.storage.azure0009
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some account in input.azure.storage.accounts
 	isManaged(account)
@@ -39,6 +41,6 @@ deny contains res if {
 	not account.queueproperties.enablelogging.value
 	res := result.new(
 		"Queue services storage account does not have logging enabled.",
-		object.get(account, ["queueproperties", "enablelogging"], account),
+		metadata.obj_by_path(account, ["queueproperties", "enablelogging"]),
 	)
 }

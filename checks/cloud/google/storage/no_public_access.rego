@@ -32,7 +32,7 @@ import rego.v1
 
 deny contains res if {
 	some bucket in input.google.storage.buckets
-	bucket.__defsec_metadata.managed
+	isManaged(bucket)
 	some member in bucket.bindings[_].members
 	is_member_external(member.value)
 	res := result.new("Bucket allows public access.", member)
@@ -40,7 +40,7 @@ deny contains res if {
 
 deny contains res if {
 	some bucket in input.google.storage.buckets
-	bucket.__defsec_metadata.managed
+	isManaged(bucket)
 	some member in bucket.members
 	is_member_external(member.member.value)
 	res := result.new("Bucket allows public access.", member.member)
