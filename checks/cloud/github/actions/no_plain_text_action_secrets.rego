@@ -32,8 +32,10 @@ package builtin.github.actions.github0002
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some secret in input.github.environmentsecrets
-	secret.plaintextvalue.value != ""
+	value.is_not_empty(secret.plaintextvalue)
 	res := result.new("Secret has plain text value", secret.plaintextvalue)
 }

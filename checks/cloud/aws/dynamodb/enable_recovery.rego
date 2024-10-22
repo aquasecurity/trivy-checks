@@ -31,16 +31,27 @@ package builtin.aws.dynamodb.aws0024
 
 import rego.v1
 
+import data.lib.cloud.metadata
+import data.lib.cloud.value
+
 deny contains res if {
 	some cluster in input.aws.dynamodb.daxclusters
-	cluster.pointintimerecovery.value == false
-
-	res := result.new("Point-in-time recovery is not enabled.", cluster.pointintimerecovery)
+	recovery_is_not_enabled(cluster)
+	res := result.new(
+		"Point-in-time recovery is not enabled.",
+		metadata.obj_by_path(cluster, ["pointintimerecovery"]),
+	)
 }
 
 deny contains res if {
 	some table in input.aws.dynamodb.tables
-	table.pointintimerecovery.value == false
-
-	res := result.new("Point-in-time recovery is not enabled.", table.pointintimerecovery)
+	recovery_is_not_enabled(table)
+	res := result.new(
+		"Point-in-time recovery is not enabled.",
+		metadata.obj_by_path(table, ["pointintimerecovery"]),
+	)
 }
+
+recovery_is_not_enabled(obj) if value.is_false(obj.pointintimerecovery)
+
+recovery_is_not_enabled(obj) if not obj.pointintimerecovery

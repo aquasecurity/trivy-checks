@@ -30,9 +30,23 @@ package builtin.aws.kms.aws0065
 
 import rego.v1
 
+import data.lib.cloud.metadata
+import data.lib.cloud.value
+
 deny contains res if {
 	some key in input.aws.kms.keys
-	key.usage.value != "SIGN_VERIFY"
-	key.rotationenabled.value == false
-	res := result.new("Key does not have rotation enabled.", key.rotationenabled)
+	is_not_sign_key(key)
+	rotation_disabled(key)
+	res := result.new(
+		"Key does not have rotation enabled.",
+		metadata.obj_by_path(key, ["rotationenabled"]),
+	)
 }
+
+is_not_sign_key(key) if value.is_not_equal(key.usage, "SIGN_VERIFY")
+
+is_not_sign_key(key) if not key.usage
+
+rotation_disabled(key) if value.is_false(key.rotationenabled)
+
+rotation_disabled(key) if not key.rotationenabled

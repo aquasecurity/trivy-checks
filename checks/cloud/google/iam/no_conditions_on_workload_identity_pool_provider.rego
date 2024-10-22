@@ -30,13 +30,17 @@ package builtin.google.iam.google0068
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some provider in input.google.iam.workloadidentitypoolproviders
-	not has_conditions(provider)
+	without_conditions(provider)
 	res := result.new(
 		"This workload identity pool provider configuration has no conditions set.",
 		object.get(provider, "attributecondition", provider),
 	)
 }
 
-has_conditions(provider) := provider.attributecondition.value != ""
+without_conditions(provider) if value.is_empty(provider.attributecondition)
+
+without_conditions(provider) if not provider.attributecondition

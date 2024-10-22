@@ -32,14 +32,18 @@ package builtin.azure.keyvault.azure0015
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some vault in input.azure.keyvault.vaults
 	some secret in vault.secrets
-	not secret_has_content_type(secret)
+	secret_without_content_type(secret)
 	res := result.new(
 		"Secret does not have a content-type specified.",
 		object.get(secret, "contenttype", secret),
 	)
 }
 
-secret_has_content_type(secret) := secret.contenttype.value != ""
+secret_without_content_type(secret) if value.is_empty(secret.contenttype)
+
+secret_without_content_type(secret) if not secret.contenttype

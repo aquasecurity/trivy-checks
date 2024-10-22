@@ -34,10 +34,11 @@ package builtin.aws.apigateway.aws0001
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some stage in input.aws.apigateway.v1.apis[_].stages
-	not logging_is_configured(stage)
+	logging_is_not_configured(stage)
 	res := result.new(
 		"Access logging is not configured.",
 		metadata.obj_by_path(stage, ["accesslogging", "cloudwatchloggrouparn"]),
@@ -46,14 +47,16 @@ deny contains res if {
 
 deny contains res if {
 	some stage in input.aws.apigateway.v2.apis[_].stages
-	not logging_is_configured(stage)
+	logging_is_not_configured(stage)
 	res := result.new(
 		"Access logging is not configured.",
 		metadata.obj_by_path(stage, ["accesslogging", "cloudwatchloggrouparn"]),
 	)
 }
 
-logging_is_configured(stage) if {
+logging_is_not_configured(stage) if {
 	isManaged(stage)
-	stage.accesslogging.cloudwatchloggrouparn.value != ""
+	value.is_empty(stage.accesslogging.cloudwatchloggrouparn)
 }
+
+logging_is_not_configured(stage) if not stage.accesslogging.cloudwatchloggrouparn

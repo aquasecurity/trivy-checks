@@ -32,15 +32,18 @@ package builtin.azure.securitycenter.azure0046
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some contact in input.azure.securitycenter.contacts
 	isManaged(contact)
-
-	not contact_has_phone(contact)
+	contact_without_phone(contact)
 	res := result.new(
 		"Security contact does not have a phone number listed.",
 		object.get(contact, "phone", contact),
 	)
 }
 
-contact_has_phone(contact) := contact.phone.value != ""
+contact_without_phone(contact) if value.is_empty(contact.phone)
+
+contact_without_phone(contact) if not contact.phone
