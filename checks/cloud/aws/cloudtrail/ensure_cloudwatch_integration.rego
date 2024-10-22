@@ -47,14 +47,17 @@ package builtin.aws.cloudtrail.aws0162
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some trail in input.aws.cloudtrail.trails
-	not is_logging_configured(trail)
+	logging_is_not_configured(trail)
 	res := result.new(
 		"Trail does not have CloudWatch logging configured",
 		metadata.obj_by_path(trail, ["cloudwatchlogsloggrouparn"]),
 	)
 }
 
-is_logging_configured(trail) if trail.cloudwatchlogsloggrouparn.value != ""
+logging_is_not_configured(trail) if value.is_empty(trail.cloudwatchlogsloggrouparn)
+
+logging_is_not_configured(trail) if not trail.cloudwatchlogsloggrouparn

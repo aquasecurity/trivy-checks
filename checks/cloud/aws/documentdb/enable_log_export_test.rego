@@ -24,3 +24,8 @@ test_allow_export_mixed if {
 	inp := {"aws": {"documentdb": {"clusters": [{"enabledlogexports": [{"value": "audit"}, {"value": "profiler"}]}]}}}
 	test.assert_empty(check.deny) with input as inp
 }
+
+test_allow_export_mixed_with_unresolvable if {
+	inp := {"aws": {"documentdb": {"clusters": [{"enabledlogexports": [{"value": "foo"}, {"value": "bar", "unresolvable": true}]}]}}}
+	test.assert_empty(check.deny) with input as inp
+}

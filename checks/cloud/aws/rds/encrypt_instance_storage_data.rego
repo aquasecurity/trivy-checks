@@ -35,15 +35,22 @@ package builtin.aws.rds.aws0080
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some instance in input.aws.rds.instances
-	not has_replication_source_arn(instance)
-	not instance.encryption.encryptstorage.value
+	without_replication_source_arn(instance)
+	encryption_disabled(instance)
 	res := result.new(
 		"Instance does not have storage encryption enabled.",
 		metadata.obj_by_path(instance, ["encryption", "encryptstorage"]),
 	)
 }
 
-has_replication_source_arn(instance) := instance.replciationsourcearn.value != ""
+without_replication_source_arn(instance) if value.is_empty(instance.replciationsourcearn)
+
+without_replication_source_arn(instance) if not instance.replciationsourcearn
+
+encryption_disabled(instance) if value.is_false(instance.encryption.encryptstorage)
+
+encryption_disabled(instance) if not instance.encryption.encryptstorage

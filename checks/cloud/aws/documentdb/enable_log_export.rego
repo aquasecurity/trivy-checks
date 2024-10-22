@@ -33,6 +33,8 @@ package builtin.aws.documentdb.aws0020
 
 import rego.v1
 
+import data.lib.cloud.value
+
 log_export_audit := "audit"
 
 log_export_profiler := "profiler"
@@ -46,4 +48,9 @@ deny contains res if {
 export_audit_or_profiler(cluster) if {
 	some log in cluster.enabledlogexports
 	log.value in [log_export_audit, log_export_profiler]
+}
+
+export_audit_or_profiler(cluster) if {
+	some log in cluster.enabledlogexports
+	value.is_unresolvable(log)
 }

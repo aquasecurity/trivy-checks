@@ -28,10 +28,12 @@ package builtin.openstack.compute.openstack0002
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some rule in input.openstack.compute.firewall.allowrules
 	is_rule_enabled(rule)
-	rule.destination.value == ""
+	value.is_empty(rule.destination)
 	res := result.new("Firewall rule does not restrict destination address internally.", rule)
 }
 
@@ -45,7 +47,7 @@ deny contains res if {
 deny contains res if {
 	some rule in input.openstack.compute.firewall.allowrules
 	is_rule_enabled(rule)
-	rule.source.value == ""
+	value.is_empty(rule.source)
 	res := result.new("Firewall rule does not restrict source address internally.", rule.source)
 }
 

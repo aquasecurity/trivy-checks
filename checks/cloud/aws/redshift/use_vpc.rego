@@ -34,13 +34,17 @@ package builtin.aws.redshift.aws0127
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some cluster in input.aws.redshift.clusters
-	not has_subnet_group_name(cluster)
+	subnet_group_name_missed(cluster)
 	res := result.new(
 		"Cluster is deployed outside of a VPC.",
 		object.get(cluster, "subnetgroupname", cluster),
 	)
 }
 
-has_subnet_group_name(cluster) if cluster.subnetgroupname.value != ""
+subnet_group_name_missed(cluster) if value.is_empty(cluster.subnetgroupname)
+
+subnet_group_name_missed(cluster) if not cluster.subnetgroupname

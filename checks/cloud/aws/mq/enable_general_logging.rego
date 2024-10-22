@@ -33,8 +33,18 @@ package builtin.aws.mq.aws0071
 
 import rego.v1
 
+import data.lib.cloud.metadata
+import data.lib.cloud.value
+
 deny contains res if {
 	some broker in input.aws.mq.brokers
-	broker.logging.general.value == false
-	res := result.new("Broker does not have general logging enabled.", broker.logging.general)
+	logging_disabled(broker)
+	res := result.new(
+		"Broker does not have general logging enabled.",
+		metadata.obj_by_path(broker, ["logging", "general"]),
+	)
 }
+
+logging_disabled(broker) if value.is_false(broker.logging.general)
+
+logging_disabled(broker) if not broker.logging.general

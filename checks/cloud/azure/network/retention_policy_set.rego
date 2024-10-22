@@ -36,6 +36,8 @@ import rego.v1
 
 import data.lib.cloud.metadata
 
+import data.lib.cloud.value
+
 flowlogs := input.azure.network.networkwatcherflowlogs
 
 deny contains res if {
@@ -54,7 +56,7 @@ deny contains res if {
 	isManaged(flowlog)
 
 	flowlog.retentionpolicy.enabled.value
-	flowlog.retentionpolicy.days.value < 90
+	value.less_than(flowlog.retentionpolicy.days, 90)
 	res := result.new(
 		"Flow log has a log retention policy of less than 90 days.",
 		metadata.obj_by_path(flowlog, ["retentionpolicy", "days"]),

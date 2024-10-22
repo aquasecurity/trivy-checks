@@ -40,11 +40,12 @@ package builtin.aws.ec2.aws0130
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some config in input.aws.ec2.launchconfigurations
-	not is_tokens_required(config)
-	not is_endpoint_disabled(config)
+	tokens_is_not_required(config)
+	endpoint_is_not_disabled(config)
 	res := result.new(
 		"Launch configuration does not require IMDS access to require a token",
 		metadata.obj_by_path(config, ["metadataoptions", "httptokens"]),
@@ -53,14 +54,18 @@ deny contains res if {
 
 deny contains res if {
 	some tpl in input.aws.ec2.launchtemplates
-	not is_tokens_required(tpl.instance)
-	not is_endpoint_disabled(tpl.instance)
+	tokens_is_not_required(tpl.instance)
+	endpoint_is_not_disabled(tpl.instance)
 	res := result.new(
 		"Launch template does not require IMDS access to require a token",
 		metadata.obj_by_path(tpl.instance, ["metadataoptions", "httptokens"]),
 	)
 }
 
-is_tokens_required(instance) if instance.metadataoptions.httptokens.value == "required"
+tokens_is_not_required(instance) if value.is_not_equal(instance.metadataoptions.httptokens, "required")
 
-is_endpoint_disabled(instance) if instance.metadataoptions.httpendpoint.value == "disabled"
+tokens_is_not_required(instance) if not instance.metadataoptions.httptokens
+
+endpoint_is_not_disabled(instance) if value.is_not_equal(instance.metadataoptions.httpendpoint, "disabled")
+
+endpoint_is_not_disabled(instance) if not instance.metadataoptions.httpendpoint

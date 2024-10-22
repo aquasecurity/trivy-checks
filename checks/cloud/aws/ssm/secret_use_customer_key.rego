@@ -33,9 +33,11 @@ package builtin.aws.ssm.aws0098
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some secret in input.aws.ssm.secrets
-	secret.kmskeyid.value == ""
+	without_cmk(secret)
 	res := result.new("Secret is not encrypted with a customer managed key.", secret.kmskeyid)
 }
 
@@ -44,3 +46,7 @@ deny contains res if {
 	secret.kmskeyid.value == "alias/aws/secretsmanager"
 	res := result.new("Secret explicitly uses the default key.", secret.kmskeyid)
 }
+
+without_cmk(secret) if value.is_empty(secret.kmskeyid)
+
+without_cmk(secret) if not secret.kmskeyid

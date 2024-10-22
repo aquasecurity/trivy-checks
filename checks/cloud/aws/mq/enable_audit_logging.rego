@@ -33,9 +33,18 @@ package builtin.aws.mq.aws0070
 
 import rego.v1
 
+import data.lib.cloud.metadata
+import data.lib.cloud.value
+
 deny contains res if {
 	some broker in input.aws.mq.brokers
-	broker.logging.audit.value == false
-
-	res := result.new("Broker does not have audit logging enabled.", broker.logging.audit)
+	logging_disabled(broker)
+	res := result.new(
+		"Broker does not have audit logging enabled.",
+		metadata.obj_by_path(broker, ["logging", "audit"]),
+	)
 }
+
+logging_disabled(broker) if value.is_false(broker.logging.audit)
+
+logging_disabled(broker) if not broker.logging.audit
