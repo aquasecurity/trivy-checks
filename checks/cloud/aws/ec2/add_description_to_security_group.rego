@@ -39,11 +39,12 @@ package builtin.aws.ec2.aws0099
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some sg in input.aws.ec2.securitygroups
 	isManaged(sg)
-	not has_description(sg)
+	without_description(sg)
 	res := result.new(
 		"Security group does not have a description.",
 		metadata.obj_by_path(sg, ["description"]),
@@ -57,4 +58,6 @@ deny contains res if {
 	res := result.new("Security group explicitly uses the default description.", sg.description)
 }
 
-has_description(sg) if sg.description.value != ""
+without_description(sg) if value.is_empty(sg.description)
+
+without_description(sg) if not sg.description

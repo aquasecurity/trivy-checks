@@ -36,6 +36,8 @@ package builtin.aws.rds.aws0078
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some cluster in input.aws.rds.clusters
 	some instance in cluster.instances
@@ -58,7 +60,9 @@ deny contains res if {
 kms_key_not_used(instance) if {
 	isManaged(instance)
 	instance.performanceinsights.enabled.value
-	not has_perfomance_insights_kms_key_id(instance)
+	perfomance_insights_kms_key_id_missed(instance)
 }
 
-has_perfomance_insights_kms_key_id(instance) := instance.performanceinsights.kmskeyid.value != ""
+perfomance_insights_kms_key_id_missed(instance) if value.is_empty(instance.performanceinsights.kmskeyid)
+
+perfomance_insights_kms_key_id_missed(instance) if not instance.performanceinsights.kmskeyid

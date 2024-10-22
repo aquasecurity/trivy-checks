@@ -35,11 +35,9 @@ import data.lib.cloud.metadata
 
 deny contains res if {
 	some server in database.all_servers
-	is_public_access_enabled(server)
+	server.enablepublicnetworkaccess.value
 	res := result.new(
-		"Database server does not have public access enabled.",
-		metadata.obj_by_path(server, "enablepublicnetworkaccess"),
+		"Database server has public network access enabled.",
+		server.enablepublicnetworkaccess,
 	)
 }
-
-is_public_access_enabled(server) := server.enablepublicnetworkaccess.value == true

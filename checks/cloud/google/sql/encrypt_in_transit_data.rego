@@ -30,6 +30,8 @@ package builtin.google.sql.google0015
 
 import rego.v1
 
+import data.lib.cloud.value
+
 ssl_mode_trusted_client_certificate_required := "TRUSTED_CLIENT_CERTIFICATE_REQUIRED"
 
 deny contains res if {
@@ -55,4 +57,4 @@ is_ssl_enforced(ipconf) if {
 	ipconf.requiretls.value == true
 }
 
-has_ssl_mode(ipconf) if ipconf.sslmode.value != ""
+has_ssl_mode(ipconf) if not value.is_empty(ipconf.sslmode)

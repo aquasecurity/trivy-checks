@@ -30,12 +30,9 @@ import rego.v1
 
 deny contains res if {
 	some instance in input.google.compute.instances
-	service_account := instance.serviceaccount
-	is_default_service_account(service_account)
+	instance.serviceaccount.isdefault.value
 	res := result.new(
 		"Instance uses the default service account.",
-		object.get(service_account, "email", service_account),
+		instance.serviceaccount.isdefault,
 	)
 }
-
-is_default_service_account(service_account) := service_account.isdefault.value == true
