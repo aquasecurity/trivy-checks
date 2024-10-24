@@ -35,14 +35,17 @@ package builtin.aws.elasticache.aws0049
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some secgroup in input.aws.elasticache.securitygroups
-	not has_description(secgroup)
+	without_description(secgroup)
 	res := result.new(
 		"Security group does not have a description.",
 		metadata.obj_by_path(secgroup, ["description"]),
 	)
 }
 
-has_description(sg) if sg.description.value != ""
+without_description(sg) if value.is_empty(sg.description)
+
+without_description(sg) if not sg.description

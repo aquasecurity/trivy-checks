@@ -33,10 +33,12 @@ package builtin.aws.elasticache.aws0050
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some cluster in input.aws.elasticache.clusters
 	cluster.engine.value == "redis"
-	cluster.nodetype.value != "cache.t1.micro"
-	cluster.snapshotretentionlimit.value == 0
+	value.is_not_equal(cluster.nodetype, "cache.t1.micro")
+	value.is_equal(cluster.snapshotretentionlimit, 0)
 	res := result.new("Cluster snapshot retention is not enabled.", cluster.snapshotretentionlimit)
 }

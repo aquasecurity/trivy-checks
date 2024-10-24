@@ -33,13 +33,17 @@ package builtin.aws.cloudfront.aws0011
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some dist in input.aws.cloudfront.distributions
-	not is_waf_enabled(dist)
+	waf_not_enabled(dist)
 	res := result.new(
 		"Distribution does not utilise a WAF.",
 		object.get(dist, "wafid", dist),
 	)
 }
 
-is_waf_enabled(dist) := dist.wafid.value != ""
+waf_not_enabled(dist) if value.is_empty(dist.wafid)
+
+waf_not_enabled(dist) if not dist.wafid

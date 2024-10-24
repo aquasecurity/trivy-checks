@@ -34,9 +34,11 @@ package builtin.aws.iam.aws0168
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some certificate in input.aws.iam.servercertificates
+	not value.is_unresolvable(certificate.expiration)
 	time.parse_rfc3339_ns(certificate.expiration.value) < time.now_ns()
-
 	res := result.new("Certificate has expired", certificate)
 }

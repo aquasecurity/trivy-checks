@@ -29,15 +29,20 @@ package builtin.aws.apigateway.aws0003
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some api in input.aws.apigateway.v1.apis
 	isManaged(api)
 	some stage in api.stages
 	isManaged(stage)
-	not stage.xraytracingenabled.value
+	tracing_is_not_enabled(stage)
 	res := result.new(
 		"X-Ray tracing is not enabled.",
 		metadata.obj_by_path(stage, ["xraytracingenabled"]),
 	)
 }
+
+tracing_is_not_enabled(stage) if value.is_false(stage.xraytracingenabled)
+
+tracing_is_not_enabled(stage) if not stage.xraytracingenabled

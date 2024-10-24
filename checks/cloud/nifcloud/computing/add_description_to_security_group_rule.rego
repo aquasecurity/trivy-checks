@@ -34,6 +34,9 @@ package builtin.nifcloud.computing.nifcloud0003
 
 import rego.v1
 
+import data.lib.cloud.metadata
+import data.lib.cloud.value
+
 deny contains res if {
 	some sg in input.nifcloud.computing.securitygroups
 	some rule in array.concat(
@@ -41,6 +44,13 @@ deny contains res if {
 		object.get(sg, "egressrules", []),
 	)
 
-	rule.description.value == ""
-	res := result.new("Security group rule does not have a description.", rule.description)
+	without_description(rule)
+	res := result.new(
+		"Security group rule does not have a description.",
+		metadata.obj_by_path(rule, ["description"]),
+	)
 }
+
+without_description(rule) if value.is_empty(rule.description)
+
+without_description(rule) if not rule.description

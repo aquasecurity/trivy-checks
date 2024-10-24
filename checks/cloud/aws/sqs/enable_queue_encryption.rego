@@ -33,10 +33,20 @@ package builtin.aws.sqs.aws0096
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some queue in input.aws.sqs.queues
 	isManaged(queue)
-	queue.encryption.kmskeyid.value == ""
-	queue.encryption.managedencryption.value == false
+	without_cmk(queue)
+	not_encrypted(queue)
 	res := result.new("Queue is not encrypted", queue.encryption)
 }
+
+without_cmk(queue) if value.is_empty(queue.encryption.kmskeyid)
+
+without_cmk(queue) if not queue.encryption.kmskeyid
+
+not_encrypted(queue) if value.is_false(queue.encryption.managedencryption)
+
+not_encrypted(queue) if not queue.encryption.managedencryption

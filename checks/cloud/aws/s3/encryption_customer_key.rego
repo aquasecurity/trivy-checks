@@ -33,14 +33,16 @@ package builtin.aws.s3.aws0132
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some bucket in input.aws.s3.buckets
 
 	# Log buckets don't support non AES256 encryption - this rule doesn't apply here
 	# https://aws.amazon.com/premiumsupport/knowledge-center/s3-server-access-log-not-delivered/
-	not is_log_bucket(bucket)
+	non_log_bucket(bucket)
 
-	not has_encryption(bucket)
+	without_cmk(bucket)
 
 	res := result.new(
 		"Bucket does not encrypt data with a customer managed key.",
@@ -48,6 +50,13 @@ deny contains res if {
 	)
 }
 
-is_log_bucket(bucket) := lower(bucket.acl.value) == "log-delivery-write"
+non_log_bucket(bucket) if {
+	not value.is_unresolvable(bucket.acl)
+	lower(bucket.acl.value) != "log-delivery-write"
+}
 
-has_encryption(bucket) := bucket.encryption.kmskeyid.value != ""
+non_log_bucket(bucket) if not bucket.acl
+
+without_cmk(bucket) if value.is_empty(bucket.encryption.kmskeyid)
+
+without_cmk(bucket) if not bucket.encryption.kmskeyid

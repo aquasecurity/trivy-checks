@@ -35,10 +35,20 @@ package builtin.aws.lambda.aws0067
 
 import rego.v1
 
+import data.lib.cloud.metadata
+import data.lib.cloud.value
+
 deny contains res if {
 	some func in input.aws.lambda.functions
 	some permission in func.permissions
 	endswith(permission.principal.value, ".amazonaws.com")
-	permission.sourcearn.value == ""
-	res := result.new("Lambda permission lacks source ARN for *.amazonaws.com principal.", permission.sourcearn)
+	sourcearn_is_missed(permission)
+	res := result.new(
+		"Lambda permission lacks source ARN for *.amazonaws.com principal.",
+		metadata.obj_by_path(permission, ["sourcearn"]),
+	)
 }
+
+sourcearn_is_missed(permission) if value.is_empty(permission.sourcearn)
+
+sourcearn_is_missed(permission) if not permission.sourcearn

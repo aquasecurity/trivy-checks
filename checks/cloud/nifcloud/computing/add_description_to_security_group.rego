@@ -34,9 +34,11 @@ package builtin.nifcloud.computing.nifcloud0002
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some sg in input.nifcloud.computing.securitygroups
-	sg.description.value == ""
+	without_description(sg)
 	res := result.new("Security group does not have a description.", sg.description)
 }
 
@@ -45,3 +47,7 @@ deny contains res if {
 	sg.description.value == "Managed by Terraform"
 	res := result.new("Security group explicitly uses the default description.", sg.description)
 }
+
+without_description(sg) if value.is_empty(sg.description)
+
+without_description(sg) if not sg.description

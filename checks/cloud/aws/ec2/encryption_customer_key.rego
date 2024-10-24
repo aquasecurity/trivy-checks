@@ -36,15 +36,18 @@ package builtin.aws.ec2.aws0027
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some volume in input.aws.ec2.volumes
 	isManaged(volume)
-	not has_cms(volume)
+	without_cmk(volume)
 	res := result.new(
 		"EBS volume does not use a customer-managed KMS key.",
 		metadata.obj_by_path(volume, ["encryption", "kmskeyid"]),
 	)
 }
 
-has_cms(volume) if volume.encryption.kmskeyid.value != ""
+without_cmk(volume) if value.is_empty(volume.encryption.kmskeyid)
+
+without_cmk(volume) if not volume.encryption.kmskeyid

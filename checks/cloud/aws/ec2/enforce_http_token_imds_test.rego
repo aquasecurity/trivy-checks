@@ -33,3 +33,12 @@ test_allow_instance_with_endpoint_disabled if {
 }
 
 build_input(meta_opts) := {"aws": {"ec2": {"instances": [{"metadataoptions": meta_opts}]}}}
+
+test_allow_instance_with_tokens_unresolvable if {
+	inp := build_input({
+		"httptokens": {"value": "", "unresolvable": true},
+		"httpendpoint": {"value": "enabled"},
+	})
+
+	test.assert_empty(check.deny) with input as inp
+}

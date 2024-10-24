@@ -32,8 +32,14 @@ package builtin.nifcloud.network.nifcloud0018
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some gateway in input.nifcloud.network.vpngateways
-	gateway.securitygroup.value == ""
+	without_sg(gateway)
 	res := result.new("VpnGateway does not have a securiy group.", gateway.securitygroup)
 }
+
+without_sg(gateway) if value.is_empty(gateway.securitygroup)
+
+without_sg(gateway) if not gateway.securitygroup

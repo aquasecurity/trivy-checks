@@ -29,13 +29,17 @@ package builtin.aws.redshift.aws0083
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some group in input.aws.redshift.securitygroups
-	not has_description(group)
+	without_description(group)
 	res := result.new(
 		"Security group has no description.",
 		object.get(group, "description", group),
 	)
 }
 
-has_description(group) if group.description.value != ""
+without_description(group) if value.is_empty(group.description)
+
+without_description(group) if not group.description
