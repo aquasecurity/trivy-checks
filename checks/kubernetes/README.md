@@ -33,7 +33,9 @@ conftest test denied.yaml --policy myPolicy/ --namespace builtin.kubernetes.KSV0
 This GitHub repository has controls that cover both [PodSecurityPolicy](https://kubernetes.io/docs/concepts/policy/pod-security-policy/) (PSP) and the Kubernetes [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/) (PSS), plus additional best practices.
 
 ## PSS and PSP
-The Kubernetes Pod Security Standards (PSS) are the official standard for security best practices for pods. These standards overlaps with the checks that PodSecurityPolicies can enforce.
+The following info is only a reference for historical purposes as PSP has been [deprecated](https://kubernetes.io/blog/2021/04/06/podsecuritypolicy-deprecation-past-present-and-future/).
+
+The Kubernetes Pod Security Standards (PSS) are the official standard for security best practices for pods. These standards overlaps with the checks that PodSecurityPolicies (now deprecated) can enforce.
 
 PSS has 14 controls that are grouped into three standards: Baseline, Restricted and Privileged. Appshield uses Baseline and Restricted; the Privileged standard specifically allows privileged execution. We named the controls in this repository under the PSS controls because they are more up-to-date and have better coverage than PSP. The below table maps PSS controls to PSP controls:
 
