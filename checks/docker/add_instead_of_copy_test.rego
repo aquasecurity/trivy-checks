@@ -70,3 +70,30 @@ test_add_tar_allowed {
 
 	count(r) == 0
 }
+
+test_add_http_url_allowed {
+	r := deny with input as {"Stages": [{
+		"Name": "alpine:3.13",
+		"Commands": [{"Cmd": "add", "Value": ["http://example.com/foo.txt", "bar.txt"]}],
+	}]}
+
+	count(r) == 0
+}
+
+test_add_https_url_allowed {
+	r := deny with input as {"Stages": [{
+		"Name": "alpine:3.13",
+		"Commands": [{"Cmd": "add", "Value": ["https://example.com/foo.txt", "bar.txt"]}],
+	}]}
+
+	count(r) == 0
+}
+
+test_add_git_url_allowed {
+	r := deny with input as {"Stages": [{
+		"Name": "alpine:3.13",
+		"Commands": [{"Cmd": "add", "Value": ["git@github.com:user/repo.git", "/usr/src/things/"]}],
+	}]}
+
+	count(r) == 0
+}

@@ -24,6 +24,9 @@ get_add[output] {
 	args := concat(" ", add.Value)
 
 	not contains(args, ".tar")
+	not contains(args, "http://")
+	not contains(args, "https://")
+	not contains(args, "git@")
 
 	not is_command_with_hash(add.Value, "file:")
 	not is_command_with_hash(add.Value, "multi:")
