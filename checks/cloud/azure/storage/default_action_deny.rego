@@ -37,3 +37,13 @@ deny contains res if {
 		rule.allowbydefault,
 	)
 }
+
+deny contains res if {
+	some account in input.azure.storage.accounts
+	not account.networkrules
+	account.publicnetworkaccess.value
+	res := result.new(
+		"Network rules allow access by default.",
+		account.publicnetworkaccess,
+	)
+}
