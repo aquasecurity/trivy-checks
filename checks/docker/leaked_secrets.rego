@@ -207,8 +207,8 @@ use_command_to_setup_credentials(instruction) if {
 }
 
 is_secret_key(s) if {
-	regex.match(deny_secrets_pattern, s)
-	not regex.match(allow_secrets_pattern, s)
+	regex.match(forbidden_secrets_pattern, s)
+	not regex.match(allowed_secrets_pattern, s)
 }
 
 # adopt https://github.com/moby/buildkit/blob/62bda5c1caae9935a2051e96443d554f7ab7ef2d/frontend/dockerfile/dockerfile2llb/convert.go#L2469
@@ -218,15 +218,15 @@ build_secrets_pattern(tokens) := sprintf(secrets_regex_pattern, [concat("|", tok
 
 # these tokens cover the following keywords
 # https://github.com/danielmiessler/SecLists/blob/master/Discovery/Variables/secret-keywords.txt
-deny_secrets_tokens := {
+forbidden_secret_tokens := {
 	"apikey", "auth", "credential",
 	"credentials", "key", "password",
 	"pword", "passwd", "secret", "token",
 	"usr", "psw",
 }
 
-deny_secrets_pattern := build_secrets_pattern(deny_secrets_tokens)
+forbidden_secrets_pattern := build_secrets_pattern(forbidden_secret_tokens)
 
-allow_secrets_tokens := {"public"}
+allowed_secret_tokens := {"public"}
 
-allow_secrets_pattern := build_secrets_pattern(allow_secrets_tokens)
+allowed_secrets_pattern := build_secrets_pattern(allowed_secret_tokens)
