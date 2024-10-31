@@ -30,8 +30,10 @@ package builtin.nifcloud.rdb.nifcloud0009
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some db in input.nifcloud.rdb.dbinstances
-	db.backupretentionperioddays.value < 2
+	value.less_than(db.backupretentionperioddays, 2)
 	res := result.new("Instance has very low backup retention period.", db.backupretentionperioddays)
 }

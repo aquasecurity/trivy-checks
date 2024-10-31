@@ -29,6 +29,7 @@ package builtin.aws.apigateway.aws0002
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some api in input.aws.apigateway.v1.apis
@@ -38,10 +39,14 @@ deny contains res if {
 	some settings in stage.restmethodsettings
 	isManaged(settings)
 	settings.cacheenabled.value
-	not settings.cachedataencrypted.value
+	cache_is_not_encrypted(settings)
 
 	res := result.new(
 		"Cache data is not encrypted.",
 		metadata.obj_by_path(settings, ["cachedataencrypted"]),
 	)
 }
+
+cache_is_not_encrypted(settings) if value.is_false(settings.cachedataencrypted)
+
+cache_is_not_encrypted(settings) if not settings.cachedataencrypted

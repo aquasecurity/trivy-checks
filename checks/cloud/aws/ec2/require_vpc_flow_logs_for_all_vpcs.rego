@@ -27,8 +27,18 @@ package builtin.aws.ec2.aws0178
 
 import rego.v1
 
+import data.lib.cloud.metadata
+import data.lib.cloud.value
+
 deny contains res if {
 	some vpc in input.aws.ec2.vpcs
-	vpc.flowlogsenabled.value == false
-	res := result.new("VPC does not have VPC Flow Logs enabled.", vpc.flowlogsenabled)
+	logs_disabled(vpc)
+	res := result.new(
+		"VPC does not have VPC Flow Logs enabled.",
+		metadata.obj_by_path(vpc, ["flowlogsenabled"]),
+	)
 }
+
+logs_disabled(vpc) if value.is_false(vpc.flowlogsenabled)
+
+logs_disabled(vpc) if not vpc.flowlogsenabled

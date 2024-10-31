@@ -39,9 +39,11 @@ package builtin.aws.iam.aws0056
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	policy := input.aws.iam.passwordpolicy
 	isManaged(policy)
-	policy.reusepreventioncount.value < 5
+	value.less_than(policy.reusepreventioncount, 5)
 	res := result.new("Password policy allows reuse of recent passwords.", policy)
 }

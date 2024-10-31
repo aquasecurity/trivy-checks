@@ -16,3 +16,9 @@ test_allow_topic_with_encryption if {
 
 	test.assert_empty(check.deny) with input as inp
 }
+
+test_allow_topic_without_encryption_but_unresolvable if {
+	inp := {"aws": {"sns": {"topics": [{"encryption": {"kmskeyid": {"value": "", "unresolvable": true}}}]}}}
+
+	test.assert_empty(check.deny) with input as inp
+}

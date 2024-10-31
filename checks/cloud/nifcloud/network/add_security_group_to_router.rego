@@ -32,8 +32,14 @@ package builtin.nifcloud.network.nifcloud0016
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some router in input.nifcloud.network.routers
-	router.securitygroup.value == ""
+	without_sg(router)
 	res := result.new("Router does not have a securiy group.", router.securitygroup)
 }
+
+without_sg(router) if value.is_empty(router.securitygroup)
+
+without_sg(router) if not router.securitygroup

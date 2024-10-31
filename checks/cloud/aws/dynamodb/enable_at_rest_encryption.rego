@@ -34,8 +34,19 @@ package builtin.aws.dynamodb.aws0023
 
 import rego.v1
 
+import data.lib.cloud.metadata
+import data.lib.cloud.value
+
 deny contains res if {
 	some cluster in input.aws.dynamodb.daxclusters
-	cluster.serversideencryption.enabled.value == false
-	res := result.new("DAX encryption is not enabled.", cluster.serversideencryption.enabled)
+	not_encrypted(cluster)
+
+	res := result.new(
+		"DAX encryption is not enabled.",
+		metadata.obj_by_path(cluster, ["serversideencryption", "enabled"]),
+	)
 }
+
+not_encrypted(cluster) if value.is_false(cluster.serversideencryption.enabled)
+
+not_encrypted(cluster) if not cluster.serversideencryption.enabled

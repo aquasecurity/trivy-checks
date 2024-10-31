@@ -30,20 +30,31 @@ package builtin.aws.dynamodb.aws0025
 
 import rego.v1
 
+import data.lib.cloud.metadata
+import data.lib.cloud.value
+
 deny contains res if {
 	some table in input.aws.dynamodb.tables
-	table.serversideencryption.enabled.value == false
-	res := result.new("Table encryption does not use a customer-managed KMS key.", table.serversideencryption.enabled)
+	not_encrypted(table)
+	res := result.new(
+		"Table encryption does not use a customer-managed KMS key.",
+		metadata.obj_by_path(table, ["serversideencryption", "enabled"]),
+	)
 }
 
 deny contains res if {
 	some table in input.aws.dynamodb.tables
 	table.serversideencryption.enabled.value
-	not valid_key(table.serversideencryption.kmskeyid.value)
+	non_valid_key(table)
 	res := result.new("Table encryption explicitly uses the default KMS key.", table.serversideencryption.kmskeyid)
 }
 
-valid_key(k) if {
-	k != ""
-	k != "alias/aws/dynamodb"
-}
+not_encrypted(table) if value.is_false(table.serversideencryption.enabled)
+
+not_encrypted(table) if not table.serversideencryption.enabled
+
+non_valid_key(table) if value.is_empty(table.serversideencryption.kmskeyid)
+
+non_valid_key(table) if value.is_equal(table.serversideencryption.kmskeyid, "alias/aws/dynamodb")
+
+non_valid_key(table) if not table.serversideencryption.kmskeyid

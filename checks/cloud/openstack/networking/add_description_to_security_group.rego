@@ -26,8 +26,14 @@ package builtin.openstack.networking.openstack0005
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some sg in input.openstack.networking.securitygroups
-	sg.description.value == ""
-	res := result.new("Security group rule allows egress to multiple public addresses.", sg.description)
+	without_description(sg)
+	res := result.new("Network security group does not have a description.", sg.description)
 }
+
+without_description(sg) if value.is_empty(sg.description)
+
+without_description(sg) if not sg.description
