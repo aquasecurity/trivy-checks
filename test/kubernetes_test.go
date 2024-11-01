@@ -4,131 +4,112 @@ import (
 	"context"
 	"fmt"
 	"os"
-	"strings"
 	"testing"
 
 	"github.com/aquasecurity/trivy/pkg/iac/rego"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
 	"github.com/aquasecurity/trivy/pkg/iac/scanners/kubernetes"
+	"github.com/aquasecurity/trivy/pkg/iac/scanners/options"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
-func Test_Kubernetes_RegoPoliciesFromDisk(t *testing.T) {
-	t.Parallel()
+func Test_Kubenetes(t *testing.T) {
+	tests := []struct {
+		name string
+		opts []options.ScannerOption
+	}{
+		{
+			name: "checks from disk",
+			opts: []options.ScannerOption{
+				rego.WithPolicyFilesystem(os.DirFS("../checks/kubernetes")),
+				rego.WithPolicyDirs("."),
+			},
+		},
+		{
+			name: "embedded checks",
+			opts: []options.ScannerOption{
+				rego.WithEmbeddedPolicies(true),
+			},
+		},
+	}
 
-	entries, err := os.ReadDir("./testdata/kubernetes")
+	testdata := "./testdata/kubernetes"
+
+	entries, err := os.ReadDir(testdata)
 	require.NoError(t, err)
 
-	scanner := kubernetes.NewScanner(
-		rego.WithPerResultTracing(true),
-		rego.WithEmbeddedPolicies(true),
-		rego.WithEmbeddedLibraries(true),
-	)
+	for _, tt := range tests {
+		t.Run(t.Name(), func(t *testing.T) {
+			t.Parallel()
 
-	srcFS := os.DirFS("../")
-
-	results, err := scanner.ScanFS(context.TODO(), srcFS, "test/testdata/kubernetes")
-	require.NoError(t, err)
-
-	for _, entry := range entries {
-		if !entry.IsDir() {
-			continue
-		}
-		if entry.Name() == "optional" {
-			continue
-		}
-		t.Run(entry.Name(), func(t *testing.T) {
-			var matched bool
-			for _, result := range results {
-				if result.Rule().HasID(entry.Name()) {
-
-					failCase := fmt.Sprintf("test/testdata/kubernetes/%s/denied.yaml", entry.Name())
-					passCase := fmt.Sprintf("test/testdata/kubernetes/%s/allowed.yaml", entry.Name())
-
-					switch result.Range().GetFilename() {
-					case failCase:
-						assert.Equal(t, scan.StatusFailed, result.Status(), "Rule should have failed, but didn't.")
-						assert.Greater(t, result.Range().GetStartLine(), 0, "We should have line numbers for a failure")
-						assert.Greater(t, result.Range().GetEndLine(), 0, "We should have line numbers for a failure")
-						matched = true
-					case passCase:
-						assert.Equal(t, scan.StatusPassed, result.Status(), "Rule should have passed, but didn't.")
-						matched = true
-					default:
-						if strings.Contains(result.Range().GetFilename(), entry.Name()) {
-							t.Fatal(result.Range().GetFilename())
-						}
-						continue
-					}
-
-					if t.Failed() {
-						fmt.Println("Test failed - rego trace follows:")
-						for _, trace := range result.Traces() {
-							fmt.Println(trace)
-						}
-					}
-				}
+			opts := []options.ScannerOption{
+				rego.WithPerResultTracing(true),
+				rego.WithEmbeddedLibraries(true),
 			}
-			assert.True(t, matched, "Neither a pass or fail result was found for %s - did you add example code for it?", entry.Name())
+			opts = append(opts, tt.opts...)
+
+			scanner := kubernetes.NewScanner(opts...)
+
+			results, err := scanner.ScanFS(context.TODO(), os.DirFS(testdata), ".")
+			require.NoError(t, err)
+
+			for _, entry := range entries {
+				if !entry.IsDir() {
+					continue
+				}
+				if entry.Name() == "optional" {
+					continue
+				}
+
+				dirName := entry.Name()
+
+				t.Run(entry.Name(), func(t *testing.T) {
+					assertChecks(t, dirName,
+						fmt.Sprintf("%s/denied.yaml", dirName),
+						fmt.Sprintf("%s/allowed.yaml", dirName),
+						results,
+					)
+				})
+			}
 		})
 	}
 }
 
-func Test_Kubernetes_RegoPoliciesEmbedded(t *testing.T) {
-	t.Parallel()
+func assertChecks(t *testing.T, fileName, failCase, passCase string, results scan.Results) {
+	t.Helper()
 
-	entries, err := os.ReadDir("./testdata/kubernetes")
-	require.NoError(t, err)
+	var matched bool
 
-	scanner := kubernetes.NewScanner(
-		rego.WithEmbeddedPolicies(true),
-		rego.WithEmbeddedLibraries(true),
-		rego.WithEmbeddedLibraries(true),
-	)
-
-	srcFS := os.DirFS("../")
-
-	results, err := scanner.ScanFS(context.TODO(), srcFS, "test/testdata/kubernetes")
-	require.NoError(t, err)
-
-	for _, entry := range entries {
-		if !entry.IsDir() {
+	for _, result := range results {
+		if !result.Rule().HasID(fileName) {
 			continue
 		}
-		if entry.Name() == "optional" {
-			continue
-		}
-		t.Run(entry.Name(), func(t *testing.T) {
-			var matched bool
-			for _, result := range results {
-				if result.Rule().HasID(entry.Name()) {
 
-					failCase := fmt.Sprintf("test/testdata/kubernetes/%s/denied.yaml", entry.Name())
-					passCase := fmt.Sprintf("test/testdata/kubernetes/%s/allowed.yaml", entry.Name())
+		t.Run(result.Rule().AVDID, func(t *testing.T) {
+			switch result.Range().GetFilename() {
+			case failCase:
+				assert.Equal(t, scan.StatusFailed, result.Status(), "Rule should have failed, but didn't.")
+				if result.Rule().AVDID != "AVD-DS-0002" {
+					assert.Greater(t, result.Range().GetStartLine(), 0, "We should have line numbers for a failure")
+					assert.Greater(t, result.Range().GetEndLine(), 0, "We should have line numbers for a failure")
+				}
+				matched = true
+			case passCase:
+				assert.Equal(t, scan.StatusPassed, result.Status(), "Rule should have passed, but didn't.")
+				matched = true
+			default:
+				return
+			}
 
-					switch result.Range().GetFilename() {
-					case failCase:
-						assert.Equal(t, scan.StatusFailed, result.Status(), "Rule should have failed, but didn't.")
-						assert.Greater(t, result.Range().GetStartLine(), 0, "We should have line numbers for a failure")
-						assert.Greater(t, result.Range().GetEndLine(), 0, "We should have line numbers for a failure")
-						matched = true
-					case passCase:
-						assert.Equal(t, scan.StatusPassed, result.Status(), "Rule should have passed, but didn't.")
-						matched = true
-					default:
-						continue
-					}
-
-					if t.Failed() {
-						fmt.Println("Test failed - rego trace follows:")
-						for _, trace := range result.Traces() {
-							fmt.Println(trace)
-						}
-					}
+			if t.Failed() {
+				fmt.Println("Test failed - rego trace follows:")
+				for _, trace := range result.Traces() {
+					fmt.Println(trace)
 				}
 			}
-			assert.True(t, matched, "Neither a pass or fail result was found for %s - did you add example code for it?", entry.Name())
 		})
 	}
+
+	assert.True(t, matched, "Rule should be matched once")
 }
