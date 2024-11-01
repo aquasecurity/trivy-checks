@@ -31,4 +31,11 @@ test_obj_by_path_skip_without_metadata if {
 	metadata.obj_by_path(obj, ["foo", "baz"]) == obj
 }
 
+test_obj_by_path_happy_iac_type if {
+	bar := {"value": 1, "fskey": "somekey"}
+	obj := with_meta({"foo": with_meta({"bar": bar})})
+
+	metadata.obj_by_path(obj, ["foo", "bar"]) == bar
+}
+
 with_meta(obj) := object.union(obj, {"__defsec_metadata": {}})

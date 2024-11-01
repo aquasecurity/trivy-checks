@@ -10,9 +10,18 @@ import rego.v1
 obj_by_path(obj, path) := res if {
 	occurrences := {obj_path: child_object |
 		walk(obj, [obj_path, child_object])
-		child_object.__defsec_metadata
+		has_metadata(child_object)
 		object.subset(path, obj_path)
 	}
 
 	res := occurrences[max(object.keys(occurrences))]
 } else := obj
+
+has_metadata(obj) if obj.__defsec_metadata
+
+has_metadata(obj) if {
+	obj.fskey
+	has_key(obj, "value")
+}
+
+has_key(x, k) if _ = x[k]
