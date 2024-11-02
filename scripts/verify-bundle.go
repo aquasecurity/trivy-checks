@@ -137,7 +137,7 @@ func LoadAndVerifyBundle() {
 		trivyC := createTrivyContainer(ctx, trivyVersion, regIP)
 		fmt.Println(debugLogsForContainer(ctx, trivyC))
 
-		if !assertInLogs(debugLogsForContainer(ctx, trivyC), `Tests: 1 (SUCCESSES: 0, FAILURES: 1, EXCEPTIONS: 0)`) {
+		if !assertInLogs(debugLogsForContainer(ctx, trivyC), `Tests: 1 (SUCCESSES: 0, FAILURES: 1)`) {
 			panic("asserting Trivy logs for misconfigurations failed, check Trivy log output")
 		}
 
