@@ -24,6 +24,7 @@ package builtin.aws.rds.aws0343
 
 deny[res] {
 	cluster := input.aws.rds.clusters[_]
+	isManaged(cluster.deletionprotection)
 	not cluster.deletionprotection.value
 	res := result.new("Cluster does not have Deletion Protection enabled", cluster.deletionprotection)
 }
