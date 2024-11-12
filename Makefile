@@ -64,5 +64,5 @@ push-bundle: create-bundle
 	echo "Pushing to repository: $$REPO" ;\
 	docker run --rm -it --net=host -v $$PWD/${BUNDLE_FILE}:/${BUNDLE_FILE} bitnami/oras:latest push \
 		$$REPO \
-		--config "/dev/null:application/vnd.cncf.openpolicyagent.config.v1+json" \
+		 --artifact-type application/vnd.cncf.openpolicyagent.config.v1+json \
 		"$(BUNDLE_FILE):application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip"
