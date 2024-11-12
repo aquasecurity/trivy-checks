@@ -34,9 +34,7 @@ var CheckTopicEncryptionUsesCMK = rules.Register(
 			Links:               cloudFormationTopicEncryptionUsesCMKLinks,
 			RemediationMarkdown: cloudFormationTopicEncryptionUsesCMKRemediationMarkdown,
 		},
-		CustomChecks: scan.CustomChecks{},
-		RegoPackage:  "",
-		Deprecated:   true,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, topic := range s.AWS.SNS.Topics {
