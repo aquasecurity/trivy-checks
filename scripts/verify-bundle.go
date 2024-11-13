@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"io"
+	"os"
 	"path/filepath"
 	"strings"
 
@@ -153,5 +154,6 @@ func assertInLogs(containerLogs, assertion string) bool {
 }
 
 func main() {
+	os.Setenv("TESTCONTAINERS_RYUK_DISABLED", "true")
 	LoadAndVerifyBundle()
 }
