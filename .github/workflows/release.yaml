@@ -5,8 +5,9 @@ on:
       - "v*"
 env:
   GH_USER: aqua-bot
+  AQUA_DOCKERHUB_REPO: aquasec
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -14,29 +15,52 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Create bundle
         run: make bundle
+
       - name: Login to GitHub Packages Container registry
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: ${{ env.GH_USER }}
+          username: ${{ vars.GHCR_USER || env.GH_USER }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Deploy policy bundle to ghcr.io (for backwards compatibility)
         run: |
           tags=(latest ${{ env.RELEASE_VERSION}} ${{env.MINOR_VERSION }} ${{ env.MAJOR_VERSION }})
           for tag in ${tags[@]}; do
-              oras push ghcr.io/aquasecurity/trivy-policies:${tag} \
+              echo "Pushing artifact with tag: ${tag}"
+              oras push ghcr.io/${{ github.event.repository.owner.name }}/trivy-policies:${tag} \
               --artifact-type application/vnd.cncf.openpolicyagent.config.v1+json \
               --annotation "org.opencontainers.image.source=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" \
               --annotation "org.opencontainers.image.revision=$GITHUB_SHA" \
               bundle.tar.gz:application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip
           done
+
       - name: Deploy checks bundle to ghcr.io
         run: |
           tags=(latest ${{ env.RELEASE_VERSION}} ${{env.MINOR_VERSION }} ${{ env.MAJOR_VERSION }})
           for tag in ${tags[@]}; do
+              echo "Pushing artifact with tag: ${tag}"
               oras push ghcr.io/${{ github.repository }}:${tag} \
+              --artifact-type application/vnd.cncf.openpolicyagent.config.v1+json \
+              bundle.tar.gz:application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip
+          done
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Deploy checks bundle to Docker Hub
+        run: |
+          tags=(latest ${{ env.RELEASE_VERSION}} ${{env.MINOR_VERSION }} ${{ env.MAJOR_VERSION }})
+          repo="${{ vars.DOCKERHUB_REPOSITORY || env.AQUA_DOCKERHUB_REPO }}/${{ github.event.repository.name }}"
+          for tag in ${tags[@]}; do
+              echo "Pushing artifact with tag: ${tag}"
+               oras push docker.io/${repo}:${tag} \
               --artifact-type application/vnd.cncf.openpolicyagent.config.v1+json \
               bundle.tar.gz:application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip
           done
