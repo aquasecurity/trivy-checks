@@ -13,7 +13,7 @@ fi
 
 for dir in kubernetes cloud docker; do
     mkdir -p bundle/policies/$dir/policies
-    rsync -avr --exclude=README.md --exclude="*_test.rego" --exclude="*.go" --exclude=compliance --exclude=test checks/$dir/  bundle/policies/$dir/policies
+    rsync -avr --exclude=README.md --exclude="*_test.rego" --exclude='*.'{go,yml,yaml} --exclude=compliance --exclude=test checks/$dir/  bundle/policies/$dir/policies
 done
 
 
