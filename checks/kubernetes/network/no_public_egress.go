@@ -26,7 +26,8 @@ var CheckNoPublicEgress = rules.Register(
 			Links:               terraformNoPublicEgressLinks,
 			RemediationMarkdown: terraformNoPublicEgressRemediationMarkdown,
 		},
-		Severity: severity.High,
+		Severity:   severity.High,
+		Deprecated: true,
 	},
 	func(s *state.State) (results scan.Results) {
 		for _, policy := range s.Kubernetes.NetworkPolicies {
