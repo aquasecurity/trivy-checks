@@ -9,7 +9,6 @@ require (
 	github.com/aws-cloudformation/rain v1.19.0
 	github.com/hashicorp/hcl/v2 v2.23.0
 	github.com/liamg/iamgo v0.0.9
-	github.com/liamg/memoryfs v1.6.0
 	github.com/open-policy-agent/opa v0.70.0
 	github.com/owenrumney/squealer v1.2.5
 	github.com/samber/lo v1.47.0
