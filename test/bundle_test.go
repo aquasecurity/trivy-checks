@@ -9,13 +9,12 @@ import (
 	"io"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"runtime"
 	"testing"
+	"testing/fstest"
 
 	"github.com/stretchr/testify/assert"
-
-	"github.com/liamg/memoryfs"
-
 	"github.com/stretchr/testify/require"
 )
 
@@ -59,7 +58,7 @@ func Test_ManifestValidity(t *testing.T) {
 
 	tarReader := tar.NewReader(gz)
 
-	mfs := memoryfs.New()
+	fsys := make(fstest.MapFS)
 
 	for {
 		header, err := tarReader.Next()
@@ -70,18 +69,20 @@ func Test_ManifestValidity(t *testing.T) {
 
 		switch header.Typeflag {
 		case tar.TypeDir:
-			require.NoError(t, mfs.MkdirAll(header.Name, 0755))
 		case tar.TypeReg:
-			buffer := bytes.NewBuffer([]byte{})
-			_, err = io.CopyN(buffer, tarReader, header.Size)
+			var buffer bytes.Buffer
+			buffer.Grow(int(header.Size))
+			_, err = io.Copy(&buffer, tarReader)
 			require.NoError(t, err)
-			require.NoError(t, mfs.WriteFile(header.Name, buffer.Bytes(), 0644))
+			fsys[filepath.Clean(header.Name)] = &fstest.MapFile{
+				Data: buffer.Bytes(),
+			}
 		default:
 			t.Fatalf("unknown type in %s: 0x%X", header.Name, header.Typeflag)
 		}
 	}
 
-	mf, err := mfs.Open(".manifest")
+	mf, err := fsys.Open(".manifest")
 	require.NoError(t, err)
 
 	var m2 manifest
@@ -90,7 +91,7 @@ func Test_ManifestValidity(t *testing.T) {
 	assert.Len(t, m2.Roots, 1)
 	assert.Equal(t, "", m2.Roots[0])
 
-	policies, err := mfs.ReadDir("./policies")
+	policies, err := fsys.ReadDir("policies")
 	require.NoError(t, err)
 
 	entries, err := os.ReadDir("../checks")
