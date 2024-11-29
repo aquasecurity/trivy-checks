@@ -9,7 +9,6 @@ import (
 	"github.com/aquasecurity/trivy/pkg/iac/rego"
 	"github.com/aquasecurity/trivy/pkg/iac/rules"
 	"github.com/aquasecurity/trivy/pkg/iac/scan"
-	"github.com/aquasecurity/trivy/pkg/iac/scanners/options"
 	"github.com/aquasecurity/trivy/pkg/iac/state"
 	trivyTypes "github.com/aquasecurity/trivy/pkg/iac/types"
 	ruleTypes "github.com/aquasecurity/trivy/pkg/iac/types/rules"
@@ -35,7 +34,7 @@ func addTests(tc testCases) {
 func TestRegoChecks(t *testing.T) {
 	regoScanner := rego.NewScanner(
 		trivyTypes.SourceCloud,
-		options.ScannerWithFrameworks(framework.CIS_AWS_1_2, framework.CIS_AWS_1_4, framework.Default),
+		rego.WithFrameworks(framework.CIS_AWS_1_2, framework.CIS_AWS_1_4, framework.Default),
 		rego.WithPolicyDirs("."),
 		rego.WithEmbeddedLibraries(true),
 	)
