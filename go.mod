@@ -5,7 +5,7 @@ go 1.22.9
 toolchain go1.23.0
 
 require (
-	github.com/aquasecurity/trivy v0.57.1-0.20241127185709-c238c515b831
+	github.com/aquasecurity/trivy v0.57.1-0.20241202232542-54130dcc1d77
 	github.com/aws-cloudformation/rain v1.19.0
 	github.com/hashicorp/hcl/v2 v2.23.0
 	github.com/liamg/iamgo v0.0.9

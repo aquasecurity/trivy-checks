@@ -1,18 +1,14 @@
-package test
+//go:build integration
+
+package integration
 
 import (
-	"context"
-	"encoding/json"
-	"io"
-	"os"
 	"path/filepath"
 	"testing"
 
-	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/aquasecurity/trivy/pkg/commands"
 	"github.com/aquasecurity/trivy/pkg/types"
 )
 
@@ -79,8 +75,6 @@ func TestExamples(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.dir, func(t *testing.T) {
-			t.Cleanup(viper.Reset)
-
 			targetDir := filepath.Join(workDir, tt.dir)
 			outputFile := filepath.Join(t.TempDir(), "report.json")
 
@@ -100,17 +94,7 @@ func TestExamples(t *testing.T) {
 			trivyArgs = append(trivyArgs, args...)
 			runTrivy(t, trivyArgs)
 
-			out, err := os.ReadFile(outputFile)
-			require.NoError(t, err)
-
-			var rep types.Report
-			require.NoError(t, json.Unmarshal(out, &rep))
-
-			defer func() {
-				if t.Failed() {
-					t.Log(string(out))
-				}
-			}()
+			rep := readTrivyReport(t, outputFile)
 
 			results := filterResults(rep.Results)
 
@@ -142,15 +126,4 @@ func collectFailures(misconfs []types.DetectedMisconfiguration) []types.Detected
 		}
 	}
 	return fails
-}
-
-func runTrivy(t *testing.T, args []string) {
-	t.Helper()
-
-	app := commands.NewApp()
-	app.SetOut(io.Discard)
-	app.SetArgs(args)
-
-	err := app.ExecuteContext(context.TODO())
-	require.NoError(t, err)
 }

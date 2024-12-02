@@ -2,8 +2,12 @@
 Use lower privileged accounts instead, so only required privileges are available.
 
 ```hcl
-resource "aws_iam_access_key" "good_example" {
-  user = "lowprivuser"
+resource "aws_iam_user" "test" {
+  name = "lowprivuser"
+}
+
+resource "aws_iam_access_key" "test" {
+  user = aws_iam_user.test.name
 }
 ```
 

@@ -14,10 +14,9 @@ cloudformation:
     - |-
       Resources:
         BadExample:
+          Type: AWS::S3::Bucket
           Properties:
             AccessControl: AuthenticatedRead
-
-        Type: AWS::S3::Bucket
 terraform:
   good:
     - |-

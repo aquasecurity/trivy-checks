@@ -3,7 +3,7 @@ cloudformation:
     - |-
       Resources:
         GoodTopic:
-          Type: AWS::SQS::Topic
+          Type: AWS::SNS::Topic
           Properties:
             KmsMasterKeyId: some-key
             TopicName: blah

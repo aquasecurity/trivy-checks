@@ -37,7 +37,7 @@ deny contains res if {
 	isManaged(api)
 	some method in api.resources[_].methods
 	method_is_not_option(method)
-	apikey_is_not_required(api)
+	apikey_is_not_required(method)
 	method.authorizationtype.value == authorization_none
 	res := result.new("Authorization is not enabled for this method.", method.authorizationtype)
 }

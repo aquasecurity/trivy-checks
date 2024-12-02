@@ -37,12 +37,22 @@ import rego.v1
 deny contains res if {
 	some container in input.aws.ecs.taskdefinitions[_].containerdefinitions
 	some env in container.environment
-	scan_result := squealer.scan_string(env.value)
+	scan_result := scan_env_value(env)
 	scan_result.transgressionFound
 	res := result.new(
 		sprintf("Container definition contains a potentially sensitive in environment variable %q: %s", [env.name, scan_result.description]),
 		container,
 	)
+}
+
+scan_env_value(env) := scan_result if {
+	is_string(env.value)
+	scan_result := squealer.scan_string(env.value)
+}
+
+scan_env_value(env) := scan_result if {
+	not is_string(env.value)
+	scan_result := squealer.scan_string(env.value.value)
 }
 
 deny contains res if {
@@ -56,12 +66,12 @@ deny contains res if {
 }
 
 is_sensitive_attr(attr) if {
-	attrl := lower(attr)
+	attrl := lower(attr.value)
 	attrl in sensitive_attribute_tokens
 }
 
 is_sensitive_attr(attr) if {
-	attrl := lower(attr)
+	attrl := lower(attr.value)
 	not attrl in sensitive_attribute_tokens
 	some token in sensitive_attribute_tokens
 	contains(attrl, token)

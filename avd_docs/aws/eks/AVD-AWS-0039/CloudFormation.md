@@ -7,10 +7,10 @@ Resources:
     Type: AWS::EKS::Cluster
     Properties:
       EncryptionConfig:
-        Provider:
-          KeyArn: alias/eks-kms
-        Resources:
-          - secrets
+        - Provider:
+            KeyArn: alias/eks-kms
+          Resources:
+            - secrets
       Name: goodExample
       ResourcesVpcConfig:
         SecurityGroupIds:

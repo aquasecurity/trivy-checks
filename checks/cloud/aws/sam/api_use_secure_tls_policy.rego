@@ -28,13 +28,15 @@ package builtin.aws.sam.aws0112
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some api in input.aws.sam.apis
-	not is_secure_tls_policy(api.domainconfiguration)
+	not is_secure_tls_policy(api)
 	res := result.new(
 		"Domain name is configured with an outdated TLS policy.",
-		api.domainconfiguration.securitypolicy,
+		metadata.obj_by_path(api, ["domainconfiguration", "securitypolicy"]),
 	)
 }
 
-is_secure_tls_policy(domainconfiguration) if domainconfiguration.securitypolicy.value == "TLS_1_2"
+is_secure_tls_policy(api) if api.domainconfiguration.securitypolicy.value == "TLS_1_2"
