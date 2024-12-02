@@ -20,3 +20,17 @@ jobs:
     - name: Run tests
       run: make test
       shell: bash
+
+  integration:
+    name: Integration Test
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-go@v5
+      with:
+        go-version: ${{ env.GO_VERSION }}
+
+    - name: Run integration tests
+      run: make test-integration
+

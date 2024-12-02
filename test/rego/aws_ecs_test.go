@@ -134,8 +134,8 @@ var awsEcsTestCases = testCases{
 								Essential: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
 								Environment: []ecs.EnvVar{
 									{
-										Name:  "ENVIRONMENT",
-										Value: "development",
+										Name:  trivyTypes.StringTest("ENVIRONMENT"),
+										Value: trivyTypes.StringTest("development"),
 									},
 								},
 							},

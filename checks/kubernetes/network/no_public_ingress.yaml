@@ -61,7 +61,6 @@ terraform:
           policy_types = ["Ingress", "Egress"]
         }
       }
-
   bad:
     - |-
       resource "kubernetes_network_policy" "bad_example" {

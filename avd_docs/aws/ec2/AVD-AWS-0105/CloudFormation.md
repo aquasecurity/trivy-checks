@@ -19,6 +19,9 @@ Resources:
       NetworkAclId: !Ref NetworkACL
       Protocol: 6
       RuleAction: allow
+      PortRange:
+        From: 22
+        To: 22
 ```
 
 

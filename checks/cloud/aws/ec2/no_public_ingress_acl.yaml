@@ -18,6 +18,9 @@ cloudformation:
             NetworkAclId: !Ref NetworkACL
             Protocol: 6
             RuleAction: allow
+            PortRange:
+              From: 22
+              To: 22
   bad:
     - |-
       AWSTemplateFormatVersion: "2010-09-09"
@@ -37,6 +40,9 @@ cloudformation:
             NetworkAclId: !Ref NetworkACL
             Protocol: 6
             RuleAction: allow
+            PortRange:
+              From: 22
+              To: 22
 terraform:
   good:
     - |-

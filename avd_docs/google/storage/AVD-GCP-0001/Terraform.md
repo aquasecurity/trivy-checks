@@ -2,8 +2,13 @@
 Restrict public access to the bucket.
 
 ```hcl
+resource "google_storage_bucket" "test" {
+  name     = "test"
+  location = "US"
+}
+
 resource "google_storage_bucket_iam_binding" "binding" {
-  bucket = google_storage_bucket.default.name
+  bucket = google_storage_bucket.test.name
   role   = "roles/storage.admin"
   members = [
     "user:jane@example.com",

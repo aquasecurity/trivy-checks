@@ -10,6 +10,8 @@ Resources:
       SecurityGroupIngress:
         - CidrIp: 127.0.0.1/32
           IpProtocol: "6"
+          FromPort: 22
+          ToPort: 22
 ```
 
 

@@ -5,7 +5,11 @@ cloudformation:
 
       Description: Good example of redshift sgr
 
-      Resources: null
+      myCluster:
+        Type: AWS::Redshift::Cluster
+
+        Properties:
+          DBName: mydb
   bad:
     - |-
       AWSTemplateFormatVersion: "2010-09-09"
@@ -13,7 +17,7 @@ cloudformation:
       Description: Bad example of redshift sgr
 
       Resources:
-        Queue:
+        SecGroup:
           Type: AWS::Redshift::ClusterSecurityGroup
           Properties:
             Description: ""

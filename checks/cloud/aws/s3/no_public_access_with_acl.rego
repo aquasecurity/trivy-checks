@@ -49,6 +49,8 @@ deny contains res if {
 	some bucket in input.aws.s3.buckets
 	s3.bucket_has_public_exposure_acl(bucket)
 	bucket.acl.value != "authenticated-read"
+
+	# TODO: check private?
 	res := result.new(
 		sprintf("Bucket has a public ACL: %q", [bucket.acl.value]),
 		bucket.acl,

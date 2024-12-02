@@ -16,7 +16,7 @@ Resources:
   Rule:
     Type: AWS::EC2::NetworkAclEntry
     Properties:
-      NetworkAclId: null
+      NetworkAclId: !Ref NetworkACL
       Protocol: 6
       Ref: NetworkACL
       RuleAction: allow

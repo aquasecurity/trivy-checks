@@ -8,12 +8,12 @@ import data.lib.test
 test_deny_definiton_with_plaintext_sensitive_information if {
 	inp := {"aws": {"ecs": {"taskdefinitions": [{"containerdefinitions": [{"environment": [
 		{
-			"name": "ENVIRONMENT",
-			"value": "development",
+			"name": {"value": "ENVIRONMENT"},
+			"value": {"value": "development"},
 		},
 		{
-			"name": "DATABASE_PASSWORD",
-			"value": "password123",
+			"name": {"value": "DATABASE_PASSWORD"},
+			"value": {"value": "password123"},
 		},
 	]}]}]}}}
 
@@ -22,8 +22,8 @@ test_deny_definiton_with_plaintext_sensitive_information if {
 
 test_allow_task_without_sensitive_information if {
 	inp := {"aws": {"ecs": {"taskdefinitions": [{"containerdefinitions": [{"environment": [{
-		"Name": "ENVIRONMENT",
-		"Value": "development",
+		"name": {"value": "ENVIRONMENT"},
+		"value": {"value": "development"},
 	}]}]}]}}}
 
 	test.assert_empty(check.deny) with input as inp

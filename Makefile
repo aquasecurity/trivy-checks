@@ -6,6 +6,10 @@ REGISTRY_PORT=5111
 test:
 	go test -v ./...
 
+.PHONY: integration-test
+test-integration:
+	go test -v -timeout 15m -tags=integration ./integration/...
+
 .PHONY: rego
 rego: fmt-rego test-rego
 
@@ -33,7 +37,7 @@ outdated-api-updated:
 	sed -i.bak "s|recommendedVersions :=.*|recommendedVersions := $(OUTDATE_API_DATA)|" $(DYNAMIC_REGO_FOLDER)/outdated_api.rego && rm $(DYNAMIC_REGO_FOLDER)/outdated_api.rego.bak
 
 .PHONY: docs
-docs:
+docs: fmt-examples
 	go run ./cmd/avd_generator
 
 .PHONY: docs-test

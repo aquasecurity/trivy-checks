@@ -33,8 +33,16 @@ package builtin.aws.lambda.aws0066
 
 import rego.v1
 
+import data.lib.cloud.metadata
+import data.lib.cloud.value
+
 deny contains res if {
 	some func in input.aws.lambda.functions
-	func.tracing.mode.value != "Active"
-	res := result.new("Function does not have tracing enabled.", func.tracing.mode)
+	not is_active_mode(func)
+	res := result.new(
+		"Function does not have tracing enabled.",
+		metadata.obj_by_path(func, ["tracing", "mode"]),
+	)
 }
+
+is_active_mode(func) if func.tracing.mode.value == "Active"

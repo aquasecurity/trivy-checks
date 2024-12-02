@@ -123,4 +123,3 @@ terraform:
           policy_types = ["Ingress", "Egress"]
         }
       }
-
