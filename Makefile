@@ -8,7 +8,7 @@ test:
 
 .PHONY: integration-test
 test-integration:
-	go test -v -timeout 15m -tags=integration ./integration/...
+	go test -v -timeout 5m -tags=integration ./integration/...
 
 .PHONY: rego
 rego: fmt-rego test-rego
