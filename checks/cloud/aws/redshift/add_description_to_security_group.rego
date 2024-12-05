@@ -29,14 +29,26 @@ package builtin.aws.redshift.aws0083
 
 import rego.v1
 
+import data.lib.cloud.metadata
 import data.lib.cloud.value
 
 deny contains res if {
 	some group in input.aws.redshift.securitygroups
+	isManaged(group)
 	without_description(group)
 	res := result.new(
 		"Security group has no description.",
-		object.get(group, "description", group),
+		metadata.obj_by_path(group, ["description"]),
+	)
+}
+
+deny contains res if {
+	some group in input.aws.redshift.securitygroups
+	isManaged(group)
+	group.description.value == "Managed by Terraform"
+	res := result.new(
+		"Security group explicitly uses the default description.",
+		group.description,
 	)
 }
 

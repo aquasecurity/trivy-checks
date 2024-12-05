@@ -38,12 +38,14 @@ import data.lib.cloud.value
 
 deny contains res if {
 	some sg in input.nifcloud.rdb.dbsecuritygroups
+	isManaged(sg)
 	without_description(sg)
 	res := result.new("DB security group does not have a description.", sg.description)
 }
 
 deny contains res if {
 	some sg in input.nifcloud.rdb.dbsecuritygroups
+	isManaged(sg)
 	sg.description.value == "Managed by Terraform"
 	res := result.new("DB security group explicitly uses the default description.", sg.description)
 }
