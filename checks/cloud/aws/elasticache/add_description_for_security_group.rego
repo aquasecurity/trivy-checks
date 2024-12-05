@@ -39,10 +39,21 @@ import data.lib.cloud.value
 
 deny contains res if {
 	some secgroup in input.aws.elasticache.securitygroups
+	isManaged(secgroup)
 	without_description(secgroup)
 	res := result.new(
 		"Security group does not have a description.",
 		metadata.obj_by_path(secgroup, ["description"]),
+	)
+}
+
+deny contains res if {
+	some secgroup in input.aws.elasticache.securitygroups
+	isManaged(secgroup)
+	secgroup.description.value == "Managed by Terraform"
+	res := result.new(
+		"Security group explicitly uses the default description.",
+		secgroup.description,
 	)
 }
 

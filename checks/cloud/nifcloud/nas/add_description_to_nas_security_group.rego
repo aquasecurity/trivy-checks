@@ -34,18 +34,27 @@ package builtin.nifcloud.nas.nifcloud0015
 
 import rego.v1
 
+import data.lib.cloud.metadata
 import data.lib.cloud.value
 
 deny contains res if {
 	some sg in input.nifcloud.nas.nassecuritygroups
+	isManaged(sg)
 	without_description(sg)
-	res := result.new("NAS security group does not have a description.", sg.description)
+	res := result.new(
+		"NAS security group does not have a description.",
+		metadata.obj_by_path(sg, ["description"]),
+	)
 }
 
 deny contains res if {
 	some sg in input.nifcloud.nas.nassecuritygroups
+	isManaged(sg)
 	sg.description.value == "Managed by Terraform"
-	res := result.new("NAS security group explicitly uses the default description.", sg.description)
+	res := result.new(
+		"NAS security group explicitly uses the default description.",
+		sg.description,
+	)
 }
 
 without_description(sg) if value.is_empty(sg.description)

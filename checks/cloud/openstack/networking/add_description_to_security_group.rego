@@ -26,12 +26,17 @@ package builtin.openstack.networking.openstack0005
 
 import rego.v1
 
+import data.lib.cloud.metadata
 import data.lib.cloud.value
 
 deny contains res if {
 	some sg in input.openstack.networking.securitygroups
+	isManaged(sg)
 	without_description(sg)
-	res := result.new("Network security group does not have a description.", sg.description)
+	res := result.new(
+		"Network security group does not have a description.",
+		metadata.obj_by_path(sg, ["description"]),
+	)
 }
 
 without_description(sg) if value.is_empty(sg.description)

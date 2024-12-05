@@ -37,13 +37,18 @@ import rego.v1
 import data.lib.cloud.metadata
 import data.lib.cloud.value
 
-deny contains res if {
+rules := [
+rule |
 	some sg in input.nifcloud.computing.securitygroups
 	some rule in array.concat(
 		object.get(sg, "ingressrules", []),
 		object.get(sg, "egressrules", []),
 	)
+]
 
+deny contains res if {
+	some rule in rules
+	isManaged(rule)
 	without_description(rule)
 	res := result.new(
 		"Security group rule does not have a description.",

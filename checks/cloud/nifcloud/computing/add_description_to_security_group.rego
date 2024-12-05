@@ -34,16 +34,22 @@ package builtin.nifcloud.computing.nifcloud0002
 
 import rego.v1
 
+import data.lib.cloud.metadata
 import data.lib.cloud.value
 
 deny contains res if {
 	some sg in input.nifcloud.computing.securitygroups
+	isManaged(sg)
 	without_description(sg)
-	res := result.new("Security group does not have a description.", sg.description)
+	res := result.new(
+		"Security group does not have a description.",
+		metadata.obj_by_path(sg, ["description"]),
+	)
 }
 
 deny contains res if {
 	some sg in input.nifcloud.computing.securitygroups
+	isManaged(sg)
 	sg.description.value == "Managed by Terraform"
 	res := result.new("Security group explicitly uses the default description.", sg.description)
 }
