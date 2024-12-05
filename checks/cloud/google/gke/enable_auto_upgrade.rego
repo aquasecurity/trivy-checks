@@ -28,9 +28,15 @@ package builtin.google.gke.google0058
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.google.gke.clusters
+	isManaged(cluster)
 	some pool in cluster.nodepools
-	pool.management.enableautoupgrade.value == false
-	res := result.new("Node pool does not have auto-upgraade enabled.", pool.management.enableautoupgrade)
+	not pool.management.enableautoupgrade.value
+	res := result.new(
+		"Node pool does not have auto-upgraade enabled.",
+		metadata.obj_by_path(pool, ["management", "enableautoupgrade"]),
+	)
 }

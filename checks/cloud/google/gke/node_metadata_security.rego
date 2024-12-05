@@ -34,6 +34,7 @@ import rego.v1
 
 deny contains res if {
 	some cluster in input.google.gke.clusters
+	isManaged(cluster)
 	metadata := cluster.nodeconfig.workloadmetadataconfig.nodemetadata
 	is_exposes(metadata.value)
 	res := result.new("Cluster exposes node metadata of pools by default.", metadata)
@@ -41,6 +42,7 @@ deny contains res if {
 
 deny contains res if {
 	some cluster in input.google.gke.clusters
+	isManaged(cluster)
 	some pool in cluster.nodepools
 	metadata := pool.nodeconfig.workloadmetadataconfig.nodemetadata
 	is_exposes(metadata.value)

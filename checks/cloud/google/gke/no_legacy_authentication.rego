@@ -36,6 +36,7 @@ import data.lib.cloud.value
 
 deny contains res if {
 	some cluster in input.google.gke.clusters
+	isManaged(cluster)
 	cluster.masterauth.clientcertificate.issuecertificate.value
 	res := result.new(
 		"Cluster allows the use of certificates for master authentication.",
@@ -45,6 +46,7 @@ deny contains res if {
 
 deny contains res if {
 	some cluster in input.google.gke.clusters
+	isManaged(cluster)
 	not cluster.masterauth.clientcertificate.issuecertificate.value
 	value.is_not_empty(cluster.masterauth.username)
 	res := result.new(

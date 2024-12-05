@@ -28,11 +28,16 @@ package builtin.google.gke.google0052
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.google.gke.clusters
-	cluster.monitoringservice.value != "monitoring.googleapis.com/kubernetes"
+	isManaged(cluster)
+	not use_kub_service(cluster)
 	res := result.new(
 		"Cluster does not use the monitoring.googleapis.com/kubernetes StackDriver monitoring service.",
-		cluster.monitoringservice,
+		metadata.obj_by_path(cluster, ["monitoringservice"]),
 	)
 }
+
+use_kub_service(cluster) if cluster.monitoringservice.value == "monitoring.googleapis.com/kubernetes"

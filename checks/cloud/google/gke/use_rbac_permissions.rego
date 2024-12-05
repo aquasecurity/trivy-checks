@@ -34,6 +34,7 @@ import rego.v1
 
 deny contains res if {
 	some cluster in input.google.gke.clusters
+	isManaged(cluster)
 	cluster.enablelegacyabac.value == true
 	res := result.new("Cluster has legacy ABAC enabled.", cluster.enablelegacyabac)
 }

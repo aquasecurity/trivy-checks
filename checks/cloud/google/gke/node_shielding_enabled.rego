@@ -32,8 +32,14 @@ package builtin.google.gke.google0055
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.google.gke.clusters
-	cluster.enableshieldednodes.value == false
-	res := result.new("Cluster has shielded nodes disabled.", cluster.enableshieldednodes)
+	isManaged(cluster)
+	not cluster.enableshieldednodes.value
+	res := result.new(
+		"Cluster has shielded nodes disabled.",
+		metadata.obj_by_path(cluster, ["enableshieldednodes"]),
+	)
 }

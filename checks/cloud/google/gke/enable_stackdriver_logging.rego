@@ -28,8 +28,14 @@ package builtin.google.gke.google0060
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.google.gke.clusters
+	isManaged(cluster)
 	cluster.loggingservice.value != "logging.googleapis.com/kubernetes"
-	res := result.new("Cluster does not use the logging.googleapis.com/kubernetes StackDriver logging service.", cluster.loggingservice)
+	res := result.new(
+		"Cluster does not use the logging.googleapis.com/kubernetes StackDriver logging service.",
+		metadata.obj_by_path(cluster, ["loggingservice"]),
+	)
 }

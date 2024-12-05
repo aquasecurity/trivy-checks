@@ -28,9 +28,15 @@ package builtin.google.gke.google0063
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.google.gke.clusters
+	isManaged(cluster)
 	some pool in cluster.nodepools
-	pool.management.enableautorepair.value == false
-	res := result.new("Node pool does not have auto-repair enabled.", pool.management.enableautorepair)
+	not pool.management.enableautorepair.value
+	res := result.new(
+		"Node pool does not have auto-repair enabled.",
+		metadata.obj_by_path(pool, ["management", "enableautorepair"]),
+	)
 }
