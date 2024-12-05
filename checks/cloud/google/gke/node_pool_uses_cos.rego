@@ -30,6 +30,7 @@ import rego.v1
 
 deny contains res if {
 	some cluster in input.google.gke.clusters
+	isManaged(cluster)
 	image_type := cluster.nodeconfig.imagetype
 	not lower(image_type.value) in {"cos", "cos_containerd", ""}
 	res := result.new(
@@ -40,6 +41,7 @@ deny contains res if {
 
 deny contains res if {
 	some cluster in input.google.gke.clusters
+	isManaged(cluster)
 	some pool in cluster.nodepools
 	image_type := pool.nodeconfig.imagetype
 	not lower(image_type.value) in {"cos", "cos_containerd"}

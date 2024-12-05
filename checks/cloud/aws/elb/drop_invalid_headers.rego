@@ -35,6 +35,7 @@ import data.lib.cloud.metadata
 
 deny contains res if {
 	some lb in input.aws.elb.loadbalancers
+	isManaged(lb)
 	lb.type.value == "application"
 	not lb.dropinvalidheaderfields.value
 	res := result.new(

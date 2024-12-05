@@ -28,8 +28,14 @@ package builtin.google.gke.google0051
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.google.gke.clusters
+	isManaged(cluster)
 	count(cluster.resourcelabels.value) == 0
-	res := result.new("Cluster does not use GCE resource labels.", cluster.resourcelabels)
+	res := result.new(
+		"Cluster does not use GCE resource labels.",
+		metadata.obj_by_path(cluster, ["resourcelabels"]),
+	)
 }

@@ -38,6 +38,7 @@ import data.lib.cloud.value
 
 deny contains res if {
 	some func in input.aws.lambda.functions
+	isManaged(func)
 	not is_active_mode(func)
 	res := result.new(
 		"Function does not have tracing enabled.",

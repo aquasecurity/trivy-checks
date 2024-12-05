@@ -28,11 +28,14 @@ package builtin.google.gke.google0059
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.google.gke.clusters
-	cluster.privatecluster.enableprivatenodes.value == false
+	isManaged(cluster)
+	not cluster.privatecluster.enableprivatenodes.value
 	res := result.new(
 		"Cluster does not have private nodes.",
-		cluster.privatecluster.enableprivatenodes,
+		metadata.obj_by_path(cluster, ["privatecluster", "enableprivatenodes"]),
 	)
 }

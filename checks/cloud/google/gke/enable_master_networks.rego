@@ -28,11 +28,14 @@ package builtin.google.gke.google0061
 
 import rego.v1
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some cluster in input.google.gke.clusters
-	cluster.masterauthorizednetworks.enabled.value == false
+	isManaged(cluster)
+	not cluster.masterauthorizednetworks.enabled.value
 	res := result.new(
 		"Cluster does not have master authorized networks enabled.",
-		cluster.masterauthorizednetworks.enabled,
+		metadata.obj_by_path(cluster, ["masterauthorizednetworks", "enabled"]),
 	)
 }

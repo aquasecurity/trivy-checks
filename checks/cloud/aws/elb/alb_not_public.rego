@@ -32,6 +32,7 @@ import data.lib.cloud.metadata
 
 deny contains res if {
 	some lb in input.aws.elb.loadbalancers
+	isManaged(lb)
 	not is_gateway(lb)
 	not lb.internal.value
 

@@ -35,6 +35,7 @@ import data.lib.cloud.value
 
 deny contains res if {
 	some cluster in input.google.gke.clusters
+	isManaged(cluster)
 	value.is_false(cluster.removedefaultnodepool)
 	default_account_is_not_overrided(cluster.nodeconfig)
 	res := result.new(
@@ -45,6 +46,7 @@ deny contains res if {
 
 deny contains res if {
 	some cluster in input.google.gke.clusters
+	isManaged(cluster)
 	some pool in cluster.nodepools
 	default_account_is_not_overrided(pool.nodeconfig)
 	res := result.new(
