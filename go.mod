@@ -2,6 +2,8 @@ module github.com/aquasecurity/trivy-checks
 
 go 1.23.4
 
+replace github.com/aquasecurity/trivy => /Users/nikita/projects/trivy
+
 require (
 	github.com/aquasecurity/trivy v0.58.1-0.20250109050215-f9a6a7192722
 	github.com/aws-cloudformation/rain v1.21.0

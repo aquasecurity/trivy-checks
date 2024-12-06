@@ -15,6 +15,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/unix_ports_out_of_range.yaml
 package builtin.dockerfile.DS008
 
 import rego.v1

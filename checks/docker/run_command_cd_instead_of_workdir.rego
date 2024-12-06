@@ -15,6 +15,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/run_command_cd_instead_of_workdir.yaml
 package builtin.dockerfile.DS013
 
 import rego.v1

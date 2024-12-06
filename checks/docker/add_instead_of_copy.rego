@@ -15,6 +15,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/add_instead_of_copy.yaml
 package builtin.dockerfile.DS005
 
 import rego.v1

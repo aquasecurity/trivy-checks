@@ -15,6 +15,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/missing_zypper_clean.yaml
 package builtin.dockerfile.DS020
 
 import rego.v1

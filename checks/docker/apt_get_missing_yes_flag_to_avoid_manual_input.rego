@@ -16,6 +16,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/apt_get_missing_yes_flag_to_avoid_manual_input.yaml
 package builtin.dockerfile.DS021
 
 import rego.v1

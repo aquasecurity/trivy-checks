@@ -15,6 +15,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/run_using_sudo.yaml
 package builtin.dockerfile.DS010
 
 import rego.v1

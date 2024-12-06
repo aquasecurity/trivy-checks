@@ -15,6 +15,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/yum_clean_all_missing.yaml
 package builtin.dockerfile.DS015
 
 import rego.v1

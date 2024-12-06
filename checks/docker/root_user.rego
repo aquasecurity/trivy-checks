@@ -15,6 +15,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/root_user.yaml
 package builtin.dockerfile.DS002
 
 import rego.v1
