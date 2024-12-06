@@ -1,0 +1,32 @@
+kubernetes:
+    good:
+        - |-
+          apiVersion: v1
+          kind: Pod
+          metadata:
+            name: hello-cpu-limit
+          spec:
+            containers:
+              - command:
+                  - sh
+                  - "-c"
+                  - echo 'Hello' && sleep 1h
+                image: busybox
+                name: hello
+                resources:
+                  requests:
+                    memory: 64Mi
+    bad:
+        - |-
+          apiVersion: v1
+          kind: Pod
+          metadata:
+            name: hello-cpu-limit
+          spec:
+            containers:
+              - command:
+                  - sh
+                  - "-c"
+                  - echo 'Hello' && sleep 1h
+                image: busybox
+                name: hello

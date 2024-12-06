@@ -1,0 +1,28 @@
+kubernetes:
+    good:
+        - |
+          apiVersion: v1
+          kind: Pod
+          metadata:
+            name: mypod
+            namespace: test
+            labels:
+              name: mypod
+          spec:
+            automountServiceAccountToken: true
+            containers:
+              - name: mypod
+                image: nginx
+    bad:
+        - |
+          apiVersion: v1
+          kind: Pod
+          metadata:
+            name: mypod
+            namespace: kube-system
+            labels:
+              name: mypod
+          spec:
+            containers:
+              - name: mypod
+                image: nginx
