@@ -15,6 +15,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/multiple_entrypoint_instructions_listed.yaml
 package builtin.dockerfile.DS007
 
 import rego.v1

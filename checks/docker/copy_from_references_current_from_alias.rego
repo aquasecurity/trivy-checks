@@ -15,6 +15,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/copy_from_references_current_from_alias.yaml
 package builtin.dockerfile.DS006
 
 import rego.v1

@@ -15,6 +15,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/run_using_wget_and_curl.yaml
 package builtin.dockerfile.DS014
 
 import rego.v1

@@ -13,6 +13,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/port22.yaml
 package builtin.dockerfile.DS004
 
 import rego.v1

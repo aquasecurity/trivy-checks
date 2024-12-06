@@ -15,6 +15,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/missing_dnf_clean_all.yaml
 package builtin.dockerfile.DS019
 
 import rego.v1

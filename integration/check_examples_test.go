@@ -107,7 +107,7 @@ func setupTarget(t *testing.T) string {
 
 func writeExamples(t *testing.T, examples []string, provider, cacheDir string, id string, typ string) {
 	for i, example := range examples {
-		name := "test" + extensionByProvider(provider)
+		name := fileNameByProvider(provider)
 		file := filepath.Join(cacheDir, id, provider, typ, strconv.Itoa(i), name)
 		require.NoError(t, os.MkdirAll(filepath.Dir(file), fs.ModePerm))
 		require.NoError(t, os.WriteFile(file, []byte(example), fs.ModePerm))
@@ -167,12 +167,14 @@ func getFailureIDs(report types.Report) map[string][]string {
 	return ids
 }
 
-func extensionByProvider(provider string) string {
+func fileNameByProvider(provider string) string {
 	switch provider {
 	case "terraform":
-		return ".tf"
+		return "main.tf"
 	case "cloudformation":
-		return ".yaml"
+		return "template.yaml"
+	case "dockerfile":
+		return "Dockerfile"
 	}
-	panic("unreachable")
+	panic("unreachable: " + provider)
 }

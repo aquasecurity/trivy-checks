@@ -15,6 +15,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/multiple_healthcheck_instructions.yaml
 package builtin.dockerfile.DS023
 
 import rego.v1

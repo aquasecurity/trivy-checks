@@ -15,6 +15,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/copy_with_more_than_two_arguments_not_ending_with_slash.yaml
 package builtin.dockerfile.DS011
 
 import rego.v1

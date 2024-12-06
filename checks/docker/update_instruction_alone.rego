@@ -15,6 +15,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/update_instruction_alone.yaml
 package builtin.dockerfile.DS017
 
 import rego.v1

@@ -15,6 +15,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/multiple_cmd_instructions_listed.yaml
 package builtin.dockerfile.DS016
 
 import rego.v1

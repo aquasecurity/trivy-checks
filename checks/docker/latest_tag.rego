@@ -13,6 +13,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/latest_tag.yaml
 package builtin.dockerfile.DS001
 
 import rego.v1

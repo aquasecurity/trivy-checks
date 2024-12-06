@@ -15,6 +15,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/workdir_path_not_absolute.yaml
 package builtin.dockerfile.DS009
 
 import rego.v1

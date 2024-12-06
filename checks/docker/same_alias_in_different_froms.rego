@@ -15,6 +15,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/same_alias_in_different_froms.yaml
 package builtin.dockerfile.DS012
 
 import rego.v1
