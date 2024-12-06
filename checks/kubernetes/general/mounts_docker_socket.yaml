@@ -1,0 +1,36 @@
+kubernetes:
+    good:
+        - |-
+          apiVersion: v1
+          kind: Pod
+          metadata:
+            name: hello-docker-socket
+          spec:
+            containers:
+              - command:
+                  - sh
+                  - "-c"
+                  - echo 'Hello' && sleep 1h
+                image: busybox
+                name: hello
+            volumes:
+              - name: test-volume
+    bad:
+        - |-
+          apiVersion: v1
+          kind: Pod
+          metadata:
+            name: hello-docker-socket
+          spec:
+            containers:
+              - command:
+                  - sh
+                  - "-c"
+                  - echo 'Hello' && sleep 1h
+                image: busybox
+                name: hello
+            volumes:
+              - name: test-volume
+                hostPath:
+                  path: "/var/run/docker.sock"
+                  type: Directory

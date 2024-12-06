@@ -1,0 +1,29 @@
+kubernetes:
+    good:
+        - |-
+          apiVersion: v1
+          kind: Pod
+          metadata:
+            name: hello-tag
+          spec:
+            containers:
+              - command:
+                  - sh
+                  - "-c"
+                  - echo 'Hello' && sleep 1h
+                image: busybox:1.33.1
+                name: hello
+    bad:
+        - |-
+          apiVersion: v1
+          kind: Pod
+          metadata:
+            name: hello-tag
+          spec:
+            containers:
+              - command:
+                  - sh
+                  - "-c"
+                  - echo 'Hello' && sleep 1h
+                image: busybox:latest
+                name: hello

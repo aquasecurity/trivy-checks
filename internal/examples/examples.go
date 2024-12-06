@@ -33,6 +33,10 @@ func GetCheckExamples(r scan.Rule) (CheckExamples, string, error) {
 
 // TODO: use `examples` field after adding
 func getCheckExamplesPath(r scan.Rule) string {
+	if r.Examples != "" {
+		return r.Examples
+	}
+
 	for _, eng := range []*scan.EngineMetadata{r.Terraform, r.CloudFormation} {
 		if eng == nil {
 			continue
