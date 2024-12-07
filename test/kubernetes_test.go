@@ -46,6 +46,7 @@ func Test_Kubenetes(t *testing.T) {
 			opts := []options.ScannerOption{
 				rego.WithPerResultTracing(true),
 				rego.WithEmbeddedLibraries(true),
+				rego.WithIncludeDeprecatedChecks(false),
 			}
 			opts = append(opts, tt.opts...)
 
