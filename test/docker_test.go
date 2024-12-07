@@ -28,12 +28,14 @@ func Test_Dockerfile(t *testing.T) {
 			opts: []options.ScannerOption{
 				rego.WithPolicyFilesystem(os.DirFS("../checks/docker")),
 				rego.WithPolicyDirs("."),
+				rego.WithIncludeDeprecatedChecks(false),
 			},
 		},
 		{
 			name: "embedded checks",
 			opts: []options.ScannerOption{
 				rego.WithEmbeddedPolicies(true),
+				rego.WithIncludeDeprecatedChecks(false),
 			},
 		},
 	}
