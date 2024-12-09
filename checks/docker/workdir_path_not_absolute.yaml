@@ -1,0 +1,11 @@
+dockerfile:
+  good:
+    - |-
+      FROM alpine:3.13
+      USER mike
+      WORKDIR /path/to/workdir
+  bad:
+    - |-
+      FROM alpine:3.13
+      USER mike
+      WORKDIR path/to/workdir

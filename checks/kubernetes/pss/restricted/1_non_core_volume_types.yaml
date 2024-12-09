@@ -1,0 +1,42 @@
+kubernetes:
+  good:
+    - |-
+      apiVersion: v1
+      kind: Pod
+      metadata:
+          name: hello-volume-types
+      spec:
+          containers:
+              - command:
+                  - sh
+                  - -c
+                  - echo 'Hello' && sleep 1h
+                image: busybox
+                name: hello
+          volumes:
+              - name: volume-a
+  bad:
+    - |-
+      apiVersion: v1
+      kind: Pod
+      metadata:
+          name: hello-volume-types
+      spec:
+          containers:
+              - command:
+                  - sh
+                  - -c
+                  - echo 'Hello' && sleep 1h
+                image: busybox
+                name: hello
+          volumes:
+              - name: volume-a
+                scaleIO:
+                  fsType: xfs
+                  gateway: https://localhost:443/api
+                  protectionDomain: sd0
+                  secretRef:
+                      name: sio-secret
+                  storagePool: sp1
+                  system: scaleio
+                  volumeName: vol-a

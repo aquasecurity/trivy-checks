@@ -1,0 +1,19 @@
+kubernetes:
+  good:
+    - |-
+      apiVersion: v1
+      kind: NetworkPolicy
+      metadata:
+          name: hello-cpu-limit
+      spec:
+          podSelector:
+              matchLabels:
+                  role: db
+  bad:
+    - |-
+      apiVersion: v1
+      kind: NetworkPolicy
+      metadata:
+          name: hello-cpu-limit
+      spec:
+          something: true

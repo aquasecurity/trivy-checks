@@ -1,0 +1,11 @@
+dockerfile:
+  good:
+    - |-
+      FROM node:12
+      USER mike
+      RUN apt-get -fmy install apt-utils && apt-get clean
+  bad:
+    - |-
+      FROM node:12
+      USER mike
+      RUN apt-get install apt-utils && apt-get clean

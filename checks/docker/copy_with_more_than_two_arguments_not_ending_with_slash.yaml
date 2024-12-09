@@ -1,0 +1,11 @@
+dockerfile:
+  good:
+    - |-
+      FROM alpine:3.13
+      USER mike
+      COPY ["package.json", "yarn.lock", "myapp/"]
+  bad:
+    - |-
+      FROM alpine:3.13
+      USER mike
+      COPY ["package.json", "yarn.lock", "myapp"]

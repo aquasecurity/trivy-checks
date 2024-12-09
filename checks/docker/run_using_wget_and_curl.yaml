@@ -1,0 +1,19 @@
+dockerfile:
+  good:
+    - |-
+      FROM debian:stable-20210621
+      RUN curl http://bing.com
+      RUN curl http://google.com
+
+      FROM baseimage:1.0
+      USER mike
+      RUN curl http://bing.com
+  bad:
+    - |-
+      FROM debian:stable-20210621
+      RUN wget http://bing.com
+      RUN curl http://google.com
+
+      FROM baseimage:1.0
+      USER mike
+      RUN curl http://bing.com

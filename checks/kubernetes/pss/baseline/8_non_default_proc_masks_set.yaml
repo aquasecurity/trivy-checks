@@ -1,0 +1,35 @@
+kubernetes:
+  good:
+    - |-
+      apiVersion: v1
+      kind: Pod
+      metadata:
+          name: hello-proc-mount
+      spec:
+          containers:
+              - command:
+                  - sh
+                  - -c
+                  - echo 'Hello' && sleep 1h
+                image: busybox
+                name: hello
+                ports:
+                  - hostPort: 8080
+  bad:
+    - |-
+      apiVersion: v1
+      kind: Pod
+      metadata:
+          name: hello-proc-mount
+      spec:
+          containers:
+              - command:
+                  - sh
+                  - -c
+                  - echo 'Hello' && sleep 1h
+                image: busybox
+                name: hello
+                ports:
+                  - hostPort: 8080
+                securityContext:
+                  procMount: Unmasked

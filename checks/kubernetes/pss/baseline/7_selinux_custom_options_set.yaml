@@ -1,0 +1,33 @@
+kubernetes:
+  good:
+    - |-
+      apiVersion: v1
+      kind: Pod
+      metadata:
+          name: hello-selinux
+      spec:
+          containers:
+              - command:
+                  - sh
+                  - -c
+                  - echo 'Hello' && sleep 1h
+                image: busybox
+                name: hello
+          securityContext: null
+  bad:
+    - |-
+      apiVersion: v1
+      kind: Pod
+      metadata:
+          name: hello-selinux
+      spec:
+          containers:
+              - command:
+                  - sh
+                  - -c
+                  - echo 'Hello' && sleep 1h
+                image: busybox
+                name: hello
+          securityContext:
+              seLinuxOptions:
+                  type: custom

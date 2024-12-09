@@ -13,6 +13,7 @@
 #   input:
 #     selector:
 #     - type: dockerfile
+#   examples: checks/docker/run_apt_get_dist_upgrade.yaml
 package builtin.dockerfile.DS024
 
 import data.lib.docker

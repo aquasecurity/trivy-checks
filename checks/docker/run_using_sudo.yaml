@@ -1,0 +1,11 @@
+dockerfile:
+  good:
+    - |-
+      FROM alpine:3.13
+      RUN  pip install --upgrade pip
+      USER mike
+  bad:
+    - |-
+      FROM alpine:3.13
+      RUN  sudo pip install --upgrade pip
+      USER mike
