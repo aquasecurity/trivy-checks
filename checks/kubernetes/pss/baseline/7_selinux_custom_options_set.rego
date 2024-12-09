@@ -25,6 +25,7 @@
 #         - kind: daemonset
 #         - kind: cronjob
 #         - kind: job
+#   examples: checks/kubernetes/pss/baseline/7_selinux_custom_options_set.yaml
 package builtin.kubernetes.KSV025
 
 import rego.v1

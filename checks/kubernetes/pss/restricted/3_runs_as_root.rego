@@ -25,6 +25,7 @@
 #         - kind: daemonset
 #         - kind: cronjob
 #         - kind: job
+#   examples: checks/kubernetes/pss/restricted/3_runs_as_root.yaml
 package builtin.kubernetes.KSV012
 
 import rego.v1
