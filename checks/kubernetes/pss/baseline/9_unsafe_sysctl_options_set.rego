@@ -25,6 +25,7 @@
 #         - kind: daemonset
 #         - kind: cronjob
 #         - kind: job
+#   examples: checks/kubernetes/pss/baseline/9_unsafe_sysctl_options_set.yaml
 package builtin.kubernetes.KSV026
 
 import rego.v1

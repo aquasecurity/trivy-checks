@@ -22,6 +22,7 @@
 #     good_examples: checks/kubernetes/network/no_public_ingress.yaml
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/network_policy#spec.ingress.from.ip_block.cidr
+#   examples: checks/kubernetes/network/no_public_ingress.yaml
 package builtin.kube.network.kube0001
 
 import rego.v1

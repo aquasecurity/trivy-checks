@@ -25,6 +25,7 @@
 #         - kind: daemonset
 #         - kind: cronjob
 #         - kind: job
+#   examples: checks/kubernetes/pss/baseline/2_privileged.yaml
 package builtin.kubernetes.KSV017
 
 import rego.v1

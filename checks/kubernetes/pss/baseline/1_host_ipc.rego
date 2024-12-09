@@ -25,6 +25,7 @@
 #         - kind: daemonset
 #         - kind: cronjob
 #         - kind: job
+#   examples: checks/kubernetes/pss/baseline/1_host_ipc.yaml
 package builtin.kubernetes.KSV008
 
 import rego.v1

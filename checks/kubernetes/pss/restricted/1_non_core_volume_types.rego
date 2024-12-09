@@ -25,6 +25,7 @@
 #         - kind: daemonset
 #         - kind: cronjob
 #         - kind: job
+#   examples: checks/kubernetes/pss/restricted/1_non_core_volume_types.yaml
 package builtin.kubernetes.KSV028
 
 import rego.v1
