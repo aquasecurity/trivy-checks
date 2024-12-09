@@ -1,29 +1,29 @@
 kubernetes:
-    good:
-        - |-
-          apiVersion: v1
-          kind: Pod
-          metadata:
-            name: hello-host-ports
-          spec:
-            containers:
+  good:
+    - |-
+      apiVersion: v1
+      kind: Pod
+      metadata:
+          name: hello-host-ports
+      spec:
+          containers:
               - command:
                   - sh
-                  - "-c"
+                  - -c
                   - echo 'Hello' && sleep 1h
                 image: busybox
                 name: hello
-    bad:
-        - |-
-          apiVersion: v1
-          kind: Pod
-          metadata:
-            name: hello-host-ports
-          spec:
-            containers:
+  bad:
+    - |-
+      apiVersion: v1
+      kind: Pod
+      metadata:
+          name: hello-host-ports
+      spec:
+          containers:
               - command:
                   - sh
-                  - "-c"
+                  - -c
                   - echo 'Hello' && sleep 1h
                 image: busybox
                 name: hello

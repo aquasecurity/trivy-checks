@@ -1,39 +1,39 @@
 kubernetes:
-    good:
-        - |-
-          apiVersion: v1
-          kind: Pod
-          metadata:
-            name: hello-sysctls
-          spec:
-            securityContext:
-              sysctls:
-                - name: kernel.shm_rmid_forced
-                  value: '0'
-            containers:
+  good:
+    - |-
+      apiVersion: v1
+      kind: Pod
+      metadata:
+          name: hello-sysctls
+      spec:
+          containers:
               - command:
                   - sh
-                  - "-c"
+                  - -c
                   - echo 'Hello' && sleep 1h
                 image: busybox
                 name: hello
-    bad:
-        - |-
-          apiVersion: v1
-          kind: Pod
-          metadata:
-            name: hello-sysctls
-          spec:
-            securityContext:
+          securityContext:
               sysctls:
-                - name: net.core.somaxconn
-                  value: '1024'
-                - name: kernel.msgmax
-                  value: '65536'
-            containers:
+                  - name: kernel.shm_rmid_forced
+                    value: "0"
+  bad:
+    - |-
+      apiVersion: v1
+      kind: Pod
+      metadata:
+          name: hello-sysctls
+      spec:
+          containers:
               - command:
                   - sh
-                  - "-c"
+                  - -c
                   - echo 'Hello' && sleep 1h
                 image: busybox
                 name: hello
+          securityContext:
+              sysctls:
+                  - name: net.core.somaxconn
+                    value: "1024"
+                  - name: kernel.msgmax
+                    value: "65536"

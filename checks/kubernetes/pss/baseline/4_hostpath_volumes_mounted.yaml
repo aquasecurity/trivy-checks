@@ -1,33 +1,33 @@
 kubernetes:
-    good:
-        - |-
-          apiVersion: v1
-          kind: Pod
-          metadata:
-            name: hello-host-path
-          spec:
-            containers:
+  good:
+    - |-
+      apiVersion: v1
+      kind: Pod
+      metadata:
+          name: hello-host-path
+      spec:
+          containers:
               - command:
                   - sh
-                  - "-c"
+                  - -c
                   - echo 'Hello' && sleep 1h
                 image: busybox
                 name: hello
-    bad:
-        - |-
-          apiVersion: v1
-          kind: Pod
-          metadata:
-            name: hello-host-path
-          spec:
-            containers:
+  bad:
+    - |-
+      apiVersion: v1
+      kind: Pod
+      metadata:
+          name: hello-host-path
+      spec:
+          containers:
               - command:
                   - sh
-                  - "-c"
+                  - -c
                   - echo 'Hello' && sleep 1h
                 image: busybox
                 name: hello
-            volumes:
+          volumes:
               - hostPath:
-                  path: "/sys"
-                  type: ''
+                  path: /sys
+                  type: ""

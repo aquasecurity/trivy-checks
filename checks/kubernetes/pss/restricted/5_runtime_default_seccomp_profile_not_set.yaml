@@ -1,31 +1,37 @@
 kubernetes:
-    good:
-        - |-
-          apiVersion: v1
-          kind: Pod
-          metadata:
-            name: hello-cpu-limit
-          spec:
-            containers:
-              - command: ["sh", "-c", "echo 'Hello' && sleep 1h"]
+  good:
+    - |-
+      apiVersion: v1
+      kind: Pod
+      metadata:
+          name: hello-cpu-limit
+      spec:
+          containers:
+              - command:
+                  - sh
+                  - -c
+                  - echo 'Hello' && sleep 1h
                 image: busybox
                 name: hello
                 securityContext:
                   seccompProfile:
-                    type: RuntimeDefault
-                    localhostProfile: profiles/audit.json
-    bad:
-        - |-
-          apiVersion: v1
-          kind: Pod
-          metadata:
-            name: hello-cpu-limit
-          spec:
-            containers:
-              - command: ["sh", "-c", "echo 'Hello' && sleep 1h"]
+                      localhostProfile: profiles/audit.json
+                      type: RuntimeDefault
+  bad:
+    - |-
+      apiVersion: v1
+      kind: Pod
+      metadata:
+          name: hello-cpu-limit
+      spec:
+          containers:
+              - command:
+                  - sh
+                  - -c
+                  - echo 'Hello' && sleep 1h
                 image: busybox
                 name: hello
                 securityContext:
                   seccompProfile:
-                    type: LocalPort
-                    localhostProfile: profiles/audit.json
+                      localhostProfile: profiles/audit.json
+                      type: LocalPort
