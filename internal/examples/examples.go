@@ -104,6 +104,7 @@ func (b blocks) format(fn func(blockString) blockString) {
 var formatters = map[string]func(blockString) blockString{
 	"terraform":      formatHCL,
 	"cloudformation": formatCFT,
+	"kubernetes":     formatYAML,
 }
 
 func formatHCL(b blockString) blockString {
@@ -117,4 +118,16 @@ func formatCFT(b blockString) blockString {
 	}
 
 	return blockString(format.CftToYaml(tmpl))
+}
+
+func formatYAML(b blockString) blockString {
+	var v any
+	if err := yaml.Unmarshal([]byte(b), &v); err != nil {
+		panic(err)
+	}
+	ret, err := yaml.Marshal(v)
+	if err != nil {
+		panic(err)
+	}
+	return blockString(ret)
 }

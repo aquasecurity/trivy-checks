@@ -1,31 +1,31 @@
 kubernetes:
-    good:
-        - |-
-          apiVersion: v1
-          kind: Pod
-          metadata:
-            name: hello-host-network
-          spec:
-            hostNetwork: false
-            containers:
+  good:
+    - |-
+      apiVersion: v1
+      kind: Pod
+      metadata:
+          name: hello-host-network
+      spec:
+          containers:
               - command:
                   - sh
-                  - "-c"
+                  - -c
                   - echo 'Hello' && sleep 1h
                 image: busybox
                 name: hello
-    bad:
-        - |-
-          apiVersion: v1
-          kind: Pod
-          metadata:
-            name: hello-host-network
-          spec:
-            hostNetwork: true
-            containers:
+          hostNetwork: false
+  bad:
+    - |-
+      apiVersion: v1
+      kind: Pod
+      metadata:
+          name: hello-host-network
+      spec:
+          containers:
               - command:
                   - sh
-                  - "-c"
+                  - -c
                   - echo 'Hello' && sleep 1h
                 image: busybox
                 name: hello
+          hostNetwork: true
