@@ -1,10 +1,10 @@
 
 Specify the exact permissions required, and to which resources they should apply instead of using wildcards.
 
-```yaml---
+```yaml
 Resources:
   GoodPolicy:
-    Type: 'AWS::IAM::Policy'
+    Type: AWS::IAM::Policy
     Properties:
       PolicyName: CFNUsers
       PolicyDocument:
@@ -12,9 +12,8 @@ Resources:
         Statement:
           - Effect: Allow
             Action:
-              - 's3:ListBuckets'
-            Resource: 'specific-bucket'
-
+              - s3:ListBuckets
+            Resource: specific-bucket
 ```
 
 

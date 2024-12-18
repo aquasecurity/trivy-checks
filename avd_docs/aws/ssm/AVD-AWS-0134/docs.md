@@ -1,8 +1,9 @@
 
 The data.http block can be used to send secret data outside of the organisation.
 
+
 ### Impact
-Secrets could be exposed outside of the organisation.
+<!-- Add Impact here -->
 
 <!-- DO NOT CHANGE -->
 {{ remediationActions }}
