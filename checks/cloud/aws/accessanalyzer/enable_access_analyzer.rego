@@ -20,6 +20,7 @@
 #   service: accessanalyzer
 #   severity: LOW
 #   short_code: enable-access-analyzer
+#   deprecated: true
 #   recommended_action: Enable IAM Access analyzer across all regions.
 #   frameworks:
 #     cis-aws-1.4:

@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"slices"
 	"strconv"
 	"strings"
 	"testing"
@@ -62,6 +63,14 @@ func setupCache(t *testing.T) string {
 	return cacheDir
 }
 
+// Rego checks without implementation for documentation only.
+var excludedChecks = []string{
+	"AVD-AWS-0057",
+	"AVD-AWS-0114",
+	"AVD-AWS-0120",
+	"AVD-AWS-0134",
+}
+
 func setupTarget(t *testing.T) string {
 	t.Helper()
 
@@ -73,6 +82,10 @@ func setupTarget(t *testing.T) string {
 	for _, r := range rules.GetRegistered(framework.ALL) {
 		if _, ok := r.Frameworks[framework.Default]; !ok {
 			// TODO(nikpivkin): Trivy does not load non default checks
+			continue
+		}
+
+		if slices.Contains(excludedChecks, r.AVDID) {
 			continue
 		}
 
