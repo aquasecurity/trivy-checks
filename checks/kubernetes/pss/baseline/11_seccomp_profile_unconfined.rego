@@ -44,19 +44,17 @@ container_seccomp_from_annotations(container) := profile {
 
 # containers_with_unconfined_seccomp_profile_type returns all containers which have a seccomp
 # profile set and is profile set to "Unconfined"
-containers_with_unconfined_seccomp_profile_type[name] {
+containers_with_unconfined_seccomp_profile_type[seccomp.container] {
 	seccomp := container_seccomp[_]
 	lower(seccomp.type) == "unconfined"
-	name := seccomp.container.name
 }
 
 # containers_with_unconfined_seccomp_profile_type returns all containers that do not have
 # a seccomp profile type specified, since the default is unconfined
 # https://kubernetes.io/docs/tutorials/security/seccomp/#enable-the-use-of-runtimedefault-as-the-default-seccomp-profile-for-all-workloads
-containers_with_unconfined_seccomp_profile_type[name] {
+containers_with_unconfined_seccomp_profile_type[seccomp.container] {
 	seccomp := container_seccomp[_]
 	seccomp.type == ""
-	name := seccomp.container.name
 }
 
 container_seccomp[{"container": container, "type": type}] {
@@ -78,7 +76,7 @@ container_seccomp[{"container": container, "type": type}] {
 }
 
 deny[res] {
-	cause := containers_with_unconfined_seccomp_profile_type[_]
-	msg := kubernetes.format(sprintf("container %q of %s %q in %q namespace should specify a seccomp profile", [cause, lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
-	res := result.new(msg, cause)
+	container := containers_with_unconfined_seccomp_profile_type[_]
+	msg := kubernetes.format(sprintf("container %q of %s %q in %q namespace should specify a seccomp profile", [container.name, lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
+	res := result.new(msg, container)
 }
