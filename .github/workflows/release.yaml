@@ -1,8 +1,8 @@
 name: Release
 on:
   push:
-    branches:
-      - lihiz_aqua_reg_from_tag
+    tags:
+      - "lihiz-tag-*"
 env:
   GH_USER: aqua-bot
   AQUA_DOCKERHUB_REPO: aquasec
