@@ -26,6 +26,11 @@ jobs:
           username: ${{ vars.GHCR_USER || env.GH_USER }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Setup ORAS
+        uses: oras-project/setup-oras@v1
+        with:
+          version: '1.0.0'
+
       - name: Deploy policy bundle to ghcr.io (for backwards compatibility)
         run: |
           tags=(latest ${{ env.RELEASE_VERSION}} ${{env.MINOR_VERSION }} ${{ env.MAJOR_VERSION }})
@@ -61,6 +66,24 @@ jobs:
           for tag in ${tags[@]}; do
               echo "Pushing artifact with tag: ${tag}"
                oras push docker.io/${repo}:${tag} \
+              --artifact-type application/vnd.cncf.openpolicyagent.config.v1+json \
+              bundle.tar.gz:application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip
+          done
+
+      - name: login to Aqua Container Registry
+        uses: azure/docker-login@v2
+        with:
+          login-server: ${{ secrets.AQUSEC_ACR_REGISTRY_NAME }}
+          username: ${{ secrets.AQUASEC_ACR_USERNAME }}
+          password: ${{ secrets.AQUASEC_ACR_PASSWORD }}
+
+      - name: Deploy checks bundle to Aqua Container Registry
+        run: |
+          tags=(latest ${{ env.RELEASE_VERSION}} ${{env.MINOR_VERSION }} ${{ env.MAJOR_VERSION }})
+          repo="${{ secrets.AQUSEC_ACR_REGISTRY_NAME }}/${{ github.event.repository.name }}"
+          for tag in ${tags[@]}; do
+              echo "Pushing artifact with tag: ${tag}"
+               oras push ${repo}:${tag} \
               --artifact-type application/vnd.cncf.openpolicyagent.config.v1+json \
               bundle.tar.gz:application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip
           done
