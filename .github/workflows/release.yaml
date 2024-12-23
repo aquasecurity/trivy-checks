@@ -27,6 +27,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: oras check
+        uses: oras-project/setup-oras@v1
         run: |
           oras version
 
@@ -77,6 +78,7 @@ jobs:
           password: ${{ secrets.AQUASEC_ACR_PASSWORD }}
 
       - name: Deploy checks bundle to Aqua Container Registry
+        uses: oras-project/setup-oras@v1
         run: |
           tags=(latest ${{ env.RELEASE_VERSION}} ${{env.MINOR_VERSION }} ${{ env.MAJOR_VERSION }})
           repo="${{ secrets.AQUSEC_ACR_REGISTRY_NAME }}/${{ github.event.repository.name }}"
