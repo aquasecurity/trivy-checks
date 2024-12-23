@@ -13,22 +13,21 @@ jobs:
       contents: read
       packages: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+#      - name: Checkout
+#        uses: actions/checkout@v4
+#
+#      - name: Create bundle
+#        run: make bundle
+#
+#      - name: Login to GitHub Packages Container registry
+#        uses: docker/login-action@v3
+#        with:
+#          registry: ghcr.io
+#          username: ${{ vars.GHCR_USER || env.GH_USER }}
+#          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create bundle
-        run: make bundle
-
-      - name: Login to GitHub Packages Container registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ vars.GHCR_USER || env.GH_USER }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: oras check
-        uses: oras-project/setup-oras@v1
-        run: |
+      - uses: oras-project/setup-oras@v1
+      - run: |
           oras version
 
 #      - name: Deploy policy bundle to ghcr.io (for backwards compatibility)
