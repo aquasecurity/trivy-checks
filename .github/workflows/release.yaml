@@ -26,6 +26,10 @@ jobs:
           username: ${{ vars.GHCR_USER || env.GH_USER }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: oras check
+        run: |
+          oras version
+
 #      - name: Deploy policy bundle to ghcr.io (for backwards compatibility)
 #        run: |
 #          tags=(latest ${{ env.RELEASE_VERSION}} ${{env.MINOR_VERSION }} ${{ env.MAJOR_VERSION }})
