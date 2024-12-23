@@ -79,7 +79,7 @@ jobs:
 
       - name: Deploy checks bundle to Aqua Container Registry
         run: |
-          tags=(latest ${{ env.RELEASE_VERSION}} ${{env.MINOR_VERSION }} ${{ env.MAJOR_VERSION }})
+          tags=(1 latest ${{ env.RELEASE_VERSION}} ${{env.MINOR_VERSION }} ${{ env.MAJOR_VERSION }})
           repo="${{ secrets.AQUSEC_ACR_REGISTRY_NAME }}/${{ github.event.repository.name }}"
           for tag in ${tags[@]}; do
               echo "Pushing artifact with tag: ${tag}"
