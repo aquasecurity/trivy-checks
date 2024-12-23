@@ -2,7 +2,7 @@ name: Release
 on:
   push:
     tags:
-      - "lihiz-tag-*"
+      - "lihiz.tag.*"
 env:
   GH_USER: aqua-bot
   AQUA_DOCKERHUB_REPO: aquasec
