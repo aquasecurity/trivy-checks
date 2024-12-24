@@ -12,7 +12,11 @@ test_deny_sg_with_public_egress if {
 }
 
 test_allow_sg_without_private_egress if {
-	inp := {"aws": {"ec2": {"securitygroups": [{"egressrules": [{"cidrs": [{"value": "10.0.0.0/16"}]}]}]}}}
+	inp := {"aws": {"ec2": {"securitygroups": [{"egressrules": [{"cidrs": [
+		{"value": "10.0.0.0/8"},
+		{"value": "192.168.164.0/23"},
+		{"value": "22.0.0.0/8"},
+	]}]}]}}}
 
 	test.assert_empty(check.deny) with input as inp
 }

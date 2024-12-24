@@ -31,14 +31,15 @@ package builtin.google.compute.google0035
 
 import rego.v1
 
+import data.lib.net
+
 deny contains res if {
 	some network in input.google.compute.networks
 	some rule in network.firewall.egressrules
 	rule.firewallrule.isallow.value
 	rule.firewallrule.enforced.value
 	some destination in rule.destinationranges
-	cidr.is_public(destination.value)
-	cidr.count_addresses(destination.value) > 1
+	net.cidr_allows_all_ips(destination.value)
 	res := result.new(
 		"Firewall rule allows egress traffic to multiple addresses on the public internet.",
 		destination,
