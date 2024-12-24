@@ -15,6 +15,17 @@ test_deny_outbound_rule_with_wildcard_destination_address if {
 	count(res) == 1
 }
 
+test_deny_outbound_rule_with_public_destination_address if {
+	inp := {"azure": {"network": {"securitygroups": [{"rules": [{
+		"allow": {"value": true},
+		"outbound": {"value": true},
+		"destinationaddresses": [{"value": "0.0.0.0/0"}],
+	}]}]}}}
+
+	res := check.deny with input as inp
+	count(res) == 1
+}
+
 test_allow_outbound_rule_with_private_destination_address if {
 	inp := {"azure": {"network": {"securitygroups": [{"rules": [{
 		"allow": {"value": true},

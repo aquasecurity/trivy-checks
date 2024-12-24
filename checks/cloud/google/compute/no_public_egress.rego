@@ -1,8 +1,7 @@
 # METADATA
-# title: An outbound firewall rule allows traffic to /0.
+# title: A firewall rule should not allow egress to any IP address.
 # description: |
-#   Network security rules should not use very broad subnets.
-#   Where possible, segments should be broken into smaller subnets and avoid using the <code>/0</code> subnet.
+#   Opening up ports to connect out to the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that are explicitly required where possible.
 # scope: package
 # schemas:
 #   - input: schema["cloud"]
@@ -31,16 +30,17 @@ package builtin.google.compute.google0035
 
 import rego.v1
 
+import data.lib.net
+
 deny contains res if {
 	some network in input.google.compute.networks
 	some rule in network.firewall.egressrules
 	rule.firewallrule.isallow.value
 	rule.firewallrule.enforced.value
 	some destination in rule.destinationranges
-	cidr.is_public(destination.value)
-	cidr.count_addresses(destination.value) > 1
+	net.cidr_allows_all_ips(destination.value)
 	res := result.new(
-		"Firewall rule allows egress traffic to multiple addresses on the public internet.",
+		"Firewall rule allows egress traffic to any IP address.",
 		destination,
 	)
 }

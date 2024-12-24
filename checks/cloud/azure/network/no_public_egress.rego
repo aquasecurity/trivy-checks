@@ -1,8 +1,7 @@
 # METADATA
-# title: An outbound network security rule allows traffic to /0.
+# title: A security rule should not allow egress to any IP address.
 # description: |
-#   Network security rules should not use very broad subnets.
-#   Where possible, segments should be broken into smaller subnets.
+#   Opening up ports to connect out to the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that are explicitly required where possible.
 # scope: package
 # schemas:
 #   - input: schema["cloud"]
@@ -31,12 +30,14 @@ package builtin.azure.network.azure0051
 
 import rego.v1
 
+import data.lib.net
+
 deny contains res if {
 	some group in input.azure.network.securitygroups
 	some rule in group.rules
 	rule.outbound.value
 	rule.allow.value
 	some addr in rule.destinationaddresses
-	cidr.is_public(addr.value)
-	res := result.new("Security group rule allows egress to public internet.", addr)
+	net.cidr_allows_all_ips(addr.value)
+	res := result.new("Security group rule allows egress to any IP address.", addr)
 }

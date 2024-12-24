@@ -1,5 +1,6 @@
 
-You should not expose infrastructure to the public internet except where explicitly required
+Opening up ports to allow connections from the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that are explicitly required where possible.
+
 
 ### Impact
 <!-- Add Impact here -->

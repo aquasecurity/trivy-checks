@@ -1,5 +1,5 @@
 # METADATA
-# title: Security groups should not allow ingress from 0.0.0.0/0 or ::/0 to port 22 or port 3389.
+# title: Security groups should not allow ingress to SSH or RDP from any IP address.
 # description: |
 #   Security groups provide stateful filtering of ingress and egress network traffic to AWS
 #   resources. It is recommended that no security group allows unrestricted ingress access to
@@ -53,7 +53,7 @@ deny contains res if {
 	some block in rule.cidrs
 	net.cidr_allows_all_ips(block.value)
 	res := result.new(
-		"Security group rule allows ingress from public internet.",
+		"Security group rule allows ingress from any IP address.",
 		block,
 	)
 }

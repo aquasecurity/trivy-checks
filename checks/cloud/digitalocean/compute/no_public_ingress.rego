@@ -1,7 +1,7 @@
 # METADATA
-# title: The firewall has an inbound rule with open access
+# title: A firewall rule should not allow ingress from any IP address.
 # description: |
-#   Opening up ports to connect out to the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that are explicitly required where possible.
+#   Opening up ports to allow connections from the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that are explicitly required where possible.
 # scope: package
 # schemas:
 #   - input: schema["cloud"]
@@ -30,12 +30,13 @@ package builtin.digitalocean.compute.digitalocean0001
 
 import rego.v1
 
+import data.lib.net
+
 deny contains res if {
 	some address in input.digitalocean.compute.firewalls[_].inboundrules[_].sourceaddresses
-	cidr.is_public(address.value)
-	cidr.count_addresses(address.value) > 1
+	net.cidr_allows_all_ips(address.value)
 	res := result.new(
-		"Ingress rule allows access from multiple public addresses.",
+		"Firewall rule allows ingress from any IP address.",
 		address,
 	)
 }

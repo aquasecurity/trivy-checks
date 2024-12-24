@@ -1,6 +1,5 @@
 
-Network security rules should not use very broad subnets.
-Where possible, segments should be broken into smaller subnets and avoid using the <code>/0</code> subnet.
+Opening up ports to connect out to the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that are explicitly required where possible.
 
 
 ### Impact
