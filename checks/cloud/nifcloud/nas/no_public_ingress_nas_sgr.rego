@@ -1,7 +1,7 @@
 # METADATA
-# title: An ingress nas security group rule allows traffic from /0.
+# title: A security group rule should not allow ingress from any IP address.
 # description: |
-#   Opening up ports to the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that explicitly require it where possible.
+#   Opening up ports to allow connections from the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that are explicitly required where possible.
 # scope: package
 # schemas:
 #   - input: schema["cloud"]
@@ -32,10 +32,11 @@ package builtin.nifcloud.nas.nifcloud0014
 
 import rego.v1
 
+import data.lib.net
+
 deny contains res if {
 	some sg in input.nifcloud.nas.nassecuritygroups
 	some c in sg.cidrs
-	cidr.is_public(c.value)
-	cidr.count_addresses(c.value) > 1
-	res := result.new("Security group rule allows ingress from public internet.", c)
+	net.cidr_allows_all_ips(c.value)
+	res := result.new("Security group rule allows ingress from any IP address.", c)
 }

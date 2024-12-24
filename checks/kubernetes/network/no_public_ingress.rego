@@ -1,6 +1,7 @@
 # METADATA
-# title: Public ingress should not be allowed via network policies
-# description: You should not expose infrastructure to the public internet except where explicitly required
+# title: A network policy should not allow ingress from any IP address.
+# description: |
+#   Opening up ports to allow connections from the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that are explicitly required where possible.
 # scope: package
 # schemas:
 # - input: schema["cloud"]
@@ -26,13 +27,15 @@ package builtin.kube.network.kube0001
 
 import rego.v1
 
+import data.lib.net
+
 deny contains res if {
 	some policy in input.kubernetes.networkpolicies
 	isManaged(policy)
 	some source in policy.spec.ingress.sourcecidrs
-	cidr.is_public(source.value)
+	net.cidr_allows_all_ips(source.value)
 	res := result.new(
-		"Network policy allows ingress from the public internet.",
+		"Network policy allows ingress from any IP address.",
 		source,
 	)
 }

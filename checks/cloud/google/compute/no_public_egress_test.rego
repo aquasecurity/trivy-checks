@@ -21,7 +21,7 @@ test_deny_egress_rule_with_multiple_public_destinations if {
 	count(res) == 1
 }
 
-test_allow_egress_rule_with_public_destination if {
+test_allow_egress_rule_with_private_destination if {
 	inp := {"google": {"compute": {"networks": [{"firewall": {"egressrules": [{
 		"firewallrule": {
 			"isallow": {"value": true},

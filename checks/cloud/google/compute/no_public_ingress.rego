@@ -1,8 +1,7 @@
 # METADATA
-# title: An inbound firewall rule allows traffic from /0.
+# title: A firewall rule should not allow ingress from any IP address.
 # description: |
-#   Network security rules should not use very broad subnets.
-#   Where possible, segments should be broken into smaller subnets and avoid using the <code>/0</code> subnet.
+#   Opening up ports to allow connections from the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that are explicitly required where possible.
 # scope: package
 # schemas:
 #   - input: schema["cloud"]
@@ -32,6 +31,8 @@ package builtin.google.compute.google0027
 
 import rego.v1
 
+import data.lib.net
+
 deny contains res if {
 	some network in input.google.compute.networks
 	count(object.get(network.firewall, "sourcetags", [])) == 0
@@ -40,11 +41,11 @@ deny contains res if {
 	some rule in network.firewall.ingressrules
 	rule.firewallrule.isallow.value
 	rule.firewallrule.enforced.value
+
 	some source in rule.sourceranges
-	cidr.is_public(source.value)
-	cidr.count_addresses(source.value) > 1
+	net.cidr_allows_all_ips(source.value)
 	res := result.new(
-		"Firewall rule allows ingress traffic from multiple addresses on the public internet.",
+		"Firewall rule allows ingress from any IP address.",
 		source,
 	)
 }

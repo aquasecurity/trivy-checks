@@ -1,8 +1,7 @@
 # METADATA
-# title: An inbound network security rule allows traffic from /0.
+# title: A security group rule should not allow ingress from any IP address.
 # description: |
-#   Network security rules should not use very broad subnets.
-#   Where possible, segments should be broken into smaller subnets.
+#   Opening up ports to allow connections from the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that are explicitly required where possible.
 # scope: package
 # schemas:
 #   - input: schema["cloud"]
@@ -31,13 +30,14 @@ package builtin.azure.network.azure0047
 
 import rego.v1
 
+import data.lib.net
+
 deny contains res if {
 	some group in input.azure.network.securitygroups
 	some rule in group.rules
 	not rule.outbound.value
 	rule.allow.value
 	some addr in rule.sourceaddresses
-	cidr.is_public(addr.value)
-	cidr.count_addresses(addr.value) > 1
-	res := result.new("Security group rule allows ingress from public internet.", addr)
+	net.cidr_allows_all_ips(addr.value)
+	res := result.new("Security group rule allows ingress from any IP address.", addr)
 }

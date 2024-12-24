@@ -1,7 +1,7 @@
 # METADATA
-# title: An ingress security group rule allows traffic from /0.
+# title: A security group rule should not allow ingress from any IP address.
 # description: |
-#   Opening up ports to the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that explicitly require it where possible.
+#   Opening up ports to allow connections from the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that are explicitly required where possible.
 #
 #   When publishing web applications, use a load balancer instead of publishing directly to instances.
 # scope: package
@@ -34,10 +34,14 @@ package builtin.nifcloud.computing.nifcloud0001
 
 import rego.v1
 
+import data.lib.net
+
 deny contains res if {
 	some sg in input.nifcloud.computing.securitygroups
 	some rule in sg.ingressrules
-	cidr.is_public(rule.cidr.value)
-	cidr.count_addresses(rule.cidr.value) > 1
-	res := result.new("Security group rule allows ingress from public internet.", rule.cidr)
+	net.cidr_allows_all_ips(rule.cidr.value)
+	res := result.new(
+		"Security group rule allows ingress from any IP address.",
+		rule.cidr,
+	)
 }
