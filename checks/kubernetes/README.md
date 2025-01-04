@@ -29,6 +29,19 @@ wget https://github.com/aquasecurity/trivy-checks/raw/main/test/testdata/kuberne
 conftest test denied.yaml --policy myPolicy/ --namespace builtin.kubernetes.KSV008
 ```
 
+# Kubernetes checks classification
+There are several Kubernetes checks that target various subsystems. They are loosely classified as follows.
+
+| Target         | Description                                                                                                                        |
+|----------------|------------------------------------------------------------------------------------------------------------------------------------|
+| Network        | Checks primarily targeting the networking stack                                                                                    |
+| Dynamic        | Checks that evaluate deprecated and removed APIs                                                                                   |
+| CIS Benchmarks | Checks that are recommended by the CIS Benchmarks. The checks inside are targeted per each subsystem (e.g. apiserver, cni, etc.)   |
+| Advanced       | Checks that are recommended for the advanced uesrs of Kubernetes                                                                   |
+| GKE            | Checks specific to Google Kubernetes Engine                                                                                        |
+| PSS            | Checks pertaining to Pod Security Standards                                                                                        |
+
+
 # Standards and best practices
 This GitHub repository has controls that cover both [PodSecurityPolicy](https://kubernetes.io/docs/concepts/policy/pod-security-policy/) (PSP) and the Kubernetes [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/) (PSS), plus additional best practices.
 
