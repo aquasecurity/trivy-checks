@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV014
 
-test_read_only_root_file_system_not_set_denied {
+import rego.v1
+
+test_read_only_root_file_system_not_set_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -20,7 +22,7 @@ test_read_only_root_file_system_not_set_denied {
 	r[_].msg == "Container 'hello' of Pod 'hello-fs-not-readonly' should set 'securityContext.readOnlyRootFilesystem' to true"
 }
 
-test_read_only_root_file_system_false_denied {
+test_read_only_root_file_system_false_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -41,7 +43,7 @@ test_read_only_root_file_system_false_denied {
 	r[_].msg == "Container 'hello' of Pod 'hello-fs-not-readonly' should set 'securityContext.readOnlyRootFilesystem' to true"
 }
 
-test_read_only_root_file_system_true_allowed {
+test_read_only_root_file_system_true_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

@@ -17,9 +17,11 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS017
 
+import rego.v1
+
 import data.lib.docker
 
-install_cmds = {
+install_cmds := {
 	"upgrade",
 	"install",
 	"source-install",
@@ -29,12 +31,12 @@ install_cmds = {
 	"add",
 }
 
-update_cmds = {
+update_cmds := {
 	"update",
 	"up",
 }
 
-package_managers = {
+package_managers := {
 	{"apt-get", "apt"},
 	{"yum"},
 	{"apk"},
@@ -42,7 +44,7 @@ package_managers = {
 	{"zypper"},
 }
 
-deny[res] {
+deny contains res if {
 	run := docker.run[_]
 	run_cmd := concat(" ", run.Value)
 	cmds := docker.split_cmd(run_cmd)
@@ -55,11 +57,11 @@ deny[res] {
 	res := result.new(msg, run)
 }
 
-has_update(cmds, package_manager) = indexes {
+has_update(cmds, package_manager) := indexes if {
 	indexes := docker.command_indexes(cmds, update_cmds, package_manager)
 }
 
-update_followed_by_install(cmds, package_manager, update_indexes) {
+update_followed_by_install(cmds, package_manager, update_indexes) if {
 	install_index := docker.command_indexes(cmds, install_cmds, package_manager)
 	update_indexes[_] < install_index[_]
 }

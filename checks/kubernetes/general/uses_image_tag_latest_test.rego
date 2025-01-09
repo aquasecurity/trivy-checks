@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV013
 
-test_image_with_no_tag_denied {
+import rego.v1
+
+test_image_with_no_tag_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -20,7 +22,7 @@ test_image_with_no_tag_denied {
 	r[_].msg == "Container 'hello' of Pod 'hello-tag' should specify an image tag"
 }
 
-test_image_uses_latest_tag_denied {
+test_image_uses_latest_tag_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -40,7 +42,7 @@ test_image_uses_latest_tag_denied {
 	r[_].msg == "Container 'hello' of Pod 'hello-tag' should specify an image tag"
 }
 
-test_tagged_image_allowed {
+test_tagged_image_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -59,7 +61,7 @@ test_tagged_image_allowed {
 	count(r) == 0
 }
 
-test_tagged_image_with_digest_allowed {
+test_tagged_image_with_digest_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -78,7 +80,7 @@ test_tagged_image_with_digest_allowed {
 	count(r) == 0
 }
 
-test_image_uses_latest_tag_with_digest_allowed {
+test_image_uses_latest_tag_with_digest_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -97,7 +99,7 @@ test_image_uses_latest_tag_with_digest_allowed {
 	count(r) == 0
 }
 
-test_image_with_no_tag_with_digest_allowed {
+test_image_with_no_tag_with_digest_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

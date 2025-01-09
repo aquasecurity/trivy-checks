@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV01010
 
-test_configMap_with_sensitive_denied {
+import rego.v1
+
+test_configMap_with_sensitive_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "ConfigMap",
@@ -16,7 +18,7 @@ test_configMap_with_sensitive_denied {
 	r[_].msg == "ConfigMap 'cm-with-sensitive' in 'default' namespace stores sensitive contents in key(s) or value(s) '{\"username\"}'"
 }
 
-test_configMap_with_sensitive_allowed {
+test_configMap_with_sensitive_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "ConfigMap",

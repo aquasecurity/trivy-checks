@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0082
 
-test_validate_read_only_argument_set_zero {
+import rego.v1
+
+test_validate_read_only_argument_set_zero if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -11,7 +13,7 @@ test_validate_read_only_argument_set_zero {
 	count(r) == 0
 }
 
-test_validate_read_only_argument_set_non_zero {
+test_validate_read_only_argument_set_non_zero if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -22,7 +24,7 @@ test_validate_read_only_argument_set_non_zero {
 	count(r) == 1
 }
 
-test_validate_read_only_argument_not_set {
+test_validate_read_only_argument_not_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",

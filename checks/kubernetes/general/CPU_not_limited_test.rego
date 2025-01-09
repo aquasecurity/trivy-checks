@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV011
 
-test_CPU_not_limited_denied {
+import rego.v1
+
+test_CPU_not_limited_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -20,7 +22,7 @@ test_CPU_not_limited_denied {
 	r[_].msg == "Container 'hello' of Pod 'hello-cpu-limit' should set 'resources.limits.cpu'"
 }
 
-test_CPU_limited_allowed {
+test_CPU_limited_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

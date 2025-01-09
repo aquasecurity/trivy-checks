@@ -17,9 +17,11 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS006
 
+import rego.v1
+
 import data.lib.docker
 
-get_alias_from_copy[output] {
+get_alias_from_copy contains output if {
 	copies := docker.stage_copies[stage]
 
 	copy := copies[_]
@@ -35,7 +37,7 @@ get_alias_from_copy[output] {
 	}
 }
 
-is_alias_current_from_alias(current_name, current_alias) = allow {
+is_alias_current_from_alias(current_name, current_alias) := allow if {
 	current_name_lower := lower(current_name)
 	current_alias_lower := lower(current_alias)
 
@@ -47,7 +49,7 @@ is_alias_current_from_alias(current_name, current_alias) = allow {
 	allow = true
 }
 
-deny[res] {
+deny contains res if {
 	output := get_alias_from_copy[_]
 	msg := sprintf("'COPY --from' should not mention current alias '%s' since it is impossible to copy from itself", [output.args])
 	res := result.new(msg, output.cmd)

@@ -19,11 +19,13 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0077
 
+import rego.v1
+
 import data.lib.kubernetes
 
 types := ["master", "worker"]
 
-validate_kubelet_config_yaml_permission(sp) := {"kubeletConfigYamlConfigurationFilePermission": violation} {
+validate_kubelet_config_yaml_permission(sp) := {"kubeletConfigYamlConfigurationFilePermission": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	count(sp.info.kubeletConfigYamlConfigurationFilePermission) > 0
@@ -31,7 +33,7 @@ validate_kubelet_config_yaml_permission(sp) := {"kubeletConfigYamlConfigurationF
 	count(violation) > 0
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_kubelet_config_yaml_permission(input)
 	msg := "Ensure that if the kubelet refers to a configuration file with the --config argument, that file has permissions of 600 or more restrictive."
 	res := result.new(msg, output)

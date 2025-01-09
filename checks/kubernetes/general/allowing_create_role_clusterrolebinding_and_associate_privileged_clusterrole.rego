@@ -17,12 +17,14 @@
 #     - type: kubernetes
 package builtin.kubernetes.KSV052
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
 readKinds := ["Role", "ClusterRole"]
 
-allowing_create_clusterrolebindings_binding_and_associate_cluster_role[ruleA] {
+allowing_create_clusterrolebindings_binding_and_associate_cluster_role contains ruleA if {
 	input.kind == readKinds[_]
 	some i, j
 	ruleA := input.rules[i]
@@ -37,7 +39,7 @@ allowing_create_clusterrolebindings_binding_and_associate_cluster_role[ruleA] {
 	ruleB.resourceNames[_] == "*"
 }
 
-deny[res] {
+deny contains res if {
 	badRule := allowing_create_clusterrolebindings_binding_and_associate_cluster_role[_]
 	msg := "Role permits creation of role binding and association with privileged role"
 	res := result.new(msg, badRule)

@@ -22,7 +22,9 @@
 #           provider: aws
 package builtin.aws.rds.aws0343
 
-deny[res] {
+import rego.v1
+
+deny contains res if {
 	cluster := input.aws.rds.clusters[_]
 	isManaged(cluster.deletionprotection)
 	not cluster.deletionprotection.value

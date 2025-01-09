@@ -19,16 +19,18 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0053
 
+import rego.v1
+
 import data.lib.kubernetes
 
-validate_spec_ownership(sp) := {"kubeSchedulerSpecFileOwnership": violation} {
+validate_spec_ownership(sp) := {"kubeSchedulerSpecFileOwnership": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == "master"
 	violation := {ownership | ownership = sp.info.kubeSchedulerSpecFileOwnership.values[_]; not ownership == "root:root"}
 	count(violation) > 0
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_spec_ownership(input)
 	msg := "Ensure that the scheduler pod specification file ownership is set to root:root"
 	res := result.new(msg, output)

@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0053
 
-test_validate_spec_ownership_equal_root_root {
+import rego.v1
+
+test_validate_spec_ownership_equal_root_root if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -11,7 +13,7 @@ test_validate_spec_ownership_equal_root_root {
 	count(r) == 0
 }
 
-test_validate_spec_ownership_equal_user {
+test_validate_spec_ownership_equal_user if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",

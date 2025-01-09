@@ -27,33 +27,35 @@
 #         - kind: job
 package builtin.kubernetes.KSV020
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-default failRunAsUser = false
+default failRunAsUser := false
 
 # getUserIdContainers returns the names of all containers which have
 # securityContext.runAsUser less than or equal to 100000.
-getUserIdContainers[container] {
+getUserIdContainers contains container if {
 	container := kubernetes.containers[_]
 	container.securityContext.runAsUser <= 10000
 }
 
 # getUserIdContainers returns the names of all containers which do
 # not have securityContext.runAsUser set.
-getUserIdContainers[container] {
+getUserIdContainers contains container if {
 	container := kubernetes.containers[_]
 	not utils.has_key(container.securityContext, "runAsUser")
 }
 
 # getUserIdContainers returns the names of all containers which do
 # not have securityContext set.
-getUserIdContainers[container] {
+getUserIdContainers contains container if {
 	container := kubernetes.containers[_]
 	not utils.has_key(container, "securityContext")
 }
 
-deny[res] {
+deny contains res if {
 	output := getUserIdContainers[_]
 	msg := kubernetes.format(sprintf("Container '%s' of %s '%s' should set 'securityContext.runAsUser' > 10000", [output.name, kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, output)

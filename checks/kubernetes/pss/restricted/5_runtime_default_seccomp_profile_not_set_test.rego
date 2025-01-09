@@ -1,8 +1,10 @@
 package builtin.kubernetes.KSV030
 
+import rego.v1
+
 import data.lib.kubernetes
 
-test_pod_context_custom_profile_denied {
+test_pod_context_custom_profile_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -24,7 +26,7 @@ test_pod_context_custom_profile_denied {
 	count(r) == 1
 }
 
-test_both_undefined_type_denied {
+test_both_undefined_type_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -46,7 +48,7 @@ test_both_undefined_type_denied {
 	count(r) == 1
 }
 
-test_pod_context_undefined_profile_denied {
+test_pod_context_undefined_profile_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -65,7 +67,7 @@ test_pod_context_undefined_profile_denied {
 	count(r) == 1
 }
 
-test_pod_context_runtime_default_allowed {
+test_pod_context_runtime_default_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -87,7 +89,7 @@ test_pod_context_runtime_default_allowed {
 	count(r) == 0
 }
 
-test_container_context_custom_profile_denied {
+test_container_context_custom_profile_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -107,7 +109,7 @@ test_container_context_custom_profile_denied {
 	count(r) == 1
 }
 
-test_container_context_undefined_type_denied {
+test_container_context_undefined_type_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -127,7 +129,7 @@ test_container_context_undefined_type_denied {
 	count(r) == 1
 }
 
-test_container_context_undefined_profile_denied {
+test_container_context_undefined_profile_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -146,7 +148,7 @@ test_container_context_undefined_profile_denied {
 	count(r) == 1
 }
 
-test_container_context_runtime_default_allowed {
+test_container_context_runtime_default_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -166,7 +168,7 @@ test_container_context_runtime_default_allowed {
 	count(r) == 0
 }
 
-test_annotation_allowed {
+test_annotation_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -188,7 +190,7 @@ test_annotation_allowed {
 	count(r) == 0
 }
 
-test_annotation_denied {
+test_annotation_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -210,7 +212,7 @@ test_annotation_denied {
 	count(r) == 1
 }
 
-test_pod_context_correct_profile_at_pod_allowed {
+test_pod_context_correct_profile_at_pod_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -232,7 +234,7 @@ test_pod_context_correct_profile_at_pod_allowed {
 	count(r) == 0
 }
 
-test_pod_context_correct_profile_at_container_allowed {
+test_pod_context_correct_profile_at_container_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

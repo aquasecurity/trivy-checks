@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV043
 
-test_impersonate_privileged_groups {
+import rego.v1
+
+test_impersonate_privileged_groups if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -18,7 +20,7 @@ test_impersonate_privileged_groups {
 	count(r) > 0
 }
 
-test_impersonate_privileged_groups_not_api_group {
+test_impersonate_privileged_groups_not_api_group if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -36,7 +38,7 @@ test_impersonate_privileged_groups_not_api_group {
 	count(r) == 0
 }
 
-test_impersonate_privileged_groups_no_resource {
+test_impersonate_privileged_groups_no_resource if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -54,7 +56,7 @@ test_impersonate_privileged_groups_no_resource {
 	count(r) == 0
 }
 
-test_impersonate_privileged_groups_no_resource_no_verbs {
+test_impersonate_privileged_groups_no_resource_no_verbs if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",

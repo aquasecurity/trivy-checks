@@ -19,25 +19,27 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0080
 
+import rego.v1
+
 import data.lib.kubernetes
 
 types := ["master", "worker"]
 
-validate_kubelet_authorization_mode(sp) := {"kubeletAuthorizationModeArgumentSet": violation} {
+validate_kubelet_authorization_mode(sp) := {"kubeletAuthorizationModeArgumentSet": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	violation := {authorization_mode | authorization_mode = sp.info.kubeletAuthorizationModeArgumentSet.values[_]; authorization_mode == "AlwaysAllow"}
 	count(violation) > 0
 }
 
-validate_kubelet_authorization_mode(sp) := {"kubeletAuthorizationModeArgumentSet": authorization_mode} {
+validate_kubelet_authorization_mode(sp) := {"kubeletAuthorizationModeArgumentSet": authorization_mode} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	count(sp.info.kubeletAuthorizationModeArgumentSet.values) == 0
 	authorization_mode = {}
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_kubelet_authorization_mode(input)
 	msg := "Ensure that the --authorization-mode argument is not set to AlwaysAllow"
 	res := result.new(msg, output)

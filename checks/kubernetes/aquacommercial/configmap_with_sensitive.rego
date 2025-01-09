@@ -17,6 +17,8 @@
 #         - kind: configmap
 package builtin.kubernetes.KSV01010
 
+import rego.v1
+
 import data.lib.kubernetes
 
 # More patterns can be added here, adding more patterns may lead to performance issue
@@ -55,7 +57,7 @@ patternForIbanAndPassport := [
 
 # ConfigMapWithSensitive gives secret key
 # To reduce performance overhead, only matched patterns will be applied to each value for key
-ConfigMapWithSensitive[sensitiveData] {
+ConfigMapWithSensitive contains sensitiveData if {
 	kubernetes.kind == "ConfigMap"
 	regex.match(patterns[p], kubernetes.object.data[d])
 
@@ -65,25 +67,25 @@ ConfigMapWithSensitive[sensitiveData] {
 }
 
 # configMapValue gives sensitive key, splitting either by '=' or ':'
-configMapValue(value) = sensitiveValue {
+configMapValue(value) := sensitiveValue if {
 	sensitiveData := split(value, ":")
 	count(sensitiveData) > 1
 	sensitiveValue = sensitiveData[0]
-} else = sensitiveValue {
+} else := sensitiveValue if {
 	sensitiveData := split(value, "=")
 	count(sensitiveData) > 1
 	sensitiveValue = sensitiveData[0]
 }
 
 #check if key has sensitive data
-ConfigMapWithSensitive[sensitiveData] {
+ConfigMapWithSensitive contains sensitiveData if {
 	kubernetes.kind == "ConfigMap"
 	values = split(kubernetes.object.data[d], "\n")
 	regex.match(patternsForKey[p], d)
 	sensitiveData = d
 }
 
-ConfigMapWithSensitive[sensitiveData] {
+ConfigMapWithSensitive contains sensitiveData if {
 	kubernetes.kind == "ConfigMap"
 	values = split(kubernetes.object.data[d], "\n")
 	val = split(values[v], ":")
@@ -91,7 +93,7 @@ ConfigMapWithSensitive[sensitiveData] {
 	sensitiveData = d
 }
 
-ConfigMapWithSensitive[sensitiveData] {
+ConfigMapWithSensitive contains sensitiveData if {
 	input.kind == "ConfigMap"
 	values = split(kubernetes.object.data[d], "\n")
 	val = split(values[v], ":")
@@ -101,7 +103,7 @@ ConfigMapWithSensitive[sensitiveData] {
 
 configMapSensitiveList := ConfigMapWithSensitive
 
-deny[res] {
+deny contains res if {
 	count(configMapSensitiveList) > 0
 	msg := kubernetes.format(sprintf("%s '%s' in '%s' namespace stores sensitive contents in key(s) or value(s) '%s'", [kubernetes.kind, kubernetes.name, kubernetes.namespace, configMapSensitiveList]))
 	res := result.new(msg, kubernetes.kind)

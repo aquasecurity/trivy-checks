@@ -25,13 +25,15 @@
 #         - kind: job
 package builtin.kubernetes.KSV035
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-default failTrustedECRRegistry = false
+default failTrustedECRRegistry := false
 
 # list of trusted ECR registries
-trusted_ecr_registries = [
+trusted_ecr_registries := [
 	"ecr.us-east-2.amazonaws.com",
 	"ecr.us-east-1.amazonaws.com",
 	"ecr.us-west-1.amazonaws.com",
@@ -60,7 +62,7 @@ trusted_ecr_registries = [
 
 # getContainersWithTrustedECRRegistry returns a list of containers
 # with image from a trusted ECR registry
-getContainersWithTrustedECRRegistry[name] {
+getContainersWithTrustedECRRegistry contains name if {
 	container := kubernetes.containers[_]
 	image := container.image
 
@@ -77,12 +79,12 @@ getContainersWithTrustedECRRegistry[name] {
 
 # getContainersWithUntrustedECRRegistry returns a list of containers
 # with image from an untrusted ECR registry
-getContainersWithUntrustedECRRegistry[container] {
+getContainersWithUntrustedECRRegistry contains container if {
 	container := kubernetes.containers[_]
 	not getContainersWithTrustedECRRegistry[container.name]
 }
 
-deny[res] {
+deny contains res if {
 	container := getContainersWithUntrustedECRRegistry[_]
 	msg := kubernetes.format(sprintf("Container '%s' of %s '%s' should restrict images to own ECR repository. See the full ECR list here: https://docs.aws.amazon.com/general/latest/gr/ecr.html", [container.name, kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, container)

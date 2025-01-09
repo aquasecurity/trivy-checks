@@ -27,18 +27,20 @@
 #         - kind: job
 package builtin.kubernetes.KSV017
 
+import rego.v1
+
 import data.lib.kubernetes
 
-default failPrivileged = false
+default failPrivileged := false
 
 # getPrivilegedContainers returns all containers which have
 # securityContext.privileged set to true.
-getPrivilegedContainers[container] {
+getPrivilegedContainers contains container if {
 	container := kubernetes.containers[_]
 	container.securityContext.privileged == true
 }
 
-deny[res] {
+deny contains res if {
 	output := getPrivilegedContainers[_]
 	msg := kubernetes.format(sprintf("Container '%s' of %s '%s' should set 'securityContext.privileged' to false", [output.name, kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, output)

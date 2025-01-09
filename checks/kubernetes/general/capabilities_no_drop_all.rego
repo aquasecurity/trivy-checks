@@ -27,24 +27,26 @@
 #         - kind: job
 package builtin.kubernetes.KSV003
 
+import rego.v1
+
 import data.lib.kubernetes
 
-default checkCapsDropAll = false
+default checkCapsDropAll := false
 
 # Get all containers which include 'ALL' in security.capabilities.drop
-getCapsDropAllContainers[container] {
+getCapsDropAllContainers contains container if {
 	allContainers := kubernetes.containers[_]
 	lower(allContainers.securityContext.capabilities.drop[_]) == "all"
 	container := allContainers.name
 }
 
 # Get all containers which don't include 'ALL' in security.capabilities.drop
-getCapsNoDropAllContainers[container] {
+getCapsNoDropAllContainers contains container if {
 	container := kubernetes.containers[_]
 	not getCapsDropAllContainers[container.name]
 }
 
-deny[res] {
+deny contains res if {
 	container := getCapsNoDropAllContainers[_]
 	msg := kubernetes.format(sprintf("Container '%s' of %s '%s' should add 'ALL' to 'securityContext.capabilities.drop'", [container.name, kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, container)

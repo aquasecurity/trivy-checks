@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS012
 
-test_basic_denied {
+import rego.v1
+
+test_basic_denied if {
 	r := deny with input as {"Stages": [
 		{"Name": "baseImage as bi", "Commands": [
 			{
@@ -52,7 +54,7 @@ test_basic_denied {
 	r[_].msg == "Duplicate aliases 'build' are found in different FROMs"
 }
 
-test_missed_alias_denied {
+test_missed_alias_denied if {
 	r := deny with input as {"Stages": [
 		{"Name": "baseImage", "Commands": [
 			{
@@ -104,7 +106,7 @@ test_missed_alias_denied {
 	r[_].msg == "Duplicate aliases 'build' are found in different FROMs"
 }
 
-test_no_alias_allowed {
+test_no_alias_allowed if {
 	r := deny with input as {"Stages": [
 		{"Name": "baseImage", "Commands": [
 			{
@@ -135,7 +137,7 @@ test_no_alias_allowed {
 	count(r) == 0
 }
 
-test_extra_spaces_denied {
+test_extra_spaces_denied if {
 	r := deny with input as {"Stages": [
 		{"Name": "baseImage", "Commands": [
 			{
@@ -187,7 +189,7 @@ test_extra_spaces_denied {
 	r[_].msg == "Duplicate aliases 'build' are found in different FROMs"
 }
 
-test_basic_allowed {
+test_basic_allowed if {
 	r := deny with input as {"Stages": [
 		{"Name": "baseImage", "Commands": [
 			{

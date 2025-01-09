@@ -17,14 +17,16 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS022
 
+import rego.v1
+
 import data.lib.docker
 
-get_maintainer[mntnr] {
+get_maintainer contains mntnr if {
 	mntnr := input.Stages[_].Commands[_]
 	mntnr.Cmd == "maintainer"
 }
 
-deny[res] {
+deny contains res if {
 	mntnr := get_maintainer[_]
 	msg := sprintf("MAINTAINER should not be used: 'MAINTAINER %s'", [mntnr.Value[0]])
 	res := result.new(msg, mntnr)

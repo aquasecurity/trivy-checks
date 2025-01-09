@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0044
 
-test_auto_tls_is_set_to_false {
+import rego.v1
+
+test_auto_tls_is_set_to_false if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -21,7 +23,7 @@ test_auto_tls_is_set_to_false {
 	count(r) == 0
 }
 
-test_auto_tls_is_set_to_false_args {
+test_auto_tls_is_set_to_false_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -43,7 +45,7 @@ test_auto_tls_is_set_to_false_args {
 	count(r) == 0
 }
 
-test_auto_tls_is_set_to_true {
+test_auto_tls_is_set_to_true if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -65,7 +67,7 @@ test_auto_tls_is_set_to_true {
 	r[_].msg == "Ensure that the --auto-tls argument is not set to true"
 }
 
-test_auto_tls_is_not_configured {
+test_auto_tls_is_not_configured if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

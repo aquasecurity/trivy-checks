@@ -17,17 +17,19 @@
 #     - type: kubernetes
 package builtin.kubernetes.KCV0034
 
+import rego.v1
+
 import data.lib.kubernetes
 
-checkFlag(container) {
+checkFlag(container) if {
 	kubernetes.command_has_flag(container.command, "--profiling=false")
 }
 
-checkFlag(container) {
+checkFlag(container) if {
 	kubernetes.command_has_flag(container.args, "--profiling=false")
 }
 
-deny[res] {
+deny contains res if {
 	container := kubernetes.containers[_]
 	kubernetes.is_controllermanager(container)
 	not checkFlag(container)

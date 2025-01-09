@@ -28,4 +28,4 @@ test_allow_user_logged_in_with_mfa if {
 	})
 }
 
-build_input(body) = {"aws": {"iam": {"users": [body]}}}
+build_input(body) := {"aws": {"iam": {"users": [body]}}}

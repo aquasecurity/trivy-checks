@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0073
 
-test_validate_kubelet_config_permission_equal_600 {
+import rego.v1
+
+test_validate_kubelet_config_permission_equal_600 if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -11,7 +13,7 @@ test_validate_kubelet_config_permission_equal_600 {
 	count(r) == 0
 }
 
-test_validate_kublet_config_permission_lower_600 {
+test_validate_kublet_config_permission_lower_600 if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -22,7 +24,7 @@ test_validate_kublet_config_permission_lower_600 {
 	count(r) == 0
 }
 
-test_validate_kubelet_config_permission_no_result {
+test_validate_kubelet_config_permission_no_result if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -33,7 +35,7 @@ test_validate_kubelet_config_permission_no_result {
 	count(r) == 0
 }
 
-test_validate_kubelet_config_permission_higher_600 {
+test_validate_kubelet_config_permission_higher_600 if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",

@@ -17,9 +17,11 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS008
 
+import rego.v1
+
 import data.lib.docker
 
-invalid_ports[output] {
+invalid_ports contains output if {
 	expose := docker.expose[_]
 	port := to_number(split(expose.Value[_], "/")[0])
 	port > 65535
@@ -29,7 +31,7 @@ invalid_ports[output] {
 	}
 }
 
-deny[res] {
+deny contains res if {
 	output := invalid_ports[_]
 	msg := sprintf("'EXPOSE' contains port which is out of range [0, 65535]: %d", [output.port])
 	res := result.new(msg, output.cmd)

@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV044
 
-test_any_any_role {
+import rego.v1
+
+test_any_any_role if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -18,7 +20,7 @@ test_any_any_role {
 	count(r) > 0
 }
 
-test_any_any_role_not_api_group {
+test_any_any_role_not_api_group if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -36,7 +38,7 @@ test_any_any_role_not_api_group {
 	count(r) == 0
 }
 
-test_any_any_role_no_resource {
+test_any_any_role_no_resource if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -54,7 +56,7 @@ test_any_any_role_no_resource {
 	count(r) == 0
 }
 
-test_any_any_role_no_resource_no_verbs {
+test_any_any_role_no_resource_no_verbs if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",

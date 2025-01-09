@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV021
 
-test_GID_gt_10000_allowed {
+import rego.v1
+
+test_GID_gt_10000_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -20,7 +22,7 @@ test_GID_gt_10000_allowed {
 	count(r) == 0
 }
 
-test_no_run_as_group_denied {
+test_no_run_as_group_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -40,7 +42,7 @@ test_no_run_as_group_denied {
 	r[_].msg == "Container 'hello' of Pod 'hello-gid' should set 'securityContext.runAsGroup' > 10000"
 }
 
-test_low_gid_denied {
+test_low_gid_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

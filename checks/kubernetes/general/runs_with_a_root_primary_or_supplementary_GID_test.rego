@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV116
 
-test_failRootGroupId {
+import rego.v1
+
+test_failRootGroupId if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -15,7 +17,7 @@ test_failRootGroupId {
 	count(r) > 0
 }
 
-test_failRootGroupId_failed {
+test_failRootGroupId_failed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -30,7 +32,7 @@ test_failRootGroupId_failed {
 	count(r) = 0
 }
 
-test_failRootGroupId_irrelevant {
+test_failRootGroupId_irrelevant if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "ClusterRole",

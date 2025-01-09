@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV017
 
-test_privileged_is_true_denied {
+import rego.v1
+
+test_privileged_is_true_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -21,7 +23,7 @@ test_privileged_is_true_denied {
 	r[_].msg == "Container 'hello' of Pod 'hello-privileged' should set 'securityContext.privileged' to false"
 }
 
-test_privileged_is_undefined_allowed {
+test_privileged_is_undefined_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -40,7 +42,7 @@ test_privileged_is_undefined_allowed {
 	count(r) == 0
 }
 
-test_privileged_is_false_allowed {
+test_privileged_is_false_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

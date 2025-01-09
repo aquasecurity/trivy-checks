@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0035
 
-test_use_service_account_credentials_is_set_to_true {
+import rego.v1
+
+test_use_service_account_credentials_is_set_to_true if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -21,7 +23,7 @@ test_use_service_account_credentials_is_set_to_true {
 	count(r) == 0
 }
 
-test_use_service_account_credentials_is_set_to_true_args {
+test_use_service_account_credentials_is_set_to_true_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -43,7 +45,7 @@ test_use_service_account_credentials_is_set_to_true_args {
 	count(r) == 0
 }
 
-test_use_service_account_credentials_is_set_to_false {
+test_use_service_account_credentials_is_set_to_false if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -65,7 +67,7 @@ test_use_service_account_credentials_is_set_to_false {
 	r[_].msg == "Ensure that the --use-service-account-credentials argument is set to true"
 }
 
-test_use_service_account_credentials_is_not_configured {
+test_use_service_account_credentials_is_not_configured if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

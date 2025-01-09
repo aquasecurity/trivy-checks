@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV027
 
-test_proc_mount_is_set_denied {
+import rego.v1
+
+test_proc_mount_is_set_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -22,7 +24,7 @@ test_proc_mount_is_set_denied {
 	r[_].msg == "Pod 'hello-proc-mount' should not set 'spec.containers[*].securityContext.procMount' or 'spec.initContainers[*].securityContext.procMount'"
 }
 
-test_proc_mount_is_not_set_allowed {
+test_proc_mount_is_not_set_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

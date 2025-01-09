@@ -15,42 +15,44 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS001
 
+import rego.v1
+
 import data.lib.docker
 
 # returns element after AS
-get_alias(values) = alias {
+get_alias(values) := alias if {
 	"as" == lower(values[i])
 	alias = values[i + 1]
 }
 
-get_aliases[aliases] {
+get_aliases contains aliases if {
 	from_cmd := docker.from[_]
 	aliases := get_alias(from_cmd.Value)
 }
 
-is_alias(img) {
+is_alias(img) if {
 	img == get_aliases[_]
 }
 
 # image_names returns the image in FROM statement.
-image_names[image_name] {
+image_names contains image_name if {
 	from := docker.from[_]
 	image_name := from.Value[0]
 }
 
 # image_tags returns the image and tag.
-parse_tag(name) = [img, tag] {
+parse_tag(name) := [img, tag] if {
 	[img, tag] = split(name, ":")
 }
 
 # image_tags returns the image and "latest" if a tag is not specified.
-parse_tag(img) = [img, tag] {
+parse_tag(img) := [img, tag] if {
 	tag := "latest"
 	not contains(img, ":")
 }
 
 #base scenario
-image_tags[output] {
+image_tags contains output if {
 	from := docker.from[_]
 	name := from.Value[0]
 	not startswith(name, "$")
@@ -63,7 +65,7 @@ image_tags[output] {
 }
 
 # If variable is used with FROM then it's value should contain a tag
-image_tags[output] {
+image_tags contains output if {
 	some i, j, k, l
 	from := docker.from[i]
 	name := from.Value[0]
@@ -92,14 +94,14 @@ image_tags[output] {
 # fail_latest is true if image is not scratch
 # and image is not an alias
 # and tag is latest.
-fail_latest[output] {
+fail_latest contains output if {
 	output := image_tags[_]
 	output.img != "scratch"
 	not is_alias(output.img)
 	output.tag == "latest"
 }
 
-deny[res] {
+deny contains res if {
 	output := fail_latest[_]
 	msg := sprintf("Specify a tag in the 'FROM' statement for image '%s'", [output.img])
 	res := result.new(msg, output.cmd)

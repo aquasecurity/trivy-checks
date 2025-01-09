@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0076
 
-test_validate_certificate_authorities_ownership_equal_root_root {
+import rego.v1
+
+test_validate_certificate_authorities_ownership_equal_root_root if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -11,7 +13,7 @@ test_validate_certificate_authorities_ownership_equal_root_root {
 	count(r) == 0
 }
 
-test_validate_certificate_authorities_ownership_no_results {
+test_validate_certificate_authorities_ownership_no_results if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -22,7 +24,7 @@ test_validate_certificate_authorities_ownership_no_results {
 	count(r) == 0
 }
 
-test_validate_certificate_authorities_ownership_equal_user {
+test_validate_certificate_authorities_ownership_equal_user if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",

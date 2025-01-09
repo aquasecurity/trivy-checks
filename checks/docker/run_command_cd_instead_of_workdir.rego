@@ -17,9 +17,11 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS013
 
+import rego.v1
+
 import data.lib.docker
 
-get_cd[output] {
+get_cd contains output if {
 	run := docker.run[_]
 	parts = regex.split(`\s*&&\s*`, run.Value[_])
 	startswith(parts[_], "cd ")
@@ -30,7 +32,7 @@ get_cd[output] {
 	}
 }
 
-deny[res] {
+deny contains res if {
 	output := get_cd[_]
 	msg := sprintf("RUN should not be used to change directory: '%s'. Use 'WORKDIR' statement instead.", [output.args])
 	res := result.new(msg, output.cmd)

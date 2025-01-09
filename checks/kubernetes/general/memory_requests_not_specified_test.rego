@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV016
 
-test_memory_requests_not_specified_denied {
+import rego.v1
+
+test_memory_requests_not_specified_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -20,7 +22,7 @@ test_memory_requests_not_specified_denied {
 	r[_].msg == "Container 'hello' of Pod 'hello-memory-requests' should set 'resources.requests.memory'"
 }
 
-test_memory_requests_specified_allowed {
+test_memory_requests_specified_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

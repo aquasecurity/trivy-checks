@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV046
 
-test_resource_verb_role_secrets {
+import rego.v1
+
+test_resource_verb_role_secrets if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRole",
@@ -18,7 +20,7 @@ test_resource_verb_role_secrets {
 	count(r) > 0
 }
 
-test_resource_verb_role_pods {
+test_resource_verb_role_pods if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRole",
@@ -36,7 +38,7 @@ test_resource_verb_role_pods {
 	count(r) > 0
 }
 
-test_resource_verb_role_deployments {
+test_resource_verb_role_deployments if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRole",
@@ -54,7 +56,7 @@ test_resource_verb_role_deployments {
 	count(r) > 0
 }
 
-test_resource_verb_role_daemonsets {
+test_resource_verb_role_daemonsets if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRole",
@@ -72,7 +74,7 @@ test_resource_verb_role_daemonsets {
 	count(r) > 0
 }
 
-test_resource_verb_role_statefulsets {
+test_resource_verb_role_statefulsets if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRole",
@@ -90,7 +92,7 @@ test_resource_verb_role_statefulsets {
 	count(r) > 0
 }
 
-test_resource_verb_role_replicationcontrollers {
+test_resource_verb_role_replicationcontrollers if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRole",
@@ -108,7 +110,7 @@ test_resource_verb_role_replicationcontrollers {
 	count(r) > 0
 }
 
-test_resource_resource_role_no_specific_verb {
+test_resource_resource_role_no_specific_verb if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRole",
@@ -126,7 +128,7 @@ test_resource_resource_role_no_specific_verb {
 	count(r) == 0
 }
 
-test_resource_verb_role_no_any_verb {
+test_resource_verb_role_no_any_verb if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRole",

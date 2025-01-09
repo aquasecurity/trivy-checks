@@ -20,6 +20,8 @@
 #         - kind: role
 package builtin.kubernetes.KSV114
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
@@ -27,16 +29,16 @@ readVerbs := ["create", "update", "patch", "delete", "deletecollection", "impers
 
 readKinds := ["Role", "ClusterRole"]
 
-readResource = ["mutatingwebhookconfigurations", "validatingwebhookconfigurations"]
+readResource := ["mutatingwebhookconfigurations", "validatingwebhookconfigurations"]
 
-manageWebhookConfig[input.rules[ru]] {
+manageWebhookConfig contains input.rules[ru] if {
 	some ru, r, v
 	input.kind == readKinds[_]
 	input.rules[ru].resources[r] == readResource[_]
 	input.rules[ru].verbs[v] == readVerbs[_]
 }
 
-deny[res] {
+deny contains res if {
 	badRule := manageWebhookConfig[_]
 	msg := kubernetes.format(sprintf("%s '%s' should not have access to resources %s for verbs %s", [kubernetes.kind, kubernetes.name, readResource, readVerbs]))
 	res := result.new(msg, badRule)

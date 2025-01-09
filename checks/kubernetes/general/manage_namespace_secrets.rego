@@ -19,6 +19,8 @@
 #         - kind: role
 package builtin.kubernetes.KSV113
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
@@ -26,14 +28,14 @@ readVerbs := ["get", "list", "watch", "create", "update", "patch", "delete", "de
 
 readKinds := ["Role"]
 
-resourceManageSecret[input.rules[ru]] {
+resourceManageSecret contains input.rules[ru] if {
 	some ru, r, v
 	input.kind == readKinds[_]
 	input.rules[ru].resources[r] == "secrets"
 	input.rules[ru].verbs[v] == readVerbs[_]
 }
 
-deny[res] {
+deny contains res if {
 	badRule := resourceManageSecret[_]
 	msg := kubernetes.format(sprintf("%s '%s' shouldn't have access to manage secrets in namespace '%s'", [kubernetes.kind, kubernetes.name, kubernetes.namespace]))
 	res := result.new(msg, badRule)

@@ -19,9 +19,11 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0063
 
+import rego.v1
+
 import data.lib.kubernetes
 
-validate_conf_ownership(sp) := {"schedulerConfFileOwnership": violation} {
+validate_conf_ownership(sp) := {"schedulerConfFileOwnership": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == "master"
 	ownership := sp.info.schedulerConfFileOwnership.values[_]
@@ -29,7 +31,7 @@ validate_conf_ownership(sp) := {"schedulerConfFileOwnership": violation} {
 	count(violation) > 0
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_conf_ownership(input)
 	msg := "Ensure that the scheduler config  file ownership is set to root:root"
 	res := result.new(msg, output)

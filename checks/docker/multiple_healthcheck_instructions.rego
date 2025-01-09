@@ -17,9 +17,11 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS023
 
+import rego.v1
+
 import data.lib.docker
 
-deny[res] {
+deny contains res if {
 	healthchecks := docker.stage_healthcheck[name]
 	cnt := count(healthchecks)
 	cnt > 1

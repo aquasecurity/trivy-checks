@@ -1,7 +1,9 @@
 package appshield.kubernetes.KSV122
 
+import rego.v1
+
 # Test case for a RoleBinding with anonymous/unauthenticated user binding
-test_role_binding_with_anonymous_user_binding {
+test_role_binding_with_anonymous_user_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "RoleBinding",
@@ -32,7 +34,7 @@ test_role_binding_with_anonymous_user_binding {
 }
 
 #Test case for a ClusterRoleBinding with anonymous/unauthenticated user binding
-test_cluster_role_binding_with_anonymous_user_binding {
+test_cluster_role_binding_with_anonymous_user_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRolebinding",
@@ -63,7 +65,7 @@ test_cluster_role_binding_with_anonymous_user_binding {
 }
 
 # Test case for a RoleBinding with non-anonymous user binding
-test_role_binding_with_non_anonymous_user_binding {
+test_role_binding_with_non_anonymous_user_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "RoleBinding",
@@ -87,7 +89,7 @@ test_role_binding_with_non_anonymous_user_binding {
 }
 
 # Test case for a ClusterRoleBinding with non-anonymous user binding
-test_cluster_role_binding_with_non_anonymous_user_binding {
+test_cluster_role_binding_with_non_anonymous_user_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRoleBinding",

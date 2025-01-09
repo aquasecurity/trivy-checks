@@ -17,19 +17,21 @@
 #     - type: kubernetes
 package builtin.kubernetes.KCV0027
 
+import rego.v1
+
 import data.lib.kubernetes
 
-check_flag(container) {
+check_flag(container) if {
 	kubernetes.command_has_flag(container.command, "--tls-cert-file")
 	kubernetes.command_has_flag(container.command, "--tls-private-key-file")
 }
 
-check_flag(container) {
+check_flag(container) if {
 	kubernetes.command_has_flag(container.args, "--tls-cert-file")
 	kubernetes.command_has_flag(container.args, "--tls-private-key-file")
 }
 
-deny[res] {
+deny contains res if {
 	container := kubernetes.containers[_]
 	kubernetes.is_apiserver(container)
 	not check_flag(container)

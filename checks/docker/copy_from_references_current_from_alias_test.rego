@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS006
 
-test_basic_denied {
+import rego.v1
+
+test_basic_denied if {
 	r := deny with input as {"Stages": [
 		{
 			"Name": "golang:1.7.3 as dep",
@@ -42,7 +44,7 @@ test_basic_denied {
 	r[_].msg == "'COPY --from' should not mention current alias 'dep' since it is impossible to copy from itself"
 }
 
-test_extra_spaces_denied {
+test_extra_spaces_denied if {
 	r := deny with input as {"Stages": [
 		{
 			"Name": "golang:1.7.3 as   dep",
@@ -84,7 +86,7 @@ test_extra_spaces_denied {
 	r[_].msg == "'COPY --from' should not mention current alias 'dep' since it is impossible to copy from itself"
 }
 
-test_basic_allowed {
+test_basic_allowed if {
 	r := deny with input as {"Stages": [
 		{
 			"Name": "golang:1.7.3 AS builder",
@@ -156,7 +158,7 @@ test_basic_allowed {
 	count(r) == 0
 }
 
-test_duplicate_allowed {
+test_duplicate_allowed if {
 	r := deny with input as {"Stages": [
 		{
 			"Name": "golang:1.7.3",

@@ -1,8 +1,10 @@
 package builtin.dockerfile.DS002
 
+import rego.v1
+
 import data.lib.docker
 
-test_not_root_allowed {
+test_not_root_allowed if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [{
@@ -16,7 +18,7 @@ test_not_root_allowed {
 	count(r) == 0
 }
 
-test_last_non_root_allowed {
+test_last_non_root_allowed if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [
@@ -38,7 +40,7 @@ test_last_non_root_allowed {
 	count(r) == 0
 }
 
-test_no_user_cmd_denied {
+test_no_user_cmd_denied if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [{
@@ -53,7 +55,7 @@ test_no_user_cmd_denied {
 	startswith(r[_].msg, "Specify at least 1 USER command in Dockerfile")
 }
 
-test_last_root_denied {
+test_last_root_denied if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [
@@ -94,7 +96,7 @@ test_last_root_denied {
 	startswith(r[_].msg, "Last USER command in Dockerfile should not be 'root'")
 }
 
-test_last_root_case_2 {
+test_last_root_case_2 if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [
@@ -117,7 +119,7 @@ test_last_root_case_2 {
 	startswith(r[_].msg, "Last USER command in Dockerfile should not be 'root'")
 }
 
-test_last_root_with_group_denied {
+test_last_root_with_group_denied if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [
@@ -140,7 +142,7 @@ test_last_root_with_group_denied {
 	startswith(r[_].msg, "Last USER command in Dockerfile should not be 'root'")
 }
 
-test_last_root_as_uid_number_denied {
+test_last_root_as_uid_number_denied if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [
@@ -163,7 +165,7 @@ test_last_root_as_uid_number_denied {
 	startswith(r[_].msg, "Last USER command in Dockerfile should not be 'root'")
 }
 
-test_last_root_as_uid_number_with_group_denied {
+test_last_root_as_uid_number_with_group_denied if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [
@@ -186,7 +188,7 @@ test_last_root_as_uid_number_with_group_denied {
 	startswith(r[_].msg, "Last USER command in Dockerfile should not be 'root'")
 }
 
-test_empty_user_denied {
+test_empty_user_denied if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [{
@@ -201,7 +203,7 @@ test_empty_user_denied {
 	startswith(r[_].msg, "Specify at least 1 USER command in Dockerfile")
 }
 
-test_multi_stage_build_allowed_if_last_stage_uses_non_root {
+test_multi_stage_build_allowed_if_last_stage_uses_non_root if {
 	r := deny with input as {"Stages": [
 		{
 			"Name": "alpine:3.13",
@@ -226,7 +228,7 @@ test_multi_stage_build_allowed_if_last_stage_uses_non_root {
 	count(r) == 0
 }
 
-test_multi_stage_build_denied_if_last_stage_does_not_specify_user {
+test_multi_stage_build_denied_if_last_stage_does_not_specify_user if {
 	r := deny with input as {"Stages": [
 		{
 			"Name": "alpine:3.13",

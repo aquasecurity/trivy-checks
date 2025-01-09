@@ -17,17 +17,19 @@
 #     - type: kubernetes
 package builtin.kubernetes.KCV0024
 
+import rego.v1
+
 import data.lib.kubernetes
 
-check_flag(container) {
+check_flag(container) if {
 	kubernetes.command_has_flag(container.command, "--service-account-lookup=false")
 }
 
-check_flag(container) {
+check_flag(container) if {
 	kubernetes.command_has_flag(container.args, "--service-account-lookup=false")
 }
 
-deny[res] {
+deny contains res if {
 	container := kubernetes.containers[_]
 	kubernetes.is_apiserver(container)
 	check_flag(container)

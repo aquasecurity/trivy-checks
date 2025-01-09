@@ -19,16 +19,18 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0052
 
+import rego.v1
+
 import data.lib.kubernetes
 
-validate_spec_permission(sp) := {"kubeSchedulerSpecFilePermission": violation} {
+validate_spec_permission(sp) := {"kubeSchedulerSpecFilePermission": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == "master"
 	violation := {permission | permission = sp.info.kubeSchedulerSpecFilePermission.values[_]; permission > 600}
 	count(violation) > 0
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_spec_permission(input)
 	msg := "Ensure that the scheduler specification file permissions is set to 600 or more restrictive"
 	res := result.new(msg, output)

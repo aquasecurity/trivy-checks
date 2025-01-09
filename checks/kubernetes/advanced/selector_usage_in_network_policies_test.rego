@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV038
 
-test_networkpolicy_with_spec_pod_selector {
+import rego.v1
+
+test_networkpolicy_with_spec_pod_selector if {
 	r := deny with input as {
 		"apiVersion": "networking.k8s.io/v1",
 		"kind": "NetworkPolicy",
@@ -14,7 +16,7 @@ test_networkpolicy_with_spec_pod_selector {
 	count(r) == 0
 }
 
-test_networkpolicy_without_selector {
+test_networkpolicy_without_selector if {
 	r := deny with input as {
 		"apiVersion": "networking.k8s.io/v1",
 		"kind": "NetworkPolicy",
@@ -25,7 +27,7 @@ test_networkpolicy_without_selector {
 	r[_].msg == "Network policy should uses podSelector and/or the namespaceSelector to restrict ingress and egress traffic within the Pod network"
 }
 
-test_networkpolicy_with_spec_namespace_selector {
+test_networkpolicy_with_spec_namespace_selector if {
 	r := deny with input as {
 		"apiVersion": "networking.k8s.io/v1",
 		"kind": "NetworkPolicy",
@@ -39,7 +41,7 @@ test_networkpolicy_with_spec_namespace_selector {
 	count(r) == 0
 }
 
-test_networkpolicy_with_ingress_pod_selector {
+test_networkpolicy_with_ingress_pod_selector if {
 	r := deny with input as {
 		"apiVersion": "networking.k8s.io/v1",
 		"kind": "NetworkPolicy",
@@ -50,7 +52,7 @@ test_networkpolicy_with_ingress_pod_selector {
 	count(r) == 0
 }
 
-test_networkpolicy_with_ingress_namespace_selector {
+test_networkpolicy_with_ingress_namespace_selector if {
 	r := deny with input as {
 		"apiVersion": "networking.k8s.io/v1",
 		"kind": "NetworkPolicy",
@@ -61,7 +63,7 @@ test_networkpolicy_with_ingress_namespace_selector {
 	count(r) == 0
 }
 
-test_networkpolicy_with_egress_namespace_selector {
+test_networkpolicy_with_egress_namespace_selector if {
 	r := deny with input as {
 		"apiVersion": "networking.k8s.io/v1",
 		"kind": "NetworkPolicy",
@@ -72,7 +74,7 @@ test_networkpolicy_with_egress_namespace_selector {
 	count(r) == 0
 }
 
-test_networkpolicy_with_egress_pod_selector {
+test_networkpolicy_with_egress_pod_selector if {
 	r := deny with input as {
 		"apiVersion": "networking.k8s.io/v1",
 		"kind": "NetworkPolicy",
@@ -83,7 +85,7 @@ test_networkpolicy_with_egress_pod_selector {
 	count(r) == 0
 }
 
-test_networkpolicy_with_deny_all_egress_pod_selector {
+test_networkpolicy_with_deny_all_egress_pod_selector if {
 	r := deny with input as {
 		"apiVersion": "networking.k8s.io/v1",
 		"kind": "NetworkPolicy",
@@ -97,7 +99,7 @@ test_networkpolicy_with_deny_all_egress_pod_selector {
 	count(r) == 0
 }
 
-test_networkpolicy_with_deny_all_ingress_pod_selector {
+test_networkpolicy_with_deny_all_ingress_pod_selector if {
 	r := deny with input as {
 		"apiVersion": "networking.k8s.io/v1",
 		"kind": "NetworkPolicy",
@@ -111,7 +113,7 @@ test_networkpolicy_with_deny_all_ingress_pod_selector {
 	count(r) == 0
 }
 
-test_service {
+test_service if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Service",

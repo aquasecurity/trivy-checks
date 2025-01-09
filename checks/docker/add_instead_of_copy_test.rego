@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS005
 
-test_mixed_commands_denied {
+import rego.v1
+
+test_mixed_commands_denied if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [
@@ -13,7 +15,7 @@ test_mixed_commands_denied {
 	r[_].msg == "Consider using 'COPY /target/app.jar app.jar' command instead of 'ADD /target/app.jar app.jar'"
 }
 
-test_add_command_denied {
+test_add_command_denied if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [{
@@ -26,7 +28,7 @@ test_add_command_denied {
 	r[_].msg == "Consider using 'COPY /target/app.jar app.jar' command instead of 'ADD /target/app.jar app.jar'"
 }
 
-test_run_allowed {
+test_run_allowed if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [{"Cmd": "run", "Value": ["tar -xjf /temp/package.file.tar.gz"]}],
@@ -35,7 +37,7 @@ test_run_allowed {
 	count(r) == 0
 }
 
-test_copy_allowed {
+test_copy_allowed if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [{"Cmd": "copy", "Value": ["test.txt", "test2.txt"]}],
@@ -44,7 +46,7 @@ test_copy_allowed {
 	count(r) == 0
 }
 
-test_add_file_colon_in_allowed {
+test_add_file_colon_in_allowed if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [{"Cmd": "add", "Value": ["file:8b8864b3e02a33a579dc216fd51b28a6047bc8eeaa03045b258980fe0cf7fcb3", "in", "/xyz"]}],
@@ -53,7 +55,7 @@ test_add_file_colon_in_allowed {
 	count(r) == 0
 }
 
-test_add_multi_colon_in_allowed {
+test_add_multi_colon_in_allowed if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [{"Cmd": "add", "Value": ["multi:8b8864b3e02a33a579dc216fd51b28a6047bc8eeaa03045b258980fe0cf7fcb3", "in", "/xyz"]}],
@@ -62,7 +64,7 @@ test_add_multi_colon_in_allowed {
 	count(r) == 0
 }
 
-test_add_tar_allowed {
+test_add_tar_allowed if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [{"Cmd": "add", "Value": ["/target/resources.tar.gz", "resources.tar.gz"]}],
@@ -71,7 +73,7 @@ test_add_tar_allowed {
 	count(r) == 0
 }
 
-test_add_http_url_allowed {
+test_add_http_url_allowed if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [{"Cmd": "add", "Value": ["http://example.com/foo.txt", "bar.txt"]}],
@@ -80,7 +82,7 @@ test_add_http_url_allowed {
 	count(r) == 0
 }
 
-test_add_https_url_allowed {
+test_add_https_url_allowed if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [{"Cmd": "add", "Value": ["https://example.com/foo.txt", "bar.txt"]}],
@@ -89,7 +91,7 @@ test_add_https_url_allowed {
 	count(r) == 0
 }
 
-test_add_git_url_allowed {
+test_add_git_url_allowed if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [{"Cmd": "add", "Value": ["git@github.com:user/repo.git", "/usr/src/things/"]}],

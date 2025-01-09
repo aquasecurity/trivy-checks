@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS025
 
-test_basic_denied {
+import rego.v1
+
+test_basic_denied if {
 	r := deny with input as {"Stages": [
 		{"Name": "alpine:3.17", "Commands": [
 			{
@@ -39,7 +41,7 @@ test_basic_denied {
 	r[_].msg == "'--no-cache' is missed: apk add python3"
 }
 
-test_wrong_flag_name_denied {
+test_wrong_flag_name_denied if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",
@@ -55,7 +57,7 @@ test_wrong_flag_name_denied {
 	r[_].msg == "'--no-cache' is missed: apk add --no-cacher bash"
 }
 
-test_last_no_cache_allowed {
+test_last_no_cache_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",
@@ -70,7 +72,7 @@ test_last_no_cache_allowed {
 	count(r) == 0
 }
 
-test_basic_allowed {
+test_basic_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.17", "Commands": [
 		{
 			"Cmd": "from",

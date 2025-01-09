@@ -17,17 +17,19 @@
 #     - type: kubernetes
 package builtin.kubernetes.KCV0033
 
+import rego.v1
+
 import data.lib.kubernetes
 
-checkFlag(container) {
+checkFlag(container) if {
 	kubernetes.command_has_flag(container.command, "--terminated-pod-gc-threshold")
 }
 
-checkFlag(container) {
+checkFlag(container) if {
 	kubernetes.command_has_flag(container.args, "--terminated-pod-gc-threshold")
 }
 
-deny[res] {
+deny contains res if {
 	container := kubernetes.containers[_]
 	kubernetes.is_controllermanager(container)
 	not checkFlag(container)

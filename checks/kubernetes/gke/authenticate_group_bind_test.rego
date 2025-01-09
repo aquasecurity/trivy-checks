@@ -1,11 +1,13 @@
 package appshield.kubernetes.KSV01011
 
+import rego.v1
+
 k8sGke := "1.27.1-gke.1000"
 
 k8sNonGke := "1.27.1"
 
 # Test case for a RoleBinding with system_authenticated user binding
-test_role_binding_with_system_authenticated_group_binding {
+test_role_binding_with_system_authenticated_group_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "RoleBinding",
@@ -37,7 +39,7 @@ test_role_binding_with_system_authenticated_group_binding {
 }
 
 #Test case for a ClusterRoleBinding with system:authenticated group binding
-test_cluster_role_binding_with_system_authenticate_binding {
+test_cluster_role_binding_with_system_authenticate_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRolebinding",
@@ -68,7 +70,7 @@ test_cluster_role_binding_with_system_authenticate_binding {
 }
 
 # Test case for a RoleBinding with non system_authenticated group binding
-test_role_binding_with_non_system_authenticated_binding {
+test_role_binding_with_non_system_authenticated_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "RoleBinding",
@@ -93,7 +95,7 @@ test_role_binding_with_non_system_authenticated_binding {
 }
 
 # Test case for a ClusterRoleBinding with non system_authenticated group binding
-test_cluster_role_binding_with_non_system_authenticated_group_binding {
+test_cluster_role_binding_with_non_system_authenticated_group_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRoleBinding",
@@ -117,7 +119,7 @@ test_cluster_role_binding_with_non_system_authenticated_group_binding {
 	count(r) == 0
 }
 
-test_role_binding_with_system_authenticated_group_binding_non_gke {
+test_role_binding_with_system_authenticated_group_binding_non_gke if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "RoleBinding",

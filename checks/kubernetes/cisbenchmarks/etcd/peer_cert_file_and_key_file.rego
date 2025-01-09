@@ -17,19 +17,21 @@
 #     - type: kubernetes
 package builtin.kubernetes.KCV0045
 
+import rego.v1
+
 import data.lib.kubernetes
 
-checkFlag(container) {
+checkFlag(container) if {
 	kubernetes.command_has_flag(container.command, "--peer-cert-file")
 	kubernetes.command_has_flag(container.command, "--peer-key-file")
 }
 
-checkFlag(container) {
+checkFlag(container) if {
 	kubernetes.command_has_flag(container.args, "--peer-cert-file")
 	kubernetes.command_has_flag(container.args, "--peer-key-file")
 }
 
-deny[res] {
+deny contains res if {
 	container := kubernetes.containers[_]
 	kubernetes.is_etcd(container)
 	not checkFlag(container)

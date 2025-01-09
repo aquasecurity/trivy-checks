@@ -1,7 +1,9 @@
 package appshield.kubernetes.KSV0123
 
+import rego.v1
+
 # Test case for a RoleBinding with system_masters user binding
-test_role_binding_with_system_masters_group_binding {
+test_role_binding_with_system_masters_group_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "RoleBinding",
@@ -32,7 +34,7 @@ test_role_binding_with_system_masters_group_binding {
 }
 
 #Test case for a ClusterRoleBinding with system:masters group binding
-test_cluster_role_binding_with_system_masters_binding {
+test_cluster_role_binding_with_system_masters_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRolebinding",
@@ -62,7 +64,7 @@ test_cluster_role_binding_with_system_masters_binding {
 }
 
 # Test case for a RoleBinding with non system_masters group binding
-test_role_binding_with_non_system_masters_binding {
+test_role_binding_with_non_system_masters_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "RoleBinding",
@@ -86,7 +88,7 @@ test_role_binding_with_non_system_masters_binding {
 }
 
 # Test case for a ClusterRoleBinding with non system_masters group binding
-test_cluster_role_binding_with_non_system_masters_group_binding {
+test_cluster_role_binding_with_non_system_masters_group_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRoleBinding",
@@ -109,7 +111,7 @@ test_cluster_role_binding_with_non_system_masters_group_binding {
 	count(r) == 0
 }
 
-test_role_binding_with_system_masters_group_binding {
+test_role_binding_with_system_masters_group_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "RoleBinding",

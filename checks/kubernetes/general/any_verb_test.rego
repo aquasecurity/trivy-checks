@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV045
 
-test_any_verb_role_secrets {
+import rego.v1
+
+test_any_verb_role_secrets if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -18,7 +20,7 @@ test_any_verb_role_secrets {
 	count(r) > 0
 }
 
-test_any_verb_role_pods {
+test_any_verb_role_pods if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -36,7 +38,7 @@ test_any_verb_role_pods {
 	count(r) > 0
 }
 
-test_any_verb_role_deployments {
+test_any_verb_role_deployments if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -54,7 +56,7 @@ test_any_verb_role_deployments {
 	count(r) > 0
 }
 
-test_any_verb_role_daemonsets {
+test_any_verb_role_daemonsets if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -72,7 +74,7 @@ test_any_verb_role_daemonsets {
 	count(r) > 0
 }
 
-test_any_verb_role_statefulsets {
+test_any_verb_role_statefulsets if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -90,7 +92,7 @@ test_any_verb_role_statefulsets {
 	count(r) > 0
 }
 
-test_any_verb_role_replicationcontrollers {
+test_any_verb_role_replicationcontrollers if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -108,7 +110,7 @@ test_any_verb_role_replicationcontrollers {
 	count(r) > 0
 }
 
-test_any_verb_role_replicasets {
+test_any_verb_role_replicasets if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -126,7 +128,7 @@ test_any_verb_role_replicasets {
 	count(r) > 0
 }
 
-test_any_verb_role_cronjobs {
+test_any_verb_role_cronjobs if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -144,7 +146,7 @@ test_any_verb_role_cronjobs {
 	count(r) > 0
 }
 
-test_any_verb_role_jobs {
+test_any_verb_role_jobs if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -162,7 +164,7 @@ test_any_verb_role_jobs {
 	count(r) > 0
 }
 
-test_any_verb_role_clusterroles {
+test_any_verb_role_clusterroles if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -180,7 +182,7 @@ test_any_verb_role_clusterroles {
 	count(r) > 0
 }
 
-test_any_verb_role_roles {
+test_any_verb_role_roles if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -198,7 +200,7 @@ test_any_verb_role_roles {
 	count(r) > 0
 }
 
-test_any_verb_role_rolebindings {
+test_any_verb_role_rolebindings if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -216,7 +218,7 @@ test_any_verb_role_rolebindings {
 	count(r) > 0
 }
 
-test_any_verb_role_clusterrolebindings {
+test_any_verb_role_clusterrolebindings if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -234,7 +236,7 @@ test_any_verb_role_clusterrolebindings {
 	count(r) > 0
 }
 
-test_any_verb_role_users {
+test_any_verb_role_users if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -252,7 +254,7 @@ test_any_verb_role_users {
 	count(r) > 0
 }
 
-test_any_verb_role_groups {
+test_any_verb_role_groups if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -270,7 +272,7 @@ test_any_verb_role_groups {
 	count(r) > 0
 }
 
-test_any_verb_role_groups {
+test_any_verb_role_groups if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -288,7 +290,7 @@ test_any_verb_role_groups {
 	count(r) > 0
 }
 
-test_any_verb_role_no_specific_resource {
+test_any_verb_role_no_specific_resource if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -306,7 +308,7 @@ test_any_verb_role_no_specific_resource {
 	count(r) == 0
 }
 
-test_any_verb_role_no_any_verb {
+test_any_verb_role_no_any_verb if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",

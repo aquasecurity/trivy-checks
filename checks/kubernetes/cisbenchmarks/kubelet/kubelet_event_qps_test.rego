@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0087
 
-test_validate_event_qps_bigger_zero {
+import rego.v1
+
+test_validate_event_qps_bigger_zero if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -11,7 +13,7 @@ test_validate_event_qps_bigger_zero {
 	count(r) == 0
 }
 
-test_validate_event_qps_equal_zero {
+test_validate_event_qps_equal_zero if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -22,7 +24,7 @@ test_validate_event_qps_equal_zero {
 	count(r) == 0
 }
 
-test_validate_event_qps_lower_zero {
+test_validate_event_qps_lower_zero if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",

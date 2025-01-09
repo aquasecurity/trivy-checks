@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV036
 
-test_protect_service_account_token_denied_with_automountServiceAccountToken {
+import rego.v1
+
+test_protect_service_account_token_denied_with_automountServiceAccountToken if {
 	r := deny with input as {
 		"kind": "pod",
 		"name": "justPOod",
@@ -21,7 +23,7 @@ test_protect_service_account_token_denied_with_automountServiceAccountToken {
 	r[_].msg == "Container of pod 'nginx' should set 'spec.automountServiceAccountToken' to false"
 }
 
-test_protect_service_account_token_denied_without_automountServiceAccountToken {
+test_protect_service_account_token_denied_without_automountServiceAccountToken if {
 	r := deny with input as {
 		"kind": "pod",
 		"name": "justPOod",
@@ -39,7 +41,7 @@ test_protect_service_account_token_denied_without_automountServiceAccountToken {
 	r[_].msg == "Container of pod 'nginx' should set 'spec.automountServiceAccountToken' to false"
 }
 
-test_protect_service_account_token_denied_without_mountPath {
+test_protect_service_account_token_denied_without_mountPath if {
 	r := deny with input as {
 		"kind": "pod",
 		"name": "justPOod",
@@ -54,7 +56,7 @@ test_protect_service_account_token_denied_without_mountPath {
 	count(r) == 0
 }
 
-test_protect_service_account_token_allow {
+test_protect_service_account_token_allow if {
 	r := deny with input as {
 		"kind": "pod",
 		"name": "jusPOod",

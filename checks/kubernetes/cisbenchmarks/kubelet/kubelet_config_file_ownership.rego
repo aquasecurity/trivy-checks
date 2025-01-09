@@ -19,18 +19,20 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0074
 
+import rego.v1
+
 import data.lib.kubernetes
 
 types := ["master", "worker"]
 
-validate_kubelet_file_ownership(sp) := {"kubeletConfFileOwnership": violation} {
+validate_kubelet_file_ownership(sp) := {"kubeletConfFileOwnership": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	violation := {ownership | ownership = sp.info.kubeletConfFileOwnership.values[_]; not ownership == "root:root"}
 	count(violation) > 0
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_kubelet_file_ownership(input)
 	msg := "Ensure that the kubelet.conf file ownership is set to root:root."
 	res := result.new(msg, output)

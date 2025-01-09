@@ -19,16 +19,18 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0057
 
+import rego.v1
+
 import data.lib.kubernetes
 
-validate_spec_ownership(sp) := {"containerNetworkInterfaceFileOwnership": violation} {
+validate_spec_ownership(sp) := {"containerNetworkInterfaceFileOwnership": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == "master"
 	violation := {ownership | ownership = sp.info.containerNetworkInterfaceFileOwnership.values[_]; not ownership == "root:root"}
 	count(violation) > 0
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_spec_ownership(input)
 	msg := "Ensure that the container network interface file ownership is set to root:root"
 	res := result.new(msg, output)

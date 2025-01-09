@@ -1,8 +1,10 @@
 package builtin.kubernetes.KSV106
 
+import rego.v1
+
 import data.lib.kubernetes
 
-test_drop_all_allowed {
+test_drop_all_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -22,7 +24,7 @@ test_drop_all_allowed {
 	count(r) == 0
 }
 
-test_drop_all_add_net_bind_service_allowed {
+test_drop_all_add_net_bind_service_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -42,7 +44,7 @@ test_drop_all_add_net_bind_service_allowed {
 	count(r) == 0
 }
 
-test_drop_all_and_more_allowed {
+test_drop_all_and_more_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -62,7 +64,7 @@ test_drop_all_and_more_allowed {
 	count(r) == 0
 }
 
-test_drop_other_denied {
+test_drop_other_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -82,7 +84,7 @@ test_drop_other_denied {
 	count(r) == 1
 }
 
-test_drop_undefined_denied {
+test_drop_undefined_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -101,7 +103,7 @@ test_drop_undefined_denied {
 	count(r) == 1
 }
 
-test_drop_all_add_other_denied {
+test_drop_all_add_other_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

@@ -17,9 +17,11 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS026
 
+import rego.v1
+
 import data.lib.docker
 
-deny[res] {
+deny contains res if {
 	count(docker.healthcheck) == 0
 	msg := "Add HEALTHCHECK instruction in your Dockerfile"
 	res := result.new(msg, {})

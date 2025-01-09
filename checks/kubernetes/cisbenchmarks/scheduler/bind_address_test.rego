@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0041
 
-test_bind_address_is_set_to_localhost_ip {
+import rego.v1
+
+test_bind_address_is_set_to_localhost_ip if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -21,7 +23,7 @@ test_bind_address_is_set_to_localhost_ip {
 	count(r) == 0
 }
 
-test_bind_address_is_set_to_localhost_ip_args {
+test_bind_address_is_set_to_localhost_ip_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -43,7 +45,7 @@ test_bind_address_is_set_to_localhost_ip_args {
 	count(r) == 0
 }
 
-test_bind_address_is_set_to_different_ip {
+test_bind_address_is_set_to_different_ip if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -65,7 +67,7 @@ test_bind_address_is_set_to_different_ip {
 	r[_].msg == "Ensure that the --bind-address argument is set to 127.0.0.1"
 }
 
-test_bind_address_is_not_configured {
+test_bind_address_is_not_configured if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

@@ -17,9 +17,11 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS014
 
+import rego.v1
+
 import data.lib.docker
 
-deny[res] {
+deny contains res if {
 	wget := get_tool_usage(docker.run[_], "wget")
 	curl := get_tool_usage(docker.run[_], "curl")
 
@@ -34,7 +36,7 @@ deny[res] {
 
 # chained commands
 # e.g. RUN curl http://example.com
-get_tool_usage(cmd, cmd_name) = r {
+get_tool_usage(cmd, cmd_name) := r if {
 	count(cmd.Value) == 1
 
 	commands_list = regex.split(`\s*&&\s*`, cmd.Value[0])
@@ -53,7 +55,7 @@ get_tool_usage(cmd, cmd_name) = r {
 
 # JSON array is specified
 # e.g. RUN ["curl", "http://example.com"]
-get_tool_usage(cmd, cmd_name) = cmd {
+get_tool_usage(cmd, cmd_name) := cmd if {
 	count(cmd.Value) > 1
 
 	cmd.Value[0] == cmd_name

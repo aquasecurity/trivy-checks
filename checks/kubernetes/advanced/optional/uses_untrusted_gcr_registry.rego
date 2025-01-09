@@ -25,13 +25,15 @@
 #         - kind: job
 package builtin.kubernetes.KSV033
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-default failTrustedGCRRegistry = false
+default failTrustedGCRRegistry := false
 
 # list of trusted GCR registries
-trusted_gcr_registries = [
+trusted_gcr_registries := [
 	"gcr.io",
 	"us.gcr.io",
 	"eu.gcr.io",
@@ -40,7 +42,7 @@ trusted_gcr_registries = [
 
 # getContainersWithTrustedGCRRegistry returns a list of containers
 # with image from a trusted gcr registry
-getContainersWithTrustedGCRRegistry[name] {
+getContainersWithTrustedGCRRegistry contains name if {
 	container := kubernetes.containers[_]
 	image := container.image
 
@@ -57,12 +59,12 @@ getContainersWithTrustedGCRRegistry[name] {
 
 # getContainersWithUntrustedGCRRegistry returns a list of containers
 # with image from an untrusted gcr registry
-getContainersWithUntrustedGCRRegistry[container] {
+getContainersWithUntrustedGCRRegistry contains container if {
 	container := kubernetes.containers[_]
 	not getContainersWithTrustedGCRRegistry[container.name]
 }
 
-deny[res] {
+deny contains res if {
 	container := getContainersWithUntrustedGCRRegistry[_]
 	msg := kubernetes.format(sprintf("container %s of %s %s in %s namespace should restrict container image to your specific registry domain. See the full GCR list here: https://cloud.google.com/container-registry/docs/overview#registries", [container.name, lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
 	res := result.new(msg, container)

@@ -19,16 +19,18 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0067
 
+import rego.v1
+
 import data.lib.kubernetes
 
-validate_pki_key_permission(sp) := {"kubePKIKeyFilePermissions": violation} {
+validate_pki_key_permission(sp) := {"kubePKIKeyFilePermissions": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == "master"
 	violation := {permission | permission = sp.info.kubePKIKeyFilePermissions.values[_]; permission > 600}
 	count(violation) > 0
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_pki_key_permission(input)
 	msg := "Ensure that the Kubernetes PKI key file permission is set to 600"
 	res := result.new(msg, output)

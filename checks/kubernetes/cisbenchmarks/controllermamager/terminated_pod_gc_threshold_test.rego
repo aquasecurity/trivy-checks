@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0033
 
-test_terminated_pod_gc_threshold_is_set {
+import rego.v1
+
+test_terminated_pod_gc_threshold_is_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -22,7 +24,7 @@ test_terminated_pod_gc_threshold_is_set {
 	r[_].msg == "Ensure that the --terminated-pod-gc-threshold argument is set as appropriate"
 }
 
-test_terminated_pod_gc_threshold_is_not_set {
+test_terminated_pod_gc_threshold_is_not_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -43,7 +45,7 @@ test_terminated_pod_gc_threshold_is_not_set {
 	count(r) == 0
 }
 
-test_terminated_pod_gc_threshold_is_not_set_args {
+test_terminated_pod_gc_threshold_is_not_set_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

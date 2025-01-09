@@ -34,4 +34,4 @@ test_allow_nonroot_user_logged_in_within_24_hours if {
 	})
 }
 
-build_input(body) = {"aws": {"iam": {"users": [body]}}}
+build_input(body) := {"aws": {"iam": {"users": [body]}}}

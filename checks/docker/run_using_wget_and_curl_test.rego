@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS014
 
-test_basic_denied {
+import rego.v1
+
+test_basic_denied if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",
@@ -20,7 +22,7 @@ test_basic_denied {
 	r[_].msg == "Shouldn't use both curl and wget"
 }
 
-test_json_array_denied {
+test_json_array_denied if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",
@@ -43,7 +45,7 @@ test_json_array_denied {
 	r[_].msg == "Shouldn't use both curl and wget"
 }
 
-test_basic_allowed {
+test_basic_allowed if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.5", "Commands": [
 			{
@@ -77,7 +79,7 @@ test_basic_allowed {
 	count(r) == 0
 }
 
-test_json_array_allowed {
+test_json_array_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",
@@ -99,7 +101,7 @@ test_json_array_allowed {
 	count(r) == 0
 }
 
-test_install_allowed {
+test_install_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",

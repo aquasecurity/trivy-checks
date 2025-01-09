@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV0109
 
-test_configMap_with_secrets_denied {
+import rego.v1
+
+test_configMap_with_secrets_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "ConfigMap",
@@ -15,7 +17,7 @@ test_configMap_with_secrets_denied {
 	r[_].msg == "ConfigMap 'cm-with-secrets' in 'default' namespace stores secrets in key(s) or value(s) '{\"password\", \"secretkey\"}'"
 }
 
-test_configMap_with_secrets_allowed {
+test_configMap_with_secrets_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "ConfigMap",

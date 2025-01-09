@@ -29,17 +29,19 @@
 #         - kind: job
 package builtin.kubernetes.KSV117
 
+import rego.v1
+
 import data.lib.kubernetes
 
-default failPrivilegedPort = false
+default failPrivilegedPort := false
 
 # failPrivilegedPort is true if spec.containers.ports.containerPort is set to less than 1024
-failPrivilegedPort {
+failPrivilegedPort if {
 	containerPort := kubernetes.containers[_].ports[_].containerPort
 	containerPort < 1024
 }
 
-deny[res] {
+deny contains res if {
 	failPrivilegedPort
 	msg := kubernetes.format(sprintf("%s %s in %s namespace should not set spec.template.spec.containers.ports.containerPort to less than 1024", [lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
 	res := result.new(msg, failPrivilegedPort)

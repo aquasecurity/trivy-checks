@@ -22,7 +22,9 @@
 #           provider: aws
 package builtin.aws.rds.aws0176
 
-deny[res] {
+import rego.v1
+
+deny contains res if {
 	instance := input.aws.rds.instances[_]
 	instance.engine.value == ["postgres", "mysql"][_]
 	not instance.iamauthenabled.value

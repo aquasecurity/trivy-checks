@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS017
 
-test_denied {
+import rego.v1
+
+test_denied if {
 	r := deny with input as {"Stages": [{"Name": "ubuntu:18.04", "Commands": [
 		{
 			"Cmd": "from",
@@ -24,7 +26,7 @@ test_denied {
 	r[_].msg == "The instruction 'RUN <package-manager> update' should always be followed by '<package-manager> install' in the same RUN statement."
 }
 
-test_json_array_denied {
+test_json_array_denied if {
 	r := deny with input as {"Stages": [{"Name": "ubuntu:18.04", "Commands": [
 		{
 			"Cmd": "from",
@@ -44,7 +46,7 @@ test_json_array_denied {
 	r[_].msg == "The instruction 'RUN <package-manager> update' should always be followed by '<package-manager> install' in the same RUN statement."
 }
 
-test_chained_denied {
+test_chained_denied if {
 	r := deny with input as {"Stages": [{"Name": "ubuntu:18.04", "Commands": [
 		{
 			"Cmd": "from",
@@ -68,7 +70,7 @@ test_chained_denied {
 	r[_].msg == "The instruction 'RUN <package-manager> update' should always be followed by '<package-manager> install' in the same RUN statement."
 }
 
-test_multiple_package_managers {
+test_multiple_package_managers if {
 	r := deny with input as {"Stages": [{
 		"Name": "ubuntu:18.04",
 		"Commands": [
@@ -90,7 +92,7 @@ test_multiple_package_managers {
 	count(r) == 0
 }
 
-test_allowed {
+test_allowed if {
 	r := deny with input as {"Stages": [{"Name": "ubuntu:18.04", "Commands": [
 		{
 			"Cmd": "from",
@@ -145,7 +147,7 @@ test_allowed {
 # 	count(r) == 0
 # }
 
-test_allowed_multiple_install_cmds {
+test_allowed_multiple_install_cmds if {
 	r := deny with input as {"Stages": [{"Name": "ubuntu:18.04", "Commands": [
 		{
 			"Cmd": "from",
@@ -164,7 +166,7 @@ test_allowed_multiple_install_cmds {
 	count(r) == 0
 }
 
-test_allow_upgrade {
+test_allow_upgrade if {
 	r := deny with input as {"Stages": [{"Name": "ubuntu:18.04", "Commands": [
 		{
 			"Cmd": "from",
@@ -179,7 +181,7 @@ test_allow_upgrade {
 	count(r) == 0
 }
 
-test_without_install_cmd_allowed {
+test_without_install_cmd_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:latest", "Commands": [
 		{
 			"Cmd": "from",
@@ -194,7 +196,7 @@ test_without_install_cmd_allowed {
 	count(r) == 0
 }
 
-test_non_package_manager_update_allowed {
+test_non_package_manager_update_allowed if {
 	r := deny with input as {"Stages": [{"Name": "maven:alpine", "Commands": [
 		{
 			"Cmd": "from",
@@ -213,7 +215,7 @@ test_non_package_manager_update_allowed {
 	count(r) == 0
 }
 
-test_dnf_update_denied {
+test_dnf_update_denied if {
 	r := deny with input as {"Stages": [{
 		"Name": "centos:8",
 		"Commands": [
@@ -231,7 +233,7 @@ test_dnf_update_denied {
 	count(r) == 1
 }
 
-test_dnf_update_allowed {
+test_dnf_update_allowed if {
 	r := deny with input as {"Stages": [{
 		"Name": "centos:8",
 		"Commands": [
@@ -249,7 +251,7 @@ test_dnf_update_allowed {
 	count(r) == 0
 }
 
-test_zypper_update_denied {
+test_zypper_update_denied if {
 	r := deny with input as {"Stages": [{
 		"Name": "opensuse/tumbleweed",
 		"Commands": [
@@ -267,7 +269,7 @@ test_zypper_update_denied {
 	count(r) == 1
 }
 
-test_zypper_update_allowed {
+test_zypper_update_allowed if {
 	r := deny with input as {"Stages": [{
 		"Name": "opensuse/tumbleweed",
 		"Commands": [
@@ -285,7 +287,7 @@ test_zypper_update_allowed {
 	count(r) == 0
 }
 
-test_yum_update_denied {
+test_yum_update_denied if {
 	r := deny with input as {"Stages": [{
 		"Name": "centos:latest",
 		"Commands": [
@@ -303,7 +305,7 @@ test_yum_update_denied {
 	count(r) == 1
 }
 
-test_yum_update_allowed {
+test_yum_update_allowed if {
 	r := deny with input as {"Stages": [{
 		"Name": "centos:latest",
 		"Commands": [

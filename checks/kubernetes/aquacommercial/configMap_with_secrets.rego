@@ -18,6 +18,8 @@
 
 package builtin.kubernetes.KSV0109
 
+import rego.v1
+
 import data.lib.kubernetes
 
 # More patterns can be added here, adding more patterns may lead to performance issue
@@ -60,7 +62,7 @@ patternsForKey := [
 
 # ConfigMapWithSecret gives secret key
 # To reduce performance overhead, only matched patterns will be applied to each value for key
-ConfigMapWithSecret[secrets] {
+ConfigMapWithSecret contains secrets if {
 	kubernetes.kind == "ConfigMap"
 	regex.match(patterns[p], kubernetes.object.data[d])
 
@@ -70,18 +72,18 @@ ConfigMapWithSecret[secrets] {
 }
 
 # configMapValue gives secret key, splitting either by '=' or ':'
-configMapValue(value) = secretValue {
+configMapValue(value) := secretValue if {
 	secrets := split(value, ":")
 	count(secrets) > 1
 	secretValue = secrets[0]
-} else = secretValue {
+} else := secretValue if {
 	secrets := split(value, "=")
 	count(secrets) > 1
 	secretValue = secrets[0]
 }
 
 #check if key has secrets
-ConfigMapWithSecret[secrets] {
+ConfigMapWithSecret contains secrets if {
 	kubernetes.kind == "ConfigMap"
 	values = split(kubernetes.object.data[d], "\n")
 	regex.match(patternsForKey[p], d)
@@ -91,7 +93,7 @@ ConfigMapWithSecret[secrets] {
 # Get the secret list, 'configMapSecretList' will be reused in rule deny to avoid multiple call for pattern search
 configMapSecretList := ConfigMapWithSecret
 
-deny[res] {
+deny contains res if {
 	count(configMapSecretList) > 0
 	msg := kubernetes.format(sprintf("%s '%s' in '%s' namespace stores secrets in key(s) or value(s) '%s'", [kubernetes.kind, kubernetes.name, kubernetes.namespace, configMapSecretList]))
 	res := result.new(msg, kubernetes.kind)

@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0028
 
-test_client_ca_file_is_set {
+import rego.v1
+
+test_client_ca_file_is_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -21,7 +23,7 @@ test_client_ca_file_is_set {
 	count(r) == 0
 }
 
-test_client_ca_file_is_set_args {
+test_client_ca_file_is_set_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -43,7 +45,7 @@ test_client_ca_file_is_set_args {
 	count(r) == 0
 }
 
-test_client_ca_file_is_not_set {
+test_client_ca_file_is_not_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0001
 
-test_anonymous_requests_default_value {
+import rego.v1
+
+test_anonymous_requests_default_value if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -22,7 +24,7 @@ test_anonymous_requests_default_value {
 	r[_].msg == "Ensure that the --anonymous-auth argument is set to false"
 }
 
-test_anonymous_requests_true {
+test_anonymous_requests_true if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -44,7 +46,7 @@ test_anonymous_requests_true {
 	r[_].msg == "Ensure that the --anonymous-auth argument is set to false"
 }
 
-test_anonymous_requests_false {
+test_anonymous_requests_false if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -65,7 +67,7 @@ test_anonymous_requests_false {
 	count(r) == 0
 }
 
-test_anonymous_requests_args_false {
+test_anonymous_requests_args_false if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -87,7 +89,7 @@ test_anonymous_requests_args_false {
 	count(r) == 0
 }
 
-test_anonymous_requests_args_no_apiserver {
+test_anonymous_requests_args_no_apiserver if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

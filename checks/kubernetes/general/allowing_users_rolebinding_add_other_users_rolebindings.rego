@@ -17,12 +17,14 @@
 #     - type: kubernetes
 package builtin.kubernetes.KSV055
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
 readKinds := ["Role", "ClusterRole"]
 
-allowing_users_rolebinding_add_other_users_their_rolebindings[input.rules[ru]] {
+allowing_users_rolebinding_add_other_users_their_rolebindings contains input.rules[ru] if {
 	some ru
 	input.kind == readKinds[_]
 	input.rules[ru].apiGroups[_] == "*"
@@ -31,7 +33,7 @@ allowing_users_rolebinding_add_other_users_their_rolebindings[input.rules[ru]] {
 	input.rules[ru].verbs[_] == "patch"
 }
 
-deny[res] {
+deny contains res if {
 	badRule := allowing_users_rolebinding_add_other_users_their_rolebindings[_]
 	msg := "Role permits allowing users in a rolebinding to add other users to their rolebindings"
 	res := result.new(msg, badRule)

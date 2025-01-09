@@ -27,17 +27,19 @@
 #         - kind: job
 package builtin.kubernetes.KSV023
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-default failHostPathVolume = false
+default failHostPathVolume := false
 
-failHostPathVolume {
+failHostPathVolume if {
 	volumes := kubernetes.volumes
 	utils.has_key(volumes[_], "hostPath")
 }
 
-deny[res] {
+deny contains res if {
 	failHostPathVolume
 	msg := kubernetes.format(sprintf("%s '%s' should not set 'spec.template.volumes.hostPath'", [kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, input.spec)

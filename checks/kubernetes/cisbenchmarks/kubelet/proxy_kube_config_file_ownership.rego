@@ -19,11 +19,13 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0072
 
+import rego.v1
+
 import data.lib.kubernetes
 
 types := ["master", "worker"]
 
-validate_kube_config_file_ownership(sp) := {"kubeconfigFileExistsOwnership": violation} {
+validate_kube_config_file_ownership(sp) := {"kubeconfigFileExistsOwnership": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	count(sp.info.kubeconfigFileExistsOwnership) > 0
@@ -31,7 +33,7 @@ validate_kube_config_file_ownership(sp) := {"kubeconfigFileExistsOwnership": vio
 	count(violation) > 0
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_kube_config_file_ownership(input)
 	msg := "Ensure proxy kubeconfig file ownership is set to root:root if exists"
 	res := result.new(msg, output)

@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS027
 
-test_denied {
+import rego.v1
+
+test_denied if {
 	r := deny with input as {"Stages": [{"Name": "ubi8:8.7", "Commands": [
 		{
 			"Cmd": "from",
@@ -23,7 +25,7 @@ test_denied {
 	r[_].msg == "'microdnf clean all' is missed: set -uex &&     microdnf install -vy docker-ce"
 }
 
-test_allowed {
+test_allowed if {
 	r := deny with input as {"Stages": [{"Name": "ubi8:8.7", "Commands": [
 		{
 			"Cmd": "from",
@@ -45,7 +47,7 @@ test_allowed {
 	count(r) == 0
 }
 
-test_wrong_order_of_commands_denied {
+test_wrong_order_of_commands_denied if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",
@@ -61,7 +63,7 @@ test_wrong_order_of_commands_denied {
 	r[_].msg == "'microdnf clean all' is missed: microdnf clean all && microdnf install -vy docker-ce"
 }
 
-test_multiple_install_denied {
+test_multiple_install_denied if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",
@@ -77,7 +79,7 @@ test_multiple_install_denied {
 	r[_].msg == "'microdnf clean all' is missed: microdnf install bash && microdnf clean all && microdnf install zsh"
 }
 
-test_multiple_install_allowed {
+test_multiple_install_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",

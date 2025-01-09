@@ -21,18 +21,20 @@
 
 package appshield.kubernetes.KSV122
 
+import rego.v1
+
 import data.lib.kubernetes
 
 readRoleRefs := ["system:unauthenticated", "system:anonymous"]
 
 readKinds := ["RoleBinding", "ClusterRolebinding"]
 
-anonymousUserBind(roleBinding) {
+anonymousUserBind(roleBinding) if {
 	kubernetes.kind == readKinds[_]
 	kubernetes.object.subjects[_].name == readRoleRefs[_]
 }
 
-deny[res] {
+deny contains res if {
 	anonymousUserBind(input)
 	msg := kubernetes.format(sprintf("%s '%s' should not bind to roles %s", [kubernetes.kind, kubernetes.name, readRoleRefs]))
 	res := result.new(msg, input.metadata)

@@ -27,16 +27,18 @@
 #         - kind: job
 package builtin.kubernetes.KSV022
 
+import rego.v1
+
 import data.lib.kubernetes
 
-default failAdditionalCaps = false
+default failAdditionalCaps := false
 
 # Add allowed capabilities to this set
-allowed_caps = set()
+allowed_caps := set()
 
 # getContainersWithDisallowedCaps returns a list of containers which have
 # additional capabilities not included in the allowed capabilities list
-getContainersWithDisallowedCaps[container] {
+getContainersWithDisallowedCaps contains container if {
 	container := kubernetes.containers[_]
 	set_caps := {cap | cap := container.securityContext.capabilities.add[_]}
 	caps_not_allowed := set_caps - allowed_caps
@@ -44,13 +46,13 @@ getContainersWithDisallowedCaps[container] {
 }
 
 # cap_msg is a string of allowed capabilities to be print as part of deny message
-caps_msg = "" {
+caps_msg := "" if {
 	count(allowed_caps) == 0
-} else = msg {
+} else := msg if {
 	msg := sprintf(" or set it to the following allowed values: %s", [concat(", ", allowed_caps)])
 }
 
-deny[res] {
+deny contains res if {
 	output := getContainersWithDisallowedCaps[_]
 	msg := sprintf("Container '%s' of %s '%s' should not set 'securityContext.capabilities.add'%s", [output.name, kubernetes.kind, kubernetes.name, caps_msg])
 	res := result.new(msg, output)

@@ -17,17 +17,19 @@
 #     - type: kubernetes
 package builtin.kubernetes.KCV0044
 
+import rego.v1
+
 import data.lib.kubernetes
 
-checkFlag(container) {
+checkFlag(container) if {
 	kubernetes.command_has_flag(container.command, "--auto-tls=true")
 }
 
-checkFlag(container) {
+checkFlag(container) if {
 	kubernetes.command_has_flag(container.args, "--auto-tls=true")
 }
 
-deny[res] {
+deny contains res if {
 	container := kubernetes.containers[_]
 	kubernetes.is_etcd(container)
 	checkFlag(container)

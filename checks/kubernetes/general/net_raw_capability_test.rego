@@ -1,7 +1,9 @@
 package builtin.kubernetes.KSV119
 
+import rego.v1
+
 # Test case for a Pod with a container including NET_RAW capability
-test_pod_with_container_net_raw_capability {
+test_pod_with_container_net_raw_capability if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -25,7 +27,7 @@ test_pod_with_container_net_raw_capability {
 }
 
 # Test case for a Pod with no container including NET_RAW capability
-test_pod_without_container_net_raw_capability {
+test_pod_without_container_net_raw_capability if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

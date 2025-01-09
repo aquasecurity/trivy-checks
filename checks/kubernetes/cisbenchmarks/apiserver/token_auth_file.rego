@@ -17,19 +17,21 @@
 #     - type: kubernetes
 package builtin.kubernetes.KCV0002
 
+import rego.v1
+
 import data.lib.kubernetes
 
-check_flag(container) {
+check_flag(container) if {
 	some i
 	regex.match("--token-auth-file", container.command[i])
 }
 
-check_flag(container) {
+check_flag(container) if {
 	some i
 	regex.match("--token-auth-file", container.args[i])
 }
 
-deny[res] {
+deny contains res if {
 	container := kubernetes.containers[_]
 	kubernetes.is_apiserver(container)
 	check_flag(container)

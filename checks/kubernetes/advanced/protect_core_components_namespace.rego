@@ -17,15 +17,17 @@
 #     - type: kubernetes
 package builtin.kubernetes.KSV037
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-systemNamespaceInUse(metadata, spec) {
+systemNamespaceInUse(metadata, spec) if {
 	kubernetes.namespace == "kube-system"
 	not core_component(metadata, spec)
 }
 
-core_component(metadata, spec) {
+core_component(metadata, spec) if {
 	kubernetes.has_field(metadata.labels, "tier")
 	metadata.labels.tier == "control-plane"
 	kubernetes.has_field(spec, "priorityClassName")
@@ -35,7 +37,7 @@ core_component(metadata, spec) {
 	metadata.labels.component = coreComponentLabels[_]
 }
 
-deny[res] {
+deny contains res if {
 	systemNamespaceInUse(input.metadata, input.spec)
 	msg := sprintf("%s '%s' should not be set with 'kube-system' namespace", [kubernetes.kind, kubernetes.name])
 	res := result.new(msg, input.spec)

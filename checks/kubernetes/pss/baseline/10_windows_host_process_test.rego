@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV103
 
-test_base_securityContext_hostProcess_enabled_denied {
+import rego.v1
+
+test_base_securityContext_hostProcess_enabled_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -23,7 +25,7 @@ test_base_securityContext_hostProcess_enabled_denied {
 	r[_].msg == "You should not enable hostProcess."
 }
 
-test_base_securityContext_hostProcess_disabled_allowed {
+test_base_securityContext_hostProcess_disabled_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -45,7 +47,7 @@ test_base_securityContext_hostProcess_disabled_allowed {
 	count(r) == 0
 }
 
-test_base_securityContext_hostProcess_unspecified_allowed {
+test_base_securityContext_hostProcess_unspecified_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -67,7 +69,7 @@ test_base_securityContext_hostProcess_unspecified_allowed {
 	count(r) == 0
 }
 
-test_container_securityContext_hostProcess_enabled_denied {
+test_container_securityContext_hostProcess_enabled_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -91,7 +93,7 @@ test_container_securityContext_hostProcess_enabled_denied {
 	r[_].msg == "You should not enable hostProcess."
 }
 
-test_container_securityContext_hostProcess_disabled_allowed {
+test_container_securityContext_hostProcess_disabled_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -114,7 +116,7 @@ test_container_securityContext_hostProcess_disabled_allowed {
 	count(r) == 0
 }
 
-test_container_securityContext_hostProcess_unspecified_allowed {
+test_container_securityContext_hostProcess_unspecified_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

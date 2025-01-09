@@ -19,16 +19,18 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0058
 
+import rego.v1
+
 import data.lib.kubernetes
 
-validate_spec_permission(sp) := {"etcdDataDirectoryPermissions": permission} {
+validate_spec_permission(sp) := {"etcdDataDirectoryPermissions": permission} if {
 	sp.kind == "NodeInfo"
 	sp.type == "master"
 	permission := sp.info.etcdDataDirectoryPermissions.values[_]
 	permission > 700
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_spec_permission(input)
 	msg := "Ensure that the etcd data directory permissions are set to 700 or more restrictive"
 	res := result.new(msg, output)

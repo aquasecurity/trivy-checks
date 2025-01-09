@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0022
 
-test_audit_log_maxsize_is_set_100 {
+import rego.v1
+
+test_audit_log_maxsize_is_set_100 if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -21,7 +23,7 @@ test_audit_log_maxsize_is_set_100 {
 	count(r) == 0
 }
 
-test_audit_log_maxsize_is_set_10 {
+test_audit_log_maxsize_is_set_10 if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -42,7 +44,7 @@ test_audit_log_maxsize_is_set_10 {
 	count(r) == 0
 }
 
-test_audit_log_maxsize_is_set_10_args {
+test_audit_log_maxsize_is_set_10_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -64,7 +66,7 @@ test_audit_log_maxsize_is_set_10_args {
 	count(r) == 0
 }
 
-test_audit_log_maxsize_is_not_set {
+test_audit_log_maxsize_is_not_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

@@ -20,6 +20,8 @@
 #         - kind: role
 package builtin.kubernetes.KSV050
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
@@ -29,14 +31,14 @@ readKinds := ["Role", "ClusterRole"]
 
 readResources := ["roles", "rolebindings"]
 
-manageK8sRBACResources[input.rules[ru]] {
+manageK8sRBACResources contains input.rules[ru] if {
 	some ru, r, v
 	input.kind == readKinds[_]
 	input.rules[ru].resources[r] == readResources[_]
 	input.rules[ru].verbs[v] == readVerbs[_]
 }
 
-deny[res] {
+deny contains res if {
 	badRule := manageK8sRBACResources[_]
 	msg := kubernetes.format(sprintf("%s '%s' should not have access to resources %s for verbs %s", [kubernetes.kind, kubernetes.name, readResources, readVerbs]))
 	res := result.new(msg, badRule)

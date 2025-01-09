@@ -27,18 +27,20 @@
 #         - kind: job
 package builtin.kubernetes.KSV110
 
+import rego.v1
+
 import data.lib.kubernetes
 
-default defaultNamespaceInUse = false
+default defaultNamespaceInUse := false
 
 allowedKinds := ["pod", "replicaset", "replicationcontroller", "deployment", "statefulset", "daemonset", "cronjob", "job"]
 
-defaultNamespaceInUse {
+defaultNamespaceInUse if {
 	kubernetes.namespace == "default"
 	lower(kubernetes.kind) == allowedKinds[_]
 }
 
-deny[res] {
+deny contains res if {
 	defaultNamespaceInUse
 	msg := kubernetes.format(sprintf("%s %s in %s namespace should set metadata.namespace to a non-default namespace", [lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
 	res := result.new(msg, input.metadata.namespace)

@@ -19,6 +19,8 @@
 #         - kind: clusterrole
 package builtin.kubernetes.KSV041
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
@@ -26,14 +28,14 @@ readVerbs := ["get", "list", "watch", "create", "update", "patch", "delete", "de
 
 readKinds := ["ClusterRole"]
 
-resourceManageSecret[input.rules[ru]] {
+resourceManageSecret contains input.rules[ru] if {
 	some ru, r, v
 	input.kind == readKinds[_]
 	input.rules[ru].resources[r] == "secrets"
 	input.rules[ru].verbs[v] == readVerbs[_]
 }
 
-deny[res] {
+deny contains res if {
 	badRule := resourceManageSecret[_]
 	msg := kubernetes.format(sprintf("%s '%s' shouldn't have access to manage resource 'secrets'", [kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, badRule)

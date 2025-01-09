@@ -17,9 +17,11 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS016
 
+import rego.v1
+
 import data.lib.docker
 
-deny[res] {
+deny contains res if {
 	cmds := docker.stage_cmd[name]
 	cnt := count(cmds)
 	cnt > 1

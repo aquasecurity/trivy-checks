@@ -25,4 +25,4 @@ test_allow_ordered_cache_behaviors_with_https if {
 	test.assert_empty(check.deny) with input as inp
 }
 
-build_input(body) = {"aws": {"cloudfront": {"distributions": [body]}}}
+build_input(body) := {"aws": {"cloudfront": {"distributions": [body]}}}

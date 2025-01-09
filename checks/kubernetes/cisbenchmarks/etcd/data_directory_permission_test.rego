@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0058
 
-test_validate_data_directory_permission_equal_700 {
+import rego.v1
+
+test_validate_data_directory_permission_equal_700 if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -11,7 +13,7 @@ test_validate_data_directory_permission_equal_700 {
 	count(r) == 0
 }
 
-test_validate_data_directory_permission_lower_700 {
+test_validate_data_directory_permission_lower_700 if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -22,7 +24,7 @@ test_validate_data_directory_permission_lower_700 {
 	count(r) == 0
 }
 
-test_validate_data_directory_permission_higher_700 {
+test_validate_data_directory_permission_higher_700 if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",

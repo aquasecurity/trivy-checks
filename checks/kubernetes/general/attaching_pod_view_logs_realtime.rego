@@ -17,12 +17,14 @@
 #     - type: kubernetes
 package builtin.kubernetes.KSV054
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
 readKinds := ["Role", "ClusterRole"]
 
-attach_shell_on_pod[ruleA] {
+attach_shell_on_pod contains ruleA if {
 	input.kind == readKinds[_]
 	some i, j
 	ruleA := input.rules[i]
@@ -36,7 +38,7 @@ attach_shell_on_pod[ruleA] {
 	ruleB.verbs[_] == "get"
 }
 
-deny[res] {
+deny contains res if {
 	badRule := attach_shell_on_pod[_]
 	msg := "Role permits attaching to shell on pods"
 	res := result.new(msg, badRule)

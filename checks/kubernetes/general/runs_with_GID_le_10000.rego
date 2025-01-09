@@ -27,33 +27,35 @@
 #         - kind: job
 package builtin.kubernetes.KSV021
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-default failRunAsGroup = false
+default failRunAsGroup := false
 
 # getGroupIdContainers returns the names of all containers which have
 # securityContext.runAsGroup less than or equal to 10000.
-getGroupIdContainers[container] {
+getGroupIdContainers contains container if {
 	container := kubernetes.containers[_]
 	container.securityContext.runAsGroup <= 10000
 }
 
 # getGroupIdContainers returns the names of all containers which do
 # not have securityContext.runAsGroup set.
-getGroupIdContainers[container] {
+getGroupIdContainers contains container if {
 	container := kubernetes.containers[_]
 	not utils.has_key(container.securityContext, "runAsGroup")
 }
 
 # getGroupIdContainers returns the names of all containers which do
 # not have securityContext set.
-getGroupIdContainers[container] {
+getGroupIdContainers contains container if {
 	container := kubernetes.containers[_]
 	not utils.has_key(container, "securityContext")
 }
 
-deny[res] {
+deny contains res if {
 	output := getGroupIdContainers[_]
 	msg := kubernetes.format(sprintf("Container '%s' of %s '%s' should set 'securityContext.runAsGroup' > 10000", [output.name, kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, output)

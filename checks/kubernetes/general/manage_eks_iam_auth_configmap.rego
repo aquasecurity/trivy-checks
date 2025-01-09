@@ -20,6 +20,8 @@
 #         - kind: role
 package builtin.kubernetes.KSV115
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
@@ -27,11 +29,11 @@ readVerbs := ["create", "update", "patch", "delete", "deletecollection", "impers
 
 readKinds := ["Role", "ClusterRole"]
 
-readResource = "configmaps"
+readResource := "configmaps"
 
 resourceName := "aws-auth"
 
-manageEKSIAMAuthConfigmap[input.rules[ru]] {
+manageEKSIAMAuthConfigmap contains input.rules[ru] if {
 	some ru, r, v
 	input.kind == readKinds[_]
 	input.rules[ru].resources[r] == readResource
@@ -39,7 +41,7 @@ manageEKSIAMAuthConfigmap[input.rules[ru]] {
 	input.rules[ru].resourceNames[rn] == resourceName
 }
 
-deny[res] {
+deny contains res if {
 	badRule := manageEKSIAMAuthConfigmap[_]
 	msg := kubernetes.format(sprintf("%s '%s' should not have access to resource '%s' named '%s' for verbs %s", [kubernetes.kind, kubernetes.name, readResource, resourceName, readVerbs]))
 	res := result.new(msg, badRule)

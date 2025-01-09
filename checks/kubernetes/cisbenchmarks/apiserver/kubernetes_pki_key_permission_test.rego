@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0067
 
-test_validate_pki_key_permission_lower_600 {
+import rego.v1
+
+test_validate_pki_key_permission_lower_600 if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -11,7 +13,7 @@ test_validate_pki_key_permission_lower_600 {
 	count(r) == 0
 }
 
-test_validate_pki_key_permission_bigger_600 {
+test_validate_pki_key_permission_bigger_600 if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",

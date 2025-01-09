@@ -26,4 +26,4 @@ test_allow_distribution_with_default_certificate_and_tls_1_0 if {
 	}})
 }
 
-build_input(body) = {"aws": {"cloudfront": {"distributions": [body]}}}
+build_input(body) := {"aws": {"cloudfront": {"distributions": [body]}}}

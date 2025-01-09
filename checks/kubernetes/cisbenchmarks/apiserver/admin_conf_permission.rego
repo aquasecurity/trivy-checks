@@ -19,16 +19,18 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0060
 
+import rego.v1
+
 import data.lib.kubernetes
 
-validate_conf_permission(sp) := {"adminConfFilePermissions": violation} {
+validate_conf_permission(sp) := {"adminConfFilePermissions": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == "master"
 	violation := {permission | permission = sp.info.adminConfFilePermissions.values[_]; permission > 600}
 	count(violation) > 0
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_conf_permission(input)
 	msg := "Ensure that the admin config file permissions is set to 600 or more restrictive"
 	res := result.new(msg, output)

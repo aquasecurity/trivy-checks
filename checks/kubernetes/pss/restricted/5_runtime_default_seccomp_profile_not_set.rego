@@ -27,57 +27,59 @@
 #         - kind: job
 package builtin.kubernetes.KSV030
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-getType(target) = type {
+getType(target) := type if {
 	context := getOr(target, "securityContext", {})
 	profile := getOr(context, "seccompProfile", {})
 	type := getOr(profile, "type", "")
 }
 
-isValidProfileType(target) {
+isValidProfileType(target) if {
 	getType(target) == "RuntimeDefault"
 }
 
-isValidProfileType(target) {
+isValidProfileType(target) if {
 	getType(target) == "Localhost"
 }
 
-isUndefinedProfileType(target) {
+isUndefinedProfileType(target) if {
 	not isDefinedProfileType(target)
 }
 
-getOr(obj, key, def) = res {
+getOr(obj, key, def) := res if {
 	res := obj[key]
 }
 
-getOr(obj, key, def) = res {
+getOr(obj, key, def) := res if {
 	not obj[key]
 	res := def
 }
 
-isDefinedProfileType(target) {
+isDefinedProfileType(target) if {
 	getType(target) != ""
 }
 
-getAnnotations[type] {
+getAnnotations contains type if {
 	annotation := kubernetes.annotations[_]
 	type := annotation["seccomp.security.alpha.kubernetes.io/pod"]
 }
 
-hasAnnotations {
+hasAnnotations if {
 	count(getAnnotations) > 0
 }
 
-failSeccompAnnotation[annotation] {
+failSeccompAnnotation contains annotation if {
 	annotation := kubernetes.annotations[_]
 	val := annotation["seccomp.security.alpha.kubernetes.io/pod"]
 	val != "runtime/default"
 }
 
 # annotations (Kubernetes pre-v1.19)
-deny[res] {
+deny contains res if {
 	cause := failSeccompAnnotation[_]
 	msg := "seccomp.security.alpha.kubernetes.io/pod should be set to 'runtime/default'"
 	res := result.new(msg, cause)
@@ -85,17 +87,17 @@ deny[res] {
 
 # (Kubernetes post-v1.19)
 
-isDefinedOnPod {
+isDefinedOnPod if {
 	count(definedPods) > 0
 }
 
-definedPods[pod] {
+definedPods contains pod if {
 	pod := kubernetes.pods[_]
 	not isUndefinedProfileType(pod.spec)
 }
 
 # deny if container-level is undefined and pod-level is undefined
-deny[res] {
+deny contains res if {
 	not hasAnnotations
 	not isDefinedOnPod
 	container := kubernetes.containers[_]
@@ -105,7 +107,7 @@ deny[res] {
 }
 
 # deny if container-level is bad
-deny[res] {
+deny contains res if {
 	container := kubernetes.containers[_]
 	not isUndefinedProfileType(container)
 	not isValidProfileType(container)
@@ -114,7 +116,7 @@ deny[res] {
 }
 
 # deny if pod-level is bad
-deny[res] {
+deny contains res if {
 	pod := kubernetes.pods[_]
 	not isUndefinedProfileType(pod.spec)
 	not isValidProfileType(pod.spec)

@@ -27,16 +27,18 @@
 #         - kind: job
 package builtin.kubernetes.KSV008
 
+import rego.v1
+
 import data.lib.kubernetes
 
-default failHostIPC = false
+default failHostIPC := false
 
 # failHostIPC is true if spec.hostIPC is set to true (on all resources)
-failHostIPC {
+failHostIPC if {
 	kubernetes.host_ipcs[_] == true
 }
 
-deny[res] {
+deny contains res if {
 	failHostIPC
 	msg := kubernetes.format(sprintf("%s '%s' should not set 'spec.template.spec.hostIPC' to true", [kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, input.spec)

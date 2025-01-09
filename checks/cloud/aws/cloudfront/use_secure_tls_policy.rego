@@ -37,7 +37,7 @@ package builtin.aws.cloudfront.aws0013
 
 import rego.v1
 
-protocol_version_tls1_2_2021 = "TLSv1.2_2021"
+protocol_version_tls1_2_2021 := "TLSv1.2_2021"
 
 import data.lib.cloud.metadata
 

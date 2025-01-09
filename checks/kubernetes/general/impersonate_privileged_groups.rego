@@ -17,12 +17,14 @@
 #     - type: kubernetes
 package builtin.kubernetes.KSV043
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
 readKinds := ["Role", "ClusterRole"]
 
-impersonatePrivilegedGroups[input.rules[ru]] {
+impersonatePrivilegedGroups contains input.rules[ru] if {
 	some ru
 	input.kind == readKinds[_]
 	input.rules[ru].apiGroups[_] == "*"
@@ -30,7 +32,7 @@ impersonatePrivilegedGroups[input.rules[ru]] {
 	input.rules[ru].verbs[_] == "impersonate"
 }
 
-deny[res] {
+deny contains res if {
 	badRule := impersonatePrivilegedGroups[_]
 	msg := "Role permits impersonation of privileged groups"
 	res := result.new(msg, badRule)

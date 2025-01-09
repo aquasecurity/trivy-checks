@@ -27,22 +27,24 @@
 #         - kind: job
 package builtin.kubernetes.KSV025
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-default failSELinux = false
+default failSELinux := false
 
 allowed_selinux_types := ["container_t", "container_init_t", "container_kvm_t"]
 
-getAllSecurityContexts[context] {
+getAllSecurityContexts contains context if {
 	context := kubernetes.containers[_].securityContext
 }
 
-getAllSecurityContexts[context] {
+getAllSecurityContexts contains context if {
 	context := kubernetes.pods[_].spec.securityContext
 }
 
-failSELinuxType[type] {
+failSELinuxType contains type if {
 	context := getAllSecurityContexts[_]
 
 	trace(context.seLinuxOptions.type)
@@ -54,7 +56,7 @@ failSELinuxType[type] {
 	type := context.seLinuxOptions.type
 }
 
-failForbiddenSELinuxProperties[key] {
+failForbiddenSELinuxProperties contains key if {
 	context := getAllSecurityContexts[_]
 
 	context.seLinuxOptions != null
@@ -63,7 +65,7 @@ failForbiddenSELinuxProperties[key] {
 	key := forbiddenProps[_]
 }
 
-getForbiddenSELinuxProperties(context) = keys {
+getForbiddenSELinuxProperties(context) := keys if {
 	forbiddenProperties = ["role", "user"]
 	keys := {msg |
 		key := forbiddenProperties[_]
@@ -72,17 +74,17 @@ getForbiddenSELinuxProperties(context) = keys {
 	}
 }
 
-hasAllowedType(options) {
+hasAllowedType(options) if {
 	allowed_selinux_types[_] == options.type
 }
 
-deny[res] {
+deny contains res if {
 	type := failSELinuxType[_]
 	msg := kubernetes.format(sprintf("%s '%s' uses invalid seLinux type '%s'", [kubernetes.kind, kubernetes.name, type]))
 	res := result.new(msg, input.spec)
 }
 
-deny[res] {
+deny contains res if {
 	keys := failForbiddenSELinuxProperties
 	count(keys) > 0
 	msg := kubernetes.format(sprintf("%s '%s' uses restricted properties in seLinuxOptions: (%s)", [kubernetes.kind, kubernetes.name, concat(", ", keys)]))

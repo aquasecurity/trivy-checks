@@ -20,18 +20,20 @@
 #         - kind: clusterrolebinding
 package builtin.kubernetes.KSV111
 
+import rego.v1
+
 import data.lib.kubernetes
 
 readRoleRefs := ["cluster-admin", "admin", "edit"]
 
 roleBindings := ["clusterrolebinding", "rolebinding"]
 
-clusterAdminRoleInUse(roleBinding) {
+clusterAdminRoleInUse(roleBinding) if {
 	lower(kubernetes.kind) == roleBindings[_]
 	roleBinding.roleRef.name == readRoleRefs[_]
 }
 
-deny[res] {
+deny contains res if {
 	clusterAdminRoleInUse(input)
 	msg := kubernetes.format(sprintf("%s '%s' should not bind to roles %s", [kubernetes.kind, kubernetes.name, readRoleRefs]))
 	res := result.new(msg, input.metadata)

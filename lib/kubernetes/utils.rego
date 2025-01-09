@@ -7,6 +7,8 @@
 #     - type: rbac
 package lib.utils
 
-has_key(x, k) {
+import rego.v1
+
+has_key(x, k) if {
 	_ = x[k]
 }

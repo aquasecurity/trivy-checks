@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS015
 
-test_basic_denied {
+import rego.v1
+
+test_basic_denied if {
 	r := deny with input as {"Stages": [
 		{"Name": "alpine:3.5", "Commands": [
 			{
@@ -39,7 +41,7 @@ test_basic_denied {
 	r[_].msg == "'yum clean all' is missed: yum install vim"
 }
 
-test_wrong_order_of_commands_denied {
+test_wrong_order_of_commands_denied if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",
@@ -55,7 +57,7 @@ test_wrong_order_of_commands_denied {
 	r[_].msg == "'yum clean all' is missed: yum clean all && yum -y install"
 }
 
-test_multiple_install_denied {
+test_multiple_install_denied if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",
@@ -71,7 +73,7 @@ test_multiple_install_denied {
 	r[_].msg == "'yum clean all' is missed: yum -y install bash && yum clean all && yum -y install zsh"
 }
 
-test_multiple_install_allowed {
+test_multiple_install_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",
@@ -86,7 +88,7 @@ test_multiple_install_allowed {
 	count(r) == 0
 }
 
-test_basic_allowed {
+test_basic_allowed if {
 	r := deny with input as {"Stages": [
 		{"Name": "alpine:3.5", "Commands": [
 			{
@@ -124,7 +126,7 @@ test_basic_allowed {
 	count(r) == 0
 }
 
-test_allow_clean_with_flags {
+test_allow_clean_with_flags if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",
@@ -139,7 +141,7 @@ test_allow_clean_with_flags {
 	count(r) == 0
 }
 
-test_denied_clean_not_all {
+test_denied_clean_not_all if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",
@@ -155,7 +157,7 @@ test_denied_clean_not_all {
 	r[_].msg == "'yum clean all' is missed: yum -y install bash && yum clean metadata"
 }
 
-test_allow_only_clean {
+test_allow_only_clean if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",

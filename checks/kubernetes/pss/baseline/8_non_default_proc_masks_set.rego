@@ -27,18 +27,20 @@
 #         - kind: job
 package builtin.kubernetes.KSV027
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-default failProcMount = false
+default failProcMount := false
 
 # failProcMountOpts is true if securityContext.procMount is set in any container
-failProcMountOpts[container] {
+failProcMountOpts contains container if {
 	container := kubernetes.containers[_]
 	utils.has_key(container.securityContext, "procMount")
 }
 
-deny[res] {
+deny contains res if {
 	output := failProcMountOpts[_]
 	msg := kubernetes.format(sprintf("%s '%s' should not set 'spec.containers[*].securityContext.procMount' or 'spec.initContainers[*].securityContext.procMount'", [kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, output)

@@ -17,14 +17,16 @@
 #         - kind: service
 package builtin.kubernetes.KSV0108
 
+import rego.v1
+
 import data.lib.kubernetes
 
-allowedIPs = set()
+allowedIPs := set()
 
-allowedNames = set()
+allowedNames := set()
 
 # failExtIpsOrName is true if service has external IPs
-failExtIpsOrName {
+failExtIpsOrName if {
 	kubernetes.kind == "Service"
 	externalIPs := {ip | ip := kubernetes.object.spec.externalIPs[_]}
 	forbiddenIPs := externalIPs - allowedIPs
@@ -32,12 +34,12 @@ failExtIpsOrName {
 }
 
 # failExtIpsOrName is true if service has external Name
-failExtIpsOrName {
+failExtIpsOrName if {
 	kubernetes.kind == "Service"
 	not allowedNames[kubernetes.object.spec.externalName]
 }
 
-deny[res] {
+deny contains res if {
 	failExtIpsOrName
 	msg := kubernetes.format(sprintf("%s '%s' in '%s' namespace should not set external IPs or external Name", [kubernetes.kind, kubernetes.name, kubernetes.namespace]))
 	res := result.new(msg, kubernetes.kind)

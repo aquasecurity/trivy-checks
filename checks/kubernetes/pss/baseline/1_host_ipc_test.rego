@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV008
 
-test_host_ipc_set_to_true_denied {
+import rego.v1
+
+test_host_ipc_set_to_true_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -23,7 +25,7 @@ test_host_ipc_set_to_true_denied {
 	r[_].msg == "Pod 'hello-ipc' should not set 'spec.template.spec.hostIPC' to true"
 }
 
-test_host_ipc_set_to_false_allowed {
+test_host_ipc_set_to_false_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -45,7 +47,7 @@ test_host_ipc_set_to_false_allowed {
 	count(r) == 0
 }
 
-test_host_ipc_is_undefined_allowed {
+test_host_ipc_is_undefined_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

@@ -27,20 +27,22 @@
 #         - kind: job
 package builtin.kubernetes.KSV006
 
+import rego.v1
+
 import data.lib.kubernetes
 
-name = input.metadata.name
+name := input.metadata.name
 
-default checkDockerSocket = false
+default checkDockerSocket := false
 
 # checkDockerSocket is true if volumes.hostPath.path is set to /var/run/docker.sock
 # and is false if volumes.hostPath is set to some other path or not set.
-checkDockerSocket {
+checkDockerSocket if {
 	volumes := kubernetes.volumes
 	volumes[_].hostPath.path == "/var/run/docker.sock"
 }
 
-deny[res] {
+deny contains res if {
 	checkDockerSocket
 	msg := kubernetes.format(sprintf("%s '%s' should not specify '/var/run/docker.socker' in 'spec.template.volumes.hostPath.path'", [kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, input.spec)

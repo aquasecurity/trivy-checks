@@ -19,25 +19,27 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0081
 
+import rego.v1
+
 import data.lib.kubernetes
 
 types := ["master", "worker"]
 
-validate_client_ca_set(sp) := {"kubeletClientCaFileArgumentSet": violation} {
+validate_client_ca_set(sp) := {"kubeletClientCaFileArgumentSet": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	violation := {client_ca | client_ca = sp.info.kubeletClientCaFileArgumentSet.values[_]; client_ca == ""}
 	count(violation) > 0
 }
 
-validate_client_ca_set(sp) := {"kubeletClientCaFileArgumentSet": client_ca} {
+validate_client_ca_set(sp) := {"kubeletClientCaFileArgumentSet": client_ca} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	count(sp.info.kubeletClientCaFileArgumentSet.values) == 0
 	client_ca = {}
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_client_ca_set(input)
 	msg := "Ensure that the --client-ca-file argument is set as appropriate"
 	res := result.new(msg, output)

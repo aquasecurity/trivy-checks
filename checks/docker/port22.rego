@@ -15,18 +15,20 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS004
 
+import rego.v1
+
 import data.lib.docker
 
 # deny_list contains the port numbers which needs to be denied.
 denied_ports := ["22", "22/tcp", "22/udp"]
 
 # fail_port_check is true if the Dockerfile contains an expose statement for value 22
-fail_port_check[expose] {
+fail_port_check contains expose if {
 	expose := docker.expose[_]
 	expose.Value[_] == denied_ports[_]
 }
 
-deny[res] {
+deny contains res if {
 	cmd := fail_port_check[_]
 	msg := "Port 22 should not be exposed in Dockerfile"
 	res := result.new(msg, cmd)

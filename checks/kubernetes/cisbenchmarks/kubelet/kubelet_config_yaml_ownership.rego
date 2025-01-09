@@ -19,11 +19,13 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0078
 
+import rego.v1
+
 import data.lib.kubernetes
 
 types := ["master", "worker"]
 
-validate_kubelet_config_yaml_ownership(sp) := {"kubeletConfigYamlConfigurationFileOwnership": violation} {
+validate_kubelet_config_yaml_ownership(sp) := {"kubeletConfigYamlConfigurationFileOwnership": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	count(sp.info.kubeletConfigYamlConfigurationFileOwnership) > 0
@@ -31,7 +33,7 @@ validate_kubelet_config_yaml_ownership(sp) := {"kubeletConfigYamlConfigurationFi
 	count(violation) > 0
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_kubelet_config_yaml_ownership(input)
 	msg := "Ensure that if the kubelet refers to a configuration file with the --config argument, that file is owned by root:root."
 	res := result.new(msg, output)

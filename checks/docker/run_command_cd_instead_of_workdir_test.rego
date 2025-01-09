@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS013
 
-test_basic_denied {
+import rego.v1
+
+test_basic_denied if {
 	r := deny with input as {"Stages": [{"Name": "nginx", "Commands": [
 		{
 			"Cmd": "from",
@@ -20,7 +22,7 @@ test_basic_denied {
 	r[_].msg == "RUN should not be used to change directory: 'cd /usr/share/nginx/html'. Use 'WORKDIR' statement instead."
 }
 
-test_chaining_denied {
+test_chaining_denied if {
 	r := deny with input as {"Stages": [{"Name": "nginx", "Commands": [
 		{
 			"Cmd": "from",
@@ -47,7 +49,7 @@ test_chaining_denied {
 	r[_].msg == "RUN should not be used to change directory: 'apt-get install vim && cd /usr/share/nginx/html'. Use 'WORKDIR' statement instead."
 }
 
-test_basic_allowed {
+test_basic_allowed if {
 	r := deny with input as {"Stages": [{"Name": "nginx", "Commands": [
 		{
 			"Cmd": "from",

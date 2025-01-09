@@ -27,14 +27,16 @@
 #         - kind: job
 package builtin.kubernetes.KSV001
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-default checkAllowPrivilegeEscalation = false
+default checkAllowPrivilegeEscalation := false
 
 # getNoPrivilegeEscalationContainers returns the names of all containers which have
 # securityContext.allowPrivilegeEscalation set to false.
-getNoPrivilegeEscalationContainers[container] {
+getNoPrivilegeEscalationContainers contains container if {
 	allContainers := kubernetes.containers[_]
 	allContainers.securityContext.allowPrivilegeEscalation == false
 	container := allContainers.name
@@ -42,12 +44,12 @@ getNoPrivilegeEscalationContainers[container] {
 
 # getPrivilegeEscalationContainers returns the names of all containers which have
 # securityContext.allowPrivilegeEscalation set to true or not set.
-getPrivilegeEscalationContainers[container] {
+getPrivilegeEscalationContainers contains container if {
 	container := kubernetes.containers[_]
 	not getNoPrivilegeEscalationContainers[container.name]
 }
 
-deny[res] {
+deny contains res if {
 	output := getPrivilegeEscalationContainers[_]
 	msg := kubernetes.format(sprintf("Container '%s' of %s '%s' should set 'securityContext.allowPrivilegeEscalation' to false", [output.name, kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, output)

@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0019
 
-test_audit_log_path_is_set {
+import rego.v1
+
+test_audit_log_path_is_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -21,7 +23,7 @@ test_audit_log_path_is_set {
 	count(r) == 0
 }
 
-test_audit_log_path_is_not_set {
+test_audit_log_path_is_not_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -43,7 +45,7 @@ test_audit_log_path_is_not_set {
 	r[_].msg == "Ensure that the --audit-log-path argument is set"
 }
 
-test_audit_log_path_is_set_args {
+test_audit_log_path_is_set_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

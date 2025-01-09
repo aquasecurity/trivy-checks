@@ -82,4 +82,4 @@ test_disallow_one_of_the_user_access_key_used_100_days if {
 	})
 }
 
-build_input(body) = {"aws": {"iam": {"users": [body]}}}
+build_input(body) := {"aws": {"iam": {"users": [body]}}}

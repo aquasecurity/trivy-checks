@@ -17,15 +17,17 @@
 #     - type: kubernetes
 package builtin.kubernetes.KCV0007
 
+import rego.v1
+
 import data.lib.kubernetes
 
-check_flag(container) {
+check_flag(container) if {
 	some i
 	output := regex.find_all_string_submatch_n(`--authorization-mode=([^\s]+)`, container.command[i], -1)
 	regex.match("AlwaysAllow", output[0][1])
 }
 
-deny[res] {
+deny contains res if {
 	container := kubernetes.containers[_]
 	kubernetes.is_apiserver(container)
 	check_flag(container)

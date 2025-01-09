@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0088
 
-test_validate_tls_cert_file_empty {
+import rego.v1
+
+test_validate_tls_cert_file_empty if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -11,7 +13,7 @@ test_validate_tls_cert_file_empty {
 	count(r) == 1
 }
 
-test_validate_tls_cert_file_real {
+test_validate_tls_cert_file_real if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -22,7 +24,7 @@ test_validate_tls_cert_file_real {
 	count(r) == 0
 }
 
-test_validate_tls_cert_file_fake {
+test_validate_tls_cert_file_fake if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",

@@ -1,8 +1,10 @@
 package builtin.kubernetes.KSV002
 
+import rego.v1
+
 import data.lib.kubernetes
 
-test_custom_deny {
+test_custom_deny if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -25,7 +27,7 @@ test_custom_deny {
 	r[_].msg == "Container 'hello' of Pod 'hello-apparmor' should specify an AppArmor profile"
 }
 
-test_undefined_allowed {
+test_undefined_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -44,7 +46,7 @@ test_undefined_allowed {
 	count(r) == 0
 }
 
-test_only_one_is_undefined_allowed {
+test_only_one_is_undefined_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -77,7 +79,7 @@ test_only_one_is_undefined_allowed {
 	count(r) == 0
 }
 
-test_runtime_default_allowed {
+test_runtime_default_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

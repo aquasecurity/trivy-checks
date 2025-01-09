@@ -19,6 +19,8 @@
 #         - kind: role
 package builtin.kubernetes.KSV112
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
@@ -26,14 +28,14 @@ readVerbs := ["create", "update", "delete", "deletecollection", "impersonate", "
 
 readKinds := ["Role"]
 
-managingAllResourcesAtNamespace[input.rules[ru]] {
+managingAllResourcesAtNamespace contains input.rules[ru] if {
 	some ru, r, v
 	input.kind == readKinds[_]
 	input.rules[ru].resources[r] == "*"
 	input.rules[ru].verbs[v] == readVerbs[_]
 }
 
-deny[res] {
+deny contains res if {
 	badRule := managingAllResourcesAtNamespace[_]
 	msg := kubernetes.format(sprintf("%s '%s' shouldn't manage all resources at the namespace '%s'", [kubernetes.kind, kubernetes.name, kubernetes.namespace]))
 	res := result.new(msg, badRule)
