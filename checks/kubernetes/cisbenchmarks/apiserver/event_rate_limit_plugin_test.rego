@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0010
 
-test_event_rate_limit_plugin_is_enabled {
+import rego.v1
+
+test_event_rate_limit_plugin_is_enabled if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -21,7 +23,7 @@ test_event_rate_limit_plugin_is_enabled {
 	count(r) == 0
 }
 
-test_event_rate_limit_plugin_is_not_configured {
+test_event_rate_limit_plugin_is_not_configured if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -43,7 +45,7 @@ test_event_rate_limit_plugin_is_not_configured {
 	r[_].msg == "Ensure that the admission control plugin EventRateLimit is set"
 }
 
-test_event_rate_limit_plugin_is_not_enabled {
+test_event_rate_limit_plugin_is_not_enabled if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -65,7 +67,7 @@ test_event_rate_limit_plugin_is_not_enabled {
 	r[_].msg == "Ensure that the admission control plugin EventRateLimit is set"
 }
 
-test_event_rate_limit_plugin_is_enabled_with_others {
+test_event_rate_limit_plugin_is_enabled_with_others if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -86,7 +88,7 @@ test_event_rate_limit_plugin_is_enabled_with_others {
 	count(r) == 0
 }
 
-test_event_rate_limit_plugin_is_enabled_with_others_args {
+test_event_rate_limit_plugin_is_enabled_with_others_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

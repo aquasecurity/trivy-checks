@@ -19,25 +19,27 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0089
 
+import rego.v1
+
 import data.lib.kubernetes
 
 types := ["master", "worker"]
 
-validate_kubelet_tls_key_file(sp) := {"kubeletTlsPrivateKeyFileArgumentSet": violation} {
+validate_kubelet_tls_key_file(sp) := {"kubeletTlsPrivateKeyFileArgumentSet": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	violation := {tls_key_file | tls_key_file = sp.info.kubeletTlsPrivateKeyFileArgumentSet.values[_]; not endswith(tls_key_file, ".key")}
 	count(violation) > 0
 }
 
-validate_kubelet_tls_key_file(sp) := {"kubeletTlsPrivateKeyFileArgumentSet": tls_key_file} {
+validate_kubelet_tls_key_file(sp) := {"kubeletTlsPrivateKeyFileArgumentSet": tls_key_file} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	count(sp.info.kubeletTlsPrivateKeyFileArgumentSet.values) == 0
 	tls_key_file := {}
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_kubelet_tls_key_file(input)
 	msg := "Ensure that the --tls-key-file argument are set as appropriate"
 	res := result.new(msg, output)

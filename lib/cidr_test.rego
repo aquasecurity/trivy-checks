@@ -4,7 +4,7 @@ import rego.v1
 
 import data.lib.test
 
-uint64max = 18446744073709551615
+uint64max := 18446744073709551615
 
 test_count_addresses if {
 	cidr.count_addresses("*") == uint64max

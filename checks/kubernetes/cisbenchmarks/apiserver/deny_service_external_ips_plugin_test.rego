@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0003
 
-test_deny_service_external_ips_is_enabled {
+import rego.v1
+
+test_deny_service_external_ips_is_enabled if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -22,7 +24,7 @@ test_deny_service_external_ips_is_enabled {
 	r[_].msg == "Ensure that the --DenyServiceExternalIPs is not set"
 }
 
-test_enable_admission_plugins_is_not_configured {
+test_enable_admission_plugins_is_not_configured if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -43,7 +45,7 @@ test_enable_admission_plugins_is_not_configured {
 	count(r) == 0
 }
 
-test_enable_admission_plugins_is_not_configured_args {
+test_enable_admission_plugins_is_not_configured_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -65,7 +67,7 @@ test_enable_admission_plugins_is_not_configured_args {
 	count(r) == 0
 }
 
-test_deny_service_external_ips_is_not_enabled {
+test_deny_service_external_ips_is_not_enabled if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -86,7 +88,7 @@ test_deny_service_external_ips_is_not_enabled {
 	count(r) == 0
 }
 
-test_deny_service_external_ips_is_enabled_with_others {
+test_deny_service_external_ips_is_enabled_with_others if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

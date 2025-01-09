@@ -17,30 +17,32 @@
 #     - type: kubernetes
 package builtin.kubernetes.KSV106
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-hasDropAll(container) {
+hasDropAll(container) if {
 	upper(container.securityContext.capabilities.drop[_]) == "ALL"
 }
 
-containersWithoutDropAll[container] {
+containersWithoutDropAll contains container if {
 	container := kubernetes.containers[_]
 	not hasDropAll(container)
 }
 
-containersWithDropAll[container] {
+containersWithDropAll contains container if {
 	container := kubernetes.containers[_]
 	hasDropAll(container)
 }
 
-deny[res] {
+deny contains res if {
 	container := containersWithoutDropAll[_]
 	msg := "container should drop all"
 	res := result.new(msg, container)
 }
 
-deny[res] {
+deny contains res if {
 	container := containersWithDropAll[_]
 	add := container.securityContext.capabilities.add[_]
 	add != "NET_BIND_SERVICE"

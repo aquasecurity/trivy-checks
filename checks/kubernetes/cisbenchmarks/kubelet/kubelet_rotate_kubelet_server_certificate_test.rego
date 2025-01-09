@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0091
 
-test_validate_rotate_kubelet_server_certificate_true {
+import rego.v1
+
+test_validate_rotate_kubelet_server_certificate_true if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -11,7 +13,7 @@ test_validate_rotate_kubelet_server_certificate_true {
 	count(r) == 0
 }
 
-test_validate_rotate_kubelet_server_certificate_false {
+test_validate_rotate_kubelet_server_certificate_false if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -22,7 +24,7 @@ test_validate_rotate_kubelet_server_certificate_false {
 	count(r) == 1
 }
 
-test_validate_rotate_kubelet_server_certificate_empty {
+test_validate_rotate_kubelet_server_certificate_empty if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",

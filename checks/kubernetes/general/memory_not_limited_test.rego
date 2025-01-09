@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV018
 
-test_memory_not_limited_denied {
+import rego.v1
+
+test_memory_not_limited_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -20,7 +22,7 @@ test_memory_not_limited_denied {
 	r[_].msg == "Container 'hello' of Pod 'hello-memory-limit' should set 'resources.limits.memory'"
 }
 
-test_memory_limited_allowed {
+test_memory_limited_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

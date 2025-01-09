@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0017
 
-test_secure_port_is_set_to_zero {
+import rego.v1
+
+test_secure_port_is_set_to_zero if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -22,7 +24,7 @@ test_secure_port_is_set_to_zero {
 	r[_].msg == "Ensure that the --secure-port argument is not set to 0"
 }
 
-test_secure_port_is_not_set_to_zero {
+test_secure_port_is_not_set_to_zero if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -43,7 +45,7 @@ test_secure_port_is_not_set_to_zero {
 	count(r) == 0
 }
 
-test_secure_port_is_not_set_to_zero_args {
+test_secure_port_is_not_set_to_zero_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -65,7 +67,7 @@ test_secure_port_is_not_set_to_zero_args {
 	count(r) == 0
 }
 
-test_secure_port_is_not_configured {
+test_secure_port_is_not_configured if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

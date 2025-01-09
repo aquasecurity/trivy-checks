@@ -20,6 +20,8 @@
 #         - kind: role
 package builtin.kubernetes.KSV056
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
@@ -29,14 +31,14 @@ readVerbs := ["create", "update", "patch", "delete", "deletecollection", "impers
 
 readResources := ["services", "endpoints", "endpointslices", "networkpolicies", "ingresses"]
 
-managekubernetesNetworking[input.rules[ru]] {
+managekubernetesNetworking contains input.rules[ru] if {
 	some ru, r, v
 	input.kind == readKinds[_]
 	input.rules[ru].resources[r] == readResources[_]
 	input.rules[ru].verbs[v] == readVerbs[_]
 }
 
-deny[res] {
+deny contains res if {
 	badRule := managekubernetesNetworking[_]
 	msg := kubernetes.format(sprintf("%s '%s' should not have access to resources %s for verbs %s", [kubernetes.kind, kubernetes.name, readResources, readVerbs]))
 	res := result.new(msg, badRule)

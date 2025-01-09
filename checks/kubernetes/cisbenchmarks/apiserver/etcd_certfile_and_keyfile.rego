@@ -17,19 +17,21 @@
 #     - type: kubernetes
 package builtin.kubernetes.KCV0026
 
+import rego.v1
+
 import data.lib.kubernetes
 
-check_flag(container) {
+check_flag(container) if {
 	kubernetes.command_has_flag(container.command, "--etcd-certfile")
 	kubernetes.command_has_flag(container.command, "--etcd-keyfile")
 }
 
-check_flag(container) {
+check_flag(container) if {
 	kubernetes.command_has_flag(container.args, "--etcd-certfile")
 	kubernetes.command_has_flag(container.args, "--etcd-certfile")
 }
 
-deny[res] {
+deny contains res if {
 	container := kubernetes.containers[_]
 	kubernetes.is_apiserver(container)
 	not check_flag(container)

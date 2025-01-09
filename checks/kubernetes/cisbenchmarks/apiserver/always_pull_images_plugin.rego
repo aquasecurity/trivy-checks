@@ -17,22 +17,24 @@
 #     - type: kubernetes
 package builtin.kubernetes.KCV0012
 
+import rego.v1
+
 import data.lib.kubernetes
 
-check_flag[container] {
+check_flag contains container if {
 	container := kubernetes.containers[_]
 	kubernetes.is_apiserver(container)
 	not kubernetes.command_has_flag(container.command, "--enable-admission-plugins")
 }
 
-check_flag[container] {
+check_flag contains container if {
 	container := kubernetes.containers[_]
 	some i
 	output := regex.find_all_string_submatch_n(`--enable-admission-plugins=([^\s]+)`, container.command[i], -1)
 	not regex.match("AlwaysPullImages", output[0][1])
 }
 
-deny[res] {
+deny contains res if {
 	output := check_flag[_]
 	msg := "Ensure that the admission control plugin AlwaysPullImages is set"
 	res := result.new(msg, output)

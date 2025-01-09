@@ -17,6 +17,8 @@
 #     - type: kubernetes
 package builtin.kubernetes.KSV047
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
@@ -24,14 +26,14 @@ readVerbs := ["get", "create"]
 
 readKinds := ["Role", "ClusterRole"]
 
-privilegeEscalationFromNodeProxy[input.rules[ru]] {
+privilegeEscalationFromNodeProxy contains input.rules[ru] if {
 	input.kind == readKinds[_]
 	some ru, r, v
 	input.rules[ru].resources[r] == "nodes/proxy"
 	input.rules[ru].verbs[v] == readVerbs[_]
 }
 
-deny[res] {
+deny contains res if {
 	badRule := privilegeEscalationFromNodeProxy[_]
 	msg := "Role permits privilege escalation from node proxy"
 	res := result.new(msg, badRule)

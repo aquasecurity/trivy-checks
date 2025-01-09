@@ -21,6 +21,8 @@
 
 package appshield.kubernetes.KSV01011
 
+import rego.v1
+
 import data.k8s
 import data.lib.kubernetes
 
@@ -28,12 +30,12 @@ readRoleRefs := ["system:authenticated"]
 
 readKinds := ["RoleBinding", "ClusterRolebinding"]
 
-authenticatedGroupBind(roleBinding) {
+authenticatedGroupBind(roleBinding) if {
 	kubernetes.kind == readKinds[_]
 	kubernetes.object.subjects[_].name == readRoleRefs[_]
 }
 
-deny[res] {
+deny contains res if {
 	contains(k8s.version, "-gke")
 	authenticatedGroupBind(input)
 	msg := kubernetes.format(sprintf("%s '%s' should not bind to roles %s", [kubernetes.kind, kubernetes.name, readRoleRefs]))

@@ -17,17 +17,19 @@
 #     - type: kubernetes
 package builtin.kubernetes.KCV0040
 
+import rego.v1
+
 import data.lib.kubernetes
 
-checkFlag(container) {
+checkFlag(container) if {
 	kubernetes.command_has_flag(container.command, "--profiling=false")
 }
 
-checkFlag(container) {
+checkFlag(container) if {
 	kubernetes.command_has_flag(container.args, "--profiling=false")
 }
 
-deny[res] {
+deny contains res if {
 	container := kubernetes.containers[_]
 	kubernetes.is_scheduler(container)
 	not checkFlag(container)

@@ -27,14 +27,16 @@
 #         - kind: job
 package builtin.kubernetes.KSV004
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-default failCapsDropAny = false
+default failCapsDropAny := false
 
 # getCapsDropAnyContainers returns names of all containers
 # which set securityContext.capabilities.drop
-getCapsDropAnyContainers[container] {
+getCapsDropAnyContainers contains container if {
 	allContainers := kubernetes.containers[_]
 	utils.has_key(allContainers.securityContext.capabilities, "drop")
 	container := allContainers.name
@@ -42,12 +44,12 @@ getCapsDropAnyContainers[container] {
 
 # getNoCapsDropContainers returns names of all containers which
 # do not set securityContext.capabilities.drop
-getNoCapsDropContainers[container] {
+getNoCapsDropContainers contains container if {
 	container := kubernetes.containers[_]
 	not getCapsDropAnyContainers[container.name]
 }
 
-deny[res] {
+deny contains res if {
 	container := getNoCapsDropContainers[_]
 	msg := kubernetes.format(sprintf("Container '%s' of '%s' '%s' in '%s' namespace should set securityContext.capabilities.drop", [container.name, lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
 	res := result.new(msg, container)

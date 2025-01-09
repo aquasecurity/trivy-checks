@@ -17,23 +17,25 @@
 #     - type: kubernetes
 package builtin.kubernetes.KCV0009
 
+import rego.v1
+
 import data.lib.kubernetes
 
-check_flag(container) {
+check_flag(container) if {
 	kubernetes.command_has_flag(container.command, "--authorization-mode")
 	some i
 	output := regex.find_all_string_submatch_n(`--authorization-mode=([^\s]+)`, container.command[i], -1)
 	regex.match("RBAC", output[0][1])
 }
 
-check_flag(container) {
+check_flag(container) if {
 	kubernetes.command_has_flag(container.args, "--authorization-mode")
 	some i
 	output := regex.find_all_string_submatch_n(`--authorization-mode=([^\s]+)`, container.args[i], -1)
 	regex.match("RBAC", output[0][1])
 }
 
-deny[res] {
+deny contains res if {
 	container := kubernetes.containers[_]
 	kubernetes.is_apiserver(container)
 	not check_flag(container)

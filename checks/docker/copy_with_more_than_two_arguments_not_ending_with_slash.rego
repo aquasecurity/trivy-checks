@@ -17,9 +17,11 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS011
 
+import rego.v1
+
 import data.lib.docker
 
-get_copy_arg[output] {
+get_copy_arg contains output if {
 	copy := docker.copy[_]
 
 	cnt := count(copy.Value)
@@ -36,13 +38,13 @@ get_copy_arg[output] {
 	}
 }
 
-is_command_with_hash(cmd, prefix) {
+is_command_with_hash(cmd, prefix) if {
 	count(cmd) == 3
 	startswith(cmd[0], prefix)
 	cmd[1] == "in"
 }
 
-deny[res] {
+deny contains res if {
 	output := get_copy_arg[_]
 	msg := sprintf("Slash is expected at the end of COPY command argument '%s'", [output.arg])
 	res := result.new(msg, output.cmd)

@@ -17,13 +17,15 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS020
 
+import rego.v1
+
 import data.lib.docker
 
 install_regex := `(zypper in)|(zypper remove)|(zypper rm)|(zypper source-install)|(zypper si)|(zypper patch)|(zypper (-(-)?[a-zA-Z]+ *)*install)`
 
-zypper_regex = sprintf("%s|(zypper clean)|(zypper cc)", [install_regex])
+zypper_regex := sprintf("%s|(zypper clean)|(zypper cc)", [install_regex])
 
-get_zypper[output] {
+get_zypper contains output if {
 	run := docker.run[_]
 	arg := run.Value[0]
 
@@ -36,22 +38,22 @@ get_zypper[output] {
 	}
 }
 
-deny[res] {
+deny contains res if {
 	output := get_zypper[_]
 	msg := sprintf("'zypper clean' is missed: '%s'", [output.arg])
 	res := result.new(msg, output.cmd)
 }
 
-contains_zipper_clean(cmd) {
+contains_zipper_clean(cmd) if {
 	zypper_commands := regex.find_n(zypper_regex, cmd, -1)
 
 	is_zypper_clean(zypper_commands[count(zypper_commands) - 1])
 }
 
-is_zypper_clean(cmd) {
+is_zypper_clean(cmd) if {
 	cmd == "zypper clean"
 }
 
-is_zypper_clean(cmd) {
+is_zypper_clean(cmd) if {
 	cmd == "zypper cc"
 }

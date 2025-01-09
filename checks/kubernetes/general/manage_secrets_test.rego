@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV041
 
-test_manage_secrets {
+import rego.v1
+
+test_manage_secrets if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRole",
@@ -18,7 +20,7 @@ test_manage_secrets {
 	count(r) > 0
 }
 
-test_manage_verb_update {
+test_manage_verb_update if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRole",
@@ -36,7 +38,7 @@ test_manage_verb_update {
 	count(r) > 0
 }
 
-test_manage_verb_list {
+test_manage_verb_list if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRole",
@@ -54,7 +56,7 @@ test_manage_verb_list {
 	count(r) > 0
 }
 
-test_manage_not_secret_resource {
+test_manage_not_secret_resource if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRole",
@@ -72,7 +74,7 @@ test_manage_not_secret_resource {
 	count(r) == 0
 }
 
-test_manage_secret_verb_update {
+test_manage_secret_verb_update if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRole",
@@ -90,7 +92,7 @@ test_manage_secret_verb_update {
 	count(r) > 0
 }
 
-test_manage_secret_verb_impersonate {
+test_manage_secret_verb_impersonate if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRole",
@@ -108,7 +110,7 @@ test_manage_secret_verb_impersonate {
 	count(r) > 0
 }
 
-test_manage_secret_verb_deletecollection {
+test_manage_secret_verb_deletecollection if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRole",
@@ -126,7 +128,7 @@ test_manage_secret_verb_deletecollection {
 	count(r) > 0
 }
 
-test_manage_secret_verb_patch {
+test_manage_secret_verb_patch if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRole",
@@ -144,7 +146,7 @@ test_manage_secret_verb_patch {
 	count(r) > 0
 }
 
-test_manage_secret_verb_watch {
+test_manage_secret_verb_watch if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRole",

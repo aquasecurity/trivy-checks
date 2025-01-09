@@ -19,6 +19,8 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0092
 
+import rego.v1
+
 import data.lib.kubernetes
 
 types := ["master", "worker"]
@@ -34,25 +36,21 @@ strong_cryptographic := [
 	"TLS_RSA_WITH_AES_128_GCM_SHA256",
 ]
 
-validate_kubelet_only_use_strong_cryptographic(sp) := {"kubeletOnlyUseStrongCryptographic": only_use_strong_cryptographic} {
+validate_kubelet_only_use_strong_cryptographic(sp) := {"kubeletOnlyUseStrongCryptographic": only_use_strong_cryptographic} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	only_use_strong_cryptographic := sp.info.kubeletOnlyUseStrongCryptographic.values[_]
-	not contains(strong_cryptographic, only_use_strong_cryptographic)
+	not only_use_strong_cryptographic in strong_cryptographic
 }
 
-contains(cryptographic, elem) {
-	cryptographic[_] = elem
-}
-
-validate_kubelet_only_use_strong_cryptographic(sp) := {"kubeletOnlyUseStrongCryptographic": only_use_strong_cryptographic} {
+validate_kubelet_only_use_strong_cryptographic(sp) := {"kubeletOnlyUseStrongCryptographic": only_use_strong_cryptographic} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	count(sp.info.kubeletOnlyUseStrongCryptographic.values) == 0
 	only_use_strong_cryptographic = {}
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_kubelet_only_use_strong_cryptographic(input)
 	msg := "Ensure that the Kubelet only makes use of Strong Cryptographic Ciphers"
 	res := result.new(msg, output)

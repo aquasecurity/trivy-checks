@@ -27,14 +27,16 @@
 #         - kind: job
 package builtin.kubernetes.KSV012
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-default checkRunAsNonRoot = false
+default checkRunAsNonRoot := false
 
 # getNonRootContainers returns the names of all containers which have
 # securityContext.runAsNonRoot set to true.
-getNonRootContainers[container] {
+getNonRootContainers contains container if {
 	allContainers := kubernetes.containers[_]
 	allContainers.securityContext.runAsNonRoot == true
 	container := allContainers.name
@@ -42,23 +44,23 @@ getNonRootContainers[container] {
 
 # getRootContainers returns the names of all containers which have
 # securityContext.runAsNonRoot set to false or not set.
-getRootContainers[container] {
+getRootContainers contains container if {
 	container := kubernetes.containers[_]
 	not getNonRootContainers[container.name]
 }
 
 # checkRunAsNonRoot is true if securityContext.runAsNonRoot is set to false
 # or if securityContext.runAsNonRoot is not set.
-checkRunAsNonRootContainers {
+checkRunAsNonRootContainers if {
 	count(getRootContainers) > 0
 }
 
-checkRunAsNonRootPod {
+checkRunAsNonRootPod if {
 	allPods := kubernetes.pods[_]
 	not allPods.spec.securityContext.runAsNonRoot
 }
 
-deny[res] {
+deny contains res if {
 	checkRunAsNonRootPod
 	output := getRootContainers[_]
 	msg := kubernetes.format(sprintf("Container '%s' of %s '%s' should set 'securityContext.runAsNonRoot' to true", [output.name, kubernetes.kind, kubernetes.name]))

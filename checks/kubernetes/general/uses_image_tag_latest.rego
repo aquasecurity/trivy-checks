@@ -27,19 +27,21 @@
 #         - kind: job
 package builtin.kubernetes.KSV013
 
+import rego.v1
+
 import data.lib.kubernetes
 
-default checkUsingLatestTag = false
+default checkUsingLatestTag := false
 
 # getTaggedContainers returns the names of all containers which
 # have tagged images.
-getTaggedContainers[container] {
+getTaggedContainers contains container if {
 	# If the image defines a digest value, we don't care about the tag
 	container := kubernetes.containers[_]
 	digest := split(container.image, "@")[1]
 }
 
-getTaggedContainers[container] {
+getTaggedContainers contains container if {
 	# No digest, look at tag
 	container := kubernetes.containers[_]
 	tag := split(container.image, ":")[1]
@@ -48,12 +50,12 @@ getTaggedContainers[container] {
 
 # getUntaggedContainers returns the names of all containers which
 # have untagged images or images with the latest tag.
-getUntaggedContainers[container] {
+getUntaggedContainers contains container if {
 	container := kubernetes.containers[_]
 	not getTaggedContainers[container]
 }
 
-deny[res] {
+deny contains res if {
 	output := getUntaggedContainers[_]
 	msg := kubernetes.format(sprintf("Container '%s' of %s '%s' should specify an image tag", [output.name, kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, output)

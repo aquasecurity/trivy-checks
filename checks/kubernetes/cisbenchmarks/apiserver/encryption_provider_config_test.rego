@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0030
 
-test_encryption_provider_config_is_set {
+import rego.v1
+
+test_encryption_provider_config_is_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -21,7 +23,7 @@ test_encryption_provider_config_is_set {
 	count(r) == 0
 }
 
-test_encryption_provider_config_is_not_set {
+test_encryption_provider_config_is_not_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -43,7 +45,7 @@ test_encryption_provider_config_is_not_set {
 	r[_].msg == "Ensure that the --encryption-provider-config argument is set as appropriate"
 }
 
-test_encryption_provider_config_is_set_args {
+test_encryption_provider_config_is_set_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -65,7 +67,7 @@ test_encryption_provider_config_is_set_args {
 	count(r) == 0
 }
 
-test_encryption_provider_config_is_not_set_args {
+test_encryption_provider_config_is_not_set_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

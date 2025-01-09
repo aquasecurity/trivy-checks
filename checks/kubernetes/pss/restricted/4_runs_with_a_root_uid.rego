@@ -17,22 +17,24 @@
 #     - type: kubernetes
 package builtin.kubernetes.KSV105
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-failRootUserId[securityContext] {
+failRootUserId contains securityContext if {
 	container := kubernetes.containers[_]
 	securityContext := container.securityContext
 	securityContext.runAsUser == 0
 }
 
-failRootUserId[securityContext] {
+failRootUserId contains securityContext if {
 	pod := kubernetes.pods[_]
 	securityContext := pod.spec.securityContext
 	securityContext.runAsUser == 0
 }
 
-deny[res] {
+deny contains res if {
 	cause := failRootUserId[_]
 	msg := "securityContext.runAsUser should be set to a value greater than 0"
 	res := result.new(msg, cause)

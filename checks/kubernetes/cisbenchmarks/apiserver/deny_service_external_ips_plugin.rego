@@ -17,21 +17,23 @@
 #     - type: kubernetes
 package builtin.kubernetes.KCV0003
 
+import rego.v1
+
 import data.lib.kubernetes
 
-check_flag(container) {
+check_flag(container) if {
 	some i
 	output := regex.find_all_string_submatch_n(`--enable-admission-plugins=([^\s]+)`, container.command[i], -1)
 	regex.match("DenyServiceExternalIPs", output[0][1])
 }
 
-check_flag(container) {
+check_flag(container) if {
 	some i
 	output := regex.find_all_string_submatch_n(`--enable-admission-plugins=([^\s]+)`, container.args[i], -1)
 	regex.match("DenyServiceExternalIPs", output[0][1])
 }
 
-deny[res] {
+deny contains res if {
 	container := kubernetes.containers[_]
 	check_flag(container)
 	msg := "Ensure that the --DenyServiceExternalIPs is not set"

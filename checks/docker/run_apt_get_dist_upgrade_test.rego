@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS024
 
-test_denied {
+import rego.v1
+
+test_denied if {
 	r := deny with input as {"Stages": [{"Name": "debian", "Commands": [
 		{
 			"Cmd": "from",
@@ -23,7 +25,7 @@ test_denied {
 	r[_].msg == "'apt-get dist-upgrade' should not be used in Dockerfile"
 }
 
-test_shortflag_denied {
+test_shortflag_denied if {
 	r := deny with input as {"Stages": [{"Name": "debian", "Commands": [
 		{
 			"Cmd": "from",
@@ -46,7 +48,7 @@ test_shortflag_denied {
 	r[_].msg == "'apt-get dist-upgrade' should not be used in Dockerfile"
 }
 
-test_longflag_denied {
+test_longflag_denied if {
 	r := deny with input as {"Stages": [{"Name": "debian", "Commands": [
 		{
 			"Cmd": "from",
@@ -69,7 +71,7 @@ test_longflag_denied {
 	r[_].msg == "'apt-get dist-upgrade' should not be used in Dockerfile"
 }
 
-test_allowed {
+test_allowed if {
 	r := deny with input as {"Stages": [{"Name": "debian", "Commands": [
 		{
 			"Cmd": "from",

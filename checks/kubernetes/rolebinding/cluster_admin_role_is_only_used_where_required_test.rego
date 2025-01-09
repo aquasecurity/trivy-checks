@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV111
 
-test_cluster_role_admin__used_with_non_system_role_binding {
+import rego.v1
+
+test_cluster_role_admin__used_with_non_system_role_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "RoleBinding",
@@ -23,7 +25,7 @@ test_cluster_role_admin__used_with_non_system_role_binding {
 	count(r) == 1
 }
 
-test_cluster_role_admin__used_with_system_role_binding {
+test_cluster_role_admin__used_with_system_role_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRoleBinding",
@@ -46,7 +48,7 @@ test_cluster_role_admin__used_with_system_role_binding {
 	count(r) == 1
 }
 
-test_admin_used_with_system_role_binding {
+test_admin_used_with_system_role_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRoleBinding",
@@ -69,7 +71,7 @@ test_admin_used_with_system_role_binding {
 	count(r) == 1
 }
 
-test_non_role_ref_used_with_system_role_binding {
+test_non_role_ref_used_with_system_role_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "ClusterRoleBinding",

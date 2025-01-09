@@ -17,6 +17,8 @@
 #     - type: kubernetes
 package builtin.kubernetes.KSV045
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
@@ -24,14 +26,14 @@ resourceRead := ["secrets", "pods", "deployments", "daemonsets", "statefulsets",
 
 readKinds := ["Role", "ClusterRole"]
 
-resourceAllowAnyVerbOnspecificResource[input.rules[ru]] {
+resourceAllowAnyVerbOnspecificResource contains input.rules[ru] if {
 	some ru, r, v
 	input.kind == readKinds[_]
 	input.rules[ru].resources[r] == resourceRead[_]
 	input.rules[ru].verbs[v] == "*"
 }
 
-deny[res] {
+deny contains res if {
 	badRule := resourceAllowAnyVerbOnspecificResource[_]
 	msg := "Role permits wildcard verb on specific resources"
 	res := result.new(msg, badRule)

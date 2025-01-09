@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV118
 
-test_container_with_default_security_context {
+import rego.v1
+
+test_container_with_default_security_context if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -16,7 +18,7 @@ test_container_with_default_security_context {
 	count(r) == 1
 }
 
-test_container_with_non_default_security_context {
+test_container_with_non_default_security_context if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

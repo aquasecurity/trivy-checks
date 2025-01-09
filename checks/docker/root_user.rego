@@ -17,23 +17,25 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS002
 
+import rego.v1
+
 import data.lib.docker
 
 # get_user returns all the usernames from
 # the USER command.
-get_user[username] {
+get_user contains username if {
 	user := docker.user[_]
 	username := user.Value[_]
 }
 
 # fail_user_count is true if there is no USER command.
-fail_user_count {
+fail_user_count if {
 	count(get_user) < 1
 }
 
 # fail_last_user_root is true if the last USER command
 # value is "root"
-fail_last_user_root[lastUser] {
+fail_last_user_root contains lastUser if {
 	users := [user | user := docker.user[_]; true]
 	lastUser := users[count(users) - 1]
 	regex.match("^root(:.+){0,1}$", lastUser.Value[0])
@@ -41,19 +43,19 @@ fail_last_user_root[lastUser] {
 
 # fail_last_user_root is true if the last USER command
 # value is "0"
-fail_last_user_root[lastUser] {
+fail_last_user_root contains lastUser if {
 	users := [user | user := docker.user[_]; true]
 	lastUser := users[count(users) - 1]
 	regex.match("^0(:.+){0,1}$", lastUser.Value[0])
 }
 
-deny[res] {
+deny contains res if {
 	fail_user_count
 	msg := "Specify at least 1 USER command in Dockerfile with non-root user as argument"
 	res := result.new(msg, {})
 }
 
-deny[res] {
+deny contains res if {
 	cmd := fail_last_user_root[_]
 	msg := "Last USER command in Dockerfile should not be 'root'"
 	res := result.new(msg, cmd)

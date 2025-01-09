@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV037
 
-test_pod_with_default_namespace {
+import rego.v1
+
+test_pod_with_default_namespace if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -32,7 +34,7 @@ test_pod_with_default_namespace {
 	count(r) == 0
 }
 
-test_pod_core_component {
+test_pod_core_component if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -68,7 +70,7 @@ test_pod_core_component {
 	count(r) == 0
 }
 
-test_pod_non_core_component_with_kube_system_namespace_no_label_component {
+test_pod_non_core_component_with_kube_system_namespace_no_label_component if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -103,7 +105,7 @@ test_pod_non_core_component_with_kube_system_namespace_no_label_component {
 	r[_].msg == "Pod 'redis-master-85547b7b9-fxnrp' should not be set with 'kube-system' namespace"
 }
 
-test_pod_non_core_component_with_kube_system_namespace_wrong_label_tier {
+test_pod_non_core_component_with_kube_system_namespace_wrong_label_tier if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -139,7 +141,7 @@ test_pod_non_core_component_with_kube_system_namespace_wrong_label_tier {
 	r[_].msg == "Pod 'redis-master-85547b7b9-fxnrp' should not be set with 'kube-system' namespace"
 }
 
-test_pod_non_core_component_with_kube_system_namespace_no_priority_class_name {
+test_pod_non_core_component_with_kube_system_namespace_no_priority_class_name if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

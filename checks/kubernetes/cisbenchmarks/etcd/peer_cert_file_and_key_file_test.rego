@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0045
 
-test_only_etcd_peer_cert_file_is_set {
+import rego.v1
+
+test_only_etcd_peer_cert_file_is_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -22,7 +24,7 @@ test_only_etcd_peer_cert_file_is_set {
 	r[_].msg == "Ensure that the --peer-cert-file and --peer-key-file arguments are set as appropriate"
 }
 
-test_only_etcd_peer_key_file_is_set {
+test_only_etcd_peer_key_file_is_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -44,7 +46,7 @@ test_only_etcd_peer_key_file_is_set {
 	r[_].msg == "Ensure that the --peer-cert-file and --peer-key-file arguments are set as appropriate"
 }
 
-test_etcd_peer_cert_file_and_peer_key_file_are_set {
+test_etcd_peer_cert_file_and_peer_key_file_are_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -65,7 +67,7 @@ test_etcd_peer_cert_file_and_peer_key_file_are_set {
 	count(r) == 0
 }
 
-test_etcd_peer_cert_file_and_peer_key_file_are_set_args {
+test_etcd_peer_cert_file_and_peer_key_file_are_set_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -87,7 +89,7 @@ test_etcd_peer_cert_file_and_peer_key_file_are_set_args {
 	count(r) == 0
 }
 
-test_etcd_peer_cert_file_and_peer_key_file_are_not_set {
+test_etcd_peer_cert_file_and_peer_key_file_are_not_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

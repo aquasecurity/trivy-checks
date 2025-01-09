@@ -27,11 +27,13 @@
 #         - kind: job
 package builtin.kubernetes.KSV028
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
 # Add disallowed volume type
-disallowed_volume_types = [
+disallowed_volume_types := [
 	"gcePersistentDisk",
 	"awsElasticBlockStore",
 	# "hostPath", Baseline detects spec.volumes[*].hostPath
@@ -56,7 +58,7 @@ disallowed_volume_types = [
 
 # getDisallowedVolumes returns a list of volume names
 # which set volume type to any of the disallowed volume types
-getDisallowedVolumes[name] {
+getDisallowedVolumes contains name if {
 	volume := kubernetes.volumes[_]
 	type := disallowed_volume_types[_]
 	utils.has_key(volume, type)
@@ -65,11 +67,11 @@ getDisallowedVolumes[name] {
 
 # failVolumeTypes is true if any of volume has a disallowed
 # volume type
-failVolumeTypes {
+failVolumeTypes if {
 	count(getDisallowedVolumes) > 0
 }
 
-deny[res] {
+deny contains res if {
 	failVolumeTypes
 	msg := kubernetes.format(sprintf("%s '%s' should set 'spec.volumes[*]' to an allowed volume type", [kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, input.spec)

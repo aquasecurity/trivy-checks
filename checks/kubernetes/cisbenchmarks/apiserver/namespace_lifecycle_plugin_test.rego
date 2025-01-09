@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0015
 
-test_namespace_lifecycle_plugin_is_disabled {
+import rego.v1
+
+test_namespace_lifecycle_plugin_is_disabled if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -22,7 +24,7 @@ test_namespace_lifecycle_plugin_is_disabled {
 	r[_].msg == "Ensure that the admission control plugin NamespaceLifecycle is set"
 }
 
-test_namespace_lifecycle_plugin_is_not_disabled {
+test_namespace_lifecycle_plugin_is_not_disabled if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -43,7 +45,7 @@ test_namespace_lifecycle_plugin_is_not_disabled {
 	count(r) == 0
 }
 
-test_namespace_lifecycle_plugin_is_not_disabled_args {
+test_namespace_lifecycle_plugin_is_not_disabled_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

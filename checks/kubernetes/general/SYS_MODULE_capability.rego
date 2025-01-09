@@ -27,18 +27,20 @@
 #         - kind: job
 package builtin.kubernetes.KSV120
 
+import rego.v1
+
 import data.lib.kubernetes
 
-default failCapsSysModule = false
+default failCapsSysModule := false
 
 # getCapsSysAdmin returns the names of all containers which include
 # 'SYS_ADMIN' in securityContext.capabilities.add.
-getCapsSysModule[container] {
+getCapsSysModule contains container if {
 	container := kubernetes.containers[_]
 	container.securityContext.capabilities.add[_] == "SYS_MODULE"
 }
 
-deny[res] {
+deny contains res if {
 	output := getCapsSysModule[_]
 	msg := kubernetes.format(sprintf("container %s of %s %s in %s namespace should not include 'SYS_MODULE' in securityContext.capabilities.add", [getCapsSysModule[_], lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
 	res := result.new(msg, output)

@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV025
 
-test_pod_invalid_selinux_type_denied {
+import rego.v1
+
+test_pod_invalid_selinux_type_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -23,7 +25,7 @@ test_pod_invalid_selinux_type_denied {
 	r[_].msg == "Pod 'hello-selinux' uses invalid seLinux type 'custom'"
 }
 
-test_container_invalid_selinux_type_denied {
+test_container_invalid_selinux_type_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -44,7 +46,7 @@ test_container_invalid_selinux_type_denied {
 	r[_].msg == "Pod 'hello-selinux' uses invalid seLinux type 'custom'"
 }
 
-test_empty_selinux_options_allowed {
+test_empty_selinux_options_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -66,7 +68,7 @@ test_empty_selinux_options_allowed {
 	count(r) == 0
 }
 
-test_no_security_context_allowed {
+test_no_security_context_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -85,7 +87,7 @@ test_no_security_context_allowed {
 	count(r) == 0
 }
 
-test_restricted_key_in_selinux_options_denied {
+test_restricted_key_in_selinux_options_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -108,7 +110,7 @@ test_restricted_key_in_selinux_options_denied {
 	r[_].msg == "Pod 'hello-selinux' uses restricted properties in seLinuxOptions: ('role')"
 }
 
-test_multiple_restricted_keys_in_selinux_options_denied {
+test_multiple_restricted_keys_in_selinux_options_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -131,7 +133,7 @@ test_multiple_restricted_keys_in_selinux_options_denied {
 	r[_].msg == "Pod 'hello-selinux' uses restricted properties in seLinuxOptions: ('role', 'user')"
 }
 
-test_containers_have_multiple_restricted_keys_in_selinux_options_denied {
+test_containers_have_multiple_restricted_keys_in_selinux_options_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

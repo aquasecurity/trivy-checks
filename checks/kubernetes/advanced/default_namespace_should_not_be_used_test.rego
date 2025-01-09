@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV110
 
-test_pod_with_default_namespace {
+import rego.v1
+
+test_pod_with_default_namespace if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -32,7 +34,7 @@ test_pod_with_default_namespace {
 	count(r) == 1
 }
 
-test_pod_non_default_namespace {
+test_pod_non_default_namespace if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

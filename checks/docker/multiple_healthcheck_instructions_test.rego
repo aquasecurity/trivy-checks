@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS023
 
-test_denied {
+import rego.v1
+
+test_denied if {
 	r := deny with input as {"Stages": [
 		{"Name": "golang:1.7.3", "Commands": [
 			{
@@ -45,7 +47,7 @@ test_denied {
 	r[_].msg == "There are 2 duplicate HEALTHCHECK instructions in the stage"
 }
 
-test_allowed {
+test_allowed if {
 	r := deny with input as {"Stages": [
 		{"Name": "golang:1.7.3", "Commands": [
 			{
@@ -79,7 +81,7 @@ test_allowed {
 	count(r) == 0
 }
 
-test_healthcheck_none_allowed {
+test_healthcheck_none_allowed if {
 	r := deny with input as {"Stages": [
 		{"Name": "golang:1.7.3", "Commands": [
 			{

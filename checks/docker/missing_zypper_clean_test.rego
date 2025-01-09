@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS020
 
-test_denied {
+import rego.v1
+
+test_denied if {
 	r := deny with input as {"Stages": [{"Name": "busybox:1.0", "Commands": [
 		{
 			"Cmd": "from",
@@ -23,7 +25,7 @@ test_denied {
 	r[_].msg == "'zypper clean' is missed: 'zypper install'"
 }
 
-test_patch_denied {
+test_patch_denied if {
 	r := deny with input as {"Stages": [{"Name": "busybox:1.0", "Commands": [
 		{
 			"Cmd": "from",
@@ -46,7 +48,7 @@ test_patch_denied {
 	r[_].msg == "'zypper clean' is missed: 'zypper patch bash'"
 }
 
-test_wrong_order_of_commands_denied {
+test_wrong_order_of_commands_denied if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",
@@ -62,7 +64,7 @@ test_wrong_order_of_commands_denied {
 	r[_].msg == "'zypper clean' is missed: 'zypper cc && zypper remove bash'"
 }
 
-test_multiple_install_denied {
+test_multiple_install_denied if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",
@@ -78,7 +80,7 @@ test_multiple_install_denied {
 	r[_].msg == "'zypper clean' is missed: 'zypper install bash && zypper clean && zypper remove bash'"
 }
 
-test_multiple_install_allowed {
+test_multiple_install_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",
@@ -93,7 +95,7 @@ test_multiple_install_allowed {
 	count(r) == 0
 }
 
-test_basic_allowed {
+test_basic_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",

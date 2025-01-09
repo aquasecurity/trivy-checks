@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS007
 
-test_denied {
+import rego.v1
+
+test_denied if {
 	r := deny with input as {"Stages": [
 		{"Name": "golang", "Commands": [
 			{
@@ -44,7 +46,7 @@ test_denied {
 	r[_].msg == "There are 2 duplicate ENTRYPOINT instructions"
 }
 
-test_allowed {
+test_allowed if {
 	r := deny with input as {"Stages": [
 		{"Name": "golang", "Commands": [
 			{

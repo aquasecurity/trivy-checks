@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV104
 
-test_container_seccomp_profile_unconfined_denied {
+import rego.v1
+
+test_container_seccomp_profile_unconfined_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -20,7 +22,7 @@ test_container_seccomp_profile_unconfined_denied {
 	count(r) == 1
 }
 
-test_container_empty_seccomp_profile_unconfined_denied {
+test_container_empty_seccomp_profile_unconfined_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -39,7 +41,7 @@ test_container_empty_seccomp_profile_unconfined_denied {
 	count(r) == 1
 }
 
-test_container_seccomp_profile_unconfined_allowed {
+test_container_seccomp_profile_unconfined_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -61,7 +63,7 @@ test_container_seccomp_profile_unconfined_allowed {
 	count(r) == 0
 }
 
-test_deployment_seccomp_profile_unconfined_allowed {
+test_deployment_seccomp_profile_unconfined_allowed if {
 	r := deny with input as {
 		"apiVersion": "apps/v1",
 		"kind": "Deployment",
@@ -86,7 +88,7 @@ test_deployment_seccomp_profile_unconfined_allowed {
 	count(r) == 0
 }
 
-test_deployment_seccomp_profile_unconfined_denied {
+test_deployment_seccomp_profile_unconfined_denied if {
 	r := deny with input as {
 		"apiVersion": "apps/v1",
 		"kind": "Deployment",
@@ -111,7 +113,7 @@ test_deployment_seccomp_profile_unconfined_denied {
 	count(r) == 1
 }
 
-test_deployment_override_seccomp_profile_unconfined_allowed {
+test_deployment_override_seccomp_profile_unconfined_allowed if {
 	r := deny with input as {
 		"apiVersion": "apps/v1",
 		"kind": "Deployment",
@@ -137,7 +139,7 @@ test_deployment_override_seccomp_profile_unconfined_allowed {
 	count(r) == 0
 }
 
-test_deployment_override_seccomp_profile_unconfined_deny {
+test_deployment_override_seccomp_profile_unconfined_deny if {
 	r := deny with input as {
 		"apiVersion": "apps/v1",
 		"kind": "Deployment",
@@ -170,7 +172,7 @@ test_deployment_override_seccomp_profile_unconfined_deny {
 	contains(r[_].msg, "container2")
 }
 
-test_cronjob_seccomp_profile_unconfined_denied {
+test_cronjob_seccomp_profile_unconfined_denied if {
 	r := deny with input as {
 		"apiVersion": "batch/v1",
 		"kind": "CronJob",
@@ -190,7 +192,7 @@ test_cronjob_seccomp_profile_unconfined_denied {
 	count(r) == 1
 }
 
-test_pod_annotations_seccomp_profile_unconfined_denied {
+test_pod_annotations_seccomp_profile_unconfined_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -206,7 +208,7 @@ test_pod_annotations_seccomp_profile_unconfined_denied {
 	count(r) == 1
 }
 
-test_pod_annotations_seccomp_profile_unconfined_allowed {
+test_pod_annotations_seccomp_profile_unconfined_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -222,7 +224,7 @@ test_pod_annotations_seccomp_profile_unconfined_allowed {
 	count(r) == 0
 }
 
-test_deployment_annotations_seccomp_profile_unconfined_allowed {
+test_deployment_annotations_seccomp_profile_unconfined_allowed if {
 	r := deny with input as {
 		"apiVersion": "apps/v1",
 		"kind": "Deployment",

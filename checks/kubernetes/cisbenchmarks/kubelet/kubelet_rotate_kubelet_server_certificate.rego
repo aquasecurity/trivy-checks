@@ -19,25 +19,27 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0091
 
+import rego.v1
+
 import data.lib.kubernetes
 
 types := ["master", "worker"]
 
-validate_kubelet_rotate_kubelet_server_certificate(sp) := {"kubeletRotateKubeletServerCertificateArgumentSet": violation} {
+validate_kubelet_rotate_kubelet_server_certificate(sp) := {"kubeletRotateKubeletServerCertificateArgumentSet": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	violation := {rotate_kubelet_server_certificate | rotate_kubelet_server_certificate = sp.info.kubeletRotateKubeletServerCertificateArgumentSet.values[_]; rotate_kubelet_server_certificate == "false"}
 	count(violation) > 0
 }
 
-validate_kubelet_rotate_kubelet_server_certificate(sp) := {"kubeletRotateKubeletServerCertificateArgumentSet": rotate_kubelet_server_certificate} {
+validate_kubelet_rotate_kubelet_server_certificate(sp) := {"kubeletRotateKubeletServerCertificateArgumentSet": rotate_kubelet_server_certificate} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	count(sp.info.kubeletRotateKubeletServerCertificateArgumentSet.values) == 0
 	rotate_kubelet_server_certificate = {}
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_kubelet_rotate_kubelet_server_certificate(input)
 	msg := "Verify that the RotateKubeletServerCertificate argument is set to true"
 	res := result.new(msg, output)

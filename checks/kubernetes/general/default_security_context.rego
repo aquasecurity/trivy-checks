@@ -27,29 +27,31 @@
 #         - kind: job
 package builtin.kubernetes.KSV118
 
+import rego.v1
+
 import data.lib.kubernetes
 
-default failCapsDefaultSecurityContext = false
+default failCapsDefaultSecurityContext := false
 
 #failDefaultSecurityContext is true if spec.containers.securityContext is set to the default security context
-failDefaultSecurityContext {
+failDefaultSecurityContext if {
 	containers := kubernetes.containers[_]
 	containers.securityContext == {}
 }
 
 # failPodDefaultSecurityContext is true if spec.securityContext is set to the default security context
-failPodDefaultSecurityContext {
+failPodDefaultSecurityContext if {
 	pod := kubernetes.pods[_]
 	pod.spec.securityContext == {}
 }
 
-deny[res] {
+deny contains res if {
 	output := failPodDefaultSecurityContext
 	msg := kubernetes.format(sprintf("%s %s in %s namespace is using the default security context, which allows root privileges", [lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
 	res := result.new(msg, output)
 }
 
-deny[res] {
+deny contains res if {
 	output := failDefaultSecurityContext
 	msg := kubernetes.format(sprintf("container %s in %s namespace is using the default security context", [kubernetes.name, kubernetes.namespace]))
 	res := result.new(msg, output)

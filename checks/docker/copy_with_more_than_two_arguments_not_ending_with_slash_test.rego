@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS011
 
-test_basic_denied {
+import rego.v1
+
+test_basic_denied if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.3", "Commands": [
 		{
 			"Cmd": "from",
@@ -16,7 +18,7 @@ test_basic_denied {
 	r[_].msg == "Slash is expected at the end of COPY command argument 'my_app'"
 }
 
-test_two_args_allowed {
+test_two_args_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.3", "Commands": [
 		{
 			"Cmd": "from",
@@ -31,7 +33,7 @@ test_two_args_allowed {
 	count(r) == 0
 }
 
-test_three_args_with_file_colon_in_allowed {
+test_three_args_with_file_colon_in_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.3", "Commands": [
 		{
 			"Cmd": "from",
@@ -46,7 +48,7 @@ test_three_args_with_file_colon_in_allowed {
 	count(r) == 0
 }
 
-test_three_args_with_multi_colon_in_allowed {
+test_three_args_with_multi_colon_in_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.3", "Commands": [
 		{
 			"Cmd": "from",
@@ -61,7 +63,7 @@ test_three_args_with_multi_colon_in_allowed {
 	count(r) == 0
 }
 
-test_three_arg_allowed {
+test_three_arg_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.3", "Commands": [
 		{
 			"Cmd": "from",

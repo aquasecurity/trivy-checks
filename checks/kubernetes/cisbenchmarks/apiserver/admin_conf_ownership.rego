@@ -19,16 +19,18 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0061
 
+import rego.v1
+
 import data.lib.kubernetes
 
-validate_conf_ownership(sp) := {"adminConfFileOwnership": violation} {
+validate_conf_ownership(sp) := {"adminConfFileOwnership": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == "master"
 	violation := {ownership | ownership = sp.info.adminConfFileOwnership.values[_]; not ownership == "root:root"}
 	count(violation) > 0
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_conf_ownership(input)
 	msg := "Ensure that the admin config  file ownership is set to root:root"
 	res := result.new(msg, output)

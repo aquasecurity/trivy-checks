@@ -30,7 +30,7 @@ import rego.v1
 
 import data.lib.aws.iam
 
-days_to_check = 45
+days_to_check := 45
 
 deny contains res if {
 	some user in input.aws.iam.users

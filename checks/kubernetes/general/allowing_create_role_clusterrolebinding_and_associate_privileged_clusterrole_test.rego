@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV052
 
-test_allowing_create_clusterrolebindings_binding_and_associate_clusterrole {
+import rego.v1
+
+test_allowing_create_clusterrolebindings_binding_and_associate_clusterrole if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -26,7 +28,7 @@ test_allowing_create_clusterrolebindings_binding_and_associate_clusterrole {
 	count(r) > 0
 }
 
-test_allowing_create_clusterrolebindings_binding_and_associate_clusterrole_resource_not_role_binding {
+test_allowing_create_clusterrolebindings_binding_and_associate_clusterrole_resource_not_role_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -52,7 +54,7 @@ test_allowing_create_clusterrolebindings_binding_and_associate_clusterrole_resou
 	count(r) == 0
 }
 
-test_allowing_create_clusterrolebindings_binding_and_associate_clusterrole_verb_not_create {
+test_allowing_create_clusterrolebindings_binding_and_associate_clusterrole_verb_not_create if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -78,7 +80,7 @@ test_allowing_create_clusterrolebindings_binding_and_associate_clusterrole_verb_
 	count(r) == 0
 }
 
-test_allowing_create_clusterrolebindings_binding_and_associate_clusterrole_resource_not_role {
+test_allowing_create_clusterrolebindings_binding_and_associate_clusterrole_resource_not_role if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -104,7 +106,7 @@ test_allowing_create_clusterrolebindings_binding_and_associate_clusterrole_resou
 	count(r) == 0
 }
 
-test_allowing_create_clusterrolebindings_binding_and_associate_clusterrole_verb_not_bind {
+test_allowing_create_clusterrolebindings_binding_and_associate_clusterrole_verb_not_bind if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -130,7 +132,7 @@ test_allowing_create_clusterrolebindings_binding_and_associate_clusterrole_verb_
 	count(r) == 0
 }
 
-test_allowing_create_clusterrolebindings_binding_and_associate_clusterrole_resourceNames_not_any {
+test_allowing_create_clusterrolebindings_binding_and_associate_clusterrole_resourceNames_not_any if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",

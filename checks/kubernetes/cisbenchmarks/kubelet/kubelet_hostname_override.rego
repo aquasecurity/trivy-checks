@@ -19,18 +19,20 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0086
 
+import rego.v1
+
 import data.lib.kubernetes
 
 types := ["master", "worker"]
 
-validate_kubelet_hostname_override_set(sp) := {"kubeletHostnameOverrideArgumentSet": hostname_override} {
+validate_kubelet_hostname_override_set(sp) := {"kubeletHostnameOverrideArgumentSet": hostname_override} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	count(sp.info.kubeletHostnameOverrideArgumentSet.values) > 0
 	hostname_override = sp.info.kubeletHostnameOverrideArgumentSet.values
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_kubelet_hostname_override_set(input)
 	msg := "Ensure that the --hostname-override argument is not set"
 	res := result.new(msg, output)

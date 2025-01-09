@@ -27,16 +27,18 @@
 #         - kind: job
 package builtin.kubernetes.KSV009
 
+import rego.v1
+
 import data.lib.kubernetes
 
-default failHostNetwork = false
+default failHostNetwork := false
 
 # failHostNetwork is true if spec.hostNetwork is set to true (on all controllers)
-failHostNetwork {
+failHostNetwork if {
 	kubernetes.host_networks[_] == true
 }
 
-deny[res] {
+deny contains res if {
 	failHostNetwork
 	msg := kubernetes.format(sprintf("%s '%s' should not set 'spec.template.spec.hostNetwork' to true", [kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, input.spec)

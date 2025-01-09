@@ -27,25 +27,27 @@
 #         - kind: job
 package builtin.kubernetes.KSV015
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-default failRequestsCPU = false
+default failRequestsCPU := false
 
 # getRequestsCPUContainers returns all containers which have set resources.requests.cpu
-getRequestsCPUContainers[container] {
+getRequestsCPUContainers contains container if {
 	container := kubernetes.containers[_]
 	utils.has_key(container.resources.requests, "cpu")
 }
 
 # getNoRequestsCPUContainers returns all containers which have not set
 # resources.requests.cpu
-getNoRequestsCPUContainers[container] {
+getNoRequestsCPUContainers contains container if {
 	container := kubernetes.containers[_]
 	not getRequestsCPUContainers[container]
 }
 
-deny[res] {
+deny contains res if {
 	output := getNoRequestsCPUContainers[_]
 	msg := kubernetes.format(sprintf("Container '%s' of %s '%s' should set 'resources.requests.cpu'", [output.name, kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, output)

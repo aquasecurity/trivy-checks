@@ -17,9 +17,11 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS012
 
+import rego.v1
+
 import data.lib.docker
 
-get_duplicate_alias[output] {
+get_duplicate_alias contains output if {
 	output1 := get_aliased_name[_]
 	output2 := get_aliased_name[_]
 	output1.arg != output2.arg
@@ -34,7 +36,7 @@ get_duplicate_alias[output] {
 	}
 }
 
-get_aliased_name[output] {
+get_aliased_name contains output if {
 	stage := input.Stages[_]
 	name := stage.Name
 
@@ -48,7 +50,7 @@ get_aliased_name[output] {
 	}
 }
 
-deny[res] {
+deny contains res if {
 	output := get_duplicate_alias[_]
 	msg := sprintf("Duplicate aliases '%s' are found in different FROMs", [output.alias])
 	res := result.new(msg, output.cmd)

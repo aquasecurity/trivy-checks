@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV006
 
-test_docker_socket_not_mounted_allowed {
+import rego.v1
+
+test_docker_socket_not_mounted_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -19,7 +21,7 @@ test_docker_socket_not_mounted_allowed {
 	count(r) == 0
 }
 
-test_docker_socket_mounted_denied {
+test_docker_socket_mounted_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

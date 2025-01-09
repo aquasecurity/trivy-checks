@@ -22,14 +22,16 @@
 #           provider: aws
 package builtin.aws.iam.aws0342
 
-allows_permission(statements, permission, effect) {
+import rego.v1
+
+allows_permission(statements, permission, effect) if {
 	statement := statements[_]
 	statement.Effect == effect
 	action = statement.Action[_]
 	action == permission
 }
 
-deny[res] {
+deny contains res if {
 	policy := input.aws.iam.policies[_]
 	value = json.unmarshal(policy.document.value)
 	statements = value.Statement

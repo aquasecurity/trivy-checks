@@ -19,18 +19,20 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0076
 
+import rego.v1
+
 import data.lib.kubernetes
 
 types := ["master", "worker"]
 
-validate_certificate_authorities_ownership(sp) := {"certificateAuthoritiesFileOwnership": violation} {
+validate_certificate_authorities_ownership(sp) := {"certificateAuthoritiesFileOwnership": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	violation := {ownership | ownership = sp.info.certificateAuthoritiesFileOwnership.values[_]; not ownership == "root:root"}
 	count(violation) > 0
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_certificate_authorities_ownership(input)
 	msg := "Ensure that the certificate authorities file ownership is set to root:root."
 	res := result.new(msg, output)

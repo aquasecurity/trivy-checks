@@ -19,18 +19,20 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0079
 
+import rego.v1
+
 import data.lib.kubernetes
 
 types := ["master", "worker"]
 
-validate_kubelet_anonymous_auth_set(sp) := {"kubeletAnonymousAuthArgumentSet": violation} {
+validate_kubelet_anonymous_auth_set(sp) := {"kubeletAnonymousAuthArgumentSet": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	violation := {anonymous_auth | anonymous_auth = sp.info.kubeletAnonymousAuthArgumentSet.values[_]; anonymous_auth == "true"}
 	count(violation) > 0
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_kubelet_anonymous_auth_set(input)
 	msg := "Ensure that the --anonymous-auth argument is set to false"
 	res := result.new(msg, output)

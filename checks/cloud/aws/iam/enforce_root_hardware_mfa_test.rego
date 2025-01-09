@@ -41,4 +41,4 @@ test_allow_without_user if {
 	test.assert_empty(check.deny) with input as build_input({})
 }
 
-build_input(body) = {"aws": {"iam": {"users": [body]}}}
+build_input(body) := {"aws": {"iam": {"users": [body]}}}

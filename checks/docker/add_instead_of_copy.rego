@@ -17,9 +17,11 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS005
 
+import rego.v1
+
 import data.lib.docker
 
-get_add[output] {
+get_add contains output if {
 	add := docker.add[_]
 	args := concat(" ", add.Value)
 
@@ -37,13 +39,13 @@ get_add[output] {
 	}
 }
 
-is_command_with_hash(cmd, prefix) {
+is_command_with_hash(cmd, prefix) if {
 	count(cmd) == 3
 	startswith(cmd[0], prefix)
 	cmd[1] == "in"
 }
 
-deny[res] {
+deny contains res if {
 	output := get_add[_]
 	msg := sprintf("Consider using 'COPY %s' command instead of 'ADD %s'", [output.args, output.args])
 	res := result.new(msg, output.cmd)

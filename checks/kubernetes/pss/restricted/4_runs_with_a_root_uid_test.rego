@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV105
 
-test_run_as_group_not_defined_allowed {
+import rego.v1
+
+test_run_as_group_not_defined_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -19,7 +21,7 @@ test_run_as_group_not_defined_allowed {
 	count(r) == 0
 }
 
-test_run_as_user_set_to_zero_for_pod_denied {
+test_run_as_user_set_to_zero_for_pod_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -42,7 +44,7 @@ test_run_as_user_set_to_zero_for_pod_denied {
 	r[_].msg == "securityContext.runAsUser should be set to a value greater than 0"
 }
 
-test_run_as_user_set_to_non_zero_for_pod_allowed {
+test_run_as_user_set_to_non_zero_for_pod_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

@@ -6,82 +6,84 @@
 #     - type: dockerfile
 package lib.docker
 
-from[instruction] {
+import rego.v1
+
+from contains instruction if {
 	instruction := input.Stages[_].Commands[_]
 	instruction.Cmd == "from"
 }
 
-add[instruction] {
+add contains instruction if {
 	instruction := input.Stages[_].Commands[_]
 	instruction.Cmd == "add"
 }
 
-run[instruction] {
+run contains instruction if {
 	instruction := input.Stages[_].Commands[_]
 	instruction.Cmd == "run"
 }
 
-copy[instruction] {
+copy contains instruction if {
 	instruction := input.Stages[_].Commands[_]
 	instruction.Cmd == "copy"
 }
 
-stage_copies[stage] = copies {
+stage_copies[stage] := copies if {
 	stage := input.Stages[_]
 	copies := [copy | copy := stage.Commands[_]; copy.Cmd == "copy"]
 }
 
-entrypoint[instruction] {
+entrypoint contains instruction if {
 	instruction := input.Stages[_].Commands[_]
 	instruction.Cmd == "entrypoint"
 }
 
-stage_entrypoints[stage] = entrypoints {
+stage_entrypoints[stage] := entrypoints if {
 	stage := input.Stages[_]
 	entrypoints := [entrypoint | entrypoint := stage.Commands[_]; entrypoint.Cmd == "entrypoint"]
 }
 
-stage_cmd[stage] = cmds {
+stage_cmd[stage] := cmds if {
 	stage := input.Stages[_]
 	cmds := [cmd | cmd := stage.Commands[_]; cmd.Cmd == "cmd"]
 }
 
-stage_healthcheck[stage] = hlthchecks {
+stage_healthcheck[stage] := hlthchecks if {
 	stage := input.Stages[_]
 	hlthchecks := [hlthcheck | hlthcheck := stage.Commands[_]; hlthcheck.Cmd == "healthcheck"]
 }
 
-stage_user[stage] = users {
+stage_user[stage] := users if {
 	stage := input.Stages[_]
 	users := [cmd | cmd := stage.Commands[_]; cmd.Cmd == "user"]
 }
 
-expose[instruction] {
+expose contains instruction if {
 	instruction := input.Stages[_].Commands[_]
 	instruction.Cmd == "expose"
 }
 
-user[instruction] {
+user contains instruction if {
 	instruction := input.Stages[_].Commands[_]
 	instruction.Cmd == "user"
 }
 
-workdir[instruction] {
+workdir contains instruction if {
 	instruction := input.Stages[_].Commands[_]
 	instruction.Cmd == "workdir"
 }
 
-healthcheck[instruction] {
+healthcheck contains instruction if {
 	instruction := input.Stages[_].Commands[_]
 	instruction.Cmd == "healthcheck"
 }
 
-split_cmd(s) := cmds {
+split_cmd(s) := cmds if {
 	cmd_parts := regex.split(`\s*&&\s*`, s)
 	cmds := [split(cmd, " ") | cmd := cmd_parts[_]]
 }
 
-command_indexes(cmds, cmds_to_check, package_manager) = cmd_indexes {
+command_indexes(cmds, cmds_to_check, package_manager) := cmd_indexes if {
 	cmd_indexes = [idx |
 		cmd_parts := cmds[idx]
 		some i, j

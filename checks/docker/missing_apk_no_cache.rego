@@ -17,9 +17,11 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS025
 
+import rego.v1
+
 import data.lib.docker
 
-get_apk[output] {
+get_apk contains output if {
 	run := docker.run[_]
 	arg := run.Value[0]
 
@@ -33,12 +35,12 @@ get_apk[output] {
 	}
 }
 
-deny[res] {
+deny contains res if {
 	output := get_apk[_]
 	msg := sprintf("'--no-cache' is missed: %s", [output.arg])
 	res := result.new(msg, output.cmd)
 }
 
-contains_no_cache(cmd) {
+contains_no_cache(cmd) if {
 	split(cmd, " ")[_] == "--no-cache"
 }

@@ -19,18 +19,20 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0087
 
+import rego.v1
+
 import data.lib.kubernetes
 
 types := ["master", "worker"]
 
-validate_kubelet_event_qps_set(sp) := {"kubeletEventQpsArgumentSet": violation} {
+validate_kubelet_event_qps_set(sp) := {"kubeletEventQpsArgumentSet": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	violation := {event_qps | event_qps = sp.info.kubeletEventQpsArgumentSet.values[_]; event_qps < 0}
 	count(violation) > 0
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_kubelet_event_qps_set(input)
 	msg := "Ensure that the --event-qps argument is set to 0 or a level which ensures appropriate event capture"
 	res := result.new(msg, output)

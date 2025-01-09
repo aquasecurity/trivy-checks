@@ -27,19 +27,21 @@
 #         - kind: job
 package builtin.kubernetes.KSV119
 
+import rego.v1
+
 import data.lib.kubernetes
 
-default failCapsNetRaw = false
+default failCapsNetRaw := false
 
 # getCapsNetRaw returns the names of all containers which include
 # 'NET_RAW' in securityContext.capabilities.add.
-getCapsNetRaw[container] {
+getCapsNetRaw contains container if {
 	allContainers := kubernetes.containers[_]
 	allContainers.securityContext.capabilities.add[_] == "NET_RAW"
 	container := allContainers.name
 }
 
-deny[res] {
+deny contains res if {
 	output := getCapsNetRaw[_]
 	msg := kubernetes.format(sprintf("container %s of %s %s in %s namespace should not include 'NET_RAW' in securityContext.capabilities.add", [getCapsNetRaw[_], lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
 	res := result.new(msg, output)

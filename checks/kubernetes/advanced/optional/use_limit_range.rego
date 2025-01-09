@@ -17,10 +17,12 @@
 #     - type: kubernetes
 package builtin.kubernetes.KSV039
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-limitRangeConfigure {
+limitRangeConfigure if {
 	lower(input.kind) == "limitrange"
 	kubernetes.has_field(input.spec, "limits")
 	limit := input.spec.limits[_]
@@ -31,7 +33,7 @@ limitRangeConfigure {
 	kubernetes.has_field(limit, "defaultRequest")
 }
 
-deny[res] {
+deny contains res if {
 	not limitRangeConfigure
 	msg := "limit range policy with a default request and limit, min and max request, for each container should be configure"
 	res := result.new(msg, input.spec)

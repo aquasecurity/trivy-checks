@@ -19,6 +19,8 @@
 #         - kind: clusterrole
 package builtin.kubernetes.KSV046
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
@@ -26,14 +28,14 @@ readVerbs := ["create", "update", "delete", "deletecollection", "impersonate", "
 
 readKinds := ["ClusterRole"]
 
-resourceAllowSpecificVerbOnAnyResource[input.rules[ru]] {
+resourceAllowSpecificVerbOnAnyResource contains input.rules[ru] if {
 	some ru, r, v
 	input.kind == readKinds[_]
 	input.rules[ru].resources[r] == "*"
 	input.rules[ru].verbs[v] == readVerbs[_]
 }
 
-deny[res] {
+deny contains res if {
 	badRule := resourceAllowSpecificVerbOnAnyResource[_]
 	msg := kubernetes.format(sprintf("%s '%s' shouldn't manage all resources", [kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, badRule)

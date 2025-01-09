@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0004
 
-test_kubelet_https_is_false {
+import rego.v1
+
+test_kubelet_https_is_false if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -22,7 +24,7 @@ test_kubelet_https_is_false {
 	r[_].msg == "Ensure that the --kubelet-https argument is set to true"
 }
 
-test_kubelet_https_is_true {
+test_kubelet_https_is_true if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -43,7 +45,7 @@ test_kubelet_https_is_true {
 	count(r) == 0
 }
 
-test_kubelet_https_is_true_args {
+test_kubelet_https_is_true_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -65,7 +67,7 @@ test_kubelet_https_is_true_args {
 	count(r) == 0
 }
 
-test_kubelet_https_is_not_configured {
+test_kubelet_https_is_not_configured if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

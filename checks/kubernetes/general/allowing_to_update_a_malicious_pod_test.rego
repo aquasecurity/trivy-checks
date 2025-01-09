@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV048
 
-test_update_malicious_pod_deployments {
+import rego.v1
+
+test_update_malicious_pod_deployments if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -18,7 +20,7 @@ test_update_malicious_pod_deployments {
 	count(r) > 0
 }
 
-test_update_malicious_pod_daemonsets {
+test_update_malicious_pod_daemonsets if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -36,7 +38,7 @@ test_update_malicious_pod_daemonsets {
 	count(r) > 0
 }
 
-test_update_malicious_pod_statefulsets {
+test_update_malicious_pod_statefulsets if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -54,7 +56,7 @@ test_update_malicious_pod_statefulsets {
 	count(r) > 0
 }
 
-test_update_malicious_pod_replicationcontrollers {
+test_update_malicious_pod_replicationcontrollers if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -72,7 +74,7 @@ test_update_malicious_pod_replicationcontrollers {
 	count(r) > 0
 }
 
-test_update_malicious_pod_replicasets {
+test_update_malicious_pod_replicasets if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -90,7 +92,7 @@ test_update_malicious_pod_replicasets {
 	count(r) > 0
 }
 
-test_update_malicious_pod_cronjobs {
+test_update_malicious_pod_cronjobs if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -108,7 +110,7 @@ test_update_malicious_pod_cronjobs {
 	count(r) > 0
 }
 
-test_update_malicious_pod_not_secret_resource {
+test_update_malicious_pod_not_secret_resource if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -126,7 +128,7 @@ test_update_malicious_pod_not_secret_resource {
 	count(r) == 0
 }
 
-test_update_malicious_pod_deployment {
+test_update_malicious_pod_deployment if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -144,7 +146,7 @@ test_update_malicious_pod_deployment {
 	count(r) > 0
 }
 
-test_update_malicious_pod_daemonsets {
+test_update_malicious_pod_daemonsets if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -162,7 +164,7 @@ test_update_malicious_pod_daemonsets {
 	count(r) > 0
 }
 
-test_update_malicious_pod_statefulsets {
+test_update_malicious_pod_statefulsets if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -180,7 +182,7 @@ test_update_malicious_pod_statefulsets {
 	count(r) > 0
 }
 
-test_update_malicious_pod_replicationcontrollers {
+test_update_malicious_pod_replicationcontrollers if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -198,7 +200,7 @@ test_update_malicious_pod_replicationcontrollers {
 	count(r) > 0
 }
 
-test_update_malicious_pod_replicasets {
+test_update_malicious_pod_replicasets if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -216,7 +218,7 @@ test_update_malicious_pod_replicasets {
 	count(r) > 0
 }
 
-test_update_malicious_pod_jobs {
+test_update_malicious_pod_jobs if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -234,7 +236,7 @@ test_update_malicious_pod_jobs {
 	count(r) > 0
 }
 
-test_update_malicious_pod_cronjobs {
+test_update_malicious_pod_cronjobs if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -252,7 +254,7 @@ test_update_malicious_pod_cronjobs {
 	count(r) > 0
 }
 
-test_update_malicious_pod_deletecollection {
+test_update_malicious_pod_deletecollection if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -270,7 +272,7 @@ test_update_malicious_pod_deletecollection {
 	count(r) > 0
 }
 
-test_update_malicious_pod_delete {
+test_update_malicious_pod_delete if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -288,7 +290,7 @@ test_update_malicious_pod_delete {
 	count(r) == 0
 }
 
-test_update_malicious_pod_patch {
+test_update_malicious_pod_patch if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -306,7 +308,7 @@ test_update_malicious_pod_patch {
 	count(r) == 0
 }
 
-test_update_malicious_pod_impersonate {
+test_update_malicious_pod_impersonate if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",

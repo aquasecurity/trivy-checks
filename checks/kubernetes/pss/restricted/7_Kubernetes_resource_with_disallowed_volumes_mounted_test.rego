@@ -1,7 +1,9 @@
 package builtin.kubernetes.KSV121
 
+import rego.v1
+
 # Test case for a Pod with no disallowed volumes
-test_pod_with_allowed_volumes {
+test_pod_with_allowed_volumes if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -24,7 +26,7 @@ test_pod_with_allowed_volumes {
 }
 
 # Test case for multiple containers in a Pod, some with disallowed volumes
-test_pod_with_disallowed_volumes_multiple_containers {
+test_pod_with_disallowed_volumes_multiple_containers if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -60,7 +62,7 @@ test_pod_with_disallowed_volumes_multiple_containers {
 }
 
 # Test case for a Pod without any volumes
-test_pod_without_volumes {
+test_pod_without_volumes if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

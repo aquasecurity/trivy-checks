@@ -17,13 +17,15 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS027
 
+import rego.v1
+
 import data.lib.docker
 
 install_regex := `(microdnf install)|(microdnf reinstall)`
 
-microdnf_regex = sprintf("%s|(microdnf clean all)", [install_regex])
+microdnf_regex := sprintf("%s|(microdnf clean all)", [install_regex])
 
-get_dnf[output] {
+get_dnf contains output if {
 	run := docker.run[_]
 	arg := run.Value[0]
 
@@ -36,13 +38,13 @@ get_dnf[output] {
 	}
 }
 
-deny[res] {
+deny contains res if {
 	output := get_dnf[_]
 	msg := sprintf("'microdnf clean all' is missed: %s", [output.arg])
 	res := result.new(msg, output.cmd)
 }
 
-contains_clean_after_dnf(cmd) {
+contains_clean_after_dnf(cmd) if {
 	dnf_commands := regex.find_n(microdnf_regex, cmd, -1)
 
 	dnf_commands[count(dnf_commands) - 1] == "microdnf clean all"

@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV039
 
-test_use_limit_range_configure {
+import rego.v1
+
+test_use_limit_range_configure if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "LimitRange",
@@ -43,7 +45,7 @@ test_use_limit_range_configure {
 	count(r) == 0
 }
 
-test_use_limit_range_no_limits {
+test_use_limit_range_no_limits if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "LimitRange",
@@ -54,7 +56,7 @@ test_use_limit_range_no_limits {
 	r[_].msg == "limit range policy with a default request and limit, min and max request, for each container should be configure"
 }
 
-test_use_limit_range_no_min {
+test_use_limit_range_no_min if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "LimitRange",
@@ -89,7 +91,7 @@ test_use_limit_range_no_min {
 	r[_].msg == "limit range policy with a default request and limit, min and max request, for each container should be configure"
 }
 
-test_use_limit_range_no_max {
+test_use_limit_range_no_max if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "LimitRange",
@@ -124,7 +126,7 @@ test_use_limit_range_no_max {
 	r[_].msg == "limit range policy with a default request and limit, min and max request, for each container should be configure"
 }
 
-test_use_limit_range_no_default {
+test_use_limit_range_no_default if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "LimitRange",
@@ -163,7 +165,7 @@ test_use_limit_range_no_default {
 	r[_].msg == "limit range policy with a default request and limit, min and max request, for each container should be configure"
 }
 
-test_use_limit_range_default_request {
+test_use_limit_range_default_request if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "LimitRange",

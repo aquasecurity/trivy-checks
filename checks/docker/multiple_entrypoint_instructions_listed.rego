@@ -17,9 +17,11 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS007
 
+import rego.v1
+
 import data.lib.docker
 
-deny[res] {
+deny contains res if {
 	entrypoints := docker.stage_entrypoints[stage]
 	count(entrypoints) > 1
 	msg := sprintf("There are %d duplicate ENTRYPOINT instructions", [count(entrypoints)])

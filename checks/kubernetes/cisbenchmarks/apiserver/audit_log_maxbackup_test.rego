@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0021
 
-test_audit_log_maxbackup_is_set_30 {
+import rego.v1
+
+test_audit_log_maxbackup_is_set_30 if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -21,7 +23,7 @@ test_audit_log_maxbackup_is_set_30 {
 	count(r) == 0
 }
 
-test_audit_log_maxbackup_is_set_10 {
+test_audit_log_maxbackup_is_set_10 if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -42,7 +44,7 @@ test_audit_log_maxbackup_is_set_10 {
 	count(r) == 0
 }
 
-test_audit_log_maxbackup_is_not_set {
+test_audit_log_maxbackup_is_not_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -64,7 +66,7 @@ test_audit_log_maxbackup_is_not_set {
 	r[_].msg == "Ensure that the --audit-log-maxbackup argument is set to 10 or as appropriate"
 }
 
-test_audit_log_maxbackup_is_set_10_args {
+test_audit_log_maxbackup_is_set_10_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

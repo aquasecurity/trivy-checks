@@ -27,23 +27,25 @@
 #         - kind: job
 package builtin.kubernetes.KSV002
 
+import rego.v1
+
 import data.lib.kubernetes
 
-default failAppArmor = false
+default failAppArmor := false
 
-apparmor_keys[container] = key {
+apparmor_keys[container] := key if {
 	container := kubernetes.containers[_]
 	key := sprintf("%s/%s", ["container.apparmor.security.beta.kubernetes.io", container.name])
 }
 
-custom_apparmor_containers[container] {
+custom_apparmor_containers contains container if {
 	key := apparmor_keys[container]
 	annotations := kubernetes.annotations[_]
 	val := annotations[key]
 	val != "runtime/default"
 }
 
-deny[res] {
+deny contains res if {
 	output := custom_apparmor_containers[_]
 	msg := kubernetes.format(sprintf("Container '%s' of %s '%s' should specify an AppArmor profile", [output.name, kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, output)

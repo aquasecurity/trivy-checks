@@ -25,14 +25,16 @@
 #         - kind: job
 package builtin.kubernetes.KSV032
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-default failTrustedAzureRegistry = false
+default failTrustedAzureRegistry := false
 
 # getContainersWithTrustedAzureRegistry returns a list of containers
 # with image from a trusted Azure registry
-getContainersWithTrustedAzureRegistry[name] {
+getContainersWithTrustedAzureRegistry contains name if {
 	container := kubernetes.containers[_]
 	image := container.image
 
@@ -48,12 +50,12 @@ getContainersWithTrustedAzureRegistry[name] {
 
 # getContainersWithUntrustedAzureRegistry returns a list of containers
 # with image from an untrusted Azure registry
-getContainersWithUntrustedAzureRegistry[container] {
+getContainersWithUntrustedAzureRegistry contains container if {
 	container := kubernetes.containers[_]
 	not getContainersWithTrustedAzureRegistry[container.name]
 }
 
-deny[res] {
+deny contains res if {
 	container := getContainersWithUntrustedAzureRegistry[_]
 	msg := kubernetes.format(sprintf("container %s of %s %s in %s namespace should restrict container image to your specific registry domain. For Azure any domain ending in 'azurecr.io'", [container.name, lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
 	res := result.new(msg, container)

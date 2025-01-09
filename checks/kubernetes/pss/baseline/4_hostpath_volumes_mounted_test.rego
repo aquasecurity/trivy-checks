@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV023
 
-test_host_path_specified_denied {
+import rego.v1
+
+test_host_path_specified_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -26,7 +28,7 @@ test_host_path_specified_denied {
 	r[_].msg == "Pod 'hello-host-path' should not set 'spec.template.volumes.hostPath'"
 }
 
-test_host_path_not_specified_allowed {
+test_host_path_not_specified_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

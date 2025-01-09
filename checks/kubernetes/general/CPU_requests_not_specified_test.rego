@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV015
 
-test_CPU_requests_not_specified_denied {
+import rego.v1
+
+test_CPU_requests_not_specified_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -20,7 +22,7 @@ test_CPU_requests_not_specified_denied {
 	r[_].msg == "Container 'hello' of Pod 'hello-cpu-request' should set 'resources.requests.cpu'"
 }
 
-test_CPU_requests_specified_allowed {
+test_CPU_requests_specified_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

@@ -1,16 +1,18 @@
 package builtin.aws.s3.aws0089
 
-test_deny_logging_disabled {
+import rego.v1
+
+test_deny_logging_disabled if {
 	r := deny with input as {"aws": {"s3": {"buckets": [{"logging": {"enabled": {"value": false}}}]}}}
 	count(r) == 1
 }
 
-test_allow_logging_enabled {
+test_allow_logging_enabled if {
 	r := deny with input as {"aws": {"s3": {"buckets": [{"logging": {"enabled": {"value": true}}}]}}}
 	count(r) == 0
 }
 
-test_allow_logging_disabled_but_bucket_has_server_logging_access_acl {
+test_allow_logging_disabled_but_bucket_has_server_logging_access_acl if {
 	r := deny with input as {"aws": {"s3": {"buckets": [{
 		"logging": {"enabled": {"value": false}},
 		"acl": {"value": "log-delivery-write"},
@@ -18,7 +20,7 @@ test_allow_logging_disabled_but_bucket_has_server_logging_access_acl {
 	count(r) == 0
 }
 
-test_deny_logging_disabled_and_bucket_does_not_have_server_access_logging {
+test_deny_logging_disabled_and_bucket_does_not_have_server_access_logging if {
 	r := deny with input as {"aws": {"s3": {"buckets": [{
 		"logging": {"enabled": {"value": false}},
 		"acl": {"value": "private"},
@@ -26,7 +28,7 @@ test_deny_logging_disabled_and_bucket_does_not_have_server_access_logging {
 	count(r) == 1
 }
 
-test_allow_logging_disabled_but_bucket_has_server_logging_access_grant {
+test_allow_logging_disabled_but_bucket_has_server_logging_access_grant if {
 	r := deny with input as {"aws": {"s3": {"buckets": [{
 		"logging": {"enabled": {"value": false}},
 		"acl": {"value": "log-delivery-write"},
@@ -53,7 +55,7 @@ test_allow_logging_disabled_but_bucket_has_server_logging_access_grant {
 	count(r) == 0
 }
 
-test_allow_logging_disabled_but_bucket_has_server_logging_access_policy {
+test_allow_logging_disabled_but_bucket_has_server_logging_access_policy if {
 	r := deny with input as {"aws": {"s3": {"buckets": [{
 		"logging": {"enabled": {"value": false}},
 		"bucketpolicies": [{"document": {"value": json.marshal({

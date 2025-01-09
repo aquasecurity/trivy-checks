@@ -17,23 +17,25 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS010
 
+import rego.v1
+
 import data.lib.docker
 
-has_sudo(commands) {
+has_sudo(commands) if {
 	parts = split(commands, "&&")
 
 	instruction := parts[_]
 	regex.match(`^\s*sudo`, instruction)
 }
 
-get_sudo[run] {
+get_sudo contains run if {
 	run = docker.run[_]
 	count(run.Value) == 1
 	arg := run.Value[0]
 	has_sudo(arg)
 }
 
-deny[res] {
+deny contains res if {
 	cmd := get_sudo[_]
 	msg := "Using 'sudo' in Dockerfile should be avoided"
 	res := result.new(msg, cmd)

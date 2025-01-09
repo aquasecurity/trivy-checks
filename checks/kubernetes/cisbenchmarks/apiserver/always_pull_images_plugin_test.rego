@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0012
 
-test_always_pull_images_plugin_is_enabled {
+import rego.v1
+
+test_always_pull_images_plugin_is_enabled if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -21,7 +23,7 @@ test_always_pull_images_plugin_is_enabled {
 	count(r) == 0
 }
 
-test_always_pull_images_plugin_is_not_configured {
+test_always_pull_images_plugin_is_not_configured if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -43,7 +45,7 @@ test_always_pull_images_plugin_is_not_configured {
 	r[_].msg == "Ensure that the admission control plugin AlwaysPullImages is set"
 }
 
-test_always_pull_images_plugin_is_not_enabled {
+test_always_pull_images_plugin_is_not_enabled if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -65,7 +67,7 @@ test_always_pull_images_plugin_is_not_enabled {
 	r[_].msg == "Ensure that the admission control plugin AlwaysPullImages is set"
 }
 
-test_always_pull_images_plugin_is_enabled_with_others {
+test_always_pull_images_plugin_is_enabled_with_others if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

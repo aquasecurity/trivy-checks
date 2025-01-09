@@ -20,6 +20,8 @@
 #         - kind: role
 package builtin.kubernetes.KSV042
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
@@ -27,14 +29,14 @@ readVerbs := ["delete", "deletecollection", "*"]
 
 readKinds := ["Role", "ClusterRole"]
 
-deletePodsLogRestricted[input.rules[ru]] {
+deletePodsLogRestricted contains input.rules[ru] if {
 	some ru, r, v
 	input.kind == readKinds[_]
 	input.rules[ru].resources[r] == "pods/log"
 	input.rules[ru].verbs[v] == readVerbs[_]
 }
 
-deny[res] {
+deny contains res if {
 	badRule := deletePodsLogRestricted[_]
 	msg := kubernetes.format(sprintf("%s '%s' should not have access to resource 'pods/log' for verbs %s", [kubernetes.kind, kubernetes.name, readVerbs]))
 	res := result.new(msg, badRule)

@@ -27,25 +27,27 @@
 #         - kind: job
 package builtin.kubernetes.KSV016
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-default failRequestsMemory = false
+default failRequestsMemory := false
 
 # getRequestsMemoryContainers returns all containers which have set resources.requests.memory
-getRequestsMemoryContainers[container] {
+getRequestsMemoryContainers contains container if {
 	container := kubernetes.containers[_]
 	utils.has_key(container.resources.requests, "memory")
 }
 
 # getNoRequestsMemoryContainers returns all containers which have not set
 # resources.requests.memory
-getNoRequestsMemoryContainers[container] {
+getNoRequestsMemoryContainers contains container if {
 	container := kubernetes.containers[_]
 	not getRequestsMemoryContainers[container]
 }
 
-deny[res] {
+deny contains res if {
 	output := getNoRequestsMemoryContainers[_]
 	msg := kubernetes.format(sprintf("Container '%s' of %s '%s' should set 'resources.requests.memory'", [output.name, kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, output)

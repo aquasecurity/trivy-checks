@@ -1,6 +1,8 @@
 package builtin.aws.rds.aws0176
 
-test_detects_when_disabled {
+import rego.v1
+
+test_detects_when_disabled if {
 	r := deny with input as {"aws": {"rds": {"instances": [{
 		"engine": {"value": "postgres"},
 		"iamauthenabled": {"value": false},
@@ -8,7 +10,7 @@ test_detects_when_disabled {
 	count(r) == 1
 }
 
-test_when_enabled {
+test_when_enabled if {
 	r := deny with input as {"aws": {"rds": {"instances": [{
 		"engine": {"value": "postgres"},
 		"iamauthenabled": {"value": true},
@@ -16,7 +18,7 @@ test_when_enabled {
 	count(r) == 0
 }
 
-test_when_not_applicable {
+test_when_not_applicable if {
 	r := deny with input as {"aws": {"rds": {"instances": [{
 		"engine": {"value": "aurora"},
 		"iamauthenabled": {"value": false},

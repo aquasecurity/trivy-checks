@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0085
 
-test_validate_validate_kubelet_streaming_connection_idle_timeout_set_zero {
+import rego.v1
+
+test_validate_validate_kubelet_streaming_connection_idle_timeout_set_zero if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -11,7 +13,7 @@ test_validate_validate_kubelet_streaming_connection_idle_timeout_set_zero {
 	count(r) == 1
 }
 
-test_validate_validate_kubelet_streaming_connection_idle_timeout_set_non_zero {
+test_validate_validate_kubelet_streaming_connection_idle_timeout_set_non_zero if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",

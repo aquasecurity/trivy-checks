@@ -19,25 +19,27 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0083
 
+import rego.v1
+
 import data.lib.kubernetes
 
 types := ["master", "worker"]
 
-validate_kubelet_anonymous_auth_set(sp) := {"kubeletProtectKernelDefaultsArgumentSet": violation} {
+validate_kubelet_anonymous_auth_set(sp) := {"kubeletProtectKernelDefaultsArgumentSet": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	violation := {kernel_defaults | kernel_defaults = sp.info.kubeletProtectKernelDefaultsArgumentSet.values[_]; not kernel_defaults == "true"}
 	count(violation) > 0
 }
 
-validate_kubelet_anonymous_auth_set(sp) := {"kubeletProtectKernelDefaultsArgumentSet": kernel_defaults} {
+validate_kubelet_anonymous_auth_set(sp) := {"kubeletProtectKernelDefaultsArgumentSet": kernel_defaults} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	count(sp.info.kubeletProtectKernelDefaultsArgumentSet.values) == 0
 	kernel_defaults = {}
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_kubelet_anonymous_auth_set(input)
 	msg := "Ensure that the --protect-kernel-defaults is set to true"
 	res := result.new(msg, output)

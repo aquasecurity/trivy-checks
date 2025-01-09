@@ -19,16 +19,18 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0049
 
+import rego.v1
+
 import data.lib.kubernetes
 
-validate_spec_ownership(sp) := {"kubeAPIServerSpecFileOwnership": violation} {
+validate_spec_ownership(sp) := {"kubeAPIServerSpecFileOwnership": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == "master"
 	violation := {ownership | ownership = sp.info.kubeAPIServerSpecFileOwnership.values[_]; not ownership == "root:root"}
 	count(violation) > 0
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_spec_ownership(input)
 	msg := "Ensure that the API server pod specification file ownership is set to root:root"
 	res := result.new(msg, output)

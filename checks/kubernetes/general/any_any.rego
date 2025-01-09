@@ -17,12 +17,14 @@
 #     - type: kubernetes
 package builtin.kubernetes.KSV044
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
 readKinds := ["Role", "ClusterRole"]
 
-anyAnyResource[input.rules[ru]] {
+anyAnyResource contains input.rules[ru] if {
 	some ru
 	input.kind == readKinds[_]
 	input.rules[ru].apiGroups[_] == "*"
@@ -30,7 +32,7 @@ anyAnyResource[input.rules[ru]] {
 	input.rules[ru].verbs[_] == "*"
 }
 
-deny[res] {
+deny contains res if {
 	badRule := anyAnyResource[_]
 	msg := "Role permits wildcard verb on wildcard resource"
 	res := result.new(msg, badRule)

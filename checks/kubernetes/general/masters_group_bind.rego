@@ -21,6 +21,8 @@
 
 package appshield.kubernetes.KSV0123
 
+import rego.v1
+
 import data.k8s
 import data.lib.kubernetes
 
@@ -28,12 +30,12 @@ readRoleRefs := ["system:masters"]
 
 readKinds := ["RoleBinding", "ClusterRolebinding"]
 
-mastersGroupBind(roleBinding) {
+mastersGroupBind(roleBinding) if {
 	kubernetes.kind == readKinds[_]
 	kubernetes.object.subjects[_].name == readRoleRefs[_]
 }
 
-deny[res] {
+deny contains res if {
 	mastersGroupBind(input)
 	msg := kubernetes.format(sprintf("%s '%s' should not bind to roles %s", [kubernetes.kind, kubernetes.name, readRoleRefs]))
 	res := result.new(msg, input.metadata)

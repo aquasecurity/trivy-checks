@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV001
 
-test_allow_privilege_escalation_set_to_false_allowed {
+import rego.v1
+
+test_allow_privilege_escalation_set_to_false_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -20,7 +22,7 @@ test_allow_privilege_escalation_set_to_false_allowed {
 	count(r) == 0
 }
 
-test_allow_privilege_escalation_is_undefined_denied {
+test_allow_privilege_escalation_is_undefined_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -40,7 +42,7 @@ test_allow_privilege_escalation_is_undefined_denied {
 	r[_].msg == "Container 'hello' of Pod 'hello-privilege-escalation' should set 'securityContext.allowPrivilegeEscalation' to false"
 }
 
-test_allow_privilege_escalation_set_to_true_denied {
+test_allow_privilege_escalation_set_to_true_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -61,7 +63,7 @@ test_allow_privilege_escalation_set_to_true_denied {
 	r[_].msg == "Container 'hello' of Pod 'hello-privilege-escalation' should set 'securityContext.allowPrivilegeEscalation' to false"
 }
 
-test_allow_privilege_escalation_multiple_containers {
+test_allow_privilege_escalation_multiple_containers if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

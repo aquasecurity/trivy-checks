@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV022
 
-test_capabilities_add_denied {
+import rego.v1
+
+test_capabilities_add_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -21,7 +23,7 @@ test_capabilities_add_denied {
 	r[_].msg == "Container 'hello' of Pod 'hello-add-capabilities' should not set 'securityContext.capabilities.add'"
 }
 
-test_capabilities_add_empty_allowed {
+test_capabilities_add_empty_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -41,7 +43,7 @@ test_capabilities_add_empty_allowed {
 	count(r) == 0
 }
 
-test_capabilities_no_add_allowed {
+test_capabilities_no_add_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -61,7 +63,7 @@ test_capabilities_no_add_allowed {
 	count(r) == 0
 }
 
-test_no_capabilities_allowed {
+test_no_capabilities_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

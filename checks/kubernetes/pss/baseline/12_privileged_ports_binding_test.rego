@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV117
 
-test_container_with_privileged_port {
+import rego.v1
+
+test_container_with_privileged_port if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -16,7 +18,7 @@ test_container_with_privileged_port {
 	count(r) == 1
 }
 
-test_container_with_non_privileged_port {
+test_container_with_non_privileged_port if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

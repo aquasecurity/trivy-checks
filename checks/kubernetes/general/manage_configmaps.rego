@@ -20,6 +20,8 @@
 #         - kind: role
 package builtin.kubernetes.KSV049
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
@@ -27,16 +29,16 @@ readVerbs := ["create", "update", "patch", "delete", "deletecollection", "impers
 
 readKinds := ["Role", "ClusterRole"]
 
-readResource = "configmaps"
+readResource := "configmaps"
 
-manageConfigmaps[input.rules[ru]] {
+manageConfigmaps contains input.rules[ru] if {
 	some ru, r, v
 	input.kind == readKinds[_]
 	input.rules[ru].resources[r] == readResource
 	input.rules[ru].verbs[v] == readVerbs[_]
 }
 
-deny[res] {
+deny contains res if {
 	badRule := manageConfigmaps[_]
 	msg := kubernetes.format(sprintf("%s '%s' should not have access to resource '%s' for verbs %s", [kubernetes.kind, kubernetes.name, readResource, readVerbs]))
 	res := result.new(msg, badRule)

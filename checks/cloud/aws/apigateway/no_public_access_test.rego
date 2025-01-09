@@ -22,4 +22,4 @@ test_allow_if_api_required if {
 	test.assert_empty(check.deny) with input as input_with_method({"httpmethod": {"value": "GET"}, "authorizationtype": {"value": "AWS_IAM"}})
 }
 
-input_with_method(method) = {"aws": {"apigateway": {"v1": {"apis": [{"resources": [{"methods": [method]}]}]}}}}
+input_with_method(method) := {"aws": {"apigateway": {"v1": {"apis": [{"resources": [{"methods": [method]}]}]}}}}

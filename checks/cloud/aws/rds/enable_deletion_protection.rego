@@ -22,7 +22,9 @@
 #           provider: aws
 package builtin.aws.rds.aws0177
 
-deny[res] {
+import rego.v1
+
+deny contains res if {
 	instance := input.aws.rds.instances[_]
 	not instance.deletionprotection.value
 	res := result.new("Instance does not have Deletion Protection enabled", instance.deletionprotection)

@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV056
 
-test_manage_manage_kubernetes_networking_create {
+import rego.v1
+
+test_manage_manage_kubernetes_networking_create if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -18,7 +20,7 @@ test_manage_manage_kubernetes_networking_create {
 	count(r) > 0
 }
 
-test_manage_manage_kubernetes_networking_update {
+test_manage_manage_kubernetes_networking_update if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -36,7 +38,7 @@ test_manage_manage_kubernetes_networking_update {
 	count(r) > 0
 }
 
-test_manage_manage_kubernetes_networking_delete {
+test_manage_manage_kubernetes_networking_delete if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -54,7 +56,7 @@ test_manage_manage_kubernetes_networking_delete {
 	count(r) > 0
 }
 
-test_manage_manage_kubernetes_networking_deletecollection {
+test_manage_manage_kubernetes_networking_deletecollection if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -72,7 +74,7 @@ test_manage_manage_kubernetes_networking_deletecollection {
 	count(r) > 0
 }
 
-test_manage_manage_kubernetes_networking_impersonate {
+test_manage_manage_kubernetes_networking_impersonate if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -90,7 +92,7 @@ test_manage_manage_kubernetes_networking_impersonate {
 	count(r) > 0
 }
 
-test_manage_manage_kubernetes_networking_all {
+test_manage_manage_kubernetes_networking_all if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -108,7 +110,7 @@ test_manage_manage_kubernetes_networking_all {
 	count(r) > 0
 }
 
-test_manage_manage_kubernetes_networking_wrong_verb {
+test_manage_manage_kubernetes_networking_wrong_verb if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -126,7 +128,7 @@ test_manage_manage_kubernetes_networking_wrong_verb {
 	count(r) == 0
 }
 
-test_manage_manage_kubernetes_networking_wrong_resource {
+test_manage_manage_kubernetes_networking_wrong_resource if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",

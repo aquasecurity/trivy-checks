@@ -20,6 +20,8 @@
 #         - kind: role
 package builtin.kubernetes.KSV048
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
@@ -29,14 +31,14 @@ changeVerbs := ["create", "update", "patch", "delete", "deletecollection", "impe
 
 readKinds := ["Role", "ClusterRole"]
 
-update_malicious_pod[input.rules[ru]] {
+update_malicious_pod contains input.rules[ru] if {
 	some ru, r, v
 	input.kind == readKinds[_]
 	input.rules[ru].resources[r] == workloads[_]
 	input.rules[ru].verbs[v] == changeVerbs[_]
 }
 
-deny[res] {
+deny contains res if {
 	badRule := update_malicious_pod[_]
 	msg := kubernetes.format(sprintf("%s '%s' should not have access to resources %s for verbs %s", [kubernetes.kind, kubernetes.name, workloads, changeVerbs]))
 	res := result.new(msg, badRule)

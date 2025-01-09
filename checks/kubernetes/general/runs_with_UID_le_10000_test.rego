@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV020
 
-test_UID_gt_10000_allowed {
+import rego.v1
+
+test_UID_gt_10000_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -20,7 +22,7 @@ test_UID_gt_10000_allowed {
 	count(r) == 0
 }
 
-test_no_run_as_user_denied {
+test_no_run_as_user_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -40,7 +42,7 @@ test_no_run_as_user_denied {
 	r[_].msg == "Container 'hello' of Pod 'hello-uid' should set 'securityContext.runAsUser' > 10000"
 }
 
-test_low_uid_denied {
+test_low_uid_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -61,7 +63,7 @@ test_low_uid_denied {
 	r[_].msg == "Container 'hello' of Pod 'hello-uid' should set 'securityContext.runAsUser' > 10000"
 }
 
-test_zero_uid_denied {
+test_zero_uid_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

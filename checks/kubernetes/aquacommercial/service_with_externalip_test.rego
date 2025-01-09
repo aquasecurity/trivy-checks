@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV0108
 
-test_service_with_externalip_denied {
+import rego.v1
+
+test_service_with_externalip_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Service",
@@ -21,7 +23,7 @@ test_service_with_externalip_denied {
 	r[_].msg == "Service 'service_with_externalip' in 'default' namespace should not set external IPs or external Name"
 }
 
-test_service_with_externalip_allowed {
+test_service_with_externalip_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Service",

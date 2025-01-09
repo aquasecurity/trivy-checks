@@ -22,7 +22,9 @@
 #           provider: aws
 package builtin.aws.s3.aws0320
 
-deny[res] {
+import rego.v1
+
+deny contains res if {
 	bucket := input.aws.s3.buckets[_]
 	indexof(bucket.name.value, ".") != -1
 	res := result.new("S3 bucket name is not compliant with DNS naming requirements", bucket.name)

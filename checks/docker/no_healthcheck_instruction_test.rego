@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS026
 
-test_denied {
+import rego.v1
+
+test_denied if {
 	r := deny with input as {"Stages": [
 		{"Name": "golang:1.7.3", "Commands": [
 			{
@@ -28,7 +30,7 @@ test_denied {
 	r[_].msg == "Add HEALTHCHECK instruction in your Dockerfile"
 }
 
-test_allowed {
+test_allowed if {
 	r := deny with input as {"Stages": [
 		{"Name": "golang:1.7.3", "Commands": [
 			{

@@ -23,4 +23,4 @@ test_allow_root_user_with_mfa if {
 	})
 }
 
-build_input(body) = {"aws": {"iam": {"users": [body]}}}
+build_input(body) := {"aws": {"iam": {"users": [body]}}}

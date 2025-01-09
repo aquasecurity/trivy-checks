@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS022
 
-test_denied {
+import rego.v1
+
+test_denied if {
 	r := deny with input as {"Stages": [{"Name": "fedora:27", "Commands": [
 		{
 			"Cmd": "from",
@@ -16,7 +18,7 @@ test_denied {
 	r[_].msg == "MAINTAINER should not be used: 'MAINTAINER admin@example.com'"
 }
 
-test_allowed {
+test_allowed if {
 	r := deny with input as {"Stages": [{"Name": "fedora:27", "Commands": [{
 		"Cmd": "from",
 		"Value": ["fedora:27"],

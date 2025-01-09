@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0037
 
-test_root_ca_file_is_not_set {
+import rego.v1
+
+test_root_ca_file_is_not_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -22,7 +24,7 @@ test_root_ca_file_is_not_set {
 	r[_].msg == "Ensure that the --root-ca-file argument is set as appropriate"
 }
 
-test_root_ca_file_is_set {
+test_root_ca_file_is_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -43,7 +45,7 @@ test_root_ca_file_is_set {
 	count(r) == 0
 }
 
-test_root_ca_file_is_set_args {
+test_root_ca_file_is_set_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

@@ -27,13 +27,15 @@
 
 package builtin.aws.rds.aws0180
 
-deny[res] {
+import rego.v1
+
+deny contains res if {
 	instance := input.aws.rds.instances[_]
 	instance.publicaccess.value
 	res := result.new("Instance has Public Access enabled", instance.publicaccess)
 }
 
-deny[res] {
+deny contains res if {
 	instance := input.aws.rds.clusters[_].instances[_].instance
 	instance.publicaccess.value
 	res := result.new("Cluster instance has Public Access enabled", instance.publicaccess)

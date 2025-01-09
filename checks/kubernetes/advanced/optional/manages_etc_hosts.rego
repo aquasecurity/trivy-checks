@@ -25,16 +25,18 @@
 #         - kind: job
 package builtin.kubernetes.KSV007
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
 # failHostAliases is true if spec.hostAliases is set (on all controllers)
-failHostAliases[spec] {
+failHostAliases contains spec if {
 	spec := kubernetes.host_aliases[_]
 	utils.has_key(spec, "hostAliases")
 }
 
-deny[res] {
+deny contains res if {
 	spec := failHostAliases[_]
 	msg := kubernetes.format(sprintf("'%s' '%s' in '%s' namespace should not set spec.template.spec.hostAliases", [lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
 	res := result.new(msg, spec)

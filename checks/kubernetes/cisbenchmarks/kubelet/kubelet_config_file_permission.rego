@@ -19,18 +19,20 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0073
 
+import rego.v1
+
 import data.lib.kubernetes
 
 types := ["master", "worker"]
 
-validate_kubelet_file_permission(sp) := {"kubeletConfFilePermissions": violation} {
+validate_kubelet_file_permission(sp) := {"kubeletConfFilePermissions": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	violation := {permission | permission = sp.info.kubeletConfFilePermissions.values[_]; permission > 600}
 	count(violation) > 0
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_kubelet_file_permission(input)
 	msg := "Ensure that the --kubeconfig kubelet.conf file permissions are set to 600 or more restrictive"
 	res := result.new(msg, output)

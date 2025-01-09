@@ -27,21 +27,23 @@
 #         - kind: job
 package builtin.kubernetes.KSV103
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-failHostProcess[spec] {
+failHostProcess contains spec if {
 	spec := input.spec
 	spec.securityContext.windowsOptions.hostProcess == true
 }
 
-failHostProcess[options] {
+failHostProcess contains options if {
 	container := kubernetes.containers[_]
 	options := container.securityContext.windowsOptions
 	options.hostProcess == true
 }
 
-deny[res] {
+deny contains res if {
 	cause := failHostProcess[_]
 	msg := "You should not enable hostProcess."
 	res := result.new(msg, cause)

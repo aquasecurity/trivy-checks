@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS029
 
-test_denied {
+import rego.v1
+
+test_denied if {
 	r := deny with input as {"Stages": [{"Name": "node:12", "Commands": [
 		{
 			"Cmd": "from",
@@ -16,7 +18,7 @@ test_denied {
 	r[_].msg == "'--no-install-recommends' flag is missed: 'apt-get install -y python=2.7'"
 }
 
-test_json_array_denied {
+test_json_array_denied if {
 	r := deny with input as {"Stages": [{"Name": "node:12", "Commands": [
 		{
 			"Cmd": "from",
@@ -37,7 +39,7 @@ test_json_array_denied {
 	r[_].msg == "'--no-install-recommends' flag is missed: 'apt-get install -y apt-utils'"
 }
 
-test_allowed {
+test_allowed if {
 	r := deny with input as {"Stages": [{"Name": "node:12", "Commands": [
 		{
 			"Cmd": "from",
@@ -52,7 +54,7 @@ test_allowed {
 	count(r) == 0
 }
 
-test_with_flag_behind_allowed {
+test_with_flag_behind_allowed if {
 	r := deny with input as {"Stages": [{"Name": "node:12", "Commands": [
 		{
 			"Cmd": "from",
@@ -67,7 +69,7 @@ test_with_flag_behind_allowed {
 	count(r) == 0
 }
 
-test_json_array_long_flag_allowed {
+test_json_array_long_flag_allowed if {
 	r := deny with input as {"Stages": [{"Name": "node:12", "Commands": [
 		{
 			"Cmd": "from",
@@ -89,7 +91,7 @@ test_json_array_long_flag_allowed {
 	count(r) == 0
 }
 
-test_chained_allowed {
+test_chained_allowed if {
 	r := deny with input as {"Stages": [{"Name": "node:12", "Commands": [
 		{
 			"Cmd": "from",
@@ -104,7 +106,7 @@ test_chained_allowed {
 	count(r) == 0
 }
 
-test_flags_after_pkgs_allowed {
+test_flags_after_pkgs_allowed if {
 	r := deny with input as {"Stages": [{"Name": "debian:11-slim", "Commands": [
 		{
 			"Cmd": "from",

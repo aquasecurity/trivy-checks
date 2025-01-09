@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV040
 
-test_use_resource_quota_configure {
+import rego.v1
+
+test_use_resource_quota_configure if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "ResourceQuota",
@@ -16,7 +18,7 @@ test_use_resource_quota_configure {
 	count(r) == 0
 }
 
-test_use_resource_quota_configure_no_hard {
+test_use_resource_quota_configure_no_hard if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "ResourceQuota",
@@ -27,7 +29,7 @@ test_use_resource_quota_configure_no_hard {
 	r[_].msg == "resource quota policy with hard memory and cpu quota per namespace should be configure"
 }
 
-test_use_resource_quota_configure_no_request_cpu {
+test_use_resource_quota_configure_no_request_cpu if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "ResourceQuota",
@@ -42,7 +44,7 @@ test_use_resource_quota_configure_no_request_cpu {
 	r[_].msg == "resource quota policy with hard memory and cpu quota per namespace should be configure"
 }
 
-test_use_resource_quota_configure_no_request_memory {
+test_use_resource_quota_configure_no_request_memory if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "ResourceQuota",
@@ -57,7 +59,7 @@ test_use_resource_quota_configure_no_request_memory {
 	r[_].msg == "resource quota policy with hard memory and cpu quota per namespace should be configure"
 }
 
-test_use_resource_quota_configure_no_limits_cpu {
+test_use_resource_quota_configure_no_limits_cpu if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "ResourceQuota",
@@ -72,7 +74,7 @@ test_use_resource_quota_configure_no_limits_cpu {
 	r[_].msg == "resource quota policy with hard memory and cpu quota per namespace should be configure"
 }
 
-test_use_resource_quota_configure_no_limits_memory {
+test_use_resource_quota_configure_no_limits_memory if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "ResourceQuota",

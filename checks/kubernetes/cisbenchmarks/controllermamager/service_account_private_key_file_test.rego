@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0036
 
-test_service_account_private_key_file_is_not_set {
+import rego.v1
+
+test_service_account_private_key_file_is_not_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -22,7 +24,7 @@ test_service_account_private_key_file_is_not_set {
 	r[_].msg == "Ensure that the --service-account-private-key-file argument is set as appropriate"
 }
 
-test_service_account_private_key_file_is_set {
+test_service_account_private_key_file_is_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

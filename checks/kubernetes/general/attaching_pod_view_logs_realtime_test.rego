@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV054
 
-test_getting_shell_on_pods {
+import rego.v1
+
+test_getting_shell_on_pods if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -25,7 +27,7 @@ test_getting_shell_on_pods {
 	count(r) == 1
 }
 
-test_getting_shell_on_pods_no_pod_exec {
+test_getting_shell_on_pods_no_pod_exec if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -50,7 +52,7 @@ test_getting_shell_on_pods_no_pod_exec {
 	count(r) == 0
 }
 
-test_getting_shell_on_pods_no_verb_create {
+test_getting_shell_on_pods_no_verb_create if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -75,7 +77,7 @@ test_getting_shell_on_pods_no_verb_create {
 	count(r) == 0
 }
 
-test_getting_shell_on_pods_no_resource_pod {
+test_getting_shell_on_pods_no_resource_pod if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -100,7 +102,7 @@ test_getting_shell_on_pods_no_resource_pod {
 	count(r) == 0
 }
 
-test_getting_shell_on_pods_no_verb_get {
+test_getting_shell_on_pods_no_verb_get if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",

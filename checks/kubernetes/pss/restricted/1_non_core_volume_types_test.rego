@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV028
 
-test_disallowed_volume_type_used_denied {
+import rego.v1
+
+test_disallowed_volume_type_used_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -34,7 +36,7 @@ test_disallowed_volume_type_used_denied {
 	r[_].msg == "Pod 'hello-volume-types' should set 'spec.volumes[*]' to an allowed volume type"
 }
 
-test_no_volume_type_used_allowed {
+test_no_volume_type_used_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

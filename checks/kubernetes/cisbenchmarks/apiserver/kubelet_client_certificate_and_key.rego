@@ -17,19 +17,21 @@
 #     - type: kubernetes
 package builtin.kubernetes.KCV0005
 
+import rego.v1
+
 import data.lib.kubernetes
 
-check_flag(container) {
+check_flag(container) if {
 	kubernetes.command_has_flag(container.command, "--kubelet-client-certificate")
 	kubernetes.command_has_flag(container.command, "--kubelet-client-key")
 }
 
-check_flag(container) {
+check_flag(container) if {
 	kubernetes.command_has_flag(container.args, "--kubelet-client-certificate")
 	kubernetes.command_has_flag(container.args, "--kubelet-client-key")
 }
 
-deny[res] {
+deny contains res if {
 	container := kubernetes.containers[_]
 	kubernetes.is_apiserver(container)
 	not check_flag(container)

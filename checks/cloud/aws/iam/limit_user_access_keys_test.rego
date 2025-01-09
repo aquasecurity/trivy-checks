@@ -23,7 +23,7 @@ test_disallow_two_active_keys if {
 	])
 }
 
-build_input(keys) = {"aws": {"iam": {"users": [{
+build_input(keys) := {"aws": {"iam": {"users": [{
 	"name": {"value": "test"},
 	"accesskeys": keys,
 }]}}}

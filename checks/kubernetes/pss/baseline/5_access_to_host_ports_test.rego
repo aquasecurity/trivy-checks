@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV024
 
-test_host_ports_defined_denied {
+import rego.v1
+
+test_host_ports_defined_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -21,7 +23,7 @@ test_host_ports_defined_denied {
 	r[_].msg == "Container 'hello' of Pod 'hello-host-ports' should not set host ports, 'ports[*].hostPort'"
 }
 
-test_no_host_ports_defined_allowed {
+test_no_host_ports_defined_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

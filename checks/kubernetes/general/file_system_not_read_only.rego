@@ -27,25 +27,27 @@
 #         - kind: job
 package builtin.kubernetes.KSV014
 
+import rego.v1
+
 import data.lib.kubernetes
 
-default failReadOnlyRootFilesystem = false
+default failReadOnlyRootFilesystem := false
 
 # getReadOnlyRootFilesystemContainers returns all containers that have
 # securityContext.readOnlyFilesystem set to true.
-getReadOnlyRootFilesystemContainers[container] {
+getReadOnlyRootFilesystemContainers contains container if {
 	container := kubernetes.containers[_]
 	container.securityContext.readOnlyRootFilesystem == true
 }
 
 # getNotReadOnlyRootFilesystemContainers returns all containers that have
 # securityContext.readOnlyRootFilesystem set to false or not set at all.
-getNotReadOnlyRootFilesystemContainers[container] {
+getNotReadOnlyRootFilesystemContainers contains container if {
 	container := kubernetes.containers[_]
 	not getReadOnlyRootFilesystemContainers[container]
 }
 
-deny[res] {
+deny contains res if {
 	output := getNotReadOnlyRootFilesystemContainers[_]
 	msg := kubernetes.format(sprintf("Container '%s' of %s '%s' should set 'securityContext.readOnlyRootFilesystem' to true", [output.name, kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, output)

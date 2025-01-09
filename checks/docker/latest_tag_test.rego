@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS001
 
-test_allowed {
+import rego.v1
+
+test_allowed if {
 	r := deny with input as {"Stages": [{"Name": "openjdk:8u292-oracle", "Commands": [{
 		"Cmd": "from",
 		"Value": ["openjdk:8u292-oracle"],
@@ -10,7 +12,7 @@ test_allowed {
 }
 
 # Test FROM image with latest tag
-test_latest_tag_denied {
+test_latest_tag_denied if {
 	r := deny with input as {"Stages": [{"Name": "openjdk", "Commands": [{
 		"Cmd": "from",
 		"Value": ["openjdk:latest"],
@@ -21,7 +23,7 @@ test_latest_tag_denied {
 }
 
 # Test FROM image with no tag
-test_no_tag_denied {
+test_no_tag_denied if {
 	r := deny with input as {"Stages": [{"Name": "openjdk", "Commands": [{
 		"Cmd": "from",
 		"Value": ["openjdk"],
@@ -32,7 +34,7 @@ test_no_tag_denied {
 }
 
 # Test FROM with scratch
-test_scratch_allowed {
+test_scratch_allowed if {
 	r := deny with input as {"Stages": [{"Name": "scratch", "Commands": [{
 		"Cmd": "from",
 		"Value": ["scratch"],
@@ -41,7 +43,7 @@ test_scratch_allowed {
 	count(r) == 0
 }
 
-test_with_variables_allowed {
+test_with_variables_allowed if {
 	r := deny with input as {"Stages": [
 		{"Name": "alpine:3.5", "Commands": [
 			{
@@ -71,7 +73,7 @@ test_with_variables_allowed {
 	count(r) == 0
 }
 
-test_with_variables_denied {
+test_with_variables_denied if {
 	r := deny with input as {"Stages": [
 		{"Name": "alpine:3.5", "Commands": [
 			{
@@ -102,7 +104,7 @@ test_with_variables_denied {
 	r[_].msg == "Specify a tag in the 'FROM' statement for image 'all-in-one'"
 }
 
-test_multi_stage_allowed {
+test_multi_stage_allowed if {
 	r := deny with input as {"Stages": [
 		{"Name": "golang:1.15 as builder", "Commands": [
 			{
@@ -123,7 +125,7 @@ test_multi_stage_allowed {
 	count(r) == 0
 }
 
-test_multi_stage_base_alias_allowed {
+test_multi_stage_base_alias_allowed if {
 	r := deny with input as {"Stages": [
 		{"Name": "node:14.18.1-bullseye as dependencies", "Commands": [
 			{
@@ -144,7 +146,7 @@ test_multi_stage_base_alias_allowed {
 	count(r) == 0
 }
 
-test_multi_stage_denied {
+test_multi_stage_denied if {
 	r := deny with input as {"Stages": [
 		{"Name": "node:14.18.1-bullseye as dependencies", "Commands": [
 			{
@@ -166,7 +168,7 @@ test_multi_stage_denied {
 	r[_].msg == "Specify a tag in the 'FROM' statement for image 'alpine'"
 }
 
-test_multi_stage_no_tag_denied {
+test_multi_stage_no_tag_denied if {
 	r := deny with input as {"Stages": [
 		{"Name": "node:14.18.1-bullseye as dependencies", "Commands": [
 			{

@@ -1,6 +1,8 @@
 package builtin.kubernetes.KSV102
 
-test_tiller_deployed_by_image {
+import rego.v1
+
+test_tiller_deployed_by_image if {
 	res := deny with input as {
 		"apiVersion": "apps/v1",
 		"kind": "Deployment",
@@ -25,7 +27,7 @@ test_tiller_deployed_by_image {
 	count(res) != 0
 }
 
-test_tiller_deployed_by_metadata_name {
+test_tiller_deployed_by_metadata_name if {
 	res := deny with input as {
 		"apiVersion": "apps/v1beta2",
 		"kind": "Deployment",
@@ -50,7 +52,7 @@ test_tiller_deployed_by_metadata_name {
 	count(res) != 0
 }
 
-test_tiller_deployed_by_spec_metadata_name {
+test_tiller_deployed_by_spec_metadata_name if {
 	res := deny with input as {
 		"apiVersion": "apps/v1beta2",
 		"kind": "Deployment",
@@ -84,7 +86,7 @@ test_tiller_deployed_by_spec_metadata_name {
 	count(res) != 0
 }
 
-test_tiller_deployed_by_using_helm_app {
+test_tiller_deployed_by_using_helm_app if {
 	res := deny with input as {
 		"apiVersion": "apps/v1beta2",
 		"kind": "Deployment",
@@ -118,7 +120,7 @@ test_tiller_deployed_by_using_helm_app {
 	count(res) != 0
 }
 
-test_tiller_is_not_deployed {
+test_tiller_is_not_deployed if {
 	res := deny with input as {
 		"apiVersion": "apps/v1beta2",
 		"kind": "Deployment",

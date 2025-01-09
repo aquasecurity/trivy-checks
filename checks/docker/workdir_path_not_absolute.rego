@@ -17,9 +17,11 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS009
 
+import rego.v1
+
 import data.lib.docker
 
-get_work_dir[output] {
+get_work_dir contains output if {
 	workdir := docker.workdir[_]
 	arg := workdir.Value[0]
 
@@ -30,7 +32,7 @@ get_work_dir[output] {
 	}
 }
 
-deny[res] {
+deny contains res if {
 	output := get_work_dir[_]
 	msg := sprintf("WORKDIR path '%s' should be absolute", [output.arg])
 	res := result.new(msg, output.cmd)

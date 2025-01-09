@@ -1,7 +1,9 @@
 package builtin.dockerfile.DS004
 
+import rego.v1
+
 # Test EXPOSE with PORT 22
-test_denied {
+test_denied if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [{
@@ -14,7 +16,7 @@ test_denied {
 	startswith(r[_].msg, "Port 22 should not be exposed in Dockerfile")
 }
 
-test_tcp_denied {
+test_tcp_denied if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [{
@@ -28,7 +30,7 @@ test_tcp_denied {
 }
 
 # Test EXPOSE without PORT 22
-test_allowed {
+test_allowed if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",
 		"Commands": [{

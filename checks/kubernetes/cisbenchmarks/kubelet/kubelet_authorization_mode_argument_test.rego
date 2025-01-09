@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0080
 
-test_validate_kubelet_authorization_mode_set_alwaysAllow {
+import rego.v1
+
+test_validate_kubelet_authorization_mode_set_alwaysAllow if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -11,7 +13,7 @@ test_validate_kubelet_authorization_mode_set_alwaysAllow {
 	count(r) == 1
 }
 
-test_validate_kubelet_authorization_mode_not_set {
+test_validate_kubelet_authorization_mode_not_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -22,7 +24,7 @@ test_validate_kubelet_authorization_mode_not_set {
 	count(r) == 1
 }
 
-test_validate_kubelet_authorization_mode_set_alwaysAllow {
+test_validate_kubelet_authorization_mode_set_alwaysAllow if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",

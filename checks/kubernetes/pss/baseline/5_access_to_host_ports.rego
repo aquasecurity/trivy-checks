@@ -27,16 +27,18 @@
 #         - kind: job
 package builtin.kubernetes.KSV024
 
+import rego.v1
+
 import data.lib.kubernetes
 
-default failHostPorts = false
+default failHostPorts := false
 
 # Add allowed host ports to this set
-allowed_host_ports = set()
+allowed_host_ports := set()
 
 # getContainersWithDisallowedHostPorts returns a list of containers which have
 # host ports not included in the allowed host port list
-getContainersWithDisallowedHostPorts[container] {
+getContainersWithDisallowedHostPorts contains container if {
 	allContainers := kubernetes.containers[_]
 	set_host_ports := {port | port := allContainers.ports[_].hostPort}
 	host_ports_not_allowed := set_host_ports - allowed_host_ports
@@ -45,19 +47,19 @@ getContainersWithDisallowedHostPorts[container] {
 }
 
 # host_ports_msg is a string of allowed host ports to be print as part of deny message
-host_ports_msg = "" {
+host_ports_msg := "" if {
 	count(allowed_host_ports) == 0
-} else = msg {
+} else := msg if {
 	msg := sprintf(" or set it to the following allowed values: %s", [concat(", ", allowed_host_ports)])
 }
 
 # Get all containers which don't include 'ALL' in security.capabilities.drop
-getContainersWitNohDisallowedHostPorts[container] {
+getContainersWitNohDisallowedHostPorts contains container if {
 	container := kubernetes.containers[_]
 	not getContainersWithDisallowedHostPorts[container]
 }
 
-deny[res] {
+deny contains res if {
 	output := getContainersWitNohDisallowedHostPorts[_]
 	msg := sprintf("Container '%s' of %s '%s' should not set host ports, 'ports[*].hostPort'%s", [getContainersWithDisallowedHostPorts[_], kubernetes.kind, kubernetes.name, host_ports_msg])
 	res := result.new(msg, output)

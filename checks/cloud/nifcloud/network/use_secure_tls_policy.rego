@@ -31,7 +31,7 @@ package builtin.nifcloud.network.nifcloud0020
 
 import rego.v1
 
-outdated_sslpolicies = {
+outdated_sslpolicies := {
 	"",
 	"1",
 	"Standard Ciphers A ver1",

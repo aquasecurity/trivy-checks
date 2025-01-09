@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS010
 
-test_basic_denied {
+import rego.v1
+
+test_basic_denied if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",
@@ -27,7 +29,7 @@ test_basic_denied {
 	r[_].msg == "Using 'sudo' in Dockerfile should be avoided"
 }
 
-test_chaining_denied {
+test_chaining_denied if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",
@@ -43,7 +45,7 @@ test_chaining_denied {
 	r[_].msg == "Using 'sudo' in Dockerfile should be avoided"
 }
 
-test_multi_vuls_denied {
+test_multi_vuls_denied if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{
 			"Cmd": "from",
@@ -63,7 +65,7 @@ test_multi_vuls_denied {
 	r[_].msg == "Using 'sudo' in Dockerfile should be avoided"
 }
 
-test_basic_allowed {
+test_basic_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.3", "Commands": [
 		{
 			"Cmd": "from",

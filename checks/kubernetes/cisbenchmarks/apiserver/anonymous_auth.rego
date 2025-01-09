@@ -17,19 +17,21 @@
 #     - type: kubernetes
 package builtin.kubernetes.KCV0001
 
+import rego.v1
+
 import data.lib.kubernetes
 
-check_flag(container) {
+check_flag(container) if {
 	arg := kubernetes.containers[_].args[_]
 	contains(arg, "--anonymous-auth=false")
 }
 
-check_flag(container) {
+check_flag(container) if {
 	cmd := kubernetes.containers[_].command[_]
 	contains(cmd, "--anonymous-auth=false")
 }
 
-deny[res] {
+deny contains res if {
 	container := kubernetes.containers[_]
 	kubernetes.is_apiserver(container)
 	not check_flag(container)

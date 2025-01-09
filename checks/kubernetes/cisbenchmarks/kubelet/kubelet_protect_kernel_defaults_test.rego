@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0083
 
-test_validate_kernel_defaults_auth_set_true {
+import rego.v1
+
+test_validate_kernel_defaults_auth_set_true if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -11,7 +13,7 @@ test_validate_kernel_defaults_auth_set_true {
 	count(r) == 1
 }
 
-test_validate_kubelet_defaults_auth_set {
+test_validate_kubelet_defaults_auth_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -22,7 +24,7 @@ test_validate_kubelet_defaults_auth_set {
 	count(r) == 1
 }
 
-test_validate_kubelet_defaults_auth_set_false {
+test_validate_kubelet_defaults_auth_set_false if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",

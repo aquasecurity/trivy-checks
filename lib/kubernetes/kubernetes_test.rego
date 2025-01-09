@@ -1,6 +1,8 @@
 package lib.kubernetes
 
-test_pod {
+import rego.v1
+
+test_pod if {
 	# spec
 	test_pods := pods with input as {
 		"apiVersion": "v1",
@@ -19,7 +21,7 @@ test_pod {
 	test_pods[_].spec.containers[_].name == "hello-pod"
 }
 
-test_cron_job {
+test_cron_job if {
 	# spec -> jobTemplate -> spec -> template -> spec
 	test_pods := pods with input as {
 		"apiVersion": "v1",
@@ -43,7 +45,7 @@ test_cron_job {
 	test_pods[_].spec.containers[_].name == "hello-cron-job"
 }
 
-test_deployment {
+test_deployment if {
 	# spec -> template
 	test_pods := pods with input as {
 		"apiVersion": "v1",
@@ -64,7 +66,7 @@ test_deployment {
 	test_pods[_].spec.containers[_].name == "hello-deployment"
 }
 
-test_deploymentconfig {
+test_deploymentconfig if {
 	# spec -> template
 	mock = {
 		"apiVersion": "apps.openshift.io/v1",
@@ -100,7 +102,7 @@ test_deploymentconfig {
 	test_volumes[_].name == "hello-volume-2"
 }
 
-test_stateful_set {
+test_stateful_set if {
 	# spec -> template
 	test_pods := pods with input as {
 		"apiVersion": "v1",
@@ -121,7 +123,7 @@ test_stateful_set {
 	test_pods[_].spec.containers[_].name == "hello-stateful-set"
 }
 
-test_daemon_set {
+test_daemon_set if {
 	# spec -> template
 	test_pods := pods with input as {
 		"apiVersion": "v1",
@@ -142,7 +144,7 @@ test_daemon_set {
 	test_pods[_].spec.containers[_].name == "hello-daemon-set"
 }
 
-test_replica_set {
+test_replica_set if {
 	# spec -> template
 	test_pods := pods with input as {
 		"apiVersion": "v1",
@@ -163,7 +165,7 @@ test_replica_set {
 	test_pods[_].spec.containers[_].name == "hello-replica-set"
 }
 
-test_replication_controller {
+test_replication_controller if {
 	# spec -> template
 	test_pods := pods with input as {
 		"apiVersion": "v1",
@@ -184,7 +186,7 @@ test_replication_controller {
 	test_pods[_].spec.containers[_].name == "hello-replication-controller"
 }
 
-test_job {
+test_job if {
 	# spec -> template
 	test_pods := pods with input as {
 		"apiVersion": "v1",
@@ -205,7 +207,7 @@ test_job {
 	test_pods[_].spec.containers[_].name == "hello-job"
 }
 
-test_init_containers {
+test_init_containers if {
 	test_containers := containers with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -223,7 +225,7 @@ test_init_containers {
 	test_containers[_].name == "hello-init-containers"
 }
 
-test_containers {
+test_containers if {
 	test_containers := containers with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -241,7 +243,7 @@ test_containers {
 	test_containers[_].name == "hello-containers"
 }
 
-test_isapiserver_has_valid_container {
+test_isapiserver_has_valid_container if {
 	apiserver_container := containers[_] with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -276,10 +278,10 @@ test_isapiserver_has_valid_container {
 	}
 
 	is_apiserver(apiserver_container)
-	any([apiserver_container.name == "valid-1", apiserver_container.name == "valid-2"])
+	apiserver_container.name in {"valid-1", "valid-2"}
 }
 
-test_isapiserver_has_not_valid_container {
+test_isapiserver_has_not_valid_container if {
 	apiserver_container := containers[_] with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -308,7 +310,7 @@ test_isapiserver_has_not_valid_container {
 	not is_apiserver(apiserver_container)
 }
 
-test_etcd_has_valid_container {
+test_etcd_has_valid_container if {
 	etcd_container := containers[_] with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -342,10 +344,10 @@ test_etcd_has_valid_container {
 		]},
 	}
 	is_etcd(etcd_container)
-	any([etcd_container.name == "valid-1", etcd_container.name == "valid-2"])
+	etcd_container.name in {"valid-1", "valid-2"}
 }
 
-test_etcd_has_not_valid_container {
+test_etcd_has_not_valid_container if {
 	etcd_container := containers[_] with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -374,7 +376,7 @@ test_etcd_has_not_valid_container {
 	not is_etcd(etcd_container)
 }
 
-test_controllermananager_has_valid_container {
+test_controllermananager_has_valid_container if {
 	controllermananager_container := containers[_] with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -408,10 +410,10 @@ test_controllermananager_has_valid_container {
 		]},
 	}
 	is_controllermanager(controllermananager_container)
-	any([controllermananager_container.name == "valid-1", controllermananager_container.name == "valid-2"])
+	controllermananager_container.name in {"valid-1", "valid-2"}
 }
 
-test_controllermananager_has_not_valid_container {
+test_controllermananager_has_not_valid_container if {
 	controllermananager_container := containers[_] with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -440,7 +442,7 @@ test_controllermananager_has_not_valid_container {
 	not is_controllermanager(controllermananager_container)
 }
 
-test_scheduler_has_valid_container {
+test_scheduler_has_valid_container if {
 	scheduler_container := containers[_] with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -474,10 +476,10 @@ test_scheduler_has_valid_container {
 		]},
 	}
 	is_scheduler(scheduler_container)
-	any([scheduler_container.name == "valid-1", scheduler_container.name == "valid-2"])
+	scheduler_container.name in {"valid-1", "valid-2"}
 }
 
-test_scheduler_has_not_valid_container {
+test_scheduler_has_not_valid_container if {
 	scheduler_container := containers[_] with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

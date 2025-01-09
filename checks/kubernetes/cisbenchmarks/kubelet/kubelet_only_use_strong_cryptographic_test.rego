@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0092
 
-test_validate_do_not_use_strong_cryptographic {
+import rego.v1
+
+test_validate_do_not_use_strong_cryptographic if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -11,7 +13,7 @@ test_validate_do_not_use_strong_cryptographic {
 	count(r) == 1
 }
 
-test_validate_do_use_strong_cryptographic {
+test_validate_do_use_strong_cryptographic if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",
@@ -22,7 +24,7 @@ test_validate_do_use_strong_cryptographic {
 	count(r) == 0
 }
 
-test_validate_do_use_strong_cryptographic_empty {
+test_validate_do_use_strong_cryptographic_empty if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "NodeInfo",

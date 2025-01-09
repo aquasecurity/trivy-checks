@@ -17,11 +17,13 @@
 #     - type: dockerfile
 package builtin.dockerfile.DS030
 
+import rego.v1
+
 import data.lib.docker
 
 sysdirs := {"/proc/", "/boot/", "/dev/", "/initrd/", "/lost+found/"}
 
-is_workdir_in_sysdirs[output] {
+is_workdir_in_sysdirs contains output if {
 	workdir := docker.workdir[_]
 	arg := workdir.Value[0]
 
@@ -33,7 +35,7 @@ is_workdir_in_sysdirs[output] {
 	}
 }
 
-deny[res] {
+deny contains res if {
 	output := is_workdir_in_sysdirs[_]
 	msg := sprintf("WORKDIR path '%s' should not mount system directories", [output.arg])
 	res := result.new(msg, output.cmd)

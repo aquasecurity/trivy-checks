@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0013
 
-test_pod_security_policy_is_set {
+import rego.v1
+
+test_pod_security_policy_is_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -21,7 +23,7 @@ test_pod_security_policy_is_set {
 	count(r) == 0
 }
 
-test_pod_security_policy_is_set_args {
+test_pod_security_policy_is_set_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -43,7 +45,7 @@ test_pod_security_policy_is_set_args {
 	count(r) == 0
 }
 
-test_pod_security_policy_is_not_set {
+test_pod_security_policy_is_not_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -65,7 +67,7 @@ test_pod_security_policy_is_not_set {
 	r[_].msg == "Ensure that the admission control plugin SecurityContextDeny is set if PodSecurityPolicy is not used"
 }
 
-test_pod_security_policy_is_not_set_and_seurity_context_deny_is_set {
+test_pod_security_policy_is_not_set_and_seurity_context_deny_is_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -86,7 +88,7 @@ test_pod_security_policy_is_not_set_and_seurity_context_deny_is_set {
 	count(r) == 0
 }
 
-test_both_pod_security_policy_and_seurity_context_deny_are_set {
+test_both_pod_security_policy_and_seurity_context_deny_are_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

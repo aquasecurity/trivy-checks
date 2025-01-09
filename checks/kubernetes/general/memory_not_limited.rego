@@ -27,25 +27,27 @@
 #         - kind: job
 package builtin.kubernetes.KSV018
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-default failLimitsMemory = false
+default failLimitsMemory := false
 
 # getLimitsMemoryContainers returns all containers which have set resources.limits.memory
-getLimitsMemoryContainers[container] {
+getLimitsMemoryContainers contains container if {
 	container := kubernetes.containers[_]
 	utils.has_key(container.resources.limits, "memory")
 }
 
 # getNoLimitsMemoryContainers returns all containers which have not set
 # resources.limits.memory
-getNoLimitsMemoryContainers[container] {
+getNoLimitsMemoryContainers contains container if {
 	container := kubernetes.containers[_]
 	not getLimitsMemoryContainers[container]
 }
 
-deny[res] {
+deny contains res if {
 	output := getNoLimitsMemoryContainers[_]
 	msg := kubernetes.format(sprintf("Container '%s' of %s '%s' should set 'resources.limits.memory'", [output.name, kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, output)

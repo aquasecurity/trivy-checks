@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0005
 
-test_only_kubelet_client_certificate_is_set {
+import rego.v1
+
+test_only_kubelet_client_certificate_is_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -22,7 +24,7 @@ test_only_kubelet_client_certificate_is_set {
 	r[_].msg == "Ensure that the --kubelet-client-certificate and --kubelet-client-key arguments are set as appropriate"
 }
 
-test_only_kubelet_client_key_is_set {
+test_only_kubelet_client_key_is_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -44,7 +46,7 @@ test_only_kubelet_client_key_is_set {
 	r[_].msg == "Ensure that the --kubelet-client-certificate and --kubelet-client-key arguments are set as appropriate"
 }
 
-test_kubelet_client_key_and_certificate_are_set {
+test_kubelet_client_key_and_certificate_are_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -65,7 +67,7 @@ test_kubelet_client_key_and_certificate_are_set {
 	count(r) == 0
 }
 
-test_kubelet_client_key_and_certificate_are_set_args {
+test_kubelet_client_key_and_certificate_are_set_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -87,7 +89,7 @@ test_kubelet_client_key_and_certificate_are_set_args {
 	count(r) == 0
 }
 
-test_kubelet_client_key_and_certificate_are_not_set {
+test_kubelet_client_key_and_certificate_are_not_set if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

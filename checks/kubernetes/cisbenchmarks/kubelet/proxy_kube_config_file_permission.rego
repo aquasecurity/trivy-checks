@@ -19,11 +19,13 @@
 #         - kind: nodeinfo
 package builtin.kubernetes.KCV0071
 
+import rego.v1
+
 import data.lib.kubernetes
 
 types := ["master", "worker"]
 
-validate_kube_config_file_permission(sp) := {"kubeconfigFileExistsPermissions": violation} {
+validate_kube_config_file_permission(sp) := {"kubeconfigFileExistsPermissions": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == types[_]
 	count(sp.info.kubeconfigFileExistsPermissions) > 0
@@ -31,7 +33,7 @@ validate_kube_config_file_permission(sp) := {"kubeconfigFileExistsPermissions": 
 	count(violation) > 0
 }
 
-deny[res] {
+deny contains res if {
 	output := validate_kube_config_file_permission(input)
 	msg := "Ensure kubeconfig file permissions are set to 600 or more restrictive if exists"
 	res := result.new(msg, output)

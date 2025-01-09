@@ -17,23 +17,25 @@
 #     - type: kubernetes
 package builtin.kubernetes.KCV0010
 
+import rego.v1
+
 import data.lib.kubernetes
 
-check_flag(container) {
+check_flag(container) if {
 	kubernetes.command_has_flag(container.command, "--enable-admission-plugins")
 	some i
 	output := regex.find_all_string_submatch_n(`--enable-admission-plugins=([^\s]+)`, container.command[i], -1)
 	regex.match("EventRateLimit", output[0][1])
 }
 
-check_flag(container) {
+check_flag(container) if {
 	kubernetes.command_has_flag(container.args, "--enable-admission-plugins")
 	some i
 	output := regex.find_all_string_submatch_n(`--enable-admission-plugins=([^\s]+)`, container.args[i], -1)
 	regex.match("EventRateLimit", output[0][1])
 }
 
-deny[res] {
+deny contains res if {
 	container := kubernetes.containers[_]
 	kubernetes.is_apiserver(container)
 	not check_flag(container)

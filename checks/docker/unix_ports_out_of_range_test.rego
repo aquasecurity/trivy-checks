@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS008
 
-test_denied {
+import rego.v1
+
+test_denied if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.3", "Commands": [
 		{
 			"Cmd": "from",
@@ -33,7 +35,7 @@ test_denied {
 	r[_].msg == "'EXPOSE' contains port which is out of range [0, 65535]: 65536"
 }
 
-test_allowed {
+test_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.3", "Commands": [
 		{
 			"Cmd": "from",

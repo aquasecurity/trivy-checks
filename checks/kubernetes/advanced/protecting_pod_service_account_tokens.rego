@@ -17,21 +17,23 @@
 #     - type: kubernetes
 package builtin.kubernetes.KSV036
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
-mountServiceAccountToken(spec) {
+mountServiceAccountToken(spec) if {
 	utils.has_key(spec, "automountServiceAccountToken")
 	spec.automountServiceAccountToken == true
 }
 
 # if there is no automountServiceAccountToken spec, check on volumeMount in containers. Service Account token is mounted on /var/run/secrets/kubernetes.io/serviceaccount
-mountServiceAccountToken(spec) {
+mountServiceAccountToken(spec) if {
 	not utils.has_key(spec, "automountServiceAccountToken")
 	"/var/run/secrets/kubernetes.io/serviceaccount" == kubernetes.containers[_].volumeMounts[_].mountPath
 }
 
-deny[res] {
+deny contains res if {
 	mountServiceAccountToken(input.spec)
 	msg := kubernetes.format(sprintf("Container of %s '%s' should set 'spec.automountServiceAccountToken' to false", [kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, input.spec)

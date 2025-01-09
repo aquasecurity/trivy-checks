@@ -1,6 +1,8 @@
 package builtin.kubernetes.KCV0009
 
-test_authorization_mode_is_set_rbac {
+import rego.v1
+
+test_authorization_mode_is_set_rbac if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -21,7 +23,7 @@ test_authorization_mode_is_set_rbac {
 	count(r) == 0
 }
 
-test_authorization_mode_includes_rbac {
+test_authorization_mode_includes_rbac if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -42,7 +44,7 @@ test_authorization_mode_includes_rbac {
 	count(r) == 0
 }
 
-test_authorization_mode_includes_rbac_args {
+test_authorization_mode_includes_rbac_args if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -64,7 +66,7 @@ test_authorization_mode_includes_rbac_args {
 	count(r) == 0
 }
 
-test_authorization_mode_default_value {
+test_authorization_mode_default_value if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -86,7 +88,7 @@ test_authorization_mode_default_value {
 	r[_].msg == "Ensure that the --authorization-mode argument includes RBAC"
 }
 
-test_authorization_mode_is_set_node {
+test_authorization_mode_is_set_node if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -108,7 +110,7 @@ test_authorization_mode_is_set_node {
 	r[_].msg == "Ensure that the --authorization-mode argument includes RBAC"
 }
 
-test_authorization_mode_with_multiple_values {
+test_authorization_mode_with_multiple_values if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",

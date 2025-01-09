@@ -27,11 +27,13 @@
 #         - kind: job
 package builtin.kubernetes.KSV121
 
+import rego.v1
+
 import data.lib.kubernetes
 import data.lib.utils
 
 # Add disallowed volume type
-disallowedVolumes = [
+disallowedVolumes := [
 	"/",
 	"/boot",
 	"/dev",
@@ -45,7 +47,7 @@ disallowedVolumes = [
 
 # getDisallowedVolumes returns a list of volumes
 # which are set to any of the disallowed hostPath volumes
-getDisallowedVolumes[path] {
+getDisallowedVolumes contains path if {
 	hostpath := kubernetes.volumes[_].hostPath.path
 	volume := disallowedVolumes[_]
 	volume == hostpath
@@ -53,11 +55,11 @@ getDisallowedVolumes[path] {
 }
 
 # failVolumes is true if any of volume has a disallowed volumes
-failVolumes {
+failVolumes if {
 	count(getDisallowedVolumes) > 0
 }
 
-deny[res] {
+deny contains res if {
 	failVolumes
 	msg := kubernetes.format(sprintf("%s %s in %s namespace shouldn't have volumes set to %s", [lower(kubernetes.kind), kubernetes.name, kubernetes.namespace, getDisallowedVolumes]))
 	res := result.new(msg, input.spec)

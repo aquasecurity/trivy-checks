@@ -1,6 +1,8 @@
 package builtin.dockerfile.DS030
 
-test_basic_denied {
+import rego.v1
+
+test_basic_denied if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.5", "Commands": [
 		{"Cmd": "from", "Value": ["alpine:3.5"]},
 		{
@@ -17,7 +19,7 @@ test_basic_denied {
 	r[_].msg == "WORKDIR path '/proc/self/fd/1' should not mount system directories"
 }
 
-test_no_work_dir_allowed {
+test_no_work_dir_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.3", "Commands": [
 		{
 			"Cmd": "from",
@@ -32,7 +34,7 @@ test_no_work_dir_allowed {
 	count(r) == 0
 }
 
-test_non_sys_work_dir_allowed {
+test_non_sys_work_dir_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.3", "Commands": [
 		{
 			"Cmd": "from",
@@ -51,7 +53,7 @@ test_non_sys_work_dir_allowed {
 	count(r) == 0
 }
 
-test_non_sys_work_dir_similar_to_fs_allowed {
+test_non_sys_work_dir_similar_to_fs_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.3", "Commands": [
 		{
 			"Cmd": "from",
@@ -70,7 +72,7 @@ test_non_sys_work_dir_similar_to_fs_allowed {
 	count(r) == 0
 }
 
-test_absolute_work_dir_with_quotes_allowed {
+test_absolute_work_dir_with_quotes_allowed if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.3", "Commands": [
 		{
 			"Cmd": "from",
@@ -89,7 +91,7 @@ test_absolute_work_dir_with_quotes_allowed {
 	count(r) == 0
 }
 
-test_absolute_work_dir_with_quotes_with_sys_dir_denied {
+test_absolute_work_dir_with_quotes_with_sys_dir_denied if {
 	r := deny with input as {"Stages": [{"Name": "alpine:3.3", "Commands": [
 		{
 			"Cmd": "from",
