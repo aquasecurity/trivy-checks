@@ -1,0 +1,16 @@
+rules:
+  default:
+    level: ignore
+  custom:
+    naming-convention:
+      level: error
+      conventions:
+        - pattern: '^builtin|lib|defsec|appshield'
+          targets:
+            - package
+  naming:
+    deny-rule:
+      level: error
+      ignore:
+        files:
+          - "*_test.rego"
