@@ -15,7 +15,7 @@ rego: fmt-rego test-rego
 
 .PHONY: fmt-rego
 fmt-rego:
-	opa fmt -w lib/ checks/ examples/ .regal/rules
+	go run ./cmd/opa fmt -w lib/ checks/ examples/ .regal/rules
 
 .PHONY: test-rego
 test-rego:
