@@ -36,18 +36,14 @@ jobs:
         with:
           go-version: ${{ env.GO_VERSION }}
 
-      - name: Setup OPA
-        uses: ./.github/actions/setup-opa
-
       - name: Rego Check
-        run: opa check lib checks --v0-v1
+        run: go run ./cmd/opa check lib checks --v0-v1
 
       - name: OPA Format
         run: |
-          files=$(opa fmt --list . | grep -v vendor || true)
-          if [ -n "$files" ]; then
-            echo "=== The following files are not formatted ==="
-            echo "$files"
+          make fmt-rego
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Run 'make fmt-rego' and push it"
             exit 1
           fi
 
