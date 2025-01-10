@@ -15,11 +15,19 @@ rego: fmt-rego test-rego
 
 .PHONY: fmt-rego
 fmt-rego:
-	opa fmt -w lib/ checks/ examples/
+	opa fmt -w lib/ checks/ examples/ .regal/rules
 
 .PHONY: test-rego
 test-rego:
 	go run ./cmd/opa test --explain=fails lib/ checks/ examples/ --ignore '*.yaml'
+
+.PHONY: lint-rego
+lint-rego:
+	@regal test .regal/rules 
+	@regal lint lib checks \
+		--config-file .regal/config.yaml \
+		--enable deny-rule,naming-convention \
+		--timeout 5m
 
 .PHONY: bundle
 bundle: create-bundle verify-bundle
