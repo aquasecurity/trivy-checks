@@ -83,3 +83,26 @@ test_zero_uid_denied if {
 	count(r) == 1
 	r[_].msg == "Container 'hello' of Pod 'hello-uid' should set 'securityContext.runAsUser' > 10000"
 }
+
+test_pod_sec_ctx_low_uid_denied if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-uid"},
+		"spec": {
+			"securityContext": {"runAsUser": 100},
+			"containers": [{
+				"command": [
+					"sh",
+					"-c",
+					"echo 'Hello' && sleep 1h",
+				],
+				"image": "busybox",
+				"name": "hello",
+			}],
+		},
+	}
+
+	count(r) == 1
+	r[_].msg == "Container 'hello' of Pod 'hello-uid' should set 'securityContext.runAsUser' > 10000"
+}
