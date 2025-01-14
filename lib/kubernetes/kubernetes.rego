@@ -9,6 +9,8 @@ package lib.kubernetes
 
 import rego.v1
 
+import data.lib.k8s_sec_context
+
 default is_gatekeeper := false
 
 is_gatekeeper if {
@@ -38,8 +40,6 @@ name := object.metadata.name
 default namespace := "default"
 
 namespace := object.metadata.namespace
-
-#annotations = object.metadata.annotations
 
 kind := object.kind
 
@@ -94,7 +94,18 @@ split_image(image) := [image_name, tag] if {
 
 pod_containers(pod) := all_containers if {
 	keys = {"containers", "initContainers"}
-	all_containers = [c | keys[k]; c = pod.spec[k][_]]
+	all_containers = [c |
+		keys[k]
+		some container in pod.spec[k]
+		c := json.patch(
+			container,
+			[{
+				"op": "add",
+				"path": "securityContext",
+				"value": k8s_sec_context.resolve_container_sec_context(pod, container),
+			}],
+		)
+	]
 }
 
 containers contains container if {
