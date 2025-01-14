@@ -34,5 +34,5 @@ deny contains res if {
 	rule.isingress.value == true
 	cidr.is_public(rule.cidr.value)
 	cidr.count_addresses(rule.cidr.value) > 1
-	res := result.new("Security group rule allows egress to multiple public addresses.", rule.cidr)
+	res := result.new("Security group rule allows ingress to multiple public addresses.", rule.cidr)
 }
