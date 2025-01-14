@@ -168,6 +168,29 @@ test_container_context_runtime_default_allowed if {
 	count(r) == 0
 }
 
+test_pod_context_runtime_default_is_overrided_allowed if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-seccomp"},
+		"spec": {
+			"securityContext": {"seccompProfile": {"type": "Unconfined"}},
+			"containers": [{
+				"command": [
+					"sh",
+					"-c",
+					"echo 'Hello' && sleep 1h",
+				],
+				"image": "busybox",
+				"name": "hello",
+				"securityContext": {"seccompProfile": {"type": "RuntimeDefault"}},
+			}],
+		},
+	}
+
+	count(r) == 0
+}
+
 test_annotation_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",

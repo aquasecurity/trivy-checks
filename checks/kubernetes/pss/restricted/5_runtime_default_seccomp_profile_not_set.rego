@@ -32,94 +32,37 @@ import rego.v1
 import data.lib.kubernetes
 import data.lib.utils
 
-getType(target) := type if {
-	context := getOr(target, "securityContext", {})
-	profile := getOr(context, "seccompProfile", {})
-	type := getOr(profile, "type", "")
-}
+seccomp_pod_annotation_key := "seccomp.security.alpha.kubernetes.io/pod"
 
-isValidProfileType(target) if {
-	getType(target) == "RuntimeDefault"
-}
-
-isValidProfileType(target) if {
-	getType(target) == "Localhost"
-}
-
-isUndefinedProfileType(target) if {
-	not isDefinedProfileType(target)
-}
-
-getOr(obj, key, def) := res if {
-	res := obj[key]
-}
-
-getOr(obj, key, def) := res if {
-	not obj[key]
-	res := def
-}
-
-isDefinedProfileType(target) if {
-	getType(target) != ""
-}
-
-getAnnotations contains type if {
-	annotation := kubernetes.annotations[_]
-	type := annotation["seccomp.security.alpha.kubernetes.io/pod"]
-}
-
-hasAnnotations if {
-	count(getAnnotations) > 0
-}
-
-failSeccompAnnotation contains annotation if {
-	annotation := kubernetes.annotations[_]
-	val := annotation["seccomp.security.alpha.kubernetes.io/pod"]
-	val != "runtime/default"
+non_runtime_default_seccomp_annotations := {annotation |
+	some annotation in kubernetes.annotations
+	"runtime/default" != annotation[seccomp_pod_annotation_key]
 }
 
 # annotations (Kubernetes pre-v1.19)
 deny contains res if {
-	cause := failSeccompAnnotation[_]
-	msg := "seccomp.security.alpha.kubernetes.io/pod should be set to 'runtime/default'"
-	res := result.new(msg, cause)
+	some cause in non_runtime_default_seccomp_annotations
+	res := result.new(
+		sprintf("%s should be set to 'runtime/default'", [seccomp_pod_annotation_key]),
+		cause,
+	)
 }
 
 # (Kubernetes post-v1.19)
 
-isDefinedOnPod if {
-	count(definedPods) > 0
-}
+has_seccomp_annotation(pod) if pod.metadata.annotations[seccomp_pod_annotation_key]
 
-definedPods contains pod if {
-	pod := kubernetes.pods[_]
-	not isUndefinedProfileType(pod.spec)
-}
+get_seccomp_profile_type(target) := object.get(target, ["securityContext", "seccompProfile", "type"], "")
+
+is_valid_profile_type(target) if get_seccomp_profile_type(target) in {"RuntimeDefault", "Localhost"}
 
 # deny if container-level is undefined and pod-level is undefined
 deny contains res if {
-	not hasAnnotations
-	not isDefinedOnPod
-	container := kubernetes.containers[_]
-	isUndefinedProfileType(container)
+	some pod in kubernetes.pods
+	not has_seccomp_annotation(pod)
+
+	some container in kubernetes.pod_containers(pod)
+	not is_valid_profile_type(container)
 	msg := "Either Pod or Container should set 'securityContext.seccompProfile.type' to 'RuntimeDefault'"
 	res := result.new(msg, container)
-}
-
-# deny if container-level is bad
-deny contains res if {
-	container := kubernetes.containers[_]
-	not isUndefinedProfileType(container)
-	not isValidProfileType(container)
-	msg := "Container should set 'securityContext.seccompProfile.type' to 'RuntimeDefault'"
-	res := result.new(msg, container)
-}
-
-# deny if pod-level is bad
-deny contains res if {
-	pod := kubernetes.pods[_]
-	not isUndefinedProfileType(pod.spec)
-	not isValidProfileType(pod.spec)
-	msg := "Pod should set 'securityContext.seccompProfile.type' to 'RuntimeDefault'"
-	res := result.new(msg, pod.spec)
 }

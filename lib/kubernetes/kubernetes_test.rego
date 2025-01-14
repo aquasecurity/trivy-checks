@@ -229,18 +229,35 @@ test_containers if {
 	test_containers := containers with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
-		"spec": {"containers": [{
-			"command": [
-				"sh",
-				"-c",
-				"echo 'Hello !' && sleep 1h",
-			],
-			"image": "busybox",
-			"name": "hello-containers",
-		}]},
+		"spec": {
+			"securityContext": {
+				"runAsUser": 1000,
+				"runAsGroup": 1001,
+				"fsGroup": 2000,
+				"supplementalGroups": [4000],
+			},
+			"containers": [{
+				"command": [
+					"sh",
+					"-c",
+					"echo 'Hello !' && sleep 1h",
+				],
+				"image": "busybox",
+				"name": "hello-containers",
+				"securityContext": {
+					"runAsGroup": 3000,
+					"allowPrivilegeEscalation": false,
+				},
+			}],
+		},
 	}
 
 	test_containers[_].name == "hello-containers"
+	test_containers[_].securityContext == {
+		"runAsUser": 1000,
+		"runAsGroup": 3000,
+		"allowPrivilegeEscalation": false,
+	}
 }
 
 test_isapiserver_has_valid_container if {
