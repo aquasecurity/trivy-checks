@@ -62,3 +62,26 @@ test_low_gid_denied if {
 	count(r) == 1
 	r[_].msg == "Container 'hello' of Pod 'hello-gid' should set 'securityContext.runAsGroup' > 10000"
 }
+
+test_pod_sec_ctx_low_gid_denied if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-gid"},
+		"spec": {
+			"securityContext": {"runAsGroup": 100},
+			"containers": [{
+				"command": [
+					"sh",
+					"-c",
+					"echo 'Hello' && sleep 1h",
+				],
+				"image": "busybox",
+				"name": "hello",
+			}],
+		},
+	}
+
+	count(r) == 1
+	r[_].msg == "Container 'hello' of Pod 'hello-gid' should set 'securityContext.runAsGroup' > 10000"
+}

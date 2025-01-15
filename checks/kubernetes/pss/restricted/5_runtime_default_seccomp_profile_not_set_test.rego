@@ -23,7 +23,7 @@ test_pod_context_custom_profile_denied if {
 		},
 	}
 
-	count(r) == 1
+	count(r) == 2
 }
 
 test_both_undefined_type_denied if {
