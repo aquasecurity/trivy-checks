@@ -31,12 +31,14 @@ package builtin.azure.network.azure0051
 
 import rego.v1
 
+import data.lib.net
+
 deny contains res if {
 	some group in input.azure.network.securitygroups
 	some rule in group.rules
 	rule.outbound.value
 	rule.allow.value
 	some addr in rule.destinationaddresses
-	cidr.is_public(addr.value)
+	net.cidr_allows_all_ips(addr.value)
 	res := result.new("Security group rule allows egress to public internet.", addr)
 }

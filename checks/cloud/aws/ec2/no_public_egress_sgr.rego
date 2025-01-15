@@ -35,11 +35,12 @@ package builtin.aws.ec2.aws0104
 
 import rego.v1
 
+import data.lib.net
+
 deny contains res if {
 	some rule in input.aws.ec2.securitygroups[_].egressrules
 	some block in rule.cidrs
-	cidr.is_public(block.value)
-	cidr.count_addresses(block.value) > 1
+	net.cidr_allows_all_ips(block.value)
 	res := result.new(
 		"Security group rule allows egress to multiple public internet addresses.",
 		block,

@@ -12,7 +12,7 @@ ssh_port := 22
 
 rdp_port := 3389
 
-all_ips := {"0.0.0.0/0", "0000:0000:0000:0000:0000:0000:0000:0000/0", "::/0"}
+all_ips := {"0.0.0.0/0", "0000:0000:0000:0000:0000:0000:0000:0000/0", "::/0", "*"}
 
 # "-1" or "all" equivalent to all protocols
 # https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html
