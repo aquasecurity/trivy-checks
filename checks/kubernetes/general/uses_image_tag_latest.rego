@@ -31,32 +31,28 @@ import rego.v1
 
 import data.lib.kubernetes
 
-default checkUsingLatestTag := false
+# is_container_tagged checks if a container has a tag or digest.
+# It returns true if the image contains a digest (indicated by '@'), or if the tag is not "latest".
+is_container_tagged(container) if contains(container.image, "@")
 
-# getTaggedContainers returns the names of all containers which
-# have tagged images.
-getTaggedContainers contains container if {
-	# If the image defines a digest value, we don't care about the tag
-	container := kubernetes.containers[_]
-	digest := split(container.image, "@")[1]
-}
-
-getTaggedContainers contains container if {
+is_container_tagged(container) if {
 	# No digest, look at tag
-	container := kubernetes.containers[_]
-	tag := split(container.image, ":")[1]
+	[_, tag] := split(container.image, ":")
 	tag != "latest"
 }
 
-# getUntaggedContainers returns the names of all containers which
+# untagged_containers returns the names of all containers which
 # have untagged images or images with the latest tag.
-getUntaggedContainers contains container if {
-	container := kubernetes.containers[_]
-	not getTaggedContainers[container]
+untagged_containers contains container if {
+	some container in kubernetes.containers
+	not is_container_tagged(container)
 }
 
 deny contains res if {
-	output := getUntaggedContainers[_]
-	msg := kubernetes.format(sprintf("Container '%s' of %s '%s' should specify an image tag", [output.name, kubernetes.kind, kubernetes.name]))
-	res := result.new(msg, output)
+	some container in untagged_containers
+	msg := kubernetes.format(sprintf(
+		"Container '%s' of %s '%s' should specify an image tag",
+		[container.name, kubernetes.kind, kubernetes.name],
+	))
+	res := result.new(msg, container)
 }

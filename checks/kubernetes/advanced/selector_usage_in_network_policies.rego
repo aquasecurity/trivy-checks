@@ -60,12 +60,12 @@ hasSelector(spec) if {
 
 hasSelector(spec) if {
 	kubernetes.spec.podSelector == {}
-	"Egress" in input.spec.policyType
+	"Egress" in spec.policyType
 }
 
 hasSelector(spec) if {
 	kubernetes.spec.podSelector == {}
-	"Ingress" in input.spec.policyType
+	"Ingress" in spec.policyType
 }
 
 deny contains res if {

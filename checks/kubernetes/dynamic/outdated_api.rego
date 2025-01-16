@@ -37,7 +37,7 @@ exists(obj, k) if {
 	_ = obj[k]
 }
 
-pick(k, obj1, obj2) := v if {
+pick(k, obj1, _) := v if {
 	v := obj1[k]
 }
 
@@ -84,7 +84,7 @@ compareVersion(obj) if {
 	valid(resultDep, resultRem)
 }
 
-compareVersion(obj) if {
+compareVersion(_) if {
 	not k8s
 }
 
