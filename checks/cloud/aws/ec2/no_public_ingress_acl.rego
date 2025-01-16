@@ -1,5 +1,5 @@
 # METADATA
-# title: Network ACLs should not allow ingress to SSH or RDP from any IP address.
+# title: Network ACLs should not allow unrestricted ingress to SSH or RDP from any IP address.
 # description: |
 #   The Network Access Control List (NACL) function provide stateless filtering of ingress and
 #   egress network traffic to AWS resources. It is recommended that no NACL allows
@@ -56,7 +56,7 @@ deny contains res if {
 	some block in rule.cidrs
 	net.cidr_allows_all_ips(block.value)
 	res := result.new(
-		"Network ACL rule allows ingress from any IP address.",
+		"Network ACL rule allows unrestricted ingress from any IP address.",
 		block,
 	)
 }

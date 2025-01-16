@@ -1,5 +1,5 @@
 # METADATA
-# title: Security groups should not allow ingress to SSH or RDP from any IP address.
+# title: Security groups should not allow unrestricted ingress to SSH or RDP from any IP address.
 # description: |
 #   Security groups provide stateful filtering of ingress and egress network traffic to AWS
 #   resources. It is recommended that no security group allows unrestricted ingress access to
@@ -53,7 +53,7 @@ deny contains res if {
 	some block in rule.cidrs
 	net.cidr_allows_all_ips(block.value)
 	res := result.new(
-		"Security group rule allows ingress from any IP address.",
+		"Security group rule allows unrestricted ingress from any IP address.",
 		block,
 	)
 }
