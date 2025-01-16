@@ -21,8 +21,12 @@ fmt-rego:
 test-rego:
 	go run ./cmd/opa test --explain=fails lib/ checks/ examples/ --ignore '*.yaml'
 
+.PHONY: check-rego
+check-rego:
+	go run ./cmd/opa check lib checks --v0-v1 --strict
+
 .PHONY: lint-rego
-lint-rego:
+lint-rego: check-rego
 	@regal test .regal/rules 
 	@regal lint lib checks \
 		--config-file .regal/config.yaml \
