@@ -23,4 +23,7 @@ test_allow_log_bucket_without_kms_key if {
 		"encryption": {},
 		"acl": {"value": "log-delivery-write"},
 	}]}}}
+
+	res := check.deny with input as inp
+	count(res) == 0
 }

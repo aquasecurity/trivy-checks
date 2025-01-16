@@ -19,6 +19,8 @@ test_allow_without_key_but_managed if {
 		"kmskeyid": {"value": ""},
 		"managedencryption": {"value": true},
 	}}]}}}
+
+	test.assert_empty(check.deny) with input as inp
 }
 
 test_deny_unencrypted if {
