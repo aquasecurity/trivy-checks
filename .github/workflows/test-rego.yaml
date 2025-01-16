@@ -24,6 +24,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Rego Check
+        run: go run ./cmd/opa check lib checks --strict --v0-v1
+
       - name: Setup Regal 
         uses: StyraInc/setup-regal@33a142b1189004e0f14bf42b15972c67eecce776 # v1
         with:
@@ -31,13 +38,6 @@ jobs:
 
       - name: Lint Rego
         run: make lint-rego
-
-      - uses: actions/setup-go@v5
-        with:
-          go-version: ${{ env.GO_VERSION }}
-
-      - name: Rego Check
-        run: go run ./cmd/opa check lib checks --v0-v1
 
       - name: OPA Format
         run: |
