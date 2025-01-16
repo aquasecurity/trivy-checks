@@ -3,7 +3,6 @@ package builtin.nifcloud.nas.nifcloud0013_test
 import rego.v1
 
 import data.builtin.nifcloud.nas.nifcloud0013 as check
-import data.lib.test
 
 test_allow_private_lan if {
 	inp := {"nifcloud": {"nas": {"nasinstances": [{"networkid": {"value": "net-some-private-lan"}}]}}}

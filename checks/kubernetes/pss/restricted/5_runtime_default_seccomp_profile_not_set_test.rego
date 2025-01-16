@@ -2,8 +2,6 @@ package builtin.kubernetes.KSV030
 
 import rego.v1
 
-import data.lib.kubernetes
-
 test_pod_context_custom_profile_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",

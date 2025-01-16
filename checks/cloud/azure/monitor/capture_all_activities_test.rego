@@ -3,7 +3,6 @@ package builtin.azure.monitor.azure0033_test
 import rego.v1
 
 import data.builtin.azure.monitor.azure0033 as check
-import data.lib.test
 
 test_deny_log_profile_captures_only_write_activities if {
 	inp := {"azure": {"monitor": {"logprofiles": [{"categories": [{"value": "Write"}]}]}}}

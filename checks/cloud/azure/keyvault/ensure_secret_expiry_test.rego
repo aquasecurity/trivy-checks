@@ -4,7 +4,6 @@ import rego.v1
 
 import data.builtin.azure.keyvault.azure0017 as check
 import data.lib.datetime
-import data.lib.test
 
 test_deny_expiration_date_not_specified if {
 	inp := {"azure": {"keyvault": {"vaults": [{"secrets": [{}]}]}}}

@@ -3,7 +3,6 @@ package builtin.azure.database.azure0019_test
 import rego.v1
 
 import data.builtin.azure.database.azure0019 as check
-import data.lib.test
 
 test_deny_psql_server_connection_logconnections_disabled if {
 	inp := {"azure": {"database": {"postgresqlservers": [{"config": {"logconnections": {"value": false}}}]}}}

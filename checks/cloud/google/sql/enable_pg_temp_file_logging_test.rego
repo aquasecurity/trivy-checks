@@ -3,7 +3,6 @@ package builtin.google.sql.google0014_test
 import rego.v1
 
 import data.builtin.google.sql.google0014 as check
-import data.lib.test
 
 test_deny_temp_files_logging_disabled_for_all_files if {
 	inp := build_input({

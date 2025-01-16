@@ -3,7 +3,6 @@ package builtin.google.gke.google0064_test
 import rego.v1
 
 import data.builtin.google.gke.google0064 as check
-import data.lib.test
 
 test_deny_master_auth_by_certificate if {
 	inp := {"google": {"gke": {"clusters": [{"masterauth": {"clientcertificate": {"issuecertificate": {"value": true}}}}]}}}

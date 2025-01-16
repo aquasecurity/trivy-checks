@@ -4,7 +4,6 @@ import rego.v1
 
 import data.builtin.google.iam.google0009 as check
 import data.lib.google.iam
-import data.lib.test
 
 test_deny_service_account_for_org_member if {
 	inp := build_input({"members": [{"role": {"value": iam.service_account_user_role}}]})

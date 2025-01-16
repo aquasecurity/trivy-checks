@@ -3,7 +3,6 @@ package builtin.azure.database.azure0027_test
 import rego.v1
 
 import data.builtin.azure.database.azure0027 as check
-import data.lib.test
 
 test_deny_extended_audit_policy_not_configured if {
 	inp := {"azure": {"database": {"mssqlservers": [{"extendedauditingpolicies": []}]}}}

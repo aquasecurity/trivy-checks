@@ -23,7 +23,6 @@ package builtin.kubernetes.KSV048
 import rego.v1
 
 import data.lib.kubernetes
-import data.lib.utils
 
 workloads := ["pods", "deployments", "jobs", "cronjobs", "statefulsets", "daemonsets", "replicasets", "replicationcontrollers"]
 

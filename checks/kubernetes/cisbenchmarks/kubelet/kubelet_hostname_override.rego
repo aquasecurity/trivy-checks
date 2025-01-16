@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0086
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 validate_kubelet_hostname_override_set(sp) := {"kubeletHostnameOverrideArgumentSet": hostname_override} if {

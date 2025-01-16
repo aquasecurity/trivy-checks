@@ -20,7 +20,6 @@ package builtin.kubernetes.KSV037
 import rego.v1
 
 import data.lib.kubernetes
-import data.lib.utils
 
 systemNamespaceInUse(metadata, spec) if {
 	kubernetes.namespace == "kube-system"

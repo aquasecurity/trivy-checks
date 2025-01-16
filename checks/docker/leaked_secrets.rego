@@ -19,7 +19,6 @@ package builtin.dockerfile.DS031
 import rego.v1
 
 import data.ds031
-import data.lib.docker
 import data.lib.path
 
 final_stage := last(input.Stages)

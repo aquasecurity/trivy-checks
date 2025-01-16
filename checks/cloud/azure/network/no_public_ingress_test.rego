@@ -3,7 +3,6 @@ package builtin.azure.network.azure0047_test
 import rego.v1
 
 import data.builtin.azure.network.azure0047 as check
-import data.lib.test
 
 test_deny_inbound_rule_with_wildcard_source_address if {
 	inp := {"azure": {"network": {"securitygroups": [{"rules": [{

@@ -3,7 +3,6 @@ package builtin.openstack.networking.openstack0004_test
 import rego.v1
 
 import data.builtin.openstack.networking.openstack0004 as check
-import data.lib.test
 
 test_deny_public_egress if {
 	inp := {"openstack": {"networking": {"securitygroups": [{"rules": [{

@@ -3,7 +3,6 @@ package builtin.nifcloud.computing.nifcloud0001_test
 import rego.v1
 
 import data.builtin.nifcloud.computing.nifcloud0001 as check
-import data.lib.test
 
 test_deny_ingress_sg_rule_with_wildcard_address if {
 	inp := {"nifcloud": {"computing": {"securitygroups": [{"ingressrules": [{"cidr": {"value": "0.0.0.0/0"}}]}]}}}

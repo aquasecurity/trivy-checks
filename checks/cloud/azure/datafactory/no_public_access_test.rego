@@ -3,7 +3,6 @@ package builtin.azure.datafactory.azure0035_test
 import rego.v1
 
 import data.builtin.azure.datafactory.azure0035 as check
-import data.lib.test
 
 test_deny_datafactory_public_access_enabled if {
 	res := check.deny with input as build_input(true)

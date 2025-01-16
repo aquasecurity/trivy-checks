@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0048
 
 import rego.v1
 
-import data.lib.kubernetes
-
 validate_spec_permission(sp) := {"kubeAPIServerSpecFilePermission": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == "master"

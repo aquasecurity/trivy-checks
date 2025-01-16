@@ -22,7 +22,6 @@ package builtin.kubernetes.KSV046
 import rego.v1
 
 import data.lib.kubernetes
-import data.lib.utils
 
 readVerbs := ["create", "update", "delete", "deletecollection", "impersonate", "*", "list", "get"]
 

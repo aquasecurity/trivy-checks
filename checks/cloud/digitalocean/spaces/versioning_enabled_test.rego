@@ -3,7 +3,6 @@ package builtin.digitalocean.spaces.digitalocean0007_test
 import rego.v1
 
 import data.builtin.digitalocean.spaces.digitalocean0007 as check
-import data.lib.test
 
 test_allow_versioning_enabled if {
 	inp := {"digitalocean": {"spaces": {"buckets": [{"versioning": {"enabled": {"value": true}}}]}}}

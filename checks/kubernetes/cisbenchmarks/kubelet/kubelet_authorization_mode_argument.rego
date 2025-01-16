@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0080
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 validate_kubelet_authorization_mode(sp) := {"kubeletAuthorizationModeArgumentSet": violation} if {

@@ -3,7 +3,6 @@ package builtin.azure.appservice.azure0004_test
 import rego.v1
 
 import data.builtin.azure.appservice.azure0004 as check
-import data.lib.test
 
 test_deny_app_does_not_enforce_https if {
 	inp := {"azure": {"appservice": {"functionapps": [{"httpsonly": {"value": false}}]}}}

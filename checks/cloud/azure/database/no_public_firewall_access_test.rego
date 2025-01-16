@@ -3,7 +3,6 @@ package builtin.azure.database.azure0029_test
 import rego.v1
 
 import data.builtin.azure.database.azure0029 as check
-import data.lib.test
 
 test_deny_mysql_server_allow_public_access if {
 	inp := {"azure": {"database": {"mysqlservers": [{"server": {"firewallrules": [{

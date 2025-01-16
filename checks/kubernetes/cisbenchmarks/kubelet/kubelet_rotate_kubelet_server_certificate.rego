@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0091
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 validate_kubelet_rotate_kubelet_server_certificate(sp) := {"kubeletRotateKubeletServerCertificateArgumentSet": violation} if {

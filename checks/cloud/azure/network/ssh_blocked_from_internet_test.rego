@@ -3,7 +3,6 @@ package builtin.azure.network.azure0050_test
 import rego.v1
 
 import data.builtin.azure.network.azure0050 as check
-import data.lib.test
 
 test_deny_inbound_rule_allows_rdp_access_from_internet if {
 	inp := {"azure": {"network": {"securitygroups": [{"rules": [{

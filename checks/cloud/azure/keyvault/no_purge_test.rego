@@ -3,7 +3,6 @@ package builtin.azure.keyvault.azure0016_test
 import rego.v1
 
 import data.builtin.azure.keyvault.azure0016 as check
-import data.lib.test
 
 test_deny_purge_protection_disabled if {
 	inp := {"azure": {"keyvault": {"vaults": [{}]}}}

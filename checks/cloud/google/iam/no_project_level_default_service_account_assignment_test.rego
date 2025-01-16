@@ -3,7 +3,6 @@ package builtin.google.iam.google0006_test
 import rego.v1
 
 import data.builtin.google.iam.google0006 as check
-import data.lib.test
 
 test_deny_default_service_account_enabled_for_folder_member if {
 	inp := build_input({"members": [{

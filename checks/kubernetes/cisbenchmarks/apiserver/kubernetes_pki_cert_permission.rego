@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0068
 
 import rego.v1
 
-import data.lib.kubernetes
-
 validate_pki_cert_permission(sp) := {"kubernetesPKICertificateFilePermissions": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == "master"

@@ -30,7 +30,6 @@ package builtin.kubernetes.KSV116
 import rego.v1
 
 import data.lib.kubernetes
-import data.lib.utils
 
 default failRootGroupId := false
 

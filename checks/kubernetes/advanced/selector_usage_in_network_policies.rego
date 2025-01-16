@@ -20,7 +20,6 @@ package builtin.kubernetes.KSV038
 import rego.v1
 
 import data.lib.kubernetes
-import data.lib.utils
 
 hasSelector(spec) if {
 	kubernetes.has_field(spec, "podSelector")

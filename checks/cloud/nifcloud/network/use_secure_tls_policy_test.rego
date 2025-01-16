@@ -3,7 +3,6 @@ package builtin.nifcloud.network.nifcloud0020_test
 import rego.v1
 
 import data.builtin.nifcloud.network.nifcloud0020 as check
-import data.lib.test
 
 test_allow_lb_using_tls_v12 if {
 	inp := {"nifcloud": {"network": {"loadbalancers": [{"listeners": [{

@@ -3,7 +3,6 @@ package builtin.github.branch_protections.github0004_test
 import rego.v1
 
 import data.builtin.github.branch_protections.github0004 as check
-import data.lib.test
 
 test_allow_signed_commits_enabled if {
 	inp := {"github": {"branchprotections": [{"requiresignedcommits": {"value": true}}]}}

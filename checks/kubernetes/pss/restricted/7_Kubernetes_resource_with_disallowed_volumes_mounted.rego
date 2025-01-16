@@ -30,7 +30,6 @@ package builtin.kubernetes.KSV121
 import rego.v1
 
 import data.lib.kubernetes
-import data.lib.utils
 
 # Add disallowed volume type
 disallowedVolumes := [

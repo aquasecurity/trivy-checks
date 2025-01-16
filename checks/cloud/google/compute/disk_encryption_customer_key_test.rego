@@ -3,7 +3,6 @@ package builtin.google.compute.google0034_test
 import rego.v1
 
 import data.builtin.google.compute.google0034 as check
-import data.lib.test
 
 test_deny_disk_is_not_encrypted if {
 	inp := {"google": {"compute": {"disks": [{"encryption": {"kmskeylink": {"value": ""}}}]}}}

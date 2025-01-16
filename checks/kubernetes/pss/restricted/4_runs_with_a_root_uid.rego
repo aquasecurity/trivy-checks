@@ -20,7 +20,6 @@ package builtin.kubernetes.KSV105
 import rego.v1
 
 import data.lib.kubernetes
-import data.lib.utils
 
 failRootUserId contains securityContext if {
 	container := kubernetes.containers[_]

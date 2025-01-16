@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0076
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 validate_certificate_authorities_ownership(sp) := {"certificateAuthoritiesFileOwnership": violation} if {

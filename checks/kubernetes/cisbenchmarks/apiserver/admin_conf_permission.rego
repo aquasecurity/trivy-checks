@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0060
 
 import rego.v1
 
-import data.lib.kubernetes
-
 validate_conf_permission(sp) := {"adminConfFilePermissions": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == "master"

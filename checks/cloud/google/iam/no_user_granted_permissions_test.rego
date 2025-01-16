@@ -3,7 +3,6 @@ package builtin.google.iam.google0003_test
 import rego.v1
 
 import data.builtin.google.iam.google0003 as check
-import data.lib.test
 
 user_member := {"value": "user:test@example.com"}
 

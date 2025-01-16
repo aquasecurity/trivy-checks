@@ -3,7 +3,6 @@ package builtin.azure.keyvault.azure0015_test
 import rego.v1
 
 import data.builtin.azure.keyvault.azure0015 as check
-import data.lib.test
 
 test_deny_secret_wihout_content_type if {
 	res := check.deny with input as build_input("")

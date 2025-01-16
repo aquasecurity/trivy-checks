@@ -23,7 +23,6 @@ package appshield.kubernetes.KSV0123
 
 import rego.v1
 
-import data.k8s
 import data.lib.kubernetes
 
 readRoleRefs := ["system:masters"]

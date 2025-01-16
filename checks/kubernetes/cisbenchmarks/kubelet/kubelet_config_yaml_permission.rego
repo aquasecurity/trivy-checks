@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0077
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 validate_kubelet_config_yaml_permission(sp) := {"kubeletConfigYamlConfigurationFilePermission": violation} if {

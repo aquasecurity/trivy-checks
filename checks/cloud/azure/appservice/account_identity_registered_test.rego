@@ -3,7 +3,6 @@ package builtin.azure.appservice.azure0002_test
 import rego.v1
 
 import data.builtin.azure.appservice.azure0002 as check
-import data.lib.test
 
 test_deny_identity_not_registerd if {
 	inp := {"azure": {"appservice": {"services": [{"identity": {"type": {"value": ""}}}]}}}

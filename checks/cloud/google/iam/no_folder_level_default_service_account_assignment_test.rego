@@ -3,7 +3,6 @@ package builtin.google.iam.google0004_test
 import rego.v1
 
 import data.builtin.google.iam.google0004 as check
-import data.lib.test
 
 service_email := "123-compute@developer.gserviceaccount.com"
 

@@ -3,7 +3,6 @@ package builtin.azure.appservice.azure0003_test
 import rego.v1
 
 import data.builtin.azure.appservice.azure0003 as check
-import data.lib.test
 
 test_deny_authentication_disabled if {
 	inp := {"azure": {"appservice": {"services": [{"authentication": {"enabled": {"value": false}}}]}}}

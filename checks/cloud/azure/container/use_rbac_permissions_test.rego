@@ -3,7 +3,6 @@ package builtin.azure.container.azure0042_test
 import rego.v1
 
 import data.builtin.azure.container.azure0042 as check
-import data.lib.test
 
 test_deny_rbac_disabled if {
 	inp := {"azure": {"container": {"kubernetesclusters": [{"rolebasedaccesscontrol": {"enabled": {"value": false}}}]}}}

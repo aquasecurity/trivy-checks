@@ -3,7 +3,6 @@ package builtin.google.iam.google0068_test
 import rego.v1
 
 import data.builtin.google.iam.google0068 as check
-import data.lib.test
 
 test_deny_empty_attribute_condition if {
 	inp := build_input({"attributecondition": {"value": ""}})

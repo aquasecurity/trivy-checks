@@ -3,7 +3,6 @@ package builtin.google.gke.google0059_test
 import rego.v1
 
 import data.builtin.google.gke.google0059 as check
-import data.lib.test
 
 test_deny_private_cluster_disabled if {
 	inp := {"google": {"gke": {"clusters": [{"privatecluster": {"enableprivatenodes": {"value": false}}}]}}}

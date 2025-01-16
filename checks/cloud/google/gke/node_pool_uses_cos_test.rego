@@ -3,7 +3,6 @@ package builtin.google.gke.google0054_test
 import rego.v1
 
 import data.builtin.google.gke.google0054 as check
-import data.lib.test
 
 test_deny_cluster_node_config_image_type_is_ubuntu if {
 	inp := {"google": {"gke": {"clusters": [{"nodeconfig": {"imagetype": {"value": "UBUNTU"}}}]}}}

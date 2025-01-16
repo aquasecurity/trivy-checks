@@ -31,7 +31,6 @@ package builtin.azure.database.azure0022
 import rego.v1
 
 import data.lib.azure.database
-import data.lib.cloud.metadata
 
 deny contains res if {
 	some server in database.all_servers

@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0062
 
 import rego.v1
 
-import data.lib.kubernetes
-
 validate_conf_permission(sp) := {"schedulerConfFilePermissions": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == "master"

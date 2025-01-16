@@ -30,7 +30,6 @@ package builtin.kubernetes.KSV001
 import rego.v1
 
 import data.lib.kubernetes
-import data.lib.utils
 
 default checkAllowPrivilegeEscalation := false
 

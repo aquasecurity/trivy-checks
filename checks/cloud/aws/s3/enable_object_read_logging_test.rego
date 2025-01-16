@@ -3,7 +3,6 @@ package builtin.aws.s3.aws0172_test
 import rego.v1
 
 import data.builtin.aws.s3.aws0172 as check
-import data.lib.test
 
 test_deny_bucket_without_cloudtrail_logging if {
 	inp := {"aws": {"s3": {"buckets": [{"name": {"value": "test-bucket"}}]}}}

@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0069
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 validate_service_file_permission(sp) := {"kubeletServiceFilePermissions": violation} if {

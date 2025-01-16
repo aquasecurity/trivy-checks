@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0083
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 validate_kubelet_anonymous_auth_set(sp) := {"kubeletProtectKernelDefaultsArgumentSet": violation} if {

@@ -3,7 +3,6 @@ package builtin.google.compute.google0039_test
 import rego.v1
 
 import data.builtin.google.compute.google0039 as check
-import data.lib.test
 
 test_deny_ssl_policy_minimum_tls_version_is_1 if {
 	inp := {"google": {"compute": {"sslpolicies": [{"minimumtlsversion": {"value": "TLS_1_0"}}]}}}

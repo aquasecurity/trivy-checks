@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0087
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 validate_kubelet_event_qps_set(sp) := {"kubeletEventQpsArgumentSet": violation} if {

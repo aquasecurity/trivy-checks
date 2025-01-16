@@ -23,7 +23,6 @@ package builtin.kubernetes.KSV053
 import rego.v1
 
 import data.lib.kubernetes
-import data.lib.utils
 
 workloads := ["pods/exec"]
 

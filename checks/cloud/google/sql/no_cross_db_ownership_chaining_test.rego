@@ -3,7 +3,6 @@ package builtin.google.sql.google0019_test
 import rego.v1
 
 import data.builtin.google.sql.google0019 as check
-import data.lib.test
 
 test_deny_cross_database_ownership_chaining_enabled if {
 	inp := build_input({

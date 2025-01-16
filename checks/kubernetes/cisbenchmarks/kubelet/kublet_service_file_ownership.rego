@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0070
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 validate_service_file_ownership(sp) := {"kubeletServiceFileOwnership": violation} if {

@@ -3,7 +3,6 @@ package builtin.aws.ec2.aws0122_test
 import rego.v1
 
 import data.builtin.aws.ec2.aws0122 as check
-import data.lib.test
 
 test_deny_launch_config_with_sensitive_info if {
 	inp := {"aws": {"ec2": {"launchconfigurations": [{"userdata": {"value": `

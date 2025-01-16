@@ -3,7 +3,6 @@ package builtin.azure.authorization.azure0030_test
 import rego.v1
 
 import data.builtin.azure.authorization.azure0030 as check
-import data.lib.test
 
 test_deny_wildcard_action_with_all_scopes if {
 	inp := build_input({

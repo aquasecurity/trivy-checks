@@ -3,7 +3,6 @@ package builtin.google.sql.google0018_test
 import rego.v1
 
 import data.builtin.google.sql.google0018 as check
-import data.lib.test
 
 test_deny_minimum_log_level_is_not_error if {
 	inp := build_input({

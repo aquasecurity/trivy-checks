@@ -3,7 +3,6 @@ package builtin.openstack.compute.openstack0002_test
 import rego.v1
 
 import data.builtin.openstack.compute.openstack0002 as check
-import data.lib.test
 
 test_deny_rule_missing_destination_address if {
 	inp := build_input({

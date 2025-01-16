@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0082
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 validate_kubelet_read_only_set(sp) := {"kubeletReadOnlyPortArgumentSet": violation} if {

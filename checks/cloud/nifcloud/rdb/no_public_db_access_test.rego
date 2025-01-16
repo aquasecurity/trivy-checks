@@ -3,7 +3,6 @@ package builtin.nifcloud.rdb.nifcloud0008_test
 import rego.v1
 
 import data.builtin.nifcloud.rdb.nifcloud0008 as check
-import data.lib.test
 
 test_allow_db_without_public_access if {
 	inp := {"nifcloud": {"rdb": {"dbinstances": [{"publicaccess": {"value": false}}]}}}

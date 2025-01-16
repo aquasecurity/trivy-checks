@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0066
 
 import rego.v1
 
-import data.lib.kubernetes
-
 validate_pki_directory_ownership(sp) := {"kubePKIDirectoryFileOwnership": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == "master"

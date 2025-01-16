@@ -20,7 +20,6 @@ package builtin.kubernetes.KSV039
 import rego.v1
 
 import data.lib.kubernetes
-import data.lib.utils
 
 limitRangeConfigure if {
 	lower(input.kind) == "limitrange"

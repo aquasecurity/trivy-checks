@@ -3,7 +3,6 @@ package builtin.azure.database.azure0026_test
 import rego.v1
 
 import data.builtin.azure.database.azure0026 as check
-import data.lib.test
 
 test_deny_msql_server_minimum_tls_version_is_1_0 if {
 	inp := {"azure": {"database": {"mssqlservers": [build_server("1.0")]}}}

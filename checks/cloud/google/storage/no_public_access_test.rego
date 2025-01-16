@@ -3,7 +3,6 @@ package builtin.google.storage.google0001_test
 import rego.v1
 
 import data.builtin.google.storage.google0001 as check
-import data.lib.test
 
 test_allow_bucket_does_not_allow_public_access if {
 	inp := build_input({"bindings": [{"members": [{"value": "user:zKqzW@example.com"}]}]})

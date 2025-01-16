@@ -3,7 +3,6 @@ package builtin.google.iam.google0008_test
 import rego.v1
 
 import data.builtin.google.iam.google0008 as check
-import data.lib.test
 
 test_deny_default_member_for_org_binding if {
 	inp := build_input({"bindings": [{

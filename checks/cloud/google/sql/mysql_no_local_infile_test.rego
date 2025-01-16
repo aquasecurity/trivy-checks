@@ -3,7 +3,6 @@ package builtin.google.sql.google0026_test
 import rego.v1
 
 import data.builtin.google.sql.google0026 as check
-import data.lib.test
 
 test_deny_local_file_read_access_enabled if {
 	inp := build_input({
