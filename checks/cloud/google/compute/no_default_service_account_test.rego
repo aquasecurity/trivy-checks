@@ -3,7 +3,6 @@ package builtin.google.compute.google0044_test
 import rego.v1
 
 import data.builtin.google.compute.google0044 as check
-import data.lib.test
 
 test_deny_instance_use_default_service_account if {
 	inp := {"google": {"compute": {"instances": [{"serviceaccount": {"isdefault": {"value": true}}}]}}}

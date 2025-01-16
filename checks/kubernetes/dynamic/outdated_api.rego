@@ -3,8 +3,6 @@ package defsec.kubernetes.KSV107
 import rego.v1
 
 import data.k8s
-import data.lib.kubernetes
-import data.lib.utils
 
 __rego_metadata__ := {
 	"id": "KSV107",

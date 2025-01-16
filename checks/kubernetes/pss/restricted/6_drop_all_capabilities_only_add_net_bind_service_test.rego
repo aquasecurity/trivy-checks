@@ -2,8 +2,6 @@ package builtin.kubernetes.KSV106
 
 import rego.v1
 
-import data.lib.kubernetes
-
 test_drop_all_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",

@@ -3,7 +3,6 @@ package builtin.aws.ec2.aws0129_test
 import rego.v1
 
 import data.builtin.aws.ec2.aws0129 as check
-import data.lib.test
 
 test_deny_launch_tmpl_with_sensitive_info if {
 	inp := {"aws": {"ec2": {"launchtemplates": [{"instance": {"userdata": {"value": `

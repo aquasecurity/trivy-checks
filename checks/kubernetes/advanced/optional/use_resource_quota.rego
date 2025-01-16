@@ -20,7 +20,6 @@ package builtin.kubernetes.KSV040
 import rego.v1
 
 import data.lib.kubernetes
-import data.lib.utils
 
 resourceQuotaConfigure if {
 	lower(input.kind) == "resourcequota"

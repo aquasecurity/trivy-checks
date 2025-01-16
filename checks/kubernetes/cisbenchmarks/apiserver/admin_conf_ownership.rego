@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0061
 
 import rego.v1
 
-import data.lib.kubernetes
-
 validate_conf_ownership(sp) := {"adminConfFileOwnership": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == "master"

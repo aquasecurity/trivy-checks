@@ -3,7 +3,6 @@ package builtin.azure.network.azure0049_test
 import rego.v1
 
 import data.builtin.azure.network.azure0049 as check
-import data.lib.test
 
 test_deny_flow_log_retention_policy_disabled if {
 	inp := {"azure": {"network": {"networkwatcherflowlogs": [{"retentionpolicy": {"enabled": {"value": false}}}]}}}

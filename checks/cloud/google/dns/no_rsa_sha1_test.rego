@@ -3,7 +3,6 @@ package builtin.google.dns.google0012_test
 import rego.v1
 
 import data.builtin.google.dns.google0012 as check
-import data.lib.test
 
 test_deny_rsa_sha1 if {
 	inp := build_input({"algorithm": {"value": "rsasha1"}})

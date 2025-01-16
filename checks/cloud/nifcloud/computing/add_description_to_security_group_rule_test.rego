@@ -3,7 +3,6 @@ package builtin.nifcloud.computing.nifcloud0003_test
 import rego.v1
 
 import data.builtin.nifcloud.computing.nifcloud0003 as check
-import data.lib.test
 
 test_allow_rules_with_description if {
 	inp := build_input({"ingressrules": [{"description": {"value": "test"}}]})

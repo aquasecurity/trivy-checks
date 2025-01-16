@@ -3,7 +3,6 @@ package builtin.google.sql.google0017_test
 import rego.v1
 
 import data.builtin.google.sql.google0017 as check
-import data.lib.test
 
 test_deny_ipv4_enabled if {
 	inp := build_input({"settings": {"ipconfiguration": {"enableipv4": {"value": true}}}})

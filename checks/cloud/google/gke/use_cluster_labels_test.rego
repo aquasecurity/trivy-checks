@@ -3,7 +3,6 @@ package builtin.google.gke.google0051_test
 import rego.v1
 
 import data.builtin.google.gke.google0051 as check
-import data.lib.test
 
 test_deny_cluster_does_not_use_labels if {
 	inp := {"google": {"gke": {"clusters": [{"resourcelabels": {"value": {}}}]}}}

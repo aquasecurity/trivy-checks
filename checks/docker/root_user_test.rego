@@ -2,8 +2,6 @@ package builtin.dockerfile.DS002
 
 import rego.v1
 
-import data.lib.docker
-
 test_not_root_allowed if {
 	r := deny with input as {"Stages": [{
 		"Name": "alpine:3.13",

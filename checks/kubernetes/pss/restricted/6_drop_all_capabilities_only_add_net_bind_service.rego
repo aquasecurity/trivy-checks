@@ -20,7 +20,6 @@ package builtin.kubernetes.KSV106
 import rego.v1
 
 import data.lib.kubernetes
-import data.lib.utils
 
 hasDropAll(container) if {
 	upper(container.securityContext.capabilities.drop[_]) == "ALL"

@@ -3,7 +3,6 @@ package builtin.nifcloud.network.nifcloud0018_test
 import rego.v1
 
 import data.builtin.nifcloud.network.nifcloud0018 as check
-import data.lib.test
 
 test_allow_gateway_with_sg if {
 	inp := {"nifcloud": {"network": {"vpngateways": [{"securitygroup": {"value": "some-group"}}]}}}

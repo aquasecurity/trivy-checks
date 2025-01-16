@@ -19,9 +19,6 @@ package builtin.kubernetes.KSV047
 
 import rego.v1
 
-import data.lib.kubernetes
-import data.lib.utils
-
 readVerbs := ["get", "create"]
 
 readKinds := ["Role", "ClusterRole"]

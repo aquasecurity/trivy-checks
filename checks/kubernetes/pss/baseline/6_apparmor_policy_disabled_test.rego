@@ -2,8 +2,6 @@ package builtin.kubernetes.KSV002
 
 import rego.v1
 
-import data.lib.kubernetes
-
 test_custom_deny if {
 	r := deny with input as {
 		"apiVersion": "v1",

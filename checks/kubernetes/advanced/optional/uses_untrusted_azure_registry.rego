@@ -28,7 +28,6 @@ package builtin.kubernetes.KSV032
 import rego.v1
 
 import data.lib.kubernetes
-import data.lib.utils
 
 default failTrustedAzureRegistry := false
 

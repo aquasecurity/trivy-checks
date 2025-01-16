@@ -19,9 +19,6 @@ package builtin.kubernetes.KSV054
 
 import rego.v1
 
-import data.lib.kubernetes
-import data.lib.utils
-
 readKinds := ["Role", "ClusterRole"]
 
 attach_shell_on_pod contains ruleA if {

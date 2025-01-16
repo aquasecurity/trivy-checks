@@ -3,7 +3,6 @@ package builtin.google.compute.google0042_test
 import rego.v1
 
 import data.builtin.google.compute.google0042 as check
-import data.lib.test
 
 test_deny_compute_os_login_disabled if {
 	inp := {"google": {"compute": {"projectmetadata": {"enableoslogin": {"value": false}}}}}

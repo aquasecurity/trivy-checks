@@ -3,7 +3,6 @@ package builtin.google.compute.google0033_test
 import rego.v1
 
 import data.builtin.google.compute.google0033 as check
-import data.lib.test
 
 test_deny_instance_boot_disk_is_not_encrypted if {
 	inp := {"google": {"compute": {"instances": [{"bootdisks": [{"encryption": {"kmskeylink": {"value": ""}}}]}]}}}

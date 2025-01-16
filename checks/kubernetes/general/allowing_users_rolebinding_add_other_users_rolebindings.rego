@@ -19,9 +19,6 @@ package builtin.kubernetes.KSV055
 
 import rego.v1
 
-import data.lib.kubernetes
-import data.lib.utils
-
 readKinds := ["Role", "ClusterRole"]
 
 allowing_users_rolebinding_add_other_users_their_rolebindings contains input.rules[ru] if {

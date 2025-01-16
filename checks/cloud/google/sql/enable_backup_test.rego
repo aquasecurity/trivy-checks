@@ -3,7 +3,6 @@ package builtin.google.sql.google0024_test
 import rego.v1
 
 import data.builtin.google.sql.google0024 as check
-import data.lib.test
 
 test_allow_backups_enabled if {
 	inp := build_input({

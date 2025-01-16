@@ -3,7 +3,6 @@ package builtin.digitalocean.spaces.digitalocean0006_test
 import rego.v1
 
 import data.builtin.digitalocean.spaces.digitalocean0006 as check
-import data.lib.test
 
 test_allow_acl_private_for_bucket if {
 	inp := {"digitalocean": {"spaces": {"buckets": [{"acl": {"value": "private"}}]}}}

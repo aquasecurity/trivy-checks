@@ -3,7 +3,6 @@ package builtin.google.gke.google0061_test
 import rego.v1
 
 import data.builtin.google.gke.google0061 as check
-import data.lib.test
 
 test_deny_master_networks_disabled if {
 	inp := {"google": {"gke": {"clusters": [{"masterauthorizednetworks": {"enabled": {"value": false}}}]}}}

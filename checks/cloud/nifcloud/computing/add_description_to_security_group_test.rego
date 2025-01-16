@@ -3,7 +3,6 @@ package builtin.nifcloud.computing.nifcloud0002_test
 import rego.v1
 
 import data.builtin.nifcloud.computing.nifcloud0002 as check
-import data.lib.test
 
 test_allow_sg_with_description if {
 	inp := {"nifcloud": {"computing": {"securitygroups": [{"description": {"value": "Test"}}]}}}

@@ -3,7 +3,6 @@ package builtin.github.repositories.github0001_test
 import rego.v1
 
 import data.builtin.github.repositories.github0001 as check
-import data.lib.test
 
 test_allow_private_repo if {
 	inp := {"github": {"repositories": [{"public": {"value": false}}]}}

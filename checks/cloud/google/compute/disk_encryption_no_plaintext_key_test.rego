@@ -3,7 +3,6 @@ package builtin.google.compute.google0037_test
 import rego.v1
 
 import data.builtin.google.compute.google0037 as check
-import data.lib.test
 
 test_deny_disk_with_plaintext_encryption_key if {
 	inp := {"google": {"compute": {"disks": [{"encryption": {"rawkey": {"value": "b2ggbm8gdGhpcyBpcyBiYWQ"}}}]}}}

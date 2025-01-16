@@ -3,7 +3,6 @@ package builtin.google.gke.google0060_test
 import rego.v1
 
 import data.builtin.google.gke.google0060 as check
-import data.lib.test
 
 test_deny_stackdriver_logging_disabled if {
 	inp := {"google": {"gke": {"clusters": [{"loggingservice": {"value": ""}}]}}}

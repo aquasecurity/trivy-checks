@@ -3,7 +3,6 @@ package builtin.openstack.networking.openstack0005_test
 import rego.v1
 
 import data.builtin.openstack.networking.openstack0005 as check
-import data.lib.test
 
 test_allow_sg_with_description if {
 	inp := {"openstack": {"networking": {"securitygroups": [{"description": {"value": "test"}}]}}}

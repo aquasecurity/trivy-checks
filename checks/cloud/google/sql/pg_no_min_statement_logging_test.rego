@@ -3,7 +3,6 @@ package builtin.google.sql.google0021_test
 import rego.v1
 
 import data.builtin.google.sql.google0021 as check
-import data.lib.test
 
 test_deny_logging_enabled_for_all_statements if {
 	inp := build_input({

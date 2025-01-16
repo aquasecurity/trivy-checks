@@ -19,8 +19,6 @@ package builtin.dockerfile.DS022
 
 import rego.v1
 
-import data.lib.docker
-
 get_maintainer contains mntnr if {
 	mntnr := input.Stages[_].Commands[_]
 	mntnr.Cmd == "maintainer"

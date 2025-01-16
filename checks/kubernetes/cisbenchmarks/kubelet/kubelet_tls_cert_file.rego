@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0088
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 validate_kubelet_tls_cert_file(sp) := {"kubeletTlsCertFileTlsArgumentSet": violation} if {

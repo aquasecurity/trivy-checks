@@ -3,7 +3,6 @@ package builtin.google.sql.google0016_test
 import rego.v1
 
 import data.builtin.google.sql.google0016 as check
-import data.lib.test
 
 test_deny_connections_logging_disabled if {
 	inp := build_input({

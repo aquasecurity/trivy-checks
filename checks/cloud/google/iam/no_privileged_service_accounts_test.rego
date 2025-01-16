@@ -4,7 +4,6 @@ import rego.v1
 
 import data.builtin.google.iam.google0007 as check
 import data.lib.google.iam
-import data.lib.test
 
 service_account := "serviceAccount:${google_service_account.test.email}"
 

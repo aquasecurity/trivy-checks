@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0084
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 validate_kubelet_iptables_util_chains_set(sp) := {"kubeletMakeIptablesUtilChainsArgumentSet": violation} if {

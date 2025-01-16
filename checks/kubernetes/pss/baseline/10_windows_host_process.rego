@@ -30,7 +30,6 @@ package builtin.kubernetes.KSV103
 import rego.v1
 
 import data.lib.kubernetes
-import data.lib.utils
 
 failHostProcess contains spec if {
 	spec := input.spec

@@ -3,7 +3,6 @@ package builtin.nifcloud.dns.nifcloud0007_test
 import rego.v1
 
 import data.builtin.nifcloud.dns.nifcloud0007 as check
-import data.lib.test
 
 test_allow_txt_record if {
 	inp := build_input({

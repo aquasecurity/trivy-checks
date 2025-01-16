@@ -3,7 +3,6 @@ package builtin.azure.monitor.azure0031_test
 import rego.v1
 
 import data.builtin.azure.monitor.azure0031 as check
-import data.lib.test
 
 test_deny_retention_policy_disabled if {
 	inp := {"azure": {"monitor": {"logprofiles": [{"retentionpolicy": {"enabled": {"value": false}}}]}}}

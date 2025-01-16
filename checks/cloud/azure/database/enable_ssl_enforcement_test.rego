@@ -3,7 +3,6 @@ package builtin.azure.database.azure0020_test
 import rego.v1
 
 import data.builtin.azure.database.azure0020 as check
-import data.lib.test
 
 test_deny_maria_db_server_ssl_not_enforced if {
 	inp := {"azure": {"database": {"mariadbservers": [{"server": {"enablesslenforcement": {"value": false}}}]}}}

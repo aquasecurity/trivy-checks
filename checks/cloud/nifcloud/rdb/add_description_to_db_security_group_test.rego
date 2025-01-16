@@ -3,7 +3,6 @@ package builtin.nifcloud.rdb.nifcloud0012_test
 import rego.v1
 
 import data.builtin.nifcloud.rdb.nifcloud0012 as check
-import data.lib.test
 
 test_allow_sg_with_description if {
 	inp := {"nifcloud": {"rdb": {"dbsecuritygroups": [{"description": {"value": "Test"}}]}}}

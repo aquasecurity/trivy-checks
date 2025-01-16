@@ -3,7 +3,6 @@ package builtin.google.sql.google0023_test
 import rego.v1
 
 import data.builtin.google.sql.google0023 as check
-import data.lib.test
 
 test_allow_db_auth_disabled if {
 	inp := build_input({

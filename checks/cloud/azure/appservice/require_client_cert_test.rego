@@ -3,7 +3,6 @@ package builtin.azure.appservice.azure0001_test
 import rego.v1
 
 import data.builtin.azure.appservice.azure0001 as check
-import data.lib.test
 
 test_deny_service_client_cert_disabled if {
 	inp := {"azure": {"appservice": {"services": [{"enableclientcert": {"value": false}}]}}}

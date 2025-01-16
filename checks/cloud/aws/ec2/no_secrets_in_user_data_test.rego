@@ -3,7 +3,6 @@ package builtin.aws.ec2.aws0029_test
 import rego.v1
 
 import data.builtin.aws.ec2.aws0029 as check
-import data.lib.test
 
 test_deny_instance_with_sensitive_info if {
 	inp := {"aws": {"ec2": {"instances": [{"userdata": {"value": `

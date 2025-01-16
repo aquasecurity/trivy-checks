@@ -3,7 +3,6 @@ package builtin.aws.s3.aws0094_test
 import rego.v1
 
 import data.builtin.aws.s3.aws0094 as check
-import data.lib.test
 
 test_deny_public_access_block_missing if {
 	inp := {"aws": {"s3": {"buckets": [{}]}}}

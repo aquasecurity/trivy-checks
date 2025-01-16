@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0078
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 validate_kubelet_config_yaml_ownership(sp) := {"kubeletConfigYamlConfigurationFileOwnership": violation} if {

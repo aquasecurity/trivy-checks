@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0074
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 validate_kubelet_file_ownership(sp) := {"kubeletConfFileOwnership": violation} if {

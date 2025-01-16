@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0085
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 validate_kubelet_streaming_connection_idle_timeout_set(sp) := {"kubeletStreamingConnectionIdleTimeoutArgumentSet": violation} if {

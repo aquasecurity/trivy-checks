@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0081
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 validate_client_ca_set(sp) := {"kubeletClientCaFileArgumentSet": violation} if {

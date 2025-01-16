@@ -19,8 +19,6 @@ package builtin.dockerfile.DS012
 
 import rego.v1
 
-import data.lib.docker
-
 get_duplicate_alias contains output if {
 	output1 := get_aliased_name[_]
 	output2 := get_aliased_name[_]

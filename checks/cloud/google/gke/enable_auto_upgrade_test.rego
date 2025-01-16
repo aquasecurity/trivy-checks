@@ -3,7 +3,6 @@ package builtin.google.gke.google0058_test
 import rego.v1
 
 import data.builtin.google.gke.google0058 as check
-import data.lib.test
 
 test_deny_auto_upgrade_disabled if {
 	inp := {"google": {"gke": {"clusters": [{"nodepools": [{"management": {"enableautoupgrade": {"value": false}}}]}]}}}

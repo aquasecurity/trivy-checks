@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0092
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 strong_cryptographic := [

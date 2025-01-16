@@ -34,7 +34,6 @@ package builtin.aws.lambda.aws0066
 import rego.v1
 
 import data.lib.cloud.metadata
-import data.lib.cloud.value
 
 deny contains res if {
 	some func in input.aws.lambda.functions

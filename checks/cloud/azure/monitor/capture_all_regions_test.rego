@@ -3,7 +3,6 @@ package builtin.azure.monitor.azure0032_test
 import rego.v1
 
 import data.builtin.azure.monitor.azure0032 as check
-import data.lib.test
 
 test_deny_profile_captures_only_one_region if {
 	inp := {"azure": {"monitor": {"logprofiles": [{"locations": [{"value": "eastus"}]}]}}}

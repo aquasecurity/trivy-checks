@@ -3,7 +3,6 @@ package builtin.nifcloud.network.nifcloud0021_test
 import rego.v1
 
 import data.builtin.nifcloud.network.nifcloud0021 as check
-import data.lib.test
 
 test_deny_elastic_lb_with_http_protocol_on_global if {
 	inp := build_elb_input({

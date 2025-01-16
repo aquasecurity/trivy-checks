@@ -3,7 +3,6 @@ package builtin.google.sql.google0015_test
 import rego.v1
 
 import data.builtin.google.sql.google0015 as check
-import data.lib.test
 
 test_allow_tls_required if {
 	inp := build_input({"requiretls": {"value": true}})

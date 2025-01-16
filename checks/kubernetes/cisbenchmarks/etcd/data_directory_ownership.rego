@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0059
 
 import rego.v1
 
-import data.lib.kubernetes
-
 validate_data_dir_ownership(sp) := {"etcdDataDirectoryOwnership": ownership} if {
 	sp.kind == "NodeInfo"
 	sp.type == "master"

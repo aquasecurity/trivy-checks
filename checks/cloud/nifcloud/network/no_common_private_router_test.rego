@@ -3,7 +3,6 @@ package builtin.nifcloud.network.nifcloud0017_test
 import rego.v1
 
 import data.builtin.nifcloud.network.nifcloud0017 as check
-import data.lib.test
 
 test_allow_with_private_lan if {
 	inp := {"nifcloud": {"network": {"routers": [{"networkinterfaces": [{"networkid": {"value": "net-some-private-lan"}}]}]}}}

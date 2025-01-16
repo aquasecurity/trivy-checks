@@ -3,7 +3,6 @@ package builtin.azure.database.azure0022_test
 import rego.v1
 
 import data.builtin.azure.database.azure0022 as check
-import data.lib.test
 
 test_deny_mysql_server_public_access_enabled if {
 	res := check.deny with input as build_input("mysqlservers", true)

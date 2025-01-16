@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0075
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 validate_certificate_authorities_file_permission(sp) := {"certificateAuthoritiesFilePermissions": violation} if {

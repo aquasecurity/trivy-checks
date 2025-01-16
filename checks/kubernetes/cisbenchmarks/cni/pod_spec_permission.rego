@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0056
 
 import rego.v1
 
-import data.lib.kubernetes
-
 validate_cni_permission(sp) := {"containerNetworkInterfaceFilePermissions": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == "master"

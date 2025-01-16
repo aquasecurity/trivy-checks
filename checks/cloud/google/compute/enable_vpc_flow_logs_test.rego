@@ -3,7 +3,6 @@ package builtin.google.compute.google0029_test
 import rego.v1
 
 import data.builtin.google.compute.google0029 as check
-import data.lib.test
 
 test_deny_vpc_flow_logs_disabled if {
 	inp := {"google": {"compute": {"networks": [{"subnetworks": [{"enableflowlogs": {"value": false}}]}]}}}

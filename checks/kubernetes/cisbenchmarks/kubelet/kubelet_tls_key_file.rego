@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0089
 
 import rego.v1
 
-import data.lib.kubernetes
-
 types := ["master", "worker"]
 
 validate_kubelet_tls_key_file(sp) := {"kubeletTlsPrivateKeyFileArgumentSet": violation} if {

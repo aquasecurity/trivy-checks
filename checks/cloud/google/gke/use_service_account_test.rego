@@ -3,7 +3,6 @@ package builtin.google.gke.google0050_test
 import rego.v1
 
 import data.builtin.google.gke.google0050 as check
-import data.lib.test
 
 test_node_config_with_default_service_account if {
 	inp := {"google": {"gke": {"clusters": [{

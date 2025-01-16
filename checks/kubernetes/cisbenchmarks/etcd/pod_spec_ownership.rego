@@ -21,8 +21,6 @@ package builtin.kubernetes.KCV0055
 
 import rego.v1
 
-import data.lib.kubernetes
-
 validate_spec_ownership(sp) := {"kubeEtcdSpecFileOwnership": violation} if {
 	sp.kind == "NodeInfo"
 	sp.type == "master"

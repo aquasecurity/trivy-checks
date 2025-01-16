@@ -23,7 +23,6 @@ package builtin.kubernetes.KSV056
 import rego.v1
 
 import data.lib.kubernetes
-import data.lib.utils
 
 readKinds := ["Role", "ClusterRole"]
 

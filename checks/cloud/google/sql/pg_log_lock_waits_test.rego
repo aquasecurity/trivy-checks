@@ -3,7 +3,6 @@ package builtin.google.sql.google0020_test
 import rego.v1
 
 import data.builtin.google.sql.google0020 as check
-import data.lib.test
 
 test_deny_lock_waits_loggging_disabled if {
 	inp := build_input({

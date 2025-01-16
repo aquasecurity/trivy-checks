@@ -3,7 +3,6 @@ package builtin.azure.container.azure0043_test
 import rego.v1
 
 import data.builtin.azure.container.azure0043 as check
-import data.lib.test
 
 test_deny_cluster_without_network_policy if {
 	inp := {"azure": {"container": {"kubernetesclusters": [{"networkprofile": {"networkpolicy": {"value": ""}}}]}}}

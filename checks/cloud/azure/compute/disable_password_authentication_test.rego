@@ -3,7 +3,6 @@ package builtin.azure.compute.azure0039_test
 import rego.v1
 
 import data.builtin.azure.compute.azure0039 as check
-import data.lib.test
 
 test_deny_linux_vm_password_auth_enabled if {
 	res := check.deny with input as build_input(false)

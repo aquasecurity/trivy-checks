@@ -19,9 +19,6 @@ package builtin.kubernetes.KSV052
 
 import rego.v1
 
-import data.lib.kubernetes
-import data.lib.utils
-
 readKinds := ["Role", "ClusterRole"]
 
 allowing_create_clusterrolebindings_binding_and_associate_cluster_role contains ruleA if {
