@@ -25,17 +25,15 @@ import rego.v1
 
 import data.lib.kubernetes
 
-readRoleRefs := ["system:unauthenticated", "system:anonymous"]
+readRoleRefs := {"system:unauthenticated", "system:anonymous"}
 
-readKinds := ["RoleBinding", "ClusterRolebinding"]
-
-anonymousUserBind(roleBinding) if {
-	kubernetes.kind == readKinds[_]
-	kubernetes.object.subjects[_].name == readRoleRefs[_]
+anonymousUserBind if {
+	kubernetes.is_role_binding_kind
+	kubernetes.object.subjects[_].name in readRoleRefs
 }
 
 deny contains res if {
-	anonymousUserBind(input)
+	anonymousUserBind
 	msg := kubernetes.format(sprintf("%s '%s' should not bind to roles %s", [kubernetes.kind, kubernetes.name, readRoleRefs]))
 	res := result.new(msg, input.metadata)
 }

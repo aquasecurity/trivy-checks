@@ -44,6 +44,29 @@ test_basic_denied if {
 	r[_].msg == "'COPY --from' should not mention current alias 'dep' since it is impossible to copy from itself"
 }
 
+test_deny_stage_name_non_lowercase if {
+	r := deny with input as {"Stages": [{
+		"Name": "golang:1.18 as Builder",
+		"Commands": [
+			{
+				"Cmd": "from",
+				"Value": ["golang:1.18", "as", "Builder"],
+			},
+			{
+				"Cmd": "copy",
+				"Flags": ["--from=builder"],
+				"Value": [
+					"/binary",
+					"/",
+				],
+			},
+		],
+	}]}
+
+	count(r) == 1
+	r[_].msg == "'COPY --from' should not mention current alias 'builder' since it is impossible to copy from itself"
+}
+
 test_extra_spaces_denied if {
 	r := deny with input as {"Stages": [
 		{

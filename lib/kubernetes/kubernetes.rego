@@ -43,6 +43,10 @@ namespace := object.metadata.namespace
 
 kind := object.kind
 
+roleBindingKinds := {"RoleBinding", "ClusterRolebinding"}
+
+is_role_binding_kind if kind in roleBindingKinds
+
 is_pod if {
 	kind = "Pod"
 }

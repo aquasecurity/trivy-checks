@@ -26,18 +26,16 @@ import rego.v1
 import data.k8s
 import data.lib.kubernetes
 
-readRoleRefs := ["system:authenticated"]
+readRoleRefs := {"system:authenticated"}
 
-readKinds := ["RoleBinding", "ClusterRolebinding"]
-
-authenticatedGroupBind(roleBinding) if {
-	kubernetes.kind == readKinds[_]
-	kubernetes.object.subjects[_].name == readRoleRefs[_]
+authenticatedGroupBind if {
+	kubernetes.is_role_binding_kind
+	kubernetes.object.subjects[_].name in readRoleRefs
 }
 
 deny contains res if {
 	contains(k8s.version, "-gke")
-	authenticatedGroupBind(input)
+	authenticatedGroupBind
 	msg := kubernetes.format(sprintf("%s '%s' should not bind to roles %s", [kubernetes.kind, kubernetes.name, readRoleRefs]))
 	res := result.new(msg, input.metadata)
 }

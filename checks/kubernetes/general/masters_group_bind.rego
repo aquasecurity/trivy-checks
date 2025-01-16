@@ -25,17 +25,15 @@ import rego.v1
 
 import data.lib.kubernetes
 
-readRoleRefs := ["system:masters"]
+readRoleRefs := {"system:masters"}
 
-readKinds := ["RoleBinding", "ClusterRolebinding"]
-
-mastersGroupBind(roleBinding) if {
-	kubernetes.kind == readKinds[_]
-	kubernetes.object.subjects[_].name == readRoleRefs[_]
+mastersGroupBind if {
+	kubernetes.is_role_binding_kind
+	kubernetes.object.subjects[_].name in readRoleRefs
 }
 
 deny contains res if {
-	mastersGroupBind(input)
+	mastersGroupBind
 	msg := kubernetes.format(sprintf("%s '%s' should not bind to roles %s", [kubernetes.kind, kubernetes.name, readRoleRefs]))
 	res := result.new(msg, input.metadata)
 }

@@ -37,8 +37,9 @@ has_install(cmds, package_manager) := indexes if {
 	indexes := docker.command_indexes(cmds, ["install"], package_manager)
 }
 
-install_followed_by_clean(cmds, package_manager, install_indexes) if {
-	clean_indexes := docker.command_indexes(cmds, ["clean"], package_manager)
+install_followed_by_clean(cmds, _, install_indexes) if {
+	# TODO: fix
+	# clean_indexes := docker.command_indexes(cmds, ["clean"], package_manager)
 	clean_all_indexes = [idx | cmd := cmds[idx]; "all" in cmd]
 	count(clean_all_indexes) > 0
 	install_indexes[count(install_indexes) - 1] < clean_all_indexes[count(clean_all_indexes) - 1]
