@@ -1,5 +1,5 @@
 # METADATA
-# title: A network policy should not allow egress to any IP address.
+# title: A network policy should not allow unrestricted egress to any IP address.
 # description: You should not expose infrastructure to the public internet except where explicitly required
 # scope: package
 # schemas:
@@ -34,7 +34,7 @@ deny contains res if {
 	some dest in policy.spec.egress.destinationcidrs
 	net.cidr_allows_all_ips(dest.value)
 	res := result.new(
-		"Network policy allows egress to any IP address.",
+		"Network policy allows unrestricted egress to any IP address.",
 		dest,
 	)
 }

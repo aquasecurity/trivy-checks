@@ -1,5 +1,5 @@
 # METADATA
-# title: Security group should not allow ingress to SSH port from any IP address.
+# title: Security group should not allow unrestricted ingress to SSH port from any IP address.
 # description: |
 #   SSH access can be configured on either the network security group or in the network security group rule.
 #   SSH access should not be permitted from the internet (*, 0.0.0.0, /0, internet, any)
@@ -43,7 +43,7 @@ deny contains res if {
 	some ip in rule.sourceaddresses
 	net.cidr_allows_all_ips(ip.value)
 	res := result.new(
-		"Security group rule allows ingress to SSH port from any IP address.",
+		"Security group rule allows unrestricted ingress to SSH port from any IP address.",
 		ip,
 	)
 }

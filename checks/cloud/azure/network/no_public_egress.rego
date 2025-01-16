@@ -1,5 +1,5 @@
 # METADATA
-# title: A security rule should not allow egress to any IP address.
+# title: A security rule should not allow unrestricted egress to any IP address.
 # description: |
 #   Opening up ports to connect out to the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that are explicitly required where possible.
 # scope: package
@@ -39,5 +39,5 @@ deny contains res if {
 	rule.allow.value
 	some addr in rule.destinationaddresses
 	net.cidr_allows_all_ips(addr.value)
-	res := result.new("Security group rule allows egress to any IP address.", addr)
+	res := result.new("Security group rule allows unrestricted egress to any IP address.", addr)
 }

@@ -1,5 +1,5 @@
 # METADATA
-# title: A network policy should not allow ingress from any IP address.
+# title: A network policy should not allow unrestricted ingress from any IP address.
 # description: |
 #   Opening up ports to allow connections from the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that are explicitly required where possible.
 # scope: package
@@ -35,7 +35,7 @@ deny contains res if {
 	some source in policy.spec.ingress.sourcecidrs
 	net.cidr_allows_all_ips(source.value)
 	res := result.new(
-		"Network policy allows ingress from any IP address.",
+		"Network policy allows unrestricted ingress from any IP address.",
 		source,
 	)
 }

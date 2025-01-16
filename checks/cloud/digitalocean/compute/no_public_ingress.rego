@@ -1,5 +1,5 @@
 # METADATA
-# title: A firewall rule should not allow ingress from any IP address.
+# title: A firewall rule should not allow unrestricted ingress from any IP address.
 # description: |
 #   Opening up ports to allow connections from the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that are explicitly required where possible.
 # scope: package
@@ -36,7 +36,7 @@ deny contains res if {
 	some address in input.digitalocean.compute.firewalls[_].inboundrules[_].sourceaddresses
 	net.cidr_allows_all_ips(address.value)
 	res := result.new(
-		"Firewall rule allows ingress from any IP address.",
+		"Firewall rule allows unrestricted ingress from any IP address.",
 		address,
 	)
 }

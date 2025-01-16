@@ -1,5 +1,5 @@
 # METADATA
-# title: A firewall rule should not allow egress to any IP address.
+# title: A firewall rule should not allow unrestricted egress to any IP address.
 # description: |
 #   Opening up ports to connect out to the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that are explicitly required where possible.
 # scope: package
@@ -40,7 +40,7 @@ deny contains res if {
 	some destination in rule.destinationranges
 	net.cidr_allows_all_ips(destination.value)
 	res := result.new(
-		"Firewall rule allows egress traffic to any IP address.",
+		"Firewall rule allows unrestricted egress to any IP address.",
 		destination,
 	)
 }
