@@ -22,13 +22,13 @@ import rego.v1
 import data.lib.kubernetes
 
 check_flag(container) if {
-	cmd := kubernetes.containers[_].command[_]
+	some cmd in container.command
 	output := regex.find_all_string_submatch_n(`--enable-admission-plugins=([^\s]+)`, cmd, -1)
 	regex.match("AlwaysAdmit", output[0][1])
 }
 
 check_flag(container) if {
-	arg := kubernetes.containers[_].args[_]
+	some arg in container.args
 	output := regex.find_all_string_submatch_n(`--enable-admission-plugins=([^\s]+)`, arg, -1)
 	regex.match("AlwaysAdmit", output[0][1])
 }

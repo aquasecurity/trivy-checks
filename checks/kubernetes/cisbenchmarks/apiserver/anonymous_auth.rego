@@ -22,12 +22,12 @@ import rego.v1
 import data.lib.kubernetes
 
 check_flag(container) if {
-	arg := kubernetes.containers[_].args[_]
+	some arg in container.args
 	contains(arg, "--anonymous-auth=false")
 }
 
 check_flag(container) if {
-	cmd := kubernetes.containers[_].command[_]
+	some cmd in container.command
 	contains(cmd, "--anonymous-auth=false")
 }
 
