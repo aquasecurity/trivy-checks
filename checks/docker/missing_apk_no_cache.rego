@@ -19,28 +19,16 @@ package builtin.dockerfile.DS025
 
 import rego.v1
 
+import data.lib.cmdutil
 import data.lib.docker
 
-get_apk contains output if {
-	run := docker.run[_]
-	arg := run.Value[0]
-
-	regex.match("apk (-[a-zA-Z]+\\s*)*add", arg)
-
-	not contains_no_cache(arg)
-
-	output := {
-		"cmd": run,
-		"arg": arg,
-	}
-}
-
 deny contains res if {
-	output := get_apk[_]
-	msg := sprintf("'--no-cache' is missed: %s", [output.arg])
-	res := result.new(msg, output.cmd)
-}
-
-contains_no_cache(cmd) if {
-	split(cmd, " ")[_] == "--no-cache"
+	some run in docker.run
+	raw_cmd := cmdutil.to_command_string(run.Value)
+	some tokens in sh.parse_commands(raw_cmd)
+	cmdutil.is_tool(tokens, "apk")
+	cmdutil.is_command(tokens, "add")
+	not cmdutil.has_flag(tokens, "--no-cache")
+	msg := sprintf("'--no-cache' is missed: %s", [raw_cmd])
+	res := result.new(msg, run)
 }
