@@ -26,6 +26,11 @@ jobs:
           username: ${{ vars.GHCR_USER || env.GH_USER }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Setup ORAS
+        uses: oras-project/setup-oras@v1
+        with:
+          version: 1.2.1
+
       - name: Deploy policy bundle to ghcr.io (for backwards compatibility)
         run: |
           tags=(latest ${{ env.RELEASE_VERSION}} ${{env.MINOR_VERSION }} ${{ env.MAJOR_VERSION }})
