@@ -189,3 +189,124 @@ test_multi_stage_no_tag_denied if {
 	count(r) == 1
 	r[_].msg == "Specify a tag in the 'FROM' statement for image 'alpine'"
 }
+
+test_deny_latest_tag_ref_to_global_arg_with_default_value if {
+	r := deny with input as {"Stages": [
+		{"Name": "", "Commands": [{
+			"Cmd": "arg",
+			"Value": ["TAG=\"latest\""],
+		}]},
+		{"Name": "foo:${TAG}", "Commands": [{
+			"Cmd": "from",
+			"Value": ["foo:${TAG}"],
+		}]},
+	]}
+
+	count(r) == 1
+	r[_].msg == "Specify a tag in the 'FROM' statement for image 'foo'"
+}
+
+test_allow_tag_ref_to_global_arg_without_default_value if {
+	r := deny with input as {"Stages": [
+		{"Name": "", "Commands": [{
+			"Cmd": "arg",
+			"Value": ["TAG"],
+		}]},
+		{"Name": "foo:${TAG}", "Commands": [{
+			"Cmd": "from",
+			"Value": ["foo:${TAG}"],
+		}]},
+	]}
+
+	count(r) == 0
+}
+
+test_deny_image_ref_to_global_arg_without_default_value if {
+	r := deny with input as {"Stages": [
+		{"Name": "", "Commands": [{
+			"Cmd": "arg",
+			"Value": ["REGISTRY"],
+		}]},
+		{"Name": "${REGISTRY}/ubuntu", "Commands": [{
+			"Cmd": "from",
+			"Value": ["${REGISTRY}/ubuntu"],
+		}]},
+	]}
+
+	count(r) == 1
+	r[_].msg == "Specify a tag in the 'FROM' statement for image '/ubuntu'"
+}
+
+test_deny_global_arg_is_overrided_to_latest if {
+	r := deny with input as {"Stages": [
+		{"Name": "", "Commands": [{
+			"Cmd": "arg",
+			"Value": ["TAG=test"],
+		}]},
+		{"Name": "foo:${TAG}", "Commands": [
+			{
+				"Cmd": "arg",
+				"Value": ["TAG=latest"],
+			},
+			{
+				"Cmd": "from",
+				"Value": ["foo:${TAG}"],
+			},
+		]},
+		{"Name": "bar:${TAG}", "Commands": [{
+			"Cmd": "from",
+			"Value": ["bar:${TAG}"],
+		}]},
+	]}
+
+	count(r) == 1
+	r[_].msg == "Specify a tag in the 'FROM' statement for image 'foo'"
+}
+
+test_deny_image_ref_to_multiple_args_but_tag_latest if {
+	r := deny with input as {"Stages": [
+		{"Name": "", "Commands": [
+			{
+				"Cmd": "arg",
+				"Value": ["REPO=repo"],
+			},
+			{
+				"Cmd": "arg",
+				"Value": ["IMAGE=image"],
+			},
+		]},
+		{"Name": "$REPO/$IMAGE:latest", "Commands": [{
+			"Cmd": "from",
+			"Value": ["$REPO/$IMAGE:latest"],
+		}]},
+	]}
+
+	count(r) == 1
+	r[_].msg == "Specify a tag in the 'FROM' statement for image 'repo/image'"
+}
+
+test_deny_empty_tag_arg if {
+	r := deny with input as {"Stages": [
+		{"Name": "", "Commands": [{
+			"Cmd": "arg",
+			"Value": ["TAG"],
+		}]},
+		{"Name": "alpine$TAG", "Commands": [{
+			"Cmd": "from",
+			"Value": ["alpine$TAG"],
+		}]},
+	]}
+
+	count(r) == 1
+	r[_].msg == "Specify a tag in the 'FROM' statement for image 'alpine'"
+}
+
+test_deny_missing_tag_arg if {
+	r := deny with input as {"Stages": [{"Name": "alpine$TAG", "Commands": [{
+		"Cmd": "from",
+		"Value": ["alpine$TAG"],
+	}]}]}
+
+	count(r) == 1
+	r[_].msg == "Specify a tag in the 'FROM' statement for image 'alpine'"
+}
