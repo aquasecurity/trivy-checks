@@ -66,5 +66,3 @@ test_good_repos if {
 		count(r) == 0
 	}
 }
-
-
