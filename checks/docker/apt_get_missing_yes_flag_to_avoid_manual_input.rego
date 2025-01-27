@@ -7,7 +7,6 @@
 # schemas:
 # - input: schema["dockerfile"]
 # custom:
-#   schema_version: 1
 #   id: DS021
 #   avd_id: AVD-DS-0021
 #   severity: HIGH

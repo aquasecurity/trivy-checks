@@ -8,6 +8,8 @@ rules:
         - pattern: '^builtin|lib|defsec|appshield'
           targets:
             - package
+    invalid-metadata:
+      level: error
   naming:
     deny-rule:
       level: error

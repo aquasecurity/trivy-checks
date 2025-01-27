@@ -32,7 +32,7 @@
 #       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document
 #     good_examples: checks/cloud/aws/iam/no_policy_wildcards.yaml
 #     bad_examples: checks/cloud/aws/iam/no_policy_wildcards.yaml
-#   cloudformation:
+#   cloud_formation:
 #     good_examples: checks/cloud/aws/iam/no_policy_wildcards.yaml
 #     bad_examples: checks/cloud/aws/iam/no_policy_wildcards.yaml
 package builtin.aws.iam.aws0057
