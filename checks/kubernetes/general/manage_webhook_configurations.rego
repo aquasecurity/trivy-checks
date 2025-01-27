@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV114
 #   avd_id: AVD-KSV-0114
-#   severity: Critical
+#   severity: CRITICAL
 #   short_code: no-manage-webhook
 #   recommended_actions: "Remove webhook configuration resouces/verbs, acceptable values for verbs ['get', 'list', 'watch']"
 #   input:

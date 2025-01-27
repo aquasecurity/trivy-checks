@@ -23,7 +23,7 @@ test-rego:
 
 .PHONY: check-rego
 check-rego:
-	go run ./cmd/opa check lib checks --v0-v1 --strict
+	@go run ./cmd/opa check lib checks --v0-v1 --strict
 
 .PHONY: lint-rego
 lint-rego: check-rego
