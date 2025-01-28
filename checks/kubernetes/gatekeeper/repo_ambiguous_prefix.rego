@@ -5,19 +5,19 @@
 #   - input: schema["kubernetes"]
 # custom:
 #   id: KSV-0124
-#   avdid: AVD-KSV-0124
+#   avd_id: AVD-KSV-0124
 #   severity: HIGH
 package builtin.kubernetes.KSV0124
 
 import rego.v1
 
-relevan_resource if {
+relevant_resource if {
 	input.apiVersion == "constraints.gatekeeper.sh/v1beta1"
 	input.kind == "K8sAllowedRepos"
 }
 
 deny contains res if {
-	relevan_resource
+	relevant_resource
 	some repo in input.spec.parameters.repos
 	not contains(repo, "/")
 	not contains(repo, ":")
@@ -28,7 +28,7 @@ deny contains res if {
 }
 
 deny contains res if {
-	relevan_resource
+	relevant_resource
 	some repo in input.spec.parameters.repos
 	parts := split(repo, "/")
 	parts[0] == "docker.io"
