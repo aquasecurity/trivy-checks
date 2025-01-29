@@ -23,7 +23,7 @@ deny contains res if {
 	not contains(repo, ":")
 	res := result.new(
 		"open-ended repository reference in prefix match",
-		repo,
+		input.spec.parameters,
 	)
 }
 
@@ -35,6 +35,6 @@ deny contains res if {
 	count(parts) <= 2
 	res := result.new(
 		"open-ended repository reference in prefix match",
-		repo,
+		input.spec.parameters,
 	)
 }
