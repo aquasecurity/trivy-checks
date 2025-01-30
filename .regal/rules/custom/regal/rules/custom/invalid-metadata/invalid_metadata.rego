@@ -74,7 +74,7 @@ check_metadata_schema := {
 		"recommended_actions": {"type": "string"},
 		"recommended_action": {"type": "string"},
 	},
-	"required": ["id", "avd_id"],
+	"required": ["id", "avd_id", "input"],
 	"additionalProperties": false,
 	"anyOf": [
 		{"required": ["recommended_actions"]},
