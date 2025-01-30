@@ -7,6 +7,9 @@
 #   id: KSV-0124
 #   avd_id: AVD-KSV-0124
 #   severity: HIGH
+#   input:
+#     selector:
+#     - type: kubernetes
 package builtin.kubernetes.KSV0124
 
 import rego.v1
