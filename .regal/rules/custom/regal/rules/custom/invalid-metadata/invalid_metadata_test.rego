@@ -23,7 +23,7 @@ foo := true`)
 
 	r == {{
 		"category": "custom",
-		"description": "(Root): avd_id is required\n(Root): Additional property avdid is not allowed",
+		"description": "(Root): avd_id is required\n(Root): input is required\n(Root): Additional property avdid is not allowed",
 		"level": "error",
 		"location": {
 			"col": 1,
