@@ -17,24 +17,35 @@ report contains _violation_check(lib_metadata_schema) if _is_lib_package
 
 report contains _violation_check(check_metadata_schema) if not _is_lib_package
 
+report contains violation if {
+	some annot in _pkg_annotations
+	message := _validate_avd_id(annot.custom.avd_id)
+	violation := _build_violation(annot, [message])
+}
+
 _is_lib_package if input["package"].path[1].value == "lib"
 
-_violation_check(schema) := violation if {
-	some annot in input["package"].annotations
-	annot.scope == "package"
+_pkg_annotations := [annot | some annot in input["package"].annotations; annot.scope == "package"]
 
+_avd_id_pattern := `^AVD-(AWS|GCP|DIG|AZU|KCV|KSV|DS|GIT|NIF|KUBE|OPNSTK|CLDSTK|OCI)-\d+$`
+
+_validate_avd_id(id) := sprintf("avd_id (%s): Does not match pattern '%s'", [id, _avd_id_pattern]) if {
+	not regex.match(_avd_id_pattern, id)
+}
+
+_build_violation(annot, errors) := result.fail(
+	rego.metadata.chain(),
+	object.union(
+		result.location(annot),
+		{"description": concat("\n", errors)},
+	),
+)
+
+_violation_check(schema) := _build_violation(annot, error_messages) if {
+	some annot in _pkg_annotations
 	[match, errors] := json.match_schema(annot.custom, schema)
 	not match
-
 	error_messages := [err.error | some err in errors]
-
-	violation := result.fail(
-		rego.metadata.chain(),
-		object.union(
-			result.location(annot),
-			{"description": concat("\n", error_messages)},
-		),
-	)
 }
 
 lib_metadata_schema := {
