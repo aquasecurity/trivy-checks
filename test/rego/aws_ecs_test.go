@@ -20,8 +20,8 @@ var awsEcsTestCases = testCases{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
 						Settings: ecs.ClusterSettings{
-							Metadata:                 trivyTypes.NewTestMetadata(),
-							ContainerInsightsEnabled: trivyTypes.Bool(false, trivyTypes.NewTestMetadata()),
+							Metadata:              trivyTypes.NewTestMetadata(),
+							ContainerInsightsMode: trivyTypes.String("disabled", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},
@@ -35,8 +35,23 @@ var awsEcsTestCases = testCases{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
 						Settings: ecs.ClusterSettings{
-							Metadata:                 trivyTypes.NewTestMetadata(),
-							ContainerInsightsEnabled: trivyTypes.Bool(true, trivyTypes.NewTestMetadata()),
+							Metadata:              trivyTypes.NewTestMetadata(),
+							ContainerInsightsMode: trivyTypes.String("enabled", trivyTypes.NewTestMetadata()),
+						},
+					},
+				},
+			}}},
+			expected: false,
+		},
+		{
+			name: "Cluster with enhanced container insights",
+			input: state.State{AWS: aws.AWS{ECS: ecs.ECS{
+				Clusters: []ecs.Cluster{
+					{
+						Metadata: trivyTypes.NewTestMetadata(),
+						Settings: ecs.ClusterSettings{
+							Metadata:              trivyTypes.NewTestMetadata(),
+							ContainerInsightsMode: trivyTypes.String("enhanced", trivyTypes.NewTestMetadata()),
 						},
 					},
 				},

@@ -37,9 +37,9 @@ import data.lib.cloud.metadata
 
 deny contains res if {
 	some cluster in input.aws.ecs.clusters
-	not cluster.settings.containerinsightsenabled.value
+	value.is(cluster.settings.containerinsightsmode, "disabled")
 	res := result.new(
 		"Cluster does not have container insights enabled.",
-		metadata.obj_by_path(cluster, ["settings", "containerinsightsenabled"]),
+		metadata.obj_by_path(cluster, ["settings", "containerinsightsmode"]),
 	)
 }
