@@ -34,6 +34,23 @@ test_pod_with_default_namespace if {
 	count(r) == 1
 }
 
+test_pod_without_namespace if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {
+			"name": "redis-master-85547b7b9-fxnrp",
+			"resourceVersion": "443282",
+		},
+		"spec": {"containers": [{
+			"image": "redis",
+			"name": "master",
+		}]},
+	}
+
+	count(r) == 1
+}
+
 test_pod_non_default_namespace if {
 	r := deny with input as {
 		"apiVersion": "v1",

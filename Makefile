@@ -11,7 +11,7 @@ test-integration:
 	go test -v -timeout 5m -tags=integration ./integration/...
 
 .PHONY: rego
-rego: fmt-rego test-rego
+rego: fmt-rego check-rego lint-rego test-rego docs
 
 .PHONY: fmt-rego
 fmt-rego:
