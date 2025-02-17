@@ -29,6 +29,7 @@ package builtin.kubernetes.KSV110
 
 import rego.v1
 
+import data.lib.cloud.metadata
 import data.lib.kubernetes
 
 default defaultNamespaceInUse := false
@@ -43,5 +44,5 @@ defaultNamespaceInUse if {
 deny contains res if {
 	defaultNamespaceInUse
 	msg := kubernetes.format(sprintf("%s %s in %s namespace should set metadata.namespace to a non-default namespace", [lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
-	res := result.new(msg, input.metadata.namespace)
+	res := result.new(msg, metadata.obj_by_path(input.metadata, ["namespace"]))
 }
