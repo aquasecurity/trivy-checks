@@ -1,5 +1,5 @@
 
-Binding to system:authenticate group to any clusterrole or role is a security risk.
+Binding to system:masters group to any clusterrole or role is a security risk.
 
 ### Impact
 <!-- Add Impact here -->
@@ -8,6 +8,6 @@ Binding to system:authenticate group to any clusterrole or role is a security ri
 {{ remediationActions }}
 
 ### Links
-- https://orca.security/resources/blog/sys-all-google-kubernetes-engine-risk/
+- https://www.aquasec.com/blog/kubernetes-authorization/
 
 

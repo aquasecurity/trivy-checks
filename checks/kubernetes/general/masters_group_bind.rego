@@ -1,17 +1,17 @@
 # METADATA
-# title: "system:authenticate group access binding"
-# description: "Binding to system:authenticate group to any clusterrole or role is a security risk."
+# title: "system:masters group access binding"
+# description: "Binding to system:masters group to any clusterrole or role is a security risk."
 # scope: package
 # schemas:
 # - input: schema["kubernetes"]
 # related_resources:
-# - https://orca.security/resources/blog/sys-all-google-kubernetes-engine-risk/
+# - https://www.aquasec.com/blog/kubernetes-authorization/
 # custom:
-#   id: KSV01011
+#   id: KSV0123
 #   avd_id: AVD-KSV-0123
 #   severity: CRITICAL
-#   short_code: no-system-authenticated-group-bind
-#   recommended_action: "Remove system:authenticated group binding from clusterrolebinding or rolebinding."
+#   short_code: no-system-masters-group-bind
+#   recommended_action: "Remove system:masters group binding from clusterrolebinding or rolebinding."
 #   input:
 #     selector:
 #     - type: kubernetes
