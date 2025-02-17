@@ -15,8 +15,13 @@ import (
 	types "github.com/aquasecurity/trivy/pkg/iac/types/rules"
 )
 
+const docsDir = "avd_docs"
+
 func main() {
-	generateDocs("avd_docs")
+	if err := os.RemoveAll(docsDir); err != nil {
+		panic(err)
+	}
+	generateDocs(docsDir)
 }
 
 func generateDocs(path string) {
