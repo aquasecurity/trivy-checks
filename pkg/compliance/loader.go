@@ -15,8 +15,7 @@ type Loader interface {
 	GetSpecByName(name string) string
 }
 
-type specLoader struct {
-}
+type specLoader struct{}
 
 // NewSpecLoader instansiate spec loader
 func NewSpecLoader() Loader {
