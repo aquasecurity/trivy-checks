@@ -221,6 +221,21 @@ test_allow_tag_ref_to_global_arg_without_default_value if {
 	count(r) == 0
 }
 
+test_allow_from_with_only_arg_without_default_value if {
+	r := deny with input as {"Stages": [
+		{"Name": "", "Commands": [{
+			"Cmd": "arg",
+			"Value": ["BASE_IMAGE"],
+		}]},
+		{"Name": "$BASE_IMAGE", "Commands": [{
+			"Cmd": "from",
+			"Value": ["$BASE_IMAGE"],
+		}]},
+	]}
+
+	count(r) == 0
+}
+
 test_deny_image_ref_to_global_arg_without_default_value if {
 	r := deny with input as {"Stages": [
 		{"Name": "", "Commands": [{
