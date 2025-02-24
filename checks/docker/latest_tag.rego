@@ -115,6 +115,7 @@ deny contains res if {
 	[img, tag] := parse_image_and_tag(instruction, vars)
 
 	img != "scratch"
+	img != ""
 	not is_alias(img)
 	tag == "latest"
 
