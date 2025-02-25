@@ -1,0 +1,70 @@
+name: Canary Release
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+env:
+  GH_USER: aqua-bot
+  AQUA_DOCKERHUB_REPO: aquasec
+
+jobs:
+  canary:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create bundle
+        run: make bundle
+
+      - name: setup-oras
+        uses: oras-project/setup-oras@v1.2.2
+
+      - name: Login to GitHub Packages Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ vars.GHCR_USER || env.GH_USER }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Deploy checks bundle to registries
+        run: |
+          tags=(canary)
+          registries=(
+            "ghcr.io/${{ github.repository }}"
+            "${{ vars.DOCKERHUB_REPOSITORY || env.AQUA_DOCKERHUB_REPO }}/${{ github.event.repository.name }}"
+          )
+          for registry in ${registries[@]}; do
+            for tag in ${tags[@]}; do
+              echo "Pushing artifact to ${registry}:${tag}"
+              if oras push ${registry}:${tag} \
+              --artifact-type application/vnd.cncf.openpolicyagent.config.v1+json \
+              bundle.tar.gz:application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip; then
+                echo "Successfully pushed artifact to ${registry}:${tag}"
+              else
+                echo "Failed to push artifact to ${registry}:${tag}"
+                exit 1
+              fi
+            done
+          done
+
+      - name: Microsoft Teams Notification
+        ## Until the PR with the fix for the AdaptivCard version is merged yet
+        ## https://github.com/Skitionek/notify-microsoft-teams/pull/96
+        ## Use the aquasecurity fork
+        uses: aquasecurity/notify-microsoft-teams@master
+        if: failure()
+        with:
+          webhook_url: ${{ secrets.TRIVY_MSTEAMS_WEBHOOK }}
+          needs: ${{ toJson(needs) }}
+          job: ${{ toJson(job) }}
+          steps: ${{ toJson(steps) }}
