@@ -1,0 +1,13 @@
+name: Nightly Release
+on:
+  schedule:
+    - cron: "0 0 * * *" # Run every day at midnight
+  workflow_dispatch:
+
+jobs:
+  nightly-release:
+    name: Nightly Release
+    uses: ./.github/workflows/reusable-release.yaml
+    with:
+      nightly: true
+    secrets: inherit

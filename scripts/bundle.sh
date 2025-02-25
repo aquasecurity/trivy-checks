@@ -3,13 +3,6 @@
 rm -rf bundle || true
 rm bundle.tar.gz || true
 RELEASE_VERSION=${GITHUB_REF/refs\/tags\/v/}
-MINOR_VERSION=$(echo ${RELEASE_VERSION} | cut -d. -f1,2)
-MAJOR_VERSION=$(echo ${RELEASE_VERSION} | cut -d. -f1)
-if [ -n "$GITHUB_ENV" ]; then
-  echo "RELEASE_VERSION=$RELEASE_VERSION" >> $GITHUB_ENV
-  echo "MINOR_VERSION=$MINOR_VERSION" >> $GITHUB_ENV
-  echo "MAJOR_VERSION=$MAJOR_VERSION" >> $GITHUB_ENV
-fi
 
 for dir in kubernetes cloud docker; do
     mkdir -p bundle/policies/$dir/policies
