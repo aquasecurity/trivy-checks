@@ -10,7 +10,7 @@ import (
 	"github.com/owenrumney/squealer/pkg/squealer"
 )
 
-var squealerScanStringDecl = &rego.Function{
+var SquealerScanStringDecl = &rego.Function{
 	Name: "squealer.scan_string",
 	Decl: types.NewFunction(types.Args(types.S), types.NewObject([]*types.StaticProperty{
 		{Key: "transgressionFound", Value: types.NewBoolean()},
@@ -20,7 +20,7 @@ var squealerScanStringDecl = &rego.Function{
 	Memoize:     true,
 }
 
-var squealerScanStringImpl = func(_ rego.BuiltinContext, a *ast.Term) (*ast.Term, error) {
+var SquealerScanStringImpl = func(_ rego.BuiltinContext, a *ast.Term) (*ast.Term, error) {
 	astr, err := builtins.StringOperand(a.Value, 0)
 	if err != nil {
 		return nil, fmt.Errorf("invalid parameter type: %w", err)
