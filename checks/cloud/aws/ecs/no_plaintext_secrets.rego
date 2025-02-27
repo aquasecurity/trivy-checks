@@ -45,33 +45,31 @@ deny contains res if {
 	)
 }
 
-scan_env_value(env) := scan_result if {
-	is_string(env.value)
-	scan_result := squealer.scan_string(env.value)
-}
-
-scan_env_value(env) := scan_result if {
-	not is_string(env.value)
-	scan_result := squealer.scan_string(env.value.value)
-}
+scan_env_value(env) := squealer.scan_string(get_value(env.value))
 
 deny contains res if {
 	some container in input.aws.ecs.taskdefinitions[_].containerdefinitions
 	some env in container.environment
-	is_sensitive_attr(env.name)
+	is_sensitive_attr(get_value(env.name))
 	res := result.new(
 		sprintf("Container definition contains a potentially sensitive in environment variable name %q", [env.name]),
 		container,
 	)
 }
 
+get_value(attr) := attr if {
+	is_string(attr)
+} else := attr.value if {
+	not is_string(attr)
+}
+
 is_sensitive_attr(attr) if {
-	attrl := lower(attr.value)
+	attrl := lower(attr)
 	attrl in sensitive_attribute_tokens
 }
 
 is_sensitive_attr(attr) if {
-	attrl := lower(attr.value)
+	attrl := lower(attr)
 	not attrl in sensitive_attribute_tokens
 	some token in sensitive_attribute_tokens
 	contains(attrl, token)

@@ -12,7 +12,7 @@ import (
 	"github.com/aquasecurity/trivy/pkg/types"
 )
 
-func TestExamples(t *testing.T) {
+func TestCustomChecks(t *testing.T) {
 	workDir, err := filepath.Abs("../examples")
 	require.NoError(t, err)
 

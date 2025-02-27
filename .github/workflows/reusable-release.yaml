@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create bundle
-        run: make bundle
+        run: make create-bundle
 
       - name: setup-oras
         uses: oras-project/setup-oras@v1.2.2

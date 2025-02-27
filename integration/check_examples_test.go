@@ -3,6 +3,9 @@
 package integration
 
 import (
+	"bytes"
+	"context"
+	"io"
 	"io/fs"
 	"os"
 	"os/exec"
@@ -12,9 +15,14 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/docker/docker/api/types/container"
+	"github.com/docker/docker/api/types/mount"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/testcontainers/testcontainers-go"
+	"github.com/testcontainers/testcontainers-go/modules/registry"
 
+	"github.com/aquasecurity/trivy-checks/integration/testcontainer"
 	"github.com/aquasecurity/trivy-checks/internal/examples"
 	"github.com/aquasecurity/trivy/pkg/iac/framework"
 	"github.com/aquasecurity/trivy/pkg/iac/rego"
@@ -22,59 +30,132 @@ import (
 	"github.com/aquasecurity/trivy/pkg/types"
 )
 
-func TestValidateCheckExamples(t *testing.T) {
-	cacheDir := setupCache(t)
-	targetDir := setupTarget(t)
-	outputFile := filepath.Join(t.TempDir(), "report.json")
+var trivyVersions = []string{"0.57.1", "0.58.1", "latest", "canary"}
 
-	args := []string{
-		"conf",
-		"--skip-check-update",
-		"--quiet",
-		"--format", "json",
-		"--output", outputFile,
-		"--cache-dir", cacheDir,
-		targetDir,
+func TestScanCheckExamples(t *testing.T) {
+	ctx := context.Background()
+
+	tmpDir, err := os.MkdirTemp(".", "trivy-checks-examples-*")
+	require.NoError(t, err)
+	t.Cleanup(func() { os.RemoveAll(tmpDir) })
+
+	examplesPath := filepath.Join(tmpDir, "examples")
+	setupTarget(t, examplesPath)
+
+	targetDir, err := filepath.Abs(tmpDir)
+	require.NoError(t, err)
+
+	registryContainer, err := registry.Run(ctx, "registry:2")
+	require.NoError(t, err)
+
+	registryHost, err := registryContainer.HostAddress(ctx)
+	require.NoError(t, err)
+
+	bundleImage := registryHost + "/" + "trivy-checks:latest"
+
+	bundlePath := buildBundle(t)
+	pushBundle(t, ctx, bundlePath, bundleImage)
+
+	for _, version := range trivyVersions {
+		t.Run(version, func(t *testing.T) {
+			t.Parallel()
+
+			reportFileName := version + "_" + "report.json"
+			args := []string{
+				"conf",
+				"--checks-bundle-repository", bundleImage,
+				"--format", "json",
+				"--output", "/testdata/" + reportFileName,
+				"--include-deprecated-checks=false",
+				"/testdata/examples",
+			}
+
+			trivy, err := testcontainer.RunTrivy(ctx, "aquasec/trivy:"+version, args,
+				testcontainers.WithHostConfigModifier(func(hc *container.HostConfig) {
+					hc.NetworkMode = "host"
+					hc.Mounts = []mount.Mount{
+						{
+							Type:   mount.TypeBind,
+							Source: targetDir,
+							Target: "/testdata",
+						},
+					}
+				}),
+			)
+
+			rc, err := trivy.Logs(ctx)
+			require.NoError(t, err)
+
+			b, err := io.ReadAll(rc)
+			require.NoError(t, err)
+
+			if bytes.Contains(b, []byte("Falling back to embedded checks")) {
+				t.Log(string(b))
+				t.Fatal("Failed to load checks from the bundle")
+			}
+
+			require.NoError(t, err)
+			require.NoError(t, trivy.Terminate(ctx))
+
+			reportPath := filepath.Join(targetDir, reportFileName)
+			report := readTrivyReport(t, reportPath)
+			require.NotEmpty(t, report.Results)
+			require.NoError(t, os.Remove(reportPath))
+
+			verifyReport(t, report, examplesPath, version)
+		})
 	}
-	runTrivy(t, args)
-
-	report := readTrivyReport(t, outputFile)
-
-	verifyExamples(t, report, targetDir)
 }
 
-func setupCache(t *testing.T) string {
-	t.Helper()
-
+func buildBundle(t *testing.T) string {
 	cmd := exec.Command("make", "create-bundle")
 	cmd.Dir = ".."
 	require.NoError(t, cmd.Run())
-	defer os.Remove("../bundle.tar.gz")
+	t.Cleanup(func() { os.Remove("../bundle.tar.gz") })
 
-	cacheDir := t.TempDir()
-
-	policyDir := filepath.Join(cacheDir, "policy", "content")
-	require.NoError(t, os.MkdirAll(policyDir, os.ModePerm))
-
-	cmd = exec.Command("tar", "-zxf", "bundle.tar.gz", "-C", policyDir)
-	cmd.Dir = ".."
-	require.NoError(t, cmd.Run())
-
-	return cacheDir
+	bundlePath, err := filepath.Abs("../bundle.tar.gz")
+	require.NoError(t, err)
+	return bundlePath
 }
 
-// Rego checks without implementation for documentation only.
-var excludedChecks = []string{
-	"AVD-AWS-0057",
-	"AVD-AWS-0114",
-	"AVD-AWS-0120",
-	"AVD-AWS-0134",
+func pushBundle(t *testing.T, ctx context.Context, path string, image string) {
+	orasCmd := []string{
+		"push", image,
+		"--artifact-type", "application/vnd.cncf.openpolicyagent.config.v1+json",
+		filepath.Base(path) + ":application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip",
+	}
+
+	c, err := testcontainer.RunOras(ctx, orasCmd,
+		testcontainers.WithHostConfigModifier(func(config *container.HostConfig) {
+			config.NetworkMode = "host"
+			config.Mounts = []mount.Mount{
+				{
+					Type:   mount.TypeBind,
+					Source: path,
+					Target: "/" + filepath.Base(path),
+				}}
+		}),
+	)
+	require.NoError(t, err)
+	require.NoError(t, c.Terminate(ctx))
 }
 
-func setupTarget(t *testing.T) string {
+var excludedChecks = map[string][]string{
+	// Excluded for all versions, as these checks are only for documentation and lack implementation.
+	"": {
+		"AVD-AWS-0057",
+		"AVD-AWS-0114",
+		"AVD-AWS-0120",
+		"AVD-AWS-0134",
+	},
+	"0.57.1": {
+		// After version 0.57.1, the bug with the field type was fixed and the example was updated. See: https://github.com/aquasecurity/trivy/pull/7995
+		"AVD-AWS-0036",
+	},
+}
+
+func setupTarget(t *testing.T, targetDir string) {
 	t.Helper()
-
-	targetDir := t.TempDir()
 
 	// TODO(nikpivkin): load examples from fs
 	rego.LoadAndRegister()
@@ -85,7 +166,7 @@ func setupTarget(t *testing.T) string {
 			continue
 		}
 
-		if slices.Contains(excludedChecks, r.AVDID) {
+		if r.Deprecated {
 			continue
 		}
 
@@ -101,8 +182,6 @@ func setupTarget(t *testing.T) string {
 			writeExamples(t, providerExamples.Good.ToStrings(), provider, targetDir, r.AVDID, "good")
 		}
 	}
-
-	return targetDir
 }
 
 func writeExamples(t *testing.T, examples []string, provider, cacheDir string, id string, typ string) {
@@ -114,7 +193,7 @@ func writeExamples(t *testing.T, examples []string, provider, cacheDir string, i
 	}
 }
 
-func verifyExamples(t *testing.T, report types.Report, targetDir string) {
+func verifyReport(t *testing.T, report types.Report, targetDir string, version string) {
 	got := getFailureIDs(report)
 
 	err := filepath.Walk(targetDir, func(path string, info os.FileInfo, err error) error {
@@ -134,6 +213,14 @@ func verifyExamples(t *testing.T, report types.Report, targetDir string) {
 		id, _, exampleType := parts[0], parts[1], parts[2]
 
 		shouldBePresent := exampleType == "bad"
+
+		if slices.Contains(excludedChecks[""], id) {
+			return nil
+		}
+
+		if slices.Contains(excludedChecks[version], id) {
+			return nil
+		}
 
 		t.Run(relPath, func(t *testing.T) {
 			if shouldBePresent {
