@@ -10,14 +10,14 @@ import (
 	"github.com/open-policy-agent/opa/types"
 )
 
-var cidrCountAdressesDecl = &rego.Function{
+var CidrCountAdressesDecl = &rego.Function{
 	Name:        "cidr.count_addresses",
 	Decl:        types.NewFunction(types.Args(types.S), types.N),
 	Description: "Count addresses",
 	Memoize:     true,
 }
 
-var cidrCountAdressesImpl = func(_ rego.BuiltinContext, a *ast.Term) (*ast.Term, error) {
+var CidrCountAdressesImpl = func(_ rego.BuiltinContext, a *ast.Term) (*ast.Term, error) {
 	astr, err := builtins.StringOperand(a.Value, 0)
 	if err != nil {
 		return nil, fmt.Errorf("invalid parameter type: %w", err)
@@ -27,14 +27,14 @@ var cidrCountAdressesImpl = func(_ rego.BuiltinContext, a *ast.Term) (*ast.Term,
 	return ast.UIntNumberTerm(count), nil
 }
 
-var cidrIsPublicDecl = &rego.Function{
+var CidrIsPublicDecl = &rego.Function{
 	Name:        "cidr.is_public",
 	Decl:        types.NewFunction(types.Args(types.S), types.B),
 	Description: "Is public",
 	Memoize:     true,
 }
 
-var cidrIsPublicImpl = func(_ rego.BuiltinContext, a *ast.Term) (*ast.Term, error) {
+var CidrIsPublicImpl = func(_ rego.BuiltinContext, a *ast.Term) (*ast.Term, error) {
 	astr, err := builtins.StringOperand(a.Value, 0)
 	if err != nil {
 		return nil, fmt.Errorf("invalid parameter type: %w", err)

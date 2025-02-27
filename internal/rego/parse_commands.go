@@ -12,14 +12,14 @@ import (
 	"mvdan.cc/sh/v3/syntax"
 )
 
-var shParseCommandsDecl = &rego.Function{
+var ShParseCommandsDecl = &rego.Function{
 	Name:        "sh.parse_commands",
 	Decl:        types.NewFunction(types.Args(types.S), types.NewArray(nil, types.NewArray(nil, types.S))),
 	Description: "Parse command sequence",
 	Memoize:     true,
 }
 
-var shParseCommandsImpl = func(_ rego.BuiltinContext, a *ast.Term) (*ast.Term, error) {
+var ShParseCommandsImpl = func(_ rego.BuiltinContext, a *ast.Term) (*ast.Term, error) {
 	astr, err := builtins.StringOperand(a.Value, 0)
 	if err != nil {
 		return nil, fmt.Errorf("invalid parameter type: %w", err)
