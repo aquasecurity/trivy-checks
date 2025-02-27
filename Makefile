@@ -33,8 +33,9 @@ lint-rego: check-rego
 		--enable deny-rule,naming-convention \
 		--timeout 5m
 
-.PHONY: bundle
-bundle: create-bundle verify-bundle
+.PHONY: fmt-examples
+fmt-examples:
+	go run ./cmd/fmt-examples
 
 .PHONY: id
 id:
@@ -60,18 +61,8 @@ docs-test:
 create-bundle:
 	./scripts/bundle.sh
 
-.PHONY: verify-bundle
-verify-bundle:
-	cp $(BUNDLE_FILE) scripts/$(BUNDLE_FILE)
-	cd scripts && go run verify-bundle.go
-	rm scripts/$(BUNDLE_FILE)
-
 build-opa:
 	go build ./cmd/opa
-
-.PHONY: fmt-examples
-fmt-examples:
-	go run ./cmd/fmt-examples
 
 start-registry:
 	docker run --rm -it -d -p ${REGISTRY_PORT}:5000 --name registry registry:2 

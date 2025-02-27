@@ -16,6 +16,10 @@ import (
 	"github.com/aquasecurity/trivy/pkg/types"
 )
 
+func init() {
+	os.Setenv("TESTCONTAINERS_RYUK_DISABLED", "true")
+}
+
 func runTrivy(t *testing.T, args []string) {
 	defer viper.Reset()
 
