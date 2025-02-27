@@ -18,6 +18,28 @@ test_deny_ingress_sq_all_ips_for_ssh_port_and_tcp if {
 	test.assert_count(check.deny, 1) with input as inp
 }
 
+test_deny_ingress_sq_all_ips_for_ssh_port_and_uppercase_tcp if {
+	inp := build_input({
+		"protocol": {"value": "TCP"},
+		"cidrs": [{"value": "0.0.0.0/0"}],
+		"fromport": {"value": net.ssh_port},
+		"toport": {"value": net.ssh_port},
+	})
+
+	test.assert_count(check.deny, 1) with input as inp
+}
+
+test_deny_ingress_sq_all_ips_for_ssh_port_and_int_tcp if {
+	inp := build_input({
+		"protocol": {"value": 6},
+		"cidrs": [{"value": "0.0.0.0/0"}],
+		"fromport": {"value": net.ssh_port},
+		"toport": {"value": net.ssh_port},
+	})
+
+	test.assert_count(check.deny, 1) with input as inp
+}
+
 test_deny_ingress_sq_all_ips_for_rdp_port_and_udp if {
 	inp := build_input({
 		"protocol": {"value": "udp"},
