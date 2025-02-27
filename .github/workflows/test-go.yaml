@@ -4,7 +4,7 @@ on:
   merge_group:
 
 env:
-  GO_VERSION: '1.23'
+  GO_VERSION: "1.23"
 
 jobs:
   build:
@@ -12,25 +12,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-go@v5
-      with:
-        go-version: ${{ env.GO_VERSION }}
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
 
-    - name: Run tests
-      run: make test
-      shell: bash
+      - name: Run tests
+        run: make test
+        shell: bash
 
-  integration:
-    name: Integration Test
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-go@v5
-      with:
-        go-version: ${{ env.GO_VERSION }}
-
-    - name: Run integration tests
-      run: make test-integration
-
+  integration-tests:
+    uses: ./.github/workflows/integration-tests.yaml
