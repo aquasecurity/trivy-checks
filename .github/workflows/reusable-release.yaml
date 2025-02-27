@@ -11,10 +11,25 @@ on:
 env:
   GH_USER: aqua-bot
   AQUA_DOCKERHUB_REPO: aquasec
+  GO_VERSION: "1.23"
 
 jobs:
+  integration-tests:
+    name: Integration Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Run integration tests
+        run: make test-integration
+
   release:
     runs-on: ubuntu-latest
+    needs: integration-tests
     permissions:
       contents: read
       packages: write
@@ -44,15 +59,15 @@ jobs:
       - name: Prepare image tags
         id: prepare-tags
         run: |
-         if [ "${{ inputs.nightly }}" == "true" ]; then
-            tags=("nightly")
-          else
-            RELEASE_VERSION=${GITHUB_REF/refs\/tags\/v/}
-            MINOR_VERSION=$(echo $RELEASE_VERSION | cut -d. -f1,2)
-            MAJOR_VERSION=$(echo $RELEASE_VERSION | cut -d. -f1)
-            tags=("latest" "$RELEASE_VERSION" "$MINOR_VERSION" "$MAJOR_VERSION")
-          fi
-          echo "tags=${tags[*]}" >> $GITHUB_OUTPUT
+          if [ "${{ inputs.nightly }}" == "true" ]; then
+             tags=("nightly")
+           else
+             RELEASE_VERSION=${GITHUB_REF/refs\/tags\/v/}
+             MINOR_VERSION=$(echo $RELEASE_VERSION | cut -d. -f1,2)
+             MAJOR_VERSION=$(echo $RELEASE_VERSION | cut -d. -f1)
+             tags=("latest" "$RELEASE_VERSION" "$MINOR_VERSION" "$MAJOR_VERSION")
+           fi
+           echo "tags=${tags[*]}" >> $GITHUB_OUTPUT
 
       - name: Deploy policy bundle to ghcr.io (for backwards compatibility)
         if: ${{ inputs.nightly != true }}
