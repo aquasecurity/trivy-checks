@@ -9,3 +9,6 @@ jobs:
     name: Release
     uses: ./.github/workflows/reusable-release.yaml
     secrets: inherit
+    permissions:
+      contents: read
+      packages: write
