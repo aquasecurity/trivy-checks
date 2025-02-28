@@ -11,3 +11,6 @@ jobs:
     with:
       nightly: true
     secrets: inherit
+    permissions:
+      contents: read
+      packages: write
