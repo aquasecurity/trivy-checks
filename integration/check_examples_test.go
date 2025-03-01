@@ -35,7 +35,7 @@ var trivyVersions = []string{"0.57.1", "0.58.1", "latest", "canary"}
 func TestScanCheckExamples(t *testing.T) {
 	ctx := context.Background()
 
-	tmpDir, err := os.MkdirTemp(".", "trivy-checks-examples-*")
+	tmpDir, err := os.MkdirTemp("", "trivy-checks-examples-*")
 	require.NoError(t, err)
 	t.Cleanup(func() { os.RemoveAll(tmpDir) })
 
@@ -58,8 +58,6 @@ func TestScanCheckExamples(t *testing.T) {
 
 	for _, version := range trivyVersions {
 		t.Run(version, func(t *testing.T) {
-			t.Parallel()
-
 			reportFileName := version + "_" + "report.json"
 			args := []string{
 				"conf",
