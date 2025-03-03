@@ -81,12 +81,16 @@ func TestScanCheckExamples(t *testing.T) {
 				}),
 			)
 
+			require.NoError(t, err)
+			t.Cleanup(func() { trivy.Terminate(ctx) })
+
 			rc, err := trivy.Logs(ctx)
 			require.NoError(t, err)
 
 			b, err := io.ReadAll(rc)
 			require.NoError(t, err)
 
+			// trivy switches to embedded checks if the bundle load fails, so we should check this out
 			if bytes.Contains(b, []byte("Falling back to embedded checks")) {
 				t.Log(string(b))
 				t.Fatal("Failed to load checks from the bundle")
