@@ -20,7 +20,7 @@
 #           - provider: kubernetes
 #             service: networkpolicies
 #   terraform:
-#     good_examples: checks/cloud/kubernetes/cloud/no_public_ingress.yaml
+#     good_examples: checks/cloud/kubernetes/network/no_public_ingress.yaml
 #     links:
 #       - https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/network_policy#spec.ingress.from.ip_block.cidr
 #   examples: checks/cloud/kubernetes/network/no_public_ingress.yaml

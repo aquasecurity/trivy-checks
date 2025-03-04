@@ -59,7 +59,7 @@ docs-test:
 
 .PHONY: create-bundle
 create-bundle:
-	./scripts/bundle.sh
+	./cmd/bundle/bundle.sh
 
 build-opa:
 	go build ./cmd/opa

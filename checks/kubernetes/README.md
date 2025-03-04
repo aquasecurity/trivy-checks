@@ -32,14 +32,13 @@ conftest test denied.yaml --policy myPolicy/ --namespace builtin.kubernetes.KSV0
 # Kubernetes checks classification
 There are several Kubernetes checks that target various subsystems. They are loosely classified as follows.
 
-| Target         | Description                                                                                                                        |
-|----------------|------------------------------------------------------------------------------------------------------------------------------------|
-| Network        | Checks primarily targeting the networking stack                                                                                    |
-| Dynamic        | Checks that evaluate deprecated and removed APIs                                                                                   |
-| CIS Benchmarks | Checks that are recommended by the CIS Benchmarks. The checks inside are targeted per each subsystem (e.g. apiserver, cni, etc.)   |
-| Advanced       | Checks that are recommended for the advanced uesrs of Kubernetes                                                                   |
-| GKE            | Checks specific to Google Kubernetes Engine                                                                                        |
-| PSS            | Checks pertaining to Pod Security Standards                                                                                        |
+| Target    | Description                                                                        |
+|-----------|------------------------------------------------------------------------------------|
+| Access    | Authentication and authorization related checks (anonymous auth, service accounts) |
+| Network   | Network and connection related checks (iptables, streaming connections)            |
+| Resources | Admission plugins and resource lifecycle management                                |
+| Security  | Core security features and cryptographic checks                                    |
+| Workloads | Kubelet configuration and operational checks                                       |
 
 
 # Standards and best practices
