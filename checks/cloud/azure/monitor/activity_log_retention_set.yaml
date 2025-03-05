@@ -1,21 +1,23 @@
 terraform:
-  good:
-    - |-
-      resource "azurerm_monitor_log_profile" "good_example" {
-        name = "good_example"
+    links:
+        - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_log_profile#retention_policy
+    good:
+        - |-
+          resource "azurerm_monitor_log_profile" "good_example" {
+            name = "good_example"
 
-        retention_policy {
-          enabled = true
-          days    = 365
-        }
-      }
-  bad:
-    - |-
-      resource "azurerm_monitor_log_profile" "bad_example" {
-        name = "bad_example"
+            retention_policy {
+              enabled = true
+              days    = 365
+            }
+          }
+    bad:
+        - |-
+          resource "azurerm_monitor_log_profile" "bad_example" {
+            name = "bad_example"
 
-        retention_policy {
-          enabled = true
-          days    = 7
-        }
-      }
+            retention_policy {
+              enabled = true
+              days    = 7
+            }
+          }

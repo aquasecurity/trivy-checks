@@ -1,13 +1,15 @@
 terraform:
-  good:
-    - |-
-      resource "azurerm_security_center_subscription_pricing" "good_example" {
-        tier          = "Standard"
-        resource_type = "VirtualMachines"
-      }
-  bad:
-    - |-
-      resource "azurerm_security_center_subscription_pricing" "bad_example" {
-        tier          = "Free"
-        resource_type = "VirtualMachines"
-      }
+    links:
+        - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/security_center_subscription_pricing#tier
+    good:
+        - |-
+          resource "azurerm_security_center_subscription_pricing" "good_example" {
+            tier          = "Standard"
+            resource_type = "VirtualMachines"
+          }
+    bad:
+        - |-
+          resource "azurerm_security_center_subscription_pricing" "bad_example" {
+            tier          = "Free"
+            resource_type = "VirtualMachines"
+          }

@@ -13,12 +13,11 @@ import (
 )
 
 func GetCheckExamples(r scan.Rule) (CheckExamples, string, error) {
-	path := getCheckExamplesPath(r)
-	if path == "" {
+	if r.Examples == "" {
 		return CheckExamples{}, "", nil
 	}
 
-	b, err := trivy_checks.EmbeddedPolicyFileSystem.ReadFile(path)
+	b, err := trivy_checks.EmbeddedPolicyFileSystem.ReadFile(r.Examples)
 	if err != nil {
 		return CheckExamples{}, "", err
 	}
@@ -28,35 +27,13 @@ func GetCheckExamples(r scan.Rule) (CheckExamples, string, error) {
 		return CheckExamples{}, "", err
 	}
 
-	return exmpls, path, nil
-}
-
-// TODO: use `examples` field after adding
-func getCheckExamplesPath(r scan.Rule) string {
-	if r.Examples != "" {
-		return r.Examples
-	}
-
-	for _, eng := range []*scan.EngineMetadata{r.Terraform, r.CloudFormation} {
-		if eng == nil {
-			continue
-		}
-
-		paths := append(eng.BadExamples, eng.GoodExamples...)
-		for _, path := range paths {
-			if path != "" {
-				return path
-			}
-		}
-
-	}
-
-	return ""
+	return exmpls, r.Examples, nil
 }
 
 type ProviderExamples struct {
-	Good blocks `yaml:"good,omitempty"`
-	Bad  blocks `yaml:"bad,omitempty"`
+	Links []string `yaml:"links,omitempty"`
+	Good  CodeBlocks   `yaml:"good,omitempty"`
+	Bad   CodeBlocks   `yaml:"bad,omitempty"`
 }
 
 func (e ProviderExamples) IsEmpty() bool {
@@ -75,19 +52,9 @@ func (e CheckExamples) Format() {
 	}
 }
 
-type blockString string
+type CodeBlocks []CodeBlock
 
-func (b blockString) MarshalYAML() (interface{}, error) {
-	return &yaml.Node{
-		Kind:  yaml.ScalarNode,
-		Style: yaml.LiteralStyle,
-		Value: strings.TrimSuffix(string(b), "\n"),
-	}, nil
-}
-
-type blocks []blockString
-
-func (b blocks) ToStrings() []string {
+func (b CodeBlocks) ToStrings() []string {
 	res := make([]string, 0, len(b))
 	for _, bs := range b {
 		res = append(res, string(bs))
@@ -95,32 +62,42 @@ func (b blocks) ToStrings() []string {
 	return res
 }
 
-func (b blocks) format(fn func(blockString) blockString) {
+func (b CodeBlocks) format(fn func(CodeBlock) CodeBlock) {
 	for i, block := range b {
 		b[i] = fn(block)
 	}
 }
 
-var formatters = map[string]func(blockString) blockString{
+type CodeBlock string
+
+func (b CodeBlock) MarshalYAML() (any, error) {
+	return &yaml.Node{
+		Kind:  yaml.ScalarNode,
+		Style: yaml.LiteralStyle,
+		Value: strings.TrimSuffix(string(b), "\n"),
+	}, nil
+}
+
+var formatters = map[string]func(CodeBlock) CodeBlock{
 	"terraform":      formatHCL,
 	"cloudformation": formatCFT,
 	"kubernetes":     formatYAML,
 }
 
-func formatHCL(b blockString) blockString {
-	return blockString(hclwrite.Format([]byte(strings.Trim(string(b), " \n"))))
+func formatHCL(b CodeBlock) CodeBlock {
+	return CodeBlock(hclwrite.Format([]byte(strings.Trim(string(b), " \n"))))
 }
 
-func formatCFT(b blockString) blockString {
+func formatCFT(b CodeBlock) CodeBlock {
 	tmpl, err := parse.String(string(b))
 	if err != nil {
 		panic(err)
 	}
 
-	return blockString(format.CftToYaml(tmpl))
+	return CodeBlock(format.CftToYaml(tmpl))
 }
 
-func formatYAML(b blockString) blockString {
+func formatYAML(b CodeBlock) CodeBlock {
 	var v any
 	if err := yaml.Unmarshal([]byte(b), &v); err != nil {
 		panic(err)
@@ -129,5 +106,5 @@ func formatYAML(b blockString) blockString {
 	if err != nil {
 		panic(err)
 	}
-	return blockString(ret)
+	return CodeBlock(ret)
 }

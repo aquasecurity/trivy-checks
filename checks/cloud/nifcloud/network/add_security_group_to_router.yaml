@@ -1,19 +1,21 @@
 terraform:
-  good:
-    - |-
-      resource "nifcloud_router" "good_example" {
-        security_group = nifcloud_security_group.example.group_name
+    links:
+        - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/router#security_group
+    good:
+        - |-
+          resource "nifcloud_router" "good_example" {
+            security_group = nifcloud_security_group.example.group_name
 
-        network_interface {
-          network_id = "net-COMMON_GLOBAL"
-        }
-      }
-  bad:
-    - |-
-      resource "nifcloud_router" "bad_example" {
-        security_group = ""
+            network_interface {
+              network_id = "net-COMMON_GLOBAL"
+            }
+          }
+    bad:
+        - |-
+          resource "nifcloud_router" "bad_example" {
+            security_group = ""
 
-        network_interface {
-          network_id = "net-COMMON_GLOBAL"
-        }
-      }
+            network_interface {
+              network_id = "net-COMMON_GLOBAL"
+            }
+          }

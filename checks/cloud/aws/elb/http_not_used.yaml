@@ -1,11 +1,13 @@
 terraform:
-  good:
-    - |-
-      resource "aws_alb_listener" "good_example" {
-        protocol = "HTTPS"
-      }
-  bad:
-    - |-
-      resource "aws_alb_listener" "bad_example" {
-        protocol = "HTTP"
-      }
+    links:
+        - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_listener
+    good:
+        - |-
+          resource "aws_alb_listener" "good_example" {
+            protocol = "HTTPS"
+          }
+    bad:
+        - |-
+          resource "aws_alb_listener" "bad_example" {
+            protocol = "HTTP"
+          }

@@ -1,29 +1,31 @@
 terraform:
-  good:
-    - |-
-      resource "google_storage_bucket" "test" {
-        name     = "test"
-        location = "US"
-      }
+    links:
+        - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam#member/members
+    good:
+        - |-
+          resource "google_storage_bucket" "test" {
+            name     = "test"
+            location = "US"
+          }
 
-      resource "google_storage_bucket_iam_binding" "binding" {
-        bucket = google_storage_bucket.test.name
-        role   = "roles/storage.admin"
-        members = [
-          "user:jane@example.com",
-        ]
-      }
-  bad:
-    - |-
-      resource "google_storage_bucket" "test" {
-        name     = "test"
-        location = "US"
-      }
+          resource "google_storage_bucket_iam_binding" "binding" {
+            bucket = google_storage_bucket.test.name
+            role   = "roles/storage.admin"
+            members = [
+              "user:jane@example.com",
+            ]
+          }
+    bad:
+        - |-
+          resource "google_storage_bucket" "test" {
+            name     = "test"
+            location = "US"
+          }
 
-      resource "google_storage_bucket_iam_binding" "binding" {
-        bucket = google_storage_bucket.test.name
-        role   = "roles/storage.admin"
-        members = [
-          "allAuthenticatedUsers",
-        ]
-      }
+          resource "google_storage_bucket_iam_binding" "binding" {
+            bucket = google_storage_bucket.test.name
+            role   = "roles/storage.admin"
+            members = [
+              "allAuthenticatedUsers",
+            ]
+          }

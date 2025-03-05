@@ -1,11 +1,13 @@
 terraform:
-  good:
-    - |-
-      resource "aws_alb" "good_example" {
-        internal = true
-      }
-  bad:
-    - |-
-      resource "aws_alb" "bad_example" {
-        internal = false
-      }
+    links:
+        - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb
+    good:
+        - |-
+          resource "aws_alb" "good_example" {
+            internal = true
+          }
+    bad:
+        - |-
+          resource "aws_alb" "bad_example" {
+            internal = false
+          }

@@ -1,11 +1,13 @@
 terraform:
-  good:
-    - |-
-      resource "azurerm_data_lake_store" "good_example" {
-        encryption_state = "Enabled"
-      }
-  bad:
-    - |-
-      resource "azurerm_data_lake_store" "bad_example" {
-        encryption_state = "Disabled"
-      }
+    links:
+        - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/data_lake_store
+    good:
+        - |-
+          resource "azurerm_data_lake_store" "good_example" {
+            encryption_state = "Enabled"
+          }
+    bad:
+        - |-
+          resource "azurerm_data_lake_store" "bad_example" {
+            encryption_state = "Disabled"
+          }

@@ -1,14 +1,16 @@
 terraform:
-  good:
-    - |-
-      resource "azurerm_kubernetes_cluster" "good_example" {
-        network_profile {
-          network_policy = "calico"
-        }
-      }
-  bad:
-    - |-
-      resource "azurerm_kubernetes_cluster" "bad_example" {
-        network_profile {
-        }
-      }
+    links:
+        - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#network_policy
+    good:
+        - |-
+          resource "azurerm_kubernetes_cluster" "good_example" {
+            network_profile {
+              network_policy = "calico"
+            }
+          }
+    bad:
+        - |-
+          resource "azurerm_kubernetes_cluster" "bad_example" {
+            network_profile {
+            }
+          }

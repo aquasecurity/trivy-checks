@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/network_policy#spec.ingress.from.ip_block.cidr
   good:
     - |-
       resource "kubernetes_network_policy" "good_example" {
