@@ -21,14 +21,7 @@
 #         subtypes:
 #           - service: msk
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/msk_cluster#encryption_info-argument-reference
-#     good_examples: checks/cloud/aws/msk/enable_at_rest_encryption.yaml
-#     bad_examples: checks/cloud/aws/msk/enable_at_rest_encryption.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/msk/enable_at_rest_encryption.yaml
-#     bad_examples: checks/cloud/aws/msk/enable_at_rest_encryption.yaml
+#   examples: checks/cloud/aws/msk/enable_at_rest_encryption.yaml
 package builtin.aws.msk.aws0179
 
 import rego.v1

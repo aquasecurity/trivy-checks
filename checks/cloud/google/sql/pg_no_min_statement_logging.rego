@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: sql
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance
-#     good_examples: checks/cloud/google/sql/pg_no_min_statement_logging.yaml
-#     bad_examples: checks/cloud/google/sql/pg_no_min_statement_logging.yaml
+#   examples: checks/cloud/google/sql/pg_no_min_statement_logging.yaml
 package builtin.google.sql.google0021
 
 import rego.v1

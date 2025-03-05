@@ -23,14 +23,7 @@
 #         subtypes:
 #           - service: ec2
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_volume#kms_key_id
-#     good_examples: checks/cloud/aws/ec2/encryption_customer_key.yaml
-#     bad_examples: checks/cloud/aws/ec2/encryption_customer_key.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/ec2/encryption_customer_key.yaml
-#     bad_examples: checks/cloud/aws/ec2/encryption_customer_key.yaml
+#   examples: checks/cloud/aws/ec2/encryption_customer_key.yaml
 package builtin.aws.ec2.aws0027
 
 import rego.v1

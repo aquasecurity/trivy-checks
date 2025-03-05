@@ -21,12 +21,7 @@
 #         subtypes:
 #           - service: sql
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance
-#       - https://dev.mysql.com/doc/refman/8.0/en/load-data-local-security.html
-#     good_examples: checks/cloud/google/sql/mysql_no_local_infile.yaml
-#     bad_examples: checks/cloud/google/sql/mysql_no_local_infile.yaml
+#   examples: checks/cloud/google/sql/mysql_no_local_infile.yaml
 package builtin.google.sql.google0026
 
 import rego.v1

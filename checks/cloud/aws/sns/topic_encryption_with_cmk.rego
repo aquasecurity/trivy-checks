@@ -21,14 +21,7 @@
 #         subtypes:
 #           - service: sns
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic#example-with-server-side-encryption-sse
-#     good_examples: checks/cloud/aws/sns/topic_encryption_with_cmk.yaml
-#     bad_examples: checks/cloud/aws/sns/topic_encryption_with_cmk.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/sns/topic_encryption_with_cmk.yaml
-#     bad_examples: checks/cloud/aws/sns/topic_encryption_with_cmk.yaml
+#   examples: checks/cloud/aws/sns/topic_encryption_with_cmk.yaml
 package builtin.aws.sns.aws0136
 
 import rego.v1

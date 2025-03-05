@@ -21,14 +21,7 @@
 #         subtypes:
 #           - service: lambda
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function#mode
-#     good_examples: checks/cloud/aws/lambda/enable_tracing.yaml
-#     bad_examples: checks/cloud/aws/lambda/enable_tracing.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/lambda/enable_tracing.yaml
-#     bad_examples: checks/cloud/aws/lambda/enable_tracing.yaml
+#   examples: checks/cloud/aws/lambda/enable_tracing.yaml
 package builtin.aws.lambda.aws0066
 
 import rego.v1

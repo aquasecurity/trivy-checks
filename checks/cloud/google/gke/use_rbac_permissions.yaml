@@ -1,15 +1,15 @@
 terraform:
-    links:
-        - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#enable_legacy_abac
-    good:
-        - |-
-          resource "google_container_cluster" "good_example" {
-            # ...
-            # enable_legacy_abac not set
-            # ...
-          }
-    bad:
-        - |-
-          resource "google_container_cluster" "bad_example" {
-            enable_legacy_abac = "true"
-          }
+  links:
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#enable_legacy_abac
+  good:
+    - |-
+      resource "google_container_cluster" "good_example" {
+        # ...
+        # enable_legacy_abac not set
+        # ...
+      }
+  bad:
+    - |-
+      resource "google_container_cluster" "bad_example" {
+        enable_legacy_abac = "true"
+      }

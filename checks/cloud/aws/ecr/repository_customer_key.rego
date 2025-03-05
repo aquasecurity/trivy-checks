@@ -21,14 +21,7 @@
 #         subtypes:
 #           - service: ecr
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository#encryption_configuration
-#     good_examples: checks/cloud/aws/ecr/repository_customer_key.yaml
-#     bad_examples: checks/cloud/aws/ecr/repository_customer_key.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/ecr/repository_customer_key.yaml
-#     bad_examples: checks/cloud/aws/ecr/repository_customer_key.yaml
+#   examples: checks/cloud/aws/ecr/repository_customer_key.yaml
 package builtin.aws.ecr.aws0033
 
 import rego.v1

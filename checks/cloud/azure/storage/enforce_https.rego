@@ -23,11 +23,7 @@
 #         subtypes:
 #           - service: storage
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account#enable_https_traffic_only
-#     good_examples: checks/cloud/azure/storage/enforce_https.yaml
-#     bad_examples: checks/cloud/azure/storage/enforce_https.yaml
+#   examples: checks/cloud/azure/storage/enforce_https.yaml
 package builtin.azure.storage.azure0008
 
 import rego.v1

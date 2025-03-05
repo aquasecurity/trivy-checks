@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: gke
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#enable_private_nodes
-#     good_examples: checks/cloud/google/gke/enable_private_cluster.yaml
-#     bad_examples: checks/cloud/google/gke/enable_private_cluster.yaml
+#   examples: checks/cloud/google/gke/enable_private_cluster.yaml
 package builtin.google.gke.google0059
 
 import rego.v1

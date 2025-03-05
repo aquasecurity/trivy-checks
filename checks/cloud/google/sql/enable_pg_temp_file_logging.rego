@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: sql
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance
-#     good_examples: checks/cloud/google/sql/enable_pg_temp_file_logging.yaml
-#     bad_examples: checks/cloud/google/sql/enable_pg_temp_file_logging.yaml
+#   examples: checks/cloud/google/sql/enable_pg_temp_file_logging.yaml
 package builtin.google.sql.google0014
 
 import rego.v1

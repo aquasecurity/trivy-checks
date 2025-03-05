@@ -1,32 +1,32 @@
 cloudformation:
-    good:
-        - |-
-          Resources:
-            GoodCluster:
-              Type: AWS::MSK::Cluster
-              Properties:
-                EncryptionInfo:
-                  EncryptionAtRest:
-                    DataVolumeKMSKeyId: foo-bar-key
-    bad:
-        - |-
-          Resources:
-            BadCluster:
-              Type: AWS::MSK::Cluster
-              Properties: null
+  good:
+    - |-
+      Resources:
+        GoodCluster:
+          Type: AWS::MSK::Cluster
+          Properties:
+            EncryptionInfo:
+              EncryptionAtRest:
+                DataVolumeKMSKeyId: foo-bar-key
+  bad:
+    - |-
+      Resources:
+        BadCluster:
+          Type: AWS::MSK::Cluster
+          Properties: null
 terraform:
-    links:
-        - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/msk_cluster#encryption_info-argument-reference
-    good:
-        - |-
-          resource "aws_msk_cluster" "good_example" {
-            encryption_info {
-              encryption_at_rest_kms_key_arn = "foo-bar-key"
-            }
-          }
-    bad:
-        - |-
-          resource "aws_msk_cluster" "bad_example" {
-            encryption_info {
-            }
-          }
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/msk_cluster#encryption_info-argument-reference
+  good:
+    - |-
+      resource "aws_msk_cluster" "good_example" {
+        encryption_info {
+          encryption_at_rest_kms_key_arn = "foo-bar-key"
+        }
+      }
+  bad:
+    - |-
+      resource "aws_msk_cluster" "bad_example" {
+        encryption_info {
+        }
+      }

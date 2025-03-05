@@ -25,14 +25,7 @@
 #         subtypes:
 #           - service: cloudfront
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution#minimum_protocol_version
-#     good_examples: checks/cloud/aws/cloudfront/use_secure_tls_policy.yaml
-#     bad_examples: checks/cloud/aws/cloudfront/use_secure_tls_policy.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/cloudfront/use_secure_tls_policy.yaml
-#     bad_examples: checks/cloud/aws/cloudfront/use_secure_tls_policy.yaml
+#   examples: checks/cloud/aws/cloudfront/use_secure_tls_policy.yaml
 package builtin.aws.cloudfront.aws0013
 
 import rego.v1

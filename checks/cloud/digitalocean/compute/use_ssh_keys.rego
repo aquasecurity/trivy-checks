@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: compute
 #             provider: digitalocean
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet#ssh_keys
-#     good_examples: checks/cloud/digitalocean/compute/use_ssh_keys.yaml
-#     bad_examples: checks/cloud/digitalocean/compute/use_ssh_keys.yaml
+#   examples: checks/cloud/digitalocean/compute/use_ssh_keys.yaml
 package builtin.digitalocean.compute.digitalocean0004
 
 import rego.v1

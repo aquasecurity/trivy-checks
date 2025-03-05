@@ -23,11 +23,7 @@
 #         subtypes:
 #           - service: network
 #             provider: nifcloud
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/elb#network_id
-#     good_examples: checks/cloud/nifcloud/network/no_common_private_elb.yaml
-#     bad_examples: checks/cloud/nifcloud/network/no_common_private_elb.yaml
+#   examples: checks/cloud/nifcloud/network/no_common_private_elb.yaml
 package builtin.nifcloud.network.nifcloud0019
 
 import rego.v1

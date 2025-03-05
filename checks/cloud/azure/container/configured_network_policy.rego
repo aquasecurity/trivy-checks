@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: container
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#network_policy
-#     good_examples: checks/cloud/azure/container/configured_network_policy.yaml
-#     bad_examples: checks/cloud/azure/container/configured_network_policy.yaml
+#   examples: checks/cloud/azure/container/configured_network_policy.yaml
 package builtin.azure.container.azure0043
 
 import rego.v1

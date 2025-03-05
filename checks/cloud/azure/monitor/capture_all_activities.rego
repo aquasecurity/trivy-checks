@@ -22,11 +22,7 @@
 #         subtypes:
 #           - service: monitor
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_log_profile#categories
-#     good_examples: checks/cloud/azure/monitor/capture_all_activities.yaml
-#     bad_examples: checks/cloud/azure/monitor/capture_all_activities.yaml
+#   examples: checks/cloud/azure/monitor/capture_all_activities.yaml
 package builtin.azure.monitor.azure0033
 
 import rego.v1

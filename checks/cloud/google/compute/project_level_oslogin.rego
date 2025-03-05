@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: compute
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_project_metadata#
-#     good_examples: checks/cloud/google/compute/project_level_oslogin.yaml
-#     bad_examples: checks/cloud/google/compute/project_level_oslogin.yaml
+#   examples: checks/cloud/google/compute/project_level_oslogin.yaml
 package builtin.google.compute.google0042
 
 import rego.v1

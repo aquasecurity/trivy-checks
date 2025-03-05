@@ -25,11 +25,7 @@
 #         subtypes:
 #           - service: rdb
 #             provider: nifcloud
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/db_security_group#description
-#     good_examples: checks/cloud/nifcloud/rdb/add_description_to_db_security_group.yaml
-#     bad_examples: checks/cloud/nifcloud/rdb/add_description_to_db_security_group.yaml
+#   examples: checks/cloud/nifcloud/rdb/add_description_to_db_security_group.yaml
 package builtin.nifcloud.rdb.nifcloud0012
 
 import rego.v1

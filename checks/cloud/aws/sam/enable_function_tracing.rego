@@ -21,9 +21,7 @@
 #         subtypes:
 #           - service: sam
 #             provider: aws
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/sam/enable_function_tracing.yaml
-#     bad_examples: checks/cloud/aws/sam/enable_function_tracing.yaml
+#   examples: checks/cloud/aws/sam/enable_function_tracing.yaml
 package builtin.aws.sam.aws0125
 
 import rego.v1

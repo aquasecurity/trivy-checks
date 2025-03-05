@@ -21,15 +21,7 @@
 #         subtypes:
 #           - service: ec2
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_configuration#associate_public_ip_address
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#associate_public_ip_address
-#     good_examples: checks/cloud/aws/ec2/no_public_ip.yaml
-#     bad_examples: checks/cloud/aws/ec2/no_public_ip.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/ec2/no_public_ip.yaml
-#     bad_examples: checks/cloud/aws/ec2/no_public_ip.yaml
+#   examples: checks/cloud/aws/ec2/no_public_ip.yaml
 package builtin.aws.ec2.aws0009
 
 import rego.v1

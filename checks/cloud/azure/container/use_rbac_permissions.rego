@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: container
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#role_based_access_control
-#     good_examples: checks/cloud/azure/container/use_rbac_permissions.yaml
-#     bad_examples: checks/cloud/azure/container/use_rbac_permissions.yaml
+#   examples: checks/cloud/azure/container/use_rbac_permissions.yaml
 package builtin.azure.container.azure0042
 
 import rego.v1

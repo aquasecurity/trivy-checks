@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: apigateway
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_method#authorization
-#     good_examples: checks/cloud/aws/apigateway/no_public_access.yaml
-#     bad_examples: checks/cloud/aws/apigateway/no_public_access.yaml
+#   examples: checks/cloud/aws/apigateway/no_public_access.yaml
 package builtin.aws.apigateway.aws0004
 
 import rego.v1

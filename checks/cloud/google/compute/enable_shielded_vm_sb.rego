@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: compute
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#enable_secure_boot
-#     good_examples: checks/cloud/google/compute/enable_shielded_vm_sb.yaml
-#     bad_examples: checks/cloud/google/compute/enable_shielded_vm_sb.yaml
+#   examples: checks/cloud/google/compute/enable_shielded_vm_sb.yaml
 package builtin.google.compute.google0067
 
 import rego.v1

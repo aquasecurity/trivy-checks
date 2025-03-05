@@ -1,0 +1,66 @@
+cloudformation:
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::S3::Bucket
+          Properties:
+            LoggingConfiguration:
+              DestinationBucketName: !Ref TestLoggingBucket
+              LogFilePrefix: accesslogs/
+
+        TestLoggingBucket:
+          Type: AWS::S3::Bucket
+          Properties:
+            AccessControl: LogDeliveryWrite
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::S3::Bucket
+          Properties: null
+terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
+  good:
+    - |-
+      resource "aws_s3_bucket" "this" {
+        bucket = "test-bucket"
+        logging {
+          target_bucket = aws_s3_bucket.log_bucket.id
+          target_prefix = "log/"
+        }
+      }
+
+      resource "aws_s3_bucket" "log_bucket" {
+        bucket = "test-log-bucket"
+      }
+
+      resource "aws_s3_bucket_acl" "log_bucket" {
+        acl    = "log-delivery-write"
+        bucket = aws_s3_bucket.log_bucket.id
+      }
+    - |-
+      resource "aws_s3_bucket" "this" {
+        bucket = "test-bucket"
+      }
+
+      resource "aws_s3_bucket_logging" "this" {
+        bucket        = aws_s3_bucket.this.id
+        target_bucket = aws_s3_bucket.log_bucket.id
+        target_prefix = "log/"
+      }
+
+      resource "aws_s3_bucket" "log_bucket" {
+        bucket = "test-log-bucket"
+      }
+
+      resource "aws_s3_bucket_acl" "log_bucket" {
+        acl    = "log-delivery-write"
+        bucket = aws_s3_bucket.log_bucket.id
+      }
+  bad:
+    - |-
+      resource "aws_s3_bucket" "this" {
+        bucket = "test-bucket"
+      }

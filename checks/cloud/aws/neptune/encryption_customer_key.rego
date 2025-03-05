@@ -21,14 +21,7 @@
 #         subtypes:
 #           - service: neptune
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/neptune_cluster#storage_encrypted
-#     good_examples: checks/cloud/aws/neptune/encryption_customer_key.yaml
-#     bad_examples: checks/cloud/aws/neptune/encryption_customer_key.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/neptune/encryption_customer_key.yaml
-#     bad_examples: checks/cloud/aws/neptune/encryption_customer_key.yaml
+#   examples: checks/cloud/aws/neptune/encryption_customer_key.yaml
 package builtin.aws.neptune.aws0128
 
 import rego.v1

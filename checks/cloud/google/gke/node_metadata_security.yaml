@@ -1,39 +1,39 @@
 terraform:
-    links:
-        - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#node_metadata
-    good:
-        - |-
-          resource "google_container_cluster" "primary" {
-            name     = "my-gke-cluster"
-            location = "us-central1"
+  links:
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#node_metadata
+  good:
+    - |-
+      resource "google_container_cluster" "primary" {
+        name     = "my-gke-cluster"
+        location = "us-central1"
 
-            remove_default_node_pool = true
-            initial_node_count       = 1
-          }
+        remove_default_node_pool = true
+        initial_node_count       = 1
+      }
 
-          resource "google_container_node_pool" "good_example" {
-            cluster = google_container_cluster.primary.id
-            node_config {
-              workload_metadata_config {
-                node_metadata = "SECURE"
-              }
-            }
+      resource "google_container_node_pool" "good_example" {
+        cluster = google_container_cluster.primary.id
+        node_config {
+          workload_metadata_config {
+            node_metadata = "SECURE"
           }
-    bad:
-        - |-
-          resource "google_container_cluster" "primary" {
-            name     = "my-gke-cluster"
-            location = "us-central1"
+        }
+      }
+  bad:
+    - |-
+      resource "google_container_cluster" "primary" {
+        name     = "my-gke-cluster"
+        location = "us-central1"
 
-            remove_default_node_pool = true
-            initial_node_count       = 1
-          }
+        remove_default_node_pool = true
+        initial_node_count       = 1
+      }
 
-          resource "google_container_node_pool" "bad_example" {
-            cluster = google_container_cluster.primary.id
-            node_config {
-              workload_metadata_config {
-                node_metadata = "EXPOSE"
-              }
-            }
+      resource "google_container_node_pool" "bad_example" {
+        cluster = google_container_cluster.primary.id
+        node_config {
+          workload_metadata_config {
+            node_metadata = "EXPOSE"
           }
+        }
+      }

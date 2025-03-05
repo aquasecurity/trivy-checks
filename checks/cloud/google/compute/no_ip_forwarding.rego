@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: compute
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#can_ip_forward
-#     good_examples: checks/cloud/google/compute/no_ip_forwarding.yaml
-#     bad_examples: checks/cloud/google/compute/no_ip_forwarding.yaml
+#   examples: checks/cloud/google/compute/no_ip_forwarding.yaml
 package builtin.google.compute.google0043
 
 import rego.v1

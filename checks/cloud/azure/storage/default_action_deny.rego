@@ -22,11 +22,7 @@
 #         subtypes:
 #           - service: storage
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account_network_rules#default_action
-#     good_examples: checks/cloud/azure/storage/default_action_deny.yaml
-#     bad_examples: checks/cloud/azure/storage/default_action_deny.yaml
+#   examples: checks/cloud/azure/storage/default_action_deny.yaml
 package builtin.azure.storage.azure0012
 
 import rego.v1

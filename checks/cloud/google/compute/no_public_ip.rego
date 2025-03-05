@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: compute
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#access_config
-#     good_examples: checks/cloud/google/compute/no_public_ip.yaml
-#     bad_examples: checks/cloud/google/compute/no_public_ip.yaml
+#   examples: checks/cloud/google/compute/no_public_ip.yaml
 package builtin.google.compute.google0031
 
 import rego.v1

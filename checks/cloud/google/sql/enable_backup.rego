@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: sql
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance#settings.backup_configuration.enabled=true
-#     good_examples: checks/cloud/google/sql/enable_backup.yaml
-#     bad_examples: checks/cloud/google/sql/enable_backup.yaml
+#   examples: checks/cloud/google/sql/enable_backup.yaml
 package builtin.google.sql.google0024
 
 import rego.v1

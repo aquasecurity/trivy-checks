@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: appservice
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#identity
-#     good_examples: checks/cloud/azure/appservice/account_identity_registered.yaml
-#     bad_examples: checks/cloud/azure/appservice/account_identity_registered.yaml
+#   examples: checks/cloud/azure/appservice/account_identity_registered.yaml
 package builtin.azure.appservice.azure0002
 
 import rego.v1

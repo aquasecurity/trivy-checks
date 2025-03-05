@@ -22,11 +22,7 @@
 #         subtypes:
 #           - service: appservice
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/function_app#https_only
-#     good_examples: checks/cloud/azure/appservice/enforce_https.yaml
-#     bad_examples: checks/cloud/azure/appservice/enforce_https.yaml
+#   examples: checks/cloud/azure/appservice/enforce_https.yaml
 package builtin.azure.appservice.azure0004
 
 import rego.v1

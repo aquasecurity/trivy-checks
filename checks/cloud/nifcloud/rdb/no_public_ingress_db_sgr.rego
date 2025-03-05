@@ -23,11 +23,7 @@
 #         subtypes:
 #           - service: rdb
 #             provider: nifcloud
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/db_security_group#cidr_ip
-#     good_examples: checks/cloud/nifcloud/rdb/no_public_ingress_db_sgr.yaml
-#     bad_examples: checks/cloud/nifcloud/rdb/no_public_ingress_db_sgr.yaml
+#   examples: checks/cloud/nifcloud/rdb/no_public_ingress_db_sgr.yaml
 package builtin.nifcloud.rdb.nifcloud0011
 
 import rego.v1

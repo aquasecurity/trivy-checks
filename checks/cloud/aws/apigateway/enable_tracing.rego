@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: apigateway
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_stage#xray_tracing_enabled
-#     good_examples: checks/cloud/aws/apigateway/enable_tracing.yaml
-#     bad_examples: checks/cloud/aws/apigateway/enable_tracing.yaml
+#   examples: checks/cloud/aws/apigateway/enable_tracing.yaml
 package builtin.aws.apigateway.aws0003
 
 import rego.v1

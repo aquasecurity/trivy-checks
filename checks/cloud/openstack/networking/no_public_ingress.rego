@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: networking
 #             provider: openstack
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/fw_rule_v1
-#     good_examples: checks/cloud/openstack/networking/no_public_ingress.yaml
-#     bad_examples: checks/cloud/openstack/networking/no_public_ingress.yaml
+#   examples: checks/cloud/openstack/networking/no_public_ingress.yaml
 package builtin.openstack.networking.openstack0003
 
 import rego.v1

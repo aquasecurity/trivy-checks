@@ -21,14 +21,7 @@
 #         subtypes:
 #           - service: eks
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster#encryption_config
-#     good_examples: checks/cloud/aws/eks/encrypt_secrets.yaml
-#     bad_examples: checks/cloud/aws/eks/encrypt_secrets.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/eks/encrypt_secrets.yaml
-#     bad_examples: checks/cloud/aws/eks/encrypt_secrets.yaml
+#   examples: checks/cloud/aws/eks/encrypt_secrets.yaml
 package builtin.aws.eks.aws0039
 
 import rego.v1

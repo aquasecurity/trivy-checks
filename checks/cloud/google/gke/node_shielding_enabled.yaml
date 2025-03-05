@@ -1,13 +1,13 @@
 terraform:
-    links:
-        - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#enable_shielded_nodes
-    good:
-        - |-
-          resource "google_container_cluster" "good_example" {
-            enable_shielded_nodes = "true"
-          }
-    bad:
-        - |-
-          resource "google_container_cluster" "bad_example" {
-            enable_shielded_nodes = "false"
-          }
+  links:
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#enable_shielded_nodes
+  good:
+    - |-
+      resource "google_container_cluster" "good_example" {
+        enable_shielded_nodes = "true"
+      }
+  bad:
+    - |-
+      resource "google_container_cluster" "bad_example" {
+        enable_shielded_nodes = "false"
+      }

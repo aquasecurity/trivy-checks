@@ -23,12 +23,7 @@
 #         subtypes:
 #           - service: database
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_database_extended_auditing_policy
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server#retention_in_days
-#     good_examples: checks/cloud/azure/database/retention_period_set.yaml
-#     bad_examples: checks/cloud/azure/database/retention_period_set.yaml
+#   examples: checks/cloud/azure/database/retention_period_set.yaml
 package builtin.azure.database.azure0025
 
 import rego.v1

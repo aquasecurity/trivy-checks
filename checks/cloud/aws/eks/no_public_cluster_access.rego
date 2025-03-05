@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: eks
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster#endpoint_public_access
-#     good_examples: checks/cloud/aws/eks/no_public_cluster_access.yaml
-#     bad_examples: checks/cloud/aws/eks/no_public_cluster_access.yaml
+#   examples: checks/cloud/aws/eks/no_public_cluster_access.yaml
 package builtin.aws.eks.aws0040
 
 import rego.v1

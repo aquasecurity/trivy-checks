@@ -22,14 +22,7 @@
 #         subtypes:
 #           - service: sqs
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue_policy
-#     good_examples: checks/cloud/aws/sqs/no_wildcards_in_policy_documents.yaml
-#     bad_examples: checks/cloud/aws/sqs/no_wildcards_in_policy_documents.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/sqs/no_wildcards_in_policy_documents.yaml
-#     bad_examples: checks/cloud/aws/sqs/no_wildcards_in_policy_documents.yaml
+#   examples: checks/cloud/aws/sqs/no_wildcards_in_policy_documents.yaml
 package builtin.aws.sqs.aws0097
 
 import rego.v1

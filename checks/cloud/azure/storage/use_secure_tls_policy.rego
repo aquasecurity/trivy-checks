@@ -23,11 +23,7 @@
 #         subtypes:
 #           - service: storage
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account#min_tls_version
-#     good_examples: checks/cloud/azure/storage/use_secure_tls_policy.yaml
-#     bad_examples: checks/cloud/azure/storage/use_secure_tls_policy.yaml
+#   examples: checks/cloud/azure/storage/use_secure_tls_policy.yaml
 package builtin.azure.storage.azure0011
 
 import rego.v1
