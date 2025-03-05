@@ -22,14 +22,7 @@
 #         subtypes:
 #           - service: ecs
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition#transit_encryption
-#     good_examples: checks/cloud/aws/ecs/enable_in_transit_encryption.yaml
-#     bad_examples: checks/cloud/aws/ecs/enable_in_transit_encryption.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/ecs/enable_in_transit_encryption.yaml
-#     bad_examples: checks/cloud/aws/ecs/enable_in_transit_encryption.yaml
+#   examples: checks/cloud/aws/ecs/enable_in_transit_encryption.yaml
 package builtin.aws.ecs.aws0035
 
 import rego.v1

@@ -21,14 +21,7 @@
 #         subtypes:
 #           - service: kinesis
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kinesis_stream#encryption_type
-#     good_examples: checks/cloud/aws/kinesis/enable_in_transit_encryption.yaml
-#     bad_examples: checks/cloud/aws/kinesis/enable_in_transit_encryption.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/kinesis/enable_in_transit_encryption.yaml
-#     bad_examples: checks/cloud/aws/kinesis/enable_in_transit_encryption.yaml
+#   examples: checks/cloud/aws/kinesis/enable_in_transit_encryption.yaml
 package builtin.aws.kinesis.aws0064
 
 import rego.v1

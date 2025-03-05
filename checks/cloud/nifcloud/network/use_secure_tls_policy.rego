@@ -21,12 +21,7 @@
 #         subtypes:
 #           - service: network
 #             provider: nifcloud
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/load_balancer#ssl_policy_name
-#       - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/load_balancer_listener#ssl_policy_name
-#     good_examples: checks/cloud/nifcloud/network/use_secure_tls_policy.yaml
-#     bad_examples: checks/cloud/nifcloud/network/use_secure_tls_policy.yaml
+#   examples: checks/cloud/nifcloud/network/use_secure_tls_policy.yaml
 package builtin.nifcloud.network.nifcloud0020
 
 import rego.v1

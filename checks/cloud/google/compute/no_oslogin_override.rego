@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: compute
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#
-#     good_examples: checks/cloud/google/compute/no_oslogin_override.yaml
-#     bad_examples: checks/cloud/google/compute/no_oslogin_override.yaml
+#   examples: checks/cloud/google/compute/no_oslogin_override.yaml
 package builtin.google.compute.google0036
 
 import rego.v1

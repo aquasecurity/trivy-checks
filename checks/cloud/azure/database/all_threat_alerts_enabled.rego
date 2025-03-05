@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: database
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server_security_alert_policy#disabled_alerts
-#     good_examples: checks/cloud/azure/database/all_threat_alerts_enabled.yaml
-#     bad_examples: checks/cloud/azure/database/all_threat_alerts_enabled.yaml
+#   examples: checks/cloud/azure/database/all_threat_alerts_enabled.yaml
 package builtin.azure.database.azure0028
 
 import rego.v1

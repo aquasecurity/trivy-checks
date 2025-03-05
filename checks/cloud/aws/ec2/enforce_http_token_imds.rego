@@ -25,11 +25,7 @@
 #         subtypes:
 #           - service: ec2
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#metadata-options
-#     good_examples: checks/cloud/aws/ec2/enforce_http_token_imds.yaml
-#     bad_examples: checks/cloud/aws/ec2/enforce_http_token_imds.yaml
+#   examples: checks/cloud/aws/ec2/enforce_http_token_imds.yaml
 package builtin.aws.ec2.aws0028
 
 import rego.v1

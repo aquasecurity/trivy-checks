@@ -1,46 +1,46 @@
 terraform:
-    links:
-        - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#
-    good:
-        - |-
-          resource "google_compute_instance" "default" {
-            name         = "test"
-            machine_type = "e2-medium"
-            zone         = "us-central1-a"
+  links:
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#
+  good:
+    - |-
+      resource "google_compute_instance" "default" {
+        name         = "test"
+        machine_type = "e2-medium"
+        zone         = "us-central1-a"
 
-            boot_disk {
-              initialize_params {
-                image = "debian-cloud/debian-9"
-              }
-            }
-
-            // Local SSD disk
-            scratch_disk {
-              interface = "SCSI"
-            }
-
-            metadata = {
-            }
+        boot_disk {
+          initialize_params {
+            image = "debian-cloud/debian-9"
           }
-    bad:
-        - |-
-          resource "google_compute_instance" "default" {
-            name         = "test"
-            machine_type = "e2-medium"
-            zone         = "us-central1-a"
+        }
 
-            boot_disk {
-              initialize_params {
-                image = "debian-cloud/debian-9"
-              }
-            }
+        // Local SSD disk
+        scratch_disk {
+          interface = "SCSI"
+        }
 
-            // Local SSD disk
-            scratch_disk {
-              interface = "SCSI"
-            }
+        metadata = {
+        }
+      }
+  bad:
+    - |-
+      resource "google_compute_instance" "default" {
+        name         = "test"
+        machine_type = "e2-medium"
+        zone         = "us-central1-a"
 
-            metadata = {
-              enable-oslogin = false
-            }
+        boot_disk {
+          initialize_params {
+            image = "debian-cloud/debian-9"
           }
+        }
+
+        // Local SSD disk
+        scratch_disk {
+          interface = "SCSI"
+        }
+
+        metadata = {
+          enable-oslogin = false
+        }
+      }

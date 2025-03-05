@@ -1,51 +1,51 @@
 terraform:
-    links:
-        - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#enable_vtpm
-    good:
-        - |-
-          resource "google_compute_instance" "good_example" {
-            name         = "test"
-            machine_type = "e2-medium"
-            zone         = "us-central1-a"
+  links:
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#enable_vtpm
+  good:
+    - |-
+      resource "google_compute_instance" "good_example" {
+        name         = "test"
+        machine_type = "e2-medium"
+        zone         = "us-central1-a"
 
-            tags = ["foo", "bar"]
+        tags = ["foo", "bar"]
 
-            boot_disk {
-              initialize_params {
-                image = "debian-cloud/debian-9"
-              }
-            }
-
-            // Local SSD disk
-            scratch_disk {
-              interface = "SCSI"
-            }
-
-            shielded_instance_config {
-              enable_integrity_monitoring = true
-            }
+        boot_disk {
+          initialize_params {
+            image = "debian-cloud/debian-9"
           }
-    bad:
-        - |-
-          resource "google_compute_instance" "bad_example" {
-            name         = "test"
-            machine_type = "e2-medium"
-            zone         = "us-central1-a"
+        }
 
-            tags = ["foo", "bar"]
+        // Local SSD disk
+        scratch_disk {
+          interface = "SCSI"
+        }
 
-            boot_disk {
-              initialize_params {
-                image = "debian-cloud/debian-9"
-              }
-            }
+        shielded_instance_config {
+          enable_integrity_monitoring = true
+        }
+      }
+  bad:
+    - |-
+      resource "google_compute_instance" "bad_example" {
+        name         = "test"
+        machine_type = "e2-medium"
+        zone         = "us-central1-a"
 
-            // Local SSD disk
-            scratch_disk {
-              interface = "SCSI"
-            }
+        tags = ["foo", "bar"]
 
-            shielded_instance_config {
-              enable_integrity_monitoring = false
-            }
+        boot_disk {
+          initialize_params {
+            image = "debian-cloud/debian-9"
           }
+        }
+
+        // Local SSD disk
+        scratch_disk {
+          interface = "SCSI"
+        }
+
+        shielded_instance_config {
+          enable_integrity_monitoring = false
+        }
+      }

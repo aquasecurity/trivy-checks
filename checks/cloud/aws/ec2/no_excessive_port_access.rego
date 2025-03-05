@@ -23,14 +23,7 @@
 #         subtypes:
 #           - service: ec2
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_acl_rule#to_port
-#     good_examples: checks/cloud/aws/ec2/no_excessive_port_access.yaml
-#     bad_examples: checks/cloud/aws/ec2/no_excessive_port_access.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/ec2/no_excessive_port_access.yaml
-#     bad_examples: checks/cloud/aws/ec2/no_excessive_port_access.yaml
+#   examples: checks/cloud/aws/ec2/no_excessive_port_access.yaml
 package builtin.aws.ec2.aws0102
 
 import rego.v1

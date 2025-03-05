@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: container
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#authorized_ip_ranges
-#     good_examples: checks/cloud/azure/container/limit_authorized_ips.yaml
-#     bad_examples: checks/cloud/azure/container/limit_authorized_ips.yaml
+#   examples: checks/cloud/azure/container/limit_authorized_ips.yaml
 package builtin.azure.container.azure0041
 
 import rego.v1

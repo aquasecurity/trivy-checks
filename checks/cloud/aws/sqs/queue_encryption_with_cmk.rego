@@ -21,14 +21,7 @@
 #         subtypes:
 #           - service: sqs
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue#server-side-encryption-sse
-#     good_examples: checks/cloud/aws/sqs/queue_encryption_with_cmk.yaml
-#     bad_examples: checks/cloud/aws/sqs/queue_encryption_with_cmk.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/sqs/queue_encryption_with_cmk.yaml
-#     bad_examples: checks/cloud/aws/sqs/queue_encryption_with_cmk.yaml
+#   examples: checks/cloud/aws/sqs/queue_encryption_with_cmk.yaml
 package builtin.aws.sqs.aws0135
 
 import rego.v1

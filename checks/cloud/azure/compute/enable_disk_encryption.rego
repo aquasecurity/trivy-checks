@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: compute
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/managed_disk
-#     good_examples: checks/cloud/azure/compute/enable_disk_encryption.yaml
-#     bad_examples: checks/cloud/azure/compute/enable_disk_encryption.yaml
+#   examples: checks/cloud/azure/compute/enable_disk_encryption.yaml
 package builtin.azure.compute.azure0038
 
 import rego.v1

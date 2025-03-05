@@ -24,11 +24,7 @@
 #         subtypes:
 #           - service: repositories
 #             provider: github
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository
-#     good_examples: checks/cloud/github/repositories/private_repository.yaml
-#     bad_examples: checks/cloud/github/repositories/private_repository.yaml
+#   examples: checks/cloud/github/repositories/private_repository.yaml
 package builtin.github.repositories.github0001
 
 import rego.v1

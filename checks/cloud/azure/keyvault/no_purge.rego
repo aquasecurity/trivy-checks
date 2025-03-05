@@ -23,11 +23,7 @@
 #         subtypes:
 #           - service: keyvault
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault#purge_protection_enabled
-#     good_examples: checks/cloud/azure/keyvault/no_purge.yaml
-#     bad_examples: checks/cloud/azure/keyvault/no_purge.yaml
+#   examples: checks/cloud/azure/keyvault/no_purge.yaml
 package builtin.azure.keyvault.azure0016
 
 import rego.v1

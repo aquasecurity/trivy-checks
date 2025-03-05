@@ -1,16 +1,16 @@
 terraform:
-    links:
-        - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_vpc
-    good:
-        - |-
-          # no aws default vpc present
-          resource "aws_vpc" "main" {
-            cidr_block = "10.0.0.0/16"
-          }
-    bad:
-        - |-
-          resource "aws_default_vpc" "default" {
-            tags = {
-              Name = "Default VPC"
-            }
-          }
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_vpc
+  good:
+    - |-
+      # no aws default vpc present
+      resource "aws_vpc" "main" {
+        cidr_block = "10.0.0.0/16"
+      }
+  bad:
+    - |-
+      resource "aws_default_vpc" "default" {
+        tags = {
+          Name = "Default VPC"
+        }
+      }

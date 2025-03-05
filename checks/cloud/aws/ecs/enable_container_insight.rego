@@ -21,14 +21,7 @@
 #         subtypes:
 #           - service: ecs
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster#setting
-#     good_examples: checks/cloud/aws/ecs/enable_container_insight.yaml
-#     bad_examples: checks/cloud/aws/ecs/enable_container_insight.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/ecs/enable_container_insight.yaml
-#     bad_examples: checks/cloud/aws/ecs/enable_container_insight.yaml
+#   examples: checks/cloud/aws/ecs/enable_container_insight.yaml
 package builtin.aws.ecs.aws0034
 
 import rego.v1

@@ -25,15 +25,7 @@
 #         subtypes:
 #           - service: ec2
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule
-#     good_examples: checks/cloud/aws/ec2/add_description_to_security_group_rule.yaml
-#     bad_examples: checks/cloud/aws/ec2/add_description_to_security_group_rule.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/ec2/add_description_to_security_group_rule.yaml
-#     bad_examples: checks/cloud/aws/ec2/add_description_to_security_group_rule.yaml
+#   examples: checks/cloud/aws/ec2/add_description_to_security_group_rule.yaml
 package builtin.aws.ec2.aws0124
 
 import rego.v1

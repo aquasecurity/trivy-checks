@@ -1,17 +1,17 @@
 terraform:
-    links:
-        - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_policy#min_tls_version
-    good:
-        - |-
-          resource "google_compute_ssl_policy" "good_example" {
-            name            = "production-ssl-policy"
-            profile         = "MODERN"
-            min_tls_version = "TLS_1_2"
-          }
-    bad:
-        - |-
-          resource "google_compute_ssl_policy" "bad_example" {
-            name            = "production-ssl-policy"
-            profile         = "MODERN"
-            min_tls_version = "TLS_1_1"
-          }
+  links:
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_ssl_policy#min_tls_version
+  good:
+    - |-
+      resource "google_compute_ssl_policy" "good_example" {
+        name            = "production-ssl-policy"
+        profile         = "MODERN"
+        min_tls_version = "TLS_1_2"
+      }
+  bad:
+    - |-
+      resource "google_compute_ssl_policy" "bad_example" {
+        name            = "production-ssl-policy"
+        profile         = "MODERN"
+        min_tls_version = "TLS_1_1"
+      }

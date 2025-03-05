@@ -1,41 +1,41 @@
 terraform:
-    links:
-        - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition#actions
-    good:
-        - |-
-          data "azurerm_subscription" "primary" {
-          }
+  links:
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition#actions
+  good:
+    - |-
+      data "azurerm_subscription" "primary" {
+      }
 
-          resource "azurerm_role_definition" "example" {
-            name        = "my-custom-role"
-            scope       = data.azurerm_subscription.primary.id
-            description = "This is a custom role created via Terraform"
+      resource "azurerm_role_definition" "example" {
+        name        = "my-custom-role"
+        scope       = data.azurerm_subscription.primary.id
+        description = "This is a custom role created via Terraform"
 
-            permissions {
-              actions     = ["*"]
-              not_actions = []
-            }
+        permissions {
+          actions     = ["*"]
+          not_actions = []
+        }
 
-            assignable_scopes = [
-              data.azurerm_subscription.primary.id,
-            ]
-          }
-    bad:
-        - |-
-          data "azurerm_subscription" "primary" {
-          }
+        assignable_scopes = [
+          data.azurerm_subscription.primary.id,
+        ]
+      }
+  bad:
+    - |-
+      data "azurerm_subscription" "primary" {
+      }
 
-          resource "azurerm_role_definition" "example" {
-            name        = "my-custom-role"
-            scope       = data.azurerm_subscription.primary.id
-            description = "This is a custom role created via Terraform"
+      resource "azurerm_role_definition" "example" {
+        name        = "my-custom-role"
+        scope       = data.azurerm_subscription.primary.id
+        description = "This is a custom role created via Terraform"
 
-            permissions {
-              actions     = ["*"]
-              not_actions = []
-            }
+        permissions {
+          actions     = ["*"]
+          not_actions = []
+        }
 
-            assignable_scopes = [
-              "/"
-            ]
-          }
+        assignable_scopes = [
+          "/"
+        ]
+      }

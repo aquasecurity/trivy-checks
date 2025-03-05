@@ -23,11 +23,7 @@
 #         subtypes:
 #           - service: datafactory
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/data_factory#public_network_enabled
-#     good_examples: checks/cloud/azure/datafactory/no_public_access.yaml
-#     bad_examples: checks/cloud/azure/datafactory/no_public_access.yaml
+#   examples: checks/cloud/azure/datafactory/no_public_access.yaml
 package builtin.azure.datafactory.azure0035
 
 import rego.v1

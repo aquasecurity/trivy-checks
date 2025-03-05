@@ -1,57 +1,57 @@
 cloudformation:
-    good:
-        - |-
-          Resources:
-            GoodExample:
-              Type: AWS::ElastiCache::CacheCluster
-              Properties:
-                AZMode: cross-az
-                CacheNodeType: cache.m3.medium
-                Engine: redis
-                NumCacheNodes: "3"
-                PreferredAvailabilityZones:
-                  - us-west-2a
-                  - us-west-2a
-                  - us-west-2b
-                SnapshotRetentionLimit: 7
-    bad:
-        - |-
-          Resources:
-            BadExample:
-              Type: AWS::ElastiCache::CacheCluster
-              Properties:
-                AZMode: cross-az
-                CacheNodeType: cache.m3.medium
-                Engine: redis
-                NumCacheNodes: "3"
-                PreferredAvailabilityZones:
-                  - us-west-2a
-                  - us-west-2a
-                  - us-west-2b
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::ElastiCache::CacheCluster
+          Properties:
+            AZMode: cross-az
+            CacheNodeType: cache.m3.medium
+            Engine: redis
+            NumCacheNodes: "3"
+            PreferredAvailabilityZones:
+              - us-west-2a
+              - us-west-2a
+              - us-west-2b
+            SnapshotRetentionLimit: 7
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::ElastiCache::CacheCluster
+          Properties:
+            AZMode: cross-az
+            CacheNodeType: cache.m3.medium
+            Engine: redis
+            NumCacheNodes: "3"
+            PreferredAvailabilityZones:
+              - us-west-2a
+              - us-west-2a
+              - us-west-2b
 terraform:
-    links:
-        - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster#snapshot_retention_limit
-    good:
-        - |-
-          resource "aws_elasticache_cluster" "good_example" {
-            cluster_id           = "cluster-example"
-            engine               = "redis"
-            node_type            = "cache.m4.large"
-            num_cache_nodes      = 1
-            parameter_group_name = "default.redis3.2"
-            engine_version       = "3.2.10"
-            port                 = 6379
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster#snapshot_retention_limit
+  good:
+    - |-
+      resource "aws_elasticache_cluster" "good_example" {
+        cluster_id           = "cluster-example"
+        engine               = "redis"
+        node_type            = "cache.m4.large"
+        num_cache_nodes      = 1
+        parameter_group_name = "default.redis3.2"
+        engine_version       = "3.2.10"
+        port                 = 6379
 
-            snapshot_retention_limit = 5
-          }
-    bad:
-        - |-
-          resource "aws_elasticache_cluster" "bad_example" {
-            cluster_id           = "cluster-example"
-            engine               = "redis"
-            node_type            = "cache.m4.large"
-            num_cache_nodes      = 1
-            parameter_group_name = "default.redis3.2"
-            engine_version       = "3.2.10"
-            port                 = 6379
-          }
+        snapshot_retention_limit = 5
+      }
+  bad:
+    - |-
+      resource "aws_elasticache_cluster" "bad_example" {
+        cluster_id           = "cluster-example"
+        engine               = "redis"
+        node_type            = "cache.m4.large"
+        num_cache_nodes      = 1
+        parameter_group_name = "default.redis3.2"
+        engine_version       = "3.2.10"
+        port                 = 6379
+      }

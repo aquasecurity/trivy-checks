@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: compute
 #             provider: digitalocean
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/firewall
-#     good_examples: checks/cloud/digitalocean/compute/no_public_egress.yaml
-#     bad_examples: checks/cloud/digitalocean/compute/no_public_egress.yaml
+#   examples: checks/cloud/digitalocean/compute/no_public_egress.yaml
 package builtin.digitalocean.compute.digitalocean0003
 
 import rego.v1

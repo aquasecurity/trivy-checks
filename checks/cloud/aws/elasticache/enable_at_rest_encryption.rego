@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: elasticache
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#at_rest_encryption_enabled
-#     good_examples: checks/cloud/aws/elasticache/enable_at_rest_encryption.yaml
-#     bad_examples: checks/cloud/aws/elasticache/enable_at_rest_encryption.yaml
+#   examples: checks/cloud/aws/elasticache/enable_at_rest_encryption.yaml
 package builtin.aws.elasticache.aws0045
 
 import rego.v1

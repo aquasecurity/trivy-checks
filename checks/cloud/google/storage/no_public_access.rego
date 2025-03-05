@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: storage
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam#member/members
-#     good_examples: checks/cloud/google/storage/no_public_access.yaml
-#     bad_examples: checks/cloud/google/storage/no_public_access.yaml
+#   examples: checks/cloud/google/storage/no_public_access.yaml
 package builtin.google.storage.google0001
 
 import rego.v1

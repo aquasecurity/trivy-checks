@@ -30,14 +30,7 @@
 #         subtypes:
 #           - service: cloudtrail
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail#is_multi_region_trail
-#     good_examples: checks/cloud/aws/cloudtrail/require_bucket_access_logging.yaml
-#     bad_examples: checks/cloud/aws/cloudtrail/require_bucket_access_logging.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/cloudtrail/require_bucket_access_logging.yaml
-#     bad_examples: checks/cloud/aws/cloudtrail/require_bucket_access_logging.yaml
+#   examples: checks/cloud/aws/cloudtrail/require_bucket_access_logging.yaml
 package builtin.aws.cloudtrail.aws0163
 
 import rego.v1

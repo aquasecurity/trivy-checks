@@ -25,11 +25,7 @@
 #         subtypes:
 #           - service: computing
 #             provider: nifcloud
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/security_group_rule#description
-#     good_examples: checks/cloud/nifcloud/computing/add_description_to_security_group_rule.yaml
-#     bad_examples: checks/cloud/nifcloud/computing/add_description_to_security_group_rule.yaml
+#   examples: checks/cloud/nifcloud/computing/add_description_to_security_group_rule.yaml
 package builtin.nifcloud.computing.nifcloud0003
 
 import rego.v1

@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: database
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server_security_alert_policy#email_addresses
-#     good_examples: checks/cloud/azure/database/threat_alert_email_set.yaml
-#     bad_examples: checks/cloud/azure/database/threat_alert_email_set.yaml
+#   examples: checks/cloud/azure/database/threat_alert_email_set.yaml
 package builtin.azure.database.azure0018
 
 import rego.v1

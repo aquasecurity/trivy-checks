@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: appservice
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#http2_enabled
-#     good_examples: checks/cloud/azure/appservice/enable_http2.yaml
-#     bad_examples: checks/cloud/azure/appservice/enable_http2.yaml
+#   examples: checks/cloud/azure/appservice/enable_http2.yaml
 package builtin.azure.appservice.azure0005
 
 import rego.v1

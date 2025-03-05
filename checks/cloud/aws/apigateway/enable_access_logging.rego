@@ -21,14 +21,7 @@
 #         subtypes:
 #           - service: apigateway
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/apigatewayv2_stage#access_log_settings
-#     good_examples: checks/cloud/aws/apigateway/enable_access_logging.yaml
-#     bad_examples: checks/cloud/aws/apigateway/enable_access_logging.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/apigateway/enable_access_logging.yaml
-#     bad_examples: checks/cloud/aws/apigateway/enable_access_logging.yaml
+#   examples: checks/cloud/aws/apigateway/enable_access_logging.yaml
 package builtin.aws.apigateway.aws0001
 
 import rego.v1

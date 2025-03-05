@@ -1,17 +1,17 @@
 terraform:
-    links:
-        - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_project_metadata#
-    good:
-        - |-
-          resource "google_compute_project_metadata" "default" {
-            metadata = {
-              enable-oslogin = true
-            }
-          }
-    bad:
-        - |-
-          resource "google_compute_project_metadata" "default" {
-            metadata = {
-              enable-oslogin = false
-            }
-          }
+  links:
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_project_metadata#
+  good:
+    - |-
+      resource "google_compute_project_metadata" "default" {
+        metadata = {
+          enable-oslogin = true
+        }
+      }
+  bad:
+    - |-
+      resource "google_compute_project_metadata" "default" {
+        metadata = {
+          enable-oslogin = false
+        }
+      }

@@ -22,14 +22,7 @@
 #         subtypes:
 #           - service: ecr
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository
-#     good_examples: checks/cloud/aws/ecr/enforce_immutable_repository.yaml
-#     bad_examples: checks/cloud/aws/ecr/enforce_immutable_repository.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/ecr/enforce_immutable_repository.yaml
-#     bad_examples: checks/cloud/aws/ecr/enforce_immutable_repository.yaml
+#   examples: checks/cloud/aws/ecr/enforce_immutable_repository.yaml
 package builtin.aws.ecr.aws0031
 
 import rego.v1

@@ -20,11 +20,7 @@
 #         subtypes:
 #           - service: iam
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_organization_iam
-#     good_examples: checks/cloud/google/iam/no_org_level_default_service_account_assignment.yaml
-#     bad_examples: checks/cloud/google/iam/no_org_level_default_service_account_assignment.yaml
+#   examples: checks/cloud/google/iam/no_org_level_default_service_account_assignment.yaml
 package builtin.google.iam.google0008
 
 import rego.v1

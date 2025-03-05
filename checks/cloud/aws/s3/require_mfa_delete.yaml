@@ -1,31 +1,31 @@
 terraform:
-    links:
-        - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_versioning
-    good:
-        - |-
-          resource "aws_s3_bucket" "example" {
-            bucket = "bucket"
-          }
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_versioning
+  good:
+    - |-
+      resource "aws_s3_bucket" "example" {
+        bucket = "bucket"
+      }
 
-          resource "aws_s3_bucket_versioning" "good_example" {
-            bucket = aws_s3_bucket.example.id
+      resource "aws_s3_bucket_versioning" "good_example" {
+        bucket = aws_s3_bucket.example.id
 
-            versioning_configuration {
-              status     = "Enabled"
-              mfa_delete = "Enabled"
-            }
-          }
-    bad:
-        - |-
-          resource "aws_s3_bucket" "example" {
-            bucket = "bucket"
-          }
+        versioning_configuration {
+          status     = "Enabled"
+          mfa_delete = "Enabled"
+        }
+      }
+  bad:
+    - |-
+      resource "aws_s3_bucket" "example" {
+        bucket = "bucket"
+      }
 
-          resource "aws_s3_bucket_versioning" "good_example" {
-            bucket = aws_s3_bucket.example.id
+      resource "aws_s3_bucket_versioning" "good_example" {
+        bucket = aws_s3_bucket.example.id
 
-            versioning_configuration {
-              status     = "Enabled"
-              mfa_delete = "Disabled"
-            }
-          }
+        versioning_configuration {
+          status     = "Enabled"
+          mfa_delete = "Disabled"
+        }
+      }

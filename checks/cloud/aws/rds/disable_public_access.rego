@@ -20,11 +20,7 @@
 #       subtypes:
 #         - service: rds
 #           provider: aws
-#   terraform:
-#       good_examples: "checks/cloud/aws/rds/disable_public_access.yaml"
-#   cloud_formation:
-#       good_examples: "checks/cloud/aws/rds/disable_public_access.yaml"
-
+#   examples: "checks/cloud/aws/rds/disable_public_access.yaml"
 package builtin.aws.rds.aws0180
 
 import rego.v1

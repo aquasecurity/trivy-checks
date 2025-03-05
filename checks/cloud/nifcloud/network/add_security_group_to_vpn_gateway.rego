@@ -23,11 +23,7 @@
 #         subtypes:
 #           - service: network
 #             provider: nifcloud
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/vpn_gateway#security_group
-#     good_examples: checks/cloud/nifcloud/network/add_security_group_to_vpn_gateway.yaml
-#     bad_examples: checks/cloud/nifcloud/network/add_security_group_to_vpn_gateway.yaml
+#   examples: checks/cloud/nifcloud/network/add_security_group_to_vpn_gateway.yaml
 package builtin.nifcloud.network.nifcloud0018
 
 import rego.v1

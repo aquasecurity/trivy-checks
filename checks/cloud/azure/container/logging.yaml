@@ -1,23 +1,23 @@
 terraform:
-    links:
-        - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#oms_agent
-    good:
-        - |-
-          resource "azurerm_kubernetes_cluster" "good_example" {
-            addon_profile {
-              oms_agent {
-                enabled = true
-              }
-            }
+  links:
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#oms_agent
+  good:
+    - |-
+      resource "azurerm_kubernetes_cluster" "good_example" {
+        addon_profile {
+          oms_agent {
+            enabled = true
           }
-        - |-
-          resource "azurerm_kubernetes_cluster" "good_example" {
-            oms_agent {
-              log_analytics_workspace_id = "whatever"
-            }
-          }
-    bad:
-        - |-
-          resource "azurerm_kubernetes_cluster" "bad_example" {
-            addon_profile {}
-          }
+        }
+      }
+    - |-
+      resource "azurerm_kubernetes_cluster" "good_example" {
+        oms_agent {
+          log_analytics_workspace_id = "whatever"
+        }
+      }
+  bad:
+    - |-
+      resource "azurerm_kubernetes_cluster" "bad_example" {
+        addon_profile {}
+      }

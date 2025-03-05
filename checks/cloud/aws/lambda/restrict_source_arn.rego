@@ -23,14 +23,7 @@
 #         subtypes:
 #           - service: lambda
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_permission
-#     good_examples: checks/cloud/aws/lambda/restrict_source_arn.yaml
-#     bad_examples: checks/cloud/aws/lambda/restrict_source_arn.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/lambda/restrict_source_arn.yaml
-#     bad_examples: checks/cloud/aws/lambda/restrict_source_arn.yaml
+#   examples: checks/cloud/aws/lambda/restrict_source_arn.yaml
 package builtin.aws.lambda.aws0067
 
 import rego.v1

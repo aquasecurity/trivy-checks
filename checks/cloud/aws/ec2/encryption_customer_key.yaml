@@ -1,65 +1,65 @@
 cloudformation:
-    good:
-        - |-
-          Resources:
-            GoodExample:
-              DeletionPolicy: Snapshot
-              Type: AWS::EC2::Volume
-              Properties:
-                Encrypted: true
-                KmsKeyId: alias/volumeEncrypt
-                Size: 100
-        - |-
-          Resources:
-            MyKey:
-              Type: AWS::KMS::Key
-              Properties:
-                KeyPolicy:
-                  Version: "2012-10-17"
-                  Id: key-default-1
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          DeletionPolicy: Snapshot
+          Type: AWS::EC2::Volume
+          Properties:
+            Encrypted: true
+            KmsKeyId: alias/volumeEncrypt
+            Size: 100
+    - |-
+      Resources:
+        MyKey:
+          Type: AWS::KMS::Key
+          Properties:
+            KeyPolicy:
+              Version: "2012-10-17"
+              Id: key-default-1
 
-            GoodExample:
-              DeletionPolicy: Snapshot
-              Type: AWS::EC2::Volume
-              Properties:
-                Encrypted: true
-                KmsKeyId: !Ref MyKey
-                Size: 100
-    bad:
-        - |-
-          Resources:
-            BadExample:
-              DeletionPolicy: Snapshot
-              Type: AWS::EC2::Volume
-              Properties:
-                AvailabilityZone: Ec2Instance.AvailabilityZone
-                Size: 100
+        GoodExample:
+          DeletionPolicy: Snapshot
+          Type: AWS::EC2::Volume
+          Properties:
+            Encrypted: true
+            KmsKeyId: !Ref MyKey
+            Size: 100
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          DeletionPolicy: Snapshot
+          Type: AWS::EC2::Volume
+          Properties:
+            AvailabilityZone: Ec2Instance.AvailabilityZone
+            Size: 100
 terraform:
-    links:
-        - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_volume#kms_key_id
-    good:
-        - |-
-          resource "aws_kms_key" "ebs_encryption" {
-            enable_key_rotation = true
-          }
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_volume#kms_key_id
+  good:
+    - |-
+      resource "aws_kms_key" "ebs_encryption" {
+        enable_key_rotation = true
+      }
 
-          resource "aws_ebs_volume" "example" {
-            availability_zone = "us-west-2a"
-            size              = 40
+      resource "aws_ebs_volume" "example" {
+        availability_zone = "us-west-2a"
+        size              = 40
 
-            kms_key_id = aws_kms_key.ebs_encryption.arn
+        kms_key_id = aws_kms_key.ebs_encryption.arn
 
-            tags = {
-              Name = "HelloWorld"
-            }
-          }
-    bad:
-        - |-
-          resource "aws_ebs_volume" "example" {
-            availability_zone = "us-west-2a"
-            size              = 40
+        tags = {
+          Name = "HelloWorld"
+        }
+      }
+  bad:
+    - |-
+      resource "aws_ebs_volume" "example" {
+        availability_zone = "us-west-2a"
+        size              = 40
 
-            tags = {
-              Name = "HelloWorld"
-            }
-          }
+        tags = {
+          Name = "HelloWorld"
+        }
+      }

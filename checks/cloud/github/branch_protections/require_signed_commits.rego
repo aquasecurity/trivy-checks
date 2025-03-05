@@ -25,11 +25,7 @@
 #         subtypes:
 #           - service: branchprotections
 #             provider: github
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch_protection
-#     good_examples: checks/cloud/github/branch_protections/require_signed_commits.yaml
-#     bad_examples: checks/cloud/github/branch_protections/require_signed_commits.yaml
+#   examples: checks/cloud/github/branch_protections/require_signed_commits.yaml
 package builtin.github.branch_protections.github0004
 
 import rego.v1

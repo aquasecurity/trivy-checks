@@ -28,11 +28,7 @@
 #         subtypes:
 #           - service: iam
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user
-#     good_examples: checks/cloud/aws/iam/no_user_attached_policies.yaml
-#     bad_examples: checks/cloud/aws/iam/no_user_attached_policies.yaml
+#   examples: checks/cloud/aws/iam/no_user_attached_policies.yaml
 package builtin.aws.iam.aws0143
 
 import rego.v1

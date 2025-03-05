@@ -1,21 +1,21 @@
 terraform:
-    links:
-        - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#metadata
-    good:
-        - |-
-          resource "google_container_cluster" "good_example" {
-            node_config {
-              metadata = {
-                disable-legacy-endpoints = true
-              }
-            }
+  links:
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#metadata
+  good:
+    - |-
+      resource "google_container_cluster" "good_example" {
+        node_config {
+          metadata = {
+            disable-legacy-endpoints = true
           }
-    bad:
-        - |-
-          resource "google_container_cluster" "bad_example" {
-            node_config {
-              metadata = {
-                disable-legacy-endpoints = false
-              }
-            }
+        }
+      }
+  bad:
+    - |-
+      resource "google_container_cluster" "bad_example" {
+        node_config {
+          metadata = {
+            disable-legacy-endpoints = false
           }
+        }
+      }

@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: bigquery
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset#special_group
-#     good_examples: checks/cloud/google/bigquery/no_public_access.yaml
-#     bad_examples: checks/cloud/google/bigquery/no_public_access.yaml
+#   examples: checks/cloud/google/bigquery/no_public_access.yaml
 package builtin.google.bigquery.google0046
 
 import rego.v1

@@ -19,13 +19,7 @@
 #         subtypes:
 #           - service: database
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_server#public_network_access_enabled
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_server#public_network_access_enabled
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mariadb_server#public_network_access_enabled
-#     good_examples: checks/cloud/azure/database/no_public_access.yaml
-#     bad_examples: checks/cloud/azure/database/no_public_access.yaml
+#   examples: checks/cloud/azure/database/no_public_access.yaml
 package builtin.azure.database.azure0022
 
 import rego.v1

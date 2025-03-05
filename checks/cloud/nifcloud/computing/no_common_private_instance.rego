@@ -23,11 +23,7 @@
 #         subtypes:
 #           - service: computing
 #             provider: nifcloud
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/instance#network_id
-#     good_examples: checks/cloud/nifcloud/computing/no_common_private_instance.yaml
-#     bad_examples: checks/cloud/nifcloud/computing/no_common_private_instance.yaml
+#   examples: checks/cloud/nifcloud/computing/no_common_private_instance.yaml
 package builtin.nifcloud.computing.nifcloud0005
 
 import rego.v1

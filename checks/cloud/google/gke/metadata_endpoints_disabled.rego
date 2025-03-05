@@ -27,11 +27,7 @@
 #         subtypes:
 #           - service: gke
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#metadata
-#     good_examples: checks/cloud/google/gke/metadata_endpoints_disabled.yaml
-#     bad_examples: checks/cloud/google/gke/metadata_endpoints_disabled.yaml
+#   examples: checks/cloud/google/gke/metadata_endpoints_disabled.yaml
 package builtin.google.gke.google0048
 
 import rego.v1

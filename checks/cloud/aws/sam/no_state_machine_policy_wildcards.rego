@@ -23,7 +23,5 @@
 #         subtypes:
 #           - service: sam
 #             provider: aws
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/sam/no_state_machine_policy_wildcards.yaml
-#     bad_examples: checks/cloud/aws/sam/no_state_machine_policy_wildcards.yaml
+#   examples: checks/cloud/aws/sam/no_state_machine_policy_wildcards.yaml
 package builtin.aws.sam.aws0120

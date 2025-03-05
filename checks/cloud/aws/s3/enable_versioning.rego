@@ -25,14 +25,7 @@
 #         subtypes:
 #           - service: s3
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#versioning
-#     good_examples: checks/cloud/aws/s3/enable_versioning.yaml
-#     bad_examples: checks/cloud/aws/s3/enable_versioning.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/s3/enable_versioning.yaml
-#     bad_examples: checks/cloud/aws/s3/enable_versioning.yaml
+#   examples: checks/cloud/aws/s3/enable_versioning.yaml
 package builtin.aws.s3.aws0090
 
 import rego.v1

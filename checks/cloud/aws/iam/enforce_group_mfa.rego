@@ -23,12 +23,7 @@
 #         subtypes:
 #           - service: iam
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/modules/terraform-module/enforce-mfa/aws/latest
-#       - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#password-policy-details
-#     good_examples: checks/cloud/aws/iam/enforce_group_mfa.yaml
-#     bad_examples: checks/cloud/aws/iam/enforce_group_mfa.yaml
+#   examples: checks/cloud/aws/iam/enforce_group_mfa.yaml
 package builtin.aws.iam.aws0123
 
 import rego.v1

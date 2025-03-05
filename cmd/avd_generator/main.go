@@ -41,7 +41,6 @@ func generateDocs(path string) {
 	fmt.Printf("\nGenerated %d files in %s\n", generateCount, path)
 }
 
-// nolint: cyclop
 func writeDocsFile(meta types.RegisteredRule, path string) {
 
 	tmpl, err := template.New("defsec").Parse(docsMarkdownTemplate)
@@ -80,40 +79,47 @@ func writeDocsFile(meta types.RegisteredRule, path string) {
 		return
 	}
 
-	if err := generateExamplesForEngine(rule, rule.Terraform, exmpls, docpath, terraformMarkdownTemplate, "Terraform"); err != nil {
+	if err := generateExamplesDocs(rule, exmpls, docpath); err != nil {
 		fail("error generating examples for terraform: %v\n", err)
-	}
-
-	if err := generateExamplesForEngine(rule, rule.CloudFormation, exmpls, docpath, cloudformationMarkdownTemplate, "CloudFormation"); err != nil {
-		fail("error generating examples for cloudformation: %v\n", err)
 	}
 }
 
-func generateExamplesForEngine(rule scan.Rule, engine *scan.EngineMetadata, exmpls examples.CheckExamples, docpath, tpl, provider string) error {
+func generateExamplesDocs(rule scan.Rule, exmpls examples.CheckExamples, docpath string) error {
+	for provider, providerExampls := range exmpls {
+		if err := generateProviderExamplesDocs(rule, provider, providerExampls, docpath); err != nil {
+			return fmt.Errorf("generating examples for %s: %v", provider, err)
+		}
+	}
 
-	providerExampls := exmpls[strings.ToLower(provider)]
+	return nil
+}
 
-	if providerExampls.IsEmpty() {
+func generateProviderExamplesDocs(
+	rule scan.Rule, provider string, providerExampls examples.ProviderExamples, docpath string,
+) error {
+	tmplContent, ok := templates[provider]
+	if !ok {
 		return nil
 	}
 
-	engine.GoodExamples = providerExampls.Good.ToStrings()
-
-	for i := range engine.GoodExamples {
-		engine.GoodExamples[i] = "\n" + engine.GoodExamples[i]
-	}
-	tmpl, err := template.New(strings.ToLower(provider)).Parse(tpl)
+	tmpl, err := template.New(strings.ToLower(provider)).Parse(tmplContent)
 	if err != nil {
-		fail("error occurred creating the template %v\n", err)
+		return fmt.Errorf("create template: %w", err)
 	}
-	file, err := os.Create(filepath.Join(docpath, fmt.Sprintf("%s.md", provider)))
-	if err != nil {
-		fail("error occurred creating the %s file for %s", provider, docpath)
-	}
-	defer file.Close()
 
-	if err := tmpl.Execute(file, rule); err != nil {
-		fail("error occurred generating the document %v", err)
+	path := filepath.Join(docpath, fmt.Sprintf("%s.md", displayNameForProvider(provider)))
+	file, err := os.Create(path)
+	if err != nil {
+		return fmt.Errorf("create file: %w", err)
+	}
+
+	data := map[string]any{
+		"Rule":     rule,
+		"Examples": providerExampls,
+	}
+
+	if err := tmpl.Execute(file, data); err != nil {
+		return fmt.Errorf("execute template: %w", err)
 	}
 	fmt.Printf("Generating %s file for policy %s\n", provider, rule.AVDID)
 
@@ -140,24 +146,41 @@ var docsMarkdownTemplate = `
 {{ end }}
 `
 
-var terraformMarkdownTemplate = `
-{{ .Resolution }}
+var templates = map[string]string{
+	"terraform":      terraformMarkdownTemplate,
+	"cloudformation": cloudformationMarkdownTemplate,
+}
 
-{{ if .Terraform.GoodExamples }}{{ range .Terraform.GoodExamples }}` + "```hcl" + `{{ . }}
+var terraformMarkdownTemplate = `
+{{ .Rule.Resolution }}
+
+{{ if .Examples.Good }}{{ range .Examples.Good }}` + "```hcl" + `
+{{ . }}
 ` + "```" + `
 {{ end}}{{ end }}
-{{ if .Terraform.Links }}#### Remediation Links{{ range .Terraform.Links }}
+{{ if .Examples.Links }}#### Remediation Links{{ range .Examples.Links }}
  - {{ . }}
 {{ end}}{{ end }}
 `
 
 var cloudformationMarkdownTemplate = `
-{{ .Resolution }}
+{{ .Rule.Resolution }}
 
-{{ if .CloudFormation.GoodExamples }}{{ range .CloudFormation.GoodExamples }}` + "```yaml" + `{{ . }}
+{{ if .Examples.Good }}{{ range .Examples.Good }}` + "```yaml" + `
+{{ . }}
 ` + "```" + `
 {{ end}}{{ end }}
-{{ if .CloudFormation.Links }}#### Remediation Links{{ range .CloudFormation.Links }}
+{{ if .Examples.Links }}#### Remediation Links{{ range .Examples.Links }}
  - {{ . }}
 {{ end}}{{ end }}
 `
+
+func displayNameForProvider(provider string) string {
+	switch provider {
+	case "terraform":
+		return "Terraform"
+	case "cloudformation":
+		return "CloudFormation"
+	}
+	return ""
+}

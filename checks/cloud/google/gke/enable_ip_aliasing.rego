@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: gke
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#ip_allocation_policy
-#     good_examples: checks/cloud/google/gke/enable_ip_aliasing.yaml
-#     bad_examples: checks/cloud/google/gke/enable_ip_aliasing.yaml
+#   examples: checks/cloud/google/gke/enable_ip_aliasing.yaml
 package builtin.google.gke.google0049
 
 import rego.v1

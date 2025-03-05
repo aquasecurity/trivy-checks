@@ -22,14 +22,7 @@
 #         subtypes:
 #           - service: redshift
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/redshift_cluster#cluster_subnet_group_name
-#     good_examples: checks/cloud/aws/redshift/use_vpc.yaml
-#     bad_examples: checks/cloud/aws/redshift/use_vpc.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/redshift/use_vpc.yaml
-#     bad_examples: checks/cloud/aws/redshift/use_vpc.yaml
+#   examples: checks/cloud/aws/redshift/use_vpc.yaml
 package builtin.aws.redshift.aws0127
 
 import rego.v1

@@ -21,14 +21,7 @@
 #         subtypes:
 #           - service: neptune
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/neptune_cluster#enable_cloudwatch_logs_exports
-#     good_examples: checks/cloud/aws/neptune/enable_log_export.yaml
-#     bad_examples: checks/cloud/aws/neptune/enable_log_export.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/neptune/enable_log_export.yaml
-#     bad_examples: checks/cloud/aws/neptune/enable_log_export.yaml
+#   examples: checks/cloud/aws/neptune/enable_log_export.yaml
 package builtin.aws.neptune.aws0075
 
 import rego.v1

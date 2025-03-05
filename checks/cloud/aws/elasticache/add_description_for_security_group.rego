@@ -22,14 +22,7 @@
 #         subtypes:
 #           - service: elasticache
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_security_group#description
-#     good_examples: checks/cloud/aws/elasticache/add_description_for_security_group.yaml
-#     bad_examples: checks/cloud/aws/elasticache/add_description_for_security_group.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/elasticache/add_description_for_security_group.yaml
-#     bad_examples: checks/cloud/aws/elasticache/add_description_for_security_group.yaml
+#   examples: checks/cloud/aws/elasticache/add_description_for_security_group.yaml
 package builtin.aws.elasticache.aws0049
 
 import rego.v1

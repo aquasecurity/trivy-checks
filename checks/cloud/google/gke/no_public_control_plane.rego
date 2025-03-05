@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: gke
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#
-#     good_examples: checks/cloud/google/gke/no_public_control_plane.yaml
-#     bad_examples: checks/cloud/google/gke/no_public_control_plane.yaml
+#   examples: checks/cloud/google/gke/no_public_control_plane.yaml
 package builtin.google.gke.google0053
 
 import rego.v1

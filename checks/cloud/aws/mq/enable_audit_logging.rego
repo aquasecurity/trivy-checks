@@ -21,14 +21,7 @@
 #         subtypes:
 #           - service: mq
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/mq_broker#audit
-#     good_examples: checks/cloud/aws/mq/enable_audit_logging.yaml
-#     bad_examples: checks/cloud/aws/mq/enable_audit_logging.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/mq/enable_audit_logging.yaml
-#     bad_examples: checks/cloud/aws/mq/enable_audit_logging.yaml
+#   examples: checks/cloud/aws/mq/enable_audit_logging.yaml
 package builtin.aws.mq.aws0070
 
 import rego.v1

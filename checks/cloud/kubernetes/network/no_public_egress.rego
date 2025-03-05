@@ -18,10 +18,6 @@
 #       subtypes:
 #           - provider: kubernetes
 #             service: networkpolicies
-#   terraform:
-#     good_examples: checks/cloud/kubernetes/network/no_public_egress.yaml
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/network_policy#spec.egress.to.ip_block.cidr
 #   examples: checks/cloud/kubernetes/network/no_public_egress.yaml
 package builtin.kube.network.kube0002
 

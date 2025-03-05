@@ -23,12 +23,7 @@
 #       subtypes:
 #         - service: s3
 #           provider: aws
-#   terraform:
-#     good_examples: checks/cloud/aws/s3/enable_logging.yaml
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/s3/enable_logging.yaml
+#   examples: checks/cloud/aws/s3/enable_logging.yaml
 package builtin.aws.s3.aws0089
 
 import rego.v1

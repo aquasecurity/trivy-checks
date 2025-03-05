@@ -22,11 +22,7 @@
 #         subtypes:
 #           - service: storage
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://www.terraform.io/docs/providers/azure/r/storage_container.html#properties
-#     good_examples: checks/cloud/azure/storage/no_public_access.yaml
-#     bad_examples: checks/cloud/azure/storage/no_public_access.yaml
+#   examples: checks/cloud/azure/storage/no_public_access.yaml
 package builtin.azure.storage.azure0007
 
 import rego.v1

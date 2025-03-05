@@ -24,11 +24,7 @@
 #         subtypes:
 #           - service: s3
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#versioning
-#     good_examples: checks/cloud/aws/s3/enable_object_write_logging.yaml
-#     bad_examples: checks/cloud/aws/s3/enable_object_write_logging.yaml
+#   examples: checks/cloud/aws/s3/enable_object_write_logging.yaml
 package builtin.aws.s3.aws0171
 
 import rego.v1

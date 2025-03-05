@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: compute
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#
-#     good_examples: checks/cloud/google/compute/no_project_wide_ssh_keys.yaml
-#     bad_examples: checks/cloud/google/compute/no_project_wide_ssh_keys.yaml
+#   examples: checks/cloud/google/compute/no_project_wide_ssh_keys.yaml
 package builtin.google.compute.google0030
 
 import rego.v1

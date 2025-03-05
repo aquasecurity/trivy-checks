@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: network
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_rule
-#     good_examples: checks/cloud/azure/network/no_public_ingress.yaml
-#     bad_examples: checks/cloud/azure/network/no_public_ingress.yaml
+#   examples: checks/cloud/azure/network/no_public_ingress.yaml
 package builtin.azure.network.azure0047
 
 import rego.v1
