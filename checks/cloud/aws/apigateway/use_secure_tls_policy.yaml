@@ -1,11 +1,13 @@
 terraform:
-  good:
-    - |-
-      resource "aws_api_gateway_domain_name" "good_example" {
-        security_policy = "TLS_1_2"
-      }
-  bad:
-    - |-
-      resource "aws_api_gateway_domain_name" "bad_example" {
-        security_policy = "TLS_1_0"
-      }
+    links:
+        - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_domain_name#security_policy
+    good:
+        - |-
+          resource "aws_api_gateway_domain_name" "good_example" {
+            security_policy = "TLS_1_2"
+          }
+    bad:
+        - |-
+          resource "aws_api_gateway_domain_name" "bad_example" {
+            security_policy = "TLS_1_0"
+          }

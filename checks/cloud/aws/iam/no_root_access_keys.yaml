@@ -1,19 +1,21 @@
 terraform:
-  good:
-    - |-
-      resource "aws_iam_user" "test" {
-        name = "lowprivuser"
-      }
+    links:
+        - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_access_key
+    good:
+        - |-
+          resource "aws_iam_user" "test" {
+            name = "lowprivuser"
+          }
 
-      resource "aws_iam_access_key" "test" {
-        user = aws_iam_user.test.name
-      }
-  bad:
-    - |-
-      resource "aws_iam_user" "test" {
-        name = "root"
-      }
+          resource "aws_iam_access_key" "test" {
+            user = aws_iam_user.test.name
+          }
+    bad:
+        - |-
+          resource "aws_iam_user" "test" {
+            name = "root"
+          }
 
-      resource "aws_iam_access_key" "test" {
-        user = aws_iam_user.test.name
-      }
+          resource "aws_iam_access_key" "test" {
+            user = aws_iam_user.test.name
+          }
