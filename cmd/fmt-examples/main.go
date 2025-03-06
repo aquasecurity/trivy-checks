@@ -7,10 +7,7 @@ import (
 	"gopkg.in/yaml.v3"
 
 	"github.com/aquasecurity/trivy-checks/internal/examples"
-	"github.com/aquasecurity/trivy/pkg/iac/framework"
-	"github.com/aquasecurity/trivy/pkg/iac/rego"
-	"github.com/aquasecurity/trivy/pkg/iac/rules"
-	"github.com/aquasecurity/trivy/pkg/iac/scan"
+	"github.com/aquasecurity/trivy-checks/internal/rego/metadata"
 )
 
 func main() {
@@ -21,14 +18,14 @@ func main() {
 }
 
 func run() error {
-	// Clean up all Go checks
-	rules.Reset()
 
-	// Load Rego checks
-	rego.LoadAndRegister()
+	checksMetadata, err := metadata.LoadChecksMetadata()
+	if err != nil {
+		return fmt.Errorf("load checks metadata: %w", err)
+	}
 
-	for _, r := range rules.GetRegistered(framework.ALL) {
-		if err := format(r.Rule); err != nil {
+	for _, meta := range checksMetadata {
+		if err := formatExamples(meta); err != nil {
 			return err
 		}
 	}
@@ -36,8 +33,8 @@ func run() error {
 	return nil
 }
 
-func format(rule scan.Rule) error {
-	exmpls, path, err := examples.GetCheckExamples(rule)
+func formatExamples(meta metadata.Metadata) error {
+	exmpls, path, err := examples.GetCheckExamples(meta)
 	if err != nil {
 		return err
 	}
