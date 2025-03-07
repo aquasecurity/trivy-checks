@@ -3,12 +3,10 @@ terraform:
     - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_method_settings#cache_enabled
   good:
     - |-
-      resource "aws_api_gateway_rest_api" "example" {
-
-      }
+      resource "aws_api_gateway_rest_api" "example" {}
 
       resource "aws_api_gateway_stage" "example" {
-
+        rest_api_id = aws_api_gateway_rest_api.example.id
       }
 
       resource "aws_api_gateway_method_settings" "good_example" {
@@ -17,16 +15,12 @@ terraform:
         method_path = "path1/GET"
 
         settings {
-          metrics_enabled = true
-          logging_level   = "INFO"
           caching_enabled = true
         }
       }
   bad:
     - |-
-      resource "aws_api_gateway_rest_api" "example" {
-
-      }
+      resource "aws_api_gateway_rest_api" "example" {}
 
       resource "aws_api_gateway_stage" "example" {
         rest_api_id = aws_api_gateway_rest_api.example.id
@@ -38,8 +32,6 @@ terraform:
         method_path = "path1/GET"
 
         settings {
-          metrics_enabled = true
-          logging_level   = "INFO"
           caching_enabled = false
         }
       }
