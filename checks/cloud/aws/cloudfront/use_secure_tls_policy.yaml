@@ -46,11 +46,24 @@ terraform:
           minimum_protocol_version       = "TLSv1.2_2021"
         }
       }
+    - |-
+      resource "aws_cloudfront_distribution" "good_example" {
+        viewer_certificate {
+          cloudfront_default_certificate = true
+          minimum_protocol_version       = "TLSv1.0"
+        }
+      }
   bad:
     - |-
       resource "aws_cloudfront_distribution" "bad_example" {
         viewer_certificate {
           cloudfront_default_certificate = false
           minimum_protocol_version       = "TLSv1.0"
+        }
+      }
+    - |-
+      resource "aws_cloudfront_distribution" "bad_example" {
+        viewer_certificate {
+          cloudfront_default_certificate = false
         }
       }

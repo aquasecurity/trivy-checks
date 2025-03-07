@@ -11,7 +11,8 @@ resource "aws_athena_database" "good_example" {
     kms_key_arn       = aws_kms_key.example.arn
   }
 }
-
+```
+```hcl
 resource "aws_athena_workgroup" "good_example" {
   name = "example"
 

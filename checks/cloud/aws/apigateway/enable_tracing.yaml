@@ -3,9 +3,7 @@ terraform:
     - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_stage#xray_tracing_enabled
   good:
     - |-
-      resource "aws_api_gateway_rest_api" "test" {
-
-      }
+      resource "aws_api_gateway_rest_api" "test" {}
 
       resource "aws_api_gateway_stage" "good_example" {
         stage_name           = "prod"
@@ -15,9 +13,7 @@ terraform:
       }
   bad:
     - |-
-      resource "aws_api_gateway_rest_api" "test" {
-
-      }
+      resource "aws_api_gateway_rest_api" "test" {}
 
       resource "aws_api_gateway_stage" "bad_example" {
         stage_name           = "prod"
