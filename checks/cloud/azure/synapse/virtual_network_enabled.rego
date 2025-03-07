@@ -26,11 +26,7 @@
 #         subtypes:
 #           - service: synapse
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/synapse_workspace#managed_virtual_network_enabled
-#     good_examples: checks/cloud/azure/synapse/virtual_network_enabled.yaml
-#     bad_examples: checks/cloud/azure/synapse/virtual_network_enabled.yaml
+#   examples: checks/cloud/azure/synapse/virtual_network_enabled.yaml
 package builtin.azure.synapse.azure0034
 
 import rego.v1

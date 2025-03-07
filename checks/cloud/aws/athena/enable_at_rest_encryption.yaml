@@ -20,6 +20,9 @@ cloudformation:
             WorkGroupConfiguration:
               ResultConfiguration: null
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/athena_workgroup#encryption_configuration
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/athena_database#encryption_configuration
   good:
     - |-
       resource "aws_athena_database" "good_example" {

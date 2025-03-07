@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam#member/members
   good:
     - |-
       resource "google_storage_bucket" "test" {

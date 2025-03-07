@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: sql
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance
-#     good_examples: checks/cloud/google/sql/no_contained_db_auth.yaml
-#     bad_examples: checks/cloud/google/sql/no_contained_db_auth.yaml
+#   examples: checks/cloud/google/sql/no_contained_db_auth.yaml
 package builtin.google.sql.google0023
 
 import rego.v1

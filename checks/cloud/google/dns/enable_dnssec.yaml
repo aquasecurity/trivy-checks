@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dns_managed_zone#state
   good:
     - |-
       resource "google_dns_managed_zone" "good_example" {

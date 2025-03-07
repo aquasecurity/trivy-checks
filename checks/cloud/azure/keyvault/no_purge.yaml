@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault#purge_protection_enabled
   good:
     - |-
       resource "azurerm_key_vault" "good_example" {

@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: database
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/sql_firewall_rule#end_ip_address
-#     good_examples: checks/cloud/azure/database/no_public_firewall_access.yaml
-#     bad_examples: checks/cloud/azure/database/no_public_firewall_access.yaml
+#   examples: checks/cloud/azure/database/no_public_firewall_access.yaml
 package builtin.azure.database.azure0029
 
 import rego.v1

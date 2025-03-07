@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#enable_secure_boot
   good:
     - |-
       resource "google_compute_instance" "good_example" {

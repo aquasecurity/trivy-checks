@@ -22,6 +22,8 @@ cloudformation:
               ScanOnPush: false
             RepositoryName: test-repository
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository#image_scanning_configuration
   good:
     - |-
       resource "aws_ecr_repository" "good_example" {

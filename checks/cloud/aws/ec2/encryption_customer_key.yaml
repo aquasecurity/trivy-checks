@@ -35,6 +35,8 @@ cloudformation:
             AvailabilityZone: Ec2Instance.AvailabilityZone
             Size: 100
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_volume#kms_key_id
   good:
     - |-
       resource "aws_kms_key" "ebs_encryption" {

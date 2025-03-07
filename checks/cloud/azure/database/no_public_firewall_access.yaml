@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/sql_firewall_rule#end_ip_address
   good:
     - |-
       resource "azurerm_sql_firewall_rule" "good_example" {

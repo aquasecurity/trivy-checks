@@ -22,9 +22,7 @@
 #         subtypes:
 #           - service: redshift
 #             provider: aws
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/redshift/add_description_to_security_group.yaml
-#     bad_examples: checks/cloud/aws/redshift/add_description_to_security_group.yaml
+#   examples: checks/cloud/aws/redshift/add_description_to_security_group.yaml
 package builtin.aws.redshift.aws0083
 
 import rego.v1

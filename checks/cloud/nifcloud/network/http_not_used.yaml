@@ -1,4 +1,7 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/elb#protocol
+    - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/load_balancer#load_balancer_port
   good:
     - |-
       resource "nifcloud_elb" "good_example" {

@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/security_center_subscription_pricing#tier
   good:
     - |-
       resource "azurerm_security_center_subscription_pricing" "good_example" {

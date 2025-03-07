@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account_network_rules#default_action
   good:
     - |-
       resource "azurerm_storage_account_network_rules" "good_example" {

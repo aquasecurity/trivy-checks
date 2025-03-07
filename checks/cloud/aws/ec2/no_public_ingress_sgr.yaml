@@ -24,6 +24,8 @@ cloudformation:
                 FromPort: 22
                 ToPort: 22
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule#cidr_blocks
   good:
     - |-
       resource "aws_security_group_rule" "good_example" {

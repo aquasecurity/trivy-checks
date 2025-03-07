@@ -22,14 +22,7 @@
 #         subtypes:
 #           - service: codebuild
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/codebuild_project#encryption_disabled
-#     good_examples: checks/cloud/aws/codebuild/enable_encryption.yaml
-#     bad_examples: checks/cloud/aws/codebuild/enable_encryption.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/codebuild/enable_encryption.yaml
-#     bad_examples: checks/cloud/aws/codebuild/enable_encryption.yaml
+#   examples: checks/cloud/aws/codebuild/enable_encryption.yaml
 package builtin.aws.codebuild.aws0018
 
 import rego.v1

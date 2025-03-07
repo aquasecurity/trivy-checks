@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/function_app#https_only
   good:
     - |-
       resource "azurerm_function_app" "good_example" {

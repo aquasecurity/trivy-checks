@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_listener
   good:
     - |-
       resource "aws_alb_listener" "good_example" {

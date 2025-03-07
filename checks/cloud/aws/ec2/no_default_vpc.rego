@@ -23,11 +23,7 @@
 #         subtypes:
 #           - service: ec2
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_vpc
-#     good_examples: checks/cloud/aws/ec2/no_default_vpc.yaml
-#     bad_examples: checks/cloud/aws/ec2/no_default_vpc.yaml
+#   examples: checks/cloud/aws/ec2/no_default_vpc.yaml
 package builtin.aws.ec2.aws0101
 
 import rego.v1

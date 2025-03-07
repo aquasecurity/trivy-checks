@@ -42,6 +42,8 @@ cloudformation:
             DBInstanceIdentifier: sample-cluster-instance-0
             PreferredMaintenanceWindow: sat:06:54-sat:07:24
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/docdb_cluster#kms_key_id
   good:
     - |-
       resource "aws_kms_key" "docdb_encryption" {

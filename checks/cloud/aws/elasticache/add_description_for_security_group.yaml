@@ -39,6 +39,8 @@ cloudformation:
             CacheSecurityGroupName: BadExampleCacheGroup
             EC2SecurityGroupName: BadExampleEc2SecurityGroup
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_security_group#description
   good:
     - |-
       resource "aws_security_group" "bar" {

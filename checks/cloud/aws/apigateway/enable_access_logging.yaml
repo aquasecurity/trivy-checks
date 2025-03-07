@@ -35,6 +35,8 @@ cloudformation:
             ApiId: !Ref BadApi
             StageName: BadApiStage
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/apigatewayv2_stage#access_log_settings
   good:
     - |-
       resource "aws_apigatewayv2_stage" "good_example" {

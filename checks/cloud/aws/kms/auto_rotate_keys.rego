@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: kms
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_key#enable_key_rotation
-#     good_examples: checks/cloud/aws/kms/auto_rotate_keys.yaml
-#     bad_examples: checks/cloud/aws/kms/auto_rotate_keys.yaml
+#   examples: checks/cloud/aws/kms/auto_rotate_keys.yaml
 package builtin.aws.kms.aws0065
 
 import rego.v1

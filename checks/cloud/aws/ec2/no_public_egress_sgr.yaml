@@ -28,6 +28,8 @@ cloudformation:
               - CidrIp: 0.0.0.0/0
                 IpProtocol: "6"
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group
   good:
     - |-
       resource "aws_security_group" "good_example" {

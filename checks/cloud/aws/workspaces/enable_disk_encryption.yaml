@@ -34,6 +34,8 @@ cloudformation:
             UserName: admin
             UserVolumeEncryptionEnabled: false
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/workspaces_workspace#root_volume_encryption_enabled
   good:
     - |-
       resource "aws_workspaces_workspace" "good_example" {

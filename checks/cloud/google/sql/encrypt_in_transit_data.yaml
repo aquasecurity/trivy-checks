@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance
   good:
     - |-
       # For terraform-provider-google < 6.0.1

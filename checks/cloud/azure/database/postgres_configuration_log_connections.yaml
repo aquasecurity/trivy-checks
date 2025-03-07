@@ -1,4 +1,7 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_configuration
+    - https://docs.microsoft.com/en-us/azure/postgresql/concepts-server-logs#configure-logging
   good:
     - |-
       resource "azurerm_resource_group" "example" {

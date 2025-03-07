@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/router#network_id
   good:
     - |-
       resource "nifcloud_router" "good_example" {

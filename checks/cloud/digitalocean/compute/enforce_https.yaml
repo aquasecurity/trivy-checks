@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/loadbalancer
   good:
     - |-
       resource "digitalocean_loadbalancer" "good_example" {

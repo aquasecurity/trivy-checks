@@ -24,6 +24,8 @@ cloudformation:
             Handler: index.handler
             Runtime: nodejs12.x
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function#mode
   good:
     - |-
       resource "aws_iam_role" "iam_for_lambda" {

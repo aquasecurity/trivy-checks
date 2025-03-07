@@ -29,6 +29,8 @@ cloudformation:
               - us-west-2a
               - us-west-2b
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster#snapshot_retention_limit
   good:
     - |-
       resource "aws_elasticache_cluster" "good_example" {

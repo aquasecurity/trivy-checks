@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository
   good:
     - |-
       resource "github_repository" "good_example" {

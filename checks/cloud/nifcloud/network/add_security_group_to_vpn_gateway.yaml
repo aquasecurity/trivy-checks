@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/vpn_gateway#security_group
   good:
     - |-
       resource "nifcloud_vpn_gateway" "good_example" {

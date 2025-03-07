@@ -22,11 +22,7 @@
 #         subtypes:
 #           - service: dynamodb
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_table#point_in_time_recovery
-#     good_examples: checks/cloud/aws/dynamodb/enable_recovery.yaml
-#     bad_examples: checks/cloud/aws/dynamodb/enable_recovery.yaml
+#   examples: checks/cloud/aws/dynamodb/enable_recovery.yaml
 package builtin.aws.dynamodb.aws0024
 
 import rego.v1

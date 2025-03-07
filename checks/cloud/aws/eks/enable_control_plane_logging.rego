@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: eks
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster#enabled_cluster_log_types
-#     good_examples: checks/cloud/aws/eks/enable_control_plane_logging.yaml
-#     bad_examples: checks/cloud/aws/eks/enable_control_plane_logging.yaml
+#   examples: checks/cloud/aws/eks/enable_control_plane_logging.yaml
 package builtin.aws.eks.aws0038
 
 import rego.v1

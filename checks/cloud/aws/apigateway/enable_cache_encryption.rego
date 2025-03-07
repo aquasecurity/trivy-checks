@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: apigateway
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_method_settings#cache_data_encrypted
-#     good_examples: checks/cloud/aws/apigateway/enable_cache_encryption.yaml
-#     bad_examples: checks/cloud/aws/apigateway/enable_cache_encryption.yaml
+#   examples: checks/cloud/aws/apigateway/enable_cache_encryption.yaml
 package builtin.aws.apigateway.aws0002
 
 import rego.v1

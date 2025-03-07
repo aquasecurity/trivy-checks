@@ -57,6 +57,8 @@ cloudformation:
             FunctionName: !Ref BadExample
             Principal: s3.amazonaws.com
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_permission
   good:
     - |-
       resource "aws_lambda_permission" "good_example" {

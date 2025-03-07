@@ -1,4 +1,7 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/opc/latest/docs/resources/opc_compute_ip_address_reservation
+    - https://registry.terraform.io/providers/hashicorp/opc/latest/docs/resources/opc_compute_instance
   good:
     - |-
       resource "opc_compute_ip_address_reservation" "good_example" {

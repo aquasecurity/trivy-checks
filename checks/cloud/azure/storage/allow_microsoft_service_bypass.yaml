@@ -1,4 +1,7 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account#bypass
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account_network_rules#bypass
   good:
     - |-
       resource "azurerm_storage_account" "good_example" {

@@ -34,6 +34,8 @@ cloudformation:
             KeyName: testkey
             UserData: export DATABASE_PASSWORD=password1234
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#ebs-ephemeral-and-root-block-devices
   good:
     - |-
       resource "aws_instance" "good_example" {

@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_log_profile#locations
   good:
     - |-
       resource "azurerm_monitor_log_profile" "good_example" {

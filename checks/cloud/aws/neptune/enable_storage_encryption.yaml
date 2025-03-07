@@ -19,6 +19,8 @@ cloudformation:
           Properties:
             StorageEncrypted: false
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/neptune_cluster#storage_encrypted
   good:
     - |-
       resource "aws_neptune_cluster" "good_example" {

@@ -1,4 +1,7 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/spaces_bucket#acl
+    - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/spaces_bucket_object#acl
   good:
     - |-
       resource "digitalocean_spaces_bucket" "good_example" {

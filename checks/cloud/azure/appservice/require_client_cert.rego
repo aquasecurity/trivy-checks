@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: appservice
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#client_cert_enabled
-#     good_examples: checks/cloud/azure/appservice/require_client_cert.yaml
-#     bad_examples: checks/cloud/azure/appservice/require_client_cert.yaml
+#   examples: checks/cloud/azure/appservice/require_client_cert.yaml
 package builtin.azure.appservice.azure0001
 
 import rego.v1

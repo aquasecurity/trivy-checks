@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_rule
   good:
     - |-
       resource "azurerm_network_security_rule" "good_example" {

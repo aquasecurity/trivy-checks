@@ -27,6 +27,8 @@ cloudformation:
             ImageId: ami-123456
             InstanceType: t2.small
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#ebs-ephemeral-and-root-block-devices
   good:
     - |-
       resource "aws_launch_configuration" "good_example" {

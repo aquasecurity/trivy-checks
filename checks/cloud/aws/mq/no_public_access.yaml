@@ -14,6 +14,8 @@ cloudformation:
           Properties:
             PubliclyAccessible: true
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/mq_broker#publicly_accessible
   good:
     - |-
       resource "aws_mq_broker" "good_example" {

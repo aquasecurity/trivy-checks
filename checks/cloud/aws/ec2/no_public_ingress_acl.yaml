@@ -44,6 +44,8 @@ cloudformation:
               From: 22
               To: 22
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_acl_rule#cidr_block
   good:
     - |-
       resource "aws_network_acl_rule" "good_example" {

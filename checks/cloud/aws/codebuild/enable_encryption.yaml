@@ -77,6 +77,8 @@ cloudformation:
                 Path: String
                 Type: String
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/codebuild_project#encryption_disabled
   good:
     - |-
       resource "aws_codebuild_project" "good_example" {

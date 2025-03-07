@@ -24,6 +24,8 @@ cloudformation:
             KmsMasterKeyId: alias/aws/sqs
             QueueName: my-queue
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue#server-side-encryption-sse
   good:
     - |-
       resource "aws_sqs_queue" "good_example" {

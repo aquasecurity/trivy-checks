@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/kubernetes_cluster#surge_upgrade
   good:
     - |-
       resource "digitalocean_kubernetes_cluster" "surge_upgrade_good" {

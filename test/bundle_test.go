@@ -45,7 +45,7 @@ func Test_ManifestValidity(t *testing.T) {
 	require.Len(t, m.Roots, 1)
 	require.Equal(t, "", m.Roots[0])
 
-	cmd := exec.Command("scripts/bundle.sh")
+	cmd := exec.Command("cmd/bundle/bundle.sh")
 	cmd.Env = append(os.Environ(), "GITHUB_REF=refs/tags/v1.2.3")
 	cmd.Dir = ".."
 	require.NoError(t, cmd.Run())

@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/fw_rule_v1
   good:
     - |-
       resource "openstack_fw_rule_v1" "rule_1" {

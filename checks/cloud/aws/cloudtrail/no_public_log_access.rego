@@ -28,14 +28,7 @@
 #         subtypes:
 #           - service: cloudtrail
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail#is_multi_region_trail
-#     good_examples: checks/cloud/aws/cloudtrail/no_public_log_access.yaml
-#     bad_examples: checks/cloud/aws/cloudtrail/no_public_log_access.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/cloudtrail/no_public_log_access.yaml
-#     bad_examples: checks/cloud/aws/cloudtrail/no_public_log_access.yaml
+#   examples: checks/cloud/aws/cloudtrail/no_public_log_access.yaml
 package builtin.aws.cloudtrail.aws0161
 
 import rego.v1

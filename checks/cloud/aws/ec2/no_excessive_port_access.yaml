@@ -40,6 +40,8 @@ cloudformation:
             Ref: NetworkACL
             RuleAction: allow
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_acl_rule#to_port
   good:
     - |-
       resource "aws_network_acl_rule" "good_example" {

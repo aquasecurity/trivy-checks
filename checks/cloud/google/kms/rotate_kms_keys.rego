@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: kms
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/kms_crypto_key#rotation_period
-#     good_examples: checks/cloud/google/kms/rotate_kms_keys.yaml
-#     bad_examples: checks/cloud/google/kms/rotate_kms_keys.yaml
+#   examples: checks/cloud/google/kms/rotate_kms_keys.yaml
 package builtin.google.kms.google0065
 
 import rego.v1

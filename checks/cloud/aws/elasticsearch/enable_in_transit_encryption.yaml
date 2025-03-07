@@ -45,6 +45,8 @@ cloudformation:
               ZoneAwarenessEnabled: true
             ElasticsearchVersion: "7.10"
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#encrypt_at_rest
   good:
     - |-
       resource "aws_elasticsearch_domain" "good_example" {

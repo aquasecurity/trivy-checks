@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#master_auth
   good:
     - |-
       resource "google_service_account" "default" {

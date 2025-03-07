@@ -21,12 +21,7 @@
 #         subtypes:
 #           - service: database
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_configuration
-#       - https://docs.microsoft.com/en-us/azure/postgresql/concepts-server-logs#configure-logging
-#     good_examples: checks/cloud/azure/database/postgres_configuration_log_connections.yaml
-#     bad_examples: checks/cloud/azure/database/postgres_configuration_log_connections.yaml
+#   examples: checks/cloud/azure/database/postgres_configuration_log_connections.yaml
 package builtin.azure.database.azure0019
 
 import rego.v1

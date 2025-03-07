@@ -36,6 +36,8 @@ cloudformation:
               ViewerCertificate:
                 MinimumProtocolVersion: TLSv1.0
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution#minimum_protocol_version
   good:
     - |-
       resource "aws_cloudfront_distribution" "good_example" {

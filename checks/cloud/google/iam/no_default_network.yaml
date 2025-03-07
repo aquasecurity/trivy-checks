@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project#auto_create_network
   good:
     - |-
       resource "google_project" "good_example" {

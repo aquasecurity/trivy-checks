@@ -22,10 +22,5 @@
 #         subtypes:
 #           - service: ssm
 #             provider: aws
-#   terraform:
-#     good_examples: checks/cloud/aws/ssm/avoid_leaks_via_http.yaml
-#     bad_examples: checks/cloud/aws/ssm/avoid_leaks_via_http.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/ssm/avoid_leaks_via_http.yaml
-#     bad_examples: checks/cloud/aws/ssm/avoid_leaks_via_http.yaml
+#   examples: checks/cloud/aws/ssm/avoid_leaks_via_http.yaml
 package builtin.aws.ssm.aws0134

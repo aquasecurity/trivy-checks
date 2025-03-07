@@ -22,11 +22,7 @@
 #         subtypes:
 #           - service: storage
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket#uniform_bucket_level_access
-#     good_examples: checks/cloud/google/storage/enable_ubla.yaml
-#     bad_examples: checks/cloud/google/storage/enable_ubla.yaml
+#   examples: checks/cloud/google/storage/enable_ubla.yaml
 package builtin.google.storage.google0002
 
 import rego.v1

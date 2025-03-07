@@ -22,14 +22,7 @@
 #         subtypes:
 #           - service: ecs
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition
-#     good_examples: checks/cloud/aws/ecs/no_plaintext_secrets.yaml
-#     bad_examples: checks/cloud/aws/ecs/no_plaintext_secrets.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/ecs/no_plaintext_secrets.yaml
-#     bad_examples: checks/cloud/aws/ecs/no_plaintext_secrets.yaml
+#   examples: checks/cloud/aws/ecs/no_plaintext_secrets.yaml
 package builtin.aws.ecs.aws0036
 
 import rego.v1

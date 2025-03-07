@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_access_key
   good:
     - |-
       resource "aws_iam_user" "test" {

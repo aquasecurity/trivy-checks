@@ -29,6 +29,18 @@ wget https://github.com/aquasecurity/trivy-checks/raw/main/test/testdata/kuberne
 conftest test denied.yaml --policy myPolicy/ --namespace builtin.kubernetes.KSV008
 ```
 
+# Kubernetes checks classification
+There are several Kubernetes checks that target various subsystems. They are loosely classified as follows.
+
+| Target    | Description                                                                        |
+|-----------|------------------------------------------------------------------------------------|
+| Access    | Authentication and authorization related checks (anonymous auth, service accounts) |
+| Network   | Network and connection related checks (iptables, streaming connections)            |
+| Resources | Admission plugins and resource lifecycle management                                |
+| Security  | Core security features and cryptographic checks                                    |
+| Workloads | Kubelet configuration and operational checks                                       |
+
+
 # Standards and best practices
 This GitHub repository has controls that cover both [PodSecurityPolicy](https://kubernetes.io/docs/concepts/policy/pod-security-policy/) (PSP) and the Kubernetes [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/) (PSS), plus additional best practices.
 

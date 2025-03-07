@@ -22,14 +22,7 @@
 #         subtypes:
 #           - service: cloudfront
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution#viewer_protocol_policy
-#     good_examples: checks/cloud/aws/cloudfront/enforce_https.yaml
-#     bad_examples: checks/cloud/aws/cloudfront/enforce_https.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/cloudfront/enforce_https.yaml
-#     bad_examples: checks/cloud/aws/cloudfront/enforce_https.yaml
+#   examples: checks/cloud/aws/cloudfront/enforce_https.yaml
 package builtin.aws.cloudfront.aws0012
 
 import rego.v1

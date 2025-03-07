@@ -15,6 +15,8 @@ cloudformation:
           Properties:
             Encrypted: false
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/redshift_cluster#encrypted
   good:
     - |-
       resource "aws_kms_key" "redshift" {

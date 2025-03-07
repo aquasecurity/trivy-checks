@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/spaces_bucket#versioning
   good:
     - |-
       resource "digitalocean_spaces_bucket" "good_example" {

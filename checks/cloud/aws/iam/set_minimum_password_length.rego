@@ -30,11 +30,7 @@
 #         subtypes:
 #           - service: iam
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_account_password_policy
-#     good_examples: checks/cloud/aws/iam/set_minimum_password_length.yaml
-#     bad_examples: checks/cloud/aws/iam/set_minimum_password_length.yaml
+#   examples: checks/cloud/aws/iam/set_minimum_password_length.yaml
 package builtin.aws.iam.aws0063
 
 import rego.v1

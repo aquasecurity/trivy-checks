@@ -23,11 +23,7 @@
 #         subtypes:
 #           - service: gke
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#node_metadata
-#     good_examples: checks/cloud/google/gke/node_metadata_security.yaml
-#     bad_examples: checks/cloud/google/gke/node_metadata_security.yaml
+#   examples: checks/cloud/google/gke/node_metadata_security.yaml
 package builtin.google.gke.google0057
 
 import rego.v1

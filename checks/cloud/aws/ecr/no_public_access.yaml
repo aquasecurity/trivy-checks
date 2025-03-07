@@ -54,6 +54,8 @@ cloudformation:
                   Sid: AllowPushPull
               Version: "2012-10-17"
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository_policy#policy
   good:
     - |-
       resource "aws_ecr_repository" "foo" {

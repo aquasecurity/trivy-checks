@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#versioning
   good:
     - |-
       resource "aws_s3_bucket" "good_example" {

@@ -21,11 +21,7 @@
 #         subtypes:
 #           - service: storage
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket#encryption
-#     good_examples: checks/cloud/google/storage/bucket_encryption_customer_key.yaml
-#     bad_examples: checks/cloud/google/storage/bucket_encryption_customer_key.yaml
+#   examples: checks/cloud/google/storage/bucket_encryption_customer_key.yaml
 package builtin.google.storage.google0066
 
 import rego.v1

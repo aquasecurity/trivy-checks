@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server_security_alert_policy#email_account_admins
   good:
     - |-
       resource "azurerm_mssql_server_security_alert_policy" "good_example" {

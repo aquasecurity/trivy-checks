@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/cloudstack/latest/docs/resources/instance#
   good:
     - |-
       resource "cloudstack_instance" "web" {

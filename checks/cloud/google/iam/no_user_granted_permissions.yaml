@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://www.terraform.io/docs/providers/google/d/iam_policy.html#members
   good:
     - |-
       resource "google_project_iam_binding" "good_example" {

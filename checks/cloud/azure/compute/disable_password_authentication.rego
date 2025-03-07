@@ -19,12 +19,7 @@
 #         subtypes:
 #           - service: compute
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine#disable_password_authentication
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine#disable_password_authentication
-#     good_examples: checks/cloud/azure/compute/disable_password_authentication.yaml
-#     bad_examples: checks/cloud/azure/compute/disable_password_authentication.yaml
+#   examples: checks/cloud/azure/compute/disable_password_authentication.yaml
 package builtin.azure.compute.azure0039
 
 import rego.v1

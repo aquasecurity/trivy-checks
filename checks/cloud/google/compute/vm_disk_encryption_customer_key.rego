@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: compute
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance#kms_key_self_link
-#     good_examples: checks/cloud/google/compute/vm_disk_encryption_customer_key.yaml
-#     bad_examples: checks/cloud/google/compute/vm_disk_encryption_customer_key.yaml
+#   examples: checks/cloud/google/compute/vm_disk_encryption_customer_key.yaml
 package builtin.google.compute.google0033
 
 import rego.v1

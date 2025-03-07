@@ -20,6 +20,8 @@ cloudformation:
                 CloudWatchLogs:
                   Enabled: false
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/msk_cluster#
   good:
     - |-
       resource "aws_msk_cluster" "example" {

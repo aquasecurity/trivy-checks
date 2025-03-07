@@ -18,6 +18,8 @@ cloudformation:
             LogGroupName: aws/lambda/badExample
             RetentionInDays: 30
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group#kms_key_id
   good:
     - |-
       resource "aws_kms_key" "cloudwatch" {

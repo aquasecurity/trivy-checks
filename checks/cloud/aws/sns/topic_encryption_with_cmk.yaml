@@ -16,6 +16,8 @@ cloudformation:
             KmsMasterKeyId: alias/aws/sns
             TopicName: blah
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic#example-with-server-side-encryption-sse
   good:
     - |-
       resource "aws_sns_topic" "good_example" {

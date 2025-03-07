@@ -18,6 +18,8 @@ cloudformation:
           Properties:
             AccessControl: AuthenticatedRead
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block#block_public_policy
   good:
     - |-
       resource "aws_s3_bucket" "example" {

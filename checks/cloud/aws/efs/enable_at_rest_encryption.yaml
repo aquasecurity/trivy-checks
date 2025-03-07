@@ -26,6 +26,8 @@ cloudformation:
             PerformanceMode: generalPurpose
             ThroughputMode: bursting
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_file_system
   good:
     - |-
       resource "aws_efs_file_system" "good_example" {

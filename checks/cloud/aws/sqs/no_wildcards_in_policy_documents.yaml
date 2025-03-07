@@ -53,6 +53,8 @@ cloudformation:
             Queues:
               - !Ref MyQueue
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue_policy
   good:
     - |-
       resource "aws_sqs_queue_policy" "good_example" {

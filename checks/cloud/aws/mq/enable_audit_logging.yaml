@@ -16,6 +16,8 @@ cloudformation:
             Logs:
               Audit: false
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/mq_broker#audit
   good:
     - |-
       resource "aws_mq_broker" "good_example" {

@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://www.terraform.io/docs/providers/azure/r/storage_container.html#properties
   good:
     - |-
       resource "azurerm_storage_container" "good_example" {

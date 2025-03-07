@@ -19,13 +19,7 @@
 #         subtypes:
 #           - service: database
 #             provider: azure
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server#minimum_tls_version
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_server#ssl_minimal_tls_version_enforced
-#       - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_server#ssl_minimal_tls_version_enforced
-#     good_examples: checks/cloud/azure/database/secure_tls_policy.yaml
-#     bad_examples: checks/cloud/azure/database/secure_tls_policy.yaml
+#   examples: checks/cloud/azure/database/secure_tls_policy.yaml
 package builtin.azure.database.azure0026
 
 import rego.v1

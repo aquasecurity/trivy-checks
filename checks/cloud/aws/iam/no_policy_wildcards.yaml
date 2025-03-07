@@ -32,6 +32,8 @@ cloudformation:
               - cloudformation:Get*
             Resource: '*'
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document
   good:
     - |-
       resource "aws_iam_role_policy" "test_policy" {

@@ -23,11 +23,7 @@
 #         subtypes:
 #           - service: nas
 #             provider: nifcloud
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/nas_instance#network_id
-#     good_examples: checks/cloud/nifcloud/nas/no_common_private_nas_instance.yaml
-#     bad_examples: checks/cloud/nifcloud/nas/no_common_private_nas_instance.yaml
+#   examples: checks/cloud/nifcloud/nas/no_common_private_nas_instance.yaml
 package builtin.nifcloud.nas.nifcloud0013
 
 import rego.v1

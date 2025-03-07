@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: gke
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#resource_labels
-#     good_examples: checks/cloud/google/gke/use_cluster_labels.yaml
-#     bad_examples: checks/cloud/google/gke/use_cluster_labels.yaml
+#   examples: checks/cloud/google/gke/use_cluster_labels.yaml
 package builtin.google.gke.google0051
 
 import rego.v1

@@ -19,6 +19,9 @@ cloudformation:
               - CidrIp: 127.0.0.1/32
                 IpProtocol: "-1"
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule
   good:
     - |-
       resource "aws_security_group" "good_example" {

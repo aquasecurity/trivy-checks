@@ -15,6 +15,9 @@ cloudformation:
           Properties:
             EnablePerformanceInsights: true
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/rds_cluster_instance#performance_insights_kms_key_id
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance#performance_insights_kms_key_id
   good:
     - |-
       resource "aws_rds_cluster_instance" "good_example" {

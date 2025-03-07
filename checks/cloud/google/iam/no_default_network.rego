@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: iam
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project#auto_create_network
-#     good_examples: checks/cloud/google/iam/no_default_network.yaml
-#     bad_examples: checks/cloud/google/iam/no_default_network.yaml
+#   examples: checks/cloud/google/iam/no_default_network.yaml
 package builtin.google.iam.google0010
 
 import rego.v1

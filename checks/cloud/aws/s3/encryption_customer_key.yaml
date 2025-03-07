@@ -23,6 +23,8 @@ cloudformation:
                   ServerSideEncryptionByDefault:
                     SSEAlgorithm: AES256
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#enable-default-server-side-encryption
   good:
     - |-
       resource "aws_kms_key" "good_example" {

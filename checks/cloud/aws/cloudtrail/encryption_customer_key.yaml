@@ -1,4 +1,6 @@
 cloudformation:
+  links:
+    - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-kmskeyid
   good:
     - |-
       Resources:
@@ -23,6 +25,8 @@ cloudformation:
             S3KeyPrefix: /trailing
             TrailName: Cloudtrail
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail#kms_key_id
   good:
     - |-
       resource "aws_kms_key" "trail" {

@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset#special_group
   good:
     - |-
       resource "google_bigquery_dataset" "good_example" {

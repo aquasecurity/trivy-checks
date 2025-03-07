@@ -13,6 +13,9 @@ cloudformation:
           Type: AWS::RDS::DBInstance
           Properties: null
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/rds_cluster#backup_retention_period
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance#backup_retention_period
   good:
     - |-
       resource "aws_rds_cluster" "good_example" {

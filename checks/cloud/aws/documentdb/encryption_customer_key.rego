@@ -21,14 +21,7 @@
 #         subtypes:
 #           - service: documentdb
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/docdb_cluster#kms_key_id
-#     good_examples: checks/cloud/aws/documentdb/encryption_customer_key.yaml
-#     bad_examples: checks/cloud/aws/documentdb/encryption_customer_key.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/documentdb/encryption_customer_key.yaml
-#     bad_examples: checks/cloud/aws/documentdb/encryption_customer_key.yaml
+#   examples: checks/cloud/aws/documentdb/encryption_customer_key.yaml
 package builtin.aws.documentdb.aws0022
 
 import rego.v1

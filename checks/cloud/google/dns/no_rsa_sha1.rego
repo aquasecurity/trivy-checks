@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: dns
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dns_managed_zone#algorithm
-#     good_examples: checks/cloud/google/dns/no_rsa_sha1.yaml
-#     bad_examples: checks/cloud/google/dns/no_rsa_sha1.yaml
+#   examples: checks/cloud/google/dns/no_rsa_sha1.yaml
 package builtin.google.dns.google0012
 
 import rego.v1

@@ -22,6 +22,8 @@ cloudformation:
             S3KeyPrefix: /trailing
             TrailName: Cloudtrail
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail#is_multi_region_trail
   good:
     - |-
       resource "aws_cloudtrail" "good_example" {

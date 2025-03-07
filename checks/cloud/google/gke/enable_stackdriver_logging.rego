@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: gke
 #             provider: google
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#logging_service
-#     good_examples: checks/cloud/google/gke/enable_stackdriver_logging.yaml
-#     bad_examples: checks/cloud/google/gke/enable_stackdriver_logging.yaml
+#   examples: checks/cloud/google/gke/enable_stackdriver_logging.yaml
 package builtin.google.gke.google0060
 
 import rego.v1

@@ -1,4 +1,6 @@
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#network_policy
   good:
     - |-
       resource "azurerm_kubernetes_cluster" "good_example" {

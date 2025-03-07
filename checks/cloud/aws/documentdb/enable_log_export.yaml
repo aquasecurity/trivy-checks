@@ -42,6 +42,8 @@ cloudformation:
             DBInstanceIdentifier: sample-cluster-instance-0
             PreferredMaintenanceWindow: sat:06:54-sat:07:24
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/docdb_cluster#enabled_cloudwatch_logs_exports
   good:
     - |-
       resource "aws_docdb_cluster" "good_example" {

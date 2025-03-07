@@ -21,14 +21,7 @@
 #         subtypes:
 #           - service: elasticsearch
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain#encrypt_at_rest
-#     good_examples: checks/cloud/aws/elasticsearch/enable_domain_encryption.yaml
-#     bad_examples: checks/cloud/aws/elasticsearch/enable_domain_encryption.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/elasticsearch/enable_domain_encryption.yaml
-#     bad_examples: checks/cloud/aws/elasticsearch/enable_domain_encryption.yaml
+#   examples: checks/cloud/aws/elasticsearch/enable_domain_encryption.yaml
 package builtin.aws.elasticsearch.aws0048
 
 import rego.v1

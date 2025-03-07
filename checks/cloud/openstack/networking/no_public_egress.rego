@@ -19,11 +19,7 @@
 #         subtypes:
 #           - service: networking
 #             provider: openstack
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/terraform-provider-openstack/openstack/latest/docs/resources/networking_secgroup_rule_v2
-#     good_examples: checks/cloud/openstack/networking/no_public_egress.yaml
-#     bad_examples: checks/cloud/openstack/networking/no_public_egress.yaml
+#   examples: checks/cloud/openstack/networking/no_public_egress.yaml
 package builtin.openstack.networking.openstack0004
 
 import rego.v1

@@ -15,6 +15,8 @@ cloudformation:
             MapPublicIpOnLaunch: true
             VpcId: vpc-123456
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet#map_public_ip_on_launch
   good:
     - |-
       resource "aws_subnet" "good_example" {

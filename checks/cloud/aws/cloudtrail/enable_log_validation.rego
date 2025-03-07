@@ -21,14 +21,7 @@
 #         subtypes:
 #           - service: cloudtrail
 #             provider: aws
-#   terraform:
-#     links:
-#       - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail#enable_log_file_validation
-#     good_examples: checks/cloud/aws/cloudtrail/enable_log_validation.yaml
-#     bad_examples: checks/cloud/aws/cloudtrail/enable_log_validation.yaml
-#   cloud_formation:
-#     good_examples: checks/cloud/aws/cloudtrail/enable_log_validation.yaml
-#     bad_examples: checks/cloud/aws/cloudtrail/enable_log_validation.yaml
+#   examples: checks/cloud/aws/cloudtrail/enable_log_validation.yaml
 package builtin.aws.cloudtrail.aws0016
 
 import rego.v1

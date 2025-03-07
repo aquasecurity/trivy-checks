@@ -30,6 +30,8 @@ cloudformation:
                 - DomainName: https://some.domain
                   Id: somedomain1
 terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution#logging_config
   good:
     - |-
       resource "aws_cloudfront_distribution" "good_example" {
