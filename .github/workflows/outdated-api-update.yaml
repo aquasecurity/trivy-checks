@@ -1,20 +1,19 @@
-name: update outdated-api policy
+name: Update outdated API data
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
   schedule:
     - cron: "0 0 * * 0" # Sunday midnight
-permissions:
-  contents: write
 
 env:
   GO_VERSION: "1.23"
 
 jobs:
-  outdated:
+  update-outdated-api:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.AUTO_COMMIT_TOKEN }}
 
@@ -22,26 +21,14 @@ jobs:
         with:
           go-version: ${{ env.GO_VERSION }}
 
-      - name: Fetch outdated API data from trivy-db-data repo
-        id: outdatedapi
-        uses: fjogeleit/http-request-action@v1
-        with:
-          url: "https://raw.githubusercontent.com/aquasecurity/trivy-db-data/main/k8s/api/k8s-outdated-api.json"
-          method: "GET"
-      - name: embed outdatedapi-data with in dynamic rego policy
-        env:
-          OUTDATE_API_DATA: ${{ toJson(steps.outdatedapi.outputs.response) }}
-        run: |
-          make outdated-api-updated
+      - name: Update Outdated API Data
+        run: make update-outdated-api
 
-      - name: Setup OPA
-        uses: ./.github/actions/setup-opa
+      - name: Format Rego Files
+        run: make fmt-rego
 
-      - name: OPA Format
-        run: |
-          opa fmt -w . | grep -v vendor || true
-      - name: commit and push updated outdated-api policy when changes found
+      - name: Push Changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Update outdated-api policy data
+          commit_message: "Update outdated API data"
           push_options: --force
