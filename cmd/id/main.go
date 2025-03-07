@@ -2,46 +2,40 @@ package main
 
 import (
 	"fmt"
-	"os"
+	"log"
 	"sort"
 	"strconv"
 	"strings"
 
-	"github.com/aquasecurity/trivy/pkg/iac/framework"
-	"github.com/aquasecurity/trivy/pkg/iac/rego"
-	_ "github.com/aquasecurity/trivy/pkg/iac/rego"
-	"github.com/aquasecurity/trivy/pkg/iac/rules"
+	"github.com/aquasecurity/trivy-checks/internal/rego/metadata"
 )
 
 func main() {
+	if err := run(); err != nil {
+		log.Fatal(err.Error())
+	}
+}
 
-	rules.Reset()
-	rego.LoadAndRegister()
-	// organise existing rules by provider
-	keyMap := make(map[string][]string)
-	for _, rule := range rules.GetRegistered(framework.ALL) {
-		id := rule.GetRule().AVDID
-		if id == "" {
-			continue
-		}
-		parts := strings.Split(id, "-")
-		if len(parts) != 3 {
-			continue
-		}
-		keyMap[parts[1]] = append(keyMap[parts[1]], parts[2])
+func run() error {
+	checksMetadata, err := metadata.LoadChecksMetadata()
+	if err != nil {
+		return fmt.Errorf("load checks metadata: %w", err)
 	}
 
-	fmt.Print("\nThe following IDs are free - choose the one for the service you are targeting.\n\n")
+	keyMap := make(map[string][]string)
+
+	for _, meta := range checksMetadata {
+		avdid := meta["avd_id"].(string)
+		parts := strings.Split(avdid, "-")
+		keyMap[parts[1]] = append(keyMap[parts[1]], parts[2])
+	}
 
 	var freeIDs []string
 	for key := range keyMap {
 		sort.Strings(keyMap[key])
 		all := keyMap[key]
 		max := all[len(all)-1]
-		i, err := strconv.Atoi(max)
-		if err != nil {
-			_, _ = fmt.Fprintf(os.Stderr, "Error, invalid AVD ID: AVD-%s-%s\n", key, max)
-		}
+		i, _ := strconv.Atoi(max)
 		free := fmt.Sprintf("AVD-%s-%04d", key, i+1)
 		freeIDs = append(freeIDs, fmt.Sprintf("%16s: %s", key, free))
 	}
@@ -49,6 +43,8 @@ func main() {
 	sort.Slice(freeIDs, func(i, j int) bool {
 		return strings.TrimSpace(freeIDs[i]) < strings.TrimSpace(freeIDs[j])
 	})
-	fmt.Println(strings.Join(freeIDs, "\n"))
 
+	println("The following IDs are free - choose the one for the service you are targeting.")
+	println(strings.Join(freeIDs, "\n"))
+	return nil
 }
