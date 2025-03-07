@@ -7,7 +7,6 @@ import (
 	"github.com/open-policy-agent/opa/cmd"
 
 	"github.com/aquasecurity/trivy-checks/pkg/rego"
-	_ "github.com/aquasecurity/trivy/pkg/iac/rego" // register Built-in Functions from Trivy
 )
 
 func main() {
