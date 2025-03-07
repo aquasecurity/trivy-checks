@@ -20,28 +20,18 @@
 #     selector:
 #       - type: cloud
 #         subtypes:
-#           - service: ami
+#           - service: ec2
 #             provider: aws
-
-package builtin.aws.ami.aws0344
+package builtin.aws.ec2.aws0344
 
 import rego.v1
 
-import data.lib.cloud.metadata
-import data.lib.cloud.value
-
 deny contains res if {
-	ami := input.aws.ami
-
+	some ami in input.aws.ec2.amis
 	owners_not_specified(ami)
 	res := result.new("AWS AMI data source should specify owners to ensure AMIs come from trusted sources", ami)
 }
 
-owners_not_specified(ami) if {
-	not ami.owners
-}
+owners_not_specified(ami) if not ami.owners
 
-owners_not_specified(ami) if {
-	count(ami.owners) == 0
-}
-#
+owners_not_specified(ami) if count(ami.owners) == 0

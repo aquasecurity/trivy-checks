@@ -1806,6 +1806,8 @@ github.com/sigstore/sigstore/pkg/signature/kms/hashivault v1.8.12 h1:jvY1B9bjP+t
 github.com/sigstore/sigstore/pkg/signature/kms/hashivault v1.8.12/go.mod h1:2uEeOb8xE2RC6OvzxKux1wkS39Zv8gA27z92m49xUTc=
 github.com/sigstore/timestamp-authority v1.2.2 h1:X4qyutnCQqJ0apMewFyx+3t7Tws00JQ/JonBiu3QvLE=
 github.com/sigstore/timestamp-authority v1.2.2/go.mod h1:nEah4Eq4wpliDjlY342rXclGSO7Kb9hoRrl9tqLW13A=
+github.com/simar7/trivy v0.0.0-20250307090106-9bb8f1465b54 h1:ykmJK99TESOyQT7ktCE0k397p2TuI7Sdi0Uc5HILeTc=
+github.com/simar7/trivy v0.0.0-20250307090106-9bb8f1465b54/go.mod h1:Plu64UrkMgsP1gGyqdrWK3d1aJnCrdPknffHIcFRO3o=
 github.com/sirupsen/logrus v1.2.0/go.mod h1:LxeOpSwHxABJmUn/MG1IvRgCAasNZTLOkJPxbbu5VWo=
 github.com/sirupsen/logrus v1.7.0/go.mod h1:yWOB1SBYBC5VeMP7gHvWumXLIWorT60ONWic61uBYv0=
 github.com/sirupsen/logrus v1.8.1/go.mod h1:yWOB1SBYBC5VeMP7gHvWumXLIWorT60ONWic61uBYv0=

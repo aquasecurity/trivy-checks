@@ -438,4 +438,4 @@ require (
 // needed until the new name is used everywhere
 replace github.com/aquasecurity/trivy-policies v0.10.0 => github.com/aquasecurity/trivy-checks v0.10.2-0.20240417031955-932169bbd75f
 
-replace github.com/aquasecurity/trivy => /Users/simarpreetsingh/repos/trivy
+replace github.com/aquasecurity/trivy => github.com/simar7/trivy v0.0.0-20250307090106-9bb8f1465b54

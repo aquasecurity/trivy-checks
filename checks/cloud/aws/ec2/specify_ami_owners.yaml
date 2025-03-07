@@ -1,7 +1,7 @@
----
 terraform:
-  good_examples:
-    - data "aws_ami" "example" {
+  good_examples: 
+    - |-
+      data "aws_ami" "example" {
         most_recent = true
         owners      = ["099720109477"] # Canonical
 
@@ -11,7 +11,8 @@ terraform:
         }
       }
   bad_examples:
-    - data "aws_ami" "example" {
+    - |-
+      data "aws_ami" "example" {
         most_recent = true
 
         filter {
