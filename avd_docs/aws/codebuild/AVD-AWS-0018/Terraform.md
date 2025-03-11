@@ -3,34 +3,20 @@ Enable encryption for CodeBuild project artifacts
 
 ```hcl
 resource "aws_codebuild_project" "good_example" {
-  // other config
-
-  artifacts {
-    // other artifacts config
-
-    encryption_disabled = false
-  }
+  artifacts {}
 }
-
+```
+```hcl
 resource "aws_codebuild_project" "good_example" {
-  // other config
-
   artifacts {
-    // other artifacts config
-  }
-}
-
-resource "aws_codebuild_project" "codebuild" {
-  // other config
-
-  secondary_artifacts {
-    // other artifacts config
-
     encryption_disabled = false
   }
-
+}
+```
+```hcl
+resource "aws_codebuild_project" "codebuild" {
   secondary_artifacts {
-    // other artifacts config
+    encryption_disabled = false
   }
 }
 ```

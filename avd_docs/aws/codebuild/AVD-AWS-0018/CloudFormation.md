@@ -7,25 +7,11 @@ Resources:
     Type: AWS::CodeBuild::Project
     Properties:
       Artifacts:
-        ArtifactIdentifier: String
         EncryptionDisabled: false
-        Location: String
-        Name: String
-        NamespaceType: String
-        OverrideArtifactName: false
-        Packaging: String
-        Path: String
-        Type: String
       SecondaryArtifacts:
-        - ArtifactIdentifier: String
-          EncryptionDisabled: false
-          Location: String
-          Name: String
-          NamespaceType: String
-          OverrideArtifactName: false
-          Packaging: String
-          Path: String
-          Type: String
+        - EncryptionDisabled: false
 ```
 
+#### Remediation Links
+ - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html
 

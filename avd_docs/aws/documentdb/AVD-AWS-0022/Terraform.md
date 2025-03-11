@@ -7,14 +7,10 @@ resource "aws_kms_key" "docdb_encryption" {
 }
 
 resource "aws_docdb_cluster" "docdb" {
-  cluster_identifier      = "my-docdb-cluster"
-  engine                  = "docdb"
-  master_username         = "foo"
-  master_password         = "mustbeeightchars"
-  backup_retention_period = 5
-  preferred_backup_window = "07:00-09:00"
-  skip_final_snapshot     = true
-  kms_key_id              = aws_kms_key.docdb_encryption.arn
+  cluster_identifier = "my-docdb-cluster"
+  master_username    = "foo"
+  master_password    = "mustbeeightchars"
+  kms_key_id         = aws_kms_key.docdb_encryption.arn
 }
 ```
 
