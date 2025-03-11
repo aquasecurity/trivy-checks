@@ -1,4 +1,6 @@
 cloudformation:
+  links:
+    - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html
   good:
     - |-
       Resources:
@@ -6,25 +8,9 @@ cloudformation:
           Type: AWS::CodeBuild::Project
           Properties:
             Artifacts:
-              ArtifactIdentifier: String
               EncryptionDisabled: false
-              Location: String
-              Name: String
-              NamespaceType: String
-              OverrideArtifactName: false
-              Packaging: String
-              Path: String
-              Type: String
             SecondaryArtifacts:
-              - ArtifactIdentifier: String
-                EncryptionDisabled: false
-                Location: String
-                Name: String
-                NamespaceType: String
-                OverrideArtifactName: false
-                Packaging: String
-                Path: String
-                Type: String
+              - EncryptionDisabled: false
   bad:
     - |-
       Resources:
@@ -32,110 +18,50 @@ cloudformation:
           Type: AWS::CodeBuild::Project
           Properties:
             Artifacts:
-              ArtifactIdentifier: String
               EncryptionDisabled: true
-              Location: String
-              Name: String
-              NamespaceType: String
-              OverrideArtifactName: false
-              Packaging: String
-              Path: String
-              Type: String
             SecondaryArtifacts:
-              - ArtifactIdentifier: String
-                EncryptionDisabled: false
-                Location: String
-                Name: String
-                NamespaceType: String
-                OverrideArtifactName: false
-                Packaging: String
-                Path: String
-                Type: String
+              - EncryptionDisabled: false
     - |-
       Resources:
         GoodProject:
           Type: AWS::CodeBuild::Project
           Properties:
             Artifacts:
-              ArtifactIdentifier: String
               EncryptionDisabled: false
-              Location: String
-              Name: String
-              NamespaceType: String
-              OverrideArtifactName: false
-              Packaging: String
-              Path: String
-              Type: String
             SecondaryArtifacts:
-              - ArtifactIdentifier: String
-                EncryptionDisabled: true
-                Location: String
-                Name: String
-                NamespaceType: String
-                OverrideArtifactName: false
-                Packaging: String
-                Path: String
-                Type: String
+              - EncryptionDisabled: true
 terraform:
   links:
     - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/codebuild_project#encryption_disabled
   good:
     - |-
       resource "aws_codebuild_project" "good_example" {
-        // other config
-
-        artifacts {
-          // other artifacts config
-
-          encryption_disabled = false
-        }
+        artifacts {}
       }
-
+    - |-
       resource "aws_codebuild_project" "good_example" {
-        // other config
-
         artifacts {
-          // other artifacts config
-        }
-      }
-
-      resource "aws_codebuild_project" "codebuild" {
-        // other config
-
-        secondary_artifacts {
-          // other artifacts config
-
           encryption_disabled = false
         }
-
+      }
+    - |-
+      resource "aws_codebuild_project" "codebuild" {
         secondary_artifacts {
-          // other artifacts config
+          encryption_disabled = false
         }
       }
   bad:
     - |-
       resource "aws_codebuild_project" "bad_example" {
-        // other config
-
         artifacts {
-          // other artifacts config
-
           encryption_disabled = true
         }
       }
-
+    - |-
       resource "aws_codebuild_project" "bad_example" {
-        // other config including primary artifacts
+        artifacts {}
 
         secondary_artifacts {
-          // other artifacts config
-
-          encryption_disabled = false
-        }
-
-        secondary_artifacts {
-          // other artifacts config
-
           encryption_disabled = true
         }
       }
