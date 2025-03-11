@@ -3,22 +3,11 @@ Enable access logging on the bucket
 
 ```hcl
 resource "aws_cloudtrail" "good_example" {
-  is_multi_region_trail = true
-  s3_bucket_name        = "abcdefgh"
-
-  event_selector {
-    read_write_type           = "All"
-    include_management_events = true
-
-    data_resource {
-      type   = "AWS::S3::Object"
-      values = ["${data.aws_s3_bucket.important-bucket.arn}/"]
-    }
-  }
+  s3_bucket_name = aws_s3_bucket.example.id
 }
 
-resource "aws_s3_bucket" "good_example" {
-  bucket = "abcdefgh"
+resource "aws_s3_bucket" "example" {
+  bucket = "example"
   logging {
     target_bucket = "target-bucket"
   }
