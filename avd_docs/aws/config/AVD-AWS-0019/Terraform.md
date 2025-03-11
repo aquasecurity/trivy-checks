@@ -11,6 +11,16 @@ resource "aws_config_configuration_aggregator" "good_example" {
   }
 }
 ```
+```hcl
+resource "aws_config_configuration_aggregator" "good_example" {
+  name = "example"
+
+  organization_aggregation_source {
+    role_arn    = "arn:aws:iam::123456789012:user/JohnDoe"
+    all_regions = true
+  }
+}
+```
 
 #### Remediation Links
  - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_configuration_aggregator#all_regions
