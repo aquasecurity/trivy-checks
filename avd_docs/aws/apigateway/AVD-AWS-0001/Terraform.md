@@ -11,7 +11,8 @@ resource "aws_apigatewayv2_stage" "good_example" {
     format          = "json"
   }
 }
-
+```
+```hcl
 resource "aws_api_gateway_stage" "good_example" {
   deployment_id = aws_api_gateway_deployment.example.id
   rest_api_id   = aws_api_gateway_rest_api.example.id
