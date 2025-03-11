@@ -7,13 +7,13 @@ import data.lib.test
 
 test_deny_missing_owners if {
 	msg := "AWS AMI data source should specify owners to ensure AMIs come from trusted sources"
-	test.assert_equal_message(msg, check.deny) with input as {"aws": {"ec2": {"amis": [{}]}}}
+	test.assert_equal_message(msg, check.deny) with input as {"aws": {"ec2": {"requestedamis": [{}]}}}
 }
 
 test_allow_valid_owners if {
-	test.assert_empty(check.deny) with input as {"aws": {"ec2": {"amis": [{"owners": ["self"]}]}}}
+	test.assert_empty(check.deny) with input as {"aws": {"ec2": {"requestedamis": [{"owners": ["self"]}]}}}
 }
 
 test_allow_valid_multiple_owners if {
-	test.assert_empty(check.deny) with input as {"aws": {"ec2": {"amis": [{"owners": ["amazon", "self"]}]}}}
+	test.assert_empty(check.deny) with input as {"aws": {"ec2": {"requestedamis": [{"owners": ["amazon", "self"]}]}}}
 }
