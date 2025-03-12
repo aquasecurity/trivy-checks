@@ -1,9 +1,9 @@
 cloudformation:
+  links:
+    - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroup.html
   good:
     - |-
       AWSTemplateFormatVersion: "2010-09-09"
-
-      Description: Good example of egress rule
 
       Resources:
         BadSecurityGroup:
@@ -16,8 +16,6 @@ cloudformation:
   bad:
     - |-
       AWSTemplateFormatVersion: "2010-09-09"
-
-      Description: Bad example of egress rule
 
       Resources:
         BadSecurityGroup:
