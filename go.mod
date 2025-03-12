@@ -8,7 +8,7 @@ require (
 	github.com/aquasecurity/iamgo v0.0.10
 	github.com/aquasecurity/trivy v0.60.1-0.20250311032625-573502e2e83f
 	github.com/aws-cloudformation/rain v1.21.0
-	github.com/docker/docker v27.5.0+incompatible
+	github.com/docker/docker v27.5.1+incompatible
 	github.com/hashicorp/hcl/v2 v2.23.0
 	github.com/open-policy-agent/opa v1.2.0
 	github.com/owenrumney/squealer v1.2.11
@@ -18,7 +18,7 @@ require (
 	github.com/testcontainers/testcontainers-go v0.35.0
 	github.com/testcontainers/testcontainers-go/modules/registry v0.35.0
 	gopkg.in/yaml.v3 v3.0.1
-	mvdan.cc/sh/v3 v3.10.0
+	mvdan.cc/sh/v3 v3.11.0
 )
 
 require (
