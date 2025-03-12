@@ -3,9 +3,7 @@ Enable ECR image scanning
 
 ```hcl
 resource "aws_ecr_repository" "good_example" {
-  name                 = "bar"
-  image_tag_mutability = "MUTABLE"
-
+  name = "bar"
   image_scanning_configuration {
     scan_on_push = true
   }

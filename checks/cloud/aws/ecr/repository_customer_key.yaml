@@ -1,4 +1,6 @@
 cloudformation:
+  links:
+    - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
   good:
     - |-
       Resources:
@@ -8,9 +10,6 @@ cloudformation:
             EncryptionConfiguration:
               EncryptionType: KMS
               KmsKey: alias/ecr-key
-            ImageScanningConfiguration:
-              ScanOnPush: false
-            ImageTagImmutability: IMMUTABLE
             RepositoryName: test-repository
   bad:
     - |-
@@ -18,8 +17,6 @@ cloudformation:
         BadExample:
           Type: AWS::ECR::Repository
           Properties:
-            ImageScanningConfiguration:
-              ScanOnPush: false
             RepositoryName: test-repository
 terraform:
   links:
@@ -31,13 +28,7 @@ terraform:
       }
 
       resource "aws_ecr_repository" "good_example" {
-        name                 = "bar"
-        image_tag_mutability = "MUTABLE"
-
-        image_scanning_configuration {
-          scan_on_push = true
-        }
-
+        name = "bar"
         encryption_configuration {
           encryption_type = "KMS"
           kms_key         = aws_kms_key.ecr_kms.key_id
@@ -46,10 +37,12 @@ terraform:
   bad:
     - |-
       resource "aws_ecr_repository" "bad_example" {
-        name                 = "bar"
-        image_tag_mutability = "MUTABLE"
-
-        image_scanning_configuration {
-          scan_on_push = true
+        name = "bar"
+      }
+    - |-
+      resource "aws_ecr_repository" "bad_example" {
+        name = "bar"
+        encryption_configuration {
+          encryption_type = "KMS"
         }
       }

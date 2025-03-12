@@ -7,13 +7,7 @@ resource "aws_kms_key" "ecr_kms" {
 }
 
 resource "aws_ecr_repository" "good_example" {
-  name                 = "bar"
-  image_tag_mutability = "MUTABLE"
-
-  image_scanning_configuration {
-    scan_on_push = true
-  }
-
+  name = "bar"
   encryption_configuration {
     encryption_type = "KMS"
     kms_key         = aws_kms_key.ecr_kms.key_id
