@@ -140,6 +140,8 @@ func pushBundle(t *testing.T, ctx context.Context, path string, image string) {
 	require.NoError(t, c.Terminate(ctx))
 }
 
+// TODO: AVD-AWS-0344 check is excluded because its input does not match the scheme of older versions of Trivy.
+// Remove it for the latest version after this issue is resolved.
 var excludedChecks = map[string][]string{
 	// Excluded for all versions, as these checks are only for documentation and lack implementation.
 	"": {
@@ -151,6 +153,13 @@ var excludedChecks = map[string][]string{
 	"0.57.1": {
 		// After version 0.57.1, the bug with the field type was fixed and the example was updated. See: https://github.com/aquasecurity/trivy/pull/7995
 		"AVD-AWS-0036",
+		"AVD-AWS-0344",
+	},
+	"0.58.1": {
+		"AVD-AWS-0344",
+	},
+	"latest": {
+		"AVD-AWS-0344",
 	},
 }
 
