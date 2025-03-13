@@ -1,7 +1,51 @@
+cloudformation:
+  links:
+    - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html
+  good:
+    - |-
+      Resources:
+        EKSCluster:
+          Type: AWS::EKS::Cluster
+          Properties:
+            ResourcesVpcConfig:
+              EndpointPublicAccess: false
+              PublicAccessCidrs:
+                - 10.2.0.0/8
+  bad:
+    - |-
+      Resources:
+        EKSCluster:
+          Type: AWS::EKS::Cluster
+          Properties:
+            ResourcesVpcConfig:
+              EndpointPublicAccess: true
+              PublicAccessCidrs:
+                - 0.0.0.0/0
 terraform:
   links:
     - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster#vpc_config
   good:
-    - "resource \"aws_eks_cluster\" \"good_example\" {\n  // other config \n\n  name     = \"good_example_cluster\"\n  role_arn = var.cluster_arn\n  vpc_config {\n    endpoint_public_access = true\n    public_access_cidrs    = [\"10.2.0.0/8\"]\n  }\n}"
+    - |-
+      resource "aws_eks_cluster" "good_example" {
+        name = "good_example_cluster"
+        vpc_config {
+          endpoint_public_access = false
+          public_access_cidrs    = ["0.0.0.0/0"]
+        }
+      }
+    - |-
+      resource "aws_eks_cluster" "good_example" {
+        name = "good_example_cluster"
+        vpc_config {
+          endpoint_public_access = true
+          public_access_cidrs    = ["10.2.0.0/8"]
+        }
+      }
   bad:
-    - "resource \"aws_eks_cluster\" \"bad_example\" {\n  // other config \n\n  name     = \"bad_example_cluster\"\n  role_arn = var.cluster_arn\n  vpc_config {\n    endpoint_public_access = true\n  }\n}"
+    - |-
+      resource "aws_eks_cluster" "bad_example" {
+        name = "bad_example_cluster"
+        vpc_config {
+          endpoint_public_access = true
+        }
+      }
