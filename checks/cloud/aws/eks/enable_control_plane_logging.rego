@@ -28,47 +28,20 @@ import rego.v1
 
 import data.lib.cloud.metadata
 
-deny contains res if {
-	some cluster in input.aws.eks.clusters
-	not cluster.logging.api.value
-	res := result.new(
-		"Control plane API logging is not enabled.",
-		metadata.obj_by_path(cluster, ["logging", "api"]),
-	)
+loggins_types := {
+	"api": "API",
+	"audit": "audit",
+	"authenticator": "authenticator",
+	"controllermanager": "controller manager",
+	"scheduler": "scheduler",
 }
 
 deny contains res if {
 	some cluster in input.aws.eks.clusters
-	not cluster.logging.audit.value
+	some logging_type, display_name in loggins_types
+	not cluster.logging[logging_type].value
 	res := result.new(
-		"Control plane audit logging is not enabled.",
-		metadata.obj_by_path(cluster, ["logging", "audit"]),
-	)
-}
-
-deny contains res if {
-	some cluster in input.aws.eks.clusters
-	not cluster.logging.authenticator.value
-	res := result.new(
-		"Control plane authenticator logging is not enabled.",
-		metadata.obj_by_path(cluster, ["logging", "authenticator"]),
-	)
-}
-
-deny contains res if {
-	some cluster in input.aws.eks.clusters
-	not cluster.logging.controllermanager.value
-	res := result.new(
-		"Control plane controller manager logging is not enabled.",
-		metadata.obj_by_path(cluster, ["logging", "controllermanager"]),
-	)
-}
-
-deny contains res if {
-	some cluster in input.aws.eks.clusters
-	not cluster.logging.scheduler.value
-	res := result.new(
-		"Control plane scheduler logging is not enabled.",
-		metadata.obj_by_path(cluster, ["logging", "scheduler"]),
+		sprintf("Control plane %s logging is not enabled.", [display_name]),
+		metadata.obj_by_path(cluster, ["logging", logging_type]),
 	)
 }
