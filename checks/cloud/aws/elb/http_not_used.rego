@@ -29,6 +29,7 @@ import rego.v1
 
 deny contains res if {
 	some lb in input.aws.elb.loadbalancers
+	isManaged(lb)
 	lb.type.value == "application"
 
 	some listener in lb.listeners
