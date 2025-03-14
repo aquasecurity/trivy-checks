@@ -24,7 +24,7 @@ import (
 
 	"github.com/aquasecurity/trivy-checks/integration/testcontainer"
 	"github.com/aquasecurity/trivy-checks/internal/examples"
-	"github.com/aquasecurity/trivy-checks/internal/rego/metadata"
+	"github.com/aquasecurity/trivy-checks/pkg/rego/metadata"
 	"github.com/aquasecurity/trivy/pkg/types"
 )
 
@@ -166,7 +166,7 @@ var excludedChecks = map[string][]string{
 func setupTarget(t *testing.T, targetDir string) {
 	t.Helper()
 
-	checksMetadata, err := metadata.LoadChecksMetadata()
+	checksMetadata, err := metadata.LoadDefaultChecksMetadata()
 	require.NoError(t, err)
 
 	for _, meta := range checksMetadata {

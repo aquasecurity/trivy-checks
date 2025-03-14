@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/aquasecurity/trivy-checks/internal/rego/metadata"
+	"github.com/aquasecurity/trivy-checks/pkg/rego/metadata"
 )
 
 func main() {
@@ -17,7 +17,7 @@ func main() {
 }
 
 func run() error {
-	checksMetadata, err := metadata.LoadChecksMetadata()
+	checksMetadata, err := metadata.LoadDefaultChecksMetadata()
 	if err != nil {
 		return fmt.Errorf("load checks metadata: %w", err)
 	}

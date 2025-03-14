@@ -11,9 +11,13 @@ import (
 	"github.com/samber/lo"
 )
 
-func LoadChecksMetadata() (map[string]Metadata, error) {
+func LoadDefaultChecksMetadata() (map[string]Metadata, error) {
+	return LoadChecksMetadata(trivy_checks.EmbeddedPolicyFileSystem)
+}
+
+func LoadChecksMetadata(fsys fs.FS) (map[string]Metadata, error) {
 	res, err := loader.NewFileLoader().
-		WithFS(trivy_checks.EmbeddedPolicyFileSystem).
+		WithFS(fsys).
 		WithProcessAnnotation(true).
 		Filtered([]string{"."}, func(abspath string, info fs.FileInfo, depth int) bool {
 			return isNotRegoFile(info)

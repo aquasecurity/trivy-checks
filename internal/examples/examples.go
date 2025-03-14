@@ -9,7 +9,7 @@ import (
 	"gopkg.in/yaml.v3"
 
 	trivy_checks "github.com/aquasecurity/trivy-checks"
-	"github.com/aquasecurity/trivy-checks/internal/rego/metadata"
+	"github.com/aquasecurity/trivy-checks/pkg/rego/metadata"
 )
 
 func GetCheckExamples(meta metadata.Metadata) (CheckExamples, string, error) {

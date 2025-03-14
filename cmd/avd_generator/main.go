@@ -8,7 +8,7 @@ import (
 	"text/template"
 
 	"github.com/aquasecurity/trivy-checks/internal/examples"
-	"github.com/aquasecurity/trivy-checks/internal/rego/metadata"
+	"github.com/aquasecurity/trivy-checks/pkg/rego/metadata"
 )
 
 const docsDir = "avd_docs"
@@ -23,7 +23,7 @@ func main() {
 func generateDocs(path string) {
 	var generateCount int
 
-	checksMetadata, err := metadata.LoadChecksMetadata()
+	checksMetadata, err := metadata.LoadDefaultChecksMetadata()
 	if err != nil {
 		panic(err)
 	}
