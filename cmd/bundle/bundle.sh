@@ -2,7 +2,6 @@
 
 rm -rf bundle || true
 rm bundle.tar.gz || true
-RELEASE_VERSION=${GITHUB_REF/refs\/tags\/v/}
 
 for dir in kubernetes cloud docker; do
     mkdir -p bundle/policies/$dir/policies
@@ -30,8 +29,5 @@ done
 mkdir -p bundle/specs/compliance
 rsync -avr pkg/specs/compliance bundle/specs
 
-cp checks/.manifest bundle/
-rm bundle/policies/.manifest
-sed -i -e "s/\[GITHUB_SHA\]/${RELEASE_VERSION}/" bundle/.manifest
 tar -C bundle -czvf bundle.tar.gz .
 rm -rf bundle

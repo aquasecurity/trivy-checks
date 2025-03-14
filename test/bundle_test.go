@@ -4,7 +4,6 @@ import (
 	"archive/tar"
 	"bytes"
 	"compress/gzip"
-	"encoding/json"
 	"errors"
 	"io"
 	"os"
@@ -18,12 +17,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-type manifest struct {
-	Revision string   `json:"revision"`
-	Roots    []string `json:"roots"`
-}
-
-func Test_ManifestValidity(t *testing.T) {
+func Test_BundleValidity(t *testing.T) {
 	if runtime.GOOS == "windows" {
 		t.Skip("Skipping on windows as it doesn't build a bundle on Windows anyway")
 	}
@@ -34,16 +28,6 @@ func Test_ManifestValidity(t *testing.T) {
 		_ = os.RemoveAll("../bundle")
 		_ = os.Remove("../bundle.tar.gz")
 	}()
-
-	f, err := os.Open("../checks/.manifest")
-	require.NoError(t, err)
-
-	var m manifest
-	require.NoError(t, json.NewDecoder(f).Decode(&m))
-
-	require.Equal(t, "[GITHUB_SHA]", m.Revision)
-	require.Len(t, m.Roots, 1)
-	require.Equal(t, "", m.Roots[0])
 
 	cmd := exec.Command("cmd/bundle/bundle.sh")
 	cmd.Env = append(os.Environ(), "GITHUB_REF=refs/tags/v1.2.3")
@@ -81,15 +65,6 @@ func Test_ManifestValidity(t *testing.T) {
 			t.Fatalf("unknown type in %s: 0x%X", header.Name, header.Typeflag)
 		}
 	}
-
-	mf, err := fsys.Open(".manifest")
-	require.NoError(t, err)
-
-	var m2 manifest
-	require.NoError(t, json.NewDecoder(mf).Decode(&m2))
-	assert.Equal(t, "1.2.3", m2.Revision)
-	assert.Len(t, m2.Roots, 1)
-	assert.Equal(t, "", m2.Roots[0])
 
 	policies, err := fsys.ReadDir("policies")
 	require.NoError(t, err)
