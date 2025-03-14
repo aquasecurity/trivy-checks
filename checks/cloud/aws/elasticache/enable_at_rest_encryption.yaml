@@ -1,3 +1,20 @@
+cloudformation:
+  links:
+    - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::ElastiCache::ReplicationGroup
+          Properties:
+            AtRestEncryptionEnabled: true
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::ElastiCache::ReplicationGroup
+          Properties:
+            AtRestEncryptionEnabled: false
 terraform:
   links:
     - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_replication_group#at_rest_encryption_enabled
