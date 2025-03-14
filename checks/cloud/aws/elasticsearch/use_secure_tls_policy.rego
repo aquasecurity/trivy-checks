@@ -37,4 +37,9 @@ deny contains res if {
 	)
 }
 
-is_tls_policy_secure(domain) if domain.endpoint.tlspolicy.value == "Policy-Min-TLS-1-2-2019-07"
+recommended_tls_policies := {
+	"Policy-Min-TLS-1-2-2019-07",
+	"Policy-Min-TLS-1-2-PFS-2023-10",
+}
+
+is_tls_policy_secure(domain) if domain.endpoint.tlspolicy.value in recommended_tls_policies
