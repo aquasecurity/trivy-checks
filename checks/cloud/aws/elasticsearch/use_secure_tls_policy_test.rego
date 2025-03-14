@@ -11,6 +11,12 @@ test_allow_use_secure_tls_policy if {
 	test.assert_empty(check.deny) with input as inp
 }
 
+test_allow_use_secure_tls_policy_2 if {
+	inp := {"aws": {"elasticsearch": {"domains": [{"endpoint": {"tlspolicy": {"value": "Policy-Min-TLS-1-2-PFS-2023-10"}}}]}}}
+
+	test.assert_empty(check.deny) with input as inp
+}
+
 test_deny_does_not_use_secure_tls_policy if {
 	inp := {"aws": {"elasticsearch": {"domains": [{"endpoint": {"tlspolicy": {"value": "Policy-Min-TLS-1-0-2019-07"}}}]}}}
 
