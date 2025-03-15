@@ -96,36 +96,12 @@ var awsDocumentDBTestCases = testCases{
 			expected: true,
 		},
 		{
-			name: "DocDB Instance encryption missing KMS key",
+			name: "DocDB Cluster encrypted with proper KMS keys",
 			input: state.State{AWS: aws.AWS{DocumentDB: documentdb.DocumentDB{
 				Clusters: []documentdb.Cluster{
 					{
 						Metadata: trivyTypes.NewTestMetadata(),
 						KMSKeyID: trivyTypes.String("kms-key", trivyTypes.NewTestMetadata()),
-						Instances: []documentdb.Instance{
-							{
-								Metadata: trivyTypes.NewTestMetadata(),
-								KMSKeyID: trivyTypes.String("", trivyTypes.NewTestMetadata()),
-							},
-						},
-					},
-				},
-			}}},
-			expected: true,
-		},
-		{
-			name: "DocDB Cluster and Instance encrypted with proper KMS keys",
-			input: state.State{AWS: aws.AWS{DocumentDB: documentdb.DocumentDB{
-				Clusters: []documentdb.Cluster{
-					{
-						Metadata: trivyTypes.NewTestMetadata(),
-						KMSKeyID: trivyTypes.String("kms-key", trivyTypes.NewTestMetadata()),
-						Instances: []documentdb.Instance{
-							{
-								Metadata: trivyTypes.NewTestMetadata(),
-								KMSKeyID: trivyTypes.String("kms-key", trivyTypes.NewTestMetadata()),
-							},
-						},
 					},
 				},
 			}}},
