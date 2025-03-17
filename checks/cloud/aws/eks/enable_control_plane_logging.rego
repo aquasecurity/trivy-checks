@@ -28,7 +28,7 @@ import rego.v1
 
 import data.lib.cloud.metadata
 
-loggins_types := {
+logging_types := {
 	"api": "API",
 	"audit": "audit",
 	"authenticator": "authenticator",
@@ -38,7 +38,7 @@ loggins_types := {
 
 deny contains res if {
 	some cluster in input.aws.eks.clusters
-	some logging_type, display_name in loggins_types
+	some logging_type, display_name in logging_types
 	not cluster.logging[logging_type].value
 	res := result.new(
 		sprintf("Control plane %s logging is not enabled.", [display_name]),
