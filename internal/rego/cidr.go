@@ -3,11 +3,12 @@ package rego
 import (
 	"fmt"
 
-	"github.com/aquasecurity/trivy-checks/internal/cidr"
 	"github.com/open-policy-agent/opa/v1/ast"
 	"github.com/open-policy-agent/opa/v1/rego"
 	"github.com/open-policy-agent/opa/v1/topdown/builtins"
 	"github.com/open-policy-agent/opa/v1/types"
+
+	"github.com/aquasecurity/trivy-checks/internal/cidr"
 )
 
 var CidrCountAdressesDecl = &rego.Function{
