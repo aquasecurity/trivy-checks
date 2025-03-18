@@ -30,7 +30,11 @@ import data.lib.cloud.value
 
 deny contains res if {
 	some cluster in input.aws.elasticache.clusters
+
+	# snapshot_retention_limit is supported for redis only
 	cluster.engine.value == "redis"
+
+	# snapshot_retention_limit is not supported on cache.t1.micro cache nodes
 	value.is_not_equal(cluster.nodetype, "cache.t1.micro")
 	value.is_equal(cluster.snapshotretentionlimit, 0)
 	res := result.new("Cluster snapshot retention is not enabled.", cluster.snapshotretentionlimit)

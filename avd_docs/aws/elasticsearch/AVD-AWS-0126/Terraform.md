@@ -3,8 +3,6 @@ Use the most modern TLS/SSL policies available
 
 ```hcl
 resource "aws_elasticsearch_domain" "good_example" {
-  domain_name = "domain-foo"
-
   domain_endpoint_options {
     enforce_https       = true
     tls_security_policy = "Policy-Min-TLS-1-2-2019-07"

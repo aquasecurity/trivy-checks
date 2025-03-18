@@ -1,13 +1,44 @@
+cloudformation:
+  links:
+    - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html
+  good:
+    - |-
+      Resources:
+        myLoadBalancer:
+          Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+
+        GoodExample:
+          Type: AWS::ElasticLoadBalancingV2::Listener
+          Properties:
+            LoadBalancerArn: !Ref myLoadBalancer
+            Protocol: HTTPS
+  bad:
+    - |-
+      Resources:
+        myLoadBalancer:
+          Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+
+        BadExample:
+          Type: AWS::ElasticLoadBalancingV2::Listener
+          Properties:
+            LoadBalancerArn: !Ref myLoadBalancer
+            Protocol: HTTP
 terraform:
   links:
     - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_listener
   good:
     - |-
+      resource "aws_lb" "example" {}
+
       resource "aws_alb_listener" "good_example" {
-        protocol = "HTTPS"
+        load_balancer_arn = aws_lb.example.arn
+        protocol          = "HTTPS"
       }
   bad:
     - |-
+      resource "aws_lb" "example" {}
+
       resource "aws_alb_listener" "bad_example" {
-        protocol = "HTTP"
+        load_balancer_arn = aws_lb.example.arn
+        protocol          = "HTTP"
       }
