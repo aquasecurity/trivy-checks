@@ -29,12 +29,11 @@ allows_permission(statements, permission, effect) if {
 	action == permission
 }
 
-
 deny contains res if {
-    policy := input.aws.iam.policies[_]
-    value = json.unmarshal(policy.document.value)
-    statements = value.Statement
-    not allows_permission(statements, "s3:*", "Deny")
-    allows_permission(statements, "s3:*", "Allow")
-    res = result.new("IAM policy allows 's3:*' action", policy.document)
+	policy := input.aws.iam.policies[_]
+	value = json.unmarshal(policy.document.value)
+	statements = value.Statement
+	not allows_permission(statements, "s3:*", "Deny")
+	allows_permission(statements, "s3:*", "Allow")
+	res = result.new("IAM policy allows 's3:*' action", policy.document)
 }
