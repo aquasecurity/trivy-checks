@@ -1,6 +1,6 @@
 # METADATA
-# title: "Disallow AmazonS3FullAccess Policy"
-# description: "Ensures that the creation of the IAM policy 's3:*' is disallowed."
+# title: "Disallow unrestricted s3:* IAM Policies"
+# description: "Ensure that the creation of the IAM policy 's3:*' is disallowed."
 # scope: package
 # schemas:
 # - input: schema["cloud"]
@@ -29,11 +29,22 @@ allows_permission(statements, permission, effect) if {
 	action == permission
 }
 
-deny contains res if {
-	policy := input.aws.iam.policies[_]
-	value = json.unmarshal(policy.document.value)
-	statements = value.Statement
+is_s3_full_access_allowed(document) if {
+	value := json.unmarshal(document)
+	statements := value.Statement
 	not allows_permission(statements, "s3:*", "Deny")
 	allows_permission(statements, "s3:*", "Allow")
+}
+
+deny contains res if {
+	policy := input.aws.iam.policies[_]
+	value = is_s3_full_access_allowed(policy.document.value)
 	res = result.new("IAM policy allows 's3:*' action", policy.document)
+}
+
+deny contains res if {
+	role := input.aws.iam.roles[_]
+	policy := role.policies[_]
+	value = is_s3_full_access_allowed(policy.document.value)
+	res = result.new("IAM role uses a policy that allows 's3:*' action", role)
 }
