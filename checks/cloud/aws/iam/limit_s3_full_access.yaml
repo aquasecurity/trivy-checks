@@ -1,9 +1,70 @@
+cloudformation:
+  good:
+    - |-
+      AWSTemplateFormatVersion: "2010-09-09"
+
+      Resources:
+        GoodPolicy:
+          Type: AWS::IAM::Policy
+          Properties:
+            PolicyName: good_policy
+            PolicyDocument:
+              Version: "2012-10-17"
+              Statement:
+                - Effect: Allow
+                  Action:
+                    - s3:GetObject
+                    - s3:PutObject
+                  Resource: arn:aws:s3:::examplebucket/*
+            Roles:
+              - !Ref GoodRole
+
+        GoodRole:
+          Type: AWS::IAM::Role
+          Properties:
+            RoleName: good_role
+            AssumeRolePolicyDocument:
+              Version: "2012-10-17"
+              Statement:
+                - Effect: Allow
+                  Principal:
+                    Service: ec2.amazonaws.com
+                  Action: sts:AssumeRole
+  bad:
+    - |-
+      AWSTemplateFormatVersion: "2010-09-09"
+
+      Resources:
+        BadPolicy:
+          Type: AWS::IAM::Policy
+          Properties:
+            PolicyName: bad_policy
+            PolicyDocument:
+              Version: "2012-10-17"
+              Statement:
+                - Effect: Allow
+                  Action: s3:*
+                  Resource: '*'
+            Roles:
+              - !Ref BadRole
+
+        BadRole:
+          Type: AWS::IAM::Role
+          Properties:
+            RoleName: bad_role
+            AssumeRolePolicyDocument:
+              Version: "2012-10-17"
+              Statement:
+                - Effect: Allow
+                  Principal:
+                    Service: ec2.amazonaws.com
+                  Action: sts:AssumeRole
 terraform:
   good:
     - |-
       resource "aws_iam_policy" "good_policy" {
-        name        = "good_policy"
-        policy      = jsonencode({
+        name = "good_policy"
+        policy = jsonencode({
           Version = "2012-10-17"
           Statement = [
             {
@@ -41,13 +102,13 @@ terraform:
   bad:
     - |-
       resource "aws_iam_policy" "bad_policy" {
-        name        = "bad_policy"
-        policy      = jsonencode({
+        name = "bad_policy"
+        policy = jsonencode({
           Version = "2012-10-17"
           Statement = [
             {
-              Effect = "Allow"
-              Action = "s3:*"
+              Effect   = "Allow"
+              Action   = "s3:*"
               Resource = "*"
             }
           ]
@@ -74,64 +135,3 @@ terraform:
         role       = aws_iam_role.bad_role.name
         policy_arn = aws_iam_policy.bad_policy.arn
       }
-
-cloudformation:
-  good:
-    - |-
-      AWSTemplateFormatVersion: '2010-09-09'
-      Resources:
-        GoodPolicy:
-          Type: 'AWS::IAM::Policy'
-          Properties:
-            PolicyName: good_policy
-            PolicyDocument:
-              Version: '2012-10-17'
-              Statement:
-                - Effect: Allow
-                  Action:
-                    - 's3:GetObject'
-                    - 's3:PutObject'
-                  Resource: 'arn:aws:s3:::examplebucket/*'
-            Roles:
-              - !Ref GoodRole
-
-        GoodRole:
-          Type: 'AWS::IAM::Role'
-          Properties:
-            RoleName: good_role
-            AssumeRolePolicyDocument:
-              Version: '2012-10-17'
-              Statement:
-                - Effect: Allow
-                  Principal:
-                    Service: 'ec2.amazonaws.com'
-                  Action: 'sts:AssumeRole'
-
-  bad:
-    - |-
-      AWSTemplateFormatVersion: '2010-09-09'
-      Resources:
-        BadPolicy:
-          Type: 'AWS::IAM::Policy'
-          Properties:
-            PolicyName: bad_policy
-            PolicyDocument:
-              Version: '2012-10-17'
-              Statement:
-                - Effect: Allow
-                  Action: 's3:*'
-                  Resource: '*'
-            Roles:
-              - !Ref BadRole
-
-        BadRole:
-          Type: 'AWS::IAM::Role'
-          Properties:
-            RoleName: bad_role
-            AssumeRolePolicyDocument:
-              Version: '2012-10-17'
-              Statement:
-                - Effect: Allow
-                  Principal:
-                    Service: 'ec2.amazonaws.com'
-                  Action: 'sts:AssumeRole'
