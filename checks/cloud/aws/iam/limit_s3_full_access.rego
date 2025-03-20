@@ -18,6 +18,7 @@
 #       subtypes:
 #         - service: iam
 #           provider: aws
+#   examples: checks/cloud/aws/iam/limit_s3_full_access.yaml
 package builtin.aws.iam.aws0345
 
 import rego.v1
