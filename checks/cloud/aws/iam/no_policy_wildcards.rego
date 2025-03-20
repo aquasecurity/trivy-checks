@@ -29,5 +29,3 @@
 #             provider: aws
 #   examples: checks/cloud/aws/iam/no_policy_wildcards.yaml
 package builtin.aws.iam.aws0057
-
-# TODO(simar7): This checks seems to have lost its flesh during the transition.
