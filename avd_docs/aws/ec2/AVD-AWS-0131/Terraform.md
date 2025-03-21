@@ -11,11 +11,8 @@ resource "aws_instance" "good_example" {
   }
 
   ebs_block_device {
-    device_name           = "/dev/sdg"
-    volume_size           = 5
-    volume_type           = "gp2"
-    delete_on_termination = false
-    encrypted             = true
+    device_name = "/dev/sdg"
+    encrypted   = true
   }
 }
 ```

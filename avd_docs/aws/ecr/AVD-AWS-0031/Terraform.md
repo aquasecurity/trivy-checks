@@ -5,10 +5,6 @@ Only use immutable images in ECR
 resource "aws_ecr_repository" "good_example" {
   name                 = "bar"
   image_tag_mutability = "IMMUTABLE"
-
-  image_scanning_configuration {
-    scan_on_push = true
-  }
 }
 ```
 

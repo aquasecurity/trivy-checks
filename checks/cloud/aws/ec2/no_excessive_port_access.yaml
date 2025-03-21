@@ -3,8 +3,6 @@ cloudformation:
     - |-
       AWSTemplateFormatVersion: "2010-09-09"
 
-      Description: Good example of excessive ports
-
       Resources:
         NetworkACL:
           Type: AWS::EC2::NetworkAcl
@@ -22,8 +20,6 @@ cloudformation:
   bad:
     - |-
       AWSTemplateFormatVersion: "2010-09-09"
-
-      Description: Bad example of excessive ports
 
       Resources:
         NetworkACL:
