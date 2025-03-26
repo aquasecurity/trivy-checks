@@ -13,12 +13,6 @@ resource "aws_eks_cluster" "good_example" {
       key_arn = aws_kms_key.eks.arn
     }
   }
-
-  name     = "good_example_cluster"
-  role_arn = var.cluster_arn
-  vpc_config {
-    endpoint_public_access = false
-  }
 }
 ```
 
