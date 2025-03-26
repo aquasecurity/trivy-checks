@@ -36,19 +36,15 @@ regex_patterns := {
 	"cn": "CN=.*[\\r\\n#{};|].*",
 }
 
-suspicious_annotation := {[key, value] |
+suspicious_annotation := {key |
 	lower(input.kind) == "ingress"
 	kubernetes.has_field(input.spec, "ingressClassName")
 	lower(input.spec.ingressClassName) == "nginx"
 	key := annotation_keys[_]
-	value := input.metadata.annotations[key]
-	regex.match(regex_patterns[_], value)
+	regex.match(regex_patterns[_], input.metadata.annotations[key])
 }
 
 deny contains res if {
-	[key, value] := suspicious_annotation[_]
-	res := result.new(
-		sprintf("Pod has a %s annotation containing suspicious characters", [key]),
-		[value],
-	)
+	key := suspicious_annotation[_]
+	res := result.new(sprintf("Pod has a %s annotation containing suspicious characters", [key]), input.metadata)
 }
