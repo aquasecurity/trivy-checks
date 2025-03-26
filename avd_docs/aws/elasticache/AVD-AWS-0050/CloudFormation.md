@@ -6,15 +6,24 @@ Resources:
   GoodExample:
     Type: AWS::ElastiCache::CacheCluster
     Properties:
-      AZMode: cross-az
       CacheNodeType: cache.m3.medium
       Engine: redis
-      NumCacheNodes: "3"
-      PreferredAvailabilityZones:
-        - us-west-2a
-        - us-west-2a
-        - us-west-2b
       SnapshotRetentionLimit: 7
+```
+```yaml
+Resources:
+  GoodExample:
+    Type: AWS::ElastiCache::CacheCluster
+    Properties:
+      Engine: redis
+      CacheNodeType: cache.t1.micro
+```
+```yaml
+Resources:
+  GoodExample:
+    Type: AWS::ElastiCache::CacheCluster
+    Properties:
+      Engine: memcached
 ```
 
 
