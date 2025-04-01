@@ -53,7 +53,7 @@ test_use_limit_range_no_limits if {
 		"spec": {},
 	}
 
-	r[_].msg == "limit range policy with a default request and limit, min and max request, for each container should be configure"
+	r[_].msg == "A LimitRange policy with a default requests and limits for each container should be configured"
 }
 
 test_use_limit_range_no_min if {
@@ -88,7 +88,7 @@ test_use_limit_range_no_min if {
 		]},
 	}
 
-	r[_].msg == "limit range policy with a default request and limit, min and max request, for each container should be configure"
+	r[_].msg == "A LimitRange policy with a default requests and limits for each container should be configured"
 }
 
 test_use_limit_range_no_max if {
@@ -123,7 +123,7 @@ test_use_limit_range_no_max if {
 		]},
 	}
 
-	r[_].msg == "limit range policy with a default request and limit, min and max request, for each container should be configure"
+	r[_].msg == "A LimitRange policy with a default requests and limits for each container should be configured"
 }
 
 test_use_limit_range_no_default if {
@@ -162,7 +162,7 @@ test_use_limit_range_no_default if {
 		]},
 	}
 
-	r[_].msg == "limit range policy with a default request and limit, min and max request, for each container should be configure"
+	r[_].msg == "A LimitRange policy with a default requests and limits for each container should be configured"
 }
 
 test_use_limit_range_default_request if {
@@ -201,5 +201,5 @@ test_use_limit_range_default_request if {
 		]},
 	}
 
-	r[_].msg == "limit range policy with a default request and limit, min and max request, for each container should be configure"
+	r[_].msg == "A LimitRange policy with a default requests and limits for each container should be configured"
 }
