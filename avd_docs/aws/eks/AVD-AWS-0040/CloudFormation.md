@@ -7,7 +7,7 @@ Resources:
     Type: AWS::EKS::Cluster
     Properties:
       ResourcesVpcConfig:
-        EndpointPublicAccess: fasle
+        EndpointPublicAccess: false
 ```
 
 #### Remediation Links
