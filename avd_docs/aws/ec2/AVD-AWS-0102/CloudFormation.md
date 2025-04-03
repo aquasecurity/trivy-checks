@@ -4,8 +4,6 @@ Set specific allowed ports
 ```yaml
 AWSTemplateFormatVersion: "2010-09-09"
 
-Description: Good example of excessive ports
-
 Resources:
   NetworkACL:
     Type: AWS::EC2::NetworkAcl

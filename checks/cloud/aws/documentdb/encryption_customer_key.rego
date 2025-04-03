@@ -39,17 +39,6 @@ deny contains res if {
 	)
 }
 
-deny contains res if {
-	some cluster in input.aws.documentdb.clusters
-	some instance in cluster.instances
-	isManaged(instance)
-	without_cmk(instance)
-	res := result.new(
-		"Instance encryption does not use a customer-managed KMS key.",
-		metadata.obj_by_path(instance, ["kmskeyid"]),
-	)
-}
-
 without_cmk(obj) if value.is_empty(obj.kmskeyid)
 
 without_cmk(obj) if not obj.kmskeyid

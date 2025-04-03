@@ -4,8 +4,6 @@ Set a more restrictive CIDR range
 ```yaml
 AWSTemplateFormatVersion: "2010-09-09"
 
-Description: Godd example of excessive ports
-
 Resources:
   NetworkACL:
     Type: AWS::EC2::NetworkAcl
@@ -24,4 +22,6 @@ Resources:
         To: 22
 ```
 
+#### Remediation Links
+ - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html
 

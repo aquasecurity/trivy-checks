@@ -10,4 +10,6 @@ Resources:
       InstanceType: t2.small
 ```
 
+#### Remediation Links
+ - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html
 

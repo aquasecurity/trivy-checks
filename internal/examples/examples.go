@@ -9,15 +9,19 @@ import (
 	"gopkg.in/yaml.v3"
 
 	trivy_checks "github.com/aquasecurity/trivy-checks"
-	"github.com/aquasecurity/trivy/pkg/iac/scan"
+	"github.com/aquasecurity/trivy-checks/pkg/rego/metadata"
 )
 
-func GetCheckExamples(r scan.Rule) (CheckExamples, string, error) {
-	if r.Examples == "" {
+func GetCheckExamples(meta metadata.Metadata) (CheckExamples, string, error) {
+	if _, ok := meta["examples"]; !ok {
+		return CheckExamples{}, "", nil
+	}
+	path := meta["examples"].(string)
+	if path == "" {
 		return CheckExamples{}, "", nil
 	}
 
-	b, err := trivy_checks.EmbeddedPolicyFileSystem.ReadFile(r.Examples)
+	b, err := trivy_checks.EmbeddedPolicyFileSystem.ReadFile(path)
 	if err != nil {
 		return CheckExamples{}, "", err
 	}
@@ -27,13 +31,13 @@ func GetCheckExamples(r scan.Rule) (CheckExamples, string, error) {
 		return CheckExamples{}, "", err
 	}
 
-	return exmpls, r.Examples, nil
+	return exmpls, path, nil
 }
 
 type ProviderExamples struct {
-	Links []string `yaml:"links,omitempty"`
-	Good  CodeBlocks   `yaml:"good,omitempty"`
-	Bad   CodeBlocks   `yaml:"bad,omitempty"`
+	Links []string   `yaml:"links,omitempty"`
+	Good  CodeBlocks `yaml:"good,omitempty"`
+	Bad   CodeBlocks `yaml:"bad,omitempty"`
 }
 
 func (e ProviderExamples) IsEmpty() bool {
