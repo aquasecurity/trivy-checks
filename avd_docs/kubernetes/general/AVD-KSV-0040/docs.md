@@ -1,5 +1,5 @@
 
-ensure resource quota policy has configure in order to limit aggregate resource usage within namespace
+Ensure that a ResourceQuota policy is configured to limit aggregate resource usage within a namespace
 
 ### Impact
 <!-- Add Impact here -->

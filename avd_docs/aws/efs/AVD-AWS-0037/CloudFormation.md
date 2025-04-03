@@ -6,13 +6,9 @@ Resources:
   GoodExample:
     Type: AWS::EFS::FileSystem
     Properties:
-      BackupPolicy:
-        Status: ENABLED
       Encrypted: true
-      LifecyclePolicies:
-        - TransitionToIA: AFTER_60_DAYS
-      PerformanceMode: generalPurpose
-      ThroughputMode: bursting
 ```
 
+#### Remediation Links
+ - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
 

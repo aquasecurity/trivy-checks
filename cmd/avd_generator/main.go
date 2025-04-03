@@ -8,11 +8,7 @@ import (
 	"text/template"
 
 	"github.com/aquasecurity/trivy-checks/internal/examples"
-	"github.com/aquasecurity/trivy/pkg/iac/framework"
-	"github.com/aquasecurity/trivy/pkg/iac/rego"
-	"github.com/aquasecurity/trivy/pkg/iac/rules"
-	"github.com/aquasecurity/trivy/pkg/iac/scan"
-	types "github.com/aquasecurity/trivy/pkg/iac/types/rules"
+	"github.com/aquasecurity/trivy-checks/pkg/rego/metadata"
 )
 
 const docsDir = "avd_docs"
@@ -27,33 +23,30 @@ func main() {
 func generateDocs(path string) {
 	var generateCount int
 
-	// Clean up all Go checks
-	rules.Reset()
+	checksMetadata, err := metadata.LoadDefaultChecksMetadata()
+	if err != nil {
+		panic(err)
+	}
 
-	// Load Rego checks
-	rego.LoadAndRegister()
-
-	for _, metadata := range rules.GetRegistered(framework.ALL) {
-		writeDocsFile(metadata, path)
+	for _, meta := range checksMetadata {
+		writeDocsFile(meta, path)
 		generateCount++
 	}
 
 	fmt.Printf("\nGenerated %d files in %s\n", generateCount, path)
 }
 
-func writeDocsFile(meta types.RegisteredRule, path string) {
+func writeDocsFile(meta metadata.Metadata, path string) {
 
 	tmpl, err := template.New("defsec").Parse(docsMarkdownTemplate)
 	if err != nil {
 		fail("error occurred creating the template %v\n", err)
 	}
 
-	rule := meta.GetRule()
-
 	docpath := filepath.Join(path,
-		strings.ToLower(rule.Provider.ConstName()),
-		strings.ToLower(strings.ReplaceAll(rule.Service, "-", "")),
-		rule.AVDID,
+		strings.ToLower(meta.Provider().ConstName()),
+		strings.ToLower(strings.ReplaceAll(meta.Service(), "-", "")),
+		meta.AVDID(),
 	)
 
 	if err := os.MkdirAll(docpath, os.ModePerm); err != nil {
@@ -65,12 +58,13 @@ func writeDocsFile(meta types.RegisteredRule, path string) {
 		fail("error occurred creating the docs file for %s", docpath)
 	}
 
-	if err := tmpl.Execute(file, rule); err != nil {
+	if err := tmpl.Execute(file, meta); err != nil {
 		fail("error occurred generating the document %s", err.Error())
 	}
-	fmt.Printf("Generating docs file for policy %s\n", rule.AVDID)
 
-	exmpls, path, err := examples.GetCheckExamples(rule)
+	fmt.Printf("Generating docs file for policy %s\n", meta.AVDID())
+
+	exmpls, path, err := examples.GetCheckExamples(meta)
 	if err != nil {
 		fail("failed to get check examples: %s", err.Error())
 	}
@@ -79,14 +73,14 @@ func writeDocsFile(meta types.RegisteredRule, path string) {
 		return
 	}
 
-	if err := generateExamplesDocs(rule, exmpls, docpath); err != nil {
+	if err := generateExamplesDocs(meta, exmpls, docpath); err != nil {
 		fail("error generating examples for terraform: %v\n", err)
 	}
 }
 
-func generateExamplesDocs(rule scan.Rule, exmpls examples.CheckExamples, docpath string) error {
+func generateExamplesDocs(meta metadata.Metadata, exmpls examples.CheckExamples, docpath string) error {
 	for provider, providerExampls := range exmpls {
-		if err := generateProviderExamplesDocs(rule, provider, providerExampls, docpath); err != nil {
+		if err := generateProviderExamplesDocs(meta, provider, providerExampls, docpath); err != nil {
 			return fmt.Errorf("generating examples for %s: %v", provider, err)
 		}
 	}
@@ -95,7 +89,7 @@ func generateExamplesDocs(rule scan.Rule, exmpls examples.CheckExamples, docpath
 }
 
 func generateProviderExamplesDocs(
-	rule scan.Rule, provider string, providerExampls examples.ProviderExamples, docpath string,
+	meta metadata.Metadata, provider string, providerExampls examples.ProviderExamples, docpath string,
 ) error {
 	tmplContent, ok := templates[provider]
 	if !ok {
@@ -114,14 +108,14 @@ func generateProviderExamplesDocs(
 	}
 
 	data := map[string]any{
-		"Rule":     rule,
+		"Metadata": meta,
 		"Examples": providerExampls,
 	}
 
 	if err := tmpl.Execute(file, data); err != nil {
 		return fmt.Errorf("execute template: %w", err)
 	}
-	fmt.Printf("Generating %s file for policy %s\n", provider, rule.AVDID)
+	fmt.Printf("Generating %s file for policy %s\n", provider, meta.AVDID())
 
 	return nil
 }
@@ -132,15 +126,15 @@ func fail(msg string, args ...interface{}) {
 }
 
 var docsMarkdownTemplate = `
-{{ .Explanation }}
+{{ .description }}
 
 ### Impact
-{{ if .Impact }}{{ .Impact }}{{ else }}<!-- Add Impact here -->{{ end }}
+{{ if .impact }}{{ .impact }}{{ else }}<!-- Add Impact here -->{{ end }}
 
 <!-- DO NOT CHANGE -->
 {{ ` + "`{{ " + `remediationActions ` + "`}}" + `}}
 
-{{ if .Links }}### Links{{ range .Links }}
+{{ if .links }}### Links{{ range .links }}
 - {{ . }}
 {{ end}}
 {{ end }}
@@ -152,7 +146,7 @@ var templates = map[string]string{
 }
 
 var terraformMarkdownTemplate = `
-{{ .Rule.Resolution }}
+{{ .Metadata.recommended_action }}
 
 {{ if .Examples.Good }}{{ range .Examples.Good }}` + "```hcl" + `
 {{ . }}
@@ -164,7 +158,7 @@ var terraformMarkdownTemplate = `
 `
 
 var cloudformationMarkdownTemplate = `
-{{ .Rule.Resolution }}
+{{ .Metadata.recommended_action }}
 
 {{ if .Examples.Good }}{{ range .Examples.Good }}` + "```yaml" + `
 {{ . }}

@@ -1,0 +1,99 @@
+kubernetes:
+  good:
+    - |-
+      apiVersion: v1
+      kind: Ingress
+      metadata:
+        name: test-ingress-valid-url
+        namespace: default
+        annotations:
+          nginx.ingress.kubernetes.io/auth-url: "https://valid-url.com"
+    - |-
+      apiVersion: v1
+      kind: Ingress
+      metadata:
+        name: test-ingress-valid-cn
+        namespace: default
+        annotations:
+          nginx.ingress.kubernetes.io/auth-tls-match-cn: "CN=valid-cn"
+    - |-
+      apiVersion: v1
+      kind: Ingress
+      metadata:
+        name: test-ingress-valid-target
+        namespace: default
+        annotations:
+          nginx.ingress.kubernetes.io/mirror-target: "https://valid-url.com"
+    - |-
+      apiVersion: v1
+      kind: Ingress
+      metadata:
+        name: test-ingress-valid-host
+        namespace: default
+        annotations:
+          nginx.ingress.kubernetes.io/mirror-host: "https://valid-url.com"
+  bad:
+    - |-
+      apiVersion: v1
+      kind: Ingress
+      metadata:
+        name: test-ingress-invalid-url
+        namespace: default
+        annotations:
+          nginx.ingress.kubernetes.io/auth-url: "http://example.com/invalid|url"
+    - |-
+      apiVersion: v1
+      kind: Ingress
+      metadata:
+        name: test-ingress-suspicious-char
+        namespace: default
+        annotations:
+          nginx.ingress.kubernetes.io/auth-url: "http://example.com/#;\ninjection_point"
+    - |-
+      apiVersion: v1
+      kind: Ingress
+      metadata:
+        name: test-ingress-invalid-cn
+        namespace: default
+        annotations:
+          nginx.ingress.kubernetes.io/auth-tls-match-cn: "CN=invalid|cn"
+    - |-
+      apiVersion: v1
+      kind: Ingress
+      metadata:
+        name: test-ingress-suspicious-char-cn
+        namespace: default
+        annotations:
+          nginx.ingress.kubernetes.io/auth-tls-match-cn: "CN=valid#;\ninjection_point"
+    - |-
+      apiVersion: v1
+      kind: Ingress
+      metadata:
+        name: test-ingress-invalid-target
+        namespace: default
+        annotations:
+          nginx.ingress.kubernetes.io/mirror-target: "http://example.com/invalid|url"
+    - |-
+      apiVersion: v1
+      kind: Ingress
+      metadata:
+        name: test-ingress-suspicious-char-target
+        namespace: default
+        annotations:
+          nginx.ingress.kubernetes.io/mirror-target: "http://example.com/#;\ninjection_point"
+    - |-
+      apiVersion: v1
+      kind: Ingress
+      metadata:
+        name: test-ingress-invalid-host
+        namespace: default
+        annotations:
+          nginx.ingress.kubernetes.io/mirror-host: "http://example.com/invalid|url"
+    - |-
+      apiVersion: v1
+      kind: Ingress
+      metadata:
+        name: test-ingress-suspicious-char-host
+        namespace: default
+        annotations:
+          nginx.ingress.kubernetes.io/mirror-host: "http://example.com/#;\ninjection_point"

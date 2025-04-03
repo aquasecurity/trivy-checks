@@ -11,6 +11,12 @@ test_allow_sg_with_description if {
 	test.assert_empty(check.deny) with input as inp
 }
 
+test_allow_default_sg_without_description if {
+	inp := {"aws": {"ec2": {"securitygroups": [{"isdefault": {"value": true}, "description": {"value": ""}}]}}}
+
+	test.assert_empty(check.deny) with input as inp
+}
+
 test_disallow_sg_without_description if {
 	inp := {"aws": {"ec2": {"securitygroups": [{"description": {"value": ""}}]}}}
 

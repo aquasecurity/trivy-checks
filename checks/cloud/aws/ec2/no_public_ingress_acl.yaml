@@ -1,9 +1,9 @@
 cloudformation:
+  links:
+    - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html
   good:
     - |-
       AWSTemplateFormatVersion: "2010-09-09"
-
-      Description: Godd example of excessive ports
 
       Resources:
         NetworkACL:
@@ -24,8 +24,6 @@ cloudformation:
   bad:
     - |-
       AWSTemplateFormatVersion: "2010-09-09"
-
-      Description: Bad example of excessive ports
 
       Resources:
         NetworkACL:

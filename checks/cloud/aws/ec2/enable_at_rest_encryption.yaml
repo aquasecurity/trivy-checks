@@ -8,14 +8,8 @@ cloudformation:
             BlockDeviceMappings:
               - DeviceName: /dev/sdm
                 Ebs:
-                  DeleteOnTermination: "false"
                   Encrypted: true
-                  Iops: "200"
-                  VolumeSize: "20"
-                  VolumeType: io1
             ImageId: ami-79fd7eee
-            KeyName: testkey
-            UserData: export SSM_PATH=/database/creds
   bad:
     - |-
       Resources:
@@ -25,14 +19,8 @@ cloudformation:
             BlockDeviceMappings:
               - DeviceName: /dev/sdm
                 Ebs:
-                  DeleteOnTermination: "false"
                   Encrypted: false
-                  Iops: "200"
-                  VolumeSize: "20"
-                  VolumeType: io1
             ImageId: ami-79fd7eee
-            KeyName: testkey
-            UserData: export DATABASE_PASSWORD=password1234
 terraform:
   links:
     - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#ebs-ephemeral-and-root-block-devices
@@ -47,11 +35,8 @@ terraform:
         }
 
         ebs_block_device {
-          device_name           = "/dev/sdg"
-          volume_size           = 5
-          volume_type           = "gp2"
-          delete_on_termination = false
-          encrypted             = true
+          device_name = "/dev/sdg"
+          encrypted   = true
         }
       }
   bad:
@@ -65,10 +50,7 @@ terraform:
         }
 
         ebs_block_device {
-          device_name           = "/dev/sdg"
-          volume_size           = 5
-          volume_type           = "gp2"
-          delete_on_termination = false
-          encrypted             = false
+          device_name = "/dev/sdg"
+          encrypted   = false
         }
       }

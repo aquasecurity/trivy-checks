@@ -26,7 +26,7 @@ deny contains res if {
 	some resource in input.Resources
 	not resource.Tags
 	res := result.new(
-		sprintf("Resource $q does not have required tags %v", [resource.Type, required_tags]),
+		sprintf("Resource %q does not have required tags %v", [resource.Type, required_tags]),
 		{},
 	)
 }

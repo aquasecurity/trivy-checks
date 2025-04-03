@@ -24,9 +24,7 @@ import (
 
 	"github.com/aquasecurity/trivy-checks/integration/testcontainer"
 	"github.com/aquasecurity/trivy-checks/internal/examples"
-	"github.com/aquasecurity/trivy/pkg/iac/framework"
-	"github.com/aquasecurity/trivy/pkg/iac/rego"
-	"github.com/aquasecurity/trivy/pkg/iac/rules"
+	"github.com/aquasecurity/trivy-checks/pkg/rego/metadata"
 	"github.com/aquasecurity/trivy/pkg/types"
 )
 
@@ -142,6 +140,8 @@ func pushBundle(t *testing.T, ctx context.Context, path string, image string) {
 	require.NoError(t, c.Terminate(ctx))
 }
 
+// TODO: AVD-AWS-0344 check is excluded because its input does not match the scheme of older versions of Trivy.
+// Remove it for the latest version after this issue is resolved.
 var excludedChecks = map[string][]string{
 	// Excluded for all versions, as these checks are only for documentation and lack implementation.
 	"": {
@@ -153,26 +153,33 @@ var excludedChecks = map[string][]string{
 	"0.57.1": {
 		// After version 0.57.1, the bug with the field type was fixed and the example was updated. See: https://github.com/aquasecurity/trivy/pull/7995
 		"AVD-AWS-0036",
+		"AVD-AWS-0344",
+	},
+	"0.58.1": {
+		"AVD-AWS-0344",
+	},
+	"latest": {
+		"AVD-AWS-0344",
 	},
 }
 
 func setupTarget(t *testing.T, targetDir string) {
 	t.Helper()
 
-	// TODO(nikpivkin): load examples from fs
-	rego.LoadAndRegister()
+	checksMetadata, err := metadata.LoadDefaultChecksMetadata()
+	require.NoError(t, err)
 
-	for _, r := range rules.GetRegistered(framework.ALL) {
-		if _, ok := r.Frameworks[framework.Default]; !ok {
-			// TODO(nikpivkin): Trivy does not load non default checks
+	for _, meta := range checksMetadata {
+		// TODO: scan all frameworks
+		if !meta.HasDefaultFramework() {
 			continue
 		}
 
-		if r.Deprecated {
+		if meta.IsDeprecated() {
 			continue
 		}
 
-		examples, path, err := examples.GetCheckExamples(r.Rule)
+		examples, path, err := examples.GetCheckExamples(meta)
 		require.NoError(t, err)
 
 		if path == "" {
@@ -180,8 +187,8 @@ func setupTarget(t *testing.T, targetDir string) {
 		}
 
 		for provider, providerExamples := range examples {
-			writeExamples(t, providerExamples.Bad.ToStrings(), provider, targetDir, r.AVDID, "bad")
-			writeExamples(t, providerExamples.Good.ToStrings(), provider, targetDir, r.AVDID, "good")
+			writeExamples(t, providerExamples.Bad.ToStrings(), provider, targetDir, meta.AVDID(), "bad")
+			writeExamples(t, providerExamples.Good.ToStrings(), provider, targetDir, meta.AVDID(), "good")
 		}
 	}
 }

@@ -4,8 +4,6 @@ Set a more restrictive cidr range
 ```yaml
 AWSTemplateFormatVersion: "2010-09-09"
 
-Description: Good example of egress rule
-
 Resources:
   BadSecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -16,4 +14,6 @@ Resources:
           IpProtocol: "6"
 ```
 
+#### Remediation Links
+ - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroup.html
 

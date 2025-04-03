@@ -28,7 +28,7 @@ for dir in config; do
 done
 
 mkdir -p bundle/specs/compliance
-rsync -avr pkg/specs/compliance bundle/specs
+rsync -avr --exclude="*.go" --exclude="*.md" pkg/compliance bundle/specs
 
 cp checks/.manifest bundle/
 rm bundle/policies/.manifest

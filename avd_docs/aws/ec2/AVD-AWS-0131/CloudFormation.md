@@ -9,14 +9,8 @@ Resources:
       BlockDeviceMappings:
         - DeviceName: /dev/sdm
           Ebs:
-            DeleteOnTermination: "false"
             Encrypted: true
-            Iops: "200"
-            VolumeSize: "20"
-            VolumeType: io1
       ImageId: ami-79fd7eee
-      KeyName: testkey
-      UserData: export SSM_PATH=/database/creds
 ```
 
 

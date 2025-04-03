@@ -33,7 +33,6 @@ func addTests(tc testCases) {
 
 func TestRegoChecks(t *testing.T) {
 	regoScanner := rego.NewScanner(
-		trivyTypes.SourceCloud,
 		rego.WithFrameworks(framework.CIS_AWS_1_2, framework.CIS_AWS_1_4, framework.Default),
 		rego.WithPolicyDirs("."),
 		rego.WithEmbeddedLibraries(true),
@@ -57,7 +56,7 @@ func TestRegoChecks(t *testing.T) {
 }
 
 func scanState(t *testing.T, regoScanner *rego.Scanner, s state.State, checkID string, expected bool) {
-	results, err := regoScanner.ScanInput(context.TODO(), rego.Input{
+	results, err := regoScanner.ScanInput(context.TODO(), trivyTypes.SourceCloud, rego.Input{
 		Contents: s.ToRego(),
 	})
 	require.NoError(t, err)
