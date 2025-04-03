@@ -1,7 +1,27 @@
+cloudformation:
+  links:
+    - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html
+  good:
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+          Properties:
+            Scheme: internal
+  bad:
+    - |-
+      Resources:
+        BadExample:
+          Type: AWS::ElasticLoadBalancingV2::LoadBalancer
 terraform:
   links:
     - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb
   good:
+    - |-
+      resource "aws_alb" "good_example" {
+        load_balancer_type = "gateway"
+        internal           = false
+      }
     - |-
       resource "aws_alb" "good_example" {
         internal = true

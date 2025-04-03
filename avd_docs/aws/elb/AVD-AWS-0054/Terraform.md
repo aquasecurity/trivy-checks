@@ -2,8 +2,11 @@
 Switch to HTTPS to benefit from TLS security features
 
 ```hcl
+resource "aws_lb" "example" {}
+
 resource "aws_alb_listener" "good_example" {
-  protocol = "HTTPS"
+  load_balancer_arn = aws_lb.example.arn
+  protocol          = "HTTPS"
 }
 ```
 
