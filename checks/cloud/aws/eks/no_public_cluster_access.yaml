@@ -8,7 +8,7 @@ cloudformation:
           Type: AWS::EKS::Cluster
           Properties:
             ResourcesVpcConfig:
-              EndpointPublicAccess: fasle
+              EndpointPublicAccess: false
   bad:
     - |-
       Resources:
