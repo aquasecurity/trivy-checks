@@ -36,6 +36,7 @@ import data.lib.cloud.value
 deny contains res if {
 	some sg in input.aws.ec2.securitygroups
 	isManaged(sg)
+	not sg.isdefault.value
 	without_description(sg)
 	res := result.new(
 		"Security group does not have a description.",
@@ -46,6 +47,7 @@ deny contains res if {
 deny contains res if {
 	some sg in input.aws.ec2.securitygroups
 	isManaged(sg)
+	not sg.isdefault.value
 	sg.description.value == "Managed by Terraform"
 	res := result.new("Security group explicitly uses the default description.", sg.description)
 }
