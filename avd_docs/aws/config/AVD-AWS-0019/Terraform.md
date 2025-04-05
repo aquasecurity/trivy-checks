@@ -16,7 +16,7 @@ resource "aws_config_configuration_aggregator" "good_example" {
   name = "example"
 
   organization_aggregation_source {
-    role_arn    = "arn:aws:iam::123456789012:user/JohnDoe"
+    role_arn    = "arn:aws:iam::123456789012:role/ConfigAggregatorRole"
     all_regions = true
   }
 }
