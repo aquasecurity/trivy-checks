@@ -3,8 +3,6 @@ Enable encryption at rest for DAX Cluster
 
 ```hcl
 resource "aws_dax_cluster" "good_example" {
-  // other DAX config
-
   server_side_encryption {
     enabled = true // enabled server side encryption
   }

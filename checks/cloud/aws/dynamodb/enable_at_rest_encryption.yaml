@@ -6,7 +6,6 @@ cloudformation:
           Type: AWS::DAX::Cluster
           Properties:
             ClusterName: MyDAXCluster
-            Description: DAX cluster with encryption at rest
             IAMRoleARN: arn:aws:iam::111122223333:role/DaxAccess
             NodeType: dax.r3.large
             ReplicationFactor: 1
@@ -19,7 +18,6 @@ cloudformation:
           Type: AWS::DAX::Cluster
           Properties:
             ClusterName: MyDAXCluster
-            Description: DAX cluster without encryption at rest
             IAMRoleARN: arn:aws:iam::111122223333:role/DaxAccess
             NodeType: dax.r3.large
             ReplicationFactor: 1
@@ -30,8 +28,6 @@ terraform:
   good:
     - |-
       resource "aws_dax_cluster" "good_example" {
-        // other DAX config
-
         server_side_encryption {
           enabled = true // enabled server side encryption
         }
@@ -41,18 +37,14 @@ terraform:
       resource "aws_dax_cluster" "bad_example" {
         // no server side encryption at all
       }
-
+    - |-
       resource "aws_dax_cluster" "bad_example" {
-        // other DAX config
-
         server_side_encryption {
           // empty server side encryption config
         }
       }
-
+    - |-
       resource "aws_dax_cluster" "bad_example" {
-        // other DAX config
-
         server_side_encryption {
           enabled = false // disabled server side encryption
         }
