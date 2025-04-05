@@ -1,6 +1,6 @@
 # METADATA
-# title: "User Pods should not be placed in kube-system namespace"
-# description: "ensure that User pods are not placed in kube-system namespace"
+# title: "User resources should not be placed in kube-system namespace"
+# description: "ensure that user resources are not placed in kube-system namespace"
 # scope: package
 # schemas:
 # - input: schema["kubernetes"]
@@ -11,7 +11,7 @@
 #   avd_id: AVD-KSV-0037
 #   severity: MEDIUM
 #   short_code: no-user-pods-in-system-namespace
-#   recommended_action: "Deploy the use pods into a designated namespace which is not kube-system."
+#   recommended_action: "Deploy the user resources into a designated namespace which is not kube-system."
 #   input:
 #     selector:
 #     - type: kubernetes
