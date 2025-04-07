@@ -27,6 +27,7 @@ package builtin.aws.sam.aws0112
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some api in input.aws.sam.apis
@@ -37,4 +38,4 @@ deny contains res if {
 	)
 }
 
-is_secure_tls_policy(api) if api.domainconfiguration.securitypolicy.value == "TLS_1_2"
+is_secure_tls_policy(api) if value.is_equal(api.domainconfiguration.securitypolicy, "TLS_1_2")

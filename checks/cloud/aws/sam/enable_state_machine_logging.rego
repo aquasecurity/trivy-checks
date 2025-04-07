@@ -21,6 +21,7 @@
 #         subtypes:
 #           - service: sam
 #             provider: aws
+#   examples: checks/cloud/aws/sam/enable_state_machine_logging.yaml
 package builtin.aws.sam.aws0119
 
 import rego.v1

@@ -8,11 +8,8 @@ cloudformation:
             AccessLogSetting:
               DestinationArn: gateway-logging
               Format: json
-            Domain:
-              SecurityPolicy: TLS_1_2
             Name: Good SAM API example
             StageName: Prod
-            TracingEnabled: false
   bad:
     - |-
       Resources:
@@ -21,4 +18,3 @@ cloudformation:
           Properties:
             Name: Bad SAM API example
             StageName: Prod
-            TracingEnabled: false
