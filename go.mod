@@ -4,9 +4,9 @@ go 1.24
 
 require (
 	github.com/aquasecurity/iamgo v0.0.10
-	github.com/aquasecurity/trivy v0.60.1-0.20250311032625-573502e2e83f
+	github.com/aquasecurity/trivy v0.61.1-0.20250407075540-f1329c7ea1aa
 	github.com/aws-cloudformation/rain v1.21.0
-	github.com/docker/docker v28.0.1+incompatible
+	github.com/docker/docker v28.0.4+incompatible
 	github.com/hashicorp/hcl/v2 v2.23.0
 	github.com/open-policy-agent/opa v1.3.0
 	github.com/owenrumney/squealer v1.2.11
@@ -78,25 +78,25 @@ require (
 	github.com/aquasecurity/tml v0.6.1 // indirect
 	github.com/aquasecurity/trivy-db v0.0.0-20250227071930-8bd8a9b89e2d // indirect
 	github.com/aquasecurity/trivy-java-db v0.0.0-20240109071736-184bd7481d48 // indirect
-	github.com/aquasecurity/trivy-kubernetes v0.7.0 // indirect
+	github.com/aquasecurity/trivy-kubernetes v0.8.1 // indirect
 	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2 // indirect
 	github.com/aws/aws-sdk-go v1.55.6 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.36.3 // indirect
-	github.com/aws/aws-sdk-go-v2/config v1.29.9 // indirect
-	github.com/aws/aws-sdk-go-v2/credentials v1.17.62 // indirect
+	github.com/aws/aws-sdk-go-v2/config v1.29.13 // indirect
+	github.com/aws/aws-sdk-go-v2/credentials v1.17.66 // indirect
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.16.30 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/configsources v1.3.34 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.6.34 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/ini v1.8.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ebs v1.22.1 // indirect
-	github.com/aws/aws-sdk-go-v2/service/ec2 v1.207.1 // indirect
-	github.com/aws/aws-sdk-go-v2/service/ecr v1.42.1 // indirect
+	github.com/aws/aws-sdk-go-v2/service/ec2 v1.211.2 // indirect
+	github.com/aws/aws-sdk-go-v2/service/ecr v1.43.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.12.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.12.15 // indirect
-	github.com/aws/aws-sdk-go-v2/service/s3 v1.78.1 // indirect
-	github.com/aws/aws-sdk-go-v2/service/sso v1.25.1 // indirect
-	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.29.1 // indirect
-	github.com/aws/aws-sdk-go-v2/service/sts v1.33.17 // indirect
+	github.com/aws/aws-sdk-go-v2/service/s3 v1.79.1 // indirect
+	github.com/aws/aws-sdk-go-v2/service/sso v1.25.3 // indirect
+	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.30.1 // indirect
+	github.com/aws/aws-sdk-go-v2/service/sts v1.33.18 // indirect
 	github.com/aws/smithy-go v1.22.3 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d // indirect
@@ -138,7 +138,7 @@ require (
 	github.com/digitorus/timestamp v0.0.0-20231217203849-220c5c2851b7 // indirect
 	github.com/distribution/reference v0.6.0 // indirect
 	github.com/dlclark/regexp2 v1.4.0 // indirect
-	github.com/docker/cli v27.5.0+incompatible // indirect
+	github.com/docker/cli v28.0.4+incompatible // indirect
 	github.com/docker/distribution v2.8.3+incompatible // indirect
 	github.com/docker/docker-credential-helpers v0.8.2 // indirect
 	github.com/docker/go-connections v0.5.0 // indirect
@@ -384,7 +384,7 @@ require (
 	go.uber.org/zap v1.27.0 // indirect
 	golang.org/x/crypto v0.36.0 // indirect
 	golang.org/x/exp v0.0.0-20250106191152-7588d65b2ba8 // indirect
-	golang.org/x/mod v0.23.0 // indirect
+	golang.org/x/mod v0.24.0 // indirect
 	golang.org/x/net v0.37.0 // indirect
 	golang.org/x/oauth2 v0.26.0 // indirect
 	golang.org/x/sync v0.12.0 // indirect
@@ -403,17 +403,17 @@ require (
 	gopkg.in/evanphx/json-patch.v4 v4.12.0 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
-	helm.sh/helm/v3 v3.17.1 // indirect
-	k8s.io/api v0.32.2 // indirect
-	k8s.io/apiextensions-apiserver v0.32.1 // indirect
-	k8s.io/apimachinery v0.32.2 // indirect
-	k8s.io/apiserver v0.32.1 // indirect
-	k8s.io/cli-runtime v0.32.1 // indirect
-	k8s.io/client-go v0.32.1 // indirect
-	k8s.io/component-base v0.32.1 // indirect
+	helm.sh/helm/v3 v3.17.2 // indirect
+	k8s.io/api v0.32.3 // indirect
+	k8s.io/apiextensions-apiserver v0.32.2 // indirect
+	k8s.io/apimachinery v0.32.3 // indirect
+	k8s.io/apiserver v0.32.2 // indirect
+	k8s.io/cli-runtime v0.32.3 // indirect
+	k8s.io/client-go v0.32.3 // indirect
+	k8s.io/component-base v0.32.3 // indirect
 	k8s.io/klog/v2 v2.130.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20241105132330-32ad38e42d3f // indirect
-	k8s.io/kubectl v0.32.1 // indirect
+	k8s.io/kubectl v0.32.3 // indirect
 	k8s.io/utils v0.0.0-20241104100929-3ea5e8cea738 // indirect
 	oras.land/oras-go v1.2.5 // indirect
 	oras.land/oras-go/v2 v2.5.0 // indirect
