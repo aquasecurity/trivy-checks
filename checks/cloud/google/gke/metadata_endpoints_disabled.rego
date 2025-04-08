@@ -35,6 +35,7 @@ import rego.v1
 deny contains res if {
 	some cluster in input.google.gke.clusters
 	isManaged(cluster)
+	not autopilot_enabled(cluster)
 	cluster.removedefaultnodepool.value == true
 	some pool in cluster.nodepools
 	pool.nodeconfig.enablelegacyendpoints.value == true
@@ -47,6 +48,7 @@ deny contains res if {
 deny contains res if {
 	some cluster in input.google.gke.clusters
 	isManaged(cluster)
+	not autopilot_enabled(cluster)
 	not cluster.removedefaultnodepool.value
 	cluster.nodeconfig.enablelegacyendpoints.value == true
 	res := result.new(
@@ -54,3 +56,5 @@ deny contains res if {
 		cluster.nodeconfig.enablelegacyendpoints,
 	)
 }
+
+autopilot_enabled(cluster) if cluster.enableautpilot.value

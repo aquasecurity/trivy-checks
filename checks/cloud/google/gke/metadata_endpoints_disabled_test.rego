@@ -37,3 +37,10 @@ test_allow_cluster_legacy_metadata_endpoints_disabled_on_non_default_node_pool i
 	res := check.deny with input as inp
 	count(res) == 0
 }
+
+test_allow_autopilot_is_enabled if {
+	inp := {"google": {"gke": {"clusters": [{"enableautpilot": {"value": true}}]}}}
+
+	res := check.deny with input as inp
+	count(res) == 0
+}

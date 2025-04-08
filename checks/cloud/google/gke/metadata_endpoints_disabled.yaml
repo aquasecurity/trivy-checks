@@ -10,6 +10,10 @@ terraform:
           }
         }
       }
+    - |-
+      resource "google_container_cluster" "good_example" {
+        enable_autopilot = true
+      }
   bad:
     - |-
       resource "google_container_cluster" "bad_example" {

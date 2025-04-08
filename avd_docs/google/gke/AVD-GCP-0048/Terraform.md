@@ -10,6 +10,11 @@ resource "google_container_cluster" "good_example" {
   }
 }
 ```
+```hcl
+resource "google_container_cluster" "good_example" {
+  enable_autopilot = true
+}
+```
 
 #### Remediation Links
  - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#metadata
