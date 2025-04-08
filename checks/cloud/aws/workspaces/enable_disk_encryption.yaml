@@ -26,4 +26,11 @@ terraform:
       }
   bad:
     - |-
-      resource "aws_workspaces_workspace" "bad_example" {}
+      resource "aws_workspaces_workspace" "bad_example" {
+        # encryption attributes are missing
+      }
+    - |-
+      resource "aws_workspaces_workspace" "bad_example" {
+        root_volume_encryption_enabled = false
+        user_volume_encryption_enabled = false
+      }
