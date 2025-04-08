@@ -50,6 +50,19 @@ test_allow_http_but_not_application if {
 	test.assert_empty(check.deny) with input as inp
 }
 
+test_allow_not_managed if {
+	inp := {"aws": {"elb": {"loadbalancers": [{
+		"__defsec_metadata": {"managed": false},
+		"type": {"value": "application"},
+		"listeners": [{
+			"protocol": {"value": "HTTP"},
+			"defaultactions": [{"type": {"value": "forward"}}],
+		}],
+	}]}}}
+
+	test.assert_empty(check.deny) with input as inp
+}
+
 test_deny_http_without_redirect if {
 	inp := {"aws": {"elb": {"loadbalancers": [{
 		"type": {"value": "application"},

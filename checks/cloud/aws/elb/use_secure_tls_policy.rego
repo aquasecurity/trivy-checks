@@ -39,6 +39,7 @@ outdated_ssl_policies := {
 
 deny contains res if {
 	some lb in input.aws.elb.loadbalancers
+	isManaged(lb)
 	some listener in lb.listeners
 	has_outdated_policy(listener)
 	res := result.new("Listener uses an outdated TLS policy.", listener.tlspolicy)
