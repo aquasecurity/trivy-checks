@@ -22,8 +22,10 @@ terraform:
       resource "aws_sns_topic" "good_example" {
         kms_master_key_id = "/blah"
       }
+    - |-
+      resource "aws_sns_topic" "good_example" {
+        kms_master_key_id = "alias/aws/sns"
+      }
   bad:
     - |-
-      resource "aws_sns_topic" "bad_example" {
-        # no key id specified
-      }
+      resource "aws_sns_topic" "bad_example" {}

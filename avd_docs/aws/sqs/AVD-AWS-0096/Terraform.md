@@ -12,6 +12,12 @@ resource "aws_sqs_queue" "terraform_queue" {
   sqs_managed_sse_enabled = true
 }
 ```
+```hcl
+resource "aws_sqs_queue" "terraform_queue" {
+  name              = "terraform-example-queue"
+  kms_master_key_id = "alias/aws/sqs"
+}
+```
 
 #### Remediation Links
  - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sqs_queue#server-side-encryption-sse

@@ -6,6 +6,11 @@ resource "aws_sns_topic" "good_example" {
   kms_master_key_id = "/blah"
 }
 ```
+```hcl
+resource "aws_sns_topic" "good_example" {
+  kms_master_key_id = "alias/aws/sns"
+}
+```
 
 #### Remediation Links
  - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic#example-with-server-side-encryption-sse
