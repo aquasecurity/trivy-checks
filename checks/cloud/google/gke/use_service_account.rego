@@ -32,6 +32,7 @@ import data.lib.cloud.value
 deny contains res if {
 	some cluster in input.google.gke.clusters
 	isManaged(cluster)
+	autopilot_disabled(cluster)
 	value.is_false(cluster.removedefaultnodepool)
 	default_account_is_not_overrided(cluster.nodeconfig)
 	res := result.new(
@@ -43,6 +44,7 @@ deny contains res if {
 deny contains res if {
 	some cluster in input.google.gke.clusters
 	isManaged(cluster)
+	autopilot_disabled(cluster)
 	some pool in cluster.nodepools
 	default_account_is_not_overrided(pool.nodeconfig)
 	res := result.new(
@@ -50,6 +52,21 @@ deny contains res if {
 		metadata.obj_by_path(pool, ["nodeconfig", "serviceaccount"]),
 	)
 }
+
+deny contains res if {
+	some cluster in input.google.gke.clusters
+	isManaged(cluster)
+	cluster.enableautpilot.value
+	default_account_is_not_overrided(cluster.autoscaling.autoprovisioningdefaults)
+	res := result.new(
+		"Cluster does not override the default service account.",
+		metadata.obj_by_path(cluster, ["nodeconfig", "serviceaccount"]),
+	)
+}
+
+autopilot_disabled(cluster) if value.is_false(cluster.enableautpilot)
+
+autopilot_disabled(cluster) if not cluster.enableautpilot
 
 default_account_is_not_overrided(nodeconfig) if value.is_empty(nodeconfig.serviceaccount)
 
