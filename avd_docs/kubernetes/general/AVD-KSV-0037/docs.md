@@ -1,5 +1,5 @@
 
-ensure that User pods are not placed in kube-system namespace
+ensure that user resources are not placed in kube-system namespace
 
 ### Impact
 <!-- Add Impact here -->
