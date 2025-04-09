@@ -9,8 +9,10 @@
 # custom:
 #   id: KSV037
 #   avd_id: AVD-KSV-0037
+#   aliases:
+#     - no-user-pods-in-system-namespace
 #   severity: MEDIUM
-#   short_code: no-user-pods-in-system-namespace
+#   short_code: no-user-resources-in-system-namespace
 #   recommended_action: "Deploy the user resources into a designated namespace which is not kube-system."
 #   input:
 #     selector:
