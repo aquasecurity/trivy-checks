@@ -5,7 +5,14 @@ import rego.v1
 test_with_allow_s3_full_access if {
 	policies := [{
 		"name": "policy_with_s3_full_access",
-		"document": {"value":json.marshal({"Version":"2012-10-17","Id":"","Statement":[{"Sid":"","Effect":"Allow","Principal":{},"NotPrincipal":{},"Action":["s3:*"],"NotAction":null,"Resource":["*"],"NotResource":null,"Condition":{}}]})},
+		"document": {"value": json.marshal({
+			"Version": "2012-10-17",
+			"Statement": [{
+				"Effect": "Allow",
+				"Action": ["s3:*"],
+				"Resource": ["*"],
+			}],
+		})},
 	}]
 
 	r := deny with input as {"aws": {"iam": {"policies": policies}}}
@@ -15,7 +22,13 @@ test_with_allow_s3_full_access if {
 test_with_deny_s3_full_access if {
 	policies := [{
 		"name": "policy_with_s3_full_access",
-		"document": {"value":json.marshal({"Version": "2012-10-17", "Id": "", "Statement": [{"Sid": "", "Effect": "Deny", "Principal": {}, "NotPrincipal": {}, "Action": ["s3:*"], "NotAction": null, "Resource": ["*"], "NotResource": null, "Condition": {}}]})},
+		"document": {"value": json.marshal({
+			"Version": "2012-10-17",
+			"Statement": [{
+				"Effect": "Deny",
+				"Action": ["s3:*"],
+			}],
+		})},
 	}]
 
 	r := deny with input as {"aws": {"iam": {"policies": policies}}}
@@ -25,7 +38,14 @@ test_with_deny_s3_full_access if {
 test_with_no_s3_full_access if {
 	policies := [{
 		"name": "policy_without_s3_full_access",
-	    "document": {"value":json.marshal({"Version":"2012-10-17","Id":"","Statement":[{"Sid":"","Effect":"Allow","Principal":{},"NotPrincipal":{},"Action":["s3:GetObject"],"NotAction":null,"Resource":["arn:aws:s3:::examplebucket/*"],"NotResource":null,"Condition":{}}]})},
+		"document": {"value": json.marshal({
+			"Version": "2012-10-17",
+			"Statement": [{
+				"Effect": "Allow",
+				"Action": ["s3:GetObject"],
+				"Resource": ["arn:aws:s3:::examplebucket/*"],
+			}],
+		})},
 	}]
 
 	r := deny with input as {"aws": {"iam": {"policies": policies}}}
@@ -35,7 +55,14 @@ test_with_no_s3_full_access if {
 test_with_role_using_amazon_s3_full_access_policy if {
 	roles := [{
 		"name": "role_with_amazon_s3_full_access",
-        "policies": [{"document": {"value":json.marshal({"Version":"2012-10-17","Id":"","Statement":[{"Sid":"","Effect":"Allow","Principal":{},"NotPrincipal":{},"Action":["s3:*"],"NotAction":null,"Resource":["*"],"NotResource":null,"Condition":{}}]})}}],
+		"policies": [{"document": {"value": json.marshal({
+			"Version": "2012-10-17",
+			"Statement": [{
+				"Effect": "Allow",
+				"Action": ["s3:*"],
+				"Resource": ["*"],
+			}],
+		})}}],
 	}]
 
 	r := deny with input as {"aws": {"iam": {"roles": roles}}}
@@ -45,7 +72,14 @@ test_with_role_using_amazon_s3_full_access_policy if {
 test_with_role_not_using_amazon_s3_full_access_policy if {
 	roles := [{
 		"name": "role_without_amazon_s3_full_access",
-        "policies": [{"document": {"value":json.marshal({"Version":"2012-10-17","Id":"","Statement":[{"Sid":"","Effect":"Allow","Principal":{},"NotPrincipal":{},"Action":["s3:GetObject"],"NotAction":null,"Resource":["arn:aws:s3:::examplebucket"],"NotResource":null,"Condition":{}}]})}}],
+		"policies": [{"document": {"value": json.marshal({
+			"Version": "2012-10-17",
+			"Statement": [{
+				"Effect": "Allow",
+				"Action": ["s3:GetObject"],
+				"Resource": ["arn:aws:s3:::examplebucket"],
+			}],
+		})}}],
 	}]
 
 	r := deny with input as {"aws": {"iam": {"roles": roles}}}
