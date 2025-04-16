@@ -34,12 +34,23 @@ import data.lib.kubernetes
 
 default failSysctls := false
 
-# Add allowed sysctls
+# Allowed sysctls list based on Kubernetes PodSecurity "baseline" policy.
+# See: https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
+# Source (commit 44c230b):
+# https://github.com/kubernetes/kubernetes/blob/44c230bf5c321056e8bc89300b37c497f464f113/staging/src/k8s.io/pod-security-admission/policy/check_sysctls.go#L39-L51
 allowed_sysctls := {
 	"kernel.shm_rmid_forced",
 	"net.ipv4.ip_local_port_range",
+	"net.ipv4.ip_unprivileged_port_start",
 	"net.ipv4.tcp_syncookies",
 	"net.ipv4.ping_group_range",
+	"net.ipv4.ip_local_reserved_ports",
+	"net.ipv4.tcp_keepalive_time",
+	"net.ipv4.tcp_fin_timeout",
+	"net.ipv4.tcp_keepalive_intvl",
+	"net.ipv4.tcp_keepalive_probes",
+	"net.ipv4.tcp_rmem",
+	"net.ipv4.tcp_wmem",
 }
 
 # failSysctls is true if a disallowed sysctl is set
