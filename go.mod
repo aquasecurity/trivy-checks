@@ -6,8 +6,8 @@ toolchain go1.24.0
 
 require (
 	github.com/aquasecurity/iamgo v0.0.10
-	github.com/aquasecurity/trivy v0.61.1-0.20250407075540-f1329c7ea1aa
-	github.com/aws-cloudformation/rain v1.22.0
+	github.com/aquasecurity/trivy v0.61.1-0.20250408211346-9792611b3627
+	github.com/aws-cloudformation/rain v1.21.0
 	github.com/docker/docker v28.0.4+incompatible
 	github.com/hashicorp/hcl/v2 v2.23.0
 	github.com/open-policy-agent/opa v1.3.0
@@ -16,8 +16,8 @@ require (
 	github.com/spf13/viper v1.20.1
 	github.com/stretchr/testify v1.10.0
 	github.com/testcontainers/testcontainers-go v0.36.0
-	github.com/testcontainers/testcontainers-go/modules/registry v0.36.0
-	golang.org/x/text v0.24.0
+	github.com/testcontainers/testcontainers-go/modules/registry v0.35.0
+	golang.org/x/text v0.23.0
 	gopkg.in/yaml.v3 v3.0.1
 	mvdan.cc/sh/v3 v3.11.0
 )
@@ -385,15 +385,15 @@ require (
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap v1.27.0 // indirect
 	golang.org/x/crypto v0.36.0 // indirect
-	golang.org/x/exp v0.0.0-20250305212735-054e65f0b394 // indirect
+	golang.org/x/exp v0.0.0-20250106191152-7588d65b2ba8 // indirect
 	golang.org/x/mod v0.24.0 // indirect
-	golang.org/x/net v0.38.0 // indirect
+	golang.org/x/net v0.37.0 // indirect
 	golang.org/x/oauth2 v0.26.0 // indirect
-	golang.org/x/sync v0.13.0 // indirect
+	golang.org/x/sync v0.12.0 // indirect
 	golang.org/x/sys v0.31.0 // indirect
 	golang.org/x/term v0.30.0 // indirect
 	golang.org/x/time v0.11.0 // indirect
-	golang.org/x/tools v0.31.0 // indirect
+	golang.org/x/tools v0.29.0 // indirect
 	golang.org/x/xerrors v0.0.0-20240716161551-93cc26a95ae9 // indirect
 	google.golang.org/api v0.218.0 // indirect
 	google.golang.org/genproto v0.0.0-20241118233622-e639e219e697 // indirect

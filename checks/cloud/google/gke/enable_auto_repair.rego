@@ -25,14 +25,39 @@ package builtin.google.gke.google0063
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some cluster in input.google.gke.clusters
 	isManaged(cluster)
+	autopilot_disabled(cluster)
 	some pool in cluster.nodepools
-	not pool.management.enableautorepair.value
+	autorepair_is_disabled_for_pool(pool)
 	res := result.new(
 		"Node pool does not have auto-repair enabled.",
 		metadata.obj_by_path(pool, ["management", "enableautorepair"]),
 	)
 }
+
+autorepair_is_disabled_for_pool(pool) if value.is_false(pool.management.enableautorepair)
+
+autorepair_is_disabled_for_pool(pool) if not pool.management.enableautorepair
+
+autopilot_disabled(cluster) if value.is_false(cluster.enableautpilot)
+
+autopilot_disabled(cluster) if not cluster.enableautpilot
+
+deny contains res if {
+	some cluster in input.google.gke.clusters
+	isManaged(cluster)
+	cluster.enableautpilot.value
+	autorepair_is_disabled(cluster)
+	res := result.new(
+		"Node pool does not have auto-repair enabled.",
+		metadata.obj_by_path(cluster, ["autoscaling", "autoprovisioningdefaults", "management", "enableautorepair"]),
+	)
+}
+
+autorepair_is_disabled(cluster) if value.is_false(cluster.autoscaling.autoprovisioningdefaults.management.enableautorepair)
+
+autorepair_is_disabled(cluster) if not cluster.autoscaling.autoprovisioningdefaults.management.enableautorepair
