@@ -10,6 +10,7 @@
 #   severity: MEDIUM
 #   short_code: no-public-registries
 #   recommended_action: "Use images from private registries."
+#   deprecated: true
 #   input:
 #     selector:
 #     - type: kubernetes
