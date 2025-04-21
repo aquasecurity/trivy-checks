@@ -24,8 +24,10 @@ package builtin.openstack.compute.openstack0001
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some instance in input.openstack.compute.instances
-	instance.adminpassword.value != ""
+	value.is_not_empty(instance.adminpassword)
 	res := result.new("Instance has admin password set.", instance.adminpassword)
 }
