@@ -11,6 +11,15 @@ terraform:
       resource "nifcloud_load_balancer" "good_example" {
         load_balancer_port = 443
       }
+    - |-
+      resource "nifcloud_elb" "bad_example" {
+        protocol = "HTTP"
+
+        network_interface {
+          network_id     = "some-network"
+          is_vip_network = true
+        }
+      }
   bad:
     - |-
       resource "nifcloud_elb" "bad_example" {

@@ -1,0 +1,26 @@
+terraform:
+  links:
+    - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/dns_record
+  good:
+    - |-
+      resource "nifcloud_dns_record" "test" {
+        zone_id = nifcloud_dns_zone.example.id
+        name    = "test"
+        type    = "A"
+        record  = "some"
+      }
+    - |-
+      resource "nifcloud_dns_record" "test" {
+        zone_id = nifcloud_dns_zone.example.id
+        name    = "test"
+        type    = "TXT"
+        record  = "some"
+      }
+  bad:
+    - |-
+      resource "nifcloud_dns_record" "test" {
+        zone_id = nifcloud_dns_zone.example.id
+        name    = "test"
+        type    = "TXT"
+        record  = "nifty-dns-verify=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+      }
