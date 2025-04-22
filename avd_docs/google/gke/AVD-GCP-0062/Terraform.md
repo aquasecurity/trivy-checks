@@ -3,9 +3,7 @@ Switch to using RBAC permissions
 
 ```hcl
 resource "google_container_cluster" "good_example" {
-  # ...
   # enable_legacy_abac not set
-  # ...
 }
 ```
 
