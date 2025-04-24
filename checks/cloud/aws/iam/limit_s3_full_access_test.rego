@@ -36,6 +36,53 @@ test_with_allow_s3_full_access_with_verb if {
 	count(r) == 1
 }
 
+test_with_allow_s3_full_access_with_verb_non_mixed if {
+	policies := [{
+		"name": "policy_with_s3_full_access",
+		"document": {"value": json.marshal({
+			"Version": "2012-10-17",
+			"Statement": [
+			{
+				"Effect": "Deny",
+				"Action": ["s3:get*"],
+				"Resource": ["*"],
+			},
+			{
+			    "Effect": "Allow",
+			    "Action": ["s3:*"],
+			    "Resource": ["*"],
+			}],
+		})},
+	}]
+
+	r := deny with input as {"aws": {"iam": {"policies": policies}}}
+	count(r) == 1
+}
+
+
+test_with_allow_s3_full_access_with_verb_invalid_policy if {
+	policies := [{
+		"name": "policy_with_s3_full_access",
+		"document": {"value": json.marshal({
+			"Version": "2012-10-17",
+			"Statement": [
+			{
+				"Effect": "Deny",
+				"Action": ["s3:*"],
+				"Resource": ["*"],
+			},
+			{
+			    "Effect": "Allow",
+			    "Action": ["s3:*"],
+			    "Resource": ["*"],
+			}],
+		})},
+	}]
+
+	r := deny with input as {"aws": {"iam": {"policies": policies}}}
+	count(r) == 1
+}
+
 test_with_deny_s3_full_access if {
 	policies := [{
 		"name": "policy_with_s3_full_access",
