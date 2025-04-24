@@ -34,11 +34,11 @@ is_s3_full_access_allowed(document) if {
 	value := json.unmarshal(document)
 	statements := value.Statement
 
-    not allows_permission(statements, "s3:*", "Deny")
-    not allows_permission(statements, "s3:get*", "Deny")
+	not allows_permission(statements, "s3:*", "Deny")
+	not allows_permission(statements, "s3:get*", "Deny")
 
-    allows_permission(statements, "s3:*", "Allow")
-    allows_permission(statements, "s3:get*", "Allow")
+	some perm in {"s3:*", "s3:get*"}
+	allows_permission(statements, perm, "Allow")
 }
 
 deny contains res if {
