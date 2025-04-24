@@ -1,6 +1,6 @@
 # METADATA
-# title: "Disallow unrestricted s3:* IAM Policies"
-# description: "Ensure that the creation of the IAM policy 's3:*' is disallowed."
+# title: "Disallow unrestricted S3 IAM Policies"
+# description: "Ensure that the creation of the unrestricted S3 IAM policies is disallowed."
 # scope: package
 # schemas:
 # - input: schema["cloud"]
@@ -11,7 +11,7 @@
 #   service: iam
 #   severity: HIGH
 #   short_code: no-s3-full-access
-#   recommended_action: "Create more restrictive S3 policies instead of using s3:*"
+#   recommended_action: "Create more restrictive S3 policies"
 #   input:
 #     selector:
 #     - type: cloud
