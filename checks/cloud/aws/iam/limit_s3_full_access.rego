@@ -34,10 +34,12 @@ is_s3_full_access_allowed(document) if {
 	value := json.unmarshal(document)
 	statements := value.Statement
 
-	some perm_deny in {"s3:*", "s3:get*", "s3:put*", "s3:delete*", "s3:list*"}
+	s3_permissions := {"s3:*", "s3:get*", "s3:put*", "s3:delete*", "s3:list*"}
+
+	some perm_deny in s3_permissions
 	not allows_permission(statements, perm_deny, "Deny")
 
-	some perm_allow in {"s3:*", "s3:get*", "s3:put*", "s3:delete*", "s3:list*"}
+	some perm_allow in s3_permissions
 	allows_permission(statements, perm_allow, "Allow")
 }
 
