@@ -23,35 +23,53 @@ package builtin.aws.iam.aws0345
 
 import rego.v1
 
-allows_permission(statements, permission, effect) if {
-	statement := statements[_]
-	statement.Effect == effect
-	action = statement.Action[_]
-	action == permission
+dangerous_actions := {"s3:*", "s3:get*", "s3:put*", "s3:delete*", "s3:list*"}
+
+is_action_allowed_by_effect(statements, action_to_check) := action if {
+	some statement in statements
+	statement.Effect == "Allow"
+	some action in statement.Action
+	action == action_to_check
 }
 
-is_s3_full_access_allowed(document) if {
+is_overridden_by_deny(statements, action_to_check) if {
+	some statement in statements
+	statement.Effect == "Deny"
+	some action in statement.Action
+	matches(action, action_to_check)
+}
+
+matches(pattern, action) if {
+	# exact match
+	lower(pattern) == lower(action)
+} else if {
+	# wildcard prefix match (like s3:*)
+	endswith(pattern, "*")
+	startswith(lower(action), trim_suffix(lower(pattern), "*"))
+}
+
+is_s3_dangerous_action_allowed(document) := action if {
 	value := json.unmarshal(document)
-	statements := value.Statement
-
-	s3_permissions := {"s3:*", "s3:get*", "s3:put*", "s3:delete*", "s3:list*"}
-
-	some perm_deny in s3_permissions
-	not allows_permission(statements, perm_deny, "Deny")
-
-	some perm_allow in s3_permissions
-	allows_permission(statements, perm_allow, "Allow")
+	some action_to_check in dangerous_actions
+	not is_overridden_by_deny(value.Statement, action_to_check)
+	action := is_action_allowed_by_effect(value.Statement, action_to_check)
 }
 
 deny contains res if {
-	policy := input.aws.iam.policies[_]
-	value = is_s3_full_access_allowed(policy.document.value)
-	res = result.new("IAM policy allows 's3:*' action", policy.document)
+	some policy in input.aws.iam.policies
+	action = is_s3_dangerous_action_allowed(policy.document.value)
+	res = result.new(
+		sprintf("IAM policy allows '%s' action", [action]),
+		policy.document,
+	)
 }
 
 deny contains res if {
-	role := input.aws.iam.roles[_]
-	policy := role.policies[_]
-	value = is_s3_full_access_allowed(policy.document.value)
-	res = result.new("IAM role uses a policy that allows 's3:*' action", role)
+	some role in input.aws.iam.roles
+	some policy in role.policies
+	action := is_s3_dangerous_action_allowed(policy.document.value)
+	res = result.new(
+		sprintf("IAM role uses a policy that allows '%s' action", [action]),
+		policy.document,
+	)
 }

@@ -60,7 +60,7 @@ test_with_allow_s3_full_access_with_verb_non_mixed if {
 	count(r) == 1
 }
 
-test_with_allow_s3_full_access_with_verb_invalid_policy if {
+test_with_allow_s3_full_access_overriden_by_deny if {
 	policies := [{
 		"name": "policy_with_s3_full_access",
 		"document": {"value": json.marshal({
@@ -81,7 +81,7 @@ test_with_allow_s3_full_access_with_verb_invalid_policy if {
 	}]
 
 	r := deny with input as {"aws": {"iam": {"policies": policies}}}
-	count(r) == 1
+	count(r) == 0
 }
 
 test_with_deny_s3_full_access if {
