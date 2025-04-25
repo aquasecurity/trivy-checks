@@ -27,14 +27,14 @@ dangerous_actions := {"s3:*", "s3:get*", "s3:put*", "s3:delete*", "s3:list*"}
 
 is_action_allowed_by_effect(statements, action_to_check) := action if {
 	some statement in statements
-	statement.Effect == "Allow"
+	lower(statement.Effect) == "allow"
 	some action in statement.Action
-	action == action_to_check
+	lower(action) == lower(action_to_check)
 }
 
 is_overridden_by_deny(statements, action_to_check) if {
 	some statement in statements
-	statement.Effect == "Deny"
+	lower(statement.Effect) == "deny"
 	some action in statement.Action
 	matches(action, action_to_check)
 }
