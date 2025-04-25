@@ -48,16 +48,16 @@ matches(pattern, action) if {
 	startswith(lower(action), trim_suffix(lower(pattern), "*"))
 }
 
-is_s3_dangerous_action_allowed(document) := action if {
+allowed_s3_dangerous_actions(document) := [action |
 	value := json.unmarshal(document)
 	some action_to_check in dangerous_actions
 	not is_overridden_by_deny(value.Statement, action_to_check)
 	action := is_action_allowed_by_effect(value.Statement, action_to_check)
-}
+]
 
 deny contains res if {
 	some policy in input.aws.iam.policies
-	action = is_s3_dangerous_action_allowed(policy.document.value)
+	some action in allowed_s3_dangerous_actions(policy.document.value)
 	res = result.new(
 		sprintf("IAM policy allows '%s' action", [action]),
 		policy.document,
@@ -67,7 +67,7 @@ deny contains res if {
 deny contains res if {
 	some role in input.aws.iam.roles
 	some policy in role.policies
-	action := is_s3_dangerous_action_allowed(policy.document.value)
+	some action in allowed_s3_dangerous_actions(policy.document.value)
 	res = result.new(
 		sprintf("IAM role uses a policy that allows '%s' action", [action]),
 		policy.document,
