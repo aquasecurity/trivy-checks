@@ -7,9 +7,33 @@ test_with_allow_s3_full_access if {
 		"name": "policy_with_s3_full_access",
 		"document": {"value": json.marshal({
 			"Version": "2012-10-17",
+			"Statement": [
+				{
+					"Effect": "Allow",
+					"Action": ["s3:g*"],
+					"Resource": ["*"],
+				},
+				{
+					"Effect": "Allow",
+					"Action": ["s3:P*"],
+					"Resource": ["*"],
+				},
+			],
+		})},
+	}]
+
+	r := deny with input as {"aws": {"iam": {"policies": policies}}}
+	count(r) == 2
+}
+
+test_with_allow_s3_full_access_multi_wild_danger if {
+	policies := [{
+		"name": "policy_with_s3_full_access",
+		"document": {"value": json.marshal({
+			"Version": "2012-10-17",
 			"Statement": [{
 				"Effect": "Allow",
-				"Action": ["s3:*"],
+				"Action": ["s3:g*"],
 				"Resource": ["*"],
 			}],
 		})},
