@@ -9,10 +9,24 @@ terraform:
 
       resource "aws_cloudtrail" "example" {
         event_selector {
-          read_write_type = "ReadOnly" # or "All"
+          read_write_type = "ReadOnly"
           data_resource {
             type   = "AWS::S3::Object"
             values = ["arn:aws:s3:::${aws_s3_bucket.good_example.bucket}/"]
+          }
+        }
+      }
+    - |-
+      resource "aws_s3_bucket" "good_example" {
+        bucket = "my-bucket"
+      }
+
+      resource "aws_cloudtrail" "example" {
+        event_selector {
+          read_write_type = "All"
+          data_resource {
+            type   = "AWS::S3::Object"
+            values = ["arn:aws:s3"]
           }
         }
       }
@@ -20,4 +34,46 @@ terraform:
     - |-
       resource "aws_s3_bucket" "bad_example" {
         bucket = "my-bucket"
+      }
+    - |-
+      resource "aws_s3_bucket" "bad_example" {
+        bucket = "my-bucket"
+      }
+
+      resource "aws_cloudtrail" "example" {
+        event_selector {
+          read_write_type = "WriteOnly"
+          data_resource {
+            type   = "AWS::S3::Object"
+            values = ["arn:aws:s3"]
+          }
+        }
+      }
+    - |-
+      resource "aws_s3_bucket" "bad_example" {
+        bucket = "my-bucket"
+      }
+
+      resource "aws_cloudtrail" "example" {
+        event_selector {
+          read_write_type = "All"
+          data_resource {
+            type   = "AWS::S3::Object"
+            values = ["arn:aws:s3:::test-bucket/"] # another bucket
+          }
+        }
+      }
+    - |-
+      resource "aws_s3_bucket" "bad_example" {
+        bucket = "my-bucket"
+      }
+
+      resource "aws_cloudtrail" "example" {
+        event_selector {
+          read_write_type = "All"
+          data_resource {
+            type   = "AWS::S3::Object"
+            values = ["arn:aws:s3:::my-bucket"] # missing slash
+          }
+        }
       }
