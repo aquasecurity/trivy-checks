@@ -115,6 +115,11 @@ terraform:
         })
       }
 
+      resource "aws_iam_role_policy_attachment" "test" {
+        role       = aws_iam_role.test.name
+        policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+      }
+
       resource "aws_iam_role" "bad_role" {
         name = "bad_role"
         assume_role_policy = jsonencode({
