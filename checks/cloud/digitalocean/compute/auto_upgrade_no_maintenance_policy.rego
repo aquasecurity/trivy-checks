@@ -25,12 +25,19 @@ package builtin.digitalocean.compute.digitalocean0008
 
 import rego.v1
 
+import data.lib.cloud.metadata
+import data.lib.cloud.value
+
 deny contains res if {
 	some cluster in input.digitalocean.compute.kubernetesclusters
 	isManaged(cluster)
-	not cluster.autoupgrade.value
+	autoupgrade_disabled(cluster)
 	res := result.new(
 		"Kubernetes cluster does not have auto-upgrades enabled.",
-		object.get(cluster, "autoupgrade", cluster),
+		metadata.obj_by_path(cluster, ["autoupgrade"]),
 	)
 }
+
+autoupgrade_disabled(cluster) if value.is_false(cluster.autoupgrade)
+
+autoupgrade_disabled(cluster) if not cluster.autoupgrade
