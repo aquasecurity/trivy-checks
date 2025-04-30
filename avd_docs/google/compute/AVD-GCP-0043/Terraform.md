@@ -13,11 +13,6 @@ resource "google_compute_instance" "good_example" {
     }
   }
 
-  // Local SSD disk
-  scratch_disk {
-    interface = "SCSI"
-  }
-
   can_ip_forward = false
 }
 ```
