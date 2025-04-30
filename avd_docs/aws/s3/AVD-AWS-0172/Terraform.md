@@ -8,10 +8,25 @@ resource "aws_s3_bucket" "good_example" {
 
 resource "aws_cloudtrail" "example" {
   event_selector {
-    read_write_type = "ReadOnly" # or "All"
+    read_write_type = "ReadOnly"
     data_resource {
       type   = "AWS::S3::Object"
       values = ["arn:aws:s3:::${aws_s3_bucket.good_example.bucket}/"]
+    }
+  }
+}
+```
+```hcl
+resource "aws_s3_bucket" "good_example" {
+  bucket = "my-bucket"
+}
+
+resource "aws_cloudtrail" "example" {
+  event_selector {
+    read_write_type = "All"
+    data_resource {
+      type   = "AWS::S3::Object"
+      values = ["arn:aws:s3"]
     }
   }
 }

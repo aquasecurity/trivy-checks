@@ -18,20 +18,17 @@ terraform:
   good:
     - |-
       resource "aws_s3_bucket" "good_example" {
-
         versioning {
           enabled = true
         }
       }
     - |-
-      resource "aws_s3_bucket" "example" {
+      resource "aws_s3_bucket" "good_example" {
         bucket = "yournamehere"
-
-        # ... other configuration ...
       }
 
       resource "aws_s3_bucket_versioning" "example" {
-        bucket = aws_s3_bucket.example.id
+        bucket = aws_s3_bucket.good_example.id
         versioning_configuration {
           status = "Enabled"
         }
@@ -40,4 +37,21 @@ terraform:
     - |-
       resource "aws_s3_bucket" "bad_example" {
 
+      }
+    - |-
+      resource "aws_s3_bucket" "bad_example" {
+        versioning {
+          enabled = false
+        }
+      }
+    - |-
+      resource "aws_s3_bucket" "bad_example" {
+        bucket = "yournamehere"
+      }
+
+      resource "aws_s3_bucket_versioning" "example" {
+        bucket = aws_s3_bucket.bad_example.id
+        versioning_configuration {
+          status = "Disabled"
+        }
       }

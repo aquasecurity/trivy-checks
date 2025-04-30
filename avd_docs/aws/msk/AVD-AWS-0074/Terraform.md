@@ -10,11 +10,7 @@ resource "aws_msk_cluster" "example" {
   broker_node_group_info {
     instance_type   = "kafka.m5.large"
     ebs_volume_size = 1000
-    client_subnets = [
-      aws_subnet.subnet_az1.id,
-      aws_subnet.subnet_az2.id,
-      aws_subnet.subnet_az3.id,
-    ]
+    client_subnets  = [aws_subnet.subnet_az1.id]
     security_groups = [aws_security_group.sg.id]
   }
 
@@ -31,10 +27,6 @@ resource "aws_msk_cluster" "example" {
       }
     }
   }
-
-  tags = {
-    foo = "bar"
-  }
 }
 ```
 ```hcl
@@ -46,11 +38,7 @@ resource "aws_msk_cluster" "example" {
   broker_node_group_info {
     instance_type   = "kafka.m5.large"
     ebs_volume_size = 1000
-    client_subnets = [
-      aws_subnet.subnet_az1.id,
-      aws_subnet.subnet_az2.id,
-      aws_subnet.subnet_az3.id,
-    ]
+    client_subnets  = [aws_subnet.subnet_az1.id]
     security_groups = [aws_security_group.sg.id]
   }
 
@@ -66,10 +54,6 @@ resource "aws_msk_cluster" "example" {
       }
     }
   }
-
-  tags = {
-    foo = "bar"
-  }
 }
 ```
 ```hcl
@@ -81,11 +65,7 @@ resource "aws_msk_cluster" "example" {
   broker_node_group_info {
     instance_type   = "kafka.m5.large"
     ebs_volume_size = 1000
-    client_subnets = [
-      aws_subnet.subnet_az1.id,
-      aws_subnet.subnet_az2.id,
-      aws_subnet.subnet_az3.id,
-    ]
+    client_subnets  = [aws_subnet.subnet_az1.id]
     security_groups = [aws_security_group.sg.id]
   }
 
@@ -105,10 +85,6 @@ resource "aws_msk_cluster" "example" {
         prefix  = "logs/msk-"
       }
     }
-  }
-
-  tags = {
-    foo = "bar"
   }
 }
 ```
