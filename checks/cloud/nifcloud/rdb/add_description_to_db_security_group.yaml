@@ -13,3 +13,8 @@ terraform:
         name        = "app"
         description = ""
       }
+    - |-
+      resource "nifcloud_db_security_group" "good_example" {
+        group_name  = "app"
+        description = "Managed by Terraform"
+      }
