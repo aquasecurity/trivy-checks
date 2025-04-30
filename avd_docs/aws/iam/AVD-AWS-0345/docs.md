@@ -1,5 +1,5 @@
 
-Ensure that the creation of the IAM policy 's3:*' is disallowed.
+Ensure that the creation of the unrestricted S3 IAM policies is disallowed.
 
 ### Impact
 <!-- Add Impact here -->
