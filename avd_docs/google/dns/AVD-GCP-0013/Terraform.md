@@ -3,19 +3,21 @@ Enable DNSSEC
 
 ```hcl
 resource "google_dns_managed_zone" "good_example" {
-  name        = "example-zone"
-  dns_name    = "example-${random_id.rnd.hex}.com."
-  description = "Example DNS zone"
-  labels = {
-    foo = "bar"
-  }
+  name     = "example-zone"
+  dns_name = "example.com."
   dnssec_config {
     state = "on"
   }
 }
-
-resource "random_id" "rnd" {
-  byte_length = 4
+```
+```hcl
+resource "google_dns_managed_zone" "good_example" {
+  name       = "example-zone"
+  dns_name   = "example.com."
+  visibility = "private"
+  dnssec_config {
+    state = "off"
+  }
 }
 ```
 

@@ -26,9 +26,11 @@ package builtin.digitalocean.spaces.digitalocean0006
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some bucket in input.digitalocean.spaces.buckets
-	bucket.acl.value == "public-read"
+	value.is_equal(bucket.acl, "public-read")
 	res := result.new("Bucket is publicly exposed.", bucket.acl)
 }
 
@@ -36,5 +38,6 @@ deny contains res if {
 	some bucket in input.digitalocean.spaces.buckets
 	some object in bucket.objects
 	object.acl.value == "public-read"
+	value.is_equal(object.acl, "public-read")
 	res := result.new("Object is publicly exposed.", object.acl)
 }

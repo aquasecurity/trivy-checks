@@ -26,12 +26,19 @@ package builtin.digitalocean.compute.digitalocean0005
 
 import rego.v1
 
+import data.lib.cloud.metadata
+import data.lib.cloud.value
+
 deny contains res if {
 	some cluster in input.digitalocean.compute.kubernetesclusters
 	isManaged(cluster)
-	not cluster.surgeupgrade.value
+	superupgrade_disabled(cluster)
 	res := result.new(
 		"Surge upgrades are disabled in your Kubernetes cluster. Please enable this feature.",
-		object.get(cluster, "surgeupgrade", cluster),
+		metadata.obj_by_path(cluster, ["surgeupgrade"]),
 	)
 }
+
+superupgrade_disabled(cluster) if value.is_false(cluster.surgeupgrade)
+
+superupgrade_disabled(cluster) if not cluster.surgeupgrade

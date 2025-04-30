@@ -4,7 +4,7 @@ Use RSA SHA512
 ```hcl
 resource "google_dns_managed_zone" "example-zone" {
   name     = "example-zone"
-  dns_name = "example-${random_id.rnd.hex}.com."
+  dns_name = "example.com."
 
   dnssec_config {
     state = "on"

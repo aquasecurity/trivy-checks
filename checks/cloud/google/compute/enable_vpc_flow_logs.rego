@@ -36,6 +36,4 @@ deny contains res if {
 
 is_proxy_only_network(network) if network.purpose.value in {"REGIONAL_MANAGED_PROXY", "GLOBAL_MANAGED_PROXY"}
 
-is_flow_logs_disabled(network) if {
-	not network.enableflowlogs.value
-}
+is_flow_logs_disabled(network) if not network.enableflowlogs.value

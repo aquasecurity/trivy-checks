@@ -3,21 +3,18 @@ Enable versioning to protect against accidental/malicious removal or modificatio
 
 ```hcl
 resource "aws_s3_bucket" "good_example" {
-
   versioning {
     enabled = true
   }
 }
 ```
 ```hcl
-resource "aws_s3_bucket" "example" {
+resource "aws_s3_bucket" "good_example" {
   bucket = "yournamehere"
-
-  # ... other configuration ...
 }
 
 resource "aws_s3_bucket_versioning" "example" {
-  bucket = aws_s3_bucket.example.id
+  bucket = aws_s3_bucket.good_example.id
   versioning_configuration {
     status = "Enabled"
   }

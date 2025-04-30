@@ -8,7 +8,7 @@ terraform:
           "group:test@example.com",
         ]
       }
-
+    - |-
       resource "google_storage_bucket_iam_member" "good_example" {
         member = "serviceAccount:test@example.com"
       }
@@ -19,7 +19,7 @@ terraform:
           "user:test@example.com",
         ]
       }
-
+    - |-
       resource "google_project_iam_member" "bad_example" {
         member = "user:test@example.com"
       }
