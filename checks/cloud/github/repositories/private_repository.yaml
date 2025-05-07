@@ -4,26 +4,12 @@ terraform:
   good:
     - |-
       resource "github_repository" "good_example" {
-        name        = "example"
-        description = "My awesome codebase"
-
+        name       = "example"
         visibility = "private"
-
-        template {
-          owner      = "github"
-          repository = "terraform-module-template"
-        }
       }
   bad:
     - |-
       resource "github_repository" "bad_example" {
-        name        = "example"
-        description = "My awesome codebase"
-
+        name       = "example"
         visibility = "public"
-
-        template {
-          owner      = "github"
-          repository = "terraform-module-template"
-        }
       }

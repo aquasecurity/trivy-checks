@@ -26,8 +26,18 @@ package builtin.digitalocean.spaces.digitalocean0007
 
 import rego.v1
 
+import data.lib.cloud.metadata
+import data.lib.cloud.value
+
 deny contains res if {
 	some bucket in input.digitalocean.spaces.buckets
-	bucket.versioning.enabled.value == false
-	res := result.new("Bucket does not have versioning enabled.", bucket.versioning.enabled)
+	versioning_disabled(bucket)
+	res := result.new(
+		"Bucket does not have versioning enabled.",
+		metadata.obj_by_path(bucket, ["versioning", "enabled"]),
+	)
 }
+
+versioning_disabled(bucket) if value.is_false(bucket.versioning.enabled)
+
+versioning_disabled(bucket) if not bucket.versioning.enabled

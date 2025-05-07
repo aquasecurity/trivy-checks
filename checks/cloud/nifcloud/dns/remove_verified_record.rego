@@ -23,15 +23,14 @@
 #         subtypes:
 #           - service: dns
 #             provider: nifcloud
+#   examples: checks/cloud/nifcloud/dns/remove_verified_record.yaml
 package builtin.nifcloud.dns.nifcloud0007
 
 import rego.v1
 
-zone_registration_auth_txt := "nifty-dns-verify="
-
 deny contains res if {
 	some record in input.nifcloud.dns.records
 	record.type.value == "TXT"
-	startswith(record.record.value, zone_registration_auth_txt)
+	startswith(record.record.value, "nifty-dns-verify=")
 	res := result.new("Authentication TXT record exists.", record)
 }

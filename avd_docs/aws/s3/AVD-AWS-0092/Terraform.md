@@ -7,12 +7,12 @@ resource "aws_s3_bucket" "good_example" {
 }
 ```
 ```hcl
-resource "aws_s3_bucket" "example" {
+resource "aws_s3_bucket" "good_example" {
   bucket = "yournamehere"
 }
 
 resource "aws_s3_bucket_acl" "example" {
-  bucket = aws_s3_bucket.example.id
+  bucket = aws_s3_bucket.good_example.id
   acl    = "private"
 }
 ```

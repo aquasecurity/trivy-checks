@@ -7,7 +7,8 @@ resource "google_project_iam_binding" "good_example" {
     "group:test@example.com",
   ]
 }
-
+```
+```hcl
 resource "google_storage_bucket_iam_member" "good_example" {
   member = "serviceAccount:test@example.com"
 }

@@ -26,13 +26,9 @@ package builtin.aws.msk.aws0073
 
 import rego.v1
 
-plaintext := "PLAINTEXT"
-
-tls_plaintext := "TLS_PLAINTEXT"
-
 deny contains res if {
 	some cluster in input.aws.msk.clusters
-	cluster.encryptionintransit.clientbroker.value in {plaintext, tls_plaintext}
+	cluster.encryptionintransit.clientbroker.value in {"PLAINTEXT", "TLS_PLAINTEXT"}
 	res := result.new(
 		"Cluster allows plaintext communication.",
 		cluster.encryptionintransit.clientbroker,

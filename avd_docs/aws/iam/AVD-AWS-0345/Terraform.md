@@ -1,5 +1,5 @@
 
-Create more restrictive S3 policies instead of using s3:*
+Create more restrictive S3 policies
 
 ```hcl
 resource "aws_iam_policy" "good_policy" {
