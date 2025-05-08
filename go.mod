@@ -10,14 +10,14 @@ require (
 	github.com/aws-cloudformation/rain v1.23.0
 	github.com/docker/docker v28.0.4+incompatible
 	github.com/hashicorp/hcl/v2 v2.23.0
-	github.com/open-policy-agent/opa v1.4.0
+	github.com/open-policy-agent/opa v1.4.2
 	github.com/owenrumney/squealer v1.2.11
 	github.com/samber/lo v1.50.0
 	github.com/spf13/viper v1.20.1
 	github.com/stretchr/testify v1.10.0
 	github.com/testcontainers/testcontainers-go v0.37.0
 	github.com/testcontainers/testcontainers-go/modules/registry v0.37.0
-	golang.org/x/text v0.24.0
+	golang.org/x/text v0.25.0
 	gopkg.in/yaml.v3 v3.0.1
 	mvdan.cc/sh/v3 v3.11.0
 )
@@ -389,7 +389,7 @@ require (
 	golang.org/x/mod v0.24.0 // indirect
 	golang.org/x/net v0.39.0 // indirect
 	golang.org/x/oauth2 v0.26.0 // indirect
-	golang.org/x/sync v0.13.0 // indirect
+	golang.org/x/sync v0.14.0 // indirect
 	golang.org/x/sys v0.32.0 // indirect
 	golang.org/x/term v0.31.0 // indirect
 	golang.org/x/time v0.11.0 // indirect
