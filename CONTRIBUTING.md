@@ -97,7 +97,7 @@ You can see a full example PR for a new rule being added here: [https://github.c
 
 ## Writing Compliance reports
 
-To write a compliance report please check the following [compliance guide](./docs/compliance.md)
+To write a compliance report please check the following [compliance guide](./pkg/compliance/README.md)
 
 Supported compliance report IDs include:
 
