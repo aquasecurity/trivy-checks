@@ -23,7 +23,7 @@ package builtin.aws.iam.aws0345
 
 import rego.v1
 
-dangerous_actions := {"s3:*", "s3:g*", "s3:get*", "s3:p*", "s3:put*", "s3:d*", "s3:delete*", "s3:l*", "s3:list*"}
+dangerous_actions := {"s3:*"}
 
 is_action_allowed_by_effect(statements, action_to_check) := action if {
 	some statement in statements
