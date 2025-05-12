@@ -33,7 +33,7 @@ import data.lib.kubernetes
 
 deny contains res if {
 	some pod in kubernetes.pods
-	object.get(pod, ["spec", "securityContext"], {}) == {}
+	is_empty(object.get(pod, ["spec", "securityContext"], {}))
 	msg := kubernetes.format(sprintf(
 		"%s %s in %s namespace is using the default security context, which allows root privileges",
 		[lower(kubernetes.kind), kubernetes.name, kubernetes.namespace],
@@ -43,10 +43,13 @@ deny contains res if {
 
 deny contains res if {
 	some container in kubernetes.containers
-	object.get(container, ["securityContext"], {}) == {}
+	is_empty(object.get(container, ["securityContext"], {}))
 	msg := kubernetes.format(sprintf(
 		"container %s in %s namespace is using the default security context",
 		[kubernetes.name, kubernetes.namespace],
 	))
 	res := result.new(msg, container)
 }
+
+is_empty(obj) if obj == {}
+is_empty(obj) if object.keys(obj) == {"__defsec_metadata"}
