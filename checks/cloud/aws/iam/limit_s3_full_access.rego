@@ -36,16 +36,7 @@ is_overridden_by_deny(statements, action_to_check) if {
 	some statement in statements
 	lower(statement.Effect) == "deny"
 	some action in statement.Action
-	matches(action, action_to_check)
-}
-
-matches(pattern, action) if {
-	# exact match
-	lower(pattern) == lower(action)
-} else if {
-	# wildcard prefix match (like s3:*)
-	endswith(pattern, "*")
-	startswith(lower(action), trim_suffix(lower(pattern), "*"))
+	lower(action) == lower(action_to_check)
 }
 
 allowed_s3_dangerous_actions(document) := [action |
