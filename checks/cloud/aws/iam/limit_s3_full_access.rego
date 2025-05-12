@@ -25,7 +25,7 @@ import rego.v1
 
 dangerous_actions := {"s3:*"}
 
-is_action_allowed_by_effect(statements, action_to_check) := action if {
+is_action_allowed(statements, action_to_check) := action if {
 	some statement in statements
 	lower(statement.Effect) == "allow"
 	some action in statement.Action
@@ -43,7 +43,7 @@ allowed_s3_dangerous_actions(document) := [action |
 	value := json.unmarshal(document)
 	some action_to_check in dangerous_actions
 	not is_overridden_by_deny(value.Statement, action_to_check)
-	action := is_action_allowed_by_effect(value.Statement, action_to_check)
+	action := is_action_allowed(value.Statement, action_to_check)
 ]
 
 deny contains res if {
