@@ -41,11 +41,6 @@ deny contains res if {
 }
 
 missing_required_categories(profile) := missing if {
-	categories := {
-	val |
-		some category in profile.categories
-		val := category.value
-	}
-
+	categories := {category.value | some category in profile.categories}
 	missing := required_categories - categories
 } else := {}
