@@ -11,7 +11,8 @@ resource "azurerm_mssql_server" "good_example" {
   administrator_login_password = "thisIsKat11"
   minimum_tls_version          = "1.2"
 }
-
+```
+```hcl
 resource "azurerm_postgresql_server" "good_example" {
   name = "bad_example"
 
