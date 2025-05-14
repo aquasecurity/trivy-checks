@@ -18,6 +18,11 @@ resource "azurerm_storage_account" "good_example" {
     }
   }
 }
+
+resource "azurerm_storage_queue" "good_example" {
+  name                 = "my-queue"
+  storage_account_name = azurerm_storage_account.good_example.name
+}
 ```
 
 #### Remediation Links

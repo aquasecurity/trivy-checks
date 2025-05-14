@@ -15,7 +15,8 @@ resource "azurerm_linux_virtual_machine" "good_linux_example" {
     public_key = file("~/.ssh/id_rsa.pub")
   }
 }
-
+```
+```hcl
 resource "azurerm_virtual_machine" "good_example" {
   name                = "good-linux-machine"
   resource_group_name = azurerm_resource_group.example.name
