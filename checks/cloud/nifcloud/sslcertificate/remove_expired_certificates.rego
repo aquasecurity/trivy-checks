@@ -27,6 +27,7 @@
 #         subtypes:
 #           - service: sslcertificate
 #             provider: nifcloud
+#   examples: checks/cloud/nifcloud/sslcertificate/remove_expired_certificates.yaml
 package builtin.nifcloud.sslcertificate.nifcloud0006
 
 import rego.v1

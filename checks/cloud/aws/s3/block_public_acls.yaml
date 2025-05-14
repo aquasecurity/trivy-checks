@@ -7,16 +7,11 @@ cloudformation:
           Properties:
             PublicAccessBlockConfiguration:
               BlockPublicAcls: true
-              BlockPublicPolicy: true
-              IgnorePublicAcls: true
-              RestrictPublicBuckets: true
   bad:
     - |-
       Resources:
         BadExample:
           Type: AWS::S3::Bucket
-          Properties:
-            AccessControl: AuthenticatedRead
 terraform:
   links:
     - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block#block_public_acls

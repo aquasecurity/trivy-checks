@@ -14,7 +14,7 @@ terraform:
         administrator_login_password = "thisIsKat11"
         minimum_tls_version          = "1.2"
       }
-
+    - |-
       resource "azurerm_postgresql_server" "good_example" {
         name = "bad_example"
 
@@ -33,7 +33,7 @@ terraform:
         administrator_login_password = "thisIsKat11"
         minimum_tls_version          = "1.1"
       }
-
+    - |-
       resource "azurerm_postgresql_server" "bad_example" {
         name = "bad_example"
 

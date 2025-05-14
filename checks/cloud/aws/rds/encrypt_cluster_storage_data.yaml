@@ -30,3 +30,8 @@ terraform:
         name       = "bar"
         kms_key_id = ""
       }
+    - |-
+      resource "aws_rds_cluster" "bad_example" {
+        name              = "bar"
+        storage_encrypted = true
+      }

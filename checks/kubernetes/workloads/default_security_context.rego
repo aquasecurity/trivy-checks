@@ -31,28 +31,25 @@ import rego.v1
 
 import data.lib.kubernetes
 
-default failCapsDefaultSecurityContext := false
-
-#failDefaultSecurityContext is true if spec.containers.securityContext is set to the default security context
-failDefaultSecurityContext if {
-	containers := kubernetes.containers[_]
-	containers.securityContext == {}
-}
-
-# failPodDefaultSecurityContext is true if spec.securityContext is set to the default security context
-failPodDefaultSecurityContext if {
-	pod := kubernetes.pods[_]
-	pod.spec.securityContext == {}
+deny contains res if {
+	some pod in kubernetes.pods
+	is_empty(object.get(pod, ["spec", "securityContext"], {}))
+	msg := kubernetes.format(sprintf(
+		"%s %s in %s namespace is using the default security context, which allows root privileges",
+		[lower(kubernetes.kind), kubernetes.name, kubernetes.namespace],
+	))
+	res := result.new(msg, object.get(pod, "spec", pod))
 }
 
 deny contains res if {
-	output := failPodDefaultSecurityContext
-	msg := kubernetes.format(sprintf("%s %s in %s namespace is using the default security context, which allows root privileges", [lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
-	res := result.new(msg, output)
+	some container in kubernetes.containers
+	is_empty(object.get(container, ["securityContext"], {}))
+	msg := kubernetes.format(sprintf(
+		"container %s in %s namespace is using the default security context",
+		[kubernetes.name, kubernetes.namespace],
+	))
+	res := result.new(msg, container)
 }
 
-deny contains res if {
-	output := failDefaultSecurityContext
-	msg := kubernetes.format(sprintf("container %s in %s namespace is using the default security context", [kubernetes.name, kubernetes.namespace]))
-	res := result.new(msg, output)
-}
+is_empty(obj) if obj == {}
+is_empty(obj) if object.keys(obj) == {"__defsec_metadata"}

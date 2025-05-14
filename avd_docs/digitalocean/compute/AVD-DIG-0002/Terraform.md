@@ -17,6 +17,24 @@ resource "digitalocean_loadbalancer" "good_example" {
   droplet_ids = [digitalocean_droplet.web.id]
 }
 ```
+```hcl
+resource "digitalocean_loadbalancer" "bad_example" {
+  name   = "bad_example-1"
+  region = "nyc3"
+
+  redirect_http_to_https = true
+
+  forwarding_rule {
+    entry_port     = 80
+    entry_protocol = "http"
+
+    target_port     = 80
+    target_protocol = "http"
+  }
+
+  droplet_ids = [digitalocean_droplet.web.id]
+}
+```
 
 #### Remediation Links
  - https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/loadbalancer

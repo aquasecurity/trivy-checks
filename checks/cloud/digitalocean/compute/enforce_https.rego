@@ -27,11 +27,13 @@ package builtin.digitalocean.compute.digitalocean0002
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some lb in input.digitalocean.compute.loadbalancers
 	not is_redirect_http_to_https(lb)
 	some rule in lb.forwardingrules
-	rule.entryprotocol.value == "http"
+	value.is_equal(rule.entryprotocol, "http")
 	res := result.new(
 		"Load balancer has aforwarding rule which uses HTTP instead of HTTPS.",
 		rule.entryprotocol,

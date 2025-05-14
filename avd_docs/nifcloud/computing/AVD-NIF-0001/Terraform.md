@@ -9,12 +9,8 @@ resource "nifcloud_security_group_rule" "example" {
 ```
 ```hcl
 resource "nifcloud_security_group_rule" "example" {
-  type                 = "IN"
-  security_group_names = [nifcloud_security_group.example.group_name]
-  from_port            = 22
-  to_port              = 22
-  protocol             = "TCP"
-  cidr_ip              = "10.0.0.0/16"
+  type    = "IN"
+  cidr_ip = "10.0.0.0/16"
 }
 ```
 

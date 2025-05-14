@@ -13,7 +13,6 @@ cloudformation:
       Resources:
         BadCluster:
           Type: AWS::MSK::Cluster
-          Properties: null
 terraform:
   links:
     - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/msk_cluster#encryption_info-argument-reference

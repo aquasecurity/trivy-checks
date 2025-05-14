@@ -5,7 +5,7 @@ terraform:
     - |-
       resource "azurerm_key_vault" "good_example" {
         name                        = "examplekeyvault"
-        location                    = azurerm_resource_group.good_example.location
+        location                    = azurerm_resource_group.test.location
         enabled_for_disk_encryption = true
         soft_delete_retention_days  = 7
         purge_protection_enabled    = true
@@ -14,7 +14,23 @@ terraform:
     - |-
       resource "azurerm_key_vault" "bad_example" {
         name                        = "examplekeyvault"
-        location                    = azurerm_resource_group.bad_example.location
+        location                    = azurerm_resource_group.test.location
         enabled_for_disk_encryption = true
         purge_protection_enabled    = false
+      }
+    - |-
+      resource "azurerm_key_vault" "bad_example" {
+        name                        = "examplekeyvault"
+        location                    = azurerm_resource_group.test.location
+        enabled_for_disk_encryption = true
+        soft_delete_retention_days  = 2
+        purge_protection_enabled    = true
+      }
+    - |-
+      resource "azurerm_key_vault" "bad_example" {
+        name                        = "examplekeyvault"
+        location                    = azurerm_resource_group.test.location
+        enabled_for_disk_encryption = true
+        soft_delete_retention_days  = 100
+        purge_protection_enabled    = true
       }
