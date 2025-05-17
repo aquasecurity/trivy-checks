@@ -25,7 +25,7 @@
 #         - kind: daemonset
 #         - kind: cronjob
 #         - kind: job
-#   examples: checks/kubernetes/security/6_apparmor_policy_disabled.yaml
+#   examples: checks/kubernetes/apparmor_policy_disabled.yaml
 package builtin.kubernetes.KSV002
 
 import rego.v1
