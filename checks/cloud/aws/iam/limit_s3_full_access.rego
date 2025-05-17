@@ -23,9 +23,9 @@ package builtin.aws.iam.aws0345
 
 import rego.v1
 
-dangerous_actions := {"s3:*", "s3:g*", "s3:get*", "s3:p*", "s3:put*", "s3:d*", "s3:delete*", "s3:l*", "s3:list*"}
+dangerous_actions := {"s3:*"}
 
-is_action_allowed_by_effect(statements, action_to_check) := action if {
+is_action_allowed(statements, action_to_check) := action if {
 	some statement in statements
 	lower(statement.Effect) == "allow"
 	some action in statement.Action
@@ -36,23 +36,14 @@ is_overridden_by_deny(statements, action_to_check) if {
 	some statement in statements
 	lower(statement.Effect) == "deny"
 	some action in statement.Action
-	matches(action, action_to_check)
-}
-
-matches(pattern, action) if {
-	# exact match
-	lower(pattern) == lower(action)
-} else if {
-	# wildcard prefix match (like s3:*)
-	endswith(pattern, "*")
-	startswith(lower(action), trim_suffix(lower(pattern), "*"))
+	lower(action) == lower(action_to_check)
 }
 
 allowed_s3_dangerous_actions(document) := [action |
 	value := json.unmarshal(document)
 	some action_to_check in dangerous_actions
 	not is_overridden_by_deny(value.Statement, action_to_check)
-	action := is_action_allowed_by_effect(value.Statement, action_to_check)
+	action := is_action_allowed(value.Statement, action_to_check)
 ]
 
 deny contains res if {
