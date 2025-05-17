@@ -25,7 +25,7 @@
 #         - kind: daemonset
 #         - kind: cronjob
 #         - kind: job
-#   examples: checks/kubernetes/security/3_runs_as_root.yaml
+#   examples: checks/kubernetes/runs_as_root.yaml
 package builtin.kubernetes.KSV012
 
 import rego.v1

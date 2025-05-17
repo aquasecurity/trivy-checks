@@ -25,7 +25,7 @@
 #         - kind: daemonset
 #         - kind: cronjob
 #         - kind: job
-#   examples: checks/kubernetes/security/1_host_pid.yaml
+#   examples: checks/kubernetes/host_pid.yaml
 package builtin.kubernetes.KSV010
 
 import rego.v1

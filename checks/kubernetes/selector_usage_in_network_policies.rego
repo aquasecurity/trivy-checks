@@ -15,7 +15,7 @@
 #   input:
 #     selector:
 #     - type: kubernetes
-#   examples: checks/kubernetes/network/selector_usage_in_network_policies.yaml
+#   examples: checks/kubernetes/selector_usage_in_network_policies.yaml
 package builtin.kubernetes.KSV038
 
 import rego.v1

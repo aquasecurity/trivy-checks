@@ -25,7 +25,7 @@
 #         - kind: daemonset
 #         - kind: cronjob
 #         - kind: job
-#   examples: checks/kubernetes/security/2_can_elevate_its_own_privileges.yaml
+#   examples: checks/kubernetes/can_elevate_its_own_privileges.yaml
 package builtin.kubernetes.KSV001
 
 import rego.v1
