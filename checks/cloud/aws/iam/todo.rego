@@ -1,5 +1,5 @@
 # METADATA
-# title: todo
+# title: Reduce unnecessary unauthorized access or information disclosure of S3 buckets.
 # description: todo
 # scope: package
 # schemas:
@@ -11,7 +11,7 @@
 #   service: iam
 #   severity: HIGH
 #   short_code: todo
-#   recommended_action: Create more restrictive S3 policies
+#   recommended_action: Allowing Get* along with Put* on all Resources can potentially allow unauthorized access and/or information disclosure from sensitive buckets.
 #   input:
 #     selector:
 #     - type: cloud
