@@ -2,6 +2,8 @@
 # title: Reduce unnecessary unauthorized access or information disclosure of S3 buckets.
 # description: todo
 # scope: package
+# related_resources:
+#   - https://www.aquasec.com/blog/shadow-roles-aws-defaults-lead-to-service-takeover/
 # schemas:
 # - input: schema["cloud"]
 # custom:
