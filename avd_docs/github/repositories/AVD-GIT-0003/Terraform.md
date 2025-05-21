@@ -3,15 +3,15 @@ Enable vulnerability alerts
 
 ```hcl
 resource "github_repository" "good_example" {
-  name        = "example"
-  description = "My awesome codebase"
-
+  name                 = "example"
   vulnerability_alerts = true
-
-  template {
-    owner      = "github"
-    repository = "terraform-module-template"
-  }
+}
+```
+```hcl
+resource "github_repository" "good_example" {
+  name                 = "example"
+  archived             = true
+  vulnerability_alerts = false
 }
 ```
 

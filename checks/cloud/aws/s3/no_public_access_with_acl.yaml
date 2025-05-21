@@ -22,12 +22,12 @@ terraform:
         acl = "private"
       }
     - |-
-      resource "aws_s3_bucket" "example" {
+      resource "aws_s3_bucket" "good_example" {
         bucket = "yournamehere"
       }
 
       resource "aws_s3_bucket_acl" "example" {
-        bucket = aws_s3_bucket.example.id
+        bucket = aws_s3_bucket.good_example.id
         acl    = "private"
       }
   bad:
@@ -36,11 +36,11 @@ terraform:
         acl = "public-read"
       }
     - |-
-      resource "aws_s3_bucket" "example" {
+      resource "aws_s3_bucket" "bad_example" {
         bucket = "yournamehere"
       }
 
       resource "aws_s3_bucket_acl" "example" {
-        bucket = aws_s3_bucket.example.id
+        bucket = aws_s3_bucket.bad_example.id
         acl    = "authenticated-read"
       }

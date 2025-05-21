@@ -1,0 +1,26 @@
+
+Remove expired certificates
+
+```hcl
+resource "nifcloud_ssl_certificate" "test" {
+  certificate = <<CERT
+-----BEGIN CERTIFICATE-----
+MIIB7TCCAZWgAwIBAgIUOK0V7HZMbh9ehIGGzGfRz3ex1XUwDQYJKoZIhvcNAQEL
+BQAwQjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDlRpbWVsZXNzIFZhbGxleTESMBAG
+A1UECgwJRXZlcmxhc3QxDTALBgNVBAMMBHRlc3QwHhcNMjUwNDIyMDAwMDAwWhcN
+OTk5MTIzMTIzNTk1OVowQjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDlRpbWVsZXNz
+IFZhbGxleTESMBAGA1UECgwJRXZlcmxhc3QxDTALBgNVBAMMBHRlc3QwXDANBgkq
+hkiG9w0BAQEFAANLADBIAkEAqQlF5OKu3jT1zEweW3ReRtSb6my6MXNzQWlOQUsS
+kugTHV9B8W6FgVn7Fb/9hD+Q0CVBiP1FCJbE3+FCyiBaZQIDAQABo1MwUTAdBgNV
+HQ4EFgQUQhFv2k3Xt5AXYp6KGHY2fM+zZcEwHwYDVR0jBBgwFoAUQhFv2k3Xt5AX
+Yp6KGHY2fM+zZcEwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAANBAF68
+znVEx2UvM55Fos+0K8+8X3lhzvjvVYfRPr9FZ4H8T/egnyAD+aXXeZk6y9eEGa7A
+Dp6aR3FHZ9bm0TDkiMI=
+-----END CERTIFICATE-----
+CERT
+}
+```
+
+#### Remediation Links
+ - https://registry.terraform.io/providers/nifcloud/nifcloud/latest/docs/resources/ssl_certificate
+

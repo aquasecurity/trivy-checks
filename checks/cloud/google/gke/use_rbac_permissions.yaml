@@ -4,12 +4,10 @@ terraform:
   good:
     - |-
       resource "google_container_cluster" "good_example" {
-        # ...
         # enable_legacy_abac not set
-        # ...
       }
   bad:
     - |-
       resource "google_container_cluster" "bad_example" {
-        enable_legacy_abac = "true"
+        enable_legacy_abac = true
       }

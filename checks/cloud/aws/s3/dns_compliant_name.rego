@@ -5,7 +5,7 @@
 # schemas:
 # - input: schema["cloud"]
 # related_resources:
-# - https://docs.aws.amazon.com/AmazonS3/latest./dev/transfer-acceleration.html
+# - https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html
 # custom:
 #   id: AVD-AWS-0320
 #   avd_id: AVD-AWS-0320

@@ -8,9 +8,6 @@ Resources:
     Properties:
       PublicAccessBlockConfiguration:
         BlockPublicAcls: true
-        BlockPublicPolicy: true
-        IgnorePublicAcls: true
-        RestrictPublicBuckets: true
 ```
 
 
