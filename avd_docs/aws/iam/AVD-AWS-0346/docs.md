@@ -1,5 +1,5 @@
 
-todo
+Unnecessary access to S3 buckets can lead to unauthorized access or information disclosure.
 
 ### Impact
 <!-- Add Impact here -->

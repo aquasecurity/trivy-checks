@@ -1,6 +1,6 @@
 # METADATA
 # title: Reduce unnecessary unauthorized access or information disclosure of S3 buckets.
-# description: todo
+# description: Unnecessary access to S3 buckets can lead to unauthorized access or information disclosure.
 # scope: package
 # related_resources:
 #   - https://www.aquasec.com/blog/shadow-roles-aws-defaults-lead-to-service-takeover/
