@@ -272,24 +272,6 @@ test_any_verb_role_groups if {
 	count(r) > 0
 }
 
-test_any_verb_role_groups if {
-	r := deny with input as {
-		"apiVersion": "rbac.authorization.k8s.io/v1",
-		"kind": "Role",
-		"metadata": {
-			"namespace": "default",
-			"name": "pod-reader",
-		},
-		"rules": [{
-			"apiGroups": ["*"],
-			"resources": ["groups"],
-			"verbs": ["*"],
-		}],
-	}
-
-	count(r) > 0
-}
-
 test_any_verb_role_no_specific_resource if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
