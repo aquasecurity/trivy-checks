@@ -3,7 +3,7 @@ spec:
   title: AWS EKS CIS Foundations v1.4
   description: AWS EKS CIS Foundations
   version: "1.4"
-  platform: eks
+  platfrom: eks
   type: cis
   relatedResources:
   - https://www.cisecurity.org/benchmark/amazon_web_services

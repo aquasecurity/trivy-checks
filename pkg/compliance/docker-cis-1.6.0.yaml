@@ -6,7 +6,7 @@ spec:
   relatedResources : 
     - https://www.cisecurity.org/benchmark/docker
   version: "1.6.0"
-  platform: docker
+  platfrom: docker
   type: cis
   controls:
     - id: '4.1'
