@@ -35,7 +35,7 @@ deny contains res if {
 	some instance in cluster.instances
 	kms_key_not_used(instance.instance)
 	res := result.new(
-		"Cluster instance Perfomance Insights enctyption does not use a customer-managed KMS key.",
+		"Cluster instance Performance Insights enctyption does not use a customer-managed KMS key.",
 		instance.instance,
 	)
 }
@@ -44,7 +44,7 @@ deny contains res if {
 	some instance in input.aws.rds.instances
 	kms_key_not_used(instance)
 	res := result.new(
-		"Instance Perfomance Insights enctyption does not use a customer-managed KMS key.",
+		"Instance Performance Insights enctyption does not use a customer-managed KMS key.",
 		instance,
 	)
 }

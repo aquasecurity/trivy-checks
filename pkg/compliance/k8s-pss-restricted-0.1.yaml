@@ -5,7 +5,7 @@ spec:
   relatedResources :
     - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
   version: "0.1"
-  platfrom: k8s
+  platform: k8s
   type: pss
   controls:
     - name: HostProcess 

@@ -25,7 +25,7 @@
 #         - kind: daemonset
 #         - kind: cronjob
 #         - kind: job
-#   examples: checks/kubernetes/security/5_access_to_host_ports.yaml
+#   examples: checks/kubernetes/access_to_host_ports.yaml
 package builtin.kubernetes.KSV024
 
 import rego.v1

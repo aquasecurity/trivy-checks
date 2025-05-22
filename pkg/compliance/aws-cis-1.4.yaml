@@ -3,7 +3,7 @@ spec:
   title: AWS CIS Foundations v1.4
   description: AWS CIS Foundations
   version: "1.4"
-  platfrom: aws
+  platform: aws
   type: cis
   relatedResources:
   - https://www.cisecurity.org/benchmark/amazon_web_services

@@ -11,7 +11,7 @@ Resources:
       ShardCount: 3
       StreamEncryption:
         EncryptionType: KMS
-        KeyId: alis/key
+        KeyId: alias/key
       Tags:
         - Key: Environment
           Value: Production

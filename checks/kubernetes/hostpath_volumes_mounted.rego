@@ -25,7 +25,7 @@
 #         - kind: daemonset
 #         - kind: cronjob
 #         - kind: job
-#   examples: checks/kubernetes/security/4_hostpath_volumes_mounted.yaml
+#   examples: checks/kubernetes/hostpath_volumes_mounted.yaml
 package builtin.kubernetes.KSV023
 
 import rego.v1
