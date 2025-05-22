@@ -15,7 +15,7 @@
 #   input:
 #     selector:
 #     - type: kubernetes
-#   examples: checks/kubernetes/security/protecting_pod_service_account_tokens.yaml
+#   examples: checks/kubernetes/protecting_pod_service_account_tokens.yaml
 package builtin.kubernetes.KSV036
 
 import rego.v1

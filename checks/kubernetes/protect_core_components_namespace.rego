@@ -17,7 +17,7 @@
 #   input:
 #     selector:
 #     - type: kubernetes
-#   examples: checks/kubernetes/security/protect_core_components_namespace.yaml
+#   examples: checks/kubernetes/protect_core_components_namespace.yaml
 package builtin.kubernetes.KSV037
 
 import rego.v1
