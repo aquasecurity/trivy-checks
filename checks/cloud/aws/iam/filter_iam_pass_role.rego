@@ -1,6 +1,6 @@
 # METADATA
 # title: "IAM Pass Role Filtering"
-# description: "Ensures any IAM pass role attched to roles are flagged and warned."
+# description: "Ensures any IAM pass role attached to roles are flagged and warned."
 # scope: package
 # schemas:
 # - input: schema["cloud"]

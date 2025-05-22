@@ -11,7 +11,7 @@
 #   avd_id: AVD-KSV-0114
 #   severity: CRITICAL
 #   short_code: no-manage-webhook
-#   recommended_actions: "Remove webhook configuration resouces/verbs, acceptable values for verbs ['get', 'list', 'watch']"
+#   recommended_actions: "Remove webhook configuration resources/verbs, acceptable values for verbs ['get', 'list', 'watch']"
 #   input:
 #     selector:
 #     - type: kubernetes
