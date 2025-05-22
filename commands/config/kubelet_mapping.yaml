@@ -1,4 +1,4 @@
-## this file repesent node kubelet-config api mapping param to the collector config params
+## this file represent node kubelet-config api mapping param to the collector config params
 ## example kubectl get --raw "/api/v1/nodes/<node name>/proxy/configz"
 ---
 kubeletAnonymousAuthArgumentSet: kubeletconfig.authentication.anonymous.enabled

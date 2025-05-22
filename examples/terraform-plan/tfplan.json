@@ -364,7 +364,7 @@
         { "resource": "aws_launch_template.this", "attribute": ["id"] }
     ],
     "timestamp": "2024-11-26T12:21:18Z",
-    "applyable": true,
+    "applicable": true,
     "complete": true,
     "errored": false
 }
