@@ -25,10 +25,6 @@ check_flag(container) if {
 	kubernetes.command_has_flag(container.command, "--kubelet-https=false")
 }
 
-check_flag(container) if {
-	kubernetes.command_has_flag(container.command, "--kubelet-https=false")
-}
-
 deny contains res if {
 	container := kubernetes.containers[_]
 	kubernetes.is_apiserver(container)
