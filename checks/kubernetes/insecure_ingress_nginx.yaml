@@ -8,6 +8,8 @@ kubernetes:
               nginx.ingress.kubernetes.io/auth-url: https://valid-url.com
           name: test-ingress-valid-url
           namespace: default
+      spec:
+          ingressClassName: nginx
     - |-
       apiVersion: v1
       kind: Ingress
@@ -16,6 +18,8 @@ kubernetes:
               nginx.ingress.kubernetes.io/auth-tls-match-cn: CN=valid-cn
           name: test-ingress-valid-cn
           namespace: default
+      spec:
+          ingressClassName: nginx
     - |-
       apiVersion: v1
       kind: Ingress
@@ -24,6 +28,8 @@ kubernetes:
               nginx.ingress.kubernetes.io/mirror-target: https://valid-url.com
           name: test-ingress-valid-target
           namespace: default
+      spec:
+          ingressClassName: nginx
     - |-
       apiVersion: v1
       kind: Ingress
@@ -32,6 +38,8 @@ kubernetes:
               nginx.ingress.kubernetes.io/mirror-host: https://valid-url.com
           name: test-ingress-valid-host
           namespace: default
+      spec:
+          ingressClassName: nginx
   bad:
     - |-
       apiVersion: v1
@@ -41,6 +49,8 @@ kubernetes:
               nginx.ingress.kubernetes.io/auth-url: http://example.com/invalid|url
           name: test-ingress-invalid-url
           namespace: default
+      spec:
+          ingressClassName: nginx
     - |-
       apiVersion: v1
       kind: Ingress
@@ -51,6 +61,8 @@ kubernetes:
                   injection_point
           name: test-ingress-suspicious-char
           namespace: default
+      spec:
+          ingressClassName: nginx
     - |-
       apiVersion: v1
       kind: Ingress
@@ -59,6 +71,8 @@ kubernetes:
               nginx.ingress.kubernetes.io/auth-tls-match-cn: CN=invalid|cn
           name: test-ingress-invalid-cn
           namespace: default
+      spec:
+          ingressClassName: nginx
     - |-
       apiVersion: v1
       kind: Ingress
@@ -69,6 +83,8 @@ kubernetes:
                   injection_point
           name: test-ingress-suspicious-char-cn
           namespace: default
+      spec:
+          ingressClassName: nginx
     - |-
       apiVersion: v1
       kind: Ingress
@@ -77,6 +93,8 @@ kubernetes:
               nginx.ingress.kubernetes.io/mirror-target: http://example.com/invalid|url
           name: test-ingress-invalid-target
           namespace: default
+      spec:
+          ingressClassName: nginx
     - |-
       apiVersion: v1
       kind: Ingress
@@ -87,6 +105,8 @@ kubernetes:
                   injection_point
           name: test-ingress-suspicious-char-target
           namespace: default
+      spec:
+          ingressClassName: nginx
     - |-
       apiVersion: v1
       kind: Ingress
@@ -95,6 +115,8 @@ kubernetes:
               nginx.ingress.kubernetes.io/mirror-host: http://example.com/invalid|url
           name: test-ingress-invalid-host
           namespace: default
+      spec:
+          ingressClassName: nginx
     - |-
       apiVersion: v1
       kind: Ingress
@@ -105,3 +127,5 @@ kubernetes:
                   injection_point
           name: test-ingress-suspicious-char-host
           namespace: default
+      spec:
+          ingressClassName: nginx
