@@ -19,3 +19,25 @@ rules:
   bugs:
     duplicate-rule:
       level: error
+    sprintf-arguments-mismatch:
+      level: error
+    rule-assigns-default:
+      level: error
+    redundant-loop-count:
+      level: error
+    not-equals-in-loop:
+      level: error
+    redundant-existence-check:
+      level: error
+    invalid-metadata-attribute:
+      level: error
+    impossible-not:
+      level: error
+    import-shadows-rule:
+      level: error
+    if-object-literal:
+      level: error
+    if-empty-object:
+      level: error
+    constant-condition:
+      level: error

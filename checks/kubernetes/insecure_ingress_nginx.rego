@@ -17,7 +17,7 @@
 #   input:
 #     selector:
 #     - type: kubernetes
-# examples: checks/kubernetes/network/insecure_ingress_nginx.yaml
+#   examples: checks/kubernetes/insecure_ingress_nginx.yaml
 
 package builtin.kubernetes.kcv0093
 
