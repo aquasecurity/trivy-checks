@@ -16,3 +16,6 @@ rules:
       ignore:
         files:
           - "*_test.rego"
+  bugs:
+    duplicate-rule:
+      level: error
