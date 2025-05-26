@@ -34,12 +34,12 @@ fmt-rego:
 	go run ./cmd/opa fmt -w lib/ checks/ examples/ .regal/rules
 
 .PHONY: test-rego
-test-rego: download-schemas
-	go run ./cmd/opa test --explain=fails lib/ checks/ examples/ --ignore '*.yaml' -s schemas
+test-rego:
+	go run ./cmd/opa test --explain=fails lib/ checks/ examples/ --ignore '*.yaml'
 
 .PHONY: check-rego
-check-rego:
-	@go run ./cmd/opa check lib checks --v0-v1 --strict
+check-rego: download-schemas
+	@go run ./cmd/opa check lib checks --v0-v1 --strict -s schemas
 
 .PHONY: lint-rego
 lint-rego: check-rego
