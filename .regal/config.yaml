@@ -17,27 +17,27 @@ rules:
         files:
           - "*_test.rego"
   bugs:
+    constant-condition:
+      level: error
     duplicate-rule:
       level: error
-    sprintf-arguments-mismatch:
+    if-empty-object:
       level: error
-    rule-assigns-default:
-      level: error
-    redundant-loop-count:
-      level: error
-    not-equals-in-loop:
-      level: error
-    redundant-existence-check:
-      level: error
-    invalid-metadata-attribute:
+    if-object-literal:
       level: error
     impossible-not:
       level: error
     import-shadows-rule:
       level: error
-    if-object-literal:
+    invalid-metadata-attribute:
       level: error
-    if-empty-object:
+    not-equals-in-loop:
       level: error
-    constant-condition:
+    redundant-existence-check:
+      level: error
+    redundant-loop-count:
+      level: error
+    rule-assigns-default:
+      level: error
+    sprintf-arguments-mismatch:
       level: error
