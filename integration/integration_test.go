@@ -26,3 +26,17 @@ func readTrivyReport(t *testing.T, outputFile string) types.Report {
 	require.NoError(t, json.Unmarshal(out, &report))
 	return report
 }
+
+func getFailureIDs(report types.Report) map[string][]string {
+	ids := make(map[string][]string)
+
+	for _, result := range report.Results {
+		for _, misconf := range result.Misconfigurations {
+			if misconf.Status == types.MisconfStatusFailure {
+				ids[result.Target] = append(ids[result.Target], misconf.AVDID)
+			}
+		}
+	}
+
+	return ids
+}

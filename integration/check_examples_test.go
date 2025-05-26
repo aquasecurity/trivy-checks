@@ -249,20 +249,6 @@ func verifyReport(t *testing.T, report types.Report, targetDir string, version s
 	require.NoError(t, err)
 }
 
-func getFailureIDs(report types.Report) map[string][]string {
-	ids := make(map[string][]string)
-
-	for _, result := range report.Results {
-		for _, misconf := range result.Misconfigurations {
-			if misconf.Status == types.MisconfStatusFailure {
-				ids[result.Target] = append(ids[result.Target], misconf.AVDID)
-			}
-		}
-	}
-
-	return ids
-}
-
 func fileNameByProvider(provider string) string {
 	switch provider {
 	case "terraform":
