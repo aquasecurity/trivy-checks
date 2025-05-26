@@ -16,7 +16,6 @@ import (
 	"github.com/testcontainers/testcontainers-go"
 
 	"github.com/aquasecurity/trivy-checks/integration/testcontainer"
-	"github.com/aquasecurity/trivy/pkg/types"
 )
 
 func TestCustomChecks(t *testing.T) {
@@ -134,25 +133,16 @@ func TestCustomChecks(t *testing.T) {
 				t.Fatal(string(b))
 			}
 
-			rep := readTrivyReport(t, reportPath)
-
-			results := filterResults(rep.Results)
+			results := readTrivyReport(t, reportPath)
+			results = lo.Filter(results, func(res Result, _ int) bool {
+				return res.Target != "."
+			})
 
 			require.Len(t, results, 1)
-			fails := getFailureIDs(rep)
+			fails := getFailureIDs(results)
 
 			require.Len(t, fails, 1)
 			assert.Equal(t, []string{tt.expectedID}, lo.Values(fails)[0])
 		})
 	}
-}
-
-func filterResults(results types.Results) types.Results {
-	var ret types.Results
-	for _, res := range results {
-		if res.Target != "." {
-			ret = append(ret, res)
-		}
-	}
-	return ret
 }
