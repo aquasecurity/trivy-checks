@@ -6,8 +6,6 @@
 #
 #   Ensure that the desired capacity for Auto Scaling Groups is set to a reasonable value, typically within limits defined by your organization.
 # scope: package
-# schemas:
-#   - input: schema["json"]
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group
 # custom:

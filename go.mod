@@ -5,7 +5,6 @@ go 1.24
 toolchain go1.24.0
 
 require (
-	github.com/aquasecurity/iamgo v0.0.10
 	github.com/aquasecurity/trivy v0.61.1-0.20250407075540-f1329c7ea1aa
 	github.com/aws-cloudformation/rain v1.23.0
 	github.com/docker/docker v28.0.4+incompatible
@@ -32,6 +31,7 @@ require (
 	github.com/alecthomas/chroma v0.10.0 // indirect
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
 	github.com/aquasecurity/go-version v0.0.1 // indirect
+	github.com/aquasecurity/iamgo v0.0.10 // indirect
 	github.com/aquasecurity/jfather v0.0.8 // indirect
 	github.com/aquasecurity/trivy-db v0.0.0-20250227071930-8bd8a9b89e2d // indirect
 	github.com/beorn7/perks v1.0.1 // indirect

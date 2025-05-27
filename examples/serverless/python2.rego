@@ -8,8 +8,6 @@
 #   Ensure that you use a supported runtime version, such as Python 3.x,
 #   to maintain the security and reliability of your serverless application.
 # scope: package
-# schemas:
-#   - input: schema["yaml"]
 # related_resources:
 #   - https://www.python.org/doc/sunset-python-2/
 # custom:
