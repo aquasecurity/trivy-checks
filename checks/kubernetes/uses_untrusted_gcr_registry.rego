@@ -10,6 +10,7 @@
 #   severity: MEDIUM
 #   short_code: use-gcr-domain
 #   recommended_action: "Use images from trusted GCR registries."
+#   deprecated: true
 #   input:
 #     selector:
 #     - type: kubernetes

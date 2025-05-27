@@ -3,18 +3,22 @@
 package integration
 
 import (
+	"io"
+	"os"
 	"path/filepath"
 	"testing"
 
+	"github.com/docker/docker/api/types/container"
+	"github.com/docker/docker/api/types/mount"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/testcontainers/testcontainers-go"
 
+	"github.com/aquasecurity/trivy-checks/integration/testcontainer"
 	"github.com/aquasecurity/trivy/pkg/types"
 )
 
 func TestCustomChecks(t *testing.T) {
-	workDir, err := filepath.Abs("../examples")
-	require.NoError(t, err)
 
 	tests := []struct {
 		dir        string
@@ -24,7 +28,7 @@ func TestCustomChecks(t *testing.T) {
 		{
 			dir: "cloudformation",
 			args: []string{
-				"--config-data", filepath.Join(workDir, "cloudformation", "data"),
+				"--config-data", "data",
 				"--misconfig-scanners", "json",
 			},
 			expectedID: "USR-CF-0001",
@@ -75,26 +79,61 @@ func TestCustomChecks(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.dir, func(t *testing.T) {
-			targetDir := filepath.Join(workDir, tt.dir)
-			outputFile := filepath.Join(t.TempDir(), "report.json")
+			outputFile := "report.json"
 
 			args := []string{
+				"conf",
+				".",
 				"--format", "json",
 				"--output", outputFile,
 				"--quiet",
-				"--config-check", targetDir,
+				"--config-check", ".",
 				"--check-namespaces", "user",
 				"--skip-check-update",
-				"--ignore-policy", filepath.Join(workDir, "ignore.rego"),
+				"--ignore-policy", "../ignore.rego",
 			}
 
 			args = append(args, tt.args...)
 
-			trivyArgs := []string{"conf", targetDir}
-			trivyArgs = append(trivyArgs, args...)
-			runTrivy(t, trivyArgs)
+			examplesPath, err := filepath.Abs("../examples")
+			require.NoError(t, err)
 
-			rep := readTrivyReport(t, outputFile)
+			reportPath := filepath.Join(examplesPath, tt.dir, outputFile)
+
+			trivy, err := testcontainer.RunTrivy(t.Context(), "aquasec/trivy:latest", args,
+				testcontainers.WithConfigModifier(func(config *container.Config) {
+					config.WorkingDir = "/testdata/" + tt.dir
+				}),
+				testcontainers.WithHostConfigModifier(func(hc *container.HostConfig) {
+					hc.NetworkMode = "host"
+					hc.Mounts = []mount.Mount{
+						{
+							Type:   mount.TypeBind,
+							Source: examplesPath,
+							Target: "/testdata",
+						},
+					}
+				}),
+			)
+			require.NoError(t, err)
+			t.Cleanup(func() {
+				trivy.Terminate(t.Context())
+				os.Remove(reportPath)
+			})
+
+			state, err := trivy.State(t.Context())
+			require.NoError(t, err)
+
+			if state.ExitCode != 0 {
+				rc, err := trivy.Logs(t.Context())
+				require.NoError(t, err)
+
+				b, err := io.ReadAll(rc)
+				require.NoError(t, err)
+				t.Fatal(string(b))
+			}
+
+			rep := readTrivyReport(t, reportPath)
 
 			results := filterResults(rep.Results)
 
@@ -103,7 +142,6 @@ func TestCustomChecks(t *testing.T) {
 
 			require.Len(t, fails, 1)
 			assert.Equal(t, tt.expectedID, fails[0].AVDID)
-
 		})
 	}
 }
