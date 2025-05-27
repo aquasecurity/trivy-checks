@@ -10,12 +10,12 @@ import (
 
 	"github.com/docker/docker/api/types/container"
 	"github.com/docker/docker/api/types/mount"
+	"github.com/samber/lo"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/testcontainers/testcontainers-go"
 
 	"github.com/aquasecurity/trivy-checks/integration/testcontainer"
-	"github.com/aquasecurity/trivy/pkg/types"
 )
 
 func TestCustomChecks(t *testing.T) {
@@ -133,35 +133,16 @@ func TestCustomChecks(t *testing.T) {
 				t.Fatal(string(b))
 			}
 
-			rep := readTrivyReport(t, reportPath)
-
-			results := filterResults(rep.Results)
+			results := readTrivyReport(t, reportPath)
+			results = lo.Filter(results, func(res Result, _ int) bool {
+				return res.Target != "."
+			})
 
 			require.Len(t, results, 1)
-			fails := collectFailures(results[0].Misconfigurations)
+			fails := getFailureIDs(results)
 
 			require.Len(t, fails, 1)
-			assert.Equal(t, tt.expectedID, fails[0].AVDID)
+			assert.Equal(t, []string{tt.expectedID}, lo.Values(fails)[0])
 		})
 	}
-}
-
-func filterResults(results types.Results) types.Results {
-	var ret types.Results
-	for _, res := range results {
-		if res.Target != "." {
-			ret = append(ret, res)
-		}
-	}
-	return ret
-}
-
-func collectFailures(misconfs []types.DetectedMisconfiguration) []types.DetectedMisconfiguration {
-	var fails []types.DetectedMisconfiguration
-	for _, misconf := range misconfs {
-		if misconf.Status == types.MisconfStatusFailure {
-			fails = append(fails, misconf)
-		}
-	}
-	return fails
 }
