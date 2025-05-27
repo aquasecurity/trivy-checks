@@ -25,10 +25,6 @@ checkFlag(container) if {
 	kubernetes.command_has_flag(container.command, "--peer-client-cert-auth=true")
 }
 
-checkFlag(container) if {
-	kubernetes.command_has_flag(container.command, "--peer-client-cert-auth=true")
-}
-
 deny contains res if {
 	container := kubernetes.containers[_]
 	kubernetes.is_etcd(container)

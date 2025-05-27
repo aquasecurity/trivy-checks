@@ -25,7 +25,7 @@
 #         - kind: daemonset
 #         - kind: cronjob
 #         - kind: job
-#   examples: checks/kubernetes/security/8_non_default_proc_masks_set.yaml
+#   examples: checks/kubernetes/non_default_proc_masks_set.yaml
 package builtin.kubernetes.KSV027
 
 import rego.v1

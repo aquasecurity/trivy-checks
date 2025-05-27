@@ -4,7 +4,7 @@ spec:
   title: CIS Kubernetes Benchmarks v1.23
   description: CIS Kubernetes Benchmarks
   version: "1.23"
-  platfrom: k8s
+  platform: k8s
   type: cis
   relatedResources:
     - https://www.cisecurity.org/benchmark/kubernetes

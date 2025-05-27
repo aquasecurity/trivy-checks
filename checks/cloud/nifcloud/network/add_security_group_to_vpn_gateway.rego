@@ -33,7 +33,7 @@ import data.lib.cloud.value
 deny contains res if {
 	some gateway in input.nifcloud.network.vpngateways
 	without_sg(gateway)
-	res := result.new("VpnGateway does not have a securiy group.", gateway.securitygroup)
+	res := result.new("VpnGateway does not have a security group.", gateway.securitygroup)
 }
 
 without_sg(gateway) if value.is_empty(gateway.securitygroup)
