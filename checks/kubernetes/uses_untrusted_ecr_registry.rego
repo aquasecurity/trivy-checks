@@ -10,6 +10,7 @@
 #   severity: MEDIUM
 #   short_code: no-untrusted-ecr-domain
 #   recommended_action: "Container image should be used from Amazon container Registry"
+#   deprecated: true
 #   input:
 #     selector:
 #     - type: kubernetes
