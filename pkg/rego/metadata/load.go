@@ -5,10 +5,11 @@ import (
 	"io/fs"
 	"strings"
 
-	trivy_checks "github.com/aquasecurity/trivy-checks"
 	"github.com/open-policy-agent/opa/v1/ast"
 	"github.com/open-policy-agent/opa/v1/loader"
 	"github.com/samber/lo"
+
+	trivy_checks "github.com/aquasecurity/trivy-checks"
 )
 
 func LoadDefaultChecksMetadata() (map[string]Metadata, error) {

@@ -3,25 +3,32 @@ package test
 import (
 	"testing"
 
-	"github.com/aquasecurity/trivy/pkg/iac/framework"
-	"github.com/aquasecurity/trivy/pkg/iac/rules"
+	"github.com/stretchr/testify/require"
+
+	"github.com/aquasecurity/trivy-checks/pkg/rego/metadata"
 )
 
 func TestAVDIDs(t *testing.T) {
 	existing := make(map[string]struct{})
-	for _, rule := range rules.GetRegistered(framework.ALL) {
-		t.Run(rule.LongID(), func(t *testing.T) {
-			if rule.GetRule().AVDID == "" {
-				t.Errorf("Rule has no AVD ID: %#v", rule)
+
+	checksMeta, err := metadata.LoadDefaultChecksMetadata()
+	require.NoError(t, err)
+
+	for path, meta := range checksMeta {
+		id := meta.AVDID()
+		t.Run(path, func(t *testing.T) {
+			if id == "" {
+				t.Errorf("Rule has no AVD ID: %#v", path)
 				return
 			}
-			if _, ok := existing[rule.GetRule().AVDID]; ok {
-				t.Errorf("Rule detected with duplicate AVD ID: %s", rule.GetRule().AVDID)
+
+			if _, ok := existing[id]; ok {
+				t.Errorf("Rule detected with duplicate AVD ID: %s", id)
+			}
+
+			if !meta.IsDeprecated() {
+				existing[id] = struct{}{}
 			}
 		})
-
-		if !rule.IsDeprecated() {
-			existing[rule.GetRule().AVDID] = struct{}{}
-		}
 	}
 }

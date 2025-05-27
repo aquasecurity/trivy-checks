@@ -25,7 +25,6 @@ import (
 	"github.com/aquasecurity/trivy-checks/integration/testcontainer"
 	"github.com/aquasecurity/trivy-checks/internal/examples"
 	"github.com/aquasecurity/trivy-checks/pkg/rego/metadata"
-	"github.com/aquasecurity/trivy/pkg/types"
 )
 
 var trivyVersions = []string{"0.57.1", "0.58.1", "latest", "canary"}
@@ -99,7 +98,6 @@ func TestScanCheckExamples(t *testing.T) {
 
 			reportPath := filepath.Join(targetDir, reportFileName)
 			report := readTrivyReport(t, reportPath)
-			require.NotEmpty(t, report.Results)
 			require.NoError(t, os.Remove(reportPath))
 
 			verifyReport(t, report, examplesPath, version)
@@ -202,8 +200,8 @@ func writeExamples(t *testing.T, examples []string, provider, cacheDir string, i
 	}
 }
 
-func verifyReport(t *testing.T, report types.Report, targetDir string, version string) {
-	got := getFailureIDs(report)
+func verifyReport(t *testing.T, results []Result, targetDir string, version string) {
+	got := getFailureIDs(results)
 
 	err := filepath.Walk(targetDir, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -247,20 +245,6 @@ func verifyReport(t *testing.T, report types.Report, targetDir string, version s
 	})
 
 	require.NoError(t, err)
-}
-
-func getFailureIDs(report types.Report) map[string][]string {
-	ids := make(map[string][]string)
-
-	for _, result := range report.Results {
-		for _, misconf := range result.Misconfigurations {
-			if misconf.Status == types.MisconfStatusFailure {
-				ids[result.Target] = append(ids[result.Target], misconf.AVDID)
-			}
-		}
-	}
-
-	return ids
 }
 
 func fileNameByProvider(provider string) string {
