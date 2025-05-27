@@ -1,5 +1,5 @@
 
-Ensures any IAM pass role attched to roles are flagged and warned.
+Ensures any IAM pass role attached to roles are flagged and warned.
 
 ### Impact
 <!-- Add Impact here -->

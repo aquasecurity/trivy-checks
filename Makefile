@@ -17,6 +17,15 @@ test:
 test-integration:
 	go test -v -timeout 5m -tags=integration ./integration/...
 
+.PHONY: download-schemas
+download-schemas:
+	@schemas_path=schemas ; \
+	base_url=https://raw.githubusercontent.com/aquasecurity/trivy/main/pkg/iac/rego/schemas ; \
+	mkdir -p $$schemas_path ; \
+	for file in cloud.json dockerfile.json kubernetes.json ; do \
+		wget -q -O $$schemas_path/$$file $$base_url/$$file ; \
+	done
+
 .PHONY: rego
 rego: fmt-rego check-rego lint-rego test-rego docs
 
@@ -29,15 +38,14 @@ test-rego:
 	go run ./cmd/opa test --explain=fails lib/ checks/ examples/ --ignore '*.yaml'
 
 .PHONY: check-rego
-check-rego:
-	@go run ./cmd/opa check lib checks --v0-v1 --strict
+check-rego: download-schemas
+	@go run ./cmd/opa check lib checks --v0-v1 --strict -s schemas
 
 .PHONY: lint-rego
 lint-rego: check-rego
 	@regal test .regal/rules
 	@regal lint lib checks \
 		--config-file .regal/config.yaml \
-		--enable deny-rule,naming-convention \
 		--timeout 5m
 
 .PHONY: fmt-examples

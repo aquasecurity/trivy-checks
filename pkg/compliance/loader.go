@@ -17,7 +17,7 @@ type Loader interface {
 
 type specLoader struct{}
 
-// NewSpecLoader instansiate spec loader
+// NewSpecLoader instantiate spec loader
 func NewSpecLoader() Loader {
 	return &specLoader{}
 }
