@@ -46,7 +46,6 @@ lint-rego: check-rego
 	@regal test .regal/rules
 	@regal lint lib checks \
 		--config-file .regal/config.yaml \
-		--enable deny-rule,naming-convention \
 		--timeout 5m
 
 .PHONY: fmt-examples

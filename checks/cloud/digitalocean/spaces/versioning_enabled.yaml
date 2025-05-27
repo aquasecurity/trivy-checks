@@ -17,7 +17,7 @@ terraform:
         name   = "foobar"
         region = "nyc3"
       }
-
+    - |-
       resource "digitalocean_spaces_bucket" "bad_example" {
         name   = "foobar"
         region = "nyc3"

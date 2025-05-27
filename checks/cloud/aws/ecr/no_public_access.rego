@@ -38,7 +38,7 @@ deny contains res if {
 
 has_ecr_action(statement) if {
 	some action in statement.Action
-	startswith(action, "ecr:")
+	startswith(lower(action), "ecr:")
 }
 
 has_public_access(statement) if {

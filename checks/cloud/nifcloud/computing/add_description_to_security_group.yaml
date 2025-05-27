@@ -13,3 +13,8 @@ terraform:
         group_name  = "http"
         description = ""
       }
+    - |-
+      resource "nifcloud_security_group" "bad_example" {
+        group_name  = "http"
+        description = "Managed by Terraform"
+      }

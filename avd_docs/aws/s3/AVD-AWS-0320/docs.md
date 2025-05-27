@@ -8,6 +8,6 @@ Ensures that S3 buckets have DNS complaint bucket names.
 {{ remediationActions }}
 
 ### Links
-- https://docs.aws.amazon.com/AmazonS3/latest./dev/transfer-acceleration.html
+- https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html
 
 

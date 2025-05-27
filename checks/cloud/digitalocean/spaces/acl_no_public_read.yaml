@@ -24,6 +24,11 @@ terraform:
         region = "nyc3"
         acl    = "public-read"
       }
+    - |-
+      resource "digitalocean_spaces_bucket" "bad_example" {
+        name   = "public_space"
+        region = "nyc3"
+      }
 
       resource "digitalocean_spaces_bucket_object" "index" {
         region       = digitalocean_spaces_bucket.bad_example.region

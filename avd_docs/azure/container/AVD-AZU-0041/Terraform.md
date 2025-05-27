@@ -7,9 +7,7 @@ resource "azurerm_kubernetes_cluster" "good_example" {
     authorized_ip_ranges = [
       "1.2.3.4/32"
     ]
-
   }
-
 }
 ```
 

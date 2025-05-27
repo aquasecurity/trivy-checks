@@ -8,10 +8,33 @@ terraform:
           kms_key_self_link = google_kms_crypto_key.my_crypto_key.id
         }
       }
+    - |-
+      resource "google_compute_instance" "bad_example" {
+        boot_disk {
+          initialize_params {
+            image = "debian-cloud/debian-11"
+            source_snapshot_encryption_key {
+              kms_key_self_link = google_kms_crypto_key.my_crypto_key.id
+            }
+          }
+        }
+      }
   bad:
     - |-
       resource "google_compute_disk" "bad_example" {
         disk_encryption_key {
           raw_key = "b2ggbm8gdGhpcyBpcyBiYWQ="
+        }
+      }
+    - |-
+      resource "google_compute_instance" "bad_example" {
+        boot_disk {
+          disk_encryption_key_raw = "b2ggbm8gdGhpcyBpcyBiYWQ="
+        }
+      }
+    - |-
+      resource "google_compute_instance" "bad_example" {
+        attached_disk {
+          disk_encryption_key_raw = "b2ggbm8gdGhpcyBpcyBiYWQ="
         }
       }

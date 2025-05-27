@@ -71,7 +71,7 @@ Let's break the metadata down.
   - `severity` is the severity of the rule. This should be one of `LOW`, `MEDIUM`, `HIGH`, or `CRITICAL`.
   - `short_code` is a short code for the rule. This should be a short, descriptive name for the rule, separating words with hyphens. You should omit provider/service from this.
   - `recommended_action` is a recommended remediation action for the rule. This should be a short, descriptive sentence describing what the user should do to resolve the issue.
-  - `input` tells _defsec_ what inputs this rule should be applied to. Cloud provider rules should always use the `selector` input, and should always use the `type` selector with `cloud`. Rules targeting Kubernetes yaml can use `kubenetes`, RBAC can use `rbac`, and so on.
+  - `input` tells _defsec_ what inputs this rule should be applied to. Cloud provider rules should always use the `selector` input, and should always use the `type` selector with `cloud`. Rules targeting Kubernetes yaml can use `kubernetes`, RBAC can use `rbac`, and so on.
   - `subtypes` aid the engine to determine if it should load this policy or not for scanning. This can aid with the performance of scanning, especially if you have a lot of checks but not all apply to the IaC that you are trying to scan.
   
 Now you'll need to write the rule logic. This is the code that will be executed to detect the issue. You should define a rule named `deny` and place your code inside this.
@@ -97,7 +97,7 @@ You can see a full example PR for a new rule being added here: [https://github.c
 
 ## Writing Compliance reports
 
-To write a compliance report please check the following [compliance guide](./docs/compliance.md)
+To write a compliance report please check the following [compliance guide](./pkg/compliance/README.md)
 
 Supported compliance report IDs include:
 
