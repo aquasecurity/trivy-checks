@@ -10,6 +10,7 @@
 #   severity: MEDIUM
 #   short_code: use-azure-image-prefix
 #   recommended_action: "Use images from trusted Azure registries."
+#   deprecated: true
 #   input:
 #     selector:
 #     - type: kubernetes
