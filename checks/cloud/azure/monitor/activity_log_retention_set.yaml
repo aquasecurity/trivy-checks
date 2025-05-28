@@ -18,6 +18,14 @@ terraform:
 
         retention_policy {
           enabled = true
+        }
+      }
+    - |-
+      resource "azurerm_monitor_log_profile" "bad_example" {
+        name = "bad_example"
+
+        retention_policy {
+          enabled = true
           days    = 7
         }
       }

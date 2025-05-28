@@ -16,3 +16,28 @@ rules:
       ignore:
         files:
           - "*_test.rego"
+  bugs:
+    constant-condition:
+      level: error
+    duplicate-rule:
+      level: error
+    if-empty-object:
+      level: error
+    if-object-literal:
+      level: error
+    impossible-not:
+      level: error
+    import-shadows-rule:
+      level: error
+    invalid-metadata-attribute:
+      level: error
+    not-equals-in-loop:
+      level: error
+    redundant-existence-check:
+      level: error
+    redundant-loop-count:
+      level: error
+    rule-assigns-default:
+      level: error
+    sprintf-arguments-mismatch:
+      level: error

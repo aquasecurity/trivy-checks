@@ -40,3 +40,15 @@ test_deny_with_wildcards if {
 
 	test.assert_equal_message("Queue policy does not restrict actions to a known set.", check.deny) with input as inp
 }
+
+test_deny_with_sqs_wildcards if {
+	inp := {"aws": {"sqs": {"queues": [{"policies": [{"document": {"value": json.marshal({
+		"Version": "2012-10-17",
+		"Statement": [{
+			"Effect": "Allow",
+			"Action": ["SQS:*"],
+		}],
+	})}}]}]}}}
+
+	test.assert_equal_message("Queue policy does not restrict actions to a known set.", check.deny) with input as inp
+}

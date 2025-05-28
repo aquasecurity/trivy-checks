@@ -34,6 +34,6 @@ deny contains res if {
 	some statement in doc.Statement
 	statement.Effect == "Allow"
 	some action in statement.Action
-	action in ["*", "sqs:*"]
+	lower(action) in ["*", "sqs:*"]
 	res := result.new("Queue policy does not restrict actions to a known set.", policy_doc.document)
 }

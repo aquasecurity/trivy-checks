@@ -79,6 +79,7 @@ bucket_has_server_logging_access(bucket) if {
 	doc := json.unmarshal(policy.document.value)
 	statement := doc.Statement[_]
 	statement.Effect == "Allow"
-	"s3:PutObject" in statement.Action
+	some action in statement.Action
+	lower(action) == "s3:putobject"
 	"logging.s3.amazonaws.com" in statement.Principal.Service
 }

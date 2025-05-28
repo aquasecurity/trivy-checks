@@ -6,7 +6,7 @@ spec:
   relatedResources : 
     - https://www.nsa.gov/Press-Room/News-Highlights/Article/Article/2716980/nsa-cisa-release-kubernetes-hardening-guidance/
   version: "1.0"
-  platfrom: k8s
+  platform: k8s
   type: nsa
   controls:
     - name: Non-root containers

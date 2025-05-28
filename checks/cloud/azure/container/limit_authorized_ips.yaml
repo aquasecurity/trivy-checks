@@ -8,12 +8,9 @@ terraform:
           authorized_ip_ranges = [
             "1.2.3.4/32"
           ]
-
         }
-
       }
   bad:
     - |-
       resource "azurerm_kubernetes_cluster" "bad_example" {
-
       }
