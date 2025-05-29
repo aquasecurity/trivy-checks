@@ -79,6 +79,7 @@ func TestCustomChecks(t *testing.T) {
 			dir: "terraform-raw",
 			args: []string{
 				"--misconfig-scanners", "terraform",
+				"--raw-config-scanners", "terraform",
 			},
 			expectedID: "USR-TF-0001",
 		},

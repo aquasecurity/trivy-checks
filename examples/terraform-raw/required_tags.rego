@@ -1,14 +1,17 @@
 # METADATA
 # title: Resources should have required tags
+# schemas:
+# - input: schema["terraform-raw"]
 # related_resources:
 # - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/guides/resource-tagging
 # custom:
 #   id: USR-TF-0001
+#   avd_id: USR-TF-0001
 #   short_code: required-tags
 #   severity: MEDIUM
 #   input:
 #     selector:
-#     - type: terraform
+#     - type: terraform-raw
 package user.tf.required_tags
 
 import rego.v1
