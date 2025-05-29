@@ -4,26 +4,29 @@ import rego.v1
 
 import data.builtin.google.gke.google0057 as check
 
-test_deny_cluster_node_pools_metadata_exposed_by_default if {
-	inp := {"google": {"gke": {"clusters": [{"nodeconfig": {"workloadmetadataconfig": {"nodemetadata": {"value": "UNSPECIFIED"}}}}]}}}
+test_node_metadata_configurations[name] if {
+	some name, tc in {
+		"cluster node config exposes metadata by default": {
+			"input": {"google": {"gke": {"clusters": [{"nodeconfig": {"workloadmetadataconfig": {"nodemetadata": {"value": "UNSPECIFIED"}}}}]}}},
+			"expected": 1,
+		},
+		"node pool config exposes metadata": {
+			"input": {"google": {"gke": {"clusters": [{"nodepools": [{"nodeconfig": {"workloadmetadataconfig": {"nodemetadata": {"value": "UNSPECIFIED"}}}}]}]}}},
+			"expected": 1,
+		},
+		"metadata exposure is secure": {
+			"input": {"google": {"gke": {"clusters": [{
+				"nodeconfig": {"workloadmetadataconfig": {"nodemetadata": {"value": "SECURE"}}},
+				"nodepools": [{"nodeconfig": {"workloadmetadataconfig": {"nodemetadata": {"value": "SECURE"}}}}],
+			}]}}},
+			"expected": 0,
+		},
+		"cluster node config uses GCE_METADATA": {
+			"input": {"google": {"gke": {"clusters": [{"nodeconfig": {"workloadmetadataconfig": {"nodemetadata": {"value": "GCE_METADATA"}}}}]}}},
+			"expected": 1,
+		},
+	}
 
-	res := check.deny with input as inp
-	count(res) == 1
-}
-
-test_deny_node_pool_metadata_exposed if {
-	inp := {"google": {"gke": {"clusters": [{"nodepools": [{"nodeconfig": {"workloadmetadataconfig": {"nodemetadata": {"value": "UNSPECIFIED"}}}}]}]}}}
-
-	res := check.deny with input as inp
-	count(res) == 1
-}
-
-test_allow_node_pools_metadata_secured if {
-	inp := {"google": {"gke": {"clusters": [{
-		"nodeconfig": {"workloadmetadataconfig": {"nodemetadata": {"value": "SECURE"}}},
-		"nodepools": [{"workloadmetadataconfig": {"nodemetadata": {"value": "SECURE"}}}],
-	}]}}}
-
-	res := check.deny with input as inp
-	res == set()
+	res := check.deny with input as tc.input
+	count(res) == tc.expected
 }

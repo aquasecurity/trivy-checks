@@ -1,7 +1,9 @@
 
-If the <code>workload_metadata_config</code> block within <code>node_config</code> is included, the <code>node_metadata</code> attribute should be configured securely.
+In provider versions prior to 4:
+The attribute <code>workload_metadata_config.node_metadata</code> configures how node metadata is exposed to workloads. It should be set to <code>SECURE</code> to limit metadata exposure, or <code>GKE_METADATA_SERVER</code> if Workload Identity is enabled.
 
-The attribute should be set to <code>SECURE</code> to use metadata concealment, or <code>GKE_METADATA_SERVER</code> if workload identity is enabled. This ensures that the VM metadata is not unnecessarily exposed to pods.
+Starting with provider version 4:
+The attribute <code>node_metadata</code> has been removed. Instead, <code>workload_metadata_configuration.mode</code> controls node metadata exposure. When Workload Identity is enabled, it should be set to <code>GKE_METADATA</code> to prevent unnecessary exposure of the metadata API to workloads.
 
 
 ### Impact
