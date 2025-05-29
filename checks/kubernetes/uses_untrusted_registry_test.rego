@@ -14,6 +14,10 @@ test_check_registry[name] if {
 			"image": "foo.io/test:latest",
 			"expected": 1,
 		},
+		"without registry": {
+			"image": "test:latest",
+			"expected": 0,
+		},
 	}
 
 	inp := {
@@ -43,6 +47,10 @@ test_check_registry_custom_registries[name] if {
 		"untrusted registry": {
 			"image": "gcr.io/test:latest",
 			"expected": 1,
+		},
+		"without registry": {
+			"image": "test:latest",
+			"expected": 0,
 		},
 	}
 

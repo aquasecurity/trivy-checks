@@ -77,17 +77,21 @@ all_trusted_registires := ksv0125.trusted_registries if {
 	count(ksv0125.trusted_registries) > 0
 } else := default_trusted_registries
 
-container_image_from_trusted_registry(container) if {
+container_image_from_untrusted_registry(container) if {
 	image_parts := split(container.image, "/")
 	count(image_parts) > 1
 	registry = image_parts[0]
+	not is_registry_trusted(registry)
+}
+
+is_registry_trusted(registry) if {
 	some trusted in all_trusted_registires
 	endswith(registry, trusted)
 }
 
 deny contains res if {
 	some container in kubernetes.containers
-	not container_image_from_trusted_registry(container)
+	container_image_from_untrusted_registry(container)
 	msg := kubernetes.format(sprintf(
 		"Container %s in %s %s (namespace: %s) uses an image from an untrusted registry.",
 		[container.name, lower(kubernetes.kind), kubernetes.name, kubernetes.namespace],
