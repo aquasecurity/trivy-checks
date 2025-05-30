@@ -15,7 +15,7 @@ terraform:
         cluster = google_container_cluster.primary.id
         node_config {
           workload_metadata_config {
-            node_metadata = "SECURE"
+            mode = "GKE_METADATA"
           }
         }
       }
@@ -33,7 +33,7 @@ terraform:
         cluster = google_container_cluster.primary.id
         node_config {
           workload_metadata_config {
-            node_metadata = "EXPOSE"
+            mode = "GCE_METADATA"
           }
         }
       }

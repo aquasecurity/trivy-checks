@@ -1,5 +1,5 @@
 
-Set node metadata to SECURE or GKE_METADATA_SERVER
+Set mode to GKE_METADATA
 
 ```hcl
 resource "google_container_cluster" "primary" {
@@ -14,7 +14,7 @@ resource "google_container_node_pool" "good_example" {
   cluster = google_container_cluster.primary.id
   node_config {
     workload_metadata_config {
-      node_metadata = "SECURE"
+      mode = "GKE_METADATA"
     }
   }
 }
