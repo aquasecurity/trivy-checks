@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-DISCONNECTIONS
 # custom:
-#   id: AVD-GCP-0022
 #   avd_id: AVD-GCP-0022
 #   provider: google
 #   service: sql

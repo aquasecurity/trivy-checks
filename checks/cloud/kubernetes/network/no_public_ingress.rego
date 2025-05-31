@@ -6,7 +6,6 @@
 # schemas:
 # - input: schema["cloud"]
 # custom:
-#   id: AVD-KUBE-0001
 #   avd_id: AVD-KUBE-0001
 #   provider: kubernetes
 #   service: network

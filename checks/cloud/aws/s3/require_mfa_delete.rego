@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html
 # custom:
-#   id: AVD-AWS-0170
 #   avd_id: AVD-AWS-0170
 #   provider: aws
 #   service: s3

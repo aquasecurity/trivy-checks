@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/security/fundamentals/network-best-practices
 # custom:
-#   id: AVD-AZU-0051
 #   avd_id: AVD-AZU-0051
 #   provider: azure
 #   service: network

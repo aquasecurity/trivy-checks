@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html
 # custom:
-#   id: AVD-AWS-0066
 #   avd_id: AVD-AWS-0066
 #   provider: aws
 #   service: lambda

@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/service/plan.htm
 # custom:
-#   id: AVD-NIF-0010
 #   avd_id: AVD-NIF-0010
 #   aliases:
 #     - nifcloud-rdb-no-common-private-db-instance

@@ -9,7 +9,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html
 # custom:
-#   id: AVD-AWS-0147
 #   avd_id: AVD-AWS-0147
 #   provider: aws
 #   service: cloudwatch

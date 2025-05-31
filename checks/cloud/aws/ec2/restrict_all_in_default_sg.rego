@@ -12,7 +12,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/default-custom-security-groups.html
 # custom:
-#   id: AVD-AWS-0173
 #   avd_id: AVD-AWS-0173
 #   provider: aws
 #   service: ec2

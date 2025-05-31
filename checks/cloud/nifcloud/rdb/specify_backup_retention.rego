@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/spec/rdb/snapshot_backup.htm
 # custom:
-#   id: AVD-NIF-0009
 #   avd_id: AVD-NIF-0009
 #   provider: nifcloud
 #   service: rdb

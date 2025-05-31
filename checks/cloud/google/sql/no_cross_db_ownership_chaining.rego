@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/cross-db-ownership-chaining-server-configuration-option?view=sql-server-ver15
 # custom:
-#   id: AVD-GCP-0019
 #   avd_id: AVD-GCP-0019
 #   provider: google
 #   service: sql

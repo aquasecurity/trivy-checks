@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0044
 #   avd_id: AVD-KCV-0044
 #   severity: LOW
 #   short_code: ensure-auto-tls-argument-is-not-set-to-true

@@ -14,7 +14,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
 # custom:
-#   id: AVD-AWS-0175
 #   avd_id: AVD-AWS-0175
 #   provider: aws
 #   service: accessanalyzer

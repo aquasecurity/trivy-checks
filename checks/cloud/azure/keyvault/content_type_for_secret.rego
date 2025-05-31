@@ -10,7 +10,6 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/key-vault/secrets/about-secrets
 # custom:
-#   id: AVD-AZU-0015
 #   avd_id: AVD-AZU-0015
 #   provider: azure
 #   service: keyvault

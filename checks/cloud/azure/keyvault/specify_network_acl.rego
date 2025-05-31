@@ -10,7 +10,6 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/key-vault/general/network-security
 # custom:
-#   id: AVD-AZU-0013
 #   avd_id: AVD-AZU-0013
 #   provider: azure
 #   service: keyvault

@@ -9,7 +9,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html
 # custom:
-#   id: AVD-AWS-0080
 #   avd_id: AVD-AWS-0080
 #   provider: aws
 #   service: rds

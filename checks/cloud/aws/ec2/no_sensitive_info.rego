@@ -6,7 +6,6 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-AWS-0122
 #   avd_id: AVD-AWS-0122
 #   aliases:
 #     - aws-autoscaling-no-sensitive-info

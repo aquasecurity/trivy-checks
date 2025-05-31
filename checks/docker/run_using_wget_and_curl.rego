@@ -7,7 +7,6 @@
 # related_resources:
 # - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#run
 # custom:
-#   id: DS014
 #   avd_id: AVD-DS-0014
 #   severity: LOW
 #   short_code: standardise-remote-get

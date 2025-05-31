@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/neptune/latest/userguide/auditing.html
 # custom:
-#   id: AVD-AWS-0075
 #   avd_id: AVD-AWS-0075
 #   provider: aws
 #   service: neptune

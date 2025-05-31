@@ -5,7 +5,6 @@
 # schemas:
 # - input: schema["kubernetes"]
 # custom:
-#   id: AVD-KSV-0108
 #   avd_id: AVD-KSV-0108
 #   severity: HIGH
 #   short_code: no_svc_with_extip

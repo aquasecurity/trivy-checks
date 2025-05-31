@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://cloud.google.com/iam/docs/understanding-roles
 # custom:
-#   id: AVD-GCP-0007
 #   avd_id: AVD-GCP-0007
 #   provider: google
 #   service: iam

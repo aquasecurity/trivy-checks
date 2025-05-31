@@ -7,7 +7,6 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV010
 #   avd_id: AVD-KSV-0010
 #   severity: HIGH
 #   short_code: no-host-pid

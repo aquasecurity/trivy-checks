@@ -10,7 +10,6 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/security-center/security-center-pricing
 # custom:
-#   id: AVD-AZU-0045
 #   avd_id: AVD-AZU-0045
 #   provider: azure
 #   service: security-center

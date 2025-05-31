@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/encryption-at-rest.html
 # custom:
-#   id: AVD-AWS-0048
 #   avd_id: AVD-AWS-0048
 #   provider: aws
 #   service: elasticsearch

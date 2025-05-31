@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0010
 #   avd_id: AVD-KCV-0010
 #   severity: LOW
 #   short_code: ensure-admission-control-plugin-event-rate-limit-is-set

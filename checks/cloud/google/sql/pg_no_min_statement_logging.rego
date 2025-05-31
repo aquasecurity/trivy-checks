@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT
 # custom:
-#   id: AVD-GCP-0021
 #   avd_id: AVD-GCP-0021
 #   provider: google
 #   service: sql

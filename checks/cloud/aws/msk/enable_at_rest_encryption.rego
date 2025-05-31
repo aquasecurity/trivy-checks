@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/msk/latest/developerguide/msk-encryption.html
 # custom:
-#   id: AVD-AWS-0179
 #   avd_id: AVD-AWS-0179
 #   provider: aws
 #   service: msk

@@ -7,7 +7,6 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 # custom:
-#   id: KSV121
 #   avd_id: AVD-KSV-0121
 #   severity: HIGH
 #   short_code: no-k8s-with-disallowed-volumes

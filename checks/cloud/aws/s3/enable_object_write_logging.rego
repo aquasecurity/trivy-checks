@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-cloudtrail-logging-for-s3.html
 # custom:
-#   id: AVD-AWS-0171
 #   avd_id: AVD-AWS-0171
 #   provider: aws
 #   service: s3

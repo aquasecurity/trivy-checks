@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/athena/latest/ug/encryption.html
 # custom:
-#   id: AVD-AWS-0006
 #   avd_id: AVD-AWS-0006
 #   provider: aws
 #   service: athena

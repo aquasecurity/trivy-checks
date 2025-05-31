@@ -8,7 +8,6 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-OCI-0001
 #   avd_id: AVD-OCI-0001
 #   provider: oracle
 #   service: compute

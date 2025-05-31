@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/service/plan.htm
 # custom:
-#   id: AVD-NIF-0013
 #   avd_id: AVD-NIF-0013
 #   aliases:
 #     - nifcloud-nas-no-common-private-nas-instance

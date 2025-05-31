@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.digitalocean.com/products/networking/firewalls/how-to/configure-rules/
 # custom:
-#   id: AVD-DIG-0003
 #   avd_id: AVD-DIG-0003
 #   provider: digitalocean
 #   service: compute

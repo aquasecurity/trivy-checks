@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
 # custom:
-#   id: AVD-AWS-0027
 #   avd_id: AVD-AWS-0027
 #   aliases:
 #     - aws-ebs-encryption-customer-key

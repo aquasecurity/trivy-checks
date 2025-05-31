@@ -6,7 +6,6 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-OPNSTK-0004
 #   avd_id: AVD-OPNSTK-0004
 #   provider: openstack
 #   service: networking

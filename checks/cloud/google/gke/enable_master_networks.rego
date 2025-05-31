@@ -6,7 +6,6 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-GCP-0061
 #   avd_id: AVD-GCP-0061
 #   provider: google
 #   service: gke

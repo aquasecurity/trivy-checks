@@ -10,7 +10,6 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/powershell/module/az.keyvault/update-azkeyvaultkey?view=azps-5.8.0#example-1--modify-a-key-to-enable-it--and-set-the-expiration-date-and-tags
 # custom:
-#   id: AVD-AZU-0014
 #   avd_id: AVD-AZU-0014
 #   provider: azure
 #   service: keyvault

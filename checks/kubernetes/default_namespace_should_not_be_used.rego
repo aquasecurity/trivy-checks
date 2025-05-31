@@ -7,7 +7,6 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
 # custom:
-#   id: KSV110
 #   avd_id: AVD-KSV-0110
 #   severity: LOW
 #   short_code: default-namespace-should-not-be-used

@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html
 # custom:
-#   id: AVD-AWS-0131
 #   avd_id: AVD-AWS-0131
 #   provider: aws
 #   service: ec2

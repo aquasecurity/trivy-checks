@@ -7,7 +7,6 @@
 # related_resources:
 # - https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/
 # custom:
-#   id: KSV003
 #   avd_id: AVD-KSV-0003
 #   severity: LOW
 #   short_code: drop-default-capabilities

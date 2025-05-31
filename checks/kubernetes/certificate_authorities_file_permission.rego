@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0075
 #   avd_id: AVD-KCV-0075
 #   severity: CRITICAL
 #   short_code: ensure-certificate-authorities-file-permissions-600-or-more-restrictive.

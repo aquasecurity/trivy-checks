@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses
 # custom:
-#   id: AVD-AWS-0164
 #   avd_id: AVD-AWS-0164
 #   aliases:
 #     - aws-vpc-no-public-ingress-sgr

@@ -9,7 +9,6 @@
 # related_resources:
 #   - https://sysdig.com/blog/toctou-tag-mutability/
 # custom:
-#   id: AVD-AWS-0031
 #   avd_id: AVD-AWS-0031
 #   provider: aws
 #   service: ecr

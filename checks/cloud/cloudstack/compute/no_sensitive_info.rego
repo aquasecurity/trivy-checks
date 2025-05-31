@@ -6,7 +6,6 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-CLDSTK-0001
 #   avd_id: AVD-CLDSTK-0001
 #   provider: cloudstack
 #   service: compute

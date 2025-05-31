@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://www.digitalocean.com/community/tutorials/understanding-the-ssh-encryption-and-connection-process
 # custom:
-#   id: AVD-DIG-0004
 #   avd_id: AVD-DIG-0004
 #   provider: digitalocean
 #   service: compute

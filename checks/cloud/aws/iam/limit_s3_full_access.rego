@@ -5,7 +5,6 @@
 # schemas:
 # - input: schema["cloud"]
 # custom:
-#   id: AVD-AWS-0345
 #   avd_id: AVD-AWS-0345
 #   provider: aws
 #   service: iam

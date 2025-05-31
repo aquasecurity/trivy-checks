@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
 # custom:
-#   id: AVD-AWS-0026
 #   avd_id: AVD-AWS-0026
 #   aliases:
 #     - aws-ebs-enable-volume-encryption

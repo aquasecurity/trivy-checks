@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupRetention
 # custom:
-#   id: AVD-AWS-0077
 #   avd_id: AVD-AWS-0077
 #   provider: aws
 #   service: rds

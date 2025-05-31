@@ -6,7 +6,6 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-DIG-0009
 #   avd_id: AVD-DIG-0009
 #   provider: digitalocean
 #   service: spaces

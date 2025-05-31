@@ -7,7 +7,6 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV048
 #   avd_id: AVD-KSV-0048
 #   severity: MEDIUM
 #   short_code: deny-create-update-malicious-pod

@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-policies
 # custom:
-#   id: AVD-AWS-0114
 #   avd_id: AVD-AWS-0114
 #   provider: aws
 #   service: sam

@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/documentdb/latest/developerguide/encryption-at-rest.html
 # custom:
-#   id: AVD-AWS-0021
 #   avd_id: AVD-AWS-0021
 #   provider: aws
 #   service: documentdb

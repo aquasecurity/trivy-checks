@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html
 # custom:
-#   id: AVD-AWS-0096
 #   avd_id: AVD-AWS-0096
 #   provider: aws
 #   service: sqs

@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/aks/api-server-authorized-ip-ranges
 # custom:
-#   id: AVD-AZU-0041
 #   avd_id: AVD-AZU-0041
 #   provider: azure
 #   service: container

@@ -7,7 +7,6 @@
 # related_resources:
 # - http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html
 # custom:
-#   id: AVD-AWS-0180
 #   avd_id: AVD-AWS-0180
 #   provider: aws
 #   service: rds

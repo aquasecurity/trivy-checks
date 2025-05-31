@@ -5,7 +5,6 @@
 # schemas:
 # - input: schema["dockerfile"]
 # custom:
-#   id: DS024
 #   deprecated: true
 #   avd_id: AVD-DS-0024
 #   severity: HIGH

@@ -9,7 +9,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/SecurityGroups.Creating.html
 # custom:
-#   id: AVD-AWS-0049
 #   avd_id: AVD-AWS-0049
 #   provider: aws
 #   service: elasticache

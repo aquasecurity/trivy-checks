@@ -7,7 +7,6 @@
 # related_resources:
 # - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 # custom:
-#   id: DS027
 #   avd_id: AVD-DS-0027
 #   severity: HIGH
 #   short_code: purge-microdnf-package-cache
