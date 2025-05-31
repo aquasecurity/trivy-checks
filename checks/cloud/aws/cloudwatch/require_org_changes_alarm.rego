@@ -12,7 +12,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html
 # custom:
-#   id: AVD-AWS-0174
 #   avd_id: AVD-AWS-0174
 #   provider: aws
 #   service: cloudwatch

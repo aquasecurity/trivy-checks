@@ -14,7 +14,6 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/help/ssl/del.htm
 # custom:
-#   id: AVD-NIF-0006
 #   avd_id: AVD-NIF-0006
 #   provider: nifcloud
 #   service: ssl-certificate

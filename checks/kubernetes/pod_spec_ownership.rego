@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0049
 #   avd_id: AVD-KCV-0049
 #   severity: HIGH
 #   short_code: ensure-api-server-pod-specification-ownership-set-root:root.

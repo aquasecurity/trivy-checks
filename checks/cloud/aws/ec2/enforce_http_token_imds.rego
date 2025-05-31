@@ -12,7 +12,6 @@
 # related_resources:
 #   - https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service
 # custom:
-#   id: AVD-AWS-0028
 #   avd_id: AVD-AWS-0028
 #   provider: aws
 #   service: ec2

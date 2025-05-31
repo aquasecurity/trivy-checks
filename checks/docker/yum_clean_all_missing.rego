@@ -7,7 +7,6 @@
 # related_resources:
 # - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#run
 # custom:
-#   id: DS015
 #   avd_id: AVD-DS-0015
 #   severity: HIGH
 #   short_code: purge-yum-package-cache

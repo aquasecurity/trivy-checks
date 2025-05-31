@@ -6,7 +6,6 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-AZU-0039
 #   avd_id: AVD-AZU-0039
 #   provider: azure
 #   service: compute

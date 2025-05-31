@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-data-protection.html
 # custom:
-#   id: AVD-AWS-0126
 #   avd_id: AVD-AWS-0126
 #   provider: aws
 #   service: elasticsearch

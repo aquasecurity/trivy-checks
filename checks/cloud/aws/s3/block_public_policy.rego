@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/dev-retired/access-control-block-public-access.html
 # custom:
-#   id: AVD-AWS-0087
 #   avd_id: AVD-AWS-0087
 #   provider: aws
 #   service: s3

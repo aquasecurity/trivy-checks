@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html
 # custom:
-#   id: AVD-DIG-0007
 #   avd_id: AVD-DIG-0007
 #   provider: digitalocean
 #   service: spaces

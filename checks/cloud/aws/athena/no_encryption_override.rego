@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/athena/latest/ug/manage-queries-control-costs-with-workgroups.html
 # custom:
-#   id: AVD-AWS-0007
 #   avd_id: AVD-AWS-0007
 #   provider: aws
 #   service: athena

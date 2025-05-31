@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/streams/latest/dev/server-side-encryption.html
 # custom:
-#   id: AVD-AWS-0064
 #   avd_id: AVD-AWS-0064
 #   provider: aws
 #   service: kinesis

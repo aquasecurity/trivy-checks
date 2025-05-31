@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/config/latest/developerguide/operational-best-practices-for-nist_800-171.html
 # custom:
-#   id: AVD-AWS-0139
 #   avd_id: AVD-AWS-0139
 #   provider: aws
 #   service: emr

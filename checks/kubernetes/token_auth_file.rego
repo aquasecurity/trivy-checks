@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0002
 #   avd_id: AVD-KCV-0002
 #   severity: LOW
 #   short_code: ensure-token-auth-file-parameter-is-not-set

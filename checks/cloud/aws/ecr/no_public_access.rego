@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonECR/latest/public/public-repository-policies.html
 # custom:
-#   id: AVD-AWS-0032
 #   avd_id: AVD-AWS-0032
 #   provider: aws
 #   service: ecr

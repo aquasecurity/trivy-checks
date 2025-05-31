@@ -10,7 +10,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#password-policy-details
 # custom:
-#   id: AVD-AWS-0063
 #   avd_id: AVD-AWS-0063
 #   provider: aws
 #   service: iam

@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
 # custom:
-#   id: AVD-AWS-0040
 #   avd_id: AVD-AWS-0040
 #   provider: aws
 #   service: eks

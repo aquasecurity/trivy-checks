@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-simpletable.html#sam-simpletable-ssespecification
 # custom:
-#   id: AVD-AWS-0121
 #   avd_id: AVD-AWS-0121
 #   provider: aws
 #   service: sam

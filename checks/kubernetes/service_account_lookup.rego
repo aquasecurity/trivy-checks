@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0024
 #   avd_id: AVD-KCV-0024
 #   severity: LOW
 #   short_code: ensure-service-account-lookup-argument-is-set-to-true

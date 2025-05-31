@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/msk/latest/developerguide/msk-logging.html
 # custom:
-#   id: AVD-AWS-0074
 #   avd_id: AVD-AWS-0074
 #   provider: aws
 #   service: msk

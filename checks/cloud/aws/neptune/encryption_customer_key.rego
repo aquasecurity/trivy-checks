@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/neptune/latest/userguide/encrypt.html
 # custom:
-#   id: AVD-AWS-0128
 #   avd_id: AVD-AWS-0128
 #   provider: aws
 #   service: neptune

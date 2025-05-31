@@ -6,7 +6,6 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-AWS-0003
 #   avd_id: AVD-AWS-0003
 #   provider: aws
 #   service: apigateway

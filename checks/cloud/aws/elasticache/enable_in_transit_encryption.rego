@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/in-transit-encryption.html
 # custom:
-#   id: AVD-AWS-0051
 #   avd_id: AVD-AWS-0051
 #   provider: aws
 #   service: elasticache

@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0039
 #   avd_id: AVD-KCV-0039
 #   severity: LOW
 #   short_code: ensure-controller-manager-bind-address-is-loopback

@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html
 # custom:
-#   id: AVD-AWS-0140
 #   avd_id: AVD-AWS-0140
 #   provider: aws
 #   service: iam

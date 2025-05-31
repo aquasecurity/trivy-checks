@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0090
 #   avd_id: AVD-KCV-0090
 #   severity: HIGH
 #   short_code: ensure-rotate-certificates-argument-set-false

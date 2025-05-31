@@ -7,7 +7,6 @@
 #   - input: schema["cloud"]
 # related_resources:
 # custom:
-#   id: AVD-GCP-0006
 #   avd_id: AVD-GCP-0006
 #   provider: google
 #   service: iam

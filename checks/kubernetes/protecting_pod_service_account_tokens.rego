@@ -7,7 +7,6 @@
 # related_resources:
 # - https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/#serviceaccount-admission-controller
 # custom:
-#   id: KSV036
 #   avd_id: AVD-KSV-0036
 #   severity: MEDIUM
 #   short_code: no-auto-mount-service-token

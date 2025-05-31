@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html
 # custom:
-#   id: AVD-AWS-0010
 #   avd_id: AVD-AWS-0010
 #   provider: aws
 #   service: cloudfront

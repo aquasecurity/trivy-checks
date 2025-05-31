@@ -7,7 +7,6 @@
 # related_resources:
 # - https://docs.docker.com/develop/develop-images/multistage-build/
 # custom:
-#   id: DS006
 #   avd_id: AVD-DS-0006
 #   severity: CRITICAL
 #   short_code: no-self-referencing-copy-from

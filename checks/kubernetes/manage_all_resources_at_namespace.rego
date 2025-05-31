@@ -7,7 +7,6 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV112
 #   avd_id: AVD-KSV-0112
 #   severity: CRITICAL
 #   short_code: no-wildcard-resource-role

@@ -9,7 +9,6 @@
 # related_resources:
 #   - https://console.aws.amazon.com/iam/
 # custom:
-#   id: AVD-AWS-0169
 #   avd_id: AVD-AWS-0169
 #   provider: aws
 #   service: iam

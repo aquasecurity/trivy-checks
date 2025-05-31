@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/guide/rdb/server_new.htm
 # custom:
-#   id: AVD-NIF-0008
 #   avd_id: AVD-NIF-0008
 #   provider: nifcloud
 #   service: rdb

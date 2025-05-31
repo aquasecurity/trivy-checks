@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html
 # custom:
-#   id: AVD-AWS-0132
 #   avd_id: AVD-AWS-0132
 #   provider: aws
 #   service: s3

@@ -7,7 +7,6 @@
 # related_resources:
 # - https://docs.docker.com/engine/reference/builder/#copy
 # custom:
-#   id: DS011
 #   avd_id: AVD-DS-0011
 #   severity: CRITICAL
 #   short_code: use-slash-for-copy-args

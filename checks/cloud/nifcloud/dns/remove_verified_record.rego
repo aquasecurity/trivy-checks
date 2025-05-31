@@ -10,7 +10,6 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/guide/dns/zone_new.htm
 # custom:
-#   id: AVD-NIF-0007
 #   avd_id: AVD-NIF-0007
 #   provider: nifcloud
 #   service: dns

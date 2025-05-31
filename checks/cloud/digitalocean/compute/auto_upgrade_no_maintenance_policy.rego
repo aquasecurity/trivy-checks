@@ -7,7 +7,6 @@
 # related_resources:
 #   - https://docs.digitalocean.com/products/kubernetes/resources/best-practices/
 # custom:
-#   id: AVD-DIG-0008
 #   avd_id: AVD-DIG-0008
 #   provider: digitalocean
 #   service: compute

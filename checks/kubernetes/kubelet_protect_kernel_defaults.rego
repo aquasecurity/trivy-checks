@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0083
 #   avd_id: AVD-KCV-0083
 #   severity: HIGH
 #   short_code: ensure-protect-kernel-defaults-set-true

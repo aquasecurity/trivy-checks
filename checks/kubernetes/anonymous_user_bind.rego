@@ -7,7 +7,6 @@
 # related_resources:
 # - https://blog.aquasec.com/kubernetes-exposed-one-yaml-away-from-disaster
 # custom:
-#   id: KSV122
 #   avd_id: AVD-KSV-0122
 #   severity: CRITICAL
 #   short_code: no-anonymous-user-bind

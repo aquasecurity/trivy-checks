@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://postgresqlco.nf/doc/en/param/log_temp_files/
 # custom:
-#   id: AVD-GCP-0014
 #   avd_id: AVD-GCP-0014
 #   provider: google
 #   service: sql

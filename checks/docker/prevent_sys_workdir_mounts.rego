@@ -7,7 +7,6 @@
 # related_resources:
 # - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#workdir
 # custom:
-#   id: DS030
 #   avd_id: AVD-DS-0030
 #   severity: HIGH
 #   short_code: avoid-sys-workdir-mounts

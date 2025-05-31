@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://www.cloudconformity.com/knowledge-base/gcp/CloudSQL/publicly-accessible-cloud-sql-instances.html
 # custom:
-#   id: AVD-GCP-0017
 #   avd_id: AVD-GCP-0017
 #   provider: google
 #   service: sql

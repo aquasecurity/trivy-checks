@@ -6,7 +6,6 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-GCP-0065
 #   avd_id: AVD-GCP-0065
 #   provider: google
 #   service: kms

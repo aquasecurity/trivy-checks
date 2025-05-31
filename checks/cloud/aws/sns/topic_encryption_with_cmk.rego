@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html
 # custom:
-#   id: AVD-AWS-0136
 #   avd_id: AVD-AWS-0136
 #   provider: aws
 #   service: sns

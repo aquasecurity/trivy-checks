@@ -7,7 +7,6 @@
 # related_resources:
 # - https://kubesec.io/basics/containers-resources-limits-memory/
 # custom:
-#   id: KSV016
 #   avd_id: AVD-KSV-0016
 #   severity: LOW
 #   short_code: no-unspecified-memory-requests

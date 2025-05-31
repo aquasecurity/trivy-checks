@@ -10,7 +10,6 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/storage/common/storage-analytics-logging?tabs=dotnet
 # custom:
-#   id: AVD-AZU-0009
 #   avd_id: AVD-AZU-0009
 #   provider: azure
 #   service: storage

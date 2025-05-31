@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0016
 #   avd_id: AVD-KCV-0016
 #   severity: LOW
 #   short_code: ensure-admission-control-plugin-node-restriction-is-set

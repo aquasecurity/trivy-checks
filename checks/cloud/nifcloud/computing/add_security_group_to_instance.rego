@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/help/server/change_fw.htm
 # custom:
-#   id: AVD-NIF-0004
 #   avd_id: AVD-NIF-0004
 #   aliases:
 #     - nifcloud-computing-add-security-group-to-instance

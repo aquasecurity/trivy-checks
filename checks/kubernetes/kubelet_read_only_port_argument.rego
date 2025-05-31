@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0082
 #   avd_id: AVD-KCV-0082
 #   severity: HIGH
 #   short_code: verify-read-only-port-argument-set-0

@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0027
 #   avd_id: AVD-KCV-0027
 #   severity: LOW
 #   short_code: ensure-tls-cert-file-and-tls-private-key-file-arguments-are-set-as-appropriate

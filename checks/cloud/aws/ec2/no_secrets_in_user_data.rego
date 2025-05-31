@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-add-user-data.html
 # custom:
-#   id: AVD-AWS-0029
 #   avd_id: AVD-AWS-0029
 #   aliases:
 #     - aws-autoscaling-no-public-ip

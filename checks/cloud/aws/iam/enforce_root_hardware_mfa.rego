@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html
 # custom:
-#   id: AVD-AWS-0165
 #   avd_id: AVD-AWS-0165
 #   provider: aws
 #   service: iam

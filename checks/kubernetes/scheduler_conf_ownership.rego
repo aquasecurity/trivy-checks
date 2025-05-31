@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0063
 #   avd_id: AVD-KCV-0063
 #   severity: HIGH
 #   short_code: ensure-scheduler-config-ownership-set-root:root.

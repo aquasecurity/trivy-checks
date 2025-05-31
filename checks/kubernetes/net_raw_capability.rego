@@ -7,7 +7,6 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/
 # custom:
-#   id: KSV119
 #   avd_id: AVD-KSV-0119
 #   severity: HIGH
 #   short_code: no-net-raw

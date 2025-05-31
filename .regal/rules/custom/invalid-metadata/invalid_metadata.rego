@@ -63,7 +63,6 @@ check_metadata_schema := {
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"type": "object",
 	"properties": {
-		"id": {"type": "string"},
 		"avd_id": {"type": "string"},
 		"provider": {"type": "string"},
 		"service": {"type": "string"},
@@ -85,7 +84,7 @@ check_metadata_schema := {
 		"recommended_actions": {"type": "string"},
 		"recommended_action": {"type": "string"},
 	},
-	"required": ["id", "avd_id", "input"],
+	"required": ["avd_id", "input"],
 	"additionalProperties": false,
 	"anyOf": [
 		{"required": ["recommended_actions"]},

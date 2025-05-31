@@ -5,7 +5,6 @@
 # schemas:
 # - input: schema["dockerfile"]
 # custom:
-#   id: DS004
 #   avd_id: AVD-DS-0004
 #   severity: MEDIUM
 #   short_code: no-ssh-port

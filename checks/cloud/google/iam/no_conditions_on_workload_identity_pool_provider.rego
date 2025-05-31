@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://www.revblock.dev/exploiting-misconfigured-google-cloud-service-accounts-from-github-actions/
 # custom:
-#   id: AVD-GCP-0068
 #   avd_id: AVD-GCP-0068
 #   provider: google
 #   service: iam

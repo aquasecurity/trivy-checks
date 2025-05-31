@@ -7,7 +7,6 @@
 # related_resources:
 # - https://kubesec.io/basics/containers-securitycontext-runasuser/
 # custom:
-#   id: KSV116
 #   avd_id: AVD-KSV-0116
 #   severity: LOW
 #   short_code: primary-supplementary-gid

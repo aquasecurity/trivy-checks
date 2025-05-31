@@ -9,7 +9,6 @@
 #   - https://docs.microsoft.com/en-us/azure/app-service/configure-ssl-bindings#enforce-https
 #   - https://docs.microsoft.com/en-us/azure/azure-functions/security-concepts
 # custom:
-#   id: AVD-AZU-0004
 #   avd_id: AVD-AZU-0004
 #   provider: azure
 #   service: appservice

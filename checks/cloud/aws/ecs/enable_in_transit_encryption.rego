@@ -9,7 +9,6 @@
 #   - https://docs.aws.amazon.com/AmazonECS/latest/userguide/efs-volumes.html
 #   - https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html
 # custom:
-#   id: AVD-AWS-0035
 #   avd_id: AVD-AWS-0035
 #   provider: aws
 #   service: ecs

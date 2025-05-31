@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/centralized-egress-to-internet.html
 # custom:
-#   id: AVD-AWS-0104
 #   avd_id: AVD-AWS-0104
 #   aliases:
 #     - aws-vpc-no-public-egress-sgr

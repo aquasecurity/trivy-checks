@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/workspaces/latest/adminguide/encrypt-workspaces.html
 # custom:
-#   id: AVD-AWS-0109
 #   avd_id: AVD-AWS-0109
 #   provider: aws
 #   service: workspaces

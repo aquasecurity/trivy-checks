@@ -8,7 +8,6 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/services-networking/network-policies
 # custom:
-#   id: AVD-AZU-0043
 #   avd_id: AVD-AZU-0043
 #   provider: azure
 #   service: container

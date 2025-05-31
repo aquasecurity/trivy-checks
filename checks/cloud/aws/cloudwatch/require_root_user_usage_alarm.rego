@@ -9,7 +9,6 @@
 # related_resources:
 #   - https://aws.amazon.com/iam/features/mfa/
 # custom:
-#   id: AVD-AWS-0149
 #   avd_id: AVD-AWS-0149
 #   provider: aws
 #   service: cloudwatch
