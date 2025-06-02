@@ -1,5 +1,6 @@
 
-Encryption using AWS keys provides protection for your S3 buckets. To increase control of the encryption and manage factors like rotation use customer managed keys.
+Encryption using AWS keys provides protection for your S3 buckets. To gain greater control over encryption, such as key rotation, access policies, and auditability, use customer managed keys (CMKs) with SSE-KMS.
+Note that SSE-KMS is not supported for S3 server access logging destination buckets; in such cases, use SSE-S3 instead.
 
 
 ### Impact

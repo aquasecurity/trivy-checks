@@ -27,6 +27,39 @@ terraform:
     - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#enable-default-server-side-encryption
   good:
     - |-
+      resource "aws_kms_key" "mykey" {}
+
+      resource "aws_s3_bucket" "good_example" {
+        bucket = "mybucket"
+      }
+
+      resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
+        bucket = aws_s3_bucket.good_example.id
+
+        rule {
+          apply_server_side_encryption_by_default {
+            kms_master_key_id = aws_kms_key.mykey.arn
+            sse_algorithm     = "aws:kms"
+          }
+        }
+      }
+    - |-
+      resource "aws_s3_bucket" "good_example" {
+        # server access logging bucket
+        acl    = "log-delivery-write"
+        bucket = "mybucket"
+      }
+
+      resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
+        bucket = aws_s3_bucket.good_example.id
+
+        rule {
+          apply_server_side_encryption_by_default {
+            sse_algorithm = "AES256"
+          }
+        }
+      }
+    - |-
       resource "aws_kms_key" "good_example" {
         enable_key_rotation = true
       }
@@ -34,6 +67,7 @@ terraform:
       resource "aws_s3_bucket" "good_example" {
         bucket = "mybucket"
 
+        # deprecated way
         server_side_encryption_configuration {
           rule {
             apply_server_side_encryption_by_default {
@@ -43,24 +77,26 @@ terraform:
           }
         }
       }
+  bad:
     - |-
-      resource "aws_s3_bucket" "good_example" {
+      resource "aws_s3_bucket" "bad_example" {
         bucket = "mybucket"
-        acl    = "log-delivery-write"
+      }
 
-        server_side_encryption_configuration {
-          rule {
-            apply_server_side_encryption_by_default {
-              sse_algorithm = "AES256"
-            }
+      resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
+        bucket = aws_s3_bucket.bad_example.id
+
+        rule {
+          apply_server_side_encryption_by_default {
+            sse_algorithm = "AES256"
           }
         }
       }
-  bad:
     - |-
       resource "aws_s3_bucket" "bad_exampl" {
         bucket = "mybucket"
 
+        # deprecated way
         server_side_encryption_configuration {
           rule {
             apply_server_side_encryption_by_default {
