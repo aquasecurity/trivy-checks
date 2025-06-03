@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/athena/latest/ug/manage-queries-control-costs-with-workgroups.html
 # custom:
+#   aliases:
+#     - aws-athena-no-encryption-override
 #   avd_id: AVD-AWS-0007
 #   provider: aws
 #   service: athena

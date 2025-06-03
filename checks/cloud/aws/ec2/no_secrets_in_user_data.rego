@@ -11,6 +11,7 @@
 #   avd_id: AVD-AWS-0029
 #   aliases:
 #     - aws-autoscaling-no-public-ip
+#     - aws-ec2-no-secrets-in-user-data
 #   provider: aws
 #   service: ec2
 #   severity: CRITICAL

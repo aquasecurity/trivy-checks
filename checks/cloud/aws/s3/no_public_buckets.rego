@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/dev-retired/access-control-block-public-access.html
 # custom:
+#   aliases:
+#     - aws-s3-no-public-buckets
 #   avd_id: AVD-AWS-0093
 #   provider: aws
 #   service: s3

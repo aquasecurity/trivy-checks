@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/neptune/latest/userguide/encrypt.html
 # custom:
+#   aliases:
+#     - aws-neptune-enable-storage-encryption
 #   avd_id: AVD-AWS-0076
 #   provider: aws
 #   service: neptune

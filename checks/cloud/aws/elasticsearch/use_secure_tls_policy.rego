@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-data-protection.html
 # custom:
+#   aliases:
+#     - aws-elasticsearch-use-secure-tls-policy
 #   avd_id: AVD-AWS-0126
 #   provider: aws
 #   service: elasticsearch

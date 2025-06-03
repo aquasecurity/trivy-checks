@@ -9,6 +9,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html
 # custom:
+#   aliases:
+#     - aws-rds-encrypt-cluster-storage-data
 #   avd_id: AVD-AWS-0079
 #   provider: aws
 #   service: rds

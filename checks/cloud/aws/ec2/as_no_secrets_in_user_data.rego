@@ -11,6 +11,7 @@
 #   avd_id: AVD-AWS-0129
 #   aliases:
 #     - aws-autoscaling-no-secrets-in-user-data
+#     - aws-ec2-no-secrets-in-launch-template-user-data
 #   provider: aws
 #   service: ec2
 #   severity: CRITICAL

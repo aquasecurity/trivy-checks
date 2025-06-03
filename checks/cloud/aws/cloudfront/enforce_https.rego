@@ -9,6 +9,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-cloudfront-to-s3-origin.html
 # custom:
+#   aliases:
+#     - aws-cloudfront-enforce-https
 #   avd_id: AVD-AWS-0012
 #   provider: aws
 #   service: cloudfront

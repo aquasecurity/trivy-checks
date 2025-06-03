@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html
 # custom:
+#   aliases:
+#     - aws-s3-enable-bucket-encryption
 #   avd_id: AVD-AWS-0088
 #   provider: aws
 #   service: s3

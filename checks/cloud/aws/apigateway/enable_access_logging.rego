@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html
 # custom:
+#   aliases:
+#     - aws-apigateway-enable-access-logging
 #   avd_id: AVD-AWS-0001
 #   provider: aws
 #   service: apigateway

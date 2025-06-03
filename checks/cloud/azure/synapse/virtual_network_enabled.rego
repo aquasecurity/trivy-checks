@@ -13,6 +13,8 @@
 #   - https://docs.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints
 #   - https://docs.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-managed-vnet
 # custom:
+#   aliases:
+#     - azure-synapse-virtual-network-enabled
 #   avd_id: AVD-AZU-0034
 #   provider: azure
 #   service: synapse

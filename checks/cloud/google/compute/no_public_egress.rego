@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://cloud.google.com/vpc/docs/using-firewalls
 # custom:
+#   aliases:
+#     - google-compute-no-public-egress
 #   avd_id: AVD-GCP-0035
 #   provider: google
 #   service: compute

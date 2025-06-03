@@ -9,6 +9,8 @@
 # related_resources:
 #   - https://aws.amazon.com/iam/features/mfa/
 # custom:
+#   aliases:
+#     - aws-cloudwatch-require-non-mfa-login-alarm
 #   avd_id: AVD-AWS-0148
 #   provider: aws
 #   service: cloudwatch

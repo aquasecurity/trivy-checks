@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/rest/api/sql/2021-02-01-preview/firewall-rules/create-or-update
 # custom:
+#   aliases:
+#     - azure-database-no-public-firewall-access
 #   avd_id: AVD-AZU-0029
 #   provider: azure
 #   service: database

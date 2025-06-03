@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html
 # custom:
+#   aliases:
+#     - aws-s3-block-public-acls
 #   avd_id: AVD-AWS-0086
 #   provider: aws
 #   service: s3

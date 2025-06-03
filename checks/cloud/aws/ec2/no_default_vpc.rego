@@ -11,6 +11,7 @@
 #   avd_id: AVD-AWS-0101
 #   aliases:
 #     - aws-vpc-no-default-vpc
+#     - aws-ec2-no-default-vpc
 #   provider: aws
 #   service: ec2
 #   severity: HIGH

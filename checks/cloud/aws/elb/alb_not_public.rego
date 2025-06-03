@@ -6,6 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   aliases:
+#     - aws-elb-alb-not-public
 #   avd_id: AVD-AWS-0053
 #   provider: aws
 #   service: elb

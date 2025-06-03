@@ -9,6 +9,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html
 # custom:
+#   aliases:
+#     - aws-cloudwatch-require-unauthorised-api-call-alarm
 #   avd_id: AVD-AWS-0147
 #   provider: aws
 #   service: cloudwatch

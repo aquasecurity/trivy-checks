@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/aks/api-server-authorized-ip-ranges
 # custom:
+#   aliases:
+#     - azure-container-limit-authorized-ips
 #   avd_id: AVD-AZU-0041
 #   provider: azure
 #   service: container

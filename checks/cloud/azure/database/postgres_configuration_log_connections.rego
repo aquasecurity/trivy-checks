@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/postgresql/concepts-server-logs#configure-logging
 # custom:
+#   aliases:
+#     - azure-database-postgres-configuration-log-connections
 #   avd_id: AVD-AZU-0019
 #   provider: azure
 #   service: database

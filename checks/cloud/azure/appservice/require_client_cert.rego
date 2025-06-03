@@ -6,6 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   aliases:
+#     - azure-appservice-require-client-cert
 #   avd_id: AVD-AZU-0001
 #   provider: azure
 #   service: appservice

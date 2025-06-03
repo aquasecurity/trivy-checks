@@ -10,6 +10,8 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/guide/dns/zone_new.htm
 # custom:
+#   aliases:
+#     - nifcloud-dns-remove-verified-record
 #   avd_id: AVD-NIF-0007
 #   provider: nifcloud
 #   service: dns

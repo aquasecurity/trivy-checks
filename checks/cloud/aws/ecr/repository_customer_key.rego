@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
 # custom:
+#   aliases:
+#     - aws-ecr-repository-customer-key
 #   avd_id: AVD-AWS-0033
 #   provider: aws
 #   service: ecr

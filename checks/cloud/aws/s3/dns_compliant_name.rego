@@ -7,6 +7,8 @@
 # related_resources:
 # - https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html
 # custom:
+#   aliases:
+#     - aws-s3-dns-compliant-name
 #   avd_id: AVD-AWS-0320
 #   provider: aws
 #   service: s3

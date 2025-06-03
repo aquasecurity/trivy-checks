@@ -14,6 +14,8 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/help/ssl/del.htm
 # custom:
+#   aliases:
+#     - nifcloud-ssl-certificate-remove-expired-certificates
 #   avd_id: AVD-NIF-0006
 #   provider: nifcloud
 #   service: ssl-certificate

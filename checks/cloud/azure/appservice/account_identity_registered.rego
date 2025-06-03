@@ -6,6 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   aliases:
+#     - azure-appservice-account-identity-registered
 #   avd_id: AVD-AZU-0002
 #   provider: azure
 #   service: appservice

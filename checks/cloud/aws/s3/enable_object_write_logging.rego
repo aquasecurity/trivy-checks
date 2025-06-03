@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-cloudtrail-logging-for-s3.html
 # custom:
+#   aliases:
+#     - aws-s3-enable-object-write-logging
 #   avd_id: AVD-AWS-0171
 #   provider: aws
 #   service: s3

@@ -11,6 +11,7 @@
 #   avd_id: AVD-AWS-0027
 #   aliases:
 #     - aws-ebs-encryption-customer-key
+#     - aws-ec2-volume-encryption-customer-key
 #   provider: aws
 #   service: ec2
 #   severity: LOW

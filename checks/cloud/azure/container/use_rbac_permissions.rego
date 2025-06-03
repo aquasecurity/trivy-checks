@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/aks/concepts-identity
 # custom:
+#   aliases:
+#     - azure-container-use-rbac-permissions
 #   avd_id: AVD-AZU-0042
 #   provider: azure
 #   service: container

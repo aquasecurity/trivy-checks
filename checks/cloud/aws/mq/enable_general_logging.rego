@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/configure-logging-monitoring-activemq.html
 # custom:
+#   aliases:
+#     - aws-mq-enable-general-logging
 #   avd_id: AVD-AWS-0071
 #   provider: aws
 #   service: mq

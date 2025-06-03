@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/service/lb_l4.htm
 # custom:
+#   aliases:
+#     - nifcloud-network-use-secure-tls-policy
 #   avd_id: AVD-NIF-0020
 #   provider: nifcloud
 #   service: network

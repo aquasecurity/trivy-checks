@@ -9,6 +9,8 @@
 #   - https://postgresqlco.nf/doc/en/param/log_min_messages/
 #   - https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES
 # custom:
+#   aliases:
+#     - google-sql-pg-log-errors
 #   avd_id: AVD-GCP-0018
 #   provider: google
 #   service: sql

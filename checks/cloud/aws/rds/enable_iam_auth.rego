@@ -7,6 +7,8 @@
 # related_resources:
 # - https://docs.aws.amazon.com/neptune/latest/userguide/iam-auth.html
 # custom:
+#   aliases:
+#     - aws-rds-enable-iam-auth
 #   avd_id: AVD-AWS-0176
 #   provider: aws
 #   service: rds

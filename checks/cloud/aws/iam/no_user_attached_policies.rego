@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://console.aws.amazon.com/iam/
 # custom:
+#   aliases:
+#     - aws-iam-no-user-attached-policies
 #   avd_id: AVD-AWS-0143
 #   provider: aws
 #   service: iam

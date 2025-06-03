@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html
 # custom:
+#   aliases:
+#     - aws-iam-enforce-root-hardware-mfa
 #   avd_id: AVD-AWS-0165
 #   provider: aws
 #   service: iam

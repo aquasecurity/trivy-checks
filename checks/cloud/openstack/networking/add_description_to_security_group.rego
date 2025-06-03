@@ -6,6 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   aliases:
+#     - openstack-networking-describe-security-group
 #   avd_id: AVD-OPNSTK-0005
 #   provider: openstack
 #   service: networking

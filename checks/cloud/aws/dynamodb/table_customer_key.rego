@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/EncryptionAtRest.html
 # custom:
+#   aliases:
+#     - aws-dynamodb-table-customer-key
 #   avd_id: AVD-AWS-0025
 #   provider: aws
 #   service: dynamodb

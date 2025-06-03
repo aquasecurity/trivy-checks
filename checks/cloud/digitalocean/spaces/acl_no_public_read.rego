@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.digitalocean.com/reference/api/spaces-api/#access-control-lists-acls
 # custom:
+#   aliases:
+#     - digitalocean-spaces-acl-no-public-read
 #   avd_id: AVD-DIG-0006
 #   provider: digitalocean
 #   service: spaces

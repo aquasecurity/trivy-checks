@@ -9,6 +9,8 @@
 #   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/encrypting-cloudtrail-log-files-with-aws-kms.html
 #   - https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-mgmt
 # custom:
+#   aliases:
+#     - aws-cloudtrail-encryption-customer-managed-key
 #   avd_id: AVD-AWS-0015
 #   provider: aws
 #   service: cloudtrail

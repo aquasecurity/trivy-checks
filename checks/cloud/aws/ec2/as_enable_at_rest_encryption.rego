@@ -11,6 +11,7 @@
 #   avd_id: AVD-AWS-0008
 #   aliases:
 #     - aws-autoscaling-enable-at-rest-encryption
+#     - aws-ec2-enable-launch-config-at-rest-encryption
 #   provider: aws
 #   service: ec2
 #   severity: HIGH

@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html
 # custom:
+#   aliases:
+#     - aws-apigateway-enable-cache
 #   avd_id: AVD-AWS-0190
 #   provider: aws
 #   service: apigateway

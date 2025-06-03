@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT
 # custom:
+#   aliases:
+#     - google-sql-pg-no-min-statement-logging
 #   avd_id: AVD-GCP-0021
 #   provider: google
 #   service: sql

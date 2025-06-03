@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://console.aws.amazon.com/iam/
 # custom:
+#   aliases:
+#     - aws-iam-enforce-user-mfa
 #   avd_id: AVD-AWS-0145
 #   provider: aws
 #   service: iam

@@ -11,6 +11,7 @@
 #   avd_id: AVD-AWS-0164
 #   aliases:
 #     - aws-vpc-no-public-ingress-sgr
+#     - aws-ec2-no-public-ip-subnet
 #   provider: aws
 #   service: ec2
 #   severity: HIGH

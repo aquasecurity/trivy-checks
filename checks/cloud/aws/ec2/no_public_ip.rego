@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html
 # custom:
+#   aliases:
+#     - aws-ec2-no-public-ip
 #   avd_id: AVD-AWS-0009
 #   provider: aws
 #   service: ec2

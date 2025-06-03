@@ -11,6 +11,7 @@
 #   avd_id: AVD-NIF-0016
 #   aliases:
 #     - nifcloud-computing-add-security-group-to-router
+#     - nifcloud-network-add-security-group-to-router
 #   provider: nifcloud
 #   service: network
 #   severity: CRITICAL

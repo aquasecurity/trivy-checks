@@ -6,6 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   aliases:
+#     - google-dns-enable-dnssec
 #   avd_id: AVD-GCP-0013
 #   provider: google
 #   service: dns

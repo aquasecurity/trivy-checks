@@ -11,6 +11,7 @@
 #   avd_id: AVD-AWS-0123
 #   aliases:
 #     - aws-iam-enforce-mfa
+#     - aws-iam-enforce-group-mfa
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM

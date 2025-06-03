@@ -8,6 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/configuring-block-public-access-bucket.html
 # custom:
+#   aliases:
+#     - aws-cloudtrail-no-public-log-access
 #   avd_id: AVD-AWS-0161
 #   provider: aws
 #   service: cloudtrail

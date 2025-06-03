@@ -9,6 +9,8 @@
 # related_resources:
 #   - https://docs.digitalocean.com/products/networking/load-balancers/
 # custom:
+#   aliases:
+#     - digitalocean-compute-enforce-https
 #   avd_id: AVD-DIG-0002
 #   provider: digitalocean
 #   service: compute

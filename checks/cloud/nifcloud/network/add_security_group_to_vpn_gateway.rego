@@ -11,6 +11,7 @@
 #   avd_id: AVD-NIF-0018
 #   aliases:
 #     - nifcloud-computing-add-security-group-to-vpn-gateway
+#     - nifcloud-network-add-security-group-to-vpn-gateway
 #   provider: nifcloud
 #   service: network
 #   severity: CRITICAL
