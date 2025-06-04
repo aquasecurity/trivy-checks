@@ -1,5 +1,5 @@
 
-Enable encryption using customer managed keys
+Use SSE-KMS with a customer managed key (CMK)
 
 ```yaml
 Resources:

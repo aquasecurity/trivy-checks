@@ -1,7 +1,8 @@
 # METADATA
 # title: S3 encryption should use Customer Managed Keys
 # description: |
-#   Encryption using AWS keys provides protection for your S3 buckets. To increase control of the encryption and manage factors like rotation use customer managed keys.
+#   Encryption using AWS keys provides protection for your S3 buckets. To gain greater control over encryption, such as key rotation, access policies, and auditability, use customer managed keys (CMKs) with SSE-KMS.
+#   Note that SSE-KMS is not supported for S3 server access logging destination buckets; in such cases, use SSE-S3 instead.
 # scope: package
 # schemas:
 #   - input: schema["cloud"]
@@ -14,7 +15,7 @@
 #   service: s3
 #   severity: HIGH
 #   short_code: encryption-customer-key
-#   recommended_action: Enable encryption using customer managed keys
+#   recommended_action: Use SSE-KMS with a customer managed key (CMK)
 #   input:
 #     selector:
 #       - type: cloud
