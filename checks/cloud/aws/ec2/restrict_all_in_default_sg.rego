@@ -12,7 +12,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/default-custom-security-groups.html
 # custom:
-#   id: AVD-AWS-0173
+#   aliases:
+#     - aws-ec2-restrict-all-in-default-sg
 #   avd_id: AVD-AWS-0173
 #   provider: aws
 #   service: ec2

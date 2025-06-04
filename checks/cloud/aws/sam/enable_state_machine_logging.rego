@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html#sam-statemachine-logging
 # custom:
-#   id: AVD-AWS-0119
+#   aliases:
+#     - aws-sam-enable-state-machine-logging
 #   avd_id: AVD-AWS-0119
 #   provider: aws
 #   service: sam

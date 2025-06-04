@@ -9,7 +9,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-data-protection.html
 # custom:
-#   id: AVD-AWS-0046
+#   aliases:
+#     - aws-elasticsearch-enforce-https
 #   avd_id: AVD-AWS-0046
 #   provider: aws
 #   service: elasticsearch

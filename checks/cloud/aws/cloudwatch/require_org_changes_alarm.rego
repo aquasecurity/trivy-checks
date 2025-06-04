@@ -12,7 +12,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html
 # custom:
-#   id: AVD-AWS-0174
+#   aliases:
+#     - aws-cloudwatch-require-org-changes-alarm
 #   avd_id: AVD-AWS-0174
 #   provider: aws
 #   service: cloudwatch

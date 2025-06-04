@@ -7,7 +7,6 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV023
 #   avd_id: AVD-KSV-0023
 #   severity: MEDIUM
 #   short_code: no-mounted-hostpath

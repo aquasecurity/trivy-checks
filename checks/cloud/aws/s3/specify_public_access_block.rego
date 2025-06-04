@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html
 # custom:
-#   id: AVD-AWS-0094
+#   aliases:
+#     - aws-s3-specify-public-access-block
 #   avd_id: AVD-AWS-0094
 #   provider: aws
 #   service: s3

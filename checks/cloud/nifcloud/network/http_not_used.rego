@@ -10,7 +10,8 @@
 # related_resources:
 #   - https://www.cloudflare.com/en-gb/learning/ssl/why-is-http-not-secure/
 # custom:
-#   id: AVD-NIF-0021
+#   aliases:
+#     - nifcloud-network-http-not-used
 #   avd_id: AVD-NIF-0021
 #   provider: nifcloud
 #   service: network

@@ -6,7 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-GCP-0032
+#   aliases:
+#     - google-compute-no-serial-port
 #   avd_id: AVD-GCP-0032
 #   provider: google
 #   service: compute

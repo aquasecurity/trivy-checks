@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/postgresql/concepts-server-logs#configure-logging
 # custom:
-#   id: AVD-AZU-0024
+#   aliases:
+#     - azure-database-postgres-configuration-log-checkpoints
 #   avd_id: AVD-AZU-0024
 #   provider: azure
 #   service: database

@@ -10,7 +10,8 @@
 # related_resources:
 #   - https://azure.microsoft.com/en-us/services/security-center/
 # custom:
-#   id: AVD-AZU-0044
+#   aliases:
+#     - azure-security-center-alert-on-severe-notifications
 #   avd_id: AVD-AZU-0044
 #   provider: azure
 #   service: security-center

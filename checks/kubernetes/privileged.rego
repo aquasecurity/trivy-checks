@@ -7,7 +7,6 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV017
 #   avd_id: AVD-KSV-0017
 #   severity: HIGH
 #   short_code: no-privileged-containers

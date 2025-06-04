@@ -7,7 +7,6 @@
 # related_resources:
 # - https://docs.docker.com/engine/reference/builder/#healthcheck
 # custom:
-#   id: DS023
 #   avd_id: AVD-DS-0023
 #   severity: MEDIUM
 #   short_code: only-one-healthcheck

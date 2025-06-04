@@ -10,7 +10,8 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/security-center/security-center-pricing
 # custom:
-#   id: AVD-AZU-0045
+#   aliases:
+#     - azure-security-center-enable-standard-subscription
 #   avd_id: AVD-AZU-0045
 #   provider: azure
 #   service: security-center

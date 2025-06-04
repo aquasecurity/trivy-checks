@@ -7,7 +7,6 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV022
 #   avd_id: AVD-KSV-0022
 #   severity: MEDIUM
 #   short_code: no-non-default-capabilities

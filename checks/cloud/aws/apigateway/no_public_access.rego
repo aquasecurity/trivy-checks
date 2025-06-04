@@ -6,7 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-AWS-0004
+#   aliases:
+#     - aws-apigateway-no-public-access
 #   avd_id: AVD-AWS-0004
 #   provider: aws
 #   service: apigateway

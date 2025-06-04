@@ -14,7 +14,8 @@
 # related_resources:
 #   - https://console.aws.amazon.com/iam/
 # custom:
-#   id: AVD-AWS-0168
+#   aliases:
+#     - aws-iam-remove-expired-certificates
 #   avd_id: AVD-AWS-0168
 #   provider: aws
 #   service: iam

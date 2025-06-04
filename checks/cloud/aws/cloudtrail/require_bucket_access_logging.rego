@@ -10,7 +10,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html
 # custom:
-#   id: AVD-AWS-0163
+#   aliases:
+#     - aws-cloudtrail-require-bucket-access-logging
 #   avd_id: AVD-AWS-0163
 #   provider: aws
 #   service: cloudtrail

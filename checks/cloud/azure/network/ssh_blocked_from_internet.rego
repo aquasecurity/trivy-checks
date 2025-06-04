@@ -7,7 +7,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-AZU-0050
+#   aliases:
+#     - azure-network-ssh-blocked-from-internet
 #   avd_id: AVD-AZU-0050
 #   provider: azure
 #   service: network

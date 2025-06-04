@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://jbrojbrojbro.medium.com/you-make-the-rules-with-authentication-controls-for-cloud-storage-53c32543747b
 # custom:
-#   id: AVD-GCP-0001
+#   aliases:
+#     - google-storage-no-public-access
 #   avd_id: AVD-GCP-0001
 #   provider: google
 #   service: storage

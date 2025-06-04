@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html
 # custom:
-#   id: AVD-AWS-0131
+#   aliases:
+#     - aws-ec2-enable-at-rest-encryption
 #   avd_id: AVD-AWS-0131
 #   provider: aws
 #   service: ec2

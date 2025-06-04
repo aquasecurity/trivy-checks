@@ -6,7 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-GCP-0044
+#   aliases:
+#     - google-compute-no-default-service-account
 #   avd_id: AVD-GCP-0044
 #   provider: google
 #   service: compute

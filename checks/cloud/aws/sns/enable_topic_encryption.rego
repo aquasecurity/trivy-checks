@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html
 # custom:
-#   id: AVD-AWS-0095
+#   aliases:
+#     - aws-sns-enable-topic-encryption
 #   avd_id: AVD-AWS-0095
 #   provider: aws
 #   service: sns

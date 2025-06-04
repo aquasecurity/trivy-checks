@@ -10,7 +10,8 @@
 # related_resources:
 #   - https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster#restrict_authn_methods
 # custom:
-#   id: AVD-GCP-0064
+#   aliases:
+#     - google-gke-no-legacy-authentication
 #   avd_id: AVD-GCP-0064
 #   provider: google
 #   service: gke

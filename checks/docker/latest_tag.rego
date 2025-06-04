@@ -5,7 +5,6 @@
 # schemas:
 # - input: schema["dockerfile"]
 # custom:
-#   id: DS001
 #   avd_id: AVD-DS-0001
 #   severity: MEDIUM
 #   short_code: use-specific-tags

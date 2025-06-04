@@ -6,7 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-AZU-0026
+#   aliases:
+#     - azure-database-secure-tls-policy
 #   avd_id: AVD-AZU-0026
 #   provider: azure
 #   service: database

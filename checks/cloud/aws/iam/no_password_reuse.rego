@@ -10,7 +10,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#password-policy-details
 # custom:
-#   id: AVD-AWS-0056
+#   aliases:
+#     - aws-iam-no-password-reuse
 #   avd_id: AVD-AWS-0056
 #   provider: aws
 #   service: iam

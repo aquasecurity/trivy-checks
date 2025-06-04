@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://cloud.google.com/blog/products/identity-security/virtual-trusted-platform-module-for-shielded-vms-security-in-plaintext
 # custom:
-#   id: AVD-GCP-0041
+#   aliases:
+#     - google-compute-enable-shielded-vm-vtpm
 #   avd_id: AVD-GCP-0041
 #   provider: google
 #   service: compute

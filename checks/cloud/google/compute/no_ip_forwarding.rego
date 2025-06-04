@@ -6,7 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-GCP-0043
+#   aliases:
+#     - google-compute-no-ip-forwarding
 #   avd_id: AVD-GCP-0043
 #   provider: google
 #   service: compute

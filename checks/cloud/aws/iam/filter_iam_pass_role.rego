@@ -7,7 +7,8 @@
 # related_resources:
 # - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html
 # custom:
-#   id: AVD-AWS-0342
+#   aliases:
+#     - aws-iam-filter-passrole-access
 #   avd_id: AVD-AWS-0342
 #   provider: aws
 #   service: iam

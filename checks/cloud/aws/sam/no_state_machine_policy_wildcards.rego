@@ -9,7 +9,8 @@
 # related_resources:
 #   - "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html#sam-statemachine-policies"
 # custom:
-#   id: AVD-AWS-0120
+#   aliases:
+#     - aws-sam-no-state-machine-policy-wildcards
 #   avd_id: AVD-AWS-0120
 #   provider: aws
 #   service: sam

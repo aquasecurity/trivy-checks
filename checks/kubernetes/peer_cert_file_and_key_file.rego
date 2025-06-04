@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0045
 #   avd_id: AVD-KCV-0045
 #   severity: LOW
 #   short_code: ensure-peer-cert-file-and-peer-key-file-arguments-are-set-as-appropriate

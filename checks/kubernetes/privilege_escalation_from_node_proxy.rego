@@ -7,7 +7,6 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV047
 #   avd_id: AVD-KSV-0047
 #   severity: HIGH
 #   short_code: no-privilege-escalation-from-node-proxy

@@ -6,7 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-GCP-0036
+#   aliases:
+#     - google-compute-no-oslogin-override
 #   avd_id: AVD-GCP-0036
 #   provider: google
 #   service: compute

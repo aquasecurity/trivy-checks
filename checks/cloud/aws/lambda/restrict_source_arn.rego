@@ -10,7 +10,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html
 # custom:
-#   id: AVD-AWS-0067
+#   aliases:
+#     - aws-lambda-restrict-source-arn
 #   avd_id: AVD-AWS-0067
 #   provider: aws
 #   service: lambda

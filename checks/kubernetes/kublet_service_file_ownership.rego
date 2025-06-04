@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0070
 #   avd_id: AVD-KCV-0070
 #   severity: CRITICAL
 #   short_code: ensure-kubelet-service-file-ownership-set-root:root.

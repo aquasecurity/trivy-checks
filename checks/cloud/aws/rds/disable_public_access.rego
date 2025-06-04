@@ -7,7 +7,8 @@
 # related_resources:
 # - http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html
 # custom:
-#   id: AVD-AWS-0180
+#   aliases:
+#     - aws-rds-enable-public-access
 #   avd_id: AVD-AWS-0180
 #   provider: aws
 #   service: rds

@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html
 # custom:
-#   id: AVD-AWS-0057
+#   aliases:
+#     - aws-iam-no-policy-wildcards
 #   avd_id: AVD-AWS-0057
 #   provider: aws
 #   service: iam

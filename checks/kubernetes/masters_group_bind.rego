@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.aquasec.com/blog/kubernetes-authorization/
 # custom:
-#   id: KSV0123
 #   avd_id: AVD-KSV-0123
 #   severity: CRITICAL
 #   short_code: no-system-masters-group-bind

@@ -6,7 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-AZU-0023
+#   aliases:
+#     - azure-database-threat-alert-email-to-owner
 #   avd_id: AVD-AZU-0023
 #   provider: azure
 #   service: database

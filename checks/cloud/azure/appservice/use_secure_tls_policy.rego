@@ -6,7 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-AZU-0006
+#   aliases:
+#     - azure-appservice-use-secure-tls-policy
 #   avd_id: AVD-AZU-0006
 #   provider: azure
 #   service: appservice

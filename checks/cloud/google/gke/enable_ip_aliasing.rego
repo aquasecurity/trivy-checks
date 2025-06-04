@@ -6,7 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-GCP-0049
+#   aliases:
+#     - google-gke-enable-ip-aliasing
 #   avd_id: AVD-GCP-0049
 #   provider: google
 #   service: gke

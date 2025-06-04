@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://aws.amazon.com/about-aws/whats-new/2020/03/amazon-eks-adds-envelope-encryption-for-secrets-with-aws-kms/
 # custom:
-#   id: AVD-AWS-0039
+#   aliases:
+#     - aws-eks-encrypt-secrets
 #   avd_id: AVD-AWS-0039
 #   provider: aws
 #   service: eks

@@ -6,7 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-GCP-0012
+#   aliases:
+#     - google-dns-no-rsa-sha1
 #   avd_id: AVD-GCP-0012
 #   provider: google
 #   service: dns

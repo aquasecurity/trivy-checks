@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://cloud.google.com/storage/docs/encryption/customer-managed-keys
 # custom:
-#   id: AVD-GCP-0066
+#   aliases:
+#     - google-storage-bucket-encryption-customer-key
 #   avd_id: AVD-GCP-0066
 #   provider: google
 #   service: storage

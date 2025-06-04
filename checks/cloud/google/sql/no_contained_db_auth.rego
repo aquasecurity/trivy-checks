@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-ver15
 # custom:
-#   id: AVD-GCP-0023
+#   aliases:
+#     - google-sql-no-contained-db-auth
 #   avd_id: AVD-GCP-0023
 #   provider: google
 #   service: sql

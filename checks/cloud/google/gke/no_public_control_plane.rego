@@ -6,7 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-GCP-0053
+#   aliases:
+#     - google-gke-no-public-control-plane
 #   avd_id: AVD-GCP-0053
 #   provider: google
 #   service: gke

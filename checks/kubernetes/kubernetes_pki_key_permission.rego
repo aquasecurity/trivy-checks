@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0067
 #   avd_id: AVD-KCV-0067
 #   severity: CRITICAL
 #   short_code: ensure-kubernetes-pki-key-file-permission-set-600.

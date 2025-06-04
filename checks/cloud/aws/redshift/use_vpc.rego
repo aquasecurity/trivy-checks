@@ -9,7 +9,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/redshift/latest/mgmt/managing-clusters-vpc.html
 # custom:
-#   id: AVD-AWS-0127
+#   aliases:
+#     - aws-redshift-use-vpc
 #   avd_id: AVD-AWS-0127
 #   provider: aws
 #   service: redshift

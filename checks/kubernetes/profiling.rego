@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0018
 #   avd_id: AVD-KCV-0018
 #   severity: LOW
 #   short_code: ensure-profiling-argument-is-set-to-false

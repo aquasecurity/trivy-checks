@@ -10,7 +10,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#password-policy-details
 # custom:
-#   id: AVD-AWS-0062
+#   aliases:
+#     - aws-iam-set-max-password-age
 #   avd_id: AVD-AWS-0062
 #   provider: aws
 #   service: iam

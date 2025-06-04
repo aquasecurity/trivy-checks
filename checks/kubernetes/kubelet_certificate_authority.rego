@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0006
 #   avd_id: AVD-KCV-0006
 #   severity: LOW
 #   short_code: ensure-kubelet-certificate-authority-argument-is-set

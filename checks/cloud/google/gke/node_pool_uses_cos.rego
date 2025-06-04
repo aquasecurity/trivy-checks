@@ -6,7 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-GCP-0054
+#   aliases:
+#     - google-gke-node-pool-uses-cos
 #   avd_id: AVD-GCP-0054
 #   provider: google
 #   service: gke

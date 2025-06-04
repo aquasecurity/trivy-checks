@@ -6,7 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-AZU-0030
+#   aliases:
+#     - azure-authorization-limit-role-actions
 #   avd_id: AVD-AZU-0030
 #   provider: azure
 #   service: authorization

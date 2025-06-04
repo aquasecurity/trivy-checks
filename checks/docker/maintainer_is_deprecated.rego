@@ -7,7 +7,6 @@
 # related_resources:
 # - https://docs.docker.com/engine/deprecated/#maintainer-in-dockerfile
 # custom:
-#   id: DS022
 #   avd_id: AVD-DS-0022
 #   severity: HIGH
 #   short_code: no-maintainer

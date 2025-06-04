@@ -10,7 +10,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#password-policy-details
 # custom:
-#   id: AVD-AWS-0061
+#   aliases:
+#     - aws-iam-require-uppercase-in-passwords
 #   avd_id: AVD-AWS-0061
 #   provider: aws
 #   service: iam

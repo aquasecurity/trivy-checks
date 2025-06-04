@@ -9,7 +9,8 @@
 # related_resources:
 #   - https://console.aws.amazon.com/iam/
 # custom:
-#   id: AVD-AWS-0169
+#   aliases:
+#     - aws-iam-require-support-role
 #   avd_id: AVD-AWS-0169
 #   provider: aws
 #   service: iam

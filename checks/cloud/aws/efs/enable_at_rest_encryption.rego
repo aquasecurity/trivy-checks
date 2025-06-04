@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/efs/latest/ug/encryption.html
 # custom:
-#   id: AVD-AWS-0037
+#   aliases:
+#     - aws-efs-enable-at-rest-encryption
 #   avd_id: AVD-AWS-0037
 #   provider: aws
 #   service: efs

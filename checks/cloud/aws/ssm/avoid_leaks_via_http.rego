@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://sprocketfox.io/xssfox/2022/02/09/terraformsupply/
 # custom:
-#   id: AVD-AWS-0134
+#   aliases:
+#     - aws-ssm-avoid-leaks-via-http
 #   avd_id: AVD-AWS-0134
 #   provider: aws
 #   service: ssm

@@ -7,7 +7,8 @@
 #   - input: schema["cloud"]
 # related_resources:
 # custom:
-#   id: AVD-GCP-0006
+#   aliases:
+#     - google-iam-no-project-level-default-service-account-assignment
 #   avd_id: AVD-GCP-0006
 #   provider: google
 #   service: iam

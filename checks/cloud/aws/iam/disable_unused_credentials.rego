@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://console.aws.amazon.com/iam/
 # custom:
-#   id: AVD-AWS-0144
+#   aliases:
+#     - aws-iam-disable-unused-credentials
 #   avd_id: AVD-AWS-0144
 #   provider: aws
 #   service: iam

@@ -7,7 +7,6 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV055
 #   avd_id: AVD-KSV-0055
 #   severity: LOW
 #   short_code: view-all-secrets

@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html
 # custom:
-#   id: AVD-DIG-0007
+#   aliases:
+#     - digitalocean-spaces-versioning-enabled
 #   avd_id: AVD-DIG-0007
 #   provider: digitalocean
 #   service: spaces

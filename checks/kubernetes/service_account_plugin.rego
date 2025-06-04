@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0014
 #   avd_id: AVD-KCV-0014
 #   severity: LOW
 #   short_code: ensure-admission-control-plugin-service-account-is-set

@@ -7,7 +7,6 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 # custom:
-#   id: KSV105
 #   avd_id: AVD-KSV-0105
 #   severity: LOW
 #   short_code: containers-not-run-as-root

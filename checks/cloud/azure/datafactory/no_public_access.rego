@@ -10,7 +10,8 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/data-factory/data-movement-security-considerations#hybrid-scenarios
 # custom:
-#   id: AVD-AZU-0035
+#   aliases:
+#     - azure-datafactory-no-public-access
 #   avd_id: AVD-AZU-0035
 #   provider: azure
 #   service: datafactory

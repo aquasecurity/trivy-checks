@@ -7,7 +7,6 @@
 # related_resources:
 # - https://kubesec.io/basics/containers-securitycontext-capabilities-add-index-sys-admin/
 # custom:
-#   id: KSV005
 #   avd_id: AVD-KSV-0005
 #   severity: HIGH
 #   short_code: no-sysadmin-capability

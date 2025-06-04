@@ -6,7 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-OPNSTK-0003
+#   aliases:
+#     - openstack-networking-no-public-ingress
 #   avd_id: AVD-OPNSTK-0003
 #   provider: openstack
 #   service: networking

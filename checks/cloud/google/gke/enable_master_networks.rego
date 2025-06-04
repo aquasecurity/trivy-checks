@@ -6,7 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-GCP-0061
+#   aliases:
+#     - google-gke-enable-master-networks
 #   avd_id: AVD-GCP-0061
 #   provider: google
 #   service: gke

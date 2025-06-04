@@ -6,7 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-GCP-0051
+#   aliases:
+#     - google-gke-use-cluster-labels
 #   avd_id: AVD-GCP-0051
 #   provider: google
 #   service: gke

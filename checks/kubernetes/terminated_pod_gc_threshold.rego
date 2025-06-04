@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0033
 #   avd_id: AVD-KCV-0033
 #   severity: LOW
 #   short_code: ensure-terminated-pod-gc-threshold-argument-is-set-as-appropriate

@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0086
 #   avd_id: AVD-KCV-0086
 #   severity: HIGH
 #   short_code: ensure-hostname-override-argument-not-set

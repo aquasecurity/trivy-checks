@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/msk/latest/developerguide/msk-encryption.html
 # custom:
-#   id: AVD-AWS-0179
+#   aliases:
+#     - aws-msk-enable-at-rest-encryption
 #   avd_id: AVD-AWS-0179
 #   provider: aws
 #   service: msk

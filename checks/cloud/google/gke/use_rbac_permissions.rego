@@ -10,7 +10,8 @@
 # related_resources:
 #   - https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster#leave_abac_disabled_default_for_110
 # custom:
-#   id: AVD-GCP-0062
+#   aliases:
+#     - google-gke-use-rbac-permissions
 #   avd_id: AVD-GCP-0062
 #   provider: google
 #   service: gke

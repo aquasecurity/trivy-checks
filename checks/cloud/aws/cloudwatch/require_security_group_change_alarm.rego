@@ -10,7 +10,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html
 # custom:
-#   id: AVD-AWS-0156
+#   aliases:
+#     - aws-cloudwatch-require-sg-change-alarms
 #   avd_id: AVD-AWS-0156
 #   provider: aws
 #   service: cloudwatch

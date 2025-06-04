@@ -14,7 +14,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/send-cloudtrail-events-to-cloudwatch-logs.html#send-cloudtrail-events-to-cloudwatch-logs-console
 # custom:
-#   id: AVD-AWS-0162
+#   aliases:
+#     - aws-cloudtrail-ensure-cloudwatch-integration
 #   avd_id: AVD-AWS-0162
 #   provider: aws
 #   service: cloudtrail

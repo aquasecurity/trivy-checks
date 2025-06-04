@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html
 # custom:
-#   id: AVD-AWS-0045
+#   aliases:
+#     - aws-elasticache-enable-at-rest-encryption
 #   avd_id: AVD-AWS-0045
 #   provider: aws
 #   service: elasticache

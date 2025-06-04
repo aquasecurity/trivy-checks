@@ -9,7 +9,8 @@
 #   - https://docs.aws.amazon.com/systems-manager/latest/userguide/integration-ps-secretsmanager.html
 #   - https://www.vaultproject.io/
 # custom:
-#   id: AVD-AWS-0036
+#   aliases:
+#     - aws-ecs-no-plaintext-secrets
 #   avd_id: AVD-AWS-0036
 #   provider: aws
 #   service: ecs

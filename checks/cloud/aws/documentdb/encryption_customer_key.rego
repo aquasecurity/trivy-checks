@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.public-key.html
 # custom:
-#   id: AVD-AWS-0022
+#   aliases:
+#     - aws-documentdb-encryption-customer-key
 #   avd_id: AVD-AWS-0022
 #   provider: aws
 #   service: documentdb

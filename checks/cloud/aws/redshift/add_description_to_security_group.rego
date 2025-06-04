@@ -9,7 +9,8 @@
 # related_resources:
 #   - https://www.cloudconformity.com/knowledge-base/aws/EC2/security-group-rules-description.html
 # custom:
-#   id: AVD-AWS-0083
+#   aliases:
+#     - aws-redshift-add-description-to-security-group
 #   avd_id: AVD-AWS-0083
 #   provider: aws
 #   service: redshift

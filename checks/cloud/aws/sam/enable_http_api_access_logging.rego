@@ -8,7 +8,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-httpapi.html#sam-httpapi-accesslogsettings
 # custom:
-#   id: AVD-AWS-0116
+#   aliases:
+#     - aws-sam-enable-http-api-access-logging
 #   avd_id: AVD-AWS-0116
 #   provider: aws
 #   service: sam

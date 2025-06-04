@@ -7,7 +7,6 @@
 # related_resources:
 # - https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 # custom:
-#   id: KSV120
 #   avd_id: AVD-KSV-0120
 #   severity: HIGH
 #   short_code: no-sysmodule-capability

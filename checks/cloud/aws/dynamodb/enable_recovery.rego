@@ -9,7 +9,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PointInTimeRecovery.html
 # custom:
-#   id: AVD-AWS-0024
+#   aliases:
+#     - aws-dynamodb-enable-recovery
 #   avd_id: AVD-AWS-0024
 #   provider: aws
 #   service: dynamodb

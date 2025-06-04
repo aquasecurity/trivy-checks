@@ -9,7 +9,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html
 # custom:
-#   id: AVD-AWS-0154
+#   aliases:
+#     - aws-cloudwatch-require-s3-bucket-policy-change-alarm
 #   avd_id: AVD-AWS-0154
 #   provider: aws
 #   service: cloudwatch

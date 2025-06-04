@@ -6,7 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-AWS-0047
+#   aliases:
+#     - aws-elb-use-secure-tls-policy
 #   avd_id: AVD-AWS-0047
 #   provider: aws
 #   service: elb

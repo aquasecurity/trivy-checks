@@ -13,7 +13,8 @@
 #   - https://cloud.google.com/iam/docs/overview#permissions
 #   - https://cloud.google.com/resource-manager/reference/rest/v1/projects/setIamPolicy
 # custom:
-#   id: AVD-GCP-0003
+#   aliases:
+#     - google-iam-no-user-granted-permissions
 #   avd_id: AVD-GCP-0003
 #   provider: google
 #   service: iam

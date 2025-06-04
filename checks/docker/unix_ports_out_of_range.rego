@@ -7,7 +7,6 @@
 # related_resources:
 # - https://docs.docker.com/engine/reference/builder/#expose
 # custom:
-#   id: DS008
 #   avd_id: AVD-DS-0008
 #   severity: CRITICAL
 #   short_code: port-out-of-range

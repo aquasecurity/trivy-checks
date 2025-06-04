@@ -5,7 +5,8 @@
 # schemas:
 # - input: schema["cloud"]
 # custom:
-#   id: AVD-KUBE-0002
+#   aliases:
+#     - kubernetes-networkpolicies-no-public-egress
 #   avd_id: AVD-KUBE-0002
 #   provider: kubernetes
 #   service: network

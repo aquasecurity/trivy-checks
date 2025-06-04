@@ -9,7 +9,8 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html
 # custom:
-#   id: AVD-AWS-0080
+#   aliases:
+#     - aws-rds-encrypt-instance-storage-data
 #   avd_id: AVD-AWS-0080
 #   provider: aws
 #   service: rds

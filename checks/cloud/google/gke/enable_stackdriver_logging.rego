@@ -6,7 +6,8 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-GCP-0060
+#   aliases:
+#     - google-gke-enable-stackdriver-logging
 #   avd_id: AVD-GCP-0060
 #   provider: google
 #   service: gke

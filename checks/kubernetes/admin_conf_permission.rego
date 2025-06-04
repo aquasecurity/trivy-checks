@@ -7,7 +7,6 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0060
 #   avd_id: AVD-KCV-0060
 #   severity: CRITICAL
 #   short_code: ensure-admin-config-file-permissions-set-600-or-more-restrictive

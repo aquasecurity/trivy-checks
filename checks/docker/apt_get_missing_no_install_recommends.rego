@@ -7,7 +7,6 @@
 # schemas:
 # - input: schema["dockerfile"]
 # custom:
-#   id: DS029
 #   avd_id: AVD-DS-0029
 #   severity: HIGH
 #   short_code: use-apt-no-install-recommends

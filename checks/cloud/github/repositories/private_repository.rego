@@ -11,7 +11,8 @@
 #   - https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/about-repository-visibility
 #   - https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories
 # custom:
-#   id: AVD-GIT-0001
+#   aliases:
+#     - github-repositories-private
 #   avd_id: AVD-GIT-0001
 #   provider: github
 #   service: repositories
