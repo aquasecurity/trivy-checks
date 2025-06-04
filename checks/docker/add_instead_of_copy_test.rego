@@ -1,101 +1,60 @@
-package builtin.dockerfile.DS005
+package builtin.dockerfile.DS005_test
 
 import rego.v1
 
-test_mixed_commands_denied if {
-	r := deny with input as {"Stages": [{
-		"Name": "alpine:3.13",
-		"Commands": [
-			{"Cmd": "add", "Value": ["/target/resources.tar.gz", "resources.jar"]},
-			{"Cmd": "add", "Value": ["/target/app.jar", "app.jar"]},
-		],
-	}]}
+import data.builtin.dockerfile.DS005 as check
 
-	count(r) == 1
-	r[_].msg == "Consider using 'COPY /target/app.jar app.jar' command instead of 'ADD /target/app.jar app.jar'"
-}
+test_add_command[name] if {
+	some name, tc in {
+		"mixed ADD commands and only one invalid": {
+			"cmds": [
+				{"Cmd": "add", "Value": ["/target/resources.tar.gz", "resources.jar"]},
+				{"Cmd": "add", "Value": ["/target/app.jar", "app.jar"]},
+			],
+			"expected": 1,
+		},
+		"single invalid ADD command": {
+			"cmds": [{"Cmd": "add", "Value": ["/target/app.jar", "app.jar"]}],
+			"expected": 1,
+		},
+		"RUN command allowed": {
+			"cmds": [{"Cmd": "run", "Value": ["tar -xjf /temp/package.file.tar.gz"]}],
+			"expected": 0,
+		},
+		"COPY command allowed": {
+			"cmds": [{"Cmd": "copy", "Value": ["test.txt", "test2.txt"]}],
+			"expected": 0,
+		},
+		"ADD with file:... in ... allowed": {
+			"cmds": [{"Cmd": "add", "Value": ["file:8b8864b3e02a33a579dc216fd51b28a6047bc8eeaa03045b258980fe0cf7fcb3", "in", "/xyz"]}],
+			"expected": 0,
+		},
+		"ADD with file:... without 'in' allowed": {
+			"cmds": [{"Cmd": "add", "Value": ["file:8b8864b3e02a33a579dc216fd51b28a6047bc8eeaa03045b258980fe0cf7fcb3", "/xyz"]}],
+			"expected": 0,
+		},
+		"ADD with multi:... in ... allowed": {
+			"cmds": [{"Cmd": "add", "Value": ["multi:8b8864b3e02a33a579dc216fd51b28a6047bc8eeaa03045b258980fe0cf7fcb3", "in", "/xyz"]}],
+			"expected": 0,
+		},
+		"ADD with .tar.gz allowed": {
+			"cmds": [{"Cmd": "add", "Value": ["/target/resources.tar.gz", "resources.tar.gz"]}],
+			"expected": 0,
+		},
+		"ADD with http URL allowed": {
+			"cmds": [{"Cmd": "add", "Value": ["http://example.com/foo.txt", "bar.txt"]}],
+			"expected": 0,
+		},
+		"ADD with https URL allowed": {
+			"cmds": [{"Cmd": "add", "Value": ["https://example.com/foo.txt", "bar.txt"]}],
+			"expected": 0,
+		},
+		"ADD with git@ URL allowed": {
+			"cmds": [{"Cmd": "add", "Value": ["git@github.com:user/repo.git", "/usr/src/things/"]}],
+			"expected": 0,
+		},
+	}
 
-test_add_command_denied if {
-	r := deny with input as {"Stages": [{
-		"Name": "alpine:3.13",
-		"Commands": [{
-			"Cmd": "add",
-			"Value": ["/target/app.jar", "app.jar"],
-		}],
-	}]}
-
-	count(r) == 1
-	r[_].msg == "Consider using 'COPY /target/app.jar app.jar' command instead of 'ADD /target/app.jar app.jar'"
-}
-
-test_run_allowed if {
-	r := deny with input as {"Stages": [{
-		"Name": "alpine:3.13",
-		"Commands": [{"Cmd": "run", "Value": ["tar -xjf /temp/package.file.tar.gz"]}],
-	}]}
-
-	count(r) == 0
-}
-
-test_copy_allowed if {
-	r := deny with input as {"Stages": [{
-		"Name": "alpine:3.13",
-		"Commands": [{"Cmd": "copy", "Value": ["test.txt", "test2.txt"]}],
-	}]}
-
-	count(r) == 0
-}
-
-test_add_file_colon_in_allowed if {
-	r := deny with input as {"Stages": [{
-		"Name": "alpine:3.13",
-		"Commands": [{"Cmd": "add", "Value": ["file:8b8864b3e02a33a579dc216fd51b28a6047bc8eeaa03045b258980fe0cf7fcb3", "in", "/xyz"]}],
-	}]}
-
-	count(r) == 0
-}
-
-test_add_multi_colon_in_allowed if {
-	r := deny with input as {"Stages": [{
-		"Name": "alpine:3.13",
-		"Commands": [{"Cmd": "add", "Value": ["multi:8b8864b3e02a33a579dc216fd51b28a6047bc8eeaa03045b258980fe0cf7fcb3", "in", "/xyz"]}],
-	}]}
-
-	count(r) == 0
-}
-
-test_add_tar_allowed if {
-	r := deny with input as {"Stages": [{
-		"Name": "alpine:3.13",
-		"Commands": [{"Cmd": "add", "Value": ["/target/resources.tar.gz", "resources.tar.gz"]}],
-	}]}
-
-	count(r) == 0
-}
-
-test_add_http_url_allowed if {
-	r := deny with input as {"Stages": [{
-		"Name": "alpine:3.13",
-		"Commands": [{"Cmd": "add", "Value": ["http://example.com/foo.txt", "bar.txt"]}],
-	}]}
-
-	count(r) == 0
-}
-
-test_add_https_url_allowed if {
-	r := deny with input as {"Stages": [{
-		"Name": "alpine:3.13",
-		"Commands": [{"Cmd": "add", "Value": ["https://example.com/foo.txt", "bar.txt"]}],
-	}]}
-
-	count(r) == 0
-}
-
-test_add_git_url_allowed if {
-	r := deny with input as {"Stages": [{
-		"Name": "alpine:3.13",
-		"Commands": [{"Cmd": "add", "Value": ["git@github.com:user/repo.git", "/usr/src/things/"]}],
-	}]}
-
-	count(r) == 0
+	r := check.deny with input as {"Stages": [{"Name": "alpine:3.13", "Commands": tc.cmds}]}
+	count(r) == tc.expected
 }

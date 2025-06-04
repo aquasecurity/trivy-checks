@@ -22,21 +22,14 @@ import rego.v1
 
 import data.lib.docker
 
-get_add contains output if {
-	add := docker.add[_]
+is_unnecessary_add(add) if {
 	args := concat(" ", add.Value)
+	every s in {".tar", "http://", "https://", "git@"} {
+		not contains(args, s)
+	}
 
-	not contains(args, ".tar")
-	not contains(args, "http://")
-	not contains(args, "https://")
-	not contains(args, "git@")
-
-	not is_command_with_hash(add.Value, "file:")
-	not is_command_with_hash(add.Value, "multi:")
-
-	output := {
-		"args": args,
-		"cmd": add,
+	every prefix in {"file:", "multi:", "dir:"} {
+		not is_command_with_hash(add.Value, prefix)
 	}
 }
 
@@ -46,8 +39,15 @@ is_command_with_hash(cmd, prefix) if {
 	cmd[1] == "in"
 }
 
+is_command_with_hash(cmd, prefix) if {
+	count(cmd) == 2
+	startswith(cmd[0], prefix)
+}
+
 deny contains res if {
-	output := get_add[_]
-	msg := sprintf("Consider using 'COPY %s' command instead of 'ADD %s'", [output.args, output.args])
-	res := result.new(msg, output.cmd)
+	some add in docker.add
+	is_unnecessary_add(add)
+	args := concat(" ", add.Value)
+	msg := sprintf("Consider using 'COPY %s' command instead of 'ADD %s'", [args, args])
+	res := result.new(msg, add)
 }
