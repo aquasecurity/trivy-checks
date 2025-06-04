@@ -35,7 +35,7 @@ deny contains res if {
 
 	# Log buckets don't support non AES256 encryption - this rule doesn't apply here
 	# https://aws.amazon.com/premiumsupport/knowledge-center/s3-server-access-log-not-delivered/
-	non_log_bucket(bucket)
+	not log_bucket(bucket)
 
 	without_cmk(bucket)
 
@@ -45,12 +45,27 @@ deny contains res if {
 	)
 }
 
-non_log_bucket(bucket) if {
-	not value.is_unresolvable(bucket.acl)
-	lower(bucket.acl.value) != "log-delivery-write"
+# The LogDelivery group gets WRITE and READ_ACP permissions on the bucket
+log_bucket(bucket) if lower(bucket.acl.value) == "log-delivery-write"
+
+# https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-acl
+log_bucket(bucket) if {
+	some grant in bucket.grants
+	grant.grantee.uri.value == "http://acs.amazonaws.com/groups/s3/LogDelivery"
+	some permission in grant.permissions
+	permission.value in {"WRITE", "FULL_CONTROL"}
 }
 
-non_log_bucket(bucket) if not bucket.acl
+# https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-bucket-policy
+log_bucket(bucket) if {
+	some policy in bucket.bucketpolicies
+	doc := json.unmarshal(policy.document.value)
+	some statement in doc.Statement
+	lower(statement.Effect) == "allow"
+	"logging.s3.amazonaws.com" in statement.Principal.Service
+	some action in statement.Action
+	lower(action) == "s3:putobject"
+}
 
 without_cmk(bucket) if value.is_empty(bucket.encryption.kmskeyid)
 
