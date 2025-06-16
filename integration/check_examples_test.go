@@ -152,9 +152,11 @@ var excludedChecks = map[string][]string{
 		// After version 0.57.1, the bug with the field type was fixed and the example was updated. See: https://github.com/aquasecurity/trivy/pull/7995
 		"AVD-AWS-0036",
 		"AVD-AWS-0344",
+		"AVD-GCP-0050",
 	},
 	"0.58.1": {
 		"AVD-AWS-0344",
+		"AVD-GCP-0050",
 	},
 	"latest": {
 		"AVD-AWS-0344",
