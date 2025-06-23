@@ -5,8 +5,7 @@
 # schemas:
 # - input: schema["kubernetes"]
 # custom:
-#   id: KSV102
-#   avd_id: AVD-KSV-0102
+#   id: AVD-KSV-0102
 #   severity: CRITICAL
 #   short_code: no-tiller
 #   recommended_action: "Migrate to Helm v3 which no longer has Tiller component"

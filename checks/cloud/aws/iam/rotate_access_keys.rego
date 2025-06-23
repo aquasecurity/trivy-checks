@@ -8,8 +8,9 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/automatically-rotate-iam-user-access-keys-at-scale-with-aws-organizations-and-aws-secrets-manager.html
 # custom:
+#   aliases:
+#     - aws-iam-rotate-access-keys
 #   id: AVD-AWS-0146
-#   avd_id: AVD-AWS-0146
 #   provider: aws
 #   service: iam
 #   severity: LOW

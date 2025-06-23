@@ -7,8 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0091
-#   avd_id: AVD-KCV-0091
+#   id: AVD-KCV-0091
 #   severity: HIGH
 #   short_code: ensure-rotate-kubelet-server-certificate-argument-set-true
 #   recommended_action: "Edit the kubelet service file /etc/kubernetes/kubelet.conf and set --feature-gates=RotateKubeletServerCertificate=true"

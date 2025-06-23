@@ -8,8 +8,9 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/ntn.html
 # custom:
+#   aliases:
+#     - aws-elasticsearch-enable-in-transit-encryption
 #   id: AVD-AWS-0043
-#   avd_id: AVD-AWS-0043
 #   provider: aws
 #   service: elasticsearch
 #   severity: HIGH

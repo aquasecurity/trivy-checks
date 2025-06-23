@@ -6,7 +6,6 @@
 # - input: schema["kubernetes"]
 # custom:
 #   id: AVD-KSV-01010
-#   avd_id: AVD-KSV-01010
 #   severity: MEDIUM
 #   short_code: configMap_with_sensitive
 #   recommended_action: "Remove sensitive content from configMap data value"

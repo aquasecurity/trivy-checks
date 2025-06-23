@@ -8,8 +8,9 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html
 # custom:
+#   aliases:
+#     - aws-apigateway-use-secure-tls-policy
 #   id: AVD-AWS-0005
-#   avd_id: AVD-AWS-0005
 #   provider: aws
 #   service: apigateway
 #   severity: HIGH

@@ -8,8 +8,9 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html
 # custom:
+#   aliases:
+#     - aws-redshift-encryption-customer-key
 #   id: AVD-AWS-0084
-#   avd_id: AVD-AWS-0084
 #   provider: aws
 #   service: redshift
 #   severity: HIGH

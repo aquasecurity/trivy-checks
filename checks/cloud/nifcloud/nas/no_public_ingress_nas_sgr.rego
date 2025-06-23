@@ -9,7 +9,6 @@
 #   - https://pfs.nifcloud.com/api/nas/AuthorizeNASSecurityGroupIngress.htm
 # custom:
 #   id: AVD-NIF-0014
-#   avd_id: AVD-NIF-0014
 #   aliases:
 #     - nifcloud-nas-no-public-ingress-nas-sgr
 #   provider: nifcloud

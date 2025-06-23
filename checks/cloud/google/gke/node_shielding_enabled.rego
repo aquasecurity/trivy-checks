@@ -10,8 +10,9 @@
 # related_resources:
 #   - https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster#shielded_nodes
 # custom:
+#   aliases:
+#     - google-gke-node-shielding-enabled
 #   id: AVD-GCP-0055
-#   avd_id: AVD-GCP-0055
 #   provider: google
 #   service: gke
 #   severity: HIGH

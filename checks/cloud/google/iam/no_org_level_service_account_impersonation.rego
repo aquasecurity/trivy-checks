@@ -8,8 +8,9 @@
 # related_resources:
 #   - https://cloud.google.com/iam/docs/impersonating-service-accounts
 # custom:
+#   aliases:
+#     - google-iam-no-org-level-service-account-impersonation
 #   id: AVD-GCP-0009
-#   avd_id: AVD-GCP-0009
 #   provider: google
 #   service: iam
 #   severity: MEDIUM

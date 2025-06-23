@@ -6,8 +6,7 @@
 # related_resources:
 # - https://docs.docker.com/build/building/secrets/
 # custom:
-#   id: DS031
-#   avd_id: AVD-DS-0031
+#   id: AVD-DS-0031
 #   severity: CRITICAL
 #   short_code: do-not-pass-secrets
 #   recommended_action: Use secret mount if secrets are needed during image build. Use volume mount if secret files are needed during container runtime.

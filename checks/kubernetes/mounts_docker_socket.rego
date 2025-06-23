@@ -7,8 +7,7 @@
 # related_resources:
 # - https://kubesec.io/basics/spec-volumes-hostpath-path-var-run-docker-sock/
 # custom:
-#   id: KSV006
-#   avd_id: AVD-KSV-0006
+#   id: AVD-KSV-0006
 #   severity: HIGH
 #   short_code: no-docker-sock-mount
 #   recommended_action: "Do not specify /var/run/docker.socket in 'spec.template.volumes.hostPath.path'."

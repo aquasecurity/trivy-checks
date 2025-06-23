@@ -8,8 +8,9 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html#sam-statemachine-tracing
 # custom:
+#   aliases:
+#     - aws-sam-enable-state-machine-tracing
 #   id: AVD-AWS-0117
-#   avd_id: AVD-AWS-0117
 #   provider: aws
 #   service: sam
 #   severity: LOW

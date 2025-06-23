@@ -7,8 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 # custom:
-#   id: KSV001
-#   avd_id: AVD-KSV-0001
+#   id: AVD-KSV-0001
 #   severity: MEDIUM
 #   short_code: no-self-privesc
 #   recommended_action: "Set 'set containers[].securityContext.allowPrivilegeEscalation' to 'false'."

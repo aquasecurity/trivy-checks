@@ -7,8 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 # custom:
-#   id: KSV028
-#   avd_id: AVD-KSV-0028
+#   id: AVD-KSV-0028
 #   severity: LOW
 #   short_code: no-non-ephemeral-volumes
 #   recommended_action: "Do not Set 'spec.volumes[*]' to any of the disallowed volume types."

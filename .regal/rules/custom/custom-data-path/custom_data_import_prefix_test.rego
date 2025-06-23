@@ -7,7 +7,7 @@ import data.custom.regal.rules.custom["custom-data-import-prefix"] as rule
 test_import_path_id_mismatch if {
 	module := regal.parse_module("example.rego", `# METADATA
 # custom:
-#   avd_id: AVD-TEST-001
+#   id: AVD-TEST-001
 package policy
 
 import data.wrongprefix.foo
@@ -33,7 +33,7 @@ foo := true`)
 test_import_path_id_match if {
 	module := regal.parse_module("example.rego", `# METADATA
 # custom:
-#   avd_id: AVD-TEST-001
+#   id: AVD-TEST-001
 package policy
 
 import data.test001.foo

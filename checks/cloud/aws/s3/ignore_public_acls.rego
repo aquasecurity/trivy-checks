@@ -8,8 +8,9 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html
 # custom:
+#   aliases:
+#     - aws-s3-ignore-public-acls
 #   id: AVD-AWS-0091
-#   avd_id: AVD-AWS-0091
 #   provider: aws
 #   service: s3
 #   severity: HIGH

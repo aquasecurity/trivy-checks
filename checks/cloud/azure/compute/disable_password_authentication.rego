@@ -6,8 +6,9 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   aliases:
+#     - azure-compute-disable-password-authentication
 #   id: AVD-AZU-0039
-#   avd_id: AVD-AZU-0039
 #   provider: azure
 #   service: compute
 #   severity: HIGH

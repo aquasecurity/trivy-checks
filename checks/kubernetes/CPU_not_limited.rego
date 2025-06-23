@@ -7,8 +7,7 @@
 # related_resources:
 # - https://cloud.google.com/blog/products/containers-kubernetes/kubernetes-best-practices-resource-requests-and-limits
 # custom:
-#   id: KSV011
-#   avd_id: AVD-KSV-0011
+#   id: AVD-KSV-0011
 #   severity: LOW
 #   short_code: limit-cpu
 #   recommended_action: "Set a limit value under 'containers[].resources.limits.cpu'."

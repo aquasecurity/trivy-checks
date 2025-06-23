@@ -7,8 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0028
-#   avd_id: AVD-KCV-0028
+#   id: AVD-KCV-0028
 #   severity: LOW
 #   short_code: ensure-client-ca-file-argument-is-set-as-appropriate
 #   recommended_action: "Follow the Kubernetes documentation and set up the TLS connection on the apiserver. Then, edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the master node and set the client certificate authority file."

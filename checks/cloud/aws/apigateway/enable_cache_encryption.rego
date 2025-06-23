@@ -6,8 +6,9 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   aliases:
+#     - aws-apigateway-enable-cache-encryption
 #   id: AVD-AWS-0002
-#   avd_id: AVD-AWS-0002
 #   provider: aws
 #   service: apigateway
 #   severity: MEDIUM

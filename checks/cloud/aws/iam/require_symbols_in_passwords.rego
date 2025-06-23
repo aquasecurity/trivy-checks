@@ -8,8 +8,9 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#password-policy-details
 # custom:
+#   aliases:
+#     - aws-iam-require-symbols-in-passwords
 #   id: AVD-AWS-0060
-#   avd_id: AVD-AWS-0060
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM

@@ -7,8 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV056
-#   avd_id: AVD-KSV-0056
+#   id: AVD-KSV-0056
 #   severity: HIGH
 #   short_code: no-manage-networking-resources
 #   recommended_action: "Networking resources are only allowed for verbs 'list', 'watch', 'get'"

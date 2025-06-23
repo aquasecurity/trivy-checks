@@ -5,8 +5,7 @@
 # schemas:
 # - input: schema["kubernetes"]
 # custom:
-#   id: KSV007
-#   avd_id: AVD-KSV-0007
+#   id: AVD-KSV-0007
 #   severity: LOW
 #   short_code: no-hostaliases
 #   recommended_action: "Do not set 'spec.template.spec.hostAliases'."

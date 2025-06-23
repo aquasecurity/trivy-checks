@@ -7,8 +7,7 @@
 # related_resources:
 # - https://kubesec.io/basics/containers-securitycontext-runasuser/
 # custom:
-#   id: KSV020
-#   avd_id: AVD-KSV-0020
+#   id: AVD-KSV-0020
 #   severity: LOW
 #   short_code: use-high-uid
 #   recommended_action: "Set 'containers[].securityContext.runAsUser' to an integer > 10000."

@@ -7,8 +7,7 @@
 # related_resources:
 # - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 # custom:
-#   id: DS019
-#   avd_id: AVD-DS-0019
+#   id: AVD-DS-0019
 #   severity: HIGH
 #   short_code: purge-dnf-package-cache
 #   recommended_action: "Add 'dnf clean all' to Dockerfile"

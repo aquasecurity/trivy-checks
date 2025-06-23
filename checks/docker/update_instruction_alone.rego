@@ -7,8 +7,7 @@
 # related_resources:
 # - https://docs.docker.com/develop/develop-images/instructions/#run
 # custom:
-#   id: DS017
-#   avd_id: AVD-DS-0017
+#   id: AVD-DS-0017
 #   severity: HIGH
 #   short_code: no-orphan-package-update
 #   recommended_action: "Combine '<package-manager> update' and '<package-manager> install' instructions to single one"

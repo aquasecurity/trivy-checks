@@ -8,8 +8,9 @@
 # related_resources:
 #   - https://cloud.google.com/vpc/docs/using-firewalls
 # custom:
+#   aliases:
+#     - google-compute-no-public-ingress
 #   id: AVD-GCP-0027
-#   avd_id: AVD-GCP-0027
 #   provider: google
 #   service: compute
 #   severity: CRITICAL

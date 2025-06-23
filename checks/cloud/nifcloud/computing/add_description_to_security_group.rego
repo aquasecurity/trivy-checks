@@ -11,7 +11,6 @@
 #   - https://pfs.nifcloud.com/help/fw/change.htm
 # custom:
 #   id: AVD-NIF-0002
-#   avd_id: AVD-NIF-0002
 #   aliases:
 #     - nifcloud-computing-add-description-to-security-group
 #   provider: nifcloud

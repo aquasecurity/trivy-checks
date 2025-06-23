@@ -10,8 +10,9 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer
 # custom:
+#   aliases:
+#     - azure-storage-enforce-https
 #   id: AVD-AZU-0008
-#   avd_id: AVD-AZU-0008
 #   provider: azure
 #   service: storage
 #   severity: HIGH

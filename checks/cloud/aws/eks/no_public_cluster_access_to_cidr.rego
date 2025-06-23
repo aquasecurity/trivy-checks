@@ -8,8 +8,9 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/eks/latest/userguide/create-public-private-vpc.html
 # custom:
+#   aliases:
+#     - aws-eks-no-public-cluster-access-to-cidr
 #   id: AVD-AWS-0041
-#   avd_id: AVD-AWS-0041
 #   provider: aws
 #   service: eks
 #   severity: CRITICAL

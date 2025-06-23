@@ -6,8 +6,9 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   aliases:
+#     - cloudstack-compute-no-sensitive-info
 #   id: AVD-CLDSTK-0001
-#   avd_id: AVD-CLDSTK-0001
 #   provider: cloudstack
 #   service: compute
 #   severity: HIGH

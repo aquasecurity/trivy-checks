@@ -6,8 +6,9 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   aliases:
+#     - azure-database-no-public-access
 #   id: AVD-AZU-0022
-#   avd_id: AVD-AZU-0022
 #   provider: azure
 #   service: database
 #   severity: MEDIUM

@@ -9,8 +9,9 @@
 # related_resources:
 #   - https://aws.amazon.com/iam/features/mfa/
 # custom:
+#   aliases:
+#     - aws-cloudwatch-require-root-user-usage-alarm
 #   id: AVD-AWS-0149
-#   avd_id: AVD-AWS-0149
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW

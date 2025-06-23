@@ -7,8 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/tasks/administer-cluster/declare-network-policy/
 # custom:
-#   id: KSV038
-#   avd_id: AVD-KSV-0038
+#   id: AVD-KSV-0038
 #   severity: MEDIUM
 #   short_code: selector-usage-in-network-policies
 #   recommended_action: "create network policies and ensure that pods are selected using the podSelector and/or the namespaceSelector options"

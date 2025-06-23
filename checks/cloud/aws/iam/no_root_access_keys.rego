@@ -8,8 +8,9 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html
 # custom:
+#   aliases:
+#     - aws-iam-no-root-access-keys
 #   id: AVD-AWS-0141
-#   avd_id: AVD-AWS-0141
 #   provider: aws
 #   service: iam
 #   severity: CRITICAL

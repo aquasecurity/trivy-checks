@@ -7,8 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV104
-#   avd_id: AVD-KSV-0104
+#   id: AVD-KSV-0104
 #   severity: MEDIUM
 #   short_code: no-seccomp-unconfined
 #   recommended_action: "Specify seccomp either by annotation or by seccomp profile type having allowed values as per pod security standards"

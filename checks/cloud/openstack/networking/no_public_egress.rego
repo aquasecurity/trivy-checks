@@ -6,8 +6,9 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   aliases:
+#     - openstack-networking-no-public-egress
 #   id: AVD-OPNSTK-0004
-#   avd_id: AVD-OPNSTK-0004
 #   provider: openstack
 #   service: networking
 #   severity: MEDIUM

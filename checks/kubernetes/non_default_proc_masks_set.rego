@@ -7,8 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV027
-#   avd_id: AVD-KSV-0027
+#   id: AVD-KSV-0027
 #   severity: MEDIUM
 #   short_code: no-custom-proc-mask
 #   recommended_action: "Do not set spec.containers[*].securityContext.procMount and spec.initContainers[*].securityContext.procMount."

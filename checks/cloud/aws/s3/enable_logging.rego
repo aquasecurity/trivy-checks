@@ -9,13 +9,13 @@
 # - https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html
 # custom:
 #   id: AVD-AWS-0089
-#   avd_id: AVD-AWS-0089
 #   provider: aws
 #   service: s3
 #   severity: LOW
 #   short_code: enable-logging
 #   aliases:
 #   - s3-bucket-logging
+#   - aws-s3-enable-logging
 #   recommended_action: Add a logging block to the resource to enable access logging
 #   input:
 #     selector:

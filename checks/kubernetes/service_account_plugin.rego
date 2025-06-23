@@ -7,8 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0014
-#   avd_id: AVD-KCV-0014
+#   id: AVD-KCV-0014
 #   severity: LOW
 #   short_code: ensure-admission-control-plugin-service-account-is-set
 #   recommended_action: "Follow the documentation and create ServiceAccount objects as per your environment. Then, edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the master node and ensure that the --disable-admission-plugins parameter is set to a value that does not include ServiceAccount."

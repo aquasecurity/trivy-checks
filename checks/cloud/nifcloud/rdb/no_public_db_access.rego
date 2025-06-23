@@ -8,8 +8,9 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/guide/rdb/server_new.htm
 # custom:
+#   aliases:
+#     - nifcloud-rdb-no-public-db-access
 #   id: AVD-NIF-0008
-#   avd_id: AVD-NIF-0008
 #   provider: nifcloud
 #   service: rdb
 #   severity: CRITICAL

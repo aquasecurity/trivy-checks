@@ -7,8 +7,9 @@
 # schemas:
 # - input: schema["cloud"]
 # custom:
+#   aliases:
+#     - aws-iam-unauthorized-bucket-access
 #   id: AVD-AWS-0346
-#   avd_id: AVD-AWS-0346
 #   provider: aws
 #   service: iam
 #   severity: HIGH

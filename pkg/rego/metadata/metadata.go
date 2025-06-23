@@ -10,7 +10,7 @@ import (
 type Metadata map[string]any
 
 func (m Metadata) AVDID() string {
-	return m["avd_id"].(string)
+	return m["id"].(string)
 }
 
 func (m Metadata) IsDeprecated() bool {

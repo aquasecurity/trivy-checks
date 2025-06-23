@@ -9,7 +9,6 @@
 #   - https://pfs.nifcloud.com/service/plan.htm
 # custom:
 #   id: AVD-NIF-0005
-#   avd_id: AVD-NIF-0005
 #   aliases:
 #     - nifcloud-computing-no-common-private-instance
 #   provider: nifcloud

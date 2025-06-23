@@ -6,8 +6,9 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   aliases:
+#     - google-compute-no-project-wide-ssh-keys
 #   id: AVD-GCP-0030
-#   avd_id: AVD-GCP-0030
 #   provider: google
 #   service: compute
 #   severity: MEDIUM

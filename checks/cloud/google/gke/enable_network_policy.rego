@@ -6,8 +6,9 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   aliases:
+#     - google-gke-enable-network-policy
 #   id: AVD-GCP-0056
-#   avd_id: AVD-GCP-0056
 #   provider: google
 #   service: gke
 #   severity: MEDIUM

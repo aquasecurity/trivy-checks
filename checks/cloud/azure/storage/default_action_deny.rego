@@ -9,8 +9,9 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/firewall/rule-processing
 # custom:
+#   aliases:
+#     - azure-storage-default-action-deny
 #   id: AVD-AZU-0012
-#   avd_id: AVD-AZU-0012
 #   provider: azure
 #   service: storage
 #   severity: CRITICAL

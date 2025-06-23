@@ -8,8 +8,9 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/using-amazon-mq-securely.html#prefer-brokers-without-public-accessibility
 # custom:
+#   aliases:
+#     - aws-mq-no-public-access
 #   id: AVD-AWS-0072
-#   avd_id: AVD-AWS-0072
 #   provider: aws
 #   service: mq
 #   severity: HIGH

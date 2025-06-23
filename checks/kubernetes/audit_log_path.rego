@@ -7,8 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0019
-#   avd_id: AVD-KCV-0019
+#   id: AVD-KCV-0019
 #   severity: LOW
 #   short_code: ensure-audit-log-path-argument-is-set
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --audit-log-path parameter."

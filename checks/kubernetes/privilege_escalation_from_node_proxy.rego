@@ -7,8 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV047
-#   avd_id: AVD-KSV-0047
+#   id: AVD-KSV-0047
 #   severity: HIGH
 #   short_code: no-privilege-escalation-from-node-proxy
 #   recommended_action: "Create a role which does not permit privilege escalation from node proxy"

@@ -6,8 +6,9 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   aliases:
+#     - google-gke-enable-auto-upgrade
 #   id: AVD-GCP-0058
-#   avd_id: AVD-GCP-0058
 #   provider: google
 #   service: gke
 #   severity: LOW

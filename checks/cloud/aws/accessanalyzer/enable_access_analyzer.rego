@@ -14,8 +14,9 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
 # custom:
+#   aliases:
+#     - aws-accessanalyzer-enable-access-analyzer
 #   id: AVD-AWS-0175
-#   avd_id: AVD-AWS-0175
 #   provider: aws
 #   service: accessanalyzer
 #   severity: LOW

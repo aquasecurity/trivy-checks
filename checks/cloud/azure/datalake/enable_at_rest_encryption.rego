@@ -8,8 +8,9 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-security-overview
 # custom:
+#   aliases:
+#     - azure-datalake-enable-at-rest-encryption
 #   id: AVD-AZU-0036
-#   avd_id: AVD-AZU-0036
 #   provider: azure
 #   service: datalake
 #   severity: HIGH

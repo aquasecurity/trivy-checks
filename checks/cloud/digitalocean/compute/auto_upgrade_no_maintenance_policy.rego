@@ -7,8 +7,9 @@
 # related_resources:
 #   - https://docs.digitalocean.com/products/kubernetes/resources/best-practices/
 # custom:
+#   aliases:
+#     - digitalocean-compute-kubernetes-auto-upgrades-not-enabled
 #   id: AVD-DIG-0008
-#   avd_id: AVD-DIG-0008
 #   provider: digitalocean
 #   service: compute
 #   severity: CRITICAL

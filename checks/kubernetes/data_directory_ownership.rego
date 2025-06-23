@@ -7,8 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0059
-#   avd_id: AVD-KCV-0059
+#   id: AVD-KCV-0059
 #   severity: LOW
 #   short_code: ensure-etcd-data-directory-ownership-set-etcd:etcd.
 #   recommended_action: "Change the etcd data directory /var/lib/etcd ownership to etcd:etcd"

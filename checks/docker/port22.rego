@@ -5,8 +5,7 @@
 # schemas:
 # - input: schema["dockerfile"]
 # custom:
-#   id: DS004
-#   avd_id: AVD-DS-0004
+#   id: AVD-DS-0004
 #   severity: MEDIUM
 #   short_code: no-ssh-port
 #   recommended_action: "Remove 'EXPOSE 22' statement from the Dockerfile"

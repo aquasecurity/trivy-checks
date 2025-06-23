@@ -8,8 +8,9 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-api-domainconfiguration.html#sam-api-domainconfiguration-securitypolicy
 # custom:
+#   aliases:
+#     - aws-sam-api-use-secure-tls-policy
 #   id: AVD-AWS-0112
-#   avd_id: AVD-AWS-0112
 #   provider: aws
 #   service: sam
 #   severity: HIGH

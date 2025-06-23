@@ -7,8 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0062
-#   avd_id: AVD-KCV-0062
+#   id: AVD-KCV-0062
 #   severity: HIGH
 #   short_code: ensure-scheduler-config-file-permissions-set-600-or-more-restrictive
 #   recommended_action: "Change the scheduler config file /etc/kubernetes/scheduler.conf permissions of 600 or more restrictive "

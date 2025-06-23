@@ -7,8 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0026
-#   avd_id: AVD-KCV-0026
+#   id: AVD-KCV-0026
 #   severity: LOW
 #   short_code: ensure-etcd-certfile-and-etcd-keyfile-arguments-are-set-as-appropriate
 #   recommended_action: "Follow the Kubernetes documentation and set up the TLS connection between the apiserver and etcd. Then, edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the master node and set the etcd certificate and key file parameters."

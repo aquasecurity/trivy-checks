@@ -7,8 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0061
-#   avd_id: AVD-KCV-0061
+#   id: AVD-KCV-0061
 #   severity: CRITICAL
 #   short_code: ensure-admin-config-ownership-set-root:root.
 #   recommended_action: "Change the admin config  file /etc/kubernetes/admin.conf ownership to root:root"

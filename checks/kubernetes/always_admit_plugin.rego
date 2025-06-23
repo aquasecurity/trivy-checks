@@ -7,8 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0011
-#   avd_id: AVD-KCV-0011
+#   id: AVD-KCV-0011
 #   severity: LOW
 #   short_code: ensure-admission-control-plugin-always-admit-is-not-set
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and either remove the --enable-admission- plugins parameter, or set it to a value that does not include AlwaysAdmit."

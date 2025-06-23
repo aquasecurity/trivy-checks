@@ -6,8 +6,9 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   aliases:
+#     - azure-database-enable-ssl-enforcement
 #   id: AVD-AZU-0020
-#   avd_id: AVD-AZU-0020
 #   provider: azure
 #   service: database
 #   severity: MEDIUM

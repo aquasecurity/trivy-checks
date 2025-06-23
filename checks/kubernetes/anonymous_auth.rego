@@ -7,8 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0001
-#   avd_id: AVD-KCV-0001
+#   id: AVD-KCV-0001
 #   severity: MEDIUM
 #   short_code: ensure-anonymous-auth-argument-is-false
 #   recommended_action: "Set '--anonymous-auth' to 'false'."

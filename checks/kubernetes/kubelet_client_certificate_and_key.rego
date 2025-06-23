@@ -7,8 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0005
-#   avd_id: AVD-KCV-0005
+#   id: AVD-KCV-0005
 #   severity: LOW
 #   short_code: ensure-kubelet-client-certificate-and-kubelet-client-key-are-set
 #   recommended_action: "Follow the Kubernetes documentation and set up the TLS connection between the apiserver and kubelets."

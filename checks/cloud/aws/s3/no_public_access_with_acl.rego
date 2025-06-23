@@ -8,8 +8,9 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html
 # custom:
+#   aliases:
+#     - aws-s3-no-public-access-with-acl
 #   id: AVD-AWS-0092
-#   avd_id: AVD-AWS-0092
 #   provider: aws
 #   service: s3
 #   severity: HIGH

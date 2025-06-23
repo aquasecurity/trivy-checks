@@ -7,8 +7,9 @@
 # related_resources:
 # - https://docs.aws.amazon.com/config/latest/developerguide/rds-cluster-deletion-protection-enabled.html
 # custom:
+#   aliases:
+#     - aws-rds-enable-cluster-deletion-protection
 #   id: AVD-AWS-0343
-#   avd_id: AVD-AWS-0343
 #   provider: aws
 #   service: rds
 #   severity: MEDIUM

@@ -6,8 +6,9 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   aliases:
+#     - azure-database-all-threat-alerts-enabled
 #   id: AVD-AZU-0028
-#   avd_id: AVD-AZU-0028
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
