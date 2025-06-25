@@ -16,7 +16,7 @@ _assert_not_empty(v) if {
 
 assert_equal_message(expected, results) if {
 	assert_count(results, 1)
-	not _assert_not_equal_message(results, expected)
+	not _assert_not_equal_message(expected, results)
 }
 
 _assert_not_equal_message(expected, results) if {

@@ -20,11 +20,11 @@ test_allow_default_sg_without_description if {
 test_disallow_sg_without_description if {
 	inp := {"aws": {"ec2": {"securitygroups": [{"description": {"value": ""}}]}}}
 
-	test.assert_equal_message("Security group does not have a description", check.deny) with input as inp
+	test.assert_equal_message("Security group does not have a description.", check.deny) with input as inp
 }
 
 test_disallow_sg_with_default_description if {
 	inp := {"aws": {"ec2": {"securitygroups": [{"description": {"value": "Managed by Terraform"}}]}}}
 
-	test.assert_equal_message("Security group explicitly uses the default description", check.deny) with input as inp
+	test.assert_equal_message("Security group explicitly uses the default description.", check.deny) with input as inp
 }

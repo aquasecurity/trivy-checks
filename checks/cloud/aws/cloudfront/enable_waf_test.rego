@@ -10,5 +10,5 @@ test_allow_distribution_with_waf if {
 }
 
 test_deny_distribution_without_waf if {
-	test.assert_equal_message("CloudFront distribution does not have a WAF in front.", check.deny) with input as {"aws": {"cloudfront": {"distributions": [{"wafid": {"value": ""}}]}}}
+	test.assert_equal_message("Distribution does not utilise a WAF.", check.deny) with input as {"aws": {"cloudfront": {"distributions": [{"wafid": {"value": ""}}]}}}
 }
