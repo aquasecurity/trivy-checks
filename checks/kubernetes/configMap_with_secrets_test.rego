@@ -22,6 +22,41 @@ test_detect_secret[name] if {
 			"expected": 1,
 			"expected_keys": {"password", "secretkey"},
 		},
+		"colon-separated secrets": {
+			"data": {
+				"config": "DB_PASSWORD:supersecret",
+				"color": "blue",
+			},
+			"expected": 1,
+			"expected_keys": {"DB_PASSWORD"},
+		},
+		"equals-separated secrets": {
+			"data": {
+				"env": "REDIS_MASTER_PASSWORD=abcd1234",
+				"theme": "dark",
+			},
+			"expected": 1,
+			"expected_keys": {"REDIS_MASTER_PASSWORD"},
+		},
+		"cm value with empty secret assignment": {
+			"data": {
+				"env": "REDIS_MASTER_PASSWORD=",
+				"theme": "dark",
+			},
+			"expected": 0,
+		},
+		"cm value with shell interpolation": {
+			"data": {"test": "REDIS_MASTER_PASSWORD=\"$(< \"${REDIS_MASTER_PASSWORD_FILE}\")\""},
+			"expected": 0,
+		},
+		"cm value with env variable reference": {
+			"data": {"test": "DB_PASSWORD=${DB_PASSWORD}"},
+			"expected": 0,
+		},
+		"cm value with template syntax": {
+			"data": {"test": "REDIS_MASTER_PASSWORD={{ .Values.redis.password }}"},
+			"expected": 0,
+		},
 	}
 
 	inp := {
