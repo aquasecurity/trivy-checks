@@ -43,7 +43,7 @@ _validate_long_id(custom_meta) := msg if {
 	prefix := sprintf("%s-%s-", [custom_meta.provider, replace(custom_meta.service, "-", "")])
 	not startswith(custom_meta.long_id, prefix)
 	msg := sprintf(
-		"long_id (%s): Doesn't startswith <provider>-<service>-...",
+		"long_id (%s): must start with  <provider>-<service>-...",
 		[custom_meta.long_id],
 	)
 }
