@@ -77,6 +77,67 @@ terraform:
           }
         }
       }
+    - |-
+      resource "aws_s3_bucket" "good_example" {
+        bucket = "log-bucket"
+      }
+
+      resource "aws_s3_bucket_acl" "log_acl" {
+        bucket = aws_s3_bucket.good_example.id
+        access_control_policy {
+
+          grant {
+            grantee {
+              type = "Group"
+              uri  = "http://acs.amazonaws.com/groups/s3/LogDelivery"
+            }
+            permission = "WRITE"
+          }
+
+          owner {
+            id = data.aws_canonical_user_id.current.id
+          }
+        }
+      }
+
+      resource "aws_s3_bucket_server_side_encryption_configuration" "sse_config" {
+        bucket = aws_s3_bucket.good_example.id
+
+        rule {
+          apply_server_side_encryption_by_default {
+            sse_algorithm = "AES256"
+          }
+        }
+      }
+    - |-
+      resource "aws_s3_bucket" "good_example" {
+        bucket = "log-policy-bucket"
+      }
+
+      resource "aws_s3_bucket_policy" "log_policy" {
+        bucket = aws_s3_bucket.good_example.id
+        policy = jsonencode({
+          Version = "2012-10-17"
+          Statement = [{
+            Effect = "Allow"
+            Principal = {
+              Service = "logging.s3.amazonaws.com"
+            }
+            Action   = "s3:PutObject"
+            Resource = "arn:aws:s3:::log-policy-bucket/logs/*"
+          }]
+        })
+      }
+
+      resource "aws_s3_bucket_server_side_encryption_configuration" "sse_config" {
+        bucket = aws_s3_bucket.good_example.id
+
+        rule {
+          apply_server_side_encryption_by_default {
+            sse_algorithm = "AES256"
+          }
+        }
+      }
   bad:
     - |-
       resource "aws_s3_bucket" "bad_example" {
