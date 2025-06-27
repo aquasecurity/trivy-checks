@@ -27,6 +27,8 @@ github.com/aquasecurity/iamgo v0.0.10 h1:t/HG/MI1eSephztDc+Rzh/YfgEa+NqgYRSfr6pH
 github.com/aquasecurity/iamgo v0.0.10/go.mod h1:GI9IQJL2a+C+V2+i3vcwnNKuIJXZ+HAfqxZytwy+cPk=
 github.com/aquasecurity/jfather v0.0.8 h1:tUjPoLGdlkJU0qE7dSzd1MHk2nQFNPR0ZfF+6shaExE=
 github.com/aquasecurity/jfather v0.0.8/go.mod h1:Ag+L/KuR/f8vn8okUi8Wc1d7u8yOpi2QTaGX10h71oY=
+github.com/aquasecurity/trivy v0.61.1-0.20250407075540-f1329c7ea1aa h1:hTCqB55JsyhElf63U3xtDcKba5jxd1MbAj5eedR0TAI=
+github.com/aquasecurity/trivy v0.61.1-0.20250407075540-f1329c7ea1aa/go.mod h1:rHsc1HjiYz3ItMw1tziCvmvAIt8p7Xs+2amw+HThAx8=
 github.com/arbovm/levenshtein v0.0.0-20160628152529-48b4e1c0c4d0 h1:jfIu9sQUG6Ig+0+Ap1h4unLjW6YQJpKZVmUzxsD4E/Q=
 github.com/arbovm/levenshtein v0.0.0-20160628152529-48b4e1c0c4d0/go.mod h1:t2tdKJDJF9BV14lnkjHmOQgcvEKgtqs5a1N3LNdJhGE=
 github.com/armon/go-socks5 v0.0.0-20160902184237-e75332964ef5 h1:0CwZNZbxp69SHPdPJAN/hZIm0C4OItdklCFmMRWYpio=
@@ -279,8 +281,6 @@ github.com/sergi/go-diff v1.3.2-0.20230802210424-5b0b94c5c0d3 h1:n661drycOFuPLCN
 github.com/sergi/go-diff v1.3.2-0.20230802210424-5b0b94c5c0d3/go.mod h1:A0bzQcvG0E7Rwjx0REVgAGH58e96+X0MeOfepqsbeW4=
 github.com/shirou/gopsutil/v4 v4.25.4 h1:cdtFO363VEOOFrUCjZRh4XVJkb548lyF0q0uTeMqYPw=
 github.com/shirou/gopsutil/v4 v4.25.4/go.mod h1:xbuxyoZj+UsgnZrENu3lQivsngRR5BdjbJwf2fv4szA=
-github.com/simar7/trivy v0.0.0-20250627042700-80046a097f1a h1:fTaMTUWsdatMQuO9ps9O4z8OXdCVmP6VI+KpLuAx6Ms=
-github.com/simar7/trivy v0.0.0-20250627042700-80046a097f1a/go.mod h1:0xjKpfhqabOsxUnU2J+Oh62X5IskyCRKGsVxF0DoWVs=
 github.com/sirupsen/logrus v1.7.0/go.mod h1:yWOB1SBYBC5VeMP7gHvWumXLIWorT60ONWic61uBYv0=
 github.com/sirupsen/logrus v1.9.3 h1:dueUQJ1C2q9oE3F7wvmSGAaVtTmUizReu6fjN8uqzbQ=
 github.com/sirupsen/logrus v1.9.3/go.mod h1:naHLuLoDiP4jHNo9R0sCBMtWGeIprob74mVsIT4qYEQ=
