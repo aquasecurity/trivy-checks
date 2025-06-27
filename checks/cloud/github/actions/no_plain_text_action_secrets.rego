@@ -15,7 +15,7 @@
 #   provider: github
 #   service: environmentsecrets
 #   severity: HIGH
-#   long_id: github-actions-no-plain-text-action-secrets
+#   long_id: github-environmentsecrets-no-plain-text-action-secrets
 #   recommended_action: Do not store plaintext values in your code but rather populate the encrypted_value using fields from a resource, data source or variable.
 #   input:
 #     selector:

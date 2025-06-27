@@ -13,7 +13,7 @@
 #     - aws-ami-ensure-ami-has-owners
 #   id: AWS-0344
 #   provider: aws
-#   service: ami
+#   service: ec2
 #   severity: LOW
 #   long_id: aws-ec2-ensure-ami-has-owners
 #   recommended_action: Specify the owners field in the AWS AMI data source configuration

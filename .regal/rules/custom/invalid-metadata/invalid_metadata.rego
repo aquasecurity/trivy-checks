@@ -23,6 +23,12 @@ report contains violation if {
 	violation := _build_violation(annot, [message])
 }
 
+report contains violation if {
+	some annot in _pkg_annotations
+	message := _validate_long_id(annot.custom)
+	violation := _build_violation(annot, [message])
+}
+
 _is_lib_package if input["package"].path[1].value == "lib"
 
 _pkg_annotations := [annot | some annot in input["package"].annotations; annot.scope == "package"]
@@ -31,6 +37,15 @@ _id_pattern := `^(AWS|GCP|DIG|AZU|KCV|KSV|DS|GIT|NIF|KUBE|OPNSTK|CLDSTK|OCI)-\d+
 
 _validate_id(id) := sprintf("id (%s): Does not match pattern '%s'", [id, _id_pattern]) if {
 	not regex.match(_id_pattern, id)
+}
+
+_validate_long_id(custom_meta) := msg if {
+    prefix := sprintf("%s-%s-", [custom_meta.provider, replace(custom_meta.service, "-", "")])
+	not startswith(custom_meta.long_id, prefix)
+	msg := sprintf(
+		"long_id (%s): Doesn't startswith <provider>-<service>-...",
+		[custom_meta.long_id],
+	)
 }
 
 _build_violation(annot, errors) := result.fail(
@@ -67,6 +82,7 @@ check_metadata_schema := {
 		"provider": {"type": "string"},
 		"service": {"type": "string"},
 		"short_code": {"type": "string"},
+		"long_id": {"type": "string"},
 		"severity": {
 			"type": "string",
 			"enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"],
