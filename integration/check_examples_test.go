@@ -32,12 +32,12 @@ var trivyVersions = []string{"0.57.1", "0.58.1", "latest", "canary"}
 func TestScanCheckExamples(t *testing.T) {
 	ctx := context.Background()
 
-	tmpDir, err := os.MkdirTemp("", "trivy-checks-examples-*")
+	tmpDir, err := os.MkdirTemp(".", "trivy-checks-examples-*")
 	require.NoError(t, err)
 	t.Cleanup(func() { os.RemoveAll(tmpDir) })
 
 	examplesPath := filepath.Join(tmpDir, "examples")
-	setupTarget(t, examplesPath)
+	checkAliases := setupTarget(t, examplesPath)
 
 	targetDir, err := filepath.Abs(tmpDir)
 	require.NoError(t, err)
@@ -100,7 +100,7 @@ func TestScanCheckExamples(t *testing.T) {
 			report := readTrivyReport(t, reportPath)
 			require.NoError(t, os.Remove(reportPath))
 
-			verifyReport(t, report, examplesPath, version)
+			verifyReport(t, report, examplesPath, version, checkAliases)
 		})
 	}
 }
@@ -163,11 +163,13 @@ var excludedChecks = map[string][]string{
 	},
 }
 
-func setupTarget(t *testing.T, targetDir string) {
+func setupTarget(t *testing.T, targetDir string) map[string][]string {
 	t.Helper()
 
 	checksMetadata, err := metadata.LoadDefaultChecksMetadata()
 	require.NoError(t, err)
+
+	checkAliases := make(map[string][]string)
 
 	for _, meta := range checksMetadata {
 		// TODO: scan all frameworks
@@ -186,11 +188,14 @@ func setupTarget(t *testing.T, targetDir string) {
 			continue
 		}
 
+		checkAliases[meta.ID()] = meta.Aliases()
+
 		for provider, providerExamples := range checkExamples {
 			writeExamples(t, providerExamples.Bad.ToStrings(), provider, targetDir, meta.ID(), "bad")
 			writeExamples(t, providerExamples.Good.ToStrings(), provider, targetDir, meta.ID(), "good")
 		}
 	}
+	return checkAliases
 }
 
 func writeExamples(t *testing.T, examples []string, provider, cacheDir string, id string, typ string) {
@@ -202,7 +207,10 @@ func writeExamples(t *testing.T, examples []string, provider, cacheDir string, i
 	}
 }
 
-func verifyReport(t *testing.T, results []Result, targetDir string, version string) {
+func verifyReport(
+	t *testing.T, results []Result, targetDir string, version string,
+	checkAliases map[string][]string,
+) {
 	got := getFailureIDs(results)
 
 	err := filepath.Walk(targetDir, func(path string, info os.FileInfo, err error) error {
@@ -232,15 +240,23 @@ func verifyReport(t *testing.T, results []Result, targetDir string, version stri
 		}
 
 		t.Run(relPath, func(t *testing.T) {
-			if shouldBePresent {
-				ids, exists := got[relPath]
-				assert.True(t, exists)
-				assert.Contains(t, ids, id)
-			} else {
-				ids, exists := got[relPath]
-				if exists {
-					assert.NotContains(t, ids, id)
+			aliases := checkAliases[id]
+			allIDs := append(aliases, id)
+			gotIDs, exists := got[relPath]
+
+			var contains bool
+			for _, wantID := range allIDs {
+				if _, ok := gotIDs[wantID]; ok {
+					contains = true
+					break
 				}
+			}
+
+			if shouldBePresent {
+				assert.True(t, exists, "expected relPath to exist in got")
+				assert.True(t, contains, "expected one of aliases or id to be present")
+			} else if exists {
+				assert.False(t, contains, "unexpected alias/id found")
 			}
 		})
 		return nil

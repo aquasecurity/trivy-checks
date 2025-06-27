@@ -56,6 +56,25 @@ func (m Metadata) Service() string {
 	return "general"
 }
 
+func (m Metadata) Aliases() []string {
+	raw, ok := m["aliases"]
+	if !ok {
+		return nil
+	}
+
+	s, ok := raw.([]any)
+	if !ok {
+		return nil
+	}
+	aliases := make([]string, 0, len(s))
+	for _, ss := range s {
+		if str, ok := ss.(string); ok {
+			aliases = append(aliases, str)
+		}
+	}
+	return aliases
+}
+
 type Provider string
 
 func (p Provider) DisplayName() string {
