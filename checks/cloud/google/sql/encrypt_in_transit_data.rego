@@ -14,7 +14,7 @@
 #   provider: google
 #   service: sql
 #   severity: HIGH
-#   long_id: google-encrypt-in-transit-data
+#   long_id: google-sql-encrypt-in-transit-data
 #   recommended_action: Enforce SSL for all connections
 #   input:
 #     selector:

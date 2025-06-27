@@ -12,7 +12,7 @@
 #   provider: google
 #   service: iam
 #   severity: HIGH
-#   long_id: google-no-default-network
+#   long_id: google-iam-no-default-network
 #   recommended_action: Disable automatic default network creation
 #   input:
 #     selector:

@@ -14,7 +14,7 @@
 #   provider: nifcloud
 #   service: nas
 #   severity: LOW
-#   long_id: nifcloud-no-common-private-nas-instance
+#   long_id: nifcloud-nas-no-common-private-nas-instance
 #   recommended_action: Use private LAN
 #   input:
 #     selector:

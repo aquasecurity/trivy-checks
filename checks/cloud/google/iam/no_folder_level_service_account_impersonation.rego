@@ -14,7 +14,7 @@
 #   provider: google
 #   service: iam
 #   severity: MEDIUM
-#   long_id: google-no-folder-level-service-account-impersonation
+#   long_id: google-iam-no-folder-level-service-account-impersonation
 #   recommended_action: Provide access at the service-level instead of folder-level, if required
 #   input:
 #     selector:

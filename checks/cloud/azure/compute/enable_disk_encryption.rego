@@ -14,7 +14,7 @@
 #   provider: azure
 #   service: compute
 #   severity: HIGH
-#   long_id: azure-enable-disk-encryption
+#   long_id: azure-compute-enable-disk-encryption
 #   recommended_action: Enable encryption on managed disks
 #   input:
 #     selector:

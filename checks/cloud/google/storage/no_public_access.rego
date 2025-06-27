@@ -14,7 +14,7 @@
 #   provider: google
 #   service: storage
 #   severity: HIGH
-#   long_id: google-no-public-access
+#   long_id: google-storage-no-public-access
 #   recommended_action: Restrict public access to the bucket.
 #   input:
 #     selector:

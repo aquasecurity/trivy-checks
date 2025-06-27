@@ -14,7 +14,7 @@
 #   provider: nifcloud
 #   service: nas
 #   severity: CRITICAL
-#   long_id: nifcloud-no-public-ingress-nas-sgr
+#   long_id: nifcloud-nas-no-public-ingress-nas-sgr
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

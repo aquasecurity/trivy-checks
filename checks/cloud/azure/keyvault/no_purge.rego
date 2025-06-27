@@ -16,7 +16,7 @@
 #   provider: azure
 #   service: keyvault
 #   severity: MEDIUM
-#   long_id: azure-no-purge
+#   long_id: azure-keyvault-no-purge
 #   recommended_action: Enable purge protection for key vaults
 #   input:
 #     selector:

@@ -13,7 +13,7 @@
 #   provider: google
 #   service: iam
 #   severity: MEDIUM
-#   long_id: google-no-project-level-default-service-account-assignment
+#   long_id: google-iam-no-project-level-default-service-account-assignment
 #   recommended_action: Use specialised service accounts for specific purposes.
 #   input:
 #     selector:

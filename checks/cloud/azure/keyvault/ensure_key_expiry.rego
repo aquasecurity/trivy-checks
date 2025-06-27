@@ -16,7 +16,7 @@
 #   provider: azure
 #   service: keyvault
 #   severity: MEDIUM
-#   long_id: azure-ensure-key-expiry
+#   long_id: azure-keyvault-ensure-key-expiry
 #   recommended_action: Set an expiration date on the vault key
 #   input:
 #     selector:

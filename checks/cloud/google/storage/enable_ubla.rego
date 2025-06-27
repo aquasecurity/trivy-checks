@@ -15,7 +15,7 @@
 #   provider: google
 #   service: storage
 #   severity: MEDIUM
-#   long_id: google-enable-ubla
+#   long_id: google-storage-enable-ubla
 #   recommended_action: Enable uniform bucket level access to provide a uniform permissioning system.
 #   input:
 #     selector:

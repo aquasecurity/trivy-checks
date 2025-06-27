@@ -12,7 +12,7 @@
 #   provider: azure
 #   service: appservice
 #   severity: LOW
-#   long_id: azure-require-client-cert
+#   long_id: azure-appservice-require-client-cert
 #   recommended_action: Enable incoming certificates for clients
 #   input:
 #     selector:

@@ -12,7 +12,7 @@
 #   provider: google
 #   service: compute
 #   severity: LOW
-#   long_id: google-vm-disk-encryption-customer-key
+#   long_id: google-compute-vm-disk-encryption-customer-key
 #   recommended_action: Use managed keys
 #   input:
 #     selector:

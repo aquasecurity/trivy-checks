@@ -12,7 +12,7 @@
 #   provider: google
 #   service: gke
 #   severity: LOW
-#   long_id: google-enable-auto-repair
+#   long_id: google-gke-enable-auto-repair
 #   recommended_action: Enable automatic repair
 #   input:
 #     selector:

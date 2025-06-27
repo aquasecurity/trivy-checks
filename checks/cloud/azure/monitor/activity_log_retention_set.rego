@@ -14,7 +14,7 @@
 #   provider: azure
 #   service: monitor
 #   severity: MEDIUM
-#   long_id: azure-activity-log-retention-set
+#   long_id: azure-monitor-activity-log-retention-set
 #   recommended_action: Set a retention period that will allow for delayed investigation
 #   input:
 #     selector:

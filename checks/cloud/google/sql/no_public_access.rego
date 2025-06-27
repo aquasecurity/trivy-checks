@@ -14,7 +14,7 @@
 #   provider: google
 #   service: sql
 #   severity: HIGH
-#   long_id: google-no-public-access
+#   long_id: google-sql-no-public-access
 #   recommended_action: Remove public access from database instances
 #   input:
 #     selector:

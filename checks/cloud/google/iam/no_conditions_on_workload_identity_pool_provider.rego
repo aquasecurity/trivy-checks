@@ -14,7 +14,7 @@
 #   provider: google
 #   service: iam
 #   severity: HIGH
-#   long_id: google-no-conditions-workload-identity-pool-provider
+#   long_id: google-iam-no-conditions-on-workload-identity-pool-provider
 #   recommended_action: Set conditions on this provider, for example by restricting it to only be allowed from repositories in your GitHub organization
 #   input:
 #     selector:

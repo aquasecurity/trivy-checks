@@ -14,7 +14,7 @@
 #   provider: google
 #   service: sql
 #   severity: MEDIUM
-#   long_id: google-pg-log-lock-waits
+#   long_id: google-sql-pg-log-lock-waits
 #   recommended_action: Enable lock wait logging.
 #   input:
 #     selector:

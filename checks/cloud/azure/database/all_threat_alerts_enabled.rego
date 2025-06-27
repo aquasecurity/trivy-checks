@@ -12,7 +12,7 @@
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
-#   long_id: azure-all-threat-alerts-enabled
+#   long_id: azure-database-all-threat-alerts-enabled
 #   recommended_action: Use all provided threat alerts
 #   input:
 #     selector:

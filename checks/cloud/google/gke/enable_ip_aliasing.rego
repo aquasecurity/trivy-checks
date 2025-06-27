@@ -12,7 +12,7 @@
 #   provider: google
 #   service: gke
 #   severity: LOW
-#   long_id: google-enable-ip-aliasing
+#   long_id: google-gke-enable-ip-aliasing
 #   recommended_action: Enable IP aliasing
 #   input:
 #     selector:

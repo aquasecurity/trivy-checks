@@ -12,7 +12,7 @@
 #   provider: google
 #   service: gke
 #   severity: HIGH
-#   long_id: google-no-public-control-plane
+#   long_id: google-gke-no-public-control-plane
 #   recommended_action: Use private nodes and master authorised networks to prevent exposure
 #   input:
 #     selector:

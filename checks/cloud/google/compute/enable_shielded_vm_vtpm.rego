@@ -14,7 +14,7 @@
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
-#   long_id: google-enable-shielded-vm-vtpm
+#   long_id: google-compute-enable-shielded-vm-vtpm
 #   recommended_action: Enable Shielded VM VTPM
 #   input:
 #     selector:

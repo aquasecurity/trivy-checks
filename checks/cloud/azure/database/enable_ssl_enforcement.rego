@@ -12,7 +12,7 @@
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
-#   long_id: azure-enable-ssl-enforcement
+#   long_id: azure-database-enable-ssl-enforcement
 #   recommended_action: Enable SSL enforcement
 #   input:
 #     selector:

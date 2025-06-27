@@ -12,7 +12,7 @@
 #   provider: azure
 #   service: authorization
 #   severity: MEDIUM
-#   long_id: azure-limit-role-actions
+#   long_id: azure-authorization-limit-role-actions
 #   recommended_action: Use targeted permissions for roles
 #   input:
 #     selector:

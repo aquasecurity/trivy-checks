@@ -16,7 +16,7 @@
 #   provider: nifcloud
 #   service: computing
 #   severity: CRITICAL
-#   long_id: nifcloud-no-public-ingress-sgr
+#   long_id: nifcloud-computing-no-public-ingress-sgr
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

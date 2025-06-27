@@ -14,7 +14,7 @@
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
-#   long_id: azure-postgres-configuration-connection-throttling
+#   long_id: azure-database-postgres-configuration-connection-throttling
 #   recommended_action: Enable connection throttling logging
 #   input:
 #     selector:

@@ -14,7 +14,7 @@
 #   provider: azure
 #   service: network
 #   severity: CRITICAL
-#   long_id: azure-no-public-egress
+#   long_id: azure-network-no-public-egress
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

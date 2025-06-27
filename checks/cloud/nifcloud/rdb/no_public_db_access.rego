@@ -14,7 +14,7 @@
 #   provider: nifcloud
 #   service: rdb
 #   severity: CRITICAL
-#   long_id: nifcloud-no-public-db-access
+#   long_id: nifcloud-rdb-no-public-db-access
 #   recommended_action: Set the database to not be publicly accessible
 #   input:
 #     selector:

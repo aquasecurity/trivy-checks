@@ -14,7 +14,7 @@
 #   provider: google
 #   service: sql
 #   severity: MEDIUM
-#   long_id: google-enable-pg-temp-file-logging
+#   long_id: google-sql-enable-pg-temp-file-logging
 #   recommended_action: Enable temporary file logging for all files
 #   input:
 #     selector:

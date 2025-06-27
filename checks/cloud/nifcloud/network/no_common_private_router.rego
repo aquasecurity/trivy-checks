@@ -14,7 +14,7 @@
 #   provider: nifcloud
 #   service: network
 #   severity: LOW
-#   long_id: nifcloud-no-common-private-router
+#   long_id: nifcloud-network-no-common-private-router
 #   recommended_action: Use private LAN
 #   input:
 #     selector:

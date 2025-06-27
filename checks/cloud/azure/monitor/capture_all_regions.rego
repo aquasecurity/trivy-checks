@@ -14,7 +14,7 @@
 #   provider: azure
 #   service: monitor
 #   severity: MEDIUM
-#   long_id: azure-capture-all-regions
+#   long_id: azure-monitor-capture-all-regions
 #   recommended_action: Enable capture for all locations
 #   input:
 #     selector:

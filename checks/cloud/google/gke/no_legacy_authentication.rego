@@ -16,7 +16,7 @@
 #   provider: google
 #   service: gke
 #   severity: HIGH
-#   long_id: google-no-legacy-authentication
+#   long_id: google-gke-no-legacy-authentication
 #   recommended_action: Use service account or OAuth for authentication
 #   input:
 #     selector:

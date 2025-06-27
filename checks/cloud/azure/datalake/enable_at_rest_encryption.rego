@@ -14,7 +14,7 @@
 #   provider: azure
 #   service: datalake
 #   severity: HIGH
-#   long_id: azure-enable-at-rest-encryption
+#   long_id: azure-datalake-enable-at-rest-encryption
 #   recommended_action: Enable encryption of data lake storage
 #   input:
 #     selector:

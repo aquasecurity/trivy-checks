@@ -16,7 +16,7 @@
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
-#   long_id: azure-retention-period-set
+#   long_id: azure-database-retention-period-set
 #   recommended_action: Set retention periods of database auditing to greater than 90 days
 #   input:
 #     selector:

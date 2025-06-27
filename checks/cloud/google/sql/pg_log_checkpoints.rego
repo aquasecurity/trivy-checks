@@ -14,7 +14,7 @@
 #   provider: google
 #   service: sql
 #   severity: MEDIUM
-#   long_id: google-pg-log-checkpoints
+#   long_id: google-sql-pg-log-checkpoints
 #   recommended_action: Enable checkpoints logging.
 #   input:
 #     selector:

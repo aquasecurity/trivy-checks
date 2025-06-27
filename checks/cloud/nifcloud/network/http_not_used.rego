@@ -16,7 +16,7 @@
 #   provider: nifcloud
 #   service: network
 #   severity: CRITICAL
-#   long_id: nifcloud-http-not-used
+#   long_id: nifcloud-network-http-not-used
 #   recommended_action: Switch to HTTPS to benefit from TLS security features
 #   input:
 #     selector:

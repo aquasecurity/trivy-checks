@@ -14,7 +14,7 @@
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
-#   long_id: google-enable-shielded-vm-im
+#   long_id: google-compute-enable-shielded-vm-im
 #   recommended_action: Enable Shielded VM Integrity Monitoring
 #   input:
 #     selector:

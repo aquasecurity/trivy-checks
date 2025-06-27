@@ -12,7 +12,7 @@
 #   provider: google
 #   service: bigquery
 #   severity: CRITICAL
-#   long_id: google-no-public-access
+#   long_id: google-bigquery-no-public-access
 #   recommended_action: Configure access permissions with higher granularity
 #   input:
 #     selector:

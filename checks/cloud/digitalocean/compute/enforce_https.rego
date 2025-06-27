@@ -15,7 +15,7 @@
 #   provider: digitalocean
 #   service: compute
 #   severity: CRITICAL
-#   long_id: digitalocean-enforce-https
+#   long_id: digitalocean-compute-enforce-https
 #   recommended_action: Switch to HTTPS to benefit from TLS security features
 #   input:
 #     selector:

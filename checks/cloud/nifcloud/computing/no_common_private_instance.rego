@@ -14,7 +14,7 @@
 #   provider: nifcloud
 #   service: computing
 #   severity: LOW
-#   long_id: nifcloud-no-common-private-instance
+#   long_id: nifcloud-computing-no-common-private-instance
 #   recommended_action: Use private LAN
 #   input:
 #     selector:

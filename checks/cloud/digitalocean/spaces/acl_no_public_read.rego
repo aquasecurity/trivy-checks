@@ -14,7 +14,7 @@
 #   provider: digitalocean
 #   service: spaces
 #   severity: CRITICAL
-#   long_id: digitalocean-acl-no-public-read
+#   long_id: digitalocean-spaces-acl-no-public-read
 #   recommended_action: Apply a more restrictive ACL
 #   input:
 #     selector:

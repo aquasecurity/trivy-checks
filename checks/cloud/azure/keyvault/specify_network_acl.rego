@@ -16,7 +16,7 @@
 #   provider: azure
 #   service: keyvault
 #   severity: CRITICAL
-#   long_id: azure-specify-network-acl
+#   long_id: azure-keyvault-specify-network-acl
 #   recommended_action: Set a network ACL for the key vault
 #   input:
 #     selector:

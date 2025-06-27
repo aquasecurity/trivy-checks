@@ -12,7 +12,7 @@
 #   provider: google
 #   service: gke
 #   severity: LOW
-#   long_id: google-enable-stackdriver-monitoring
+#   long_id: google-gke-enable-stackdriver-monitoring
 #   recommended_action: Enable StackDriver monitoring
 #   input:
 #     selector:

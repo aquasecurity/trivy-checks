@@ -15,7 +15,7 @@
 #   provider: nifcloud
 #   service: network
 #   severity: CRITICAL
-#   long_id: nifcloud-add-security-group-to-router
+#   long_id: nifcloud-network-add-security-group-to-router
 #   recommended_action: Add security group for all routers
 #   input:
 #     selector:

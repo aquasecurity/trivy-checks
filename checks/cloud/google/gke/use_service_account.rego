@@ -14,7 +14,7 @@
 #   provider: google
 #   service: gke
 #   severity: MEDIUM
-#   long_id: google-use-service-account
+#   long_id: google-gke-use-service-account
 #   recommended_action: Use limited permissions for service accounts to be effective
 #   input:
 #     selector:

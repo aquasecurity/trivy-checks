@@ -14,7 +14,7 @@
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
-#   long_id: google-enable-shielded-vm-sb
+#   long_id: google-compute-enable-shielded-vm-sb
 #   recommended_action: Enable Shielded VM secure boot
 #   input:
 #     selector:

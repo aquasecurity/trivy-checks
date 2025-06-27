@@ -12,7 +12,7 @@
 #   provider: google
 #   service: compute
 #   severity: CRITICAL
-#   long_id: google-use-secure-tls-policy
+#   long_id: google-compute-use-secure-tls-policy
 #   recommended_action: Enforce a minimum TLS version of 1.2
 #   input:
 #     selector:

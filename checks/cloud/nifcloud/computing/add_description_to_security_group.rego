@@ -16,7 +16,7 @@
 #   provider: nifcloud
 #   service: computing
 #   severity: LOW
-#   long_id: nifcloud-add-description-to-security-group
+#   long_id: nifcloud-computing-add-description-to-security-group
 #   recommended_action: Add descriptions for all security groups
 #   input:
 #     selector:

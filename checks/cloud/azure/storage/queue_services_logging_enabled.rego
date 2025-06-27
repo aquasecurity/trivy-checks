@@ -16,7 +16,7 @@
 #   provider: azure
 #   service: storage
 #   severity: MEDIUM
-#   long_id: azure-queue-services-logging-enabled
+#   long_id: azure-storage-queue-services-logging-enabled
 #   recommended_action: Enable logging for Queue Services
 #   input:
 #     selector:

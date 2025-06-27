@@ -12,7 +12,7 @@
 #   provider: google
 #   service: compute
 #   severity: HIGH
-#   long_id: google-no-ip-forwarding
+#   long_id: google-compute-no-ip-forwarding
 #   recommended_action: Disable IP forwarding
 #   input:
 #     selector:

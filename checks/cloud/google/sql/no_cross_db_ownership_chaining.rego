@@ -14,7 +14,7 @@
 #   provider: google
 #   service: sql
 #   severity: MEDIUM
-#   long_id: google-no-cross-db-ownership-chaining
+#   long_id: google-sql-no-cross-db-ownership-chaining
 #   recommended_action: Disable cross database ownership chaining
 #   input:
 #     selector:

@@ -14,7 +14,7 @@
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
-#   long_id: azure-postgres-configuration-log-checkpoints
+#   long_id: azure-database-postgres-configuration-log-checkpoints
 #   recommended_action: Enable checkpoint logging
 #   input:
 #     selector:

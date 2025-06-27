@@ -16,7 +16,7 @@
 #   provider: azure
 #   service: storage
 #   severity: CRITICAL
-#   long_id: azure-use-secure-tls-policy
+#   long_id: azure-storage-use-secure-tls-policy
 #   recommended_action: Use a more recent TLS/SSL policy for the load balancer
 #   input:
 #     selector:

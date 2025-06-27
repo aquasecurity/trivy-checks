@@ -14,7 +14,7 @@
 #   provider: google
 #   service: sql
 #   severity: MEDIUM
-#   long_id: google-no-contained-db-auth
+#   long_id: google-sql-no-contained-db-auth
 #   recommended_action: Disable contained database authentication
 #   input:
 #     selector:

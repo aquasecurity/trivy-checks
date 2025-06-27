@@ -12,7 +12,7 @@
 #   provider: google
 #   service: gke
 #   severity: LOW
-#   long_id: google-enable-auto-upgrade
+#   long_id: google-gke-enable-auto-upgrade
 #   recommended_action: Enable automatic upgrades
 #   input:
 #     selector:

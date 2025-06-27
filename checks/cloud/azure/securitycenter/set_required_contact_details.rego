@@ -16,7 +16,7 @@
 #   provider: azure
 #   service: security-center
 #   severity: LOW
-#   long_id: azure-set-required-contact-details
+#   long_id: azure-securitycenter-set-required-contact-details
 #   recommended_action: Set a telephone number for security center contact
 #   input:
 #     selector:

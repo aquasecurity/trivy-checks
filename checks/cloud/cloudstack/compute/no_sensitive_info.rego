@@ -12,7 +12,7 @@
 #   provider: cloudstack
 #   service: compute
 #   severity: HIGH
-#   long_id: cloudstack-no-sensitive-info
+#   long_id: cloudstack-compute-no-sensitive-info
 #   recommended_action: Don't use sensitive data in the user data section
 #   input:
 #     selector:

@@ -16,7 +16,7 @@
 #   provider: google
 #   service: gke
 #   severity: HIGH
-#   long_id: google-node-shielding-enabled
+#   long_id: google-gke-node-shielding-enabled
 #   recommended_action: Enable node shielding
 #   input:
 #     selector:

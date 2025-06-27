@@ -14,7 +14,7 @@
 #   provider: google
 #   service: compute
 #   severity: CRITICAL
-#   long_id: google-disk-encryption-no-plaintext-key
+#   long_id: google-compute-disk-encryption-no-plaintext-key
 #   recommended_action: Reference a managed key rather than include the key in raw format.
 #   input:
 #     selector:

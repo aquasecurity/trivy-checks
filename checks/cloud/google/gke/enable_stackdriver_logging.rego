@@ -12,7 +12,7 @@
 #   provider: google
 #   service: gke
 #   severity: LOW
-#   long_id: google-enable-stackdriver-logging
+#   long_id: google-gke-enable-stackdriver-logging
 #   recommended_action: Enable StackDriver logging
 #   input:
 #     selector:

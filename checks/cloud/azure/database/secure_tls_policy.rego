@@ -12,7 +12,7 @@
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
-#   long_id: azure-secure-tls-policy
+#   long_id: azure-database-secure-tls-policy
 #   recommended_action: Use the most modern TLS policies available
 #   input:
 #     selector:

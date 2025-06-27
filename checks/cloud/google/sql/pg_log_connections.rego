@@ -14,7 +14,7 @@
 #   provider: google
 #   service: sql
 #   severity: MEDIUM
-#   long_id: google-pg-log-connections
+#   long_id: google-sql-pg-log-connections
 #   recommended_action: Enable connection logging.
 #   input:
 #     selector:

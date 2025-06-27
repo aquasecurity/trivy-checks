@@ -12,7 +12,7 @@
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
-#   long_id: google-no-project-wide-ssh-keys
+#   long_id: google-compute-no-project-wide-ssh-keys
 #   recommended_action: Disable project-wide SSH keys
 #   input:
 #     selector:

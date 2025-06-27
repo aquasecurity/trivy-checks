@@ -18,7 +18,7 @@
 #   provider: google
 #   service: gke
 #   severity: HIGH
-#   long_id: google-node-metadata-security
+#   long_id: google-gke-node-metadata-security
 #   recommended_action: Set mode to GKE_METADATA
 #   input:
 #     selector:

@@ -16,7 +16,7 @@
 #   provider: azure
 #   service: keyvault
 #   severity: LOW
-#   long_id: azure-content-type-for-secret
+#   long_id: azure-keyvault-content-type-for-secret
 #   recommended_action: Provide content type for secrets to aid interpretation on retrieval
 #   input:
 #     selector:

@@ -14,7 +14,7 @@
 #   provider: azure
 #   service: container
 #   severity: HIGH
-#   long_id: azure-use-rbac-permissions
+#   long_id: azure-container-use-rbac-permissions
 #   recommended_action: Enable RBAC
 #   input:
 #     selector:

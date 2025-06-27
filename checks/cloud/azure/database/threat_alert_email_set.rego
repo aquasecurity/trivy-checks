@@ -12,7 +12,7 @@
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
-#   long_id: azure-threat-alert-email-set
+#   long_id: azure-database-threat-alert-email-set
 #   recommended_action: Provide at least one email address for threat alerts
 #   input:
 #     selector:

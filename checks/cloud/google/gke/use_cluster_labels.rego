@@ -12,7 +12,7 @@
 #   provider: google
 #   service: gke
 #   severity: LOW
-#   long_id: google-use-cluster-labels
+#   long_id: google-gke-use-cluster-labels
 #   recommended_action: Set cluster resource labels
 #   input:
 #     selector:

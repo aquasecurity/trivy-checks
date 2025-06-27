@@ -12,7 +12,7 @@
 #   provider: google
 #   service: dns
 #   severity: MEDIUM
-#   long_id: google-enable-dnssec
+#   long_id: google-dns-enable-dnssec
 #   recommended_action: Enable DNSSEC
 #   input:
 #     selector:

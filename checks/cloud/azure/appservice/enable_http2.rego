@@ -12,7 +12,7 @@
 #   provider: azure
 #   service: appservice
 #   severity: LOW
-#   long_id: azure-enable-http2
+#   long_id: azure-appservice-enable-http2
 #   recommended_action: Use the latest version of HTTP
 #   input:
 #     selector:

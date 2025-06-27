@@ -12,7 +12,7 @@
 #   provider: openstack
 #   service: compute
 #   severity: MEDIUM
-#   long_id: openstack-no-plaintext-password
+#   long_id: openstack-compute-no-plaintext-password
 #   recommended_action: Do not use plaintext passwords in terraform files
 #   input:
 #     selector:

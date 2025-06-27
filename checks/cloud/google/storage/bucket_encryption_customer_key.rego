@@ -14,7 +14,7 @@
 #   provider: google
 #   service: storage
 #   severity: LOW
-#   long_id: google-bucket-encryption-customer-key
+#   long_id: google-storage-bucket-encryption-customer-key
 #   recommended_action: Encrypt Cloud Storage buckets using customer-managed keys.
 #   input:
 #     selector:

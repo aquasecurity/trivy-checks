@@ -14,7 +14,7 @@
 #   provider: google
 #   service: sql
 #   severity: LOW
-#   long_id: google-pg-no-min-statement-logging
+#   long_id: google-sql-pg-no-min-statement-logging
 #   recommended_action: Disable minimum duration statement logging completely
 #   input:
 #     selector:

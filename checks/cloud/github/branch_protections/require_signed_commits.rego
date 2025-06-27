@@ -18,7 +18,7 @@
 #   provider: github
 #   service: branchprotections
 #   severity: HIGH
-#   long_id: github-require_signed_commits
+#   long_id: github-branch-protections-require-signed-commits
 #   recommended_action: Require signed commits
 #   input:
 #     selector:

@@ -18,7 +18,7 @@
 #   provider: azure
 #   service: network
 #   severity: LOW
-#   long_id: azure-retention-policy-set
+#   long_id: azure-network-retention-policy-set
 #   recommended_action: Ensure flow log retention is turned on with an expiry of >90 days
 #   input:
 #     selector:

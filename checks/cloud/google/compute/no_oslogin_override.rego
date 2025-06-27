@@ -12,7 +12,7 @@
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
-#   long_id: google-no-oslogin-override
+#   long_id: google-compute-no-oslogin-override
 #   recommended_action: Enable OS Login at project level and remove instance-level overrides
 #   input:
 #     selector:

@@ -15,7 +15,7 @@
 #   provider: azure
 #   service: storage
 #   severity: HIGH
-#   long_id: azure-allow-microsoft-service-bypass
+#   long_id: azure-storage-allow-microsoft-service-bypass
 #   recommended_action: Allow Trusted Microsoft Services to bypass
 #   input:
 #     selector:

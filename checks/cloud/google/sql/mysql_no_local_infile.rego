@@ -14,7 +14,7 @@
 #   provider: google
 #   service: sql
 #   severity: HIGH
-#   long_id: google-mysql-no-local-infile
+#   long_id: google-sql-mysql-no-local-infile
 #   recommended_action: Disable the local infile setting
 #   input:
 #     selector:

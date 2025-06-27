@@ -14,7 +14,7 @@
 #   provider: google
 #   service: sql
 #   severity: MEDIUM
-#   long_id: google-enable-backup
+#   long_id: google-sql-enable-backup
 #   recommended_action: Enable automated backups
 #   input:
 #     selector:

@@ -12,7 +12,7 @@
 #   provider: google
 #   service: compute
 #   severity: CRITICAL
-#   long_id: google-no-default-service-account
+#   long_id: google-compute-no-default-service-account
 #   recommended_action: Remove use of default service account
 #   input:
 #     selector:
