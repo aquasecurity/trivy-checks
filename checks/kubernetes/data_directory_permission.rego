@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0058
 #   severity: LOW
-#   short_code: ensure-etcd-data-directory-permissions-set-700-or-more-restrictive
+#   long_id: kubernetes-ensure-etcd-data-directory-permissions-set-700-or-more-restrictive
 #   recommended_action: "Change the etcd data directory /var/lib/etcd permissions of 700 or more restrictive "
 #   input:
 #     selector:

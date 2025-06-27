@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: eks
 #   severity: CRITICAL
-#   short_code: no-public-cluster-access
+#   long_id: aws-eks-no-public-cluster-access
 #   recommended_action: Don't enable public access to EKS Clusters
 #   input:
 #     selector:

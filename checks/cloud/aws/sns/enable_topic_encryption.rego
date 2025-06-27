@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: sns
 #   severity: HIGH
-#   short_code: enable-topic-encryption
+#   long_id: aws-sns-enable-topic-encryption
 #   recommended_action: Turn on SNS Topic encryption
 #   input:
 #     selector:

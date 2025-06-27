@@ -12,7 +12,7 @@
 #   provider: digitalocean
 #   service: spaces
 #   severity: MEDIUM
-#   short_code: disable-force-destroy
+#   long_id: digitalocean-disable-force-destroy
 #   recommended_action: Don't use force destroy on bucket configuration
 #   input:
 #     selector:

@@ -12,7 +12,7 @@
 #   provider: openstack
 #   service: networking
 #   severity: MEDIUM
-#   short_code: describe-security-group
+#   long_id: openstack-describe-security-group
 #   recommended_action: Add descriptions for all security groups
 #   input:
 #     selector:

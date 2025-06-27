@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: sqs
 #   severity: HIGH
-#   short_code: enable-queue-encryption
+#   long_id: aws-sqs-enable-queue-encryption
 #   recommended_action: Turn on SQS Queue encryption
 #   input:
 #     selector:

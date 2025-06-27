@@ -16,7 +16,7 @@
 #   provider: aws
 #   service: cloudtrail
 #   severity: LOW
-#   short_code: require-bucket-access-logging
+#   long_id: aws-cloudtrail-require-bucket-access-logging
 #   recommended_action: Enable access logging on the bucket
 #   frameworks:
 #     default:

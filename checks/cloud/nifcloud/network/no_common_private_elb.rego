@@ -14,7 +14,7 @@
 #   provider: nifcloud
 #   service: network
 #   severity: LOW
-#   short_code: no-common-private-elb
+#   long_id: nifcloud-no-common-private-elb
 #   recommended_action: Use private LAN
 #   input:
 #     selector:

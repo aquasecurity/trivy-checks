@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0067
 #   severity: CRITICAL
-#   short_code: ensure-kubernetes-pki-key-file-permission-set-600.
+#   long_id: kubernetes-ensure-kubernetes-pki-key-file-permission-set-600.
 #   recommended_action: "Change the Kubernetes PKI key file /etc/kubernetes/pki/*.key permission to 600"
 #   input:
 #     selector:

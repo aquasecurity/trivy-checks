@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0056
 #   severity: HIGH
-#   short_code: no-manage-networking-resources
+#   long_id: kubernetes-no-manage-networking-resources
 #   recommended_action: "Networking resources are only allowed for verbs 'list', 'watch', 'get'"
 #   input:
 #     selector:

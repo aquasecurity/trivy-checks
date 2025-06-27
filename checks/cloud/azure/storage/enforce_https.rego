@@ -16,7 +16,7 @@
 #   provider: azure
 #   service: storage
 #   severity: HIGH
-#   short_code: enforce-https
+#   long_id: azure-enforce-https
 #   recommended_action: Only allow secure connection for transferring data into storage accounts
 #   input:
 #     selector:

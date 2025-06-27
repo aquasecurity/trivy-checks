@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0064
 #   severity: HIGH
-#   short_code: ensure-controller-manager-config-file-permissions-set-600-or-more-restrictive
+#   long_id: kubernetes-ensure-controller-manager-config-file-permissions-set-600-or-more-restrictive
 #   recommended_action: "Change the controller manager config file /etc/kubernetes/controller-manager.conf permissions of 600 or more restrictive "
 #   input:
 #     selector:

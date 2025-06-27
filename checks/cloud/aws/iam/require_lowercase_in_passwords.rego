@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
-#   short_code: require-lowercase-in-passwords
+#   long_id: aws-iam-require-lowercase-in-passwords
 #   recommended_action: Enforce longer, more complex passwords in the policy
 #   frameworks:
 #     default:

@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: sam
 #   severity: LOW
-#   short_code: enable-function-tracing
+#   long_id: aws-sam-enable-function-tracing
 #   recommended_action: Enable tracing
 #   input:
 #     selector:

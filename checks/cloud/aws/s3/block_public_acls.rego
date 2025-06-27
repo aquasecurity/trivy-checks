@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: s3
 #   severity: HIGH
-#   short_code: block-public-acls
+#   long_id: aws-s3-block-public-acls
 #   recommended_action: Enable blocking any PUT calls with a public ACL specified
 #   input:
 #     selector:

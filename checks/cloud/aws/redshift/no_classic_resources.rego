@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: redshift
 #   severity: CRITICAL
-#   short_code: no-classic-resources
+#   long_id: aws-redshift-no-classic-resources
 #   recommended_action: Switch to VPC resources
 #   input:
 #     selector:

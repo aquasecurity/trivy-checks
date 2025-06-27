@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0006
 #   severity: CRITICAL
-#   short_code: no-self-referencing-copy-from
+#   long_id: docker-no-self-referencing-copy-from
 #   recommended_action: "Change the '--from' so that it will not refer to itself"
 #   input:
 #     selector:

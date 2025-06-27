@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0114
 #   severity: CRITICAL
-#   short_code: no-manage-webhook
+#   long_id: kubernetes-no-manage-webhook
 #   recommended_actions: "Remove webhook configuration resources/verbs, acceptable values for verbs ['get', 'list', 'watch']"
 #   input:
 #     selector:

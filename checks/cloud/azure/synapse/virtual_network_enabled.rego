@@ -19,7 +19,7 @@
 #   provider: azure
 #   service: synapse
 #   severity: MEDIUM
-#   short_code: virtual-network-enabled
+#   long_id: azure-virtual-network-enabled
 #   recommended_action: Set manage virtual network to enabled
 #   input:
 #     selector:

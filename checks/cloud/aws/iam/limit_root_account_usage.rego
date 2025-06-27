@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: iam
 #   severity: LOW
-#   short_code: limit-root-account-usage
+#   long_id: aws-iam-limit-root-account-usage
 #   recommended_action: Use lower privileged accounts instead, so only required privileges are available.
 #   frameworks:
 #     default:

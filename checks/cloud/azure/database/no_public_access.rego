@@ -12,7 +12,7 @@
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
-#   short_code: no-public-access
+#   long_id: azure-no-public-access
 #   recommended_action: Disable public access to database when not required
 #   input:
 #     selector:

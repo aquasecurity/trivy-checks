@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0004
 #   severity: LOW
-#   short_code: drop-unused-capabilities
+#   long_id: kubernetes-drop-unused-capabilities
 #   recommended_action: "Specify at least one unneeded capability in 'containers[].securityContext.capabilities.drop'"
 #   input:
 #     selector:

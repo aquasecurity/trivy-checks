@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0012
 #   severity: MEDIUM
-#   short_code: no-root
+#   long_id: kubernetes-no-root
 #   recommended_action: "Set 'containers[].securityContext.runAsNonRoot' to true."
 #   input:
 #     selector:

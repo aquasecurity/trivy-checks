@@ -14,7 +14,7 @@
 #   provider: digitalocean
 #   service: compute
 #   severity: CRITICAL
-#   short_code: no-public-ingress
+#   long_id: digitalocean-no-public-ingress
 #   recommended_action: Set a more restrictive CIRDR range
 #   input:
 #     selector:

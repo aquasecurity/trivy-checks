@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0090
 #   severity: HIGH
-#   short_code: ensure-rotate-certificates-argument-set-false
+#   long_id: kubernetes-ensure-rotate-certificates-argument-set-false
 #   recommended_action: "If using a Kubelet config file, edit the file to add the line rotateCertificates: true or remove it altogether to use the default value."
 #   input:
 #     selector:

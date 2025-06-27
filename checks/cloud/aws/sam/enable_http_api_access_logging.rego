@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: sam
 #   severity: MEDIUM
-#   short_code: enable-http-api-access-logging
+#   long_id: aws-sam-enable-http-api-access-logging
 #   recommended_action: Enable logging for API Gateway stages
 #   input:
 #     selector:

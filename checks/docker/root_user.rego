@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0002
 #   severity: HIGH
-#   short_code: least-privilege-user
+#   long_id: docker-least-privilege-user
 #   recommended_action: "Add 'USER <non root user name>' line to the Dockerfile"
 #   input:
 #     selector:

@@ -16,7 +16,7 @@
 #   provider: nifcloud
 #   service: dns
 #   severity: CRITICAL
-#   short_code: remove-verified-record
+#   long_id: nifcloud-remove-verified-record
 #   recommended_action: Remove verified record
 #   input:
 #     selector:

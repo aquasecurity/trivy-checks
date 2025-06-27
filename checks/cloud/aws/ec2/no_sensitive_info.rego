@@ -13,7 +13,7 @@
 #   provider: aws
 #   service: ec2
 #   severity: HIGH
-#   short_code: no-sensitive-info
+#   long_id: aws-ec2-no-sensitive-info
 #   recommended_action: Don't use sensitive data in user data
 #   input:
 #     selector:

@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: ec2
 #   severity: CRITICAL
-#   short_code: no-secrets-in-user-data
+#   long_id: aws-ec2-no-secrets-in-user-data
 #   recommended_action: Remove sensitive data from the EC2 instance user-data
 #   input:
 #     selector:

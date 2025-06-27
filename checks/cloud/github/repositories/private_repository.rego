@@ -17,7 +17,7 @@
 #   provider: github
 #   service: repositories
 #   severity: CRITICAL
-#   short_code: private
+#   long_id: github-private
 #   recommended_action: Make sensitive or commercially important repositories private
 #   input:
 #     selector:

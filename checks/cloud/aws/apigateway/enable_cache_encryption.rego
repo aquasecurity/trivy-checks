@@ -12,7 +12,7 @@
 #   provider: aws
 #   service: apigateway
 #   severity: MEDIUM
-#   short_code: enable-cache-encryption
+#   long_id: aws-apigateway-enable-cache-encryption
 #   recommended_action: Enable cache encryption
 #   input:
 #     selector:

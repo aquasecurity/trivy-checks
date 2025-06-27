@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0024
 #   severity: HIGH
-#   short_code: no-host-port-access
+#   long_id: kubernetes-no-host-port-access
 #   recommended_action: "Do not set spec.containers[*].ports[*].hostPort and spec.initContainers[*].ports[*].hostPort."
 #   input:
 #     selector:

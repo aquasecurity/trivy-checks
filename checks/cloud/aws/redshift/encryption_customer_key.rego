@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: redshift
 #   severity: HIGH
-#   short_code: encryption-customer-key
+#   long_id: aws-redshift-encryption-customer-key
 #   recommended_action: Enable encryption using CMK
 #   input:
 #     selector:

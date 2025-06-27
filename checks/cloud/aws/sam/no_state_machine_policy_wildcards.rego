@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: sam
 #   severity: HIGH
-#   short_code: no-state-machine-policy-wildcards
+#   long_id: aws-sam-no-state-machine-policy-wildcards
 #   deprecated: true
 #   recommended_action: Specify the exact permissions required, and to which resources they should apply instead of using wildcards.
 #   input:

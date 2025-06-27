@@ -12,7 +12,7 @@
 #   provider: azure
 #   service: compute
 #   severity: MEDIUM
-#   short_code: no-secrets-in-custom-data
+#   long_id: azure-no-secrets-in-custom-data
 #   recommended_action: Don't use sensitive credentials in the VM custom_data
 #   input:
 #     selector:

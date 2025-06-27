@@ -7,7 +7,7 @@
 # custom:
 #   id: KSV-0109
 #   severity: HIGH
-#   short_code: configMap_with_secrets
+#   long_id: kubernetes-configMap_with_secrets
 #   recommended_action: "Remove password/secret from configMap data value"
 #   input:
 #     selector:

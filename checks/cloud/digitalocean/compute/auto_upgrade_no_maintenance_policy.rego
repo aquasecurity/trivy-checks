@@ -13,7 +13,7 @@
 #   provider: digitalocean
 #   service: compute
 #   severity: CRITICAL
-#   short_code: kubernetes-auto-upgrades-not-enabled
+#   long_id: digitalocean-kubernetes-auto-upgrades-not-enabled
 #   recommended_action: Set maintenance policy deterministically when auto upgrades are enabled
 #   input:
 #     selector:

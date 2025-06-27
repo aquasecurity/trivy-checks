@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: ssm
 #   severity: LOW
-#   short_code: secret-use-customer-key
+#   long_id: aws-ssm-secret-use-customer-key
 #   recommended_action: Use customer managed keys
 #   input:
 #     selector:

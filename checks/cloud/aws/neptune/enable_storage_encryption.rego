@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: neptune
 #   severity: HIGH
-#   short_code: enable-storage-encryption
+#   long_id: aws-neptune-enable-storage-encryption
 #   recommended_action: Enable encryption of Neptune storage
 #   input:
 #     selector:

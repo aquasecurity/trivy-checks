@@ -12,7 +12,7 @@
 #   provider: google
 #   service: compute
 #   severity: LOW
-#   short_code: disk-encryption-customer-key
+#   long_id: google-disk-encryption-customer-key
 #   recommended_action: Use managed keys to encrypt disks.
 #   input:
 #     selector:

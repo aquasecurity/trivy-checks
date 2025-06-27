@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0051
 #   severity: HIGH
-#   short_code: do-not-allow-role-binding-associate-privileged-role
+#   long_id: kubernetes-do-not-allow-role-binding-associate-privileged-role
 #   recommended_action: "Create a role which does not permit creation of role bindings and associating with privileged cluster role"
 #   input:
 #     selector:

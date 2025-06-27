@@ -13,7 +13,7 @@
 #   provider: aws
 #   service: s3
 #   severity: MEDIUM
-#   short_code: dns-compliant-name
+#   long_id: aws-s3-dns-compliant-name
 #   recommended_action: "Recreate S3 bucket to use - instead of . in S3 bucket names"
 #   input:
 #     selector:

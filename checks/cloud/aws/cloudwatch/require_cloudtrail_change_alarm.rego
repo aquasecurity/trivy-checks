@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   short_code: require-cloud-trail-change-alarm
+#   long_id: aws-cloudwatch-require-cloud-trail-change-alarm
 #   recommended_action: Create an alarm to alert on CloudTrail configuration changes
 #   frameworks:
 #     cis-aws-1.2:

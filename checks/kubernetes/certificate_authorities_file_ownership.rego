@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0076
 #   severity: CRITICAL
-#   short_code: ensure-certificate_authorities-ownership-set-root:root
+#   long_id: kubernetes-ensure-certificate_authorities-ownership-set-root:root
 #   recommended_action: "Change the certificate authorities file ownership to root:root"
 #   input:
 #     selector:

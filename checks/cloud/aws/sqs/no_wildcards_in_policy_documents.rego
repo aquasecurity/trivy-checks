@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: sqs
 #   severity: HIGH
-#   short_code: no-wildcards-in-policy-documents
+#   long_id: aws-sqs-no-wildcards-in-policy-documents
 #   recommended_action: Keep policy scope to the minimum that is required to be effective
 #   input:
 #     selector:

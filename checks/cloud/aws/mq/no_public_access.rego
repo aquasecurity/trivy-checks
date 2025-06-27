@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: mq
 #   severity: HIGH
-#   short_code: no-public-access
+#   long_id: aws-mq-no-public-access
 #   recommended_action: Disable public access when not required
 #   input:
 #     selector:

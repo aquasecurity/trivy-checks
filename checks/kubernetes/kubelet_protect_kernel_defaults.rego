@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0083
 #   severity: HIGH
-#   short_code: ensure-protect-kernel-defaults-set-true
+#   long_id: kubernetes-ensure-protect-kernel-defaults-set-true
 #   recommended_action: "If using a Kubelet config file, edit the file to set protectKernelDefaults: true"
 #   input:
 #     selector:

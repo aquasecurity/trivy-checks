@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: sam
 #   severity: MEDIUM
-#   short_code: enable-api-cache-encryption
+#   long_id: aws-sam-enable-api-cache-encryption
 #   recommended_action: Enable cache encryption
 #   input:
 #     selector:

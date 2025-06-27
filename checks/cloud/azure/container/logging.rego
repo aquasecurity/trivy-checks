@@ -14,7 +14,7 @@
 #   provider: azure
 #   service: container
 #   severity: MEDIUM
-#   short_code: logging
+#   long_id: azure-logging
 #   recommended_action: Enable logging for AKS
 #   input:
 #     selector:

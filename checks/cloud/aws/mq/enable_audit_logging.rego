@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: mq
 #   severity: MEDIUM
-#   short_code: enable-audit-logging
+#   long_id: aws-mq-enable-audit-logging
 #   recommended_action: Enable audit logging
 #   input:
 #     selector:

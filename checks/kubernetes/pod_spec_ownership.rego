@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0049
 #   severity: HIGH
-#   short_code: ensure-api-server-pod-specification-ownership-set-root:root.
+#   long_id: kubernetes-ensure-api-server-pod-specification-ownership-set-root:root.
 #   recommended_action: "Change the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml ownership to root:root"
 #   input:
 #     selector:

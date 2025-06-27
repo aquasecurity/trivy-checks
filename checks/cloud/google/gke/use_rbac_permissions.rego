@@ -16,7 +16,7 @@
 #   provider: google
 #   service: gke
 #   severity: HIGH
-#   short_code: use-rbac-permissions
+#   long_id: google-use-rbac-permissions
 #   recommended_action: Switch to using RBAC permissions
 #   input:
 #     selector:

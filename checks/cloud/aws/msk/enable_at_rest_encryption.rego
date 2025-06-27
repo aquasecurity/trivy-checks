@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: msk
 #   severity: HIGH
-#   short_code: enable-at-rest-encryption
+#   long_id: aws-msk-enable-at-rest-encryption
 #   recommended_action: Enable at rest encryption
 #   input:
 #     selector:

@@ -12,7 +12,7 @@
 #   provider: openstack
 #   service: networking
 #   severity: MEDIUM
-#   short_code: no-public-egress
+#   long_id: openstack-no-public-egress
 #   recommended_action: Employ more restrictive security group rules
 #   input:
 #     selector:

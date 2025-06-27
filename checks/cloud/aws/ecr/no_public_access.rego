@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: ecr
 #   severity: HIGH
-#   short_code: no-public-access
+#   long_id: aws-ecr-no-public-access
 #   recommended_action: Do not allow public access in the policy
 #   input:
 #     selector:

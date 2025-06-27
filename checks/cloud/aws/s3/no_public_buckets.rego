@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: s3
 #   severity: HIGH
-#   short_code: no-public-buckets
+#   long_id: aws-s3-no-public-buckets
 #   recommended_action: Limit the access to public buckets to only the owner or AWS Services (eg; CloudFront)
 #   input:
 #     selector:

@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0013
 #   severity: MEDIUM
-#   short_code: use-workdir-over-cd
+#   long_id: docker-use-workdir-over-cd
 #   recommended_action: "Use WORKDIR to change directory"
 #   input:
 #     selector:

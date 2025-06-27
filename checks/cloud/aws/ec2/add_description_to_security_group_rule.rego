@@ -16,7 +16,7 @@
 #   provider: aws
 #   service: ec2
 #   severity: LOW
-#   short_code: add-description-to-security-group-rule
+#   long_id: aws-ec2-add-description-to-security-group-rule
 #   recommended_action: Add descriptions for all security groups rules
 #   input:
 #     selector:

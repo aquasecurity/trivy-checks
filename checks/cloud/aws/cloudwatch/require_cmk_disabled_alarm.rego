@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   short_code: require-cmk-disabled-alarm
+#   long_id: aws-cloudwatch-require-cmk-disabled-alarm
 #   recommended_action: Create an alarm to alert on CMKs being disabled or scheduled for deletion
 #   frameworks:
 #     cis-aws-1.2:

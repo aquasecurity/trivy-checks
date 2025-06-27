@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: mq
 #   severity: LOW
-#   short_code: enable-general-logging
+#   long_id: aws-mq-enable-general-logging
 #   recommended_action: Enable general logging
 #   input:
 #     selector:

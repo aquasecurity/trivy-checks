@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
-#   short_code: enforce-group-mfa
+#   long_id: aws-iam-enforce-group-mfa
 #   recommended_action: Use terraform-module/enforce-mfa/aws to ensure that MFA is enforced
 #   input:
 #     selector:

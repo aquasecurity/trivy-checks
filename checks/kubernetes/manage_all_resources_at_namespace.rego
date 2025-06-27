@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0112
 #   severity: CRITICAL
-#   short_code: no-wildcard-resource-role
+#   long_id: kubernetes-no-wildcard-resource-role
 #   recommended_actions: "Remove '*' from 'rules.resources'. Provide specific list of resources to be managed by role in namespace"
 #   input:
 #     selector:

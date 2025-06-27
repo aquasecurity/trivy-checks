@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0072
 #   severity: HIGH
-#   short_code: ensure-proxy-kubeconfig-ownership-set-root:root-if-exist
+#   long_id: kubernetes-ensure-proxy-kubeconfig-ownership-set-root:root-if-exist
 #   recommended_action: "Change the proxy kubeconfig file <path><filename> ownership to root:root if exist"
 #   input:
 #     selector:

@@ -14,7 +14,7 @@
 #   provider: digitalocean
 #   service: compute
 #   severity: MEDIUM
-#   short_code: surge-upgrades-not-enabled
+#   long_id: digitalocean-surge-upgrades-not-enabled
 #   recommended_action: Enable surge upgrades in your Kubernetes cluster
 #   input:
 #     selector:

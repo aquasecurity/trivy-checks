@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: ami
 #   severity: LOW
-#   short_code: ensure-ami-has-owners
+#   long_id: aws-ec2-ensure-ami-has-owners
 #   recommended_action: Specify the owners field in the AWS AMI data source configuration
 #   input:
 #     selector:

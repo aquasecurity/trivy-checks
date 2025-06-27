@@ -16,7 +16,7 @@
 #   provider: azure
 #   service: keyvault
 #   severity: LOW
-#   short_code: ensure-secret-expiry
+#   long_id: azure-ensure-secret-expiry
 #   recommended_action: Set an expiry for secrets
 #   input:
 #     selector:

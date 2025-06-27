@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0002
 #   severity: LOW
-#   short_code: use-default-apparmor-profile
+#   long_id: kubernetes-use-default-apparmor-profile
 #   recommended_action: "set the 'runtime/default' value from 'container.apparmor.security.beta.kubernetes.io'."
 #   input:
 #     selector:

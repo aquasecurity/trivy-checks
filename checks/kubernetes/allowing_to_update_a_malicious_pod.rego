@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0048
 #   severity: MEDIUM
-#   short_code: deny-create-update-malicious-pod
+#   long_id: kubernetes-deny-create-update-malicious-pod
 #   recommended_action: "Kubernetes workloads resources are only allowed for verbs 'list', 'watch', 'get'"
 #   input:
 #     selector:

@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: dynamodb
 #   severity: MEDIUM
-#   short_code: enable-recovery
+#   long_id: aws-dynamodb-enable-recovery
 #   recommended_action: Enable point in time recovery
 #   input:
 #     selector:

@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0019
 #   severity: HIGH
-#   short_code: purge-dnf-package-cache
+#   long_id: docker-purge-dnf-package-cache
 #   recommended_action: "Add 'dnf clean all' to Dockerfile"
 #   input:
 #     selector:

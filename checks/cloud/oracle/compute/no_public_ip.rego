@@ -14,7 +14,7 @@
 #   provider: oracle
 #   service: compute
 #   severity: CRITICAL
-#   short_code: no-public-ip
+#   long_id: oracle-no-public-ip
 #   recommended_action: Reconsider the use of an public IP
 #   input:
 #     selector:

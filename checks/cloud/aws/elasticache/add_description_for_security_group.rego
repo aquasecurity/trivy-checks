@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: elasticache
 #   severity: LOW
-#   short_code: add-description-for-security-group
+#   long_id: aws-elasticache-add-description-for-security-group
 #   recommended_action: Add descriptions for all security groups and rules
 #   input:
 #     selector:

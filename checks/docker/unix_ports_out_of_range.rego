@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0008
 #   severity: CRITICAL
-#   short_code: port-out-of-range
+#   long_id: docker-port-out-of-range
 #   recommended_action: "Use port number within range"
 #   input:
 #     selector:

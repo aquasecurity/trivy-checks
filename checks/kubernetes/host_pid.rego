@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0010
 #   severity: HIGH
-#   short_code: no-host-pid
+#   long_id: kubernetes-no-host-pid
 #   recommended_action: "Do not set 'spec.template.spec.hostPID' to true."
 #   input:
 #     selector:

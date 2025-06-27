@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0001
 #   severity: MEDIUM
-#   short_code: ensure-anonymous-auth-argument-is-false
+#   long_id: kubernetes-ensure-anonymous-auth-argument-is-false
 #   recommended_action: "Set '--anonymous-auth' to 'false'."
 #   input:
 #     selector:

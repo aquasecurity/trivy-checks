@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: msk
 #   severity: MEDIUM
-#   short_code: enable-logging
+#   long_id: aws-msk-enable-logging
 #   recommended_action: Enable logging
 #   input:
 #     selector:

@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: ec2
 #   severity: LOW
-#   short_code: volume-encryption-customer-key
+#   long_id: aws-ec2-volume-encryption-customer-key
 #   recommended_action: Enable encryption using customer managed keys
 #   input:
 #     selector:

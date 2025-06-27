@@ -16,7 +16,7 @@
 #   provider: azure
 #   service: security-center
 #   severity: MEDIUM
-#   short_code: alert-on-severe-notifications
+#   long_id: azure-alert-on-severe-notifications
 #   recommended_action:  Set alert notifications to be on
 #   input:
 #     selector:

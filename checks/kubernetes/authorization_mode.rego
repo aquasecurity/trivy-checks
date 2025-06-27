@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0007
 #   severity: LOW
-#   short_code: ensure-authorization-mode-argument-is-not-set-to-alwaysallow
+#   long_id: kubernetes-ensure-authorization-mode-argument-is-not-set-to-alwaysallow
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --authorization-mode parameter to values other than AlwaysAllow. "
 #   input:
 #     selector:

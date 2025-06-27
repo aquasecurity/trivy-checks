@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0038
 #   severity: MEDIUM
-#   short_code: selector-usage-in-network-policies
+#   long_id: kubernetes-selector-usage-in-network-policies
 #   recommended_action: "create network policies and ensure that pods are selected using the podSelector and/or the namespaceSelector options"
 #   input:
 #     selector:

@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: kinesis
 #   severity: HIGH
-#   short_code: enable-in-transit-encryption
+#   long_id: aws-kinesis-enable-in-transit-encryption
 #   recommended_action: Enable in transit encryption
 #   input:
 #     selector:

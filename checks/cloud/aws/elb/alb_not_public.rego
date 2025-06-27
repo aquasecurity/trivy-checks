@@ -12,7 +12,7 @@
 #   provider: aws
 #   service: elb
 #   severity: HIGH
-#   short_code: alb-not-public
+#   long_id: aws-elb-alb-not-public
 #   recommended_action: Switch to an internal load balancer or add a tfsec ignore
 #   input:
 #     selector:

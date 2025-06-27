@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: neptune
 #   severity: HIGH
-#   short_code: encryption-customer-key
+#   long_id: aws-neptune-encryption-customer-key
 #   recommended_action: Enable encryption using customer managed keys
 #   input:
 #     selector:

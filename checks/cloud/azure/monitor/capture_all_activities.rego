@@ -15,7 +15,7 @@
 #   provider: azure
 #   service: monitor
 #   severity: MEDIUM
-#   short_code: capture-all-activities
+#   long_id: azure-capture-all-activities
 #   recommended_action: Configure log profile to capture all activities
 #   input:
 #     selector:

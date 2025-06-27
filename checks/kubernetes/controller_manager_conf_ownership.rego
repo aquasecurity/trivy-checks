@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0065
 #   severity: HIGH
-#   short_code: ensure-controller-manager-config-ownership-set-root:root.
+#   long_id: kubernetes-ensure-controller-manager-config-ownership-set-root:root.
 #   recommended_action: "Change the controller-manager config  file /etc/kubernetes/controller-manager.conf ownership to root:root"
 #   input:
 #     selector:

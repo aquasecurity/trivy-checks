@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: rds
 #   severity: HIGH
-#   short_code: encrypt-cluster-storage-data
+#   long_id: aws-rds-encrypt-cluster-storage-data
 #   recommended_action: Enable encryption for RDS clusters
 #   input:
 #     selector:

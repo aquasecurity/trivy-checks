@@ -7,7 +7,7 @@
 # custom:
 #   id: KSV-0033
 #   severity: MEDIUM
-#   short_code: use-gcr-domain
+#   long_id: kubernetes-use-gcr-domain
 #   recommended_action: "Use images from trusted GCR registries."
 #   deprecated: true
 #   input:

@@ -16,7 +16,7 @@
 #   provider: azure
 #   service: security-center
 #   severity: LOW
-#   short_code: enable-standard-subscription
+#   long_id: azure-enable-standard-subscription
 #   recommended_action: Enable standard subscription tier to benefit from Azure Defender
 #   input:
 #     selector:

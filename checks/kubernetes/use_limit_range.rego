@@ -11,7 +11,7 @@
 # custom:
 #   id: KSV-0039
 #   severity: LOW
-#   short_code: limit-range-usage
+#   long_id: kubernetes-limit-range-usage
 #   recommended_action: Create a LimitRange policy with default requests and limits for each container
 #   input:
 #     selector:

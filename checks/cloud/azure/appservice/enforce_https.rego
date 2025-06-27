@@ -15,7 +15,7 @@
 #   provider: azure
 #   service: appservice
 #   severity: CRITICAL
-#   short_code: enforce-https
+#   long_id: azure-enforce-https
 #   recommended_action: You can redirect all HTTP requests to the HTTPS port.
 #   input:
 #     selector:

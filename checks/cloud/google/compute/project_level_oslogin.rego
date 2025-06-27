@@ -12,7 +12,7 @@
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
-#   short_code: project-level-oslogin
+#   long_id: google-project-level-oslogin
 #   recommended_action: Enable OS Login at project level
 #   input:
 #     selector:

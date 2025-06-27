@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: sqs
 #   severity: HIGH
-#   short_code: queue-encryption-use-cmk
+#   long_id: aws-sqs-queue-encryption-use-cmk
 #   recommended_action: Encrypt SQS Queue with a customer-managed key
 #   input:
 #     selector:

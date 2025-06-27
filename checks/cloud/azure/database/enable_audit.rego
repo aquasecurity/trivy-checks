@@ -14,7 +14,7 @@
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
-#   short_code: enable-audit
+#   long_id: azure-enable-audit
 #   recommended_action: Enable auditing on Azure SQL databases
 #   input:
 #     selector:

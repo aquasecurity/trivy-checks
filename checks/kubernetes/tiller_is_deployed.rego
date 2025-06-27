@@ -7,7 +7,7 @@
 # custom:
 #   id: KSV-0102
 #   severity: CRITICAL
-#   short_code: no-tiller
+#   long_id: kubernetes-no-tiller
 #   recommended_action: "Migrate to Helm v3 which no longer has Tiller component"
 #   input:
 #     selector:

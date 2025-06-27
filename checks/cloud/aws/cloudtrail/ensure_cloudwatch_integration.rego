@@ -20,7 +20,7 @@
 #   provider: aws
 #   service: cloudtrail
 #   severity: LOW
-#   short_code: ensure-cloudwatch-integration
+#   long_id: aws-cloudtrail-ensure-cloudwatch-integration
 #   recommended_action: Enable logging to CloudWatch
 #   frameworks:
 #     default:

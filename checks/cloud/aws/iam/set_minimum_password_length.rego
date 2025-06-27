@@ -16,7 +16,7 @@
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
-#   short_code: set-minimum-password-length
+#   long_id: aws-iam-set-minimum-password-length
 #   recommended_action: Enforce longer, more complex passwords in the policy
 #   frameworks:
 #     default:

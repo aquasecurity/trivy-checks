@@ -16,7 +16,7 @@
 #   provider: azure
 #   service: datafactory
 #   severity: CRITICAL
-#   short_code: no-public-access
+#   long_id: azure-no-public-access
 #   recommended_action: Set public access to disabled for Data Factory
 #   input:
 #     selector:

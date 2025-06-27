@@ -12,7 +12,7 @@
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
-#   short_code: no-serial-port
+#   long_id: google-no-serial-port
 #   recommended_action: Disable serial port access
 #   input:
 #     selector:

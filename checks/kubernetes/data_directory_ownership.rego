@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0059
 #   severity: LOW
-#   short_code: ensure-etcd-data-directory-ownership-set-etcd:etcd.
+#   long_id: kubernetes-ensure-etcd-data-directory-ownership-set-etcd:etcd.
 #   recommended_action: "Change the etcd data directory /var/lib/etcd ownership to etcd:etcd"
 #   input:
 #     selector:

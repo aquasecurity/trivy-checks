@@ -19,7 +19,7 @@
 #   provider: aws
 #   service: ec2
 #   severity: MEDIUM
-#   short_code: no-public-ingress-acl
+#   long_id: aws-ec2-no-public-ingress-acl
 #   recommended_action: Set a more restrictive CIDR range
 #   frameworks:
 #     default:

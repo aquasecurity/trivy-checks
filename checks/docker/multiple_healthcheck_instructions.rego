@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0023
 #   severity: MEDIUM
-#   short_code: only-one-healthcheck
+#   long_id: docker-only-one-healthcheck
 #   recommended_action: "One HEALTHCHECK instruction must remain in Dockerfile. Remove all other instructions."
 #   input:
 #     selector:

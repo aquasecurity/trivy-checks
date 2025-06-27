@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: eks
 #   severity: HIGH
-#   short_code: encrypt-secrets
+#   long_id: aws-eks-encrypt-secrets
 #   recommended_action: Enable encryption of EKS secrets
 #   input:
 #     selector:

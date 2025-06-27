@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: codebuild
 #   severity: HIGH
-#   short_code: enable-encryption
+#   long_id: aws-codebuild-enable-encryption
 #   recommended_action: Enable encryption for CodeBuild project artifacts
 #   input:
 #     selector:

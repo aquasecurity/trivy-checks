@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: cloudtrail
 #   severity: CRITICAL
-#   short_code: no-public-log-access
+#   long_id: aws-cloudtrail-no-public-log-access
 #   recommended_action: Restrict public access to the S3 bucket
 #   frameworks:
 #     default:

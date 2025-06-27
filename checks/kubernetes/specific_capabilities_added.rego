@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0022
 #   severity: MEDIUM
-#   short_code: no-non-default-capabilities
+#   long_id: kubernetes-no-non-default-capabilities
 #   recommended_action: "Do not set spec.containers[*].securityContext.capabilities.add and spec.initContainers[*].securityContext.capabilities.add."
 #   input:
 #     selector:

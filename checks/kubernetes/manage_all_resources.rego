@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0046
 #   severity: CRITICAL
-#   short_code: no-wildcard-resource-clusterrole
+#   long_id: kubernetes-no-wildcard-resource-clusterrole
 #   recommended_actions: "Remove '*' from 'rules.resources'. Provide specific list of resources to be managed by cluster role"
 #   input:
 #     selector:

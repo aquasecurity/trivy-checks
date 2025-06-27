@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: dynamodb
 #   severity: HIGH
-#   short_code: enable-at-rest-encryption
+#   long_id: aws-dynamodb-enable-at-rest-encryption
 #   recommended_action: Enable encryption at rest for DAX Cluster
 #   input:
 #     selector:

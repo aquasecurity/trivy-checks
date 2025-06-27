@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: sam
 #   severity: LOW
-#   short_code: enable-state-machine-logging
+#   long_id: aws-sam-enable-state-machine-logging
 #   recommended_action: Enable logging
 #   input:
 #     selector:

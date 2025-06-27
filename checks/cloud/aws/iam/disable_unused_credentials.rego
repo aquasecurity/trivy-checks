@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
-#   short_code: disable-unused-credentials
+#   long_id: aws-iam-disable-unused-credentials
 #   recommended_action: Disable credentials which are no longer used.
 #   frameworks:
 #     cis-aws-1.2:

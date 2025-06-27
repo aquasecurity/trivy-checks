@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0116
 #   severity: LOW
-#   short_code: primary-supplementary-gid
+#   long_id: kubernetes-primary-supplementary-gid
 #   recommended_actions: "Set 'containers[].securityContext.runAsGroup' to a non-zero integer or leave undefined."
 #   input:
 #     selector:

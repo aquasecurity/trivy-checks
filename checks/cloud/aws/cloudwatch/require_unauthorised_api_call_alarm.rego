@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   short_code: require-unauthorised-api-call-alarm
+#   long_id: aws-cloudwatch-require-unauthorised-api-call-alarm
 #   recommended_action: Create an alarm to alert on unauthorized API calls
 #   frameworks:
 #     cis-aws-1.2:

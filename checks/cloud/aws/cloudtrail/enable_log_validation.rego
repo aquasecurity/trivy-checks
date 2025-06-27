@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: cloudtrail
 #   severity: HIGH
-#   short_code: enable-log-validation
+#   long_id: aws-cloudtrail-enable-log-validation
 #   recommended_action: Turn on log validation for Cloudtrail
 #   input:
 #     selector:

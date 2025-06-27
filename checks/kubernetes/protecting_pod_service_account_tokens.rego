@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0036
 #   severity: MEDIUM
-#   short_code: no-auto-mount-service-token
+#   long_id: kubernetes-no-auto-mount-service-token
 #   recommended_action: "Disable the mounting of service account secret token by setting automountServiceAccountToken to false"
 #   input:
 #     selector:

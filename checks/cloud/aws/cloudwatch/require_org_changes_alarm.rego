@@ -18,7 +18,7 @@
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   short_code: require-org-changes-alarm
+#   long_id: aws-cloudwatch-require-org-changes-alarm
 #   recommended_action: Create an alarm to alert on organisation changes
 #   frameworks:
 #     cis-aws-1.4:

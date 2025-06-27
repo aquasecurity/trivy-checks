@@ -13,7 +13,7 @@
 #   provider: google
 #   service: iam
 #   severity: MEDIUM
-#   short_code: no-folder-level-default-service-account-assignment
+#   long_id: google-no-folder-level-default-service-account-assignment
 #   recommended_action: Use specialised service accounts for specific purposes.
 #   input:
 #     selector:

@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: documentdb
 #   severity: MEDIUM
-#   short_code: enable-log-export
+#   long_id: aws-documentdb-enable-log-export
 #   recommended_action: Enable export logs
 #   input:
 #     selector:

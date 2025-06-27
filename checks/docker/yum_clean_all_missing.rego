@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0015
 #   severity: HIGH
-#   short_code: purge-yum-package-cache
+#   long_id: docker-purge-yum-package-cache
 #   recommended_action: "Add 'yum clean all' to Dockerfile"
 #   input:
 #     selector:

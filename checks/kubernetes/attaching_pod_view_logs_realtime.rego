@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0054
 #   severity: HIGH
-#   short_code: no-attaching-shell-pods
+#   long_id: kubernetes-no-attaching-shell-pods
 #   recommended_action: "Create a role which does not permit attaching to shell on pods"
 #   input:
 #     selector:

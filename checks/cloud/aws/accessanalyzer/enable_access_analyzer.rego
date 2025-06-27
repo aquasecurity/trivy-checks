@@ -20,7 +20,7 @@
 #   provider: aws
 #   service: accessanalyzer
 #   severity: LOW
-#   short_code: enable-access-analyzer
+#   long_id: aws-accessanalyzer-enable-access-analyzer
 #   deprecated: true
 #   recommended_action: Enable IAM Access analyzer across all regions.
 #   frameworks:

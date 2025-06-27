@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: ecs
 #   severity: LOW
-#   short_code: enable-container-insight
+#   long_id: aws-ecs-enable-container-insight
 #   recommended_action: Enable Container Insights
 #   input:
 #     selector:

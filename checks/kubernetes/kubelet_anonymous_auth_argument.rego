@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0079
 #   severity: CRITICAL
-#   short_code: disable-anonymous-requests-kubelet-server.
+#   long_id: kubernetes-disable-anonymous-requests-kubelet-server.
 #   recommended_action: "Disable anonymous requests to the Kubelet server"
 #   input:
 #     selector:

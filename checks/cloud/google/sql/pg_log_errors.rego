@@ -15,7 +15,7 @@
 #   provider: google
 #   service: sql
 #   severity: LOW
-#   short_code: pg-log-errors
+#   long_id: google-pg-log-errors
 #   recommended_action: Set the minimum log severity to at least ERROR
 #   input:
 #     selector:

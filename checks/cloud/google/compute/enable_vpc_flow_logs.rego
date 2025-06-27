@@ -12,7 +12,7 @@
 #   provider: google
 #   service: compute
 #   severity: LOW
-#   short_code: enable-vpc-flow-logs
+#   long_id: google-enable-vpc-flow-logs
 #   recommended_action: Enable VPC flow logs
 #   input:
 #     selector:

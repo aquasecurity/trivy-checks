@@ -16,7 +16,7 @@
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   short_code: require-vpc-changes-alarm
+#   long_id: aws-cloudwatch-require-vpc-changes-alarm
 #   recommended_action: Create an alarm to alert on route table changes
 #   frameworks:
 #     cis-aws-1.2:

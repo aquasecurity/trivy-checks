@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: redshift
 #   severity: LOW
-#   short_code: add-description-to-security-group
+#   long_id: aws-redshift-add-description-to-security-group
 #   recommended_action: Add descriptions for all security groups and rules
 #   input:
 #     selector:

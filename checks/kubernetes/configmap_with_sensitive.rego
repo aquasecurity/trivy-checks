@@ -7,7 +7,7 @@
 # custom:
 #   id: KSV-01010
 #   severity: MEDIUM
-#   short_code: configMap_with_sensitive
+#   long_id: kubernetes-configMap_with_sensitive
 #   recommended_action: "Remove sensitive content from configMap data value"
 #   input:
 #     selector:

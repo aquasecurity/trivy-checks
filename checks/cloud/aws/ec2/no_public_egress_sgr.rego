@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: ec2
 #   severity: CRITICAL
-#   short_code: no-public-egress-sgr
+#   long_id: aws-ec2-no-public-egress-sgr
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

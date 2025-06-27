@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0004
 #   severity: LOW
-#   short_code: ensure-kubelet-https-argument-is-set-to-true
+#   long_id: kubernetes-ensure-kubelet-https-argument-is-set-to-true
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and remove the --kubelet-https parameter."
 #   input:
 #     selector:

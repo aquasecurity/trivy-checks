@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: s3
 #   severity: HIGH
-#   short_code: no-public-access-with-acl
+#   long_id: aws-s3-no-public-access-with-acl
 #   recommended_action: Don't use canned ACLs or switch to private acl
 #   input:
 #     selector:

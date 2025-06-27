@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: elasticsearch
 #   severity: HIGH
-#   short_code: enable-in-transit-encryption
+#   long_id: aws-elasticsearch-enable-in-transit-encryption
 #   recommended_action: Enable encrypted node to node communication
 #   input:
 #     selector:

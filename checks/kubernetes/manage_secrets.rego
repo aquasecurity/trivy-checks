@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0041
 #   severity: CRITICAL
-#   short_code: no-manage-secrets
+#   long_id: kubernetes-no-manage-secrets
 #   recommended_actions: "Manage secrets are not allowed. Remove resource 'secrets' from cluster role"
 #   input:
 #     selector:

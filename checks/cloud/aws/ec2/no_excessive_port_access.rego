@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: ec2
 #   severity: CRITICAL
-#   short_code: no-excessive-port-access
+#   long_id: aws-ec2-no-excessive-port-access
 #   recommended_action: Set specific allowed ports
 #   input:
 #     selector:

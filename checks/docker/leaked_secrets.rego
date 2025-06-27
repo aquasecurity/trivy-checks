@@ -8,7 +8,7 @@
 # custom:
 #   id: DS-0031
 #   severity: CRITICAL
-#   short_code: do-not-pass-secrets
+#   long_id: docker-do-not-pass-secrets
 #   recommended_action: Use secret mount if secrets are needed during image build. Use volume mount if secret files are needed during container runtime.
 #   input:
 #     selector:

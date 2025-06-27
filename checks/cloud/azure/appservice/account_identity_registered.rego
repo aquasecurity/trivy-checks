@@ -12,7 +12,7 @@
 #   provider: azure
 #   service: appservice
 #   severity: LOW
-#   short_code: account-identity-registered
+#   long_id: azure-account-identity-registered
 #   recommended_action: Register the app identity with AD
 #   input:
 #     selector:

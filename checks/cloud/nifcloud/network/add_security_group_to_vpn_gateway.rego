@@ -15,7 +15,7 @@
 #   provider: nifcloud
 #   service: network
 #   severity: CRITICAL
-#   short_code: add-security-group-to-vpn-gateway
+#   long_id: nifcloud-add-security-group-to-vpn-gateway
 #   recommended_action: Add security group for all vpnGateways
 #   input:
 #     selector:

@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: ec2
 #   severity: HIGH
-#   short_code: no-default-vpc
+#   long_id: aws-ec2-no-default-vpc
 #   recommended_action: Create a non-default vpc for resources to be created in
 #   input:
 #     selector:

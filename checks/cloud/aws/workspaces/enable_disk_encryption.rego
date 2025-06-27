@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: workspaces
 #   severity: HIGH
-#   short_code: enable-disk-encryption
+#   long_id: aws-workspaces-enable-disk-encryption
 #   recommended_action: Root and user volume encryption should be enabled
 #   input:
 #     selector:

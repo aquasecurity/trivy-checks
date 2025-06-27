@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: s3
 #   severity: HIGH
-#   short_code: encryption-customer-key
+#   long_id: aws-s3-encryption-customer-key
 #   recommended_action: Use SSE-KMS with a customer managed key (CMK)
 #   input:
 #     selector:

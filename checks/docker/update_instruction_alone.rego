@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0017
 #   severity: HIGH
-#   short_code: no-orphan-package-update
+#   long_id: docker-no-orphan-package-update
 #   recommended_action: "Combine '<package-manager> update' and '<package-manager> install' instructions to single one"
 #   input:
 #     selector:

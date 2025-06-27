@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0021
 #   severity: LOW
-#   short_code: ensure-audit-log-maxbackup-argument-is-set-to-10-or-as-appropriate
+#   long_id: kubernetes-ensure-audit-log-maxbackup-argument-is-set-to-10-or-as-appropriate
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --audit-log-maxbackup parameter to 10 or to an appropriate value."
 #   input:
 #     selector:

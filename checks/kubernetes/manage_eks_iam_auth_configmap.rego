@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0115
 #   severity: CRITICAL
-#   short_code: eks-iam-configmap
+#   long_id: kubernetes-eks-iam-configmap
 #   recommended_actions: "Remove write permission verbs for resource 'configmaps' named 'aws-auth'"
 #   input:
 #     selector:

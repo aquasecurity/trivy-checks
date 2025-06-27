@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   short_code: require-root-user-usage-alarm
+#   long_id: aws-cloudwatch-require-root-user-usage-alarm
 #   recommended_action: Create an alarm to alert on root user login
 #   frameworks:
 #     cis-aws-1.2:

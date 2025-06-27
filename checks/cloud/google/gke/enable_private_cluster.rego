@@ -12,7 +12,7 @@
 #   provider: google
 #   service: gke
 #   severity: MEDIUM
-#   short_code: enable-private-cluster
+#   long_id: google-enable-private-cluster
 #   recommended_action: Enable private cluster
 #   input:
 #     selector:

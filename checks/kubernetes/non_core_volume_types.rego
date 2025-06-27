@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0028
 #   severity: LOW
-#   short_code: no-non-ephemeral-volumes
+#   long_id: kubernetes-no-non-ephemeral-volumes
 #   recommended_action: "Do not Set 'spec.volumes[*]' to any of the disallowed volume types."
 #   input:
 #     selector:

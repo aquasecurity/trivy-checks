@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: documentdb
 #   severity: HIGH
-#   short_code: enable-storage-encryption
+#   long_id: aws-documentdb-enable-storage-encryption
 #   recommended_action: Enable storage encryption
 #   input:
 #     selector:

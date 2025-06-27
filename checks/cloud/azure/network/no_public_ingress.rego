@@ -14,7 +14,7 @@
 #   provider: azure
 #   service: network
 #   severity: CRITICAL
-#   short_code: no-public-ingress
+#   long_id: azure-no-public-ingress
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

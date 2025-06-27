@@ -7,7 +7,7 @@
 # custom:
 #   id: DS-0004
 #   severity: MEDIUM
-#   short_code: no-ssh-port
+#   long_id: docker-no-ssh-port
 #   recommended_action: "Remove 'EXPOSE 22' statement from the Dockerfile"
 #   input:
 #     selector:

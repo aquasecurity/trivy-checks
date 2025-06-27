@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0005
 #   severity: HIGH
-#   short_code: no-sysadmin-capability
+#   long_id: kubernetes-no-sysadmin-capability
 #   recommended_action: "Remove the SYS_ADMIN capability from 'containers[].securityContext.capabilities.add'."
 #   input:
 #     selector:

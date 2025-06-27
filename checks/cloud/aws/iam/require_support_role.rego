@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: iam
 #   severity: LOW
-#   short_code: require-support-role
+#   long_id: aws-iam-require-support-role
 #   deprecated: true
 #   recommended_action: Create an IAM role with the necessary permissions to manage incidents with AWS Support.
 #   frameworks:

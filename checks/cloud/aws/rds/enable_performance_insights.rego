@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: rds
 #   severity: LOW
-#   short_code: enable-performance-insights
+#   long_id: aws-rds-enable-performance-insights
 #   recommended_action: Enable performance insights
 #   input:
 #     selector:

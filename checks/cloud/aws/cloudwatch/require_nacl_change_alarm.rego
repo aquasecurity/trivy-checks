@@ -16,7 +16,7 @@
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   short_code: require-nacl-changes-alarm
+#   long_id: aws-cloudwatch-require-nacl-changes-alarm
 #   recommended_action: Create an alarm to alert on network acl changes
 #   frameworks:
 #     cis-aws-1.4:

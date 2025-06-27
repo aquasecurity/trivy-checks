@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: ecr
 #   severity: HIGH
-#   short_code: enforce-immutable-repository
+#   long_id: aws-ecr-enforce-immutable-repository
 #   recommended_action: Only use immutable images in ECR
 #   input:
 #     selector:

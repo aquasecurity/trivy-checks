@@ -14,7 +14,7 @@
 #   provider: digitalocean
 #   service: compute
 #   severity: HIGH
-#   short_code: use-ssh-keys
+#   long_id: digitalocean-use-ssh-keys
 #   recommended_action: Use ssh keys for login
 #   input:
 #     selector:

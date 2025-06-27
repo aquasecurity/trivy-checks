@@ -16,7 +16,7 @@
 #   provider: aws
 #   service: rds
 #   severity: LOW
-#   short_code: performance-insights-encryption-customer-key
+#   long_id: aws-rds-performance-insights-encryption-customer-key
 #   recommended_action: Use Customer Managed Keys to encrypt Performance Insights data
 #   input:
 #     selector:

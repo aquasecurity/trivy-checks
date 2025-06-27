@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: cloudfront
 #   severity: MEDIUM
-#   short_code: enable-logging
+#   long_id: aws-cloudfront-enable-logging
 #   recommended_action: Enable logging for CloudFront distributions
 #   input:
 #     selector:

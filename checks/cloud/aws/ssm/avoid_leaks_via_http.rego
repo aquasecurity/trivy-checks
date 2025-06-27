@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: ssm
 #   severity: CRITICAL
-#   short_code: avoid-leaks-via-http
+#   long_id: aws-ssm-avoid-leaks-via-http
 #   deprecated: true
 #   recommended_action: Remove this potential exfiltration HTTP request.
 #   input:

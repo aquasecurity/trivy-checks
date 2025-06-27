@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: ecr
 #   severity: LOW
-#   short_code: repository-customer-key
+#   long_id: aws-ecr-repository-customer-key
 #   recommended_action: Use customer managed keys
 #   input:
 #     selector:

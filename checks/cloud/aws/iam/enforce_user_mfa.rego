@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
-#   short_code: enforce-user-mfa
+#   long_id: aws-iam-enforce-user-mfa
 #   recommended_action: Enable MFA for the user account
 #   frameworks:
 #     cis-aws-1.2:

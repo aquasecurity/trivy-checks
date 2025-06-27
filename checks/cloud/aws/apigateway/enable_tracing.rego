@@ -12,7 +12,7 @@
 #   provider: aws
 #   service: apigateway
 #   severity: LOW
-#   short_code: enable-tracing
+#   long_id: aws-apigateway-enable-tracing
 #   recommended_action: Enable tracing
 #   input:
 #     selector:

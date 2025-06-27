@@ -13,7 +13,7 @@
 #   provider: aws
 #   service: rds
 #   severity: HIGH
-#   short_code: enable-public-access
+#   long_id: aws-rds-enable-public-access
 #   recommended_action: "Remove the public endpoint from the RDS instance."
 #   input:
 #     selector:

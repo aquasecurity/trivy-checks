@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: s3
 #   severity: HIGH
-#   short_code: ignore-public-acls
+#   long_id: aws-s3-ignore-public-acls
 #   recommended_action: Enable ignoring the application of public ACLs in PUT calls
 #   input:
 #     selector:

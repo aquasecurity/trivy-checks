@@ -14,7 +14,7 @@
 #   provider: nifcloud
 #   service: rdb
 #   severity: LOW
-#   short_code: no-common-private-db-instance
+#   long_id: nifcloud-no-common-private-db-instance
 #   recommended_action: Use private LAN
 #   input:
 #     selector:

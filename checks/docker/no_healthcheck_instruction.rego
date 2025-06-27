@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0026
 #   severity: LOW
-#   short_code: no-healthcheck
+#   long_id: docker-no-healthcheck
 #   recommended_action: "Add HEALTHCHECK instruction in Dockerfile"
 #   input:
 #     selector:

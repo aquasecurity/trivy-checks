@@ -14,7 +14,7 @@
 #   provider: google
 #   service: compute
 #   severity: CRITICAL
-#   short_code: no-public-ingress
+#   long_id: google-no-public-ingress
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

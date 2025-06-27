@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0105
 #   severity: LOW
-#   short_code: containers-not-run-as-root
+#   long_id: kubernetes-containers-not-run-as-root
 #   recommended_action: "Set 'securityContext.runAsUser' to a non-zero integer or leave undefined."
 #   input:
 #     selector:

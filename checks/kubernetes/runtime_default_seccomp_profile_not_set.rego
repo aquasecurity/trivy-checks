@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0030
 #   severity: LOW
-#   short_code: use-default-seccomp
+#   long_id: kubernetes-use-default-seccomp
 #   recommended_action: "Set 'spec.securityContext.seccompProfile.type', 'spec.containers[*].securityContext.seccompProfile' and 'spec.initContainers[*].securityContext.seccompProfile' to 'RuntimeDefault' or undefined."
 #   input:
 #     selector:

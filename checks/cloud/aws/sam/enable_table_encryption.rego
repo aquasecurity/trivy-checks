@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: sam
 #   severity: HIGH
-#   short_code: enable-table-encryption
+#   long_id: aws-sam-enable-table-encryption
 #   recommended_action: Enable server side encryption
 #   input:
 #     selector:

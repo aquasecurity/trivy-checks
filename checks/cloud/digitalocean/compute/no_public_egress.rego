@@ -14,7 +14,7 @@
 #   provider: digitalocean
 #   service: compute
 #   severity: CRITICAL
-#   short_code: no-public-egress
+#   long_id: digitalocean-no-public-egress
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

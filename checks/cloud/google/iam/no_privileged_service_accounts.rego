@@ -14,7 +14,7 @@
 #   provider: google
 #   service: iam
 #   severity: HIGH
-#   short_code: no-privileged-service-accounts
+#   long_id: google-no-privileged-service-accounts
 #   recommended_action: Limit service account access to minimal required set
 #   input:
 #     selector:

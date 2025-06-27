@@ -18,7 +18,7 @@
 #   provider: aws
 #   service: cloudfront
 #   severity: HIGH
-#   short_code: use-secure-tls-policy
+#   long_id: aws-cloudfront-use-secure-tls-policy
 #   recommended_action: Use the most modern TLS/SSL policies available
 #   input:
 #     selector:

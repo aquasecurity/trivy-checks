@@ -14,7 +14,7 @@
 #   provider: google
 #   service: compute
 #   severity: HIGH
-#   short_code: no-public-ip
+#   long_id: google-no-public-ip
 #   recommended_action: Remove public IP
 #   input:
 #     selector:

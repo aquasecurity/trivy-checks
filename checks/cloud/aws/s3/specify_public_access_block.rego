@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: s3
 #   severity: LOW
-#   short_code: specify-public-access-block
+#   long_id: aws-s3-specify-public-access-block
 #   recommended_action: Define a aws_s3_bucket_public_access_block for the given bucket to control public access policies
 #   input:
 #     selector:

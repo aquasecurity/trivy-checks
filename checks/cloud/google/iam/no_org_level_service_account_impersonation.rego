@@ -14,7 +14,7 @@
 #   provider: google
 #   service: iam
 #   severity: MEDIUM
-#   short_code: no-org-level-service-account-impersonation
+#   long_id: google-no-org-level-service-account-impersonation
 #   recommended_action: Provide access at the service-level instead of organization-level, if required
 #   input:
 #     selector:

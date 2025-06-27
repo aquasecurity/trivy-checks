@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0073
 #   severity: HIGH
-#   short_code: ensure-kubelet.conf-file-permissions-600-or-more-restrictive.
+#   long_id: kubernetes-ensure-kubelet.conf-file-permissions-600-or-more-restrictive.
 #   recommended_action: "Change the kubelet.conf file permissions to 600 or more restrictive if exist"
 #   input:
 #     selector:

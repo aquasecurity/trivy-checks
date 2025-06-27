@@ -13,7 +13,7 @@
 #   provider: azure
 #   service: network
 #   severity: CRITICAL
-#   short_code: ssh-blocked-from-internet
+#   long_id: azure-ssh-blocked-from-internet
 #   recommended_action: Block port 22 access from the internet
 #   input:
 #     selector:

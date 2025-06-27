@@ -12,7 +12,7 @@
 #   provider: aws
 #   service: s3
 #   severity: LOW
-#   short_code: enable-logging
+#   long_id: aws-s3-enable-logging
 #   aliases:
 #   - s3-bucket-logging
 #   - aws-s3-enable-logging

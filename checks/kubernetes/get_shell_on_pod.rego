@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0053
 #   severity: HIGH
-#   short_code: no-getting-shell-pods
+#   long_id: kubernetes-no-getting-shell-pods
 #   recommended_action: "Remove write permission verbs for resource 'pods/exec'"
 #   input:
 #     selector:

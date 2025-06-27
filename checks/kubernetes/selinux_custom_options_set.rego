@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0025
 #   severity: MEDIUM
-#   short_code: no-custom-selinux-options
+#   long_id: kubernetes-no-custom-selinux-options
 #   recommended_action: "Do not set 'spec.securityContext.seLinuxOptions', spec.containers[*].securityContext.seLinuxOptions and spec.initContainers[*].securityContext.seLinuxOptions."
 #   input:
 #     selector:

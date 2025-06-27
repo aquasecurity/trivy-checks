@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0018
 #   severity: LOW
-#   short_code: limit-memory
+#   long_id: kubernetes-limit-memory
 #   recommended_action: "Set a limit value under 'containers[].resources.limits.memory'."
 #   input:
 #     selector:

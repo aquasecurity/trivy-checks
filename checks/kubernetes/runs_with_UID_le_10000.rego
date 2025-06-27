@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0020
 #   severity: LOW
-#   short_code: use-high-uid
+#   long_id: kubernetes-use-high-uid
 #   recommended_action: "Set 'containers[].securityContext.runAsUser' to an integer > 10000."
 #   input:
 #     selector:

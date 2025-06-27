@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: config
 #   severity: HIGH
-#   short_code: aggregate-all-regions
+#   long_id: aws-config-aggregate-all-regions
 #   recommended_action: Set the aggregator to cover all regions
 #   input:
 #     selector:

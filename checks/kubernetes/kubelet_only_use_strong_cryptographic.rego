@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0092
 #   severity: CRITICAL
-#   short_code: ensure-Kubelet-only-makes-use-strong-cryptographic-ciphers
+#   long_id: kubernetes-ensure-Kubelet-only-makes-use-strong-cryptographic-ciphers
 #   recommended_action: "If using a Kubelet config file, edit the file to set TLSCipherSuites"
 #   input:
 #     selector:

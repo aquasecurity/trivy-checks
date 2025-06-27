@@ -16,7 +16,7 @@
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
-#   short_code: no-password-reuse
+#   long_id: aws-iam-no-password-reuse
 #   recommended_action: Prevent password reuse in the policy
 #   frameworks:
 #     default:

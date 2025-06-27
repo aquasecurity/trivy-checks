@@ -13,7 +13,7 @@
 #   provider: aws
 #   service: rds
 #   severity: MEDIUM
-#   short_code: enable-iam-auth
+#   long_id: aws-rds-enable-iam-auth
 #   recommended_action: "Modify the PostgreSQL and MySQL type RDS instances to enable IAM database authentication."
 #   input:
 #     selector:

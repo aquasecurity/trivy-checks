@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0074
 #   severity: HIGH
-#   short_code: ensure-kubeconfig-kubelet.conf-ownership-set-root:root
+#   long_id: kubernetes-ensure-kubeconfig-kubelet.conf-ownership-set-root:root
 #   recommended_action: "Change the --kubeconfig kubelet.conf file ownership to root:root"
 #   input:
 #     selector:

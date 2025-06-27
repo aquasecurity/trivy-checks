@@ -14,7 +14,7 @@
 #   provider: azure
 #   service: container
 #   severity: HIGH
-#   short_code: configured-network-policy
+#   long_id: azure-configured-network-policy
 #   recommended_action: Configure a network policy
 #   input:
 #     selector:

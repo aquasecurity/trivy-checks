@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0037
 #   severity: LOW
-#   short_code: ensure-root-ca-file-argument-is-set-as-appropriate
+#   long_id: kubernetes-ensure-root-ca-file-argument-is-set-as-appropriate
 #   recommended_action: "Edit the Controller Manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml on the Control Plane node and set the --root-ca-file parameter to the certificate bundle file`."
 #   input:
 #     selector:

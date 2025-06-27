@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: s3
 #   severity: LOW
-#   short_code: require-mfa-delete
+#   long_id: aws-s3-require-mfa-delete
 #   recommended_action: Enable MFA deletion protection on the bucket
 #   frameworks:
 #     cis-aws-1.4:

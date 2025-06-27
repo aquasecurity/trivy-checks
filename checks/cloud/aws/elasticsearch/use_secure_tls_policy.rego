@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: elasticsearch
 #   severity: HIGH
-#   short_code: use-secure-tls-policy
+#   long_id: aws-elasticsearch-use-secure-tls-policy
 #   recommended_action: Use the most modern TLS/SSL policies available
 #   input:
 #     selector:

@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0027
 #   severity: HIGH
-#   short_code: purge-microdnf-package-cache
+#   long_id: docker-purge-microdnf-package-cache
 #   recommended_action: "Add 'microdnf clean all' to Dockerfile"
 #   input:
 #     selector:

@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   short_code: require-non-mfa-login-alarm
+#   long_id: aws-cloudwatch-require-non-mfa-login-alarm
 #   recommended_action: Create an alarm to alert on non MFA logins
 #   frameworks:
 #     cis-aws-1.2:

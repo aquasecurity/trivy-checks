@@ -12,7 +12,7 @@
 #   provider: azure
 #   service: database
 #   severity: LOW
-#   short_code: threat-alert-email-to-owner
+#   long_id: azure-threat-alert-email-to-owner
 #   recommended_action: Enable email to subscription owners
 #   input:
 #     selector:

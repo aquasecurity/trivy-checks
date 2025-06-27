@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0026
 #   severity: MEDIUM
-#   short_code: no-unsafe-sysctl
+#   long_id: kubernetes-no-unsafe-sysctl
 #   recommended_action: "Do not set 'spec.securityContext.sysctls' or set to values in an allowed subset"
 #   input:
 #     selector:

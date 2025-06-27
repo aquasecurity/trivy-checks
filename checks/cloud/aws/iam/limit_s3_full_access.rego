@@ -11,7 +11,7 @@
 #   provider: aws
 #   service: iam
 #   severity: HIGH
-#   short_code: no-s3-full-access
+#   long_id: aws-iam-no-s3-full-access
 #   recommended_action: "Create more restrictive S3 policies"
 #   input:
 #     selector:

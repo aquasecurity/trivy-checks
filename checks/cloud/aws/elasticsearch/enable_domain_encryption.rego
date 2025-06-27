@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: elasticsearch
 #   severity: HIGH
-#   short_code: enable-domain-encryption
+#   long_id: aws-elasticsearch-enable-domain-encryption
 #   recommended_action: Enable ElasticSearch domain encryption
 #   input:
 #     selector:

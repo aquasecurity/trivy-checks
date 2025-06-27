@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0016
 #   severity: LOW
-#   short_code: no-unspecified-memory-requests
+#   long_id: kubernetes-no-unspecified-memory-requests
 #   recommended_action: "Set 'containers[].resources.requests.memory'."
 #   input:
 #     selector:

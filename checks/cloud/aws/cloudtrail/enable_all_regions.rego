@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: cloudtrail
 #   severity: MEDIUM
-#   short_code: enable-all-regions
+#   long_id: aws-cloudtrail-enable-all-regions
 #   recommended_action: Enable Cloudtrail in all regions
 #   frameworks:
 #     default:

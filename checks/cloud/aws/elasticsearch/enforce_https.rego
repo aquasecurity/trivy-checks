@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: elasticsearch
 #   severity: CRITICAL
-#   short_code: enforce-https
+#   long_id: aws-elasticsearch-enforce-https
 #   recommended_action: Enforce the use of HTTPS for ElasticSearch
 #   input:
 #     selector:

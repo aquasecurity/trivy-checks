@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0044
 #   severity: LOW
-#   short_code: ensure-auto-tls-argument-is-not-set-to-true
+#   long_id: kubernetes-ensure-auto-tls-argument-is-not-set-to-true
 #   recommended_action: "Edit the etcd pod specification file /etc/kubernetes/manifests/etcd.yaml on the master node and either remove the --auto-tls parameter or set it to false."
 #   input:
 #     selector:

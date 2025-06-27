@@ -12,7 +12,7 @@
 #   provider: azure
 #   service: appservice
 #   severity: MEDIUM
-#   short_code: authentication-enabled
+#   long_id: azure-authentication-enabled
 #   recommended_action: Enable authentication to prevent anonymous request being accepted
 #   input:
 #     selector:

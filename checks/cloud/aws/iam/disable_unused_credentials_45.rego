@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: iam
 #   severity: LOW
-#   short_code: disable-unused-credentials-45-days
+#   long_id: aws-iam-disable-unused-credentials-45-days
 #   recommended_action: Disable credentials which are no longer used.
 #   frameworks:
 #     cis-aws-1.4:

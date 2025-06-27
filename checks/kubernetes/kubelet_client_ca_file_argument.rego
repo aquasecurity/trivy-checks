@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0081
 #   severity: CRITICAL
-#   short_code: ensure-client-ca-argument-set-appropriate
+#   long_id: kubernetes-ensure-client-ca-argument-set-appropriate
 #   recommended_action: "If using a Kubelet config file, edit  the --client-ca-file argument ito appropriate value"
 #   input:
 #     selector:

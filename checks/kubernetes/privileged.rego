@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0017
 #   severity: HIGH
-#   short_code: no-privileged-containers
+#   long_id: kubernetes-no-privileged-containers
 #   recommended_action: "Change 'containers[].securityContext.privileged' to 'false'."
 #   input:
 #     selector:

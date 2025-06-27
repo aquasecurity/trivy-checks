@@ -12,7 +12,7 @@
 #   provider: google
 #   service: gke
 #   severity: MEDIUM
-#   short_code: enable-network-policy
+#   long_id: google-enable-network-policy
 #   recommended_action: Enable network policy
 #   input:
 #     selector:

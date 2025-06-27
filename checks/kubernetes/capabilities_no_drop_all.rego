@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0003
 #   severity: LOW
-#   short_code: drop-default-capabilities
+#   long_id: kubernetes-drop-default-capabilities
 #   recommended_action: "Add 'ALL' to containers[].securityContext.capabilities.drop."
 #   input:
 #     selector:

@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: sam
 #   severity: LOW
-#   short_code: enable-state-machine-tracing
+#   long_id: aws-sam-enable-state-machine-tracing
 #   recommended_action: Enable tracing
 #   input:
 #     selector:

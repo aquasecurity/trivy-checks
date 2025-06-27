@@ -12,7 +12,7 @@
 #   provider: azure
 #   service: appservice
 #   severity: HIGH
-#   short_code: use-secure-tls-policy
+#   long_id: azure-use-secure-tls-policy
 #   recommended_action: The TLS version being outdated and has known vulnerabilities
 #   input:
 #     selector:

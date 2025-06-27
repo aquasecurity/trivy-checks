@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0123
 #   severity: CRITICAL
-#   short_code: no-system-masters-group-bind
+#   long_id: kubernetes-no-system-masters-group-bind
 #   recommended_action: "Remove system:masters group binding from clusterrolebinding or rolebinding."
 #   input:
 #     selector:

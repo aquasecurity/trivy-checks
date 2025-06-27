@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   short_code: require-console-login-failures-alarm
+#   long_id: aws-cloudwatch-require-console-login-failures-alarm
 #   recommended_action: Create an alarm to alert on console login failures
 #   frameworks:
 #     cis-aws-1.4:

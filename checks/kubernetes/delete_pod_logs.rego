@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0042
 #   severity: MEDIUM
-#   short_code: no-delete-pod-logs
+#   long_id: kubernetes-no-delete-pod-logs
 #   recommended_action: "Remove verbs 'delete' and 'deletecollection' for resource 'pods/log' for Role and ClusterRole"
 #   input:
 #     selector:

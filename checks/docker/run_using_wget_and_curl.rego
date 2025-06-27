@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0014
 #   severity: LOW
-#   short_code: standardise-remote-get
+#   long_id: docker-standardise-remote-get
 #   recommended_action: "Pick one util, either 'wget' or 'curl'"
 #   input:
 #     selector:

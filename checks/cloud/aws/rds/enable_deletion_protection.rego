@@ -13,7 +13,7 @@
 #   provider: aws
 #   service: rds
 #   severity: MEDIUM
-#   short_code: enable-deletion-protection
+#   long_id: aws-rds-enable-deletion-protection
 #   recommended_action: "Modify the RDS instances to enable deletion protection."
 #   input:
 #     selector:

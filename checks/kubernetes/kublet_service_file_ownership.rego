@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0070
 #   severity: CRITICAL
-#   short_code: ensure-kubelet-service-file-ownership-set-root:root.
+#   long_id: kubernetes-ensure-kubelet-service-file-ownership-set-root:root.
 #   recommended_action: "Change the kubelet service file /etc/systemd/system/kubelet.service.d/10-kubeadm.conf ownership to root:root"
 #   input:
 #     selector:

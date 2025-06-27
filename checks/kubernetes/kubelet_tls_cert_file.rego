@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0088
 #   severity: CRITICAL
-#   short_code: ensure-tls-cert-file-argument-set-appropriate
+#   long_id: kubernetes-ensure-tls-cert-file-argument-set-appropriate
 #   recommended_action: "If using a Kubelet config file, edit the file to set tlsCertFile to the location"
 #   input:
 #     selector:

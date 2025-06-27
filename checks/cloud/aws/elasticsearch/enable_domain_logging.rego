@@ -17,7 +17,7 @@
 #   provider: aws
 #   service: elasticsearch
 #   severity: MEDIUM
-#   short_code: enable-domain-logging
+#   long_id: aws-elasticsearch-enable-domain-logging
 #   recommended_action: Enable logging for ElasticSearch domains
 #   input:
 #     selector:

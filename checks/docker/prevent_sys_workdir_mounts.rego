@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0030
 #   severity: HIGH
-#   short_code: avoid-sys-workdir-mounts
+#   long_id: docker-avoid-sys-workdir-mounts
 #   recommended_action: "Avoid using system directories to mount WORKDIR"
 #   input:
 #     selector:

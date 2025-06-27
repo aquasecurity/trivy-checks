@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0068
 #   severity: HIGH
-#   short_code: ensure-kubernetes-pki-cert-file-permission-set-600.
+#   long_id: kubernetes-ensure-kubernetes-pki-cert-file-permission-set-600.
 #   recommended_action: "Change the Kubernetes PKI certificate file /etc/kubernetes/pki/*.crt permission to 600"
 #   input:
 #     selector:

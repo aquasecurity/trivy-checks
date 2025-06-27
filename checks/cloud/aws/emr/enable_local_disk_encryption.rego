@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: emr
 #   severity: HIGH
-#   short_code: enable-local-disk-encryption
+#   long_id: aws-emr-enable-local-disk-encryption
 #   recommended_action: Enable local-disk encryption for EMR cluster
 #   input:
 #     selector:

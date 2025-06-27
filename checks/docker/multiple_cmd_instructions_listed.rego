@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0016
 #   severity: HIGH
-#   short_code: only-one-cmd
+#   long_id: docker-only-one-cmd
 #   recommended_action: "Dockerfile should only have one CMD instruction. Remove all the other CMD instructions"
 #   input:
 #     selector:

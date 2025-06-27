@@ -21,7 +21,7 @@
 #   provider: aws
 #   service: s3
 #   severity: MEDIUM
-#   short_code: enable-versioning
+#   long_id: aws-s3-enable-versioning
 #   recommended_action: Enable versioning to protect against accidental/malicious removal or modification
 #   input:
 #     selector:

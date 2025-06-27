@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0049
 #   severity: MEDIUM
-#   short_code: no-manage-configmaps
+#   long_id: kubernetes-no-manage-configmaps
 #   recommended_action: "Remove write permission verbs for resource 'configmaps'"
 #   input:
 #     selector:

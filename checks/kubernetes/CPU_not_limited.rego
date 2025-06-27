@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0011
 #   severity: LOW
-#   short_code: limit-cpu
+#   long_id: kubernetes-limit-cpu
 #   recommended_action: "Set a limit value under 'containers[].resources.limits.cpu'."
 #   input:
 #     selector:

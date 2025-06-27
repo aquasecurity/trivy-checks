@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0122
 #   severity: CRITICAL
-#   short_code: no-anonymous-user-bind
+#   long_id: kubernetes-no-anonymous-user-bind
 #   recommended_action: "Remove anonymous user binding from clusterrolebinding or rolebinding."
 #   input:
 #     selector:

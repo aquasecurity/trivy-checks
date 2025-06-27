@@ -11,7 +11,7 @@
 # custom:
 #   id: KCV-0093
 #   severity: CRITICAL
-#   short_code: insecure-ingress-nginx
+#   long_id: kubernetes-insecure-ingress-nginx
 #   recommended_action: "Ensure that ingress-nginx annotations do not contain suspicious characters."
 #   input:
 #     selector:

@@ -19,7 +19,7 @@
 #   provider: google
 #   service: iam
 #   severity: MEDIUM
-#   short_code: no-user-granted-permissions
+#   long_id: google-no-user-granted-permissions
 #   recommended_action: Roles should be granted permissions and assigned to users
 #   input:
 #     selector:

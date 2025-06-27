@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: rds
 #   severity: HIGH
-#   short_code: encrypt-instance-storage-data
+#   long_id: aws-rds-encrypt-instance-storage-data
 #   recommended_action: Enable encryption for RDS instances
 #   input:
 #     selector:

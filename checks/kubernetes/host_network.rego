@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0009
 #   severity: HIGH
-#   short_code: no-host-network
+#   long_id: kubernetes-no-host-network
 #   recommended_action: "Do not set 'spec.template.spec.hostNetwork' to true."
 #   input:
 #     selector:

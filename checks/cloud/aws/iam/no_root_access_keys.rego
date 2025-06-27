@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: iam
 #   severity: CRITICAL
-#   short_code: no-root-access-keys
+#   long_id: aws-iam-no-root-access-keys
 #   recommended_action: Use lower privileged accounts instead, so only required privileges are available.
 #   frameworks:
 #     default:

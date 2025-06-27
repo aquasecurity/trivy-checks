@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0021
 #   severity: HIGH
-#   short_code: use-apt-auto-confirm
+#   long_id: docker-use-apt-auto-confirm
 #   recommended_action: "Add '-y' flag to 'apt-get'"
 #   input:
 #     selector:

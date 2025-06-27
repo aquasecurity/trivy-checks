@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: athena
 #   severity: HIGH
-#   short_code: no-encryption-override
+#   long_id: aws-athena-no-encryption-override
 #   recommended_action: Enforce the configuration to prevent client overrides
 #   input:
 #     selector:

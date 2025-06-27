@@ -13,7 +13,7 @@
 #   provider: aws
 #   service: rds
 #   severity: MEDIUM
-#   short_code: enable-cluster-deletion-protection
+#   long_id: aws-rds-enable-cluster-deletion-protection
 #   recommended_action: "Modify the RDS clusters to enable deletion protection."
 #   input:
 #     selector:

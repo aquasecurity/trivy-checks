@@ -10,7 +10,7 @@
 # custom:
 #   id: KSV-0125
 #   severity: MEDIUM
-#   short_code: use-trusted-registry
+#   long_id: kubernetes-use-trusted-registry
 #   recommended_action: Use images from trusted registries.
 #   input:
 #     selector:

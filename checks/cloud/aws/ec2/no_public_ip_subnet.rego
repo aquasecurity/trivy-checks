@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: ec2
 #   severity: HIGH
-#   short_code: no-public-ip-subnet
+#   long_id: aws-ec2-no-public-ip-subnet
 #   recommended_action: Set the instance to not be publicly accessible
 #   input:
 #     selector:

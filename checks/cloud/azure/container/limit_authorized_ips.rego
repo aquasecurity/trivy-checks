@@ -14,7 +14,7 @@
 #   provider: azure
 #   service: container
 #   severity: CRITICAL
-#   short_code: limit-authorized-ips
+#   long_id: azure-limit-authorized-ips
 #   recommended_action: Limit the access to the API server to a limited IP range
 #   input:
 #     selector:

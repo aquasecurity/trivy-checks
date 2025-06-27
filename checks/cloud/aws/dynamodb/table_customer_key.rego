@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: dynamodb
 #   severity: LOW
-#   short_code: table-customer-key
+#   long_id: aws-dynamodb-table-customer-key
 #   recommended_action: Enable server side encryption with a customer managed key
 #   input:
 #     selector:

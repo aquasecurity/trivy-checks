@@ -14,7 +14,7 @@
 #   provider: nifcloud
 #   service: computing
 #   severity: CRITICAL
-#   short_code: add-security-group-to-instance
+#   long_id: nifcloud-add-security-group-to-instance
 #   recommended_action: Add security group for all instances
 #   input:
 #     selector:

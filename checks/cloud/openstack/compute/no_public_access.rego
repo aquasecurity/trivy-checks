@@ -12,7 +12,7 @@
 #   provider: openstack
 #   service: compute
 #   severity: MEDIUM
-#   short_code: no-public-access
+#   long_id: openstack-no-public-access
 #   recommended_action: Employ more restrictive firewall rules
 #   input:
 #     selector:

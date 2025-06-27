@@ -7,7 +7,7 @@
 # custom:
 #   id: KSV-0032
 #   severity: MEDIUM
-#   short_code: use-azure-image-prefix
+#   long_id: kubernetes-use-azure-image-prefix
 #   recommended_action: "Use images from trusted Azure registries."
 #   deprecated: true
 #   input:

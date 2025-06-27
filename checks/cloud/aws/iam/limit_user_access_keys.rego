@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: iam
 #   severity: LOW
-#   short_code: limit-user-access-keys
+#   long_id: aws-iam-limit-user-access-keys
 #   recommended_action: Limit the number of active access keys to one key per user.
 #   frameworks:
 #     cis-aws-1.4:

@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0121
 #   severity: HIGH
-#   short_code: no-k8s-with-disallowed-volumes
+#   long_id: kubernetes-no-k8s-with-disallowed-volumes
 #   recommended_action: "Do not Set 'spec.volumes[*].hostPath.path' to any of the disallowed volumes."
 #   input:
 #     selector:

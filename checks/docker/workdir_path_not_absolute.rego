@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0009
 #   severity: HIGH
-#   short_code: user-absolute-workdir
+#   long_id: docker-user-absolute-workdir
 #   recommended_action: "Use absolute paths for your WORKDIR"
 #   input:
 #     selector:

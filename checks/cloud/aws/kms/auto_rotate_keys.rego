@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: kms
 #   severity: MEDIUM
-#   short_code: auto-rotate-keys
+#   long_id: aws-kms-auto-rotate-keys
 #   recommended_action: Configure KMS key to auto rotate
 #   input:
 #     selector:

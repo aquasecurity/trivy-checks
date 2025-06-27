@@ -16,7 +16,7 @@
 #   provider: aws
 #   service: lambda
 #   severity: CRITICAL
-#   short_code: restrict-source-arn
+#   long_id: aws-lambda-restrict-source-arn
 #   recommended_action: Always provide a source arn for Lambda permissions
 #   input:
 #     selector:

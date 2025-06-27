@@ -12,7 +12,7 @@
 #   provider: google
 #   service: gke
 #   severity: LOW
-#   short_code: node-pool-uses-cos
+#   long_id: google-node-pool-uses-cos
 #   recommended_action: Use the COS image type
 #   input:
 #     selector:

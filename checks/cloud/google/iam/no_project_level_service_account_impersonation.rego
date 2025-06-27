@@ -14,7 +14,7 @@
 #   provider: google
 #   service: iam
 #   severity: MEDIUM
-#   short_code: no-project-level-service-account-impersonation
+#   long_id: google-no-project-level-service-account-impersonation
 #   recommended_action: Provide access at the service-level instead of project-level, if required
 #   input:
 #     selector:

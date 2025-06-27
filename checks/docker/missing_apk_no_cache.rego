@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0025
 #   severity: HIGH
-#   short_code: purge-apk-package-cache
+#   long_id: docker-purge-apk-package-cache
 #   recommended_action: "Add '--no-cache' to 'apk add' in Dockerfile"
 #   input:
 #     selector:

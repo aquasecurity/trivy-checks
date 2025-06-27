@@ -14,7 +14,7 @@
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
-#   short_code: postgres-configuration-log-connections
+#   long_id: azure-postgres-configuration-log-connections
 #   recommended_action: Enable connection logging
 #   input:
 #     selector:

@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0012
 #   severity: CRITICAL
-#   short_code: no-duplicate-alias
+#   long_id: docker-no-duplicate-alias
 #   recommended_action: "Change aliases to make them different"
 #   input:
 #     selector:

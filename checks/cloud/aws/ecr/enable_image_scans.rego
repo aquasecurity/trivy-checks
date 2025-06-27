@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: ecr
 #   severity: HIGH
-#   short_code: enable-image-scans
+#   long_id: aws-ecr-enable-image-scans
 #   recommended_action: Enable ECR image scanning
 #   input:
 #     selector:

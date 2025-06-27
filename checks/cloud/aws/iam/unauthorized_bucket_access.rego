@@ -13,7 +13,7 @@
 #   provider: aws
 #   service: iam
 #   severity: HIGH
-#   short_code: unauthorized-bucket-access
+#   long_id: aws-iam-unauthorized-bucket-access
 #   recommended_action: Allowing Get* along with Put* on all Resources can potentially allow unauthorized access and/or information disclosure from sensitive buckets.
 #   input:
 #     selector:

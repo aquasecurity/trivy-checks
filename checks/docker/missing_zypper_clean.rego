@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0020
 #   severity: HIGH
-#   short_code: purge-zipper-cache
+#   long_id: docker-purge-zipper-cache
 #   recommended_action: "Add 'zypper clean' to Dockerfile"
 #   input:
 #     selector:

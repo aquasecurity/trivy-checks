@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: neptune
 #   severity: MEDIUM
-#   short_code: enable-log-export
+#   long_id: aws-neptune-enable-log-export
 #   recommended_action: Enable export logs
 #   input:
 #     selector:

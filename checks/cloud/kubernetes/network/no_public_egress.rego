@@ -11,7 +11,7 @@
 #   provider: kubernetes
 #   service: network
 #   severity: HIGH
-#   short_code: no-public-egress
+#   long_id: kubernetes-no-public-egress
 #   recommended_action: Remove public access except where explicitly required
 #   input:
 #     selector:

@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: sam
 #   severity: HIGH
-#   short_code: api-use-secure-tls-policy
+#   long_id: aws-sam-api-use-secure-tls-policy
 #   recommended_action: Use the most modern TLS/SSL policies available
 #   input:
 #     selector:

@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: cloudfront
 #   severity: HIGH
-#   short_code: enable-waf
+#   long_id: aws-cloudfront-enable-waf
 #   recommended_action: Enable WAF for the CloudFront distribution
 #   input:
 #     selector:

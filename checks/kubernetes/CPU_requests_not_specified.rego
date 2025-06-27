@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0015
 #   severity: LOW
-#   short_code: no-unspecified-cpu-requests
+#   long_id: kubernetes-no-unspecified-cpu-requests
 #   recommended_action: "Set 'containers[].resources.requests.cpu'."
 #   input:
 #     selector:

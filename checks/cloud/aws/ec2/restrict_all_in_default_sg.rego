@@ -18,7 +18,7 @@
 #   provider: aws
 #   service: ec2
 #   severity: LOW
-#   short_code: restrict-all-in-default-sg
+#   long_id: aws-ec2-restrict-all-in-default-sg
 #   recommended_action: Configure default security group to restrict all traffic
 #   frameworks:
 #     cis-aws-1.4:

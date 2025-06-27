@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: redshift
 #   severity: HIGH
-#   short_code: use-vpc
+#   long_id: aws-redshift-use-vpc
 #   recommended_action: Deploy Redshift cluster into a non default VPC
 #   input:
 #     selector:

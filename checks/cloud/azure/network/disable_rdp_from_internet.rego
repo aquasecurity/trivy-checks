@@ -15,7 +15,7 @@
 #   provider: azure
 #   service: network
 #   severity: CRITICAL
-#   short_code: disable-rdp-from-internet
+#   long_id: azure-disable-rdp-from-internet
 #   recommended_action: Block RDP port from internet
 #   input:
 #     selector:

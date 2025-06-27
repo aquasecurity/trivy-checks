@@ -20,7 +20,7 @@
 #   provider: google
 #   service: gke
 #   severity: HIGH
-#   short_code: metadata-endpoints-disabled
+#   long_id: google-metadata-endpoints-disabled
 #   recommended_action: Disable legacy metadata endpoints
 #   input:
 #     selector:

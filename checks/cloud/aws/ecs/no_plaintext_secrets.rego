@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: ecs
 #   severity: CRITICAL
-#   short_code: no-plaintext-secrets
+#   long_id: aws-ecs-no-plaintext-secrets
 #   recommended_action: Use secrets for the task definition
 #   input:
 #     selector:

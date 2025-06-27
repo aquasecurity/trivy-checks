@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: elasticache
 #   severity: HIGH
-#   short_code: enable-in-transit-encryption
+#   long_id: aws-elasticache-enable-in-transit-encryption
 #   recommended_action: Enable in transit encryption for replication group
 #   input:
 #     selector:

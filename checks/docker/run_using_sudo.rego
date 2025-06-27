@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0010
 #   severity: CRITICAL
-#   short_code: no-sudo-run
+#   long_id: docker-no-sudo-run
 #   recommended_action: "Don't use sudo"
 #   input:
 #     selector:

@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: emr
 #   severity: HIGH
-#   short_code: enable-at-rest-encryption
+#   long_id: aws-emr-enable-at-rest-encryption
 #   recommended_action: Enable at-rest encryption for EMR cluster
 #   input:
 #     selector:

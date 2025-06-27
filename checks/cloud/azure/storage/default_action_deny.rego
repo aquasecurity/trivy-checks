@@ -15,7 +15,7 @@
 #   provider: azure
 #   service: storage
 #   severity: CRITICAL
-#   short_code: default-action-deny
+#   long_id: azure-default-action-deny
 #   recommended_action: Set network rules to deny
 #   input:
 #     selector:

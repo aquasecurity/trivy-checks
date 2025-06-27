@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0066
 #   severity: CRITICAL
-#   short_code: ensure-kubernetes-pki-directory-file-ownership-set-root:root.
+#   long_id: kubernetes-ensure-kubernetes-pki-directory-file-ownership-set-root:root.
 #   recommended_action: "Change the Kubernetes PKI directory and file file /etc/kubernetes/pki/ ownership to root:root"
 #   input:
 #     selector:

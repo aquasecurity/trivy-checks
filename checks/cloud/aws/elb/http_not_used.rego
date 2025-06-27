@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: elb
 #   severity: CRITICAL
-#   short_code: http-not-used
+#   long_id: aws-elb-http-not-used
 #   recommended_action: Switch to HTTPS to benefit from TLS security features
 #   input:
 #     selector:

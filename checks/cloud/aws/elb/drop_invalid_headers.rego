@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: elb
 #   severity: HIGH
-#   short_code: drop-invalid-headers
+#   long_id: aws-elb-drop-invalid-headers
 #   recommended_action: Set drop_invalid_header_fields to true
 #   input:
 #     selector:

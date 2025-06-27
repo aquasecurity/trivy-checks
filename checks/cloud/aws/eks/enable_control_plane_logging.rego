@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: eks
 #   severity: MEDIUM
-#   short_code: enable-control-plane-logging
+#   long_id: aws-eks-enable-control-plane-logging
 #   recommended_action: Enable logging for the EKS control plane
 #   input:
 #     selector:

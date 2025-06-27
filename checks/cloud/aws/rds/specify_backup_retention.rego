@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: rds
 #   severity: MEDIUM
-#   short_code: specify-backup-retention
+#   long_id: aws-rds-specify-backup-retention
 #   recommended_action: Explicitly set the retention period to greater than the default
 #   input:
 #     selector:

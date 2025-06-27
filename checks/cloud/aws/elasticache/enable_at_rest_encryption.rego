@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: elasticache
 #   severity: HIGH
-#   short_code: enable-at-rest-encryption
+#   long_id: aws-elasticache-enable-at-rest-encryption
 #   recommended_action: Enable at-rest encryption for replication group
 #   input:
 #     selector:

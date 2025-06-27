@@ -14,7 +14,7 @@
 #   provider: google
 #   service: sql
 #   severity: MEDIUM
-#   short_code: pg-log-disconnections
+#   long_id: google-pg-log-disconnections
 #   recommended_action: Enable disconnection logging.
 #   input:
 #     selector:

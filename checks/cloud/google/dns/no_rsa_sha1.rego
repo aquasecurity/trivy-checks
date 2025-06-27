@@ -12,7 +12,7 @@
 #   provider: google
 #   service: dns
 #   severity: MEDIUM
-#   short_code: no-rsa-sha1
+#   long_id: google-no-rsa-sha1
 #   recommended_action: Use RSA SHA512
 #   input:
 #     selector:

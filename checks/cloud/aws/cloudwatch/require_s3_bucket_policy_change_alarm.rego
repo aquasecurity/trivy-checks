@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   short_code: require-s3-bucket-policy-change-alarm
+#   long_id: aws-cloudwatch-require-s3-bucket-policy-change-alarm
 #   recommended_action: Create an alarm to alert on S3 Bucket policy changes
 #   frameworks:
 #     cis-aws-1.2:

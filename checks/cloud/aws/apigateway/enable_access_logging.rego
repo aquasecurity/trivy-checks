@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: apigateway
 #   severity: MEDIUM
-#   short_code: enable-access-logging
+#   long_id: aws-apigateway-enable-access-logging
 #   recommended_action: Enable logging for API Gateway stages
 #   input:
 #     selector:

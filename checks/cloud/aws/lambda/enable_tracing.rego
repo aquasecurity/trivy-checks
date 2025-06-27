@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: lambda
 #   severity: LOW
-#   short_code: enable-tracing
+#   long_id: aws-lambda-enable-tracing
 #   recommended_action: Enable tracing
 #   input:
 #     selector:

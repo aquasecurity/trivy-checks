@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0013
 #   severity: MEDIUM
-#   short_code: use-specific-tags
+#   long_id: kubernetes-use-specific-tags
 #   recommended_action: "Use a specific container image tag that is not 'latest'."
 #   input:
 #     selector:

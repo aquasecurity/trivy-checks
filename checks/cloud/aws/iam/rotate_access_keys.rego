@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: iam
 #   severity: LOW
-#   short_code: rotate-access-keys
+#   long_id: aws-iam-rotate-access-keys
 #   recommended_action: Rotate keys every 90 days or less
 #   frameworks:
 #     cis-aws-1.2:

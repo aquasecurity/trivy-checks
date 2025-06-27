@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0103
 #   severity: MEDIUM
-#   short_code: no-hostprocess-containers
+#   long_id: kubernetes-no-hostprocess-containers
 #   recommended_action: "Do not enable 'hostProcess' on any securityContext"
 #   input:
 #     selector:

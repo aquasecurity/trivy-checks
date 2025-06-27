@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: s3
 #   severity: LOW
-#   short_code: enable-object-read-logging
+#   long_id: aws-s3-enable-object-read-logging
 #   recommended_action: Enable Object-level logging for S3 buckets.
 #   frameworks:
 #     cis-aws-1.4:

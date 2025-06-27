@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0043
 #   severity: CRITICAL
-#   short_code: no-impersonate-privileged-groups
+#   long_id: kubernetes-no-impersonate-privileged-groups
 #   recommended_action: "Create a role which does not permit to impersonate privileged groups if not needed"
 #   input:
 #     selector:

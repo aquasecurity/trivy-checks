@@ -18,7 +18,7 @@
 #   provider: aws
 #   service: ec2
 #   severity: HIGH
-#   short_code: no-public-ingress-sgr
+#   long_id: aws-ec2-no-public-ingress-sgr
 #   recommended_action: Set a more restrictive CIDR range
 #   frameworks:
 #     default:

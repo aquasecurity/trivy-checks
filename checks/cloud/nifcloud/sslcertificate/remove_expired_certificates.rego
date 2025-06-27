@@ -20,7 +20,7 @@
 #   provider: nifcloud
 #   service: ssl-certificate
 #   severity: LOW
-#   short_code: remove-expired-certificates
+#   long_id: nifcloud-remove-expired-certificates
 #   recommended_action: Remove expired certificates
 #   input:
 #     selector:

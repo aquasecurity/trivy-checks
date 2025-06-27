@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0007
 #   severity: CRITICAL
-#   short_code: only-one-entrypoint
+#   long_id: docker-only-one-entrypoint
 #   recommended_action: "Remove unnecessary ENTRYPOINT instruction."
 #   input:
 #     selector:

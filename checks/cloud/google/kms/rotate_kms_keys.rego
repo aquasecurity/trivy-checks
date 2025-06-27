@@ -12,7 +12,7 @@
 #   provider: google
 #   service: kms
 #   severity: HIGH
-#   short_code: rotate-kms-keys
+#   long_id: google-rotate-kms-keys
 #   recommended_action: Set key rotation period to 90 days
 #   input:
 #     selector:

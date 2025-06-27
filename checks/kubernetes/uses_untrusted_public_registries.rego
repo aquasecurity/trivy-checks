@@ -7,7 +7,7 @@
 # custom:
 #   id: KSV-0034
 #   severity: MEDIUM
-#   short_code: no-public-registries
+#   long_id: kubernetes-no-public-registries
 #   recommended_action: "Use images from private registries."
 #   deprecated: true
 #   input:

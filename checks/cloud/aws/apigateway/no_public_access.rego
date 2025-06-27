@@ -12,7 +12,7 @@
 #   provider: aws
 #   service: apigateway
 #   severity: LOW
-#   short_code: no-public-access
+#   long_id: aws-apigateway-no-public-access
 #   recommended_action: Use and authorization method or require API Key
 #   input:
 #     selector:

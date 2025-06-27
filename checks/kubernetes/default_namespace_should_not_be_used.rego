@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0110
 #   severity: LOW
-#   short_code: default-namespace-should-not-be-used
+#   long_id: kubernetes-default-namespace-should-not-be-used
 #   recommended_action: "Set 'metadata.namespace' to a non-default namespace."
 #   input:
 #     selector:

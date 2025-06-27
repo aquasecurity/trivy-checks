@@ -7,7 +7,7 @@
 # custom:
 #   id: DS-0001
 #   severity: MEDIUM
-#   short_code: use-specific-tags
+#   long_id: docker-use-specific-tags
 #   recommended_action: "Add a tag to the image in the 'FROM' statement"
 #   input:
 #     selector:

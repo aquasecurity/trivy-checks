@@ -15,7 +15,7 @@
 #   provider: azure
 #   service: storage
 #   severity: HIGH
-#   short_code: no-public-access
+#   long_id: azure-no-public-access
 #   recommended_action: Disable public access to storage containers
 #   input:
 #     selector:

@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0039
 #   severity: LOW
-#   short_code: ensure-controller-manager-bind-address-is-loopback
+#   long_id: kubernetes-ensure-controller-manager-bind-address-is-loopback
 #   recommended_action: "Edit the Controller Manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml on the Control Plane node and ensure the correct value for the --bind-address parameter"
 #   input:
 #     selector:

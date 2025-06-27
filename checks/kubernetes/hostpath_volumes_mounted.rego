@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0023
 #   severity: MEDIUM
-#   short_code: no-mounted-hostpath
+#   long_id: kubernetes-no-mounted-hostpath
 #   recommended_action: "Do not set 'spec.volumes[*].hostPath'."
 #   input:
 #     selector:

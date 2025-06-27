@@ -14,7 +14,7 @@
 #   provider: azure
 #   service: database
 #   severity: HIGH
-#   short_code: no-public-firewall-access
+#   long_id: azure-no-public-firewall-access
 #   recommended_action: Don't use wide ip ranges for the sql firewall
 #   input:
 #     selector:

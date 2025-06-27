@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0005
 #   severity: LOW
-#   short_code: use-copy-over-add
+#   long_id: docker-use-copy-over-add
 #   recommended_action: Use COPY instead of ADD
 #   input:
 #     selector:

@@ -18,7 +18,7 @@
 #   provider: aws
 #   service: ec2
 #   severity: HIGH
-#   short_code: enforce-http-token-imds
+#   long_id: aws-ec2-enforce-http-token-imds
 #   recommended_action: Enable HTTP token requirement for IMDS
 #   input:
 #     selector:

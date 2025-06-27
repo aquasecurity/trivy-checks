@@ -16,7 +16,7 @@
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   short_code: require-sg-change-alarms
+#   long_id: aws-cloudwatch-require-sg-change-alarms
 #   recommended_action: Create an alarm to alert on security group changes
 #   frameworks:
 #     cis-aws-1.2:

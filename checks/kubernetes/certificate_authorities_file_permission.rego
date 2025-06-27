@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0075
 #   severity: CRITICAL
-#   short_code: ensure-certificate-authorities-file-permissions-600-or-more-restrictive.
+#   long_id: kubernetes-ensure-certificate-authorities-file-permissions-600-or-more-restrictive.
 #   recommended_action: "Change the certificate authorities file permissions to 600 or more restrictive if exist"
 #   input:
 #     selector:

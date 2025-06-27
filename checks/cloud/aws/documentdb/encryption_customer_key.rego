@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: documentdb
 #   severity: LOW
-#   short_code: encryption-customer-key
+#   long_id: aws-documentdb-encryption-customer-key
 #   recommended_action: Enable encryption using customer managed keys
 #   input:
 #     selector:

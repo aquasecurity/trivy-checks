@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0029
 #   severity: HIGH
-#   short_code: use-apt-no-install-recommends
+#   long_id: docker-use-apt-no-install-recommends
 #   recommended_action: "Add '--no-install-recommends' flag to 'apt-get'"
 #   input:
 #     selector:

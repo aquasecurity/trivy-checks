@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: elasticache
 #   severity: MEDIUM
-#   short_code: enable-backup-retention
+#   long_id: aws-elasticache-enable-backup-retention
 #   recommended_action: Configure snapshot retention for redis cluster
 #   input:
 #     selector:

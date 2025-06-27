@@ -16,7 +16,7 @@
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   short_code: require-network-gateway-changes-alarm
+#   long_id: aws-cloudwatch-require-network-gateway-changes-alarm
 #   recommended_action: Create an alarm to alert on network gateway changes
 #   frameworks:
 #     cis-aws-1.2:

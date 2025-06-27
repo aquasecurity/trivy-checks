@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: cloudtrail
 #   severity: HIGH
-#   short_code: encryption-customer-managed-key
+#   long_id: aws-cloudtrail-encryption-customer-managed-key
 #   recommended_action: Use Customer managed key
 #   input:
 #     selector:

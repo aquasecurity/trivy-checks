@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0050
 #   severity: CRITICAL
-#   short_code: no-manage-rbac-resources
+#   long_id: kubernetes-no-manage-rbac-resources
 #   recommended_action: "Remove write permission verbs for resource 'roles' and 'rolebindings'"
 #   input:
 #     selector:

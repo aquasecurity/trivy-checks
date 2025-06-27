@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0022
 #   severity: HIGH
-#   short_code: no-maintainer
+#   long_id: docker-no-maintainer
 #   recommended_action: "Use LABEL instead of MAINTAINER"
 #   input:
 #     selector:

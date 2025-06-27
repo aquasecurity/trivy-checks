@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: s3
 #   severity: HIGH
-#   short_code: block-public-policy
+#   long_id: aws-s3-block-public-policy
 #   recommended_action: Prevent policies that allow public access being PUT
 #   input:
 #     selector:

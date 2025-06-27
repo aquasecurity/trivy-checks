@@ -12,7 +12,7 @@
 #   provider: azure
 #   service: compute
 #   severity: HIGH
-#   short_code: disable-password-authentication
+#   long_id: azure-disable-password-authentication
 #   recommended_action: Use ssh authentication for virtual machines
 #   input:
 #     selector:

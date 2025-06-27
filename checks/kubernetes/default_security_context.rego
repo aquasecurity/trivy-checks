@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0118
 #   severity: HIGH
-#   short_code: no-default-security-context
+#   long_id: kubernetes-no-default-security-context
 #   recommended_action: "To enhance security, it is strongly recommended not to rely on the default security context. Instead, it is advisable to explicitly define the required security parameters (such as runAsNonRoot, capabilities, readOnlyRootFilesystem, etc.) within the security context."
 #   input:
 #     selector:

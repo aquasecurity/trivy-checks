@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0025
 #   severity: LOW
-#   short_code: ensure-service-account-key-file-argument-is-set-as-appropriate
+#   long_id: kubernetes-ensure-service-account-key-file-argument-is-set-as-appropriate
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --service-account-key-file parameter to the public key file for service accounts."
 #   input:
 #     selector:

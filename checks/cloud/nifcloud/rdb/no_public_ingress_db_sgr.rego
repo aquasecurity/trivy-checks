@@ -14,7 +14,7 @@
 #   provider: nifcloud
 #   service: rdb
 #   severity: CRITICAL
-#   short_code: no-public-ingress-db-sgr
+#   long_id: nifcloud-no-public-ingress-db-sgr
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

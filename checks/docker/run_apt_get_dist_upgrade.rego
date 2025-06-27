@@ -9,7 +9,7 @@
 #   deprecated: true
 #   id: DS-0024
 #   severity: HIGH
-#   short_code: no-dist-upgrade
+#   long_id: docker-no-dist-upgrade
 #   recommended_action: "Just use different image"
 #   input:
 #     selector:

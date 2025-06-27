@@ -12,7 +12,7 @@
 #   provider: google
 #   service: gke
 #   severity: HIGH
-#   short_code: enable-master-networks
+#   long_id: google-enable-master-networks
 #   recommended_action: Enable master authorized networks
 #   input:
 #     selector:

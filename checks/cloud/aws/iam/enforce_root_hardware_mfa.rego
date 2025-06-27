@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
-#   short_code: enforce-root-hardware-mfa
+#   long_id: aws-iam-enforce-root-hardware-mfa
 #   recommended_action: Enable hardware MFA on the root user account.
 #   frameworks:
 #     cis-aws-1.4:

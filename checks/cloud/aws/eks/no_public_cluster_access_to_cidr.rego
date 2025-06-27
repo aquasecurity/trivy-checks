@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: eks
 #   severity: CRITICAL
-#   short_code: no-public-cluster-access-to-cidr
+#   long_id: aws-eks-no-public-cluster-access-to-cidr
 #   recommended_action: Don't enable public access to EKS Clusters
 #   input:
 #     selector:

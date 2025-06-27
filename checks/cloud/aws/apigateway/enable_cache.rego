@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: apigateway
 #   severity: LOW
-#   short_code: enable-cache
+#   long_id: aws-apigateway-enable-cache
 #   recommended_action: Enable cache
 #   input:
 #     selector:

@@ -14,7 +14,7 @@
 #   provider: nifcloud
 #   service: rdb
 #   severity: MEDIUM
-#   short_code: specify-backup-retention
+#   long_id: nifcloud-specify-backup-retention
 #   recommended_action: Explicitly set the retention period to greater than the default
 #   input:
 #     selector:

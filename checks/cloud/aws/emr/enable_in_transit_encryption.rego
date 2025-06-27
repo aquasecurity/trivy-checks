@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: emr
 #   severity: HIGH
-#   short_code: enable-in-transit-encryption
+#   long_id: aws-emr-enable-in-transit-encryption
 #   recommended_action: Enable in-transit encryption for EMR cluster
 #   input:
 #     selector:

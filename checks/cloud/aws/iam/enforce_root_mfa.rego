@@ -16,7 +16,7 @@
 #   provider: aws
 #   service: iam
 #   severity: CRITICAL
-#   short_code: enforce-root-mfa
+#   long_id: aws-iam-enforce-root-mfa
 #   recommended_action: Enable MFA on the root user account.
 #   frameworks:
 #     cis-aws-1.4:

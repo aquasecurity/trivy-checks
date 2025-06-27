@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0084
 #   severity: HIGH
-#   short_code: ensure-make-iptables-util-chains-argument-set-true
+#   long_id: kubernetes-ensure-make-iptables-util-chains-argument-set-true
 #   recommended_action: "If using a Kubelet config file, edit the file to set makeIPTablesUtilChains: true"
 #   input:
 #     selector:

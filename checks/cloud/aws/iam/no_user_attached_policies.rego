@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: iam
 #   severity: LOW
-#   short_code: no-user-attached-policies
+#   long_id: aws-iam-no-user-attached-policies
 #   recommended_action: Grant policies at the group level instead.
 #   frameworks:
 #     default:

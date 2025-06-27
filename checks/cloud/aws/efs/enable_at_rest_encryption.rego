@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: efs
 #   severity: HIGH
-#   short_code: enable-at-rest-encryption
+#   long_id: aws-efs-enable-at-rest-encryption
 #   recommended_action: Enable encryption for EFS
 #   input:
 #     selector:

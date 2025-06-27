@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0086
 #   severity: HIGH
-#   short_code: ensure-hostname-override-argument-not-set
+#   long_id: kubernetes-ensure-hostname-override-argument-not-set
 #   recommended_action: "Edit the kubelet service file /etc/systemd/system/kubelet.service.d/10-kubeadm.conf on each worker node and remove the --hostname-override argument"
 #   input:
 #     selector:

@@ -14,7 +14,7 @@
 #   provider: digitalocean
 #   service: spaces
 #   severity: MEDIUM
-#   short_code: versioning-enabled
+#   long_id: digitalocean-versioning-enabled
 #   recommended_action: Enable versioning to protect against accidental or malicious removal or modification
 #   input:
 #     selector:

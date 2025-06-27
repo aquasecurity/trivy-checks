@@ -13,7 +13,7 @@
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
-#   short_code: filter-passrole-access
+#   long_id: aws-iam-filter-passrole-access
 #   recommended_action: "Resolve permission escalations by denying pass role'"
 #   input:
 #     selector:

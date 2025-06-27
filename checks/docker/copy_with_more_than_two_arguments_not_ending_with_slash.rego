@@ -9,7 +9,7 @@
 # custom:
 #   id: DS-0011
 #   severity: CRITICAL
-#   short_code: use-slash-for-copy-args
+#   long_id: docker-use-slash-for-copy-args
 #   recommended_action: "Add slash to last COPY argument"
 #   input:
 #     selector:

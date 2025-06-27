@@ -14,7 +14,7 @@
 #   provider: aws
 #   service: s3
 #   severity: HIGH
-#   short_code: enable-bucket-encryption
+#   long_id: aws-s3-enable-bucket-encryption
 #   recommended_action: Configure bucket encryption
 #   input:
 #     selector:

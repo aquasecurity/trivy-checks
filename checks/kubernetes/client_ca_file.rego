@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0028
 #   severity: LOW
-#   short_code: ensure-client-ca-file-argument-is-set-as-appropriate
+#   long_id: kubernetes-ensure-client-ca-file-argument-is-set-as-appropriate
 #   recommended_action: "Follow the Kubernetes documentation and set up the TLS connection on the apiserver. Then, edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the master node and set the client certificate authority file."
 #   input:
 #     selector:

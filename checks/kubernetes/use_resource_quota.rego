@@ -9,7 +9,7 @@
 # custom:
 #   id: KSV-0040
 #   severity: LOW
-#   short_code: resource-quota-usage
+#   long_id: kubernetes-resource-quota-usage
 #   recommended_action: Create a ResourceQuota policy with memory and CPU quotas for each namespace
 #   input:
 #     selector:

@@ -15,7 +15,7 @@
 #   provider: aws
 #   service: cloudfront
 #   severity: CRITICAL
-#   short_code: enforce-https
+#   long_id: aws-cloudfront-enforce-https
 #   recommended_action: Only allow HTTPS for CloudFront distribution communication
 #   input:
 #     selector:

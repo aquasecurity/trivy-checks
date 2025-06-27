@@ -9,7 +9,7 @@
 # custom:
 #   id: KCV-0048
 #   severity: HIGH
-#   short_code: ensure-api-server-pod-specification-file-permissions-set-600-or-more-restrictive
+#   long_id: kubernetes-ensure-api-server-pod-specification-file-permissions-set-600-or-more-restrictive
 #   recommended_action: "Change the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml permissions of 600 or more restrictive "
 #   input:
 #     selector:
