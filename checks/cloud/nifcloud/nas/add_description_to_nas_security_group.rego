@@ -10,7 +10,7 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/help/nas/fw_new.htm
 # custom:
-#   id: AVD-NIF-0015
+#   id: NIF-0015
 #   aliases:
 #     - nifcloud-nas-add-description-to-nas-security-group
 #   provider: nifcloud

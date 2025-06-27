@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - google-bigquery-no-public-access
-#   id: AVD-GCP-0046
+#   id: GCP-0046
 #   provider: google
 #   service: bigquery
 #   severity: CRITICAL

@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-cloudtrail-enable-all-regions
-#   id: AVD-AWS-0014
+#   id: AWS-0014
 #   provider: aws
 #   service: cloudtrail
 #   severity: MEDIUM

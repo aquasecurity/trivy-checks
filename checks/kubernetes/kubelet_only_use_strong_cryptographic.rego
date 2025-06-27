@@ -7,7 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: AVD-KCV-0092
+#   id: KCV-0092
 #   severity: CRITICAL
 #   short_code: ensure-Kubelet-only-makes-use-strong-cryptographic-ciphers
 #   recommended_action: "If using a Kubelet config file, edit the file to set TLSCipherSuites"

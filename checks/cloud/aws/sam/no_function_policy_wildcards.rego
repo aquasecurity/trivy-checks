@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-sam-no-function-policy-wildcards
-#   id: AVD-AWS-0114
+#   id: AWS-0114
 #   provider: aws
 #   service: sam
 #   severity: HIGH

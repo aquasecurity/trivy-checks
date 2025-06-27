@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - google-iam-no-org-level-service-account-impersonation
-#   id: AVD-GCP-0009
+#   id: GCP-0009
 #   provider: google
 #   service: iam
 #   severity: MEDIUM

@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-lambda-enable-tracing
-#   id: AVD-AWS-0066
+#   id: AWS-0066
 #   provider: aws
 #   service: lambda
 #   severity: LOW

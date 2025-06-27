@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-eks-encrypt-secrets
-#   id: AVD-AWS-0039
+#   id: AWS-0039
 #   provider: aws
 #   service: eks
 #   severity: HIGH

@@ -7,7 +7,7 @@
 # custom:
 #   aliases:
 #     - kubernetes-networkpolicies-no-public-egress
-#   id: AVD-KUBE-0002
+#   id: KUBE-0002
 #   provider: kubernetes
 #   service: network
 #   severity: HIGH

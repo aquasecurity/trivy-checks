@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - google-dns-no-rsa-sha1
-#   id: AVD-GCP-0012
+#   id: GCP-0012
 #   provider: google
 #   service: dns
 #   severity: MEDIUM

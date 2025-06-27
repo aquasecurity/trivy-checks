@@ -9,7 +9,7 @@ import (
 
 type Metadata map[string]any
 
-func (m Metadata) AVDID() string {
+func (m Metadata) ID() string {
 	return m["id"].(string)
 }
 

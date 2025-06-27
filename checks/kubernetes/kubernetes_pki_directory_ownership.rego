@@ -7,7 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: AVD-KCV-0066
+#   id: KCV-0066
 #   severity: CRITICAL
 #   short_code: ensure-kubernetes-pki-directory-file-ownership-set-root:root.
 #   recommended_action: "Change the Kubernetes PKI directory and file file /etc/kubernetes/pki/ ownership to root:root"

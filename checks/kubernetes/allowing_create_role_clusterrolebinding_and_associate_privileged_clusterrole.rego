@@ -7,7 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: AVD-KSV-0052
+#   id: KSV-0052
 #   severity: HIGH
 #   short_code: allow-role-clusterrolebindings-associate-privileged-cluster-role
 #   recommended_action: "Create a role which does not permit to create role clusterrolebindings and associate to privileged cluster role"

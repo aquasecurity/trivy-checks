@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - google-compute-no-public-ip
-#   id: AVD-GCP-0031
+#   id: GCP-0031
 #   provider: google
 #   service: compute
 #   severity: HIGH

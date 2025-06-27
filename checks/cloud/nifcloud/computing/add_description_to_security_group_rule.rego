@@ -10,7 +10,7 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/help/fw/rule_new.htm
 # custom:
-#   id: AVD-NIF-0003
+#   id: NIF-0003
 #   aliases:
 #     - nifcloud-computing-add-description-to-security-group-rule
 #   provider: nifcloud

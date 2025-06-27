@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - azure-database-postgres-configuration-log-connections
-#   id: AVD-AZU-0019
+#   id: AZU-0019
 #   provider: azure
 #   service: database
 #   severity: MEDIUM

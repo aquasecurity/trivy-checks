@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-sns-enable-topic-encryption
-#   id: AVD-AWS-0095
+#   id: AWS-0095
 #   provider: aws
 #   service: sns
 #   severity: HIGH

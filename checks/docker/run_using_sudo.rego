@@ -7,7 +7,7 @@
 # related_resources:
 # - https://docs.docker.com/engine/reference/builder/#run
 # custom:
-#   id: AVD-DS-0010
+#   id: DS-0010
 #   severity: CRITICAL
 #   short_code: no-sudo-run
 #   recommended_action: "Don't use sudo"

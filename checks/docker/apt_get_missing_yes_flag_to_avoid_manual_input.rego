@@ -7,7 +7,7 @@
 # schemas:
 # - input: schema["dockerfile"]
 # custom:
-#   id: AVD-DS-0021
+#   id: DS-0021
 #   severity: HIGH
 #   short_code: use-apt-auto-confirm
 #   recommended_action: "Add '-y' flag to 'apt-get'"

@@ -7,7 +7,7 @@
 # related_resources:
 # - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#workdir
 # custom:
-#   id: AVD-DS-0030
+#   id: DS-0030
 #   severity: HIGH
 #   short_code: avoid-sys-workdir-mounts
 #   recommended_action: "Avoid using system directories to mount WORKDIR"

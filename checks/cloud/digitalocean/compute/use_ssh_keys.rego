@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - digitalocean-compute-use-ssh-keys
-#   id: AVD-DIG-0004
+#   id: DIG-0004
 #   provider: digitalocean
 #   service: compute
 #   severity: HIGH

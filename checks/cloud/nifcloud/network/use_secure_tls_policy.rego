@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - nifcloud-network-use-secure-tls-policy
-#   id: AVD-NIF-0020
+#   id: NIF-0020
 #   provider: nifcloud
 #   service: network
 #   severity: CRITICAL

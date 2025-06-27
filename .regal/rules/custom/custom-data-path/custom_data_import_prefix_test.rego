@@ -7,7 +7,7 @@ import data.custom.regal.rules.custom["custom-data-import-prefix"] as rule
 test_import_path_id_mismatch if {
 	module := regal.parse_module("example.rego", `# METADATA
 # custom:
-#   id: AVD-TEST-001
+#   id: TEST-001
 package policy
 
 import data.wrongprefix.foo
@@ -18,7 +18,7 @@ foo := true`)
 
 	r == {{
 		"category": "custom",
-		"description": "Custom data import paths must follow the format `data.<custom_id>.*`,\nwhere `<custom_id>` is the check ID without the \"AVD-\" prefix and in lowercase.\nFor example, for the ID AVD-TEST-001, a valid import path would be `data.test001.<...>`.\n",
+		"description": "Custom data import paths must follow the format `data.<custom_id>.*`,\nFor example, for the ID TEST-001, a valid import path would be `data.test001.<...>`.\n",
 		"level": "error",
 		"location": {
 			"col": 1, "end": {"col": 25, "row": 3},
@@ -33,7 +33,7 @@ foo := true`)
 test_import_path_id_match if {
 	module := regal.parse_module("example.rego", `# METADATA
 # custom:
-#   id: AVD-TEST-001
+#   id: TEST-001
 package policy
 
 import data.test001.foo

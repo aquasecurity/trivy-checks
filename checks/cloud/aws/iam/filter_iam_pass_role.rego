@@ -9,7 +9,7 @@
 # custom:
 #   aliases:
 #     - aws-iam-filter-passrole-access
-#   id: AVD-AWS-0342
+#   id: AWS-0342
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM

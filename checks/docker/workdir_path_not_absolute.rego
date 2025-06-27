@@ -7,7 +7,7 @@
 # related_resources:
 # - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#workdir
 # custom:
-#   id: AVD-DS-0009
+#   id: DS-0009
 #   severity: HIGH
 #   short_code: user-absolute-workdir
 #   recommended_action: "Use absolute paths for your WORKDIR"

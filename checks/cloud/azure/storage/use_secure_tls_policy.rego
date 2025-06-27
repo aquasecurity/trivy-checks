@@ -12,7 +12,7 @@
 # custom:
 #   aliases:
 #     - azure-storage-use-secure-tls-policy
-#   id: AVD-AZU-0011
+#   id: AZU-0011
 #   provider: azure
 #   service: storage
 #   severity: CRITICAL

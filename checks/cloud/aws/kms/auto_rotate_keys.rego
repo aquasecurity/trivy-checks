@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-kms-auto-rotate-keys
-#   id: AVD-AWS-0065
+#   id: AWS-0065
 #   provider: aws
 #   service: kms
 #   severity: MEDIUM

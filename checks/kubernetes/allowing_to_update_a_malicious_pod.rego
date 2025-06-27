@@ -7,7 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: AVD-KSV-0048
+#   id: KSV-0048
 #   severity: MEDIUM
 #   short_code: deny-create-update-malicious-pod
 #   recommended_action: "Kubernetes workloads resources are only allowed for verbs 'list', 'watch', 'get'"

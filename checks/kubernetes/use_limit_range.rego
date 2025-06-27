@@ -9,7 +9,7 @@
 # - https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/
 # - https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-constraint-namespace/
 # custom:
-#   id: AVD-KSV-0039
+#   id: KSV-0039
 #   severity: LOW
 #   short_code: limit-range-usage
 #   recommended_action: Create a LimitRange policy with default requests and limits for each container

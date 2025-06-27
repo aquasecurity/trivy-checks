@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-neptune-enable-log-export
-#   id: AVD-AWS-0075
+#   id: AWS-0075
 #   provider: aws
 #   service: neptune
 #   severity: MEDIUM

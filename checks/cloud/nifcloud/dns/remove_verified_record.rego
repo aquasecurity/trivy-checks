@@ -12,7 +12,7 @@
 # custom:
 #   aliases:
 #     - nifcloud-dns-remove-verified-record
-#   id: AVD-NIF-0007
+#   id: NIF-0007
 #   provider: nifcloud
 #   service: dns
 #   severity: CRITICAL

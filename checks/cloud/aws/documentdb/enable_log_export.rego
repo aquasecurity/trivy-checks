@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-documentdb-enable-log-export
-#   id: AVD-AWS-0020
+#   id: AWS-0020
 #   provider: aws
 #   service: documentdb
 #   severity: MEDIUM

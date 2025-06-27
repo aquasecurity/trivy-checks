@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-iam-no-root-access-keys
-#   id: AVD-AWS-0141
+#   id: AWS-0141
 #   provider: aws
 #   service: iam
 #   severity: CRITICAL

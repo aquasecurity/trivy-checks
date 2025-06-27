@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-s3-block-public-acls
-#   id: AVD-AWS-0086
+#   id: AWS-0086
 #   provider: aws
 #   service: s3
 #   severity: HIGH

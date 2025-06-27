@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - azure-database-postgres-configuration-log-checkpoints
-#   id: AVD-AZU-0024
+#   id: AZU-0024
 #   provider: azure
 #   service: database
 #   severity: MEDIUM

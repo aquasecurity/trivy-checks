@@ -11,7 +11,7 @@
 # custom:
 #   aliases:
 #     - aws-iam-require-support-role
-#   id: AVD-AWS-0169
+#   id: AWS-0169
 #   provider: aws
 #   service: iam
 #   severity: LOW

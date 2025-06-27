@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - azure-database-no-public-access
-#   id: AVD-AZU-0022
+#   id: AZU-0022
 #   provider: azure
 #   service: database
 #   severity: MEDIUM

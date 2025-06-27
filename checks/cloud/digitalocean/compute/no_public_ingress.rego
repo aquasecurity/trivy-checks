@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - digitalocean-compute-no-public-ingress
-#   id: AVD-DIG-0001
+#   id: DIG-0001
 #   provider: digitalocean
 #   service: compute
 #   severity: CRITICAL

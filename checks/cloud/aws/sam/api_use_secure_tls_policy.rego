@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-sam-api-use-secure-tls-policy
-#   id: AVD-AWS-0112
+#   id: AWS-0112
 #   provider: aws
 #   service: sam
 #   severity: HIGH

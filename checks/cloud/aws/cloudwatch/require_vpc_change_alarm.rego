@@ -12,7 +12,7 @@
 # custom:
 #   aliases:
 #     - aws-cloudwatch-require-vpc-changes-alarm
-#   id: AVD-AWS-0160
+#   id: AWS-0160
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW

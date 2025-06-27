@@ -7,7 +7,7 @@
 # related_resources:
 # - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 # custom:
-#   id: AVD-DS-0002
+#   id: DS-0002
 #   severity: HIGH
 #   short_code: least-privilege-user
 #   recommended_action: "Add 'USER <non root user name>' line to the Dockerfile"

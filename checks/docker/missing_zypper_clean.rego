@@ -7,7 +7,7 @@
 # related_resources:
 # - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#run
 # custom:
-#   id: AVD-DS-0020
+#   id: DS-0020
 #   severity: HIGH
 #   short_code: purge-zipper-cache
 #   recommended_action: "Add 'zypper clean' to Dockerfile"

@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - azure-compute-no-secrets-in-custom-data
-#   id: AVD-AZU-0037
+#   id: AZU-0037
 #   provider: azure
 #   service: compute
 #   severity: MEDIUM

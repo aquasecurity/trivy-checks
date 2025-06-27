@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - google-gke-enable-private-cluster
-#   id: AVD-GCP-0059
+#   id: GCP-0059
 #   provider: google
 #   service: gke
 #   severity: MEDIUM

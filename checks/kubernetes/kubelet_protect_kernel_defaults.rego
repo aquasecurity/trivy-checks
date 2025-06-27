@@ -7,7 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: AVD-KCV-0083
+#   id: KCV-0083
 #   severity: HIGH
 #   short_code: ensure-protect-kernel-defaults-set-true
 #   recommended_action: "If using a Kubelet config file, edit the file to set protectKernelDefaults: true"

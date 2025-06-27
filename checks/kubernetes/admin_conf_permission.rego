@@ -7,7 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: AVD-KCV-0060
+#   id: KCV-0060
 #   severity: CRITICAL
 #   short_code: ensure-admin-config-file-permissions-set-600-or-more-restrictive
 #   recommended_action: "Change the admin config file /etc/kubernetes/admin.conf permissions of 600 or more restrictive "

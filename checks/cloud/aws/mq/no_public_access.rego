@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-mq-no-public-access
-#   id: AVD-AWS-0072
+#   id: AWS-0072
 #   provider: aws
 #   service: mq
 #   severity: HIGH

@@ -14,7 +14,7 @@
 # custom:
 #   aliases:
 #     - aws-cloudwatch-require-org-changes-alarm
-#   id: AVD-AWS-0174
+#   id: AWS-0174
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW

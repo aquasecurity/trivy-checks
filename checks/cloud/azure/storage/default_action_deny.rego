@@ -11,7 +11,7 @@
 # custom:
 #   aliases:
 #     - azure-storage-default-action-deny
-#   id: AVD-AZU-0012
+#   id: AZU-0012
 #   provider: azure
 #   service: storage
 #   severity: CRITICAL

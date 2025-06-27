@@ -10,7 +10,7 @@
 # related_resources:
 #   - https://www.cloudconformity.com/knowledge-base/aws/EC2/security-group-rules-description.html
 # custom:
-#   id: AVD-AWS-0124
+#   id: AWS-0124
 #   aliases:
 #     - aws-vpc-add-description-to-security-group-rule
 #   provider: aws

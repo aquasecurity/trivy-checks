@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - azure-appservice-enable-http2
-#   id: AVD-AZU-0005
+#   id: AZU-0005
 #   provider: azure
 #   service: appservice
 #   severity: LOW

@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - google-gke-enable-auto-repair
-#   id: AVD-GCP-0063
+#   id: GCP-0063
 #   provider: google
 #   service: gke
 #   severity: LOW

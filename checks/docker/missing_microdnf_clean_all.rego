@@ -7,7 +7,7 @@
 # related_resources:
 # - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 # custom:
-#   id: AVD-DS-0027
+#   id: DS-0027
 #   severity: HIGH
 #   short_code: purge-microdnf-package-cache
 #   recommended_action: "Add 'microdnf clean all' to Dockerfile"

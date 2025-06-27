@@ -7,7 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: AVD-KCV-0036
+#   id: KCV-0036
 #   severity: LOW
 #   short_code: ensure-service-account-private-key-file-argument-is-set-as-appropriate
 #   recommended_action: "Edit the Controller Manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml on the Control Plane node and set the --service-account-private-key-file parameter to the private key file for service accounts."

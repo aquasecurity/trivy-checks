@@ -7,7 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: AVD-KCV-0013
+#   id: KCV-0013
 #   frameworks:
 #     k8s-cis-1.23:
 #       - "1.2.13"

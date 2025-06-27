@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - openstack-networking-describe-security-group
-#   id: AVD-OPNSTK-0005
+#   id: OPNSTK-0005
 #   provider: openstack
 #   service: networking
 #   severity: MEDIUM

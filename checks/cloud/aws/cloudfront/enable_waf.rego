@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-cloudfront-enable-waf
-#   id: AVD-AWS-0011
+#   id: AWS-0011
 #   provider: aws
 #   service: cloudfront
 #   severity: HIGH

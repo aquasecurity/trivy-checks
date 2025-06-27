@@ -12,7 +12,7 @@
 # custom:
 #   aliases:
 #     - azure-storage-queue-services-logging-enabled
-#   id: AVD-AZU-0009
+#   id: AZU-0009
 #   provider: azure
 #   service: storage
 #   severity: MEDIUM

@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-s3-no-public-access-with-acl
-#   id: AVD-AWS-0092
+#   id: AWS-0092
 #   provider: aws
 #   service: s3
 #   severity: HIGH

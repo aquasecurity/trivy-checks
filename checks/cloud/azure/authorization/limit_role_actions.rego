@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - azure-authorization-limit-role-actions
-#   id: AVD-AZU-0030
+#   id: AZU-0030
 #   provider: azure
 #   service: authorization
 #   severity: MEDIUM

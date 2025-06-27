@@ -9,7 +9,7 @@
 # custom:
 #   aliases:
 #     - aws-iam-unauthorized-bucket-access
-#   id: AVD-AWS-0346
+#   id: AWS-0346
 #   provider: aws
 #   service: iam
 #   severity: HIGH

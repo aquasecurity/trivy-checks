@@ -7,7 +7,7 @@
 # related_resources:
 # - https://docs.docker.com/engine/reference/builder/#copy
 # custom:
-#   id: AVD-DS-0011
+#   id: DS-0011
 #   severity: CRITICAL
 #   short_code: use-slash-for-copy-args
 #   recommended_action: "Add slash to last COPY argument"

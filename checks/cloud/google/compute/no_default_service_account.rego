@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - google-compute-no-default-service-account
-#   id: AVD-GCP-0044
+#   id: GCP-0044
 #   provider: google
 #   service: compute
 #   severity: CRITICAL

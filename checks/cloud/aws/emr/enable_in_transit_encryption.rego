@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-emr-enable-in-transit-encryption
-#   id: AVD-AWS-0138
+#   id: AWS-0138
 #   provider: aws
 #   service: emr
 #   severity: HIGH

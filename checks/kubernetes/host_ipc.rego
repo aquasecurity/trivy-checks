@@ -7,7 +7,7 @@
 # schemas:
 # - input: schema["kubernetes"]
 # custom:
-#   id: AVD-KSV-0008
+#   id: KSV-0008
 #   severity: HIGH
 #   short_code: no-shared-ipc-namespace
 #   recommended_action: Do not set 'spec.template.spec.hostIPC' to true.

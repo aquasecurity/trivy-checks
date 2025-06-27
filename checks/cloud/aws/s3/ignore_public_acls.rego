@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-s3-ignore-public-acls
-#   id: AVD-AWS-0091
+#   id: AWS-0091
 #   provider: aws
 #   service: s3
 #   severity: HIGH

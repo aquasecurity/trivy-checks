@@ -7,7 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: AVD-KCV-0074
+#   id: KCV-0074
 #   severity: HIGH
 #   short_code: ensure-kubeconfig-kubelet.conf-ownership-set-root:root
 #   recommended_action: "Change the --kubeconfig kubelet.conf file ownership to root:root"

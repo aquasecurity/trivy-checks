@@ -12,7 +12,7 @@
 # custom:
 #   aliases:
 #     - google-gke-use-rbac-permissions
-#   id: AVD-GCP-0062
+#   id: GCP-0062
 #   provider: google
 #   service: gke
 #   severity: HIGH

@@ -7,7 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: AVD-KSV-0026
+#   id: KSV-0026
 #   severity: MEDIUM
 #   short_code: no-unsafe-sysctl
 #   recommended_action: "Do not set 'spec.securityContext.sysctls' or set to values in an allowed subset"

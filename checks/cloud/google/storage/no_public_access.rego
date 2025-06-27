@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - google-storage-no-public-access
-#   id: AVD-GCP-0001
+#   id: GCP-0001
 #   provider: google
 #   service: storage
 #   severity: HIGH

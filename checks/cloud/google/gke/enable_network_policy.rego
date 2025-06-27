@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - google-gke-enable-network-policy
-#   id: AVD-GCP-0056
+#   id: GCP-0056
 #   provider: google
 #   service: gke
 #   severity: MEDIUM

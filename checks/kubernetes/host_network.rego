@@ -7,7 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: AVD-KSV-0009
+#   id: KSV-0009
 #   severity: HIGH
 #   short_code: no-host-network
 #   recommended_action: "Do not set 'spec.template.spec.hostNetwork' to true."

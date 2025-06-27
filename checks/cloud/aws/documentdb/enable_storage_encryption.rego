@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-documentdb-enable-storage-encryption
-#   id: AVD-AWS-0021
+#   id: AWS-0021
 #   provider: aws
 #   service: documentdb
 #   severity: HIGH

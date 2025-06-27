@@ -5,7 +5,7 @@
 # schemas:
 # - input: schema["kubernetes"]
 # custom:
-#   id: AVD-KSV-0034
+#   id: KSV-0034
 #   severity: MEDIUM
 #   short_code: no-public-registries
 #   recommended_action: "Use images from private registries."

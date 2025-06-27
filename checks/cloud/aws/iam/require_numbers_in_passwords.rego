@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-iam-require-numbers-in-passwords
-#   id: AVD-AWS-0059
+#   id: AWS-0059
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM

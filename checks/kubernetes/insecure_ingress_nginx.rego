@@ -9,7 +9,7 @@
 # - https://github.com/kubernetes/kubernetes/issues/131007
 # - https://github.com/kubernetes/kubernetes/issues/131006
 # custom:
-#   id: AVD-KCV-0093
+#   id: KCV-0093
 #   severity: CRITICAL
 #   short_code: insecure-ingress-nginx
 #   recommended_action: "Ensure that ingress-nginx annotations do not contain suspicious characters."

@@ -5,7 +5,7 @@
 # schemas:
 # - input: schema["kubernetes"]
 # custom:
-#   id: AVD-KSV-0033
+#   id: KSV-0033
 #   severity: MEDIUM
 #   short_code: use-gcr-domain
 #   recommended_action: "Use images from trusted GCR registries."

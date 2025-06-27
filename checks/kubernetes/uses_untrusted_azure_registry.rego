@@ -5,7 +5,7 @@
 # schemas:
 # - input: schema["kubernetes"]
 # custom:
-#   id: AVD-KSV-0032
+#   id: KSV-0032
 #   severity: MEDIUM
 #   short_code: use-azure-image-prefix
 #   recommended_action: "Use images from trusted Azure registries."

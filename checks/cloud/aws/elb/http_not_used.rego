@@ -11,7 +11,7 @@
 # custom:
 #   aliases:
 #     - aws-elb-http-not-used
-#   id: AVD-AWS-0054
+#   id: AWS-0054
 #   provider: aws
 #   service: elb
 #   severity: CRITICAL

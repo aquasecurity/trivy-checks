@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - azure-database-enable-ssl-enforcement
-#   id: AVD-AZU-0020
+#   id: AZU-0020
 #   provider: azure
 #   service: database
 #   severity: MEDIUM

@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-sam-enable-api-cache-encryption
-#   id: AVD-AWS-0110
+#   id: AWS-0110
 #   provider: aws
 #   service: sam
 #   severity: MEDIUM

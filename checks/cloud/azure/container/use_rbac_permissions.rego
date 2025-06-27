@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - azure-container-use-rbac-permissions
-#   id: AVD-AZU-0042
+#   id: AZU-0042
 #   provider: azure
 #   service: container
 #   severity: HIGH

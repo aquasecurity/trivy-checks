@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - google-sql-pg-log-lock-waits
-#   id: AVD-GCP-0020
+#   id: GCP-0020
 #   provider: google
 #   service: sql
 #   severity: MEDIUM

@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-ec2-no-public-ip
-#   id: AVD-AWS-0009
+#   id: AWS-0009
 #   provider: aws
 #   service: ec2
 #   severity: HIGH

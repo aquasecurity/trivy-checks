@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - openstack-compute-no-public-access
-#   id: AVD-OPNSTK-0002
+#   id: OPNSTK-0002
 #   provider: openstack
 #   service: compute
 #   severity: MEDIUM

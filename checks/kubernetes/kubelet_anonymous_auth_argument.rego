@@ -7,7 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: AVD-KCV-0079
+#   id: KCV-0079
 #   severity: CRITICAL
 #   short_code: disable-anonymous-requests-kubelet-server.
 #   recommended_action: "Disable anonymous requests to the Kubelet server"

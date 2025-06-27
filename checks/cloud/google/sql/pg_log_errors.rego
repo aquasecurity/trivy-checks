@@ -11,7 +11,7 @@
 # custom:
 #   aliases:
 #     - google-sql-pg-log-errors
-#   id: AVD-GCP-0018
+#   id: GCP-0018
 #   provider: google
 #   service: sql
 #   severity: LOW

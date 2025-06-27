@@ -7,7 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: AVD-KCV-0058
+#   id: KCV-0058
 #   severity: LOW
 #   short_code: ensure-etcd-data-directory-permissions-set-700-or-more-restrictive
 #   recommended_action: "Change the etcd data directory /var/lib/etcd permissions of 700 or more restrictive "

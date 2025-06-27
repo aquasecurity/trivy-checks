@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-kinesis-enable-in-transit-encryption
-#   id: AVD-AWS-0064
+#   id: AWS-0064
 #   provider: aws
 #   service: kinesis
 #   severity: HIGH

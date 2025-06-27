@@ -8,7 +8,7 @@
 # - https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html
 # - https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html
 # custom:
-#   id: AVD-AWS-0089
+#   id: AWS-0089
 #   provider: aws
 #   service: s3
 #   severity: LOW

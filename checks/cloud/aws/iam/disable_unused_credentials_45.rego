@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-iam-disable-unused-credentials-45-days
-#   id: AVD-AWS-0166
+#   id: AWS-0166
 #   provider: aws
 #   service: iam
 #   severity: LOW

@@ -8,7 +8,7 @@
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/
 # - https://www.stigviewer.com/stig/kubernetes/2022-12-02/finding/V-242414
 # custom:
-#   id: AVD-KSV-0117
+#   id: KSV-0117
 #   severity: MEDIUM
 #   short_code: no-privilege-port-binding
 #   recommended_action: "Do not map the container ports to privileged host ports when starting a container."

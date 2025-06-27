@@ -12,7 +12,7 @@
 # custom:
 #   aliases:
 #     - aws-iam-set-minimum-password-length
-#   id: AVD-AWS-0063
+#   id: AWS-0063
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM

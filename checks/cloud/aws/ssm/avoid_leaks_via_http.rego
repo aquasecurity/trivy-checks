@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-ssm-avoid-leaks-via-http
-#   id: AVD-AWS-0134
+#   id: AWS-0134
 #   provider: aws
 #   service: ssm
 #   severity: CRITICAL

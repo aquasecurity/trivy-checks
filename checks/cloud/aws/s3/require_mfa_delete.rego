@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-s3-require-mfa-delete
-#   id: AVD-AWS-0170
+#   id: AWS-0170
 #   provider: aws
 #   service: s3
 #   severity: LOW

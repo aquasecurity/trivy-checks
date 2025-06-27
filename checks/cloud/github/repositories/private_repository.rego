@@ -13,7 +13,7 @@
 # custom:
 #   aliases:
 #     - github-repositories-private
-#   id: AVD-GIT-0001
+#   id: GIT-0001
 #   provider: github
 #   service: repositories
 #   severity: CRITICAL

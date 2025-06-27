@@ -13,7 +13,7 @@
 # custom:
 #   aliases:
 #     - aws-elasticsearch-enable-domain-logging
-#   id: AVD-AWS-0042
+#   id: AWS-0042
 #   provider: aws
 #   service: elasticsearch
 #   severity: MEDIUM

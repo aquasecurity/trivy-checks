@@ -11,7 +11,7 @@
 # custom:
 #   aliases:
 #     - aws-elasticsearch-enforce-https
-#   id: AVD-AWS-0046
+#   id: AWS-0046
 #   provider: aws
 #   service: elasticsearch
 #   severity: CRITICAL

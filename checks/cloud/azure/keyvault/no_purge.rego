@@ -12,7 +12,7 @@
 # custom:
 #   aliases:
 #     - azure-keyvault-no-purge
-#   id: AVD-AZU-0016
+#   id: AZU-0016
 #   provider: azure
 #   service: keyvault
 #   severity: MEDIUM

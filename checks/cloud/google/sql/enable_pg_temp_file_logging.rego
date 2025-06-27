@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - google-sql-enable-pg-temp-file-logging
-#   id: AVD-GCP-0014
+#   id: GCP-0014
 #   provider: google
 #   service: sql
 #   severity: MEDIUM

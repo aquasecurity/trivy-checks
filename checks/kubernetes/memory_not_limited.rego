@@ -7,7 +7,7 @@
 # related_resources:
 # - https://kubesec.io/basics/containers-resources-limits-memory/
 # custom:
-#   id: AVD-KSV-0018
+#   id: KSV-0018
 #   severity: LOW
 #   short_code: limit-memory
 #   recommended_action: "Set a limit value under 'containers[].resources.limits.memory'."

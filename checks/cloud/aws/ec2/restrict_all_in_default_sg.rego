@@ -14,7 +14,7 @@
 # custom:
 #   aliases:
 #     - aws-ec2-restrict-all-in-default-sg
-#   id: AVD-AWS-0173
+#   id: AWS-0173
 #   provider: aws
 #   service: ec2
 #   severity: LOW

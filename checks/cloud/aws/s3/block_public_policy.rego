@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-s3-block-public-policy
-#   id: AVD-AWS-0087
+#   id: AWS-0087
 #   provider: aws
 #   service: s3
 #   severity: HIGH

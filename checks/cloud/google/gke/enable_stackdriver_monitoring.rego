@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - google-gke-enable-stackdriver-monitoring
-#   id: AVD-GCP-0052
+#   id: GCP-0052
 #   provider: google
 #   service: gke
 #   severity: LOW

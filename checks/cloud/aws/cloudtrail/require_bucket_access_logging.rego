@@ -12,7 +12,7 @@
 # custom:
 #   aliases:
 #     - aws-cloudtrail-require-bucket-access-logging
-#   id: AVD-AWS-0163
+#   id: AWS-0163
 #   provider: aws
 #   service: cloudtrail
 #   severity: LOW

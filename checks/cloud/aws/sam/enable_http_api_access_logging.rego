@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-sam-enable-http-api-access-logging
-#   id: AVD-AWS-0116
+#   id: AWS-0116
 #   provider: aws
 #   service: sam
 #   severity: MEDIUM

@@ -15,7 +15,7 @@ func TestAVDIDs(t *testing.T) {
 	require.NoError(t, err)
 
 	for path, meta := range checksMeta {
-		id := meta.AVDID()
+		id := meta.ID()
 		t.Run(path, func(t *testing.T) {
 			if id == "" {
 				t.Errorf("Rule has no AVD ID: %#v", path)

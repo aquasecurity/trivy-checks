@@ -12,7 +12,7 @@
 # custom:
 #   aliases:
 #     - azure-storage-enforce-https
-#   id: AVD-AZU-0008
+#   id: AZU-0008
 #   provider: azure
 #   service: storage
 #   severity: HIGH

@@ -7,7 +7,7 @@
 # related_resources:
 # - https://blog.aquasec.com/docker-security-best-practices
 # custom:
-#   id: AVD-DS-0026
+#   id: DS-0026
 #   severity: LOW
 #   short_code: no-healthcheck
 #   recommended_action: "Add HEALTHCHECK instruction in Dockerfile"

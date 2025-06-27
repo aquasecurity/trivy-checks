@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-s3-specify-public-access-block
-#   id: AVD-AWS-0094
+#   id: AWS-0094
 #   provider: aws
 #   service: s3
 #   severity: LOW

@@ -34,7 +34,8 @@ type Result struct {
 }
 
 type Misconfiguration struct {
-	ID     string `json:"ID"`
+	ID     string `json:"id"`
+	AVDID  string `json:"avd_id"`
 	Status string `json:"Status"`
 }
 

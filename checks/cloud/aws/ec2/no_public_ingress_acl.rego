@@ -12,7 +12,7 @@
 #   - https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html
 #   - https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-21
 # custom:
-#   id: AVD-AWS-0105
+#   id: AWS-0105
 #   aliases:
 #     - aws-vpc-no-public-ingress-acl
 #     - aws-ec2-no-public-ingress-acl

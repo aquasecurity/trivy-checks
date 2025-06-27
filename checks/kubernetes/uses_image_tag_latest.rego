@@ -7,7 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/configuration/overview/#container-images
 # custom:
-#   id: AVD-KSV-0013
+#   id: KSV-0013
 #   severity: MEDIUM
 #   short_code: use-specific-tags
 #   recommended_action: "Use a specific container image tag that is not 'latest'."

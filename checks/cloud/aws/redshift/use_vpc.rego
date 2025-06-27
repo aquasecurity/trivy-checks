@@ -11,7 +11,7 @@
 # custom:
 #   aliases:
 #     - aws-redshift-use-vpc
-#   id: AVD-AWS-0127
+#   id: AWS-0127
 #   provider: aws
 #   service: redshift
 #   severity: HIGH

@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-ecr-enable-image-scans
-#   id: AVD-AWS-0030
+#   id: AWS-0030
 #   provider: aws
 #   service: ecr
 #   severity: HIGH

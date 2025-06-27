@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-apigateway-enable-access-logging
-#   id: AVD-AWS-0001
+#   id: AWS-0001
 #   provider: aws
 #   service: apigateway
 #   severity: MEDIUM

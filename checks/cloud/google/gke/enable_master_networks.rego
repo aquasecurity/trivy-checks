@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - google-gke-enable-master-networks
-#   id: AVD-GCP-0061
+#   id: GCP-0061
 #   provider: google
 #   service: gke
 #   severity: HIGH

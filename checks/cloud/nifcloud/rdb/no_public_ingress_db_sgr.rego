@@ -8,7 +8,7 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/api/rdb/AuthorizeDBSecurityGroupIngress.htm
 # custom:
-#   id: AVD-NIF-0011
+#   id: NIF-0011
 #   aliases:
 #     - nifcloud-rdb-no-public-ingress-db-sgr
 #   provider: nifcloud

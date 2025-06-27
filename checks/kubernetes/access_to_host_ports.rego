@@ -7,7 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: AVD-KSV-0024
+#   id: KSV-0024
 #   severity: HIGH
 #   short_code: no-host-port-access
 #   recommended_action: "Do not set spec.containers[*].ports[*].hostPort and spec.initContainers[*].ports[*].hostPort."

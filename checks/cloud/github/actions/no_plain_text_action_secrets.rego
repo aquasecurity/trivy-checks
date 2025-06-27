@@ -11,7 +11,7 @@
 # custom:
 #   aliases:
 #     - github-environmentsecrets-no-plain-text-action-secrets
-#   id: AVD-GIT-0002
+#   id: GIT-0002
 #   provider: github
 #   service: environmentsecrets
 #   severity: HIGH

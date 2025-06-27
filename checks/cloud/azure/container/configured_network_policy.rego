@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - azure-container-configured-network-policy
-#   id: AVD-AZU-0043
+#   id: AZU-0043
 #   provider: azure
 #   service: container
 #   severity: HIGH

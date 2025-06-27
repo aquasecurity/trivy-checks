@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-ecr-repository-customer-key
-#   id: AVD-AWS-0033
+#   id: AWS-0033
 #   provider: aws
 #   service: ecr
 #   severity: LOW

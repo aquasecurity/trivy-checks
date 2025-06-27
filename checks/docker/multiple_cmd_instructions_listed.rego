@@ -7,7 +7,7 @@
 # related_resources:
 # - https://docs.docker.com/engine/reference/builder/#cmd
 # custom:
-#   id: AVD-DS-0016
+#   id: DS-0016
 #   severity: HIGH
 #   short_code: only-one-cmd
 #   recommended_action: "Dockerfile should only have one CMD instruction. Remove all the other CMD instructions"

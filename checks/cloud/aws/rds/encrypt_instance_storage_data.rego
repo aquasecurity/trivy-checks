@@ -11,7 +11,7 @@
 # custom:
 #   aliases:
 #     - aws-rds-encrypt-instance-storage-data
-#   id: AVD-AWS-0080
+#   id: AWS-0080
 #   provider: aws
 #   service: rds
 #   severity: HIGH

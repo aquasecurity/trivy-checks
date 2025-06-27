@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - google-gke-use-service-account
-#   id: AVD-GCP-0050
+#   id: GCP-0050
 #   provider: google
 #   service: gke
 #   severity: MEDIUM

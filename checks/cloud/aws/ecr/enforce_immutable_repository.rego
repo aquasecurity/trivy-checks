@@ -11,7 +11,7 @@
 # custom:
 #   aliases:
 #     - aws-ecr-enforce-immutable-repository
-#   id: AVD-AWS-0031
+#   id: AWS-0031
 #   provider: aws
 #   service: ecr
 #   severity: HIGH

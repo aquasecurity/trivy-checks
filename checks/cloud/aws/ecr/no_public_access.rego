@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-ecr-no-public-access
-#   id: AVD-AWS-0032
+#   id: AWS-0032
 #   provider: aws
 #   service: ecr
 #   severity: HIGH

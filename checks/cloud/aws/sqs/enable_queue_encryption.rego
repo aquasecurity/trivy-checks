@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-sqs-enable-queue-encryption
-#   id: AVD-AWS-0096
+#   id: AWS-0096
 #   provider: aws
 #   service: sqs
 #   severity: HIGH

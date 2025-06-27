@@ -11,7 +11,7 @@
 # custom:
 #   aliases:
 #     - aws-sam-no-state-machine-policy-wildcards
-#   id: AVD-AWS-0120
+#   id: AWS-0120
 #   provider: aws
 #   service: sam
 #   severity: HIGH

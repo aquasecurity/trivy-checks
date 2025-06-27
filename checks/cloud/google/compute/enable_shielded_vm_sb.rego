@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - google-compute-enable-shielded-vm-sb
-#   id: AVD-GCP-0067
+#   id: GCP-0067
 #   provider: google
 #   service: compute
 #   severity: MEDIUM

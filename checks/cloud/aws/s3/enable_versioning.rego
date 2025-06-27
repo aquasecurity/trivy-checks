@@ -17,7 +17,7 @@
 # custom:
 #   aliases:
 #     - aws-s3-enable-versioning
-#   id: AVD-AWS-0090
+#   id: AWS-0090
 #   provider: aws
 #   service: s3
 #   severity: MEDIUM

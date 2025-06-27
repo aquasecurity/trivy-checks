@@ -12,7 +12,7 @@
 # related_resources:
 #   - https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service
 # custom:
-#   id: AVD-AWS-0130
+#   id: AWS-0130
 #   aliases:
 #     - aws-autoscaling-enforce-http-token-imds
 #     - aws-ec2-enforce-launch-config-http-token-imds

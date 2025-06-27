@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - google-sql-mysql-no-local-infile
-#   id: AVD-GCP-0026
+#   id: GCP-0026
 #   provider: google
 #   service: sql
 #   severity: HIGH

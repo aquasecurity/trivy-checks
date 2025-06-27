@@ -7,7 +7,7 @@
 # related_resources:
 # - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#run
 # custom:
-#   id: AVD-DS-0014
+#   id: DS-0014
 #   severity: LOW
 #   short_code: standardise-remote-get
 #   recommended_action: "Pick one util, either 'wget' or 'curl'"

@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-iam-enforce-user-mfa
-#   id: AVD-AWS-0145
+#   id: AWS-0145
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM

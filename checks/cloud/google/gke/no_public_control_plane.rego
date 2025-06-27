@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - google-gke-no-public-control-plane
-#   id: AVD-GCP-0053
+#   id: GCP-0053
 #   provider: google
 #   service: gke
 #   severity: HIGH

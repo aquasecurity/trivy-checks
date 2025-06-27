@@ -7,7 +7,7 @@
 # schemas:
 # - input: schema["dockerfile"]
 # custom:
-#   id: AVD-DS-0005
+#   id: DS-0005
 #   severity: LOW
 #   short_code: use-copy-over-add
 #   recommended_action: Use COPY instead of ADD

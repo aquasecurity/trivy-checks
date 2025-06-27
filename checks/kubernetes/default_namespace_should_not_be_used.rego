@@ -7,7 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
 # custom:
-#   id: AVD-KSV-0110
+#   id: KSV-0110
 #   severity: LOW
 #   short_code: default-namespace-should-not-be-used
 #   recommended_action: "Set 'metadata.namespace' to a non-default namespace."

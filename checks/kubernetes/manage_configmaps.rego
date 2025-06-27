@@ -7,7 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: AVD-KSV-0049
+#   id: KSV-0049
 #   severity: MEDIUM
 #   short_code: no-manage-configmaps
 #   recommended_action: "Remove write permission verbs for resource 'configmaps'"

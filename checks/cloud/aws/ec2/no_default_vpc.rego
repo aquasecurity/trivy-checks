@@ -8,7 +8,7 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html
 # custom:
-#   id: AVD-AWS-0101
+#   id: AWS-0101
 #   aliases:
 #     - aws-vpc-no-default-vpc
 #     - aws-ec2-no-default-vpc

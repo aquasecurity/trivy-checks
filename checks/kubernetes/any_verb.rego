@@ -7,7 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: AVD-KSV-0045
+#   id: KSV-0045
 #   severity: CRITICAL
 #   short_code: no-wildcard-verb-role
 #   recommended_action: "Create a role which does not permit wildcard verb on specific resources"

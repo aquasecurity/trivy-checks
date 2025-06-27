@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - digitalocean-spaces-versioning-enabled
-#   id: AVD-DIG-0007
+#   id: DIG-0007
 #   provider: digitalocean
 #   service: spaces
 #   severity: MEDIUM

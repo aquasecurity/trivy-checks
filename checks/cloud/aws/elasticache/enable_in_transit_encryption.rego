@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-elasticache-enable-in-transit-encryption
-#   id: AVD-AWS-0051
+#   id: AWS-0051
 #   provider: aws
 #   service: elasticache
 #   severity: HIGH

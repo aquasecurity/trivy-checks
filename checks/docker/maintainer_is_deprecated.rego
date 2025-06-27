@@ -7,7 +7,7 @@
 # related_resources:
 # - https://docs.docker.com/engine/deprecated/#maintainer-in-dockerfile
 # custom:
-#   id: AVD-DS-0022
+#   id: DS-0022
 #   severity: HIGH
 #   short_code: no-maintainer
 #   recommended_action: "Use LABEL instead of MAINTAINER"

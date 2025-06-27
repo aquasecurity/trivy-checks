@@ -8,7 +8,7 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-add-user-data.html
 # custom:
-#   id: AVD-AWS-0129
+#   id: AWS-0129
 #   aliases:
 #     - aws-autoscaling-no-secrets-in-user-data
 #     - aws-ec2-no-secrets-in-launch-template-user-data

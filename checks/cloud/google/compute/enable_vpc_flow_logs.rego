@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - google-compute-enable-vpc-flow-logs
-#   id: AVD-GCP-0029
+#   id: GCP-0029
 #   provider: google
 #   service: compute
 #   severity: LOW

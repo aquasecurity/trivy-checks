@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - azure-appservice-account-identity-registered
-#   id: AVD-AZU-0002
+#   id: AZU-0002
 #   provider: azure
 #   service: appservice
 #   severity: LOW

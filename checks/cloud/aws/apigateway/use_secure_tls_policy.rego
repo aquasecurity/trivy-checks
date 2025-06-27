@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-apigateway-use-secure-tls-policy
-#   id: AVD-AWS-0005
+#   id: AWS-0005
 #   provider: aws
 #   service: apigateway
 #   severity: HIGH

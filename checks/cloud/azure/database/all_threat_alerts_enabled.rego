@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - azure-database-all-threat-alerts-enabled
-#   id: AVD-AZU-0028
+#   id: AZU-0028
 #   provider: azure
 #   service: database
 #   severity: MEDIUM

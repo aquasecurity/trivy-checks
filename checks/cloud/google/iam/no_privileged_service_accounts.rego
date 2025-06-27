@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - google-iam-no-privileged-service-accounts
-#   id: AVD-GCP-0007
+#   id: GCP-0007
 #   provider: google
 #   service: iam
 #   severity: HIGH

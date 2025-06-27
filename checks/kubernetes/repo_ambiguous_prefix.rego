@@ -4,7 +4,7 @@
 # schemas:
 #   - input: schema["kubernetes"]
 # custom:
-#   id: AVD-KSV-0124
+#   id: KSV-0124
 #   severity: HIGH
 #   input:
 #     selector:

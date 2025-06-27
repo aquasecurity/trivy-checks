@@ -11,7 +11,7 @@
 # custom:
 #   aliases:
 #     - aws-config-aggregate-all-regions
-#   id: AVD-AWS-0019
+#   id: AWS-0019
 #   provider: aws
 #   service: config
 #   severity: HIGH

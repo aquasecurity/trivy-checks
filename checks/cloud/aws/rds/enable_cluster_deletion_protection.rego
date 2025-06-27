@@ -9,7 +9,7 @@
 # custom:
 #   aliases:
 #     - aws-rds-enable-cluster-deletion-protection
-#   id: AVD-AWS-0343
+#   id: AWS-0343
 #   provider: aws
 #   service: rds
 #   severity: MEDIUM

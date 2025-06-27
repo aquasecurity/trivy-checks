@@ -9,7 +9,7 @@
 # custom:
 #   aliases:
 #     - google-iam-no-folder-level-default-service-account-assignment
-#   id: AVD-GCP-0004
+#   id: GCP-0004
 #   provider: google
 #   service: iam
 #   severity: MEDIUM

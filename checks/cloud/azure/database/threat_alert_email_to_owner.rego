@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - azure-database-threat-alert-email-to-owner
-#   id: AVD-AZU-0023
+#   id: AZU-0023
 #   provider: azure
 #   service: database
 #   severity: LOW

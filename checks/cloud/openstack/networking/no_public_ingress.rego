@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - openstack-networking-no-public-ingress
-#   id: AVD-OPNSTK-0003
+#   id: OPNSTK-0003
 #   provider: openstack
 #   service: networking
 #   severity: MEDIUM

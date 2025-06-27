@@ -7,7 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: AVD-KCV-0080
+#   id: KCV-0080
 #   severity: HIGH
 #   short_code: ensure-authorization-mode-argument-set-alwaysallow
 #   recommended_action: "edit Kubelet config and set authorization: mode to Webhook."

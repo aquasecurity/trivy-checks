@@ -138,28 +138,28 @@ func pushBundle(t *testing.T, ctx context.Context, path string, image string) {
 	require.NoError(t, c.Terminate(ctx))
 }
 
-// TODO: AVD-AWS-0344 check is excluded because its input does not match the scheme of older versions of Trivy.
+// TODO: AWS-0344 check is excluded because its input does not match the scheme of older versions of Trivy.
 // Remove it for the latest version after this issue is resolved.
 var excludedChecks = map[string][]string{
 	// Excluded for all versions, as these checks are only for documentation and lack implementation.
 	"": {
-		"AVD-AWS-0057",
-		"AVD-AWS-0114",
-		"AVD-AWS-0120",
-		"AVD-AWS-0134",
+		"AWS-0057",
+		"AWS-0114",
+		"AWS-0120",
+		"AWS-0134",
 	},
 	"0.57.1": {
 		// After version 0.57.1, the bug with the field type was fixed and the example was updated. See: https://github.com/aquasecurity/trivy/pull/7995
-		"AVD-AWS-0036",
-		"AVD-AWS-0344",
-		"AVD-GCP-0050",
+		"AWS-0036",
+		"AWS-0344",
+		"GCP-0050",
 	},
 	"0.58.1": {
-		"AVD-AWS-0344",
-		"AVD-GCP-0050",
+		"AWS-0344",
+		"GCP-0050",
 	},
 	"latest": {
-		"AVD-AWS-0344",
+		"AWS-0344",
 	},
 }
 
@@ -179,16 +179,16 @@ func setupTarget(t *testing.T, targetDir string) {
 			continue
 		}
 
-		examples, path, err := examples.GetCheckExamples(meta)
+		checkExamples, path, err := examples.GetCheckExamples(meta)
 		require.NoError(t, err)
 
 		if path == "" {
 			continue
 		}
 
-		for provider, providerExamples := range examples {
-			writeExamples(t, providerExamples.Bad.ToStrings(), provider, targetDir, meta.AVDID(), "bad")
-			writeExamples(t, providerExamples.Good.ToStrings(), provider, targetDir, meta.AVDID(), "good")
+		for provider, providerExamples := range checkExamples {
+			writeExamples(t, providerExamples.Bad.ToStrings(), provider, targetDir, meta.ID(), "bad")
+			writeExamples(t, providerExamples.Good.ToStrings(), provider, targetDir, meta.ID(), "good")
 		}
 	}
 }

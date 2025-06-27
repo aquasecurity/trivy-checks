@@ -7,7 +7,7 @@
 # related_resources:
 # - https://kubesec.io/basics/containers-securitycontext-readonlyrootfilesystem-true/
 # custom:
-#   id: AVD-KSV-0014
+#   id: KSV-0014
 #   severity: HIGH
 #   short_code: use-readonly-filesystem
 #   recommended_action: "Change 'containers[].securityContext.readOnlyRootFilesystem' to 'true'."

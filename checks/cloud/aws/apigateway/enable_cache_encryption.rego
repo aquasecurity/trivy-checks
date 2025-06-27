@@ -8,7 +8,7 @@
 # custom:
 #   aliases:
 #     - aws-apigateway-enable-cache-encryption
-#   id: AVD-AWS-0002
+#   id: AWS-0002
 #   provider: aws
 #   service: apigateway
 #   severity: MEDIUM

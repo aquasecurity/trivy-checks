@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-sam-enable-table-encryption
-#   id: AVD-AWS-0121
+#   id: AWS-0121
 #   provider: aws
 #   service: sam
 #   severity: HIGH

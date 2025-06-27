@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - aws-s3-enable-object-read-logging
-#   id: AVD-AWS-0172
+#   id: AWS-0172
 #   provider: aws
 #   service: s3
 #   severity: LOW

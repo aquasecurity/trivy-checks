@@ -10,7 +10,7 @@
 # custom:
 #   aliases:
 #     - azure-monitor-activity-log-retention-set
-#   id: AVD-AZU-0031
+#   id: AZU-0031
 #   provider: azure
 #   service: monitor
 #   severity: MEDIUM

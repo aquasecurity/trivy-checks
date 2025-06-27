@@ -7,7 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 # custom:
-#   id: AVD-KSV-0106
+#   id: KSV-0106
 #   severity: LOW
 #   short_code: drop-caps-add-bind-svc
 #   recommended_action: "Set 'spec.containers[*].securityContext.capabilities.drop' to 'ALL' and only add 'NET_BIND_SERVICE' to 'spec.containers[*].securityContext.capabilities.add'."

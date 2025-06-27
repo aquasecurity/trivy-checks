@@ -11,7 +11,7 @@
 # custom:
 #   aliases:
 #     - azure-storage-allow-microsoft-service-bypass
-#   id: AVD-AZU-0010
+#   id: AZU-0010
 #   provider: azure
 #   service: storage
 #   severity: HIGH

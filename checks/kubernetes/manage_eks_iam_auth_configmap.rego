@@ -7,7 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: AVD-KSV-0115
+#   id: KSV-0115
 #   severity: CRITICAL
 #   short_code: eks-iam-configmap
 #   recommended_actions: "Remove write permission verbs for resource 'configmaps' named 'aws-auth'"

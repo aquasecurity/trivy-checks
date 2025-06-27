@@ -7,7 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: AVD-KCV-0047
+#   id: KCV-0047
 #   severity: LOW
 #   short_code: ensure-peer-auto-tls-argument-is-not-set-to-true
 #   recommended_action: "Edit the etcd pod specification file /etc/kubernetes/manifests/etcd.yaml on the master node and either remove the --peer-auto-tls parameter or set it to false."

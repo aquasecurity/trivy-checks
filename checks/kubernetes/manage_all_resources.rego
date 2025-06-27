@@ -7,7 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: AVD-KSV-0046
+#   id: KSV-0046
 #   severity: CRITICAL
 #   short_code: no-wildcard-resource-clusterrole
 #   recommended_actions: "Remove '*' from 'rules.resources'. Provide specific list of resources to be managed by cluster role"

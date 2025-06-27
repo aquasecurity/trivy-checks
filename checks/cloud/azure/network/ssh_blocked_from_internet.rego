@@ -9,7 +9,7 @@
 # custom:
 #   aliases:
 #     - azure-network-ssh-blocked-from-internet
-#   id: AVD-AZU-0050
+#   id: AZU-0050
 #   provider: azure
 #   service: network
 #   severity: CRITICAL

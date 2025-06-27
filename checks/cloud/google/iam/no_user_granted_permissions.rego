@@ -15,7 +15,7 @@
 # custom:
 #   aliases:
 #     - google-iam-no-user-granted-permissions
-#   id: AVD-GCP-0003
+#   id: GCP-0003
 #   provider: google
 #   service: iam
 #   severity: MEDIUM
