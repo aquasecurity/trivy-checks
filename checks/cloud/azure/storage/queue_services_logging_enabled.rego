@@ -36,7 +36,7 @@ deny contains res if {
 	some account in input.azure.storage.accounts
 	isManaged(account)
 	count(account.queues) > 0
-    isManaged(account.queueproperties.enablelogging)
+	isManaged(account.queueproperties.enablelogging)
 	not account.queueproperties.enablelogging.value
 	res := result.new(
 		"Queue services storage account does not have logging enabled.",
