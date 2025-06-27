@@ -24,7 +24,7 @@ report contains violation if {
 	some alias, path in ast.resolved_imports
 	path[0] == "data"
 	not path[1] in _allowed_prefixes
-	path[1] != replace(trim_prefix(lower(check_id), "avd-"), "-", "")
+	path[1] != replace(lower(check_id), "-", "")
 
 	violation := result.fail(rego.metadata.chain(), result.location(_pkg_annotation))
 }
