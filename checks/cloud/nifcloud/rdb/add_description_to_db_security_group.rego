@@ -12,11 +12,13 @@
 # custom:
 #   id: NIF-0012
 #   aliases:
+#     - AVD-NIF-0012
 #     - nifcloud-rdb-add-description-to-db-security-group
+#     - add-description-to-db-security-group
+#   long_id: nifcloud-rdb-add-description-to-db-security-group
 #   provider: nifcloud
 #   service: rdb
 #   severity: LOW
-#   long_id: nifcloud-rdb-add-description-to-db-security-group
 #   recommended_action: Add descriptions for all db security groups
 #   input:
 #     selector:

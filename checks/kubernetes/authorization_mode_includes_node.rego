@@ -3,17 +3,21 @@
 # description: "Restrict kubelet nodes to reading only objects associated with them."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0008
-#   severity: LOW
+#   aliases:
+#     - AVD-KCV-0008
+#     - KCV0008
+#     - ensure-authorization-mode-argument-includes-node
 #   long_id: kubernetes-ensure-authorization-mode-argument-includes-node
+#   severity: LOW
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --authorization-mode parameter to a value that includes Node."
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KCV0008
 
 import rego.v1

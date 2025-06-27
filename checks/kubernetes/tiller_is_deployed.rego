@@ -3,15 +3,19 @@
 # description: "Check if Helm Tiller component is deployed."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # custom:
 #   id: KSV-0102
-#   severity: CRITICAL
+#   aliases:
+#     - AVD-KSV-0102
+#     - KSV102
+#     - no-tiller
 #   long_id: kubernetes-no-tiller
+#   severity: CRITICAL
 #   recommended_action: "Migrate to Helm v3 which no longer has Tiller component"
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KSV102
 
 import rego.v1

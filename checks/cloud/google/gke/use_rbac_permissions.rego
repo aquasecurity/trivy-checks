@@ -10,13 +10,14 @@
 # related_resources:
 #   - https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster#leave_abac_disabled_default_for_110
 # custom:
-#   aliases:
-#     - google-gke-use-rbac-permissions
 #   id: GCP-0062
+#   aliases:
+#     - AVD-GCP-0062
+#     - use-rbac-permissions
+#   long_id: google-gke-use-rbac-permissions
 #   provider: google
 #   service: gke
 #   severity: HIGH
-#   long_id: google-gke-use-rbac-permissions
 #   recommended_action: Switch to using RBAC permissions
 #   input:
 #     selector:

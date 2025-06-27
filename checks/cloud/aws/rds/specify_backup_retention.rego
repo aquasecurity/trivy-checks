@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupRetention
 # custom:
-#   aliases:
-#     - aws-rds-specify-backup-retention
 #   id: AWS-0077
+#   aliases:
+#     - AVD-AWS-0077
+#     - specify-backup-retention
+#   long_id: aws-rds-specify-backup-retention
 #   provider: aws
 #   service: rds
 #   severity: MEDIUM
-#   long_id: aws-rds-specify-backup-retention
 #   recommended_action: Explicitly set the retention period to greater than the default
 #   input:
 #     selector:

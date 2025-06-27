@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/security/fundamentals/network-best-practices
 # custom:
-#   aliases:
-#     - azure-network-no-public-ingress
 #   id: AZU-0047
+#   aliases:
+#     - AVD-AZU-0047
+#     - no-public-ingress
+#   long_id: azure-network-no-public-ingress
 #   provider: azure
 #   service: network
 #   severity: CRITICAL
-#   long_id: azure-network-no-public-ingress
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

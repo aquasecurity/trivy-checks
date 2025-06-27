@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://console.aws.amazon.com/iam/
 # custom:
-#   aliases:
-#     - aws-iam-no-user-attached-policies
 #   id: AWS-0143
+#   aliases:
+#     - AVD-AWS-0143
+#     - no-user-attached-policies
+#   long_id: aws-iam-no-user-attached-policies
 #   provider: aws
 #   service: iam
 #   severity: LOW
-#   long_id: aws-iam-no-user-attached-policies
 #   recommended_action: Grant policies at the group level instead.
 #   frameworks:
 #     default:

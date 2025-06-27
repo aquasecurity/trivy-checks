@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_enable_physical.html
 # custom:
-#   aliases:
-#     - aws-iam-enforce-root-hardware-mfa
 #   id: AWS-0165
+#   aliases:
+#     - AVD-AWS-0165
+#     - enforce-root-hardware-mfa
+#   long_id: aws-iam-enforce-root-hardware-mfa
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
-#   long_id: aws-iam-enforce-root-hardware-mfa
 #   recommended_action: Enable hardware MFA on the root user account.
 #   frameworks:
 #     cis-aws-1.4:

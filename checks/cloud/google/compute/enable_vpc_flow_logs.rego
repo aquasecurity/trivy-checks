@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - google-compute-enable-vpc-flow-logs
 #   id: GCP-0029
+#   aliases:
+#     - AVD-GCP-0029
+#     - enable-vpc-flow-logs
+#   long_id: google-compute-enable-vpc-flow-logs
 #   provider: google
 #   service: compute
 #   severity: LOW
-#   long_id: google-compute-enable-vpc-flow-logs
 #   recommended_action: Enable VPC flow logs
 #   input:
 #     selector:

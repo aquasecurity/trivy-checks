@@ -10,13 +10,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/key-vault/general/soft-delete-overview#purge-protection
 # custom:
-#   aliases:
-#     - azure-keyvault-no-purge
 #   id: AZU-0016
+#   aliases:
+#     - AVD-AZU-0016
+#     - no-purge
+#   long_id: azure-keyvault-no-purge
 #   provider: azure
 #   service: keyvault
 #   severity: MEDIUM
-#   long_id: azure-keyvault-no-purge
 #   recommended_action: Enable purge protection for key vaults
 #   input:
 #     selector:

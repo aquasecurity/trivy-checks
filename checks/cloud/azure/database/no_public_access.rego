@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - azure-database-no-public-access
 #   id: AZU-0022
+#   aliases:
+#     - AVD-AZU-0022
+#     - no-public-access
+#   long_id: azure-database-no-public-access
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
-#   long_id: azure-database-no-public-access
 #   recommended_action: Disable public access to database when not required
 #   input:
 #     selector:

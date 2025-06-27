@@ -10,13 +10,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/storage/common/storage-analytics-logging?tabs=dotnet
 # custom:
-#   aliases:
-#     - azure-storage-queue-services-logging-enabled
 #   id: AZU-0009
+#   aliases:
+#     - AVD-AZU-0009
+#     - queue-services-logging-enabled
+#   long_id: azure-storage-queue-services-logging-enabled
 #   provider: azure
 #   service: storage
 #   severity: MEDIUM
-#   long_id: azure-storage-queue-services-logging-enabled
 #   recommended_action: Enable logging for Queue Services
 #   input:
 #     selector:
@@ -35,7 +36,6 @@ deny contains res if {
 	some account in input.azure.storage.accounts
 	isManaged(account)
 	count(account.queues) > 0
-	isManaged(account.queueproperties.enablelogging)
 	not account.queueproperties.enablelogging.value
 	res := result.new(
 		"Queue services storage account does not have logging enabled.",

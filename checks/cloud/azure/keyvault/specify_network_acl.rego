@@ -10,13 +10,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/key-vault/general/network-security
 # custom:
-#   aliases:
-#     - azure-keyvault-specify-network-acl
 #   id: AZU-0013
+#   aliases:
+#     - AVD-AZU-0013
+#     - specify-network-acl
+#   long_id: azure-keyvault-specify-network-acl
 #   provider: azure
 #   service: keyvault
 #   severity: CRITICAL
-#   long_id: azure-keyvault-specify-network-acl
 #   recommended_action: Set a network ACL for the key vault
 #   input:
 #     selector:

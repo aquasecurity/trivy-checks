@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://console.aws.amazon.com/iam/
 # custom:
-#   aliases:
-#     - aws-iam-disable-unused-credentials-45-days
 #   id: AWS-0166
+#   aliases:
+#     - AVD-AWS-0166
+#     - disable-unused-credentials-45-days
+#   long_id: aws-iam-disable-unused-credentials-45-days
 #   provider: aws
 #   service: iam
 #   severity: LOW
-#   long_id: aws-iam-disable-unused-credentials-45-days
 #   recommended_action: Disable credentials which are no longer used.
 #   frameworks:
 #     cis-aws-1.4:

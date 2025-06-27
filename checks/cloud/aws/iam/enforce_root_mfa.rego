@@ -10,13 +10,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cis-controls.html#securityhub-cis-controls-1.14
 # custom:
-#   aliases:
-#     - aws-iam-enforce-root-mfa
 #   id: AWS-0142
+#   aliases:
+#     - AVD-AWS-0142
+#     - enforce-root-mfa
+#   long_id: aws-iam-enforce-root-mfa
 #   provider: aws
 #   service: iam
 #   severity: CRITICAL
-#   long_id: aws-iam-enforce-root-mfa
 #   recommended_action: Enable MFA on the root user account.
 #   frameworks:
 #     cis-aws-1.4:

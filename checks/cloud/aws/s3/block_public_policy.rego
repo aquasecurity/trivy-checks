@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/dev-retired/access-control-block-public-access.html
 # custom:
-#   aliases:
-#     - aws-s3-block-public-policy
 #   id: AWS-0087
+#   aliases:
+#     - AVD-AWS-0087
+#     - block-public-policy
+#   long_id: aws-s3-block-public-policy
 #   provider: aws
 #   service: s3
 #   severity: HIGH
-#   long_id: aws-s3-block-public-policy
 #   recommended_action: Prevent policies that allow public access being PUT
 #   input:
 #     selector:

@@ -3,26 +3,30 @@
 # description: "Containers should only use images from trusted GCR registries."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # custom:
 #   id: KSV-0033
-#   severity: MEDIUM
+#   aliases:
+#     - AVD-KSV-0033
+#     - KSV033
+#     - use-gcr-domain
 #   long_id: kubernetes-use-gcr-domain
+#   severity: MEDIUM
 #   recommended_action: "Use images from trusted GCR registries."
 #   deprecated: true
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 package builtin.kubernetes.KSV033
 
 import rego.v1

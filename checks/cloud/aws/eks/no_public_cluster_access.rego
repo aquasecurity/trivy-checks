@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
 # custom:
-#   aliases:
-#     - aws-eks-no-public-cluster-access
 #   id: AWS-0040
+#   aliases:
+#     - AVD-AWS-0040
+#     - no-public-cluster-access
+#   long_id: aws-eks-no-public-cluster-access
 #   provider: aws
 #   service: eks
 #   severity: CRITICAL
-#   long_id: aws-eks-no-public-cluster-access
 #   recommended_action: Don't enable public access to EKS Clusters
 #   input:
 #     selector:

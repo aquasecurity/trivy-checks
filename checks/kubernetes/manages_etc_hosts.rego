@@ -3,25 +3,29 @@
 # description: "Managing /etc/hosts aliases can prevent the container engine from modifying the file after a pod’s containers have already been started."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # custom:
 #   id: KSV-0007
-#   severity: LOW
+#   aliases:
+#     - AVD-KSV-0007
+#     - KSV007
+#     - no-hostaliases
 #   long_id: kubernetes-no-hostaliases
+#   severity: LOW
 #   recommended_action: "Do not set 'spec.template.spec.hostAliases'."
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 package builtin.kubernetes.KSV007
 
 import rego.v1

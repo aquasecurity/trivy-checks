@@ -10,11 +10,13 @@
 # custom:
 #   id: NIF-0013
 #   aliases:
+#     - AVD-NIF-0013
 #     - nifcloud-nas-no-common-private-nas-instance
+#     - no-common-private-nas-instance
+#   long_id: nifcloud-nas-no-common-private-nas-instance
 #   provider: nifcloud
 #   service: nas
 #   severity: LOW
-#   long_id: nifcloud-nas-no-common-private-nas-instance
 #   recommended_action: Use private LAN
 #   input:
 #     selector:

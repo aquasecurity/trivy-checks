@@ -3,27 +3,31 @@
 # description: "According to pod security standard 'Host Ports', hostPorts should be disallowed, or at minimum restricted to a known list."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
+#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
 #   id: KSV-0024
-#   severity: HIGH
+#   aliases:
+#     - AVD-KSV-0024
+#     - KSV024
+#     - no-host-port-access
 #   long_id: kubernetes-no-host-port-access
+#   severity: HIGH
 #   recommended_action: "Do not set spec.containers[*].ports[*].hostPort and spec.initContainers[*].ports[*].hostPort."
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 #   examples: checks/kubernetes/access_to_host_ports.yaml
 package builtin.kubernetes.KSV024
 

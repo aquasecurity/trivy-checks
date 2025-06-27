@@ -9,13 +9,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/config/latest/developerguide/aggregate-data.html
 # custom:
-#   aliases:
-#     - aws-config-aggregate-all-regions
 #   id: AWS-0019
+#   aliases:
+#     - AVD-AWS-0019
+#     - aggregate-all-regions
+#   long_id: aws-config-aggregate-all-regions
 #   provider: aws
 #   service: config
 #   severity: HIGH
-#   long_id: aws-config-aggregate-all-regions
 #   recommended_action: Set the aggregator to cover all regions
 #   input:
 #     selector:

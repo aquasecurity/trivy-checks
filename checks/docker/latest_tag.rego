@@ -3,15 +3,19 @@
 # description: "When using a 'FROM' statement you should use a specific tag to avoid uncontrolled behavior when the image is updated."
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # custom:
 #   id: DS-0001
-#   severity: MEDIUM
+#   aliases:
+#     - AVD-DS-0001
+#     - DS001
+#     - use-specific-tags
 #   long_id: docker-use-specific-tags
+#   severity: MEDIUM
 #   recommended_action: "Add a tag to the image in the 'FROM' statement"
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/latest_tag.yaml
 package builtin.dockerfile.DS001
 

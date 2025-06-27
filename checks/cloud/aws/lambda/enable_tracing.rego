@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html
 # custom:
-#   aliases:
-#     - aws-lambda-enable-tracing
 #   id: AWS-0066
+#   aliases:
+#     - AVD-AWS-0066
+#     - enable-tracing
+#   long_id: aws-lambda-enable-tracing
 #   provider: aws
 #   service: lambda
 #   severity: LOW
-#   long_id: aws-lambda-enable-tracing
 #   recommended_action: Enable tracing
 #   input:
 #     selector:

@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html
 # custom:
-#   aliases:
-#     - aws-cloudtrail-enable-all-regions
 #   id: AWS-0014
+#   aliases:
+#     - AVD-AWS-0014
+#     - enable-all-regions
+#   long_id: aws-cloudtrail-enable-all-regions
 #   provider: aws
 #   service: cloudtrail
 #   severity: MEDIUM
-#   long_id: aws-cloudtrail-enable-all-regions
 #   recommended_action: Enable Cloudtrail in all regions
 #   frameworks:
 #     default:

@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/neptune/latest/userguide/encrypt.html
 # custom:
-#   aliases:
-#     - aws-neptune-encryption-customer-key
 #   id: AWS-0128
+#   aliases:
+#     - AVD-AWS-0128
+#     - encryption-customer-key
+#   long_id: aws-neptune-encryption-customer-key
 #   provider: aws
 #   service: neptune
 #   severity: HIGH
-#   long_id: aws-neptune-encryption-customer-key
 #   recommended_action: Enable encryption using customer managed keys
 #   input:
 #     selector:

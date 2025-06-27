@@ -3,19 +3,23 @@
 # description: "Ensure that the controller-manager config file has permissions of 600 or more restrictive."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0064
-#   severity: HIGH
+#   aliases:
+#     - AVD-KCV-0064
+#     - KCV0064
+#     - ensure-controller-manager-config-file-permissions-set-600-or-more-restrictive
 #   long_id: kubernetes-ensure-controller-manager-config-file-permissions-set-600-or-more-restrictive
+#   severity: HIGH
 #   recommended_action: "Change the controller manager config file /etc/kubernetes/controller-manager.conf permissions of 600 or more restrictive "
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0064
 
 import rego.v1

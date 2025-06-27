@@ -3,24 +3,25 @@
 # description: "Ensures RDS instances and RDS Cluster instances are not launched into the public cloud."
 # scope: package
 # schemas:
-# - input: schema["cloud"]
+#   - input: schema["cloud"]
 # related_resources:
-# - http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html
+#   - http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html
 # custom:
-#   aliases:
-#     - aws-rds-enable-public-access
 #   id: AWS-0180
+#   aliases:
+#     - AVD-AWS-0180
+#     - enable-public-access
+#   long_id: aws-rds-enable-public-access
 #   provider: aws
 #   service: rds
 #   severity: HIGH
-#   long_id: aws-rds-enable-public-access
 #   recommended_action: "Remove the public endpoint from the RDS instance."
 #   input:
 #     selector:
-#     - type: cloud
-#       subtypes:
-#         - service: rds
-#           provider: aws
+#       - type: cloud
+#         subtypes:
+#           - service: rds
+#             provider: aws
 #   examples: "checks/cloud/aws/rds/disable_public_access.yaml"
 package builtin.aws.rds.aws0180
 

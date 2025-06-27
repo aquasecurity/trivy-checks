@@ -10,11 +10,13 @@
 # custom:
 #   id: NIF-0014
 #   aliases:
+#     - AVD-NIF-0014
 #     - nifcloud-nas-no-public-ingress-nas-sgr
+#     - no-public-ingress-nas-sgr
+#   long_id: nifcloud-nas-no-public-ingress-nas-sgr
 #   provider: nifcloud
 #   service: nas
 #   severity: CRITICAL
-#   long_id: nifcloud-nas-no-public-ingress-nas-sgr
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

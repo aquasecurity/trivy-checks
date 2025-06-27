@@ -10,12 +10,13 @@
 # custom:
 #   id: AWS-0178
 #   aliases:
+#     - AVD-AWS-0178
 #     - aws-autoscaling-enable-at-rest-encryption
-#     - aws-ec2-require-vpc-flow-logs-for-all-vpcs
+#     - require-vpc-flow-logs-for-all-vpcs
+#   long_id: aws-ec2-require-vpc-flow-logs-for-all-vpcs
 #   provider: aws
 #   service: ec2
 #   severity: MEDIUM
-#   long_id: aws-ec2-require-vpc-flow-logs-for-all-vpcs
 #   recommended_action: Enable flow logs for VPC
 #   input:
 #     selector:

@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-cloudtrail-logging-for-s3.html
 # custom:
-#   aliases:
-#     - aws-s3-enable-object-write-logging
 #   id: AWS-0171
+#   aliases:
+#     - AVD-AWS-0171
+#     - enable-object-write-logging
+#   long_id: aws-s3-enable-object-write-logging
 #   provider: aws
 #   service: s3
 #   severity: LOW
-#   long_id: aws-s3-enable-object-write-logging
 #   recommended_action: Enable Object-level logging for S3 buckets.
 #   frameworks:
 #     cis-aws-1.4:

@@ -12,11 +12,13 @@
 # custom:
 #   id: NIF-0003
 #   aliases:
+#     - AVD-NIF-0003
 #     - nifcloud-computing-add-description-to-security-group-rule
+#     - add-description-to-security-group-rule
+#   long_id: nifcloud-computing-add-description-to-security-group-rule
 #   provider: nifcloud
 #   service: computing
 #   severity: LOW
-#   long_id: nifcloud-computing-add-description-to-security-group-rule
 #   recommended_action: Add descriptions for all security groups rules
 #   input:
 #     selector:

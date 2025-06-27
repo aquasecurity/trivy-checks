@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - openstack-networking-no-public-ingress
 #   id: OPNSTK-0003
+#   aliases:
+#     - AVD-OPNSTK-0003
+#     - no-public-ingress
+#   long_id: openstack-networking-no-public-ingress
 #   provider: openstack
 #   service: networking
 #   severity: MEDIUM
-#   long_id: openstack-networking-no-public-ingress
 #   recommended_action: Employ more restrictive security group rules
 #   input:
 #     selector:

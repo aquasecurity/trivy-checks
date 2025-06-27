@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - azure-database-enable-ssl-enforcement
 #   id: AZU-0020
+#   aliases:
+#     - AVD-AZU-0020
+#     - enable-ssl-enforcement
+#   long_id: azure-database-enable-ssl-enforcement
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
-#   long_id: azure-database-enable-ssl-enforcement
 #   recommended_action: Enable SSL enforcement
 #   input:
 #     selector:

@@ -10,13 +10,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html
 # custom:
-#   aliases:
-#     - aws-cloudwatch-require-sg-change-alarms
 #   id: AWS-0156
+#   aliases:
+#     - AVD-AWS-0156
+#     - require-sg-change-alarms
+#   long_id: aws-cloudwatch-require-sg-change-alarms
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   long_id: aws-cloudwatch-require-sg-change-alarms
 #   recommended_action: Create an alarm to alert on security group changes
 #   frameworks:
 #     cis-aws-1.2:

@@ -3,27 +3,31 @@
 # description: "A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
+#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 # custom:
 #   id: KSV-0001
-#   severity: MEDIUM
+#   aliases:
+#     - AVD-KSV-0001
+#     - KSV001
+#     - no-self-privesc
 #   long_id: kubernetes-no-self-privesc
+#   severity: MEDIUM
 #   recommended_action: "Set 'set containers[].securityContext.allowPrivilegeEscalation' to 'false'."
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 #   examples: checks/kubernetes/can_elevate_its_own_privileges.yaml
 package builtin.kubernetes.KSV001
 

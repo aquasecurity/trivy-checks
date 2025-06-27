@@ -14,13 +14,14 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/help/ssl/del.htm
 # custom:
-#   aliases:
-#     - nifcloud-ssl-certificate-remove-expired-certificates
 #   id: NIF-0006
+#   aliases:
+#     - AVD-NIF-0006
+#     - remove-expired-certificates
+#   long_id: nifcloud-sslcertificate-remove-expired-certificates
 #   provider: nifcloud
 #   service: ssl-certificate
 #   severity: LOW
-#   long_id: nifcloud-sslcertificate-remove-expired-certificates
 #   recommended_action: Remove expired certificates
 #   input:
 #     selector:

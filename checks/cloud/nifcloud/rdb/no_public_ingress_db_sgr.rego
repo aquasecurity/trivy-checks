@@ -10,11 +10,13 @@
 # custom:
 #   id: NIF-0011
 #   aliases:
+#     - AVD-NIF-0011
 #     - nifcloud-rdb-no-public-ingress-db-sgr
+#     - no-public-ingress-db-sgr
+#   long_id: nifcloud-rdb-no-public-ingress-db-sgr
 #   provider: nifcloud
 #   service: rdb
 #   severity: CRITICAL
-#   long_id: nifcloud-rdb-no-public-ingress-db-sgr
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

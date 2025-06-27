@@ -3,26 +3,27 @@
 # description: Ensures S3 bucket logging is enabled for S3 buckets
 # scope: package
 # schemas:
-# - input: schema["cloud"]
+#   - input: schema["cloud"]
 # related_resources:
-# - https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html
-# - https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html
+#   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html
+#   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html
 # custom:
 #   id: AWS-0089
 #   provider: aws
 #   service: s3
 #   severity: LOW
-#   long_id: aws-s3-enable-logging
 #   aliases:
-#   - s3-bucket-logging
-#   - aws-s3-enable-logging
+#     - AVD-AWS-0089
+#     - s3-bucket-logging
+#     - enable-logging
+#   long_id: aws-s3-enable-logging
 #   recommended_action: Add a logging block to the resource to enable access logging
 #   input:
 #     selector:
-#     - type: cloud
-#       subtypes:
-#         - service: s3
-#           provider: aws
+#       - type: cloud
+#         subtypes:
+#           - service: s3
+#             provider: aws
 #   examples: checks/cloud/aws/s3/enable_logging.yaml
 package builtin.aws.s3.aws0089
 

@@ -3,17 +3,21 @@
 # description: "Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile."
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+#   - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 # custom:
 #   id: DS-0002
-#   severity: HIGH
+#   aliases:
+#     - AVD-DS-0002
+#     - DS002
+#     - least-privilege-user
 #   long_id: docker-least-privilege-user
+#   severity: HIGH
 #   recommended_action: "Add 'USER <non root user name>' line to the Dockerfile"
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/root_user.yaml
 package builtin.dockerfile.DS002
 

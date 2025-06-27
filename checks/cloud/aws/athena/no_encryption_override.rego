@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/athena/latest/ug/manage-queries-control-costs-with-workgroups.html
 # custom:
-#   aliases:
-#     - aws-athena-no-encryption-override
 #   id: AWS-0007
+#   aliases:
+#     - AVD-AWS-0007
+#     - no-encryption-override
+#   long_id: aws-athena-no-encryption-override
 #   provider: aws
 #   service: athena
 #   severity: HIGH
-#   long_id: aws-athena-no-encryption-override
 #   recommended_action: Enforce the configuration to prevent client overrides
 #   input:
 #     selector:

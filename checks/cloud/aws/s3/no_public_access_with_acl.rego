@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html
 # custom:
-#   aliases:
-#     - aws-s3-no-public-access-with-acl
 #   id: AWS-0092
+#   aliases:
+#     - AVD-AWS-0092
+#     - no-public-access-with-acl
+#   long_id: aws-s3-no-public-access-with-acl
 #   provider: aws
 #   service: s3
 #   severity: HIGH
-#   long_id: aws-s3-no-public-access-with-acl
 #   recommended_action: Don't use canned ACLs or switch to private acl
 #   input:
 #     selector:

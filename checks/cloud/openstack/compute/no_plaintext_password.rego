@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - openstack-compute-no-plaintext-password
 #   id: OPNSTK-0001
+#   aliases:
+#     - AVD-OPNSTK-0001
+#     - no-plaintext-password
+#   long_id: openstack-compute-no-plaintext-password
 #   provider: openstack
 #   service: compute
 #   severity: MEDIUM
-#   long_id: openstack-compute-no-plaintext-password
 #   recommended_action: Do not use plaintext passwords in terraform files
 #   input:
 #     selector:

@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContainerInsights.html
 # custom:
-#   aliases:
-#     - aws-ecs-enable-container-insight
 #   id: AWS-0034
+#   aliases:
+#     - AVD-AWS-0034
+#     - enable-container-insight
+#   long_id: aws-ecs-enable-container-insight
 #   provider: aws
 #   service: ecs
 #   severity: LOW
-#   long_id: aws-ecs-enable-container-insight
 #   recommended_action: Enable Container Insights
 #   input:
 #     selector:

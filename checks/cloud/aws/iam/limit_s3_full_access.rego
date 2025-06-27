@@ -3,22 +3,23 @@
 # description: "Ensure that the creation of the unrestricted S3 IAM policies is disallowed."
 # scope: package
 # schemas:
-# - input: schema["cloud"]
+#   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - aws-iam-no-s3-full-access
 #   id: AWS-0345
+#   aliases:
+#     - AVD-AWS-0345
+#     - no-s3-full-access
+#   long_id: aws-iam-no-s3-full-access
 #   provider: aws
 #   service: iam
 #   severity: HIGH
-#   long_id: aws-iam-no-s3-full-access
 #   recommended_action: "Create more restrictive S3 policies"
 #   input:
 #     selector:
-#     - type: cloud
-#       subtypes:
-#         - service: iam
-#           provider: aws
+#       - type: cloud
+#         subtypes:
+#           - service: iam
+#             provider: aws
 #   examples: checks/cloud/aws/iam/limit_s3_full_access.yaml
 package builtin.aws.iam.aws0345
 

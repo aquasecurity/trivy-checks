@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html
 # custom:
-#   aliases:
-#     - aws-redshift-encryption-customer-key
 #   id: AWS-0084
+#   aliases:
+#     - AVD-AWS-0084
+#     - encryption-customer-key
+#   long_id: aws-redshift-encryption-customer-key
 #   provider: aws
 #   service: redshift
 #   severity: HIGH
-#   long_id: aws-redshift-encryption-customer-key
 #   recommended_action: Enable encryption using CMK
 #   input:
 #     selector:

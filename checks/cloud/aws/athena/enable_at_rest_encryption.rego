@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/athena/latest/ug/encryption.html
 # custom:
-#   aliases:
-#     - aws-athena-enable-at-rest-encryption
 #   id: AWS-0006
+#   aliases:
+#     - AVD-AWS-0006
+#     - enable-at-rest-encryption
+#   long_id: aws-athena-enable-at-rest-encryption
 #   provider: aws
 #   service: athena
 #   severity: HIGH
-#   long_id: aws-athena-enable-at-rest-encryption
 #   recommended_action: Enable encryption at rest for Athena databases and workgroup configurations
 #   input:
 #     selector:

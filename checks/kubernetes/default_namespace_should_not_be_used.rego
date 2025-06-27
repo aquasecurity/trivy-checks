@@ -3,27 +3,31 @@
 # description: "Checks whether a workload is running in the default namespace."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
+#   - https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/
 # custom:
 #   id: KSV-0110
-#   severity: LOW
+#   aliases:
+#     - AVD-KSV-0110
+#     - KSV110
+#     - default-namespace-should-not-be-used
 #   long_id: kubernetes-default-namespace-should-not-be-used
+#   severity: LOW
 #   recommended_action: "Set 'metadata.namespace' to a non-default namespace."
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 package builtin.kubernetes.KSV110
 
 import rego.v1

@@ -3,19 +3,23 @@
 # description: "Ensure that the certificate authorities file ownership is set to root:root."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0076
+#   aliases:
+#     - AVD-KCV-0076
+#     - KCV0076
+#     - ensure-certificate_authorities-ownership-set-root:root
+#   long_id: kubernetes-ensure-certificate-authorities-ownership-set-root:root
 #   severity: CRITICAL
-#   long_id: kubernetes-ensure-certificate_authorities-ownership-set-root:root
 #   recommended_action: "Change the certificate authorities file ownership to root:root"
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0076
 
 import rego.v1

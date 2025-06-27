@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/workspaces/latest/adminguide/encrypt-workspaces.html
 # custom:
-#   aliases:
-#     - aws-workspaces-enable-disk-encryption
 #   id: AWS-0109
+#   aliases:
+#     - AVD-AWS-0109
+#     - enable-disk-encryption
+#   long_id: aws-workspaces-enable-disk-encryption
 #   provider: aws
 #   service: workspaces
 #   severity: HIGH
-#   long_id: aws-workspaces-enable-disk-encryption
 #   recommended_action: Root and user volume encryption should be enabled
 #   input:
 #     selector:

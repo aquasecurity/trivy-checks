@@ -10,11 +10,13 @@
 # custom:
 #   id: NIF-0019
 #   aliases:
+#     - AVD-NIF-0019
 #     - nifcloud-network-no-common-private-elb
+#     - no-common-private-elb
+#   long_id: nifcloud-network-no-common-private-elb
 #   provider: nifcloud
 #   service: network
 #   severity: LOW
-#   long_id: nifcloud-network-no-common-private-elb
 #   recommended_action: Use private LAN
 #   input:
 #     selector:

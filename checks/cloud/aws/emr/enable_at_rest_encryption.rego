@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/config/latest/developerguide/operational-best-practices-for-nist_800-171.html
 # custom:
-#   aliases:
-#     - aws-emr-enable-at-rest-encryption
 #   id: AWS-0137
+#   aliases:
+#     - AVD-AWS-0137
+#     - enable-at-rest-encryption
+#   long_id: aws-emr-enable-at-rest-encryption
 #   provider: aws
 #   service: emr
 #   severity: HIGH
-#   long_id: aws-emr-enable-at-rest-encryption
 #   recommended_action: Enable at-rest encryption for EMR cluster
 #   input:
 #     selector:

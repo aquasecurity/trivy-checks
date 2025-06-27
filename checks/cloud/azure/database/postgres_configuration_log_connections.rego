@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/postgresql/concepts-server-logs#configure-logging
 # custom:
-#   aliases:
-#     - azure-database-postgres-configuration-log-connections
 #   id: AZU-0019
+#   aliases:
+#     - AVD-AZU-0019
+#     - postgres-configuration-log-connections
+#   long_id: azure-database-postgres-configuration-log-connections
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
-#   long_id: azure-database-postgres-configuration-log-connections
 #   recommended_action: Enable connection logging
 #   input:
 #     selector:

@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - google-compute-no-serial-port
 #   id: GCP-0032
+#   aliases:
+#     - AVD-GCP-0032
+#     - no-serial-port
+#   long_id: google-compute-no-serial-port
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
-#   long_id: google-compute-no-serial-port
 #   recommended_action: Disable serial port access
 #   input:
 #     selector:

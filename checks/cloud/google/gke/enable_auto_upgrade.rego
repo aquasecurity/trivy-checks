@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - google-gke-enable-auto-upgrade
 #   id: GCP-0058
+#   aliases:
+#     - AVD-GCP-0058
+#     - enable-auto-upgrade
+#   long_id: google-gke-enable-auto-upgrade
 #   provider: google
 #   service: gke
 #   severity: LOW
-#   long_id: google-gke-enable-auto-upgrade
 #   recommended_action: Enable automatic upgrades
 #   input:
 #     selector:

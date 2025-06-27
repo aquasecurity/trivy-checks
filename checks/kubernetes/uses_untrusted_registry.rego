@@ -3,28 +3,32 @@
 # description: Ensure that all containers use images only from trusted registry domains.
 # scope: package
 # schemas:
-# - input: schema.kubernetes
+#   - input: schema.kubernetes
 # related_resources:
-# - https://cloud.google.com/container-registry/docs/overview#registries
-# - https://docs.aws.amazon.com/general/latest/gr/ecr.html
+#   - https://cloud.google.com/container-registry/docs/overview#registries
+#   - https://docs.aws.amazon.com/general/latest/gr/ecr.html
 # custom:
 #   id: KSV-0125
-#   severity: MEDIUM
+#   aliases:
+#     - AVD-KSV-0125
+#     - KSV0125
+#     - use-trusted-registry
 #   long_id: kubernetes-use-trusted-registry
+#   severity: MEDIUM
 #   recommended_action: Use images from trusted registries.
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 package builtin.kubernetes.KSV0125
 
 import rego.v1

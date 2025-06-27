@@ -10,13 +10,14 @@
 # related_resources:
 #   - https://www.cloudflare.com/en-gb/learning/ssl/why-is-http-not-secure/
 # custom:
-#   aliases:
-#     - nifcloud-network-http-not-used
 #   id: NIF-0021
+#   aliases:
+#     - AVD-NIF-0021
+#     - http-not-used
+#   long_id: nifcloud-network-http-not-used
 #   provider: nifcloud
 #   service: network
 #   severity: CRITICAL
-#   long_id: nifcloud-network-http-not-used
 #   recommended_action: Switch to HTTPS to benefit from TLS security features
 #   input:
 #     selector:

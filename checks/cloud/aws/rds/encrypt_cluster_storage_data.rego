@@ -9,13 +9,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html
 # custom:
-#   aliases:
-#     - aws-rds-encrypt-cluster-storage-data
 #   id: AWS-0079
+#   aliases:
+#     - AVD-AWS-0079
+#     - encrypt-cluster-storage-data
+#   long_id: aws-rds-encrypt-cluster-storage-data
 #   provider: aws
 #   service: rds
 #   severity: HIGH
-#   long_id: aws-rds-encrypt-cluster-storage-data
 #   recommended_action: Enable encryption for RDS clusters
 #   input:
 #     selector:

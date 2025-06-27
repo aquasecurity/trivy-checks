@@ -12,13 +12,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/default-custom-security-groups.html
 # custom:
-#   aliases:
-#     - aws-ec2-restrict-all-in-default-sg
 #   id: AWS-0173
+#   aliases:
+#     - AVD-AWS-0173
+#     - restrict-all-in-default-sg
+#   long_id: aws-ec2-restrict-all-in-default-sg
 #   provider: aws
 #   service: ec2
 #   severity: LOW
-#   long_id: aws-ec2-restrict-all-in-default-sg
 #   recommended_action: Configure default security group to restrict all traffic
 #   frameworks:
 #     cis-aws-1.4:

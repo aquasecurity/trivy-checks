@@ -3,19 +3,23 @@
 # description: "Check for insecure annotations in ingress-nginx configurations."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://github.com/kubernetes/kubernetes/issues/131008
-# - https://github.com/kubernetes/kubernetes/issues/131007
-# - https://github.com/kubernetes/kubernetes/issues/131006
+#   - https://github.com/kubernetes/kubernetes/issues/131008
+#   - https://github.com/kubernetes/kubernetes/issues/131007
+#   - https://github.com/kubernetes/kubernetes/issues/131006
 # custom:
 #   id: KCV-0093
-#   severity: CRITICAL
+#   aliases:
+#     - AVD-KCV-0093
+#     - KCV0093
+#     - insecure-ingress-nginx
 #   long_id: kubernetes-insecure-ingress-nginx
+#   severity: CRITICAL
 #   recommended_action: "Ensure that ingress-nginx annotations do not contain suspicious characters."
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 #   examples: checks/kubernetes/insecure_ingress_nginx.yaml
 
 package builtin.kubernetes.kcv0093

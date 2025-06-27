@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html
 # custom:
-#   aliases:
-#     - aws-sns-enable-topic-encryption
 #   id: AWS-0095
+#   aliases:
+#     - AVD-AWS-0095
+#     - enable-topic-encryption
+#   long_id: aws-sns-enable-topic-encryption
 #   provider: aws
 #   service: sns
 #   severity: HIGH
-#   long_id: aws-sns-enable-topic-encryption
 #   recommended_action: Turn on SNS Topic encryption
 #   input:
 #     selector:

@@ -3,17 +3,21 @@
 # description: "Check whether role permits impersonating privileged groups"
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+#   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
 #   id: KSV-0043
-#   severity: CRITICAL
+#   aliases:
+#     - AVD-KSV-0043
+#     - KSV043
+#     - no-impersonate-privileged-groups
 #   long_id: kubernetes-no-impersonate-privileged-groups
+#   severity: CRITICAL
 #   recommended_action: "Create a role which does not permit to impersonate privileged groups if not needed"
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KSV043
 
 import rego.v1

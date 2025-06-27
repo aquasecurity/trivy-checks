@@ -9,13 +9,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html
 # custom:
-#   aliases:
-#     - aws-cloudwatch-require-unauthorised-api-call-alarm
 #   id: AWS-0147
+#   aliases:
+#     - AVD-AWS-0147
+#     - require-unauthorised-api-call-alarm
+#   long_id: aws-cloudwatch-require-unauthorised-api-call-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   long_id: aws-cloudwatch-require-unauthorised-api-call-alarm
 #   recommended_action: Create an alarm to alert on unauthorized API calls
 #   frameworks:
 #     cis-aws-1.2:

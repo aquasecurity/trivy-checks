@@ -3,27 +3,31 @@
 # description: "HostPath present many security risks and as a security practice it is better to avoid critical host paths mounts."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
+#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 # custom:
 #   id: KSV-0121
-#   severity: HIGH
+#   aliases:
+#     - AVD-KSV-0121
+#     - KSV121
+#     - no-k8s-with-disallowed-volumes
 #   long_id: kubernetes-no-k8s-with-disallowed-volumes
+#   severity: HIGH
 #   recommended_action: "Do not Set 'spec.volumes[*].hostPath.path' to any of the disallowed volumes."
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 package builtin.kubernetes.KSV121
 
 import rego.v1

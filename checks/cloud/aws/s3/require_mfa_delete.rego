@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html
 # custom:
-#   aliases:
-#     - aws-s3-require-mfa-delete
 #   id: AWS-0170
+#   aliases:
+#     - AVD-AWS-0170
+#     - require-mfa-delete
+#   long_id: aws-s3-require-mfa-delete
 #   provider: aws
 #   service: s3
 #   severity: LOW
-#   long_id: aws-s3-require-mfa-delete
 #   recommended_action: Enable MFA deletion protection on the bucket
 #   frameworks:
 #     cis-aws-1.4:

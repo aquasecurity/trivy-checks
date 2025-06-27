@@ -3,17 +3,21 @@
 # description: "MAINTAINER has been deprecated since Docker 1.13.0."
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/engine/deprecated/#maintainer-in-dockerfile
+#   - https://docs.docker.com/engine/deprecated/#maintainer-in-dockerfile
 # custom:
 #   id: DS-0022
-#   severity: HIGH
+#   aliases:
+#     - AVD-DS-0022
+#     - DS022
+#     - no-maintainer
 #   long_id: docker-no-maintainer
+#   severity: HIGH
 #   recommended_action: "Use LABEL instead of MAINTAINER"
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/maintainer_is_deprecated.yaml
 package builtin.dockerfile.DS022
 

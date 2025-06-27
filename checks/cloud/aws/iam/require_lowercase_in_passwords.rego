@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#password-policy-details
 # custom:
-#   aliases:
-#     - aws-iam-require-lowercase-in-passwords
 #   id: AWS-0058
+#   aliases:
+#     - AVD-AWS-0058
+#     - require-lowercase-in-passwords
+#   long_id: aws-iam-require-lowercase-in-passwords
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
-#   long_id: aws-iam-require-lowercase-in-passwords
 #   recommended_action: Enforce longer, more complex passwords in the policy
 #   frameworks:
 #     default:

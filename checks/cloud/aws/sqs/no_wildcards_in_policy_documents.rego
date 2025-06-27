@@ -9,13 +9,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-security-best-practices.html
 # custom:
-#   aliases:
-#     - aws-sqs-no-wildcards-in-policy-documents
 #   id: AWS-0097
+#   aliases:
+#     - AVD-AWS-0097
+#     - no-wildcards-in-policy-documents
+#   long_id: aws-sqs-no-wildcards-in-policy-documents
 #   provider: aws
 #   service: sqs
 #   severity: HIGH
-#   long_id: aws-sqs-no-wildcards-in-policy-documents
 #   recommended_action: Keep policy scope to the minimum that is required to be effective
 #   input:
 #     selector:

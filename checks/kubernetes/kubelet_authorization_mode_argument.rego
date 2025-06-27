@@ -3,19 +3,23 @@
 # description: "Do not allow all requests. Enable explicit authorization."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0080
-#   severity: HIGH
+#   aliases:
+#     - AVD-KCV-0080
+#     - KCV0080
+#     - ensure-authorization-mode-argument-set-alwaysallow
 #   long_id: kubernetes-ensure-authorization-mode-argument-set-alwaysallow
+#   severity: HIGH
 #   recommended_action: "edit Kubelet config and set authorization: mode to Webhook."
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0080
 
 import rego.v1

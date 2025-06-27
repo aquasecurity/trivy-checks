@@ -3,17 +3,21 @@
 # description: "Check whether role permits privilege escalation from node proxy"
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+#   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
 #   id: KSV-0047
-#   severity: HIGH
+#   aliases:
+#     - AVD-KSV-0047
+#     - KSV047
+#     - no-privilege-escalation-from-node-proxy
 #   long_id: kubernetes-no-privilege-escalation-from-node-proxy
+#   severity: HIGH
 #   recommended_action: "Create a role which does not permit privilege escalation from node proxy"
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KSV047
 
 import rego.v1

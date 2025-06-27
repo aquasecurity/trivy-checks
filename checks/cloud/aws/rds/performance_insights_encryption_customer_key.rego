@@ -10,13 +10,14 @@
 #   - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.access-control.html#USER_PerfInsights.access-control.cmk-policy
 #   - https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-mgmt
 # custom:
-#   aliases:
-#     - aws-rds-performance-insights-encryption-customer-key
 #   id: AWS-0078
+#   aliases:
+#     - AVD-AWS-0078
+#     - performance-insights-encryption-customer-key
+#   long_id: aws-rds-performance-insights-encryption-customer-key
 #   provider: aws
 #   service: rds
 #   severity: LOW
-#   long_id: aws-rds-performance-insights-encryption-customer-key
 #   recommended_action: Use Customer Managed Keys to encrypt Performance Insights data
 #   input:
 #     selector:

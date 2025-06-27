@@ -3,17 +3,21 @@
 # description: "Limit the Node and Pod objects that a kubelet could modify."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0016
-#   severity: LOW
+#   aliases:
+#     - AVD-KCV-0016
+#     - KCV0016
+#     - ensure-admission-control-plugin-node-restriction-is-set
 #   long_id: kubernetes-ensure-admission-control-plugin-node-restriction-is-set
+#   severity: LOW
 #   recommended_action: "Follow the Kubernetes documentation and configure NodeRestriction plug-in on kubelets. Then, edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the master node and set the --enable-admission-plugins parameter to a value that includes NodeRestriction."
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KCV0016
 
 import rego.v1

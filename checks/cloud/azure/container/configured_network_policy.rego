@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/services-networking/network-policies
 # custom:
-#   aliases:
-#     - azure-container-configured-network-policy
 #   id: AZU-0043
+#   aliases:
+#     - AVD-AZU-0043
+#     - configured-network-policy
+#   long_id: azure-container-configured-network-policy
 #   provider: azure
 #   service: container
 #   severity: HIGH
-#   long_id: azure-container-configured-network-policy
 #   recommended_action: Configure a network policy
 #   input:
 #     selector:

@@ -10,13 +10,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html
 # custom:
-#   aliases:
-#     - aws-cloudwatch-require-network-gateway-changes-alarm
 #   id: AWS-0158
+#   aliases:
+#     - AVD-AWS-0158
+#     - require-network-gateway-changes-alarm
+#   long_id: aws-cloudwatch-require-network-gateway-changes-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   long_id: aws-cloudwatch-require-network-gateway-changes-alarm
 #   recommended_action: Create an alarm to alert on network gateway changes
 #   frameworks:
 #     cis-aws-1.2:

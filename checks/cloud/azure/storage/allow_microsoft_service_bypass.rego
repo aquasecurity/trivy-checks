@@ -9,13 +9,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security#trusted-microsoft-services
 # custom:
-#   aliases:
-#     - azure-storage-allow-microsoft-service-bypass
 #   id: AZU-0010
+#   aliases:
+#     - AVD-AZU-0010
+#     - allow-microsoft-service-bypass
+#   long_id: azure-storage-allow-microsoft-service-bypass
 #   provider: azure
 #   service: storage
 #   severity: HIGH
-#   long_id: azure-storage-allow-microsoft-service-bypass
 #   recommended_action: Allow Trusted Microsoft Services to bypass
 #   input:
 #     selector:

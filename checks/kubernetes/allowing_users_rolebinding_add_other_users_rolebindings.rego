@@ -3,17 +3,21 @@
 # description: "Check whether role permits allowing users in a rolebinding to add other users to their rolebindings"
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+#   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
 #   id: KSV-0055
-#   severity: LOW
+#   aliases:
+#     - AVD-KSV-0055
+#     - KSV055
+#     - view-all-secrets
 #   long_id: kubernetes-view-all-secrets
+#   severity: LOW
 #   recommended_action: "Create a role which does not permit allowing users in a rolebinding to add other users to their rolebindings if not needed"
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KSV055
 
 import rego.v1

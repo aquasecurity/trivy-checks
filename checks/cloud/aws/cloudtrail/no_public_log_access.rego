@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/configuring-block-public-access-bucket.html
 # custom:
-#   aliases:
-#     - aws-cloudtrail-no-public-log-access
 #   id: AWS-0161
+#   aliases:
+#     - AVD-AWS-0161
+#     - no-public-log-access
+#   long_id: aws-cloudtrail-no-public-log-access
 #   provider: aws
 #   service: cloudtrail
 #   severity: CRITICAL
-#   long_id: aws-cloudtrail-no-public-log-access
 #   recommended_action: Restrict public access to the S3 bucket
 #   frameworks:
 #     default:

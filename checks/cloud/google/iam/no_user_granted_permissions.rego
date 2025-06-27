@@ -13,13 +13,14 @@
 #   - https://cloud.google.com/iam/docs/overview#permissions
 #   - https://cloud.google.com/resource-manager/reference/rest/v1/projects/setIamPolicy
 # custom:
-#   aliases:
-#     - google-iam-no-user-granted-permissions
 #   id: GCP-0003
+#   aliases:
+#     - AVD-GCP-0003
+#     - no-user-granted-permissions
+#   long_id: google-iam-no-user-granted-permissions
 #   provider: google
 #   service: iam
 #   severity: MEDIUM
-#   long_id: google-iam-no-user-granted-permissions
 #   recommended_action: Roles should be granted permissions and assigned to users
 #   input:
 #     selector:

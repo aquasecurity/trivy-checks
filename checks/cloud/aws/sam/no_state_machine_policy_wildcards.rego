@@ -9,13 +9,14 @@
 # related_resources:
 #   - "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html#sam-statemachine-policies"
 # custom:
-#   aliases:
-#     - aws-sam-no-state-machine-policy-wildcards
 #   id: AWS-0120
+#   aliases:
+#     - AVD-AWS-0120
+#     - no-state-machine-policy-wildcards
+#   long_id: aws-sam-no-state-machine-policy-wildcards
 #   provider: aws
 #   service: sam
 #   severity: HIGH
-#   long_id: aws-sam-no-state-machine-policy-wildcards
 #   deprecated: true
 #   recommended_action: Specify the exact permissions required, and to which resources they should apply instead of using wildcards.
 #   input:

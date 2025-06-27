@@ -3,17 +3,21 @@
 # description: "You should use 'apk add' with '--no-cache' to clean package cached data and reduce image size."
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://github.com/gliderlabs/docker-alpine/blob/master/docs/usage.md#disabling-cache
+#   - https://github.com/gliderlabs/docker-alpine/blob/master/docs/usage.md#disabling-cache
 # custom:
 #   id: DS-0025
-#   severity: HIGH
+#   aliases:
+#     - AVD-DS-0025
+#     - DS025
+#     - purge-apk-package-cache
 #   long_id: docker-purge-apk-package-cache
+#   severity: HIGH
 #   recommended_action: "Add '--no-cache' to 'apk add' in Dockerfile"
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 package builtin.dockerfile.DS025
 
 import rego.v1

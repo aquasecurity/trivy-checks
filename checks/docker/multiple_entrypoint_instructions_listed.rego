@@ -3,17 +3,21 @@
 # description: "There can only be one ENTRYPOINT instruction in a Dockerfile. Only the last ENTRYPOINT instruction in the Dockerfile will have an effect."
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/engine/reference/builder/#entrypoint
+#   - https://docs.docker.com/engine/reference/builder/#entrypoint
 # custom:
 #   id: DS-0007
-#   severity: CRITICAL
+#   aliases:
+#     - AVD-DS-0007
+#     - DS007
+#     - only-one-entrypoint
 #   long_id: docker-only-one-entrypoint
+#   severity: CRITICAL
 #   recommended_action: "Remove unnecessary ENTRYPOINT instruction."
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/multiple_entrypoint_instructions_listed.yaml
 package builtin.dockerfile.DS007
 

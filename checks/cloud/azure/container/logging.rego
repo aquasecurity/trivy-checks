@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-onboard
 # custom:
-#   aliases:
-#     - azure-container-logging
 #   id: AZU-0040
+#   aliases:
+#     - AVD-AZU-0040
+#     - logging
+#   long_id: azure-container-logging
 #   provider: azure
 #   service: container
 #   severity: MEDIUM
-#   long_id: azure-container-logging
 #   recommended_action: Enable logging for AKS
 #   input:
 #     selector:

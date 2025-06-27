@@ -10,13 +10,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html
 # custom:
-#   aliases:
-#     - aws-cloudwatch-require-nacl-changes-alarm
 #   id: AWS-0157
+#   aliases:
+#     - AVD-AWS-0157
+#     - require-nacl-changes-alarm
+#   long_id: aws-cloudwatch-require-nacl-changes-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   long_id: aws-cloudwatch-require-nacl-changes-alarm
 #   recommended_action: Create an alarm to alert on network acl changes
 #   frameworks:
 #     cis-aws-1.4:

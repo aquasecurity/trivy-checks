@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/config/latest/developerguide/operational-best-practices-for-nist_800-171.html
 # custom:
-#   aliases:
-#     - aws-emr-enable-in-transit-encryption
 #   id: AWS-0138
+#   aliases:
+#     - AVD-AWS-0138
+#     - enable-in-transit-encryption
+#   long_id: aws-emr-enable-in-transit-encryption
 #   provider: aws
 #   service: emr
 #   severity: HIGH
-#   long_id: aws-emr-enable-in-transit-encryption
 #   recommended_action: Enable in-transit encryption for EMR cluster
 #   input:
 #     selector:

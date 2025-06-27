@@ -3,17 +3,21 @@
 # description: "WORKDIR should not be mounted on system directories to avoid container breakouts"
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#workdir
+#   - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#workdir
 # custom:
 #   id: DS-0030
-#   severity: HIGH
+#   aliases:
+#     - AVD-DS-0030
+#     - DS030
+#     - avoid-sys-workdir-mounts
 #   long_id: docker-avoid-sys-workdir-mounts
+#   severity: HIGH
 #   recommended_action: "Avoid using system directories to mount WORKDIR"
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 package builtin.dockerfile.DS030
 
 import rego.v1

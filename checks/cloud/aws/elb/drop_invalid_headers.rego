@@ -9,13 +9,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html
 # custom:
-#   aliases:
-#     - aws-elb-drop-invalid-headers
 #   id: AWS-0052
+#   aliases:
+#     - AVD-AWS-0052
+#     - drop-invalid-headers
+#   long_id: aws-elb-drop-invalid-headers
 #   provider: aws
 #   service: elb
 #   severity: HIGH
-#   long_id: aws-elb-drop-invalid-headers
 #   recommended_action: Set drop_invalid_header_fields to true
 #   input:
 #     selector:

@@ -3,17 +3,21 @@
 # description: "Rotate log files on reaching 100 MB or as appropriate."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0022
-#   severity: LOW
+#   aliases:
+#     - AVD-KCV-0022
+#     - KCV0022
+#     - ensure-audit-log-maxsize-argument-is-set-to-100-or-as-appropriate
 #   long_id: kubernetes-ensure-audit-log-maxsize-argument-is-set-to-100-or-as-appropriate
+#   severity: LOW
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --audit-log-maxsize parameter to an appropriate size in MB"
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KCV0022
 
 import rego.v1

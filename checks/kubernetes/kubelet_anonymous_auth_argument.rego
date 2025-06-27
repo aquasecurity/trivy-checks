@@ -3,19 +3,23 @@
 # description: "Disable anonymous requests to the Kubelet server."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0079
-#   severity: CRITICAL
+#   aliases:
+#     - AVD-KCV-0079
+#     - KCV0079
+#     - disable-anonymous-requests-kubelet-server.
 #   long_id: kubernetes-disable-anonymous-requests-kubelet-server.
+#   severity: CRITICAL
 #   recommended_action: "Disable anonymous requests to the Kubelet server"
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0079
 
 import rego.v1

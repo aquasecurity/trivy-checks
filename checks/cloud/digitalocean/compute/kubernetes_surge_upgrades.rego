@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.digitalocean.com/products/kubernetes/how-to/upgrade-cluster/#surge-upgrades
 # custom:
-#   aliases:
-#     - digitalocean-compute-surge-upgrades-not-enabled
 #   id: DIG-0005
+#   aliases:
+#     - AVD-DIG-0005
+#     - surge-upgrades-not-enabled
+#   long_id: digitalocean-compute-surge-upgrades-not-enabled
 #   provider: digitalocean
 #   service: compute
 #   severity: MEDIUM
-#   long_id: digitalocean-compute-kubernetes-surge-upgrades
 #   recommended_action: Enable surge upgrades in your Kubernetes cluster
 #   input:
 #     selector:

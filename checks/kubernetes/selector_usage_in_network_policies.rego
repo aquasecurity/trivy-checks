@@ -3,17 +3,21 @@
 # description: "ensure that network policies selectors are applied to pods or namespaces to restricted ingress and egress traffic within the pod network"
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/tasks/administer-cluster/declare-network-policy/
+#   - https://kubernetes.io/docs/tasks/administer-cluster/declare-network-policy/
 # custom:
 #   id: KSV-0038
-#   severity: MEDIUM
+#   aliases:
+#     - AVD-KSV-0038
+#     - KSV038
+#     - selector-usage-in-network-policies
 #   long_id: kubernetes-selector-usage-in-network-policies
+#   severity: MEDIUM
 #   recommended_action: "create network policies and ensure that pods are selected using the podSelector and/or the namespaceSelector options"
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 #   examples: checks/kubernetes/selector_usage_in_network_policies.yaml
 package builtin.kubernetes.KSV038
 

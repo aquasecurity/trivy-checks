@@ -10,13 +10,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#password-policy-details
 # custom:
-#   aliases:
-#     - aws-iam-require-uppercase-in-passwords
 #   id: AWS-0061
+#   aliases:
+#     - AVD-AWS-0061
+#     - require-uppercase-in-passwords
+#   long_id: aws-iam-require-uppercase-in-passwords
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
-#   long_id: aws-iam-require-uppercase-in-passwords
 #   recommended_action: Enforce longer, more complex passwords in the policy
 #   frameworks:
 #     default:

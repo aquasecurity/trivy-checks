@@ -10,12 +10,13 @@
 # custom:
 #   id: AWS-0123
 #   aliases:
+#     - AVD-AWS-0123
 #     - aws-iam-enforce-mfa
-#     - aws-iam-enforce-group-mfa
+#     - enforce-group-mfa
+#   long_id: aws-iam-enforce-group-mfa
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
-#   long_id: aws-iam-enforce-group-mfa
 #   recommended_action: Use terraform-module/enforce-mfa/aws to ensure that MFA is enforced
 #   input:
 #     selector:

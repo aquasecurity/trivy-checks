@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - azure-database-secure-tls-policy
 #   id: AZU-0026
+#   aliases:
+#     - AVD-AZU-0026
+#     - secure-tls-policy
+#   long_id: azure-database-secure-tls-policy
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
-#   long_id: azure-database-secure-tls-policy
 #   recommended_action: Use the most modern TLS policies available
 #   input:
 #     selector:

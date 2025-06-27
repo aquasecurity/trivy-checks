@@ -14,12 +14,13 @@
 # custom:
 #   id: AWS-0130
 #   aliases:
+#     - AVD-AWS-0130
 #     - aws-autoscaling-enforce-http-token-imds
-#     - aws-ec2-enforce-launch-config-http-token-imds
+#     - enforce-launch-config-http-token-imds
+#   long_id: aws-ec2-enforce-launch-config-http-token-imds
 #   provider: aws
 #   service: ec2
 #   severity: HIGH
-#   long_id: aws-ec2-enforce-launch-config-http-token-imds
 #   recommended_action: Enable HTTP token requirement for IMDS
 #   input:
 #     selector:

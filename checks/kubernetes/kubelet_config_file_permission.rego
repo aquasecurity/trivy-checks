@@ -3,19 +3,23 @@
 # description: "Ensure that the kubelet.conf file has permissions of 600 or more restrictive."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0073
-#   severity: HIGH
+#   aliases:
+#     - AVD-KCV-0073
+#     - KCV0073
+#     - ensure-kubelet.conf-file-permissions-600-or-more-restrictive.
 #   long_id: kubernetes-ensure-kubelet.conf-file-permissions-600-or-more-restrictive.
+#   severity: HIGH
 #   recommended_action: "Change the kubelet.conf file permissions to 600 or more restrictive if exist"
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0073
 
 import rego.v1

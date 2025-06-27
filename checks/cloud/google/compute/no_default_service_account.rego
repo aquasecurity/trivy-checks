@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - google-compute-no-default-service-account
 #   id: GCP-0044
+#   aliases:
+#     - AVD-GCP-0044
+#     - no-default-service-account
+#   long_id: google-compute-no-default-service-account
 #   provider: google
 #   service: compute
 #   severity: CRITICAL
-#   long_id: google-compute-no-default-service-account
 #   recommended_action: Remove use of default service account
 #   input:
 #     selector:

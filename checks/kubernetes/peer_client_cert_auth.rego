@@ -3,17 +3,21 @@
 # description: "etcd should be configured for peer authentication."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0046
-#   severity: LOW
+#   aliases:
+#     - AVD-KCV-0046
+#     - KCV0046
+#     - ensure-peer-client-cert-auth-argument-is-set-to-true
 #   long_id: kubernetes-ensure-peer-client-cert-auth-argument-is-set-to-true
+#   severity: LOW
 #   recommended_action: "Edit the etcd pod specification file /etc/kubernetes/manifests/etcd.yaml on the master node and set the below parameter."
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KCV0046
 
 import rego.v1

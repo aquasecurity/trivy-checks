@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/security/fundamentals/network-best-practices
 # custom:
-#   aliases:
-#     - azure-network-no-public-egress
 #   id: AZU-0051
+#   aliases:
+#     - AVD-AZU-0051
+#     - no-public-egress
+#   long_id: azure-network-no-public-egress
 #   provider: azure
 #   service: network
 #   severity: CRITICAL
-#   long_id: azure-network-no-public-egress
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

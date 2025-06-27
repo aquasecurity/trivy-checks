@@ -3,17 +3,21 @@
 # description: "Different FROMs can't have the same alias defined."
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/develop/develop-images/multistage-build/
+#   - https://docs.docker.com/develop/develop-images/multistage-build/
 # custom:
 #   id: DS-0012
-#   severity: CRITICAL
+#   aliases:
+#     - AVD-DS-0012
+#     - DS012
+#     - no-duplicate-alias
 #   long_id: docker-no-duplicate-alias
+#   severity: CRITICAL
 #   recommended_action: "Change aliases to make them different"
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/same_alias_in_different_froms.yaml
 package builtin.dockerfile.DS012
 

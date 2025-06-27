@@ -9,13 +9,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html
 # custom:
-#   aliases:
-#     - aws-cloudwatch-require-iam-policy-change-alarm
 #   id: AWS-0150
+#   aliases:
+#     - AVD-AWS-0150
+#     - require-iam-policy-change-alarm
+#   long_id: aws-cloudwatch-require-iam-policy-change-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   long_id: aws-cloudwatch-require-iam-policy-change-alarm
 #   recommended_action: Create an alarm to alert on IAM Policy changes
 #   frameworks:
 #     cis-aws-1.2:

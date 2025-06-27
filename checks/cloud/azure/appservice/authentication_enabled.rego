@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - azure-appservice-authentication-enabled
 #   id: AZU-0003
+#   aliases:
+#     - AVD-AZU-0003
+#     - authentication-enabled
+#   long_id: azure-appservice-authentication-enabled
 #   provider: azure
 #   service: appservice
 #   severity: MEDIUM
-#   long_id: azure-appservice-authentication-enabled
 #   recommended_action: Enable authentication to prevent anonymous request being accepted
 #   input:
 #     selector:

@@ -3,27 +3,31 @@
 # description: "According to pod security standard 'HostPath Volumes', HostPath volumes must be forbidden."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
+#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
 #   id: KSV-0023
-#   severity: MEDIUM
+#   aliases:
+#     - AVD-KSV-0023
+#     - KSV023
+#     - no-mounted-hostpath
 #   long_id: kubernetes-no-mounted-hostpath
+#   severity: MEDIUM
 #   recommended_action: "Do not set 'spec.volumes[*].hostPath'."
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 #   examples: checks/kubernetes/hostpath_volumes_mounted.yaml
 package builtin.kubernetes.KSV023
 

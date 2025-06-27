@@ -10,11 +10,13 @@
 # custom:
 #   id: NIF-0005
 #   aliases:
+#     - AVD-NIF-0005
 #     - nifcloud-computing-no-common-private-instance
+#     - no-common-private-instance
+#   long_id: nifcloud-computing-no-common-private-instance
 #   provider: nifcloud
 #   service: computing
 #   severity: LOW
-#   long_id: nifcloud-computing-no-common-private-instance
 #   recommended_action: Use private LAN
 #   input:
 #     selector:

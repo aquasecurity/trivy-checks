@@ -10,13 +10,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer
 # custom:
-#   aliases:
-#     - azure-storage-enforce-https
 #   id: AZU-0008
+#   aliases:
+#     - AVD-AZU-0008
+#     - enforce-https
+#   long_id: azure-storage-enforce-https
 #   provider: azure
 #   service: storage
 #   severity: HIGH
-#   long_id: azure-storage-enforce-https
 #   recommended_action: Only allow secure connection for transferring data into storage accounts
 #   input:
 #     selector:

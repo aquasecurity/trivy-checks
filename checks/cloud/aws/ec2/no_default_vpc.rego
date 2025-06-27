@@ -10,12 +10,13 @@
 # custom:
 #   id: AWS-0101
 #   aliases:
+#     - AVD-AWS-0101
 #     - aws-vpc-no-default-vpc
-#     - aws-ec2-no-default-vpc
+#     - no-default-vpc
+#   long_id: aws-ec2-no-default-vpc
 #   provider: aws
 #   service: ec2
 #   severity: HIGH
-#   long_id: aws-ec2-no-default-vpc
 #   recommended_action: Create a non-default vpc for resources to be created in
 #   input:
 #     selector:

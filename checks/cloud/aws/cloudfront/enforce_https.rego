@@ -9,13 +9,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-cloudfront-to-s3-origin.html
 # custom:
-#   aliases:
-#     - aws-cloudfront-enforce-https
 #   id: AWS-0012
+#   aliases:
+#     - AVD-AWS-0012
+#     - enforce-https
+#   long_id: aws-cloudfront-enforce-https
 #   provider: aws
 #   service: cloudfront
 #   severity: CRITICAL
-#   long_id: aws-cloudfront-enforce-https
 #   recommended_action: Only allow HTTPS for CloudFront distribution communication
 #   input:
 #     selector:

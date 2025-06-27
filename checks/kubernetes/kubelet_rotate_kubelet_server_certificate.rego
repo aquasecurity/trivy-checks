@@ -3,19 +3,23 @@
 # description: "Enable kubelet server certificate rotation."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0091
-#   severity: HIGH
+#   aliases:
+#     - AVD-KCV-0091
+#     - KCV0091
+#     - ensure-rotate-kubelet-server-certificate-argument-set-true
 #   long_id: kubernetes-ensure-rotate-kubelet-server-certificate-argument-set-true
+#   severity: HIGH
 #   recommended_action: "Edit the kubelet service file /etc/kubernetes/kubelet.conf and set --feature-gates=RotateKubeletServerCertificate=true"
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0091
 
 import rego.v1

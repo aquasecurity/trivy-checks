@@ -10,12 +10,13 @@
 # custom:
 #   id: AWS-0102
 #   aliases:
+#     - AVD-AWS-0102
 #     - aws-vpc-no-excessive-port-access
-#     - aws-ec2-no-excessive-port-access
+#     - no-excessive-port-access
+#   long_id: aws-ec2-no-excessive-port-access
 #   provider: aws
 #   service: ec2
 #   severity: CRITICAL
-#   long_id: aws-ec2-no-excessive-port-access
 #   recommended_action: Set specific allowed ports
 #   input:
 #     selector:

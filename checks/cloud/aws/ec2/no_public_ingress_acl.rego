@@ -14,12 +14,13 @@
 # custom:
 #   id: AWS-0105
 #   aliases:
+#     - AVD-AWS-0105
 #     - aws-vpc-no-public-ingress-acl
-#     - aws-ec2-no-public-ingress-acl
+#     - no-public-ingress-acl
+#   long_id: aws-ec2-no-public-ingress-acl
 #   provider: aws
 #   service: ec2
 #   severity: MEDIUM
-#   long_id: aws-ec2-no-public-ingress-acl
 #   recommended_action: Set a more restrictive CIDR range
 #   frameworks:
 #     default:

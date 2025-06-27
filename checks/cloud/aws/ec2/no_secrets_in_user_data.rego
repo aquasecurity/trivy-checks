@@ -10,12 +10,13 @@
 # custom:
 #   id: AWS-0029
 #   aliases:
+#     - AVD-AWS-0029
 #     - aws-autoscaling-no-public-ip
-#     - aws-ec2-no-secrets-in-user-data
+#     - no-secrets-in-user-data
+#   long_id: aws-ec2-no-secrets-in-user-data
 #   provider: aws
 #   service: ec2
 #   severity: CRITICAL
-#   long_id: aws-ec2-no-secrets-in-user-data
 #   recommended_action: Remove sensitive data from the EC2 instance user-data
 #   input:
 #     selector:

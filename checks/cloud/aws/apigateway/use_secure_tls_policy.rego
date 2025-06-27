@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html
 # custom:
-#   aliases:
-#     - aws-apigateway-use-secure-tls-policy
 #   id: AWS-0005
+#   aliases:
+#     - AVD-AWS-0005
+#     - use-secure-tls-policy
+#   long_id: aws-apigateway-use-secure-tls-policy
 #   provider: aws
 #   service: apigateway
 #   severity: HIGH
-#   long_id: aws-apigateway-use-secure-tls-policy
 #   recommended_action: Use the most modern TLS/SSL policies available
 #   input:
 #     selector:

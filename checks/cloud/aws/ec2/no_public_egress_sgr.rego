@@ -10,12 +10,13 @@
 # custom:
 #   id: AWS-0104
 #   aliases:
+#     - AVD-AWS-0104
 #     - aws-vpc-no-public-egress-sgr
-#     - aws-ec2-no-public-egress-sgr
+#     - no-public-egress-sgr
+#   long_id: aws-ec2-no-public-egress-sgr
 #   provider: aws
 #   service: ec2
 #   severity: CRITICAL
-#   long_id: aws-ec2-no-public-egress-sgr
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

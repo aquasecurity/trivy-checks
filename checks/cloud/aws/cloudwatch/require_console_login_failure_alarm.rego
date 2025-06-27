@@ -9,13 +9,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.html
 # custom:
-#   aliases:
-#     - aws-cloudwatch-require-console-login-failures-alarm
 #   id: AWS-0152
+#   aliases:
+#     - AVD-AWS-0152
+#     - require-console-login-failures-alarm
+#   long_id: aws-cloudwatch-require-console-login-failures-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   long_id: aws-cloudwatch-require-console-login-failures-alarm
 #   recommended_action: Create an alarm to alert on console login failures
 #   frameworks:
 #     cis-aws-1.4:

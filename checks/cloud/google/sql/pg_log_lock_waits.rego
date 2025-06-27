@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-LOCK-WAITS
 # custom:
-#   aliases:
-#     - google-sql-pg-log-lock-waits
 #   id: GCP-0020
+#   aliases:
+#     - AVD-GCP-0020
+#     - pg-log-lock-waits
+#   long_id: google-sql-pg-log-lock-waits
 #   provider: google
 #   service: sql
 #   severity: MEDIUM
-#   long_id: google-sql-pg-log-lock-waits
 #   recommended_action: Enable lock wait logging.
 #   input:
 #     selector:

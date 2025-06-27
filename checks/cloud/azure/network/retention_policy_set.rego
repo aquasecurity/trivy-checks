@@ -12,13 +12,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview
 # custom:
-#   aliases:
-#     - azure-network-retention-policy-set
 #   id: AZU-0049
+#   aliases:
+#     - AVD-AZU-0049
+#     - retention-policy-set
+#   long_id: azure-network-retention-policy-set
 #   provider: azure
 #   service: network
 #   severity: LOW
-#   long_id: azure-network-retention-policy-set
 #   recommended_action: Ensure flow log retention is turned on with an expiry of >90 days
 #   input:
 #     selector:

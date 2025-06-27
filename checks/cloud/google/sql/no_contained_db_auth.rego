@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-ver15
 # custom:
-#   aliases:
-#     - google-sql-no-contained-db-auth
 #   id: GCP-0023
+#   aliases:
+#     - AVD-GCP-0023
+#     - no-contained-db-auth
+#   long_id: google-sql-no-contained-db-auth
 #   provider: google
 #   service: sql
 #   severity: MEDIUM
-#   long_id: google-sql-no-contained-db-auth
 #   recommended_action: Disable contained database authentication
 #   input:
 #     selector:

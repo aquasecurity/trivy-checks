@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - azure-compute-no-secrets-in-custom-data
 #   id: AZU-0037
+#   aliases:
+#     - AVD-AZU-0037
+#     - no-secrets-in-custom-data
+#   long_id: azure-compute-no-secrets-in-custom-data
 #   provider: azure
 #   service: compute
 #   severity: MEDIUM
-#   long_id: azure-compute-no-secrets-in-custom-data
 #   recommended_action: Don't use sensitive credentials in the VM custom_data
 #   input:
 #     selector:

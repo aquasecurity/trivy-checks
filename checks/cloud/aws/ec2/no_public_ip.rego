@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html
 # custom:
-#   aliases:
-#     - aws-ec2-no-public-ip
 #   id: AWS-0009
+#   aliases:
+#     - AVD-AWS-0009
+#     - no-public-ip
+#   long_id: aws-ec2-no-public-ip
 #   provider: aws
 #   service: ec2
 #   severity: HIGH
-#   long_id: aws-ec2-no-public-ip
 #   recommended_action: Set the instance to not be publicly accessible
 #   input:
 #     selector:

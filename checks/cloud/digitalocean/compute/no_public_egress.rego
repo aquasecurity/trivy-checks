@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.digitalocean.com/products/networking/firewalls/how-to/configure-rules/
 # custom:
-#   aliases:
-#     - digitalocean-compute-no-public-egress
 #   id: DIG-0003
+#   aliases:
+#     - AVD-DIG-0003
+#     - no-public-egress
+#   long_id: digitalocean-compute-no-public-egress
 #   provider: digitalocean
 #   service: compute
 #   severity: CRITICAL
-#   long_id: digitalocean-compute-no-public-egress
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

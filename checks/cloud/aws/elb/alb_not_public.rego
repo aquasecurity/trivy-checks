@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - aws-elb-alb-not-public
 #   id: AWS-0053
+#   aliases:
+#     - AVD-AWS-0053
+#     - alb-not-public
+#   long_id: aws-elb-alb-not-public
 #   provider: aws
 #   service: elb
 #   severity: HIGH
-#   long_id: aws-elb-alb-not-public
 #   recommended_action: Switch to an internal load balancer or add a tfsec ignore
 #   input:
 #     selector:

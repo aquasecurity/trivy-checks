@@ -3,19 +3,23 @@
 # description: "Ensure that the Kubelet is configured to only use strong cryptographic ciphers."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0092
-#   severity: CRITICAL
+#   aliases:
+#     - AVD-KCV-0092
+#     - KCV0092
+#     - ensure-Kubelet-only-makes-use-strong-cryptographic-ciphers
 #   long_id: kubernetes-ensure-Kubelet-only-makes-use-strong-cryptographic-ciphers
+#   severity: CRITICAL
 #   recommended_action: "If using a Kubelet config file, edit the file to set TLSCipherSuites"
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0092
 
 import rego.v1

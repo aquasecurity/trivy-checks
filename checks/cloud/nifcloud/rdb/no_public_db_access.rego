@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/guide/rdb/server_new.htm
 # custom:
-#   aliases:
-#     - nifcloud-rdb-no-public-db-access
 #   id: NIF-0008
+#   aliases:
+#     - AVD-NIF-0008
+#     - no-public-db-access
+#   long_id: nifcloud-rdb-no-public-db-access
 #   provider: nifcloud
 #   service: rdb
 #   severity: CRITICAL
-#   long_id: nifcloud-rdb-no-public-db-access
 #   recommended_action: Set the database to not be publicly accessible
 #   input:
 #     selector:

@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/neptune/latest/userguide/auditing.html
 # custom:
-#   aliases:
-#     - aws-neptune-enable-log-export
 #   id: AWS-0075
+#   aliases:
+#     - AVD-AWS-0075
+#     - enable-log-export
+#   long_id: aws-neptune-enable-log-export
 #   provider: aws
 #   service: neptune
 #   severity: MEDIUM
-#   long_id: aws-neptune-enable-log-export
 #   recommended_action: Enable export logs
 #   input:
 #     selector:

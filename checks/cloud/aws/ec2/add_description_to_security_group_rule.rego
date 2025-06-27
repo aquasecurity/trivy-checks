@@ -12,11 +12,13 @@
 # custom:
 #   id: AWS-0124
 #   aliases:
+#     - AVD-AWS-0124
 #     - aws-vpc-add-description-to-security-group-rule
+#     - add-description-to-security-group-rule
+#   long_id: aws-ec2-add-description-to-security-group-rule
 #   provider: aws
 #   service: ec2
 #   severity: LOW
-#   long_id: aws-ec2-add-description-to-security-group-rule
 #   recommended_action: Add descriptions for all security groups rules
 #   input:
 #     selector:

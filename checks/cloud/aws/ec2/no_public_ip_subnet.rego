@@ -10,12 +10,13 @@
 # custom:
 #   id: AWS-0164
 #   aliases:
+#     - AVD-AWS-0164
 #     - aws-vpc-no-public-ingress-sgr
-#     - aws-ec2-no-public-ip-subnet
+#     - no-public-ip-subnet
+#   long_id: aws-ec2-no-public-ip-subnet
 #   provider: aws
 #   service: ec2
 #   severity: HIGH
-#   long_id: aws-ec2-no-public-ip-subnet
 #   recommended_action: Set the instance to not be publicly accessible
 #   input:
 #     selector:

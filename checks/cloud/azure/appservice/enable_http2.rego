@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - azure-appservice-enable-http2
 #   id: AZU-0005
+#   aliases:
+#     - AVD-AZU-0005
+#     - enable-http2
+#   long_id: azure-appservice-enable-http2
 #   provider: azure
 #   service: appservice
 #   severity: LOW
-#   long_id: azure-appservice-enable-http2
 #   recommended_action: Use the latest version of HTTP
 #   input:
 #     selector:

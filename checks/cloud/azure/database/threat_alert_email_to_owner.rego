@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - azure-database-threat-alert-email-to-owner
 #   id: AZU-0023
+#   aliases:
+#     - AVD-AZU-0023
+#     - threat-alert-email-to-owner
+#   long_id: azure-database-threat-alert-email-to-owner
 #   provider: azure
 #   service: database
 #   severity: LOW
-#   long_id: azure-database-threat-alert-email-to-owner
 #   recommended_action: Enable email to subscription owners
 #   input:
 #     selector:

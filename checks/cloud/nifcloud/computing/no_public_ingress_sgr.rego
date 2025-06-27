@@ -12,11 +12,13 @@
 # custom:
 #   id: NIF-0001
 #   aliases:
+#     - AVD-NIF-0001
 #     - nifcloud-computing-no-public-ingress-sgr
+#     - no-public-ingress-sgr
+#   long_id: nifcloud-computing-no-public-ingress-sgr
 #   provider: nifcloud
 #   service: computing
 #   severity: CRITICAL
-#   long_id: nifcloud-computing-no-public-ingress-sgr
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-cloudtrail-logging-for-s3.html
 # custom:
-#   aliases:
-#     - aws-s3-enable-object-read-logging
 #   id: AWS-0172
+#   aliases:
+#     - AVD-AWS-0172
+#     - enable-object-read-logging
+#   long_id: aws-s3-enable-object-read-logging
 #   provider: aws
 #   service: s3
 #   severity: LOW
-#   long_id: aws-s3-enable-object-read-logging
 #   recommended_action: Enable Object-level logging for S3 buckets.
 #   frameworks:
 #     cis-aws-1.4:

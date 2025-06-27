@@ -9,13 +9,14 @@
 #   - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAXEncryptionAtRest.html
 #   - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html
 # custom:
-#   aliases:
-#     - aws-dynamodb-enable-at-rest-encryption
 #   id: AWS-0023
+#   aliases:
+#     - AVD-AWS-0023
+#     - enable-at-rest-encryption
+#   long_id: aws-dynamodb-enable-at-rest-encryption
 #   provider: aws
 #   service: dynamodb
 #   severity: HIGH
-#   long_id: aws-dynamodb-enable-at-rest-encryption
 #   recommended_action: Enable encryption at rest for DAX Cluster
 #   input:
 #     selector:

@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-DISCONNECTIONS
 # custom:
-#   aliases:
-#     - google-sql-pg-log-disconnections
 #   id: GCP-0022
+#   aliases:
+#     - AVD-GCP-0022
+#     - pg-log-disconnections
+#   long_id: google-sql-pg-log-disconnections
 #   provider: google
 #   service: sql
 #   severity: MEDIUM
-#   long_id: google-sql-pg-log-disconnections
 #   recommended_action: Enable disconnection logging.
 #   input:
 #     selector:

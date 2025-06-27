@@ -9,13 +9,14 @@
 # related_resources:
 #   - https://console.aws.amazon.com/iam/
 # custom:
-#   aliases:
-#     - aws-iam-require-support-role
 #   id: AWS-0169
+#   aliases:
+#     - AVD-AWS-0169
+#     - require-support-role
+#   long_id: aws-iam-require-support-role
 #   provider: aws
 #   service: iam
 #   severity: LOW
-#   long_id: aws-iam-require-support-role
 #   deprecated: true
 #   recommended_action: Create an IAM role with the necessary permissions to manage incidents with AWS Support.
 #   frameworks:

@@ -3,19 +3,23 @@
 # description: "Ensure that the kubelet.conf file ownership is set to root:root."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0074
-#   severity: HIGH
+#   aliases:
+#     - AVD-KCV-0074
+#     - KCV0074
+#     - ensure-kubeconfig-kubelet.conf-ownership-set-root:root
 #   long_id: kubernetes-ensure-kubeconfig-kubelet.conf-ownership-set-root:root
+#   severity: HIGH
 #   recommended_action: "Change the --kubeconfig kubelet.conf file ownership to root:root"
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0074
 
 import rego.v1

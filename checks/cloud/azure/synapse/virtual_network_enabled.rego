@@ -13,13 +13,14 @@
 #   - https://docs.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints
 #   - https://docs.microsoft.com/en-us/azure/synapse-analytics/security/synapse-workspace-managed-vnet
 # custom:
-#   aliases:
-#     - azure-synapse-virtual-network-enabled
 #   id: AZU-0034
+#   aliases:
+#     - AVD-AZU-0034
+#     - virtual-network-enabled
+#   long_id: azure-synapse-virtual-network-enabled
 #   provider: azure
 #   service: synapse
 #   severity: MEDIUM
-#   long_id: azure-synapse-virtual-network-enabled
 #   recommended_action: Set manage virtual network to enabled
 #   input:
 #     selector:

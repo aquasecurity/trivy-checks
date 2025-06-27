@@ -3,17 +3,21 @@
 # description: "Do not allow all requests."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0011
-#   severity: LOW
+#   aliases:
+#     - AVD-KCV-0011
+#     - KCV0011
+#     - ensure-admission-control-plugin-always-admit-is-not-set
 #   long_id: kubernetes-ensure-admission-control-plugin-always-admit-is-not-set
+#   severity: LOW
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and either remove the --enable-admission- plugins parameter, or set it to a value that does not include AlwaysAdmit."
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KCV0011
 
 import rego.v1

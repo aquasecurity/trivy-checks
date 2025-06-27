@@ -3,19 +3,23 @@
 # description: "Do not disable timeouts on streaming connections."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0085
-#   severity: HIGH
+#   aliases:
+#     - AVD-KCV-0085
+#     - KCV0085
+#     - disable-timeouts-streaming-connections.
 #   long_id: kubernetes-disable-timeouts-streaming-connections.
+#   severity: HIGH
 #   recommended_action: "Edit the kubelet service file /etc/kubernetes/kubelet.conf and set --streaming-connection-idle-timeout=5m "
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0085
 
 import rego.v1

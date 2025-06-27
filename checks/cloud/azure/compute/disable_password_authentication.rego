@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - azure-compute-disable-password-authentication
 #   id: AZU-0039
+#   aliases:
+#     - AVD-AZU-0039
+#     - disable-password-authentication
+#   long_id: azure-compute-disable-password-authentication
 #   provider: azure
 #   service: compute
 #   severity: HIGH
-#   long_id: azure-compute-disable-password-authentication
 #   recommended_action: Use ssh authentication for virtual machines
 #   input:
 #     selector:

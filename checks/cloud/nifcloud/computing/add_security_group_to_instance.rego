@@ -10,11 +10,13 @@
 # custom:
 #   id: NIF-0004
 #   aliases:
+#     - AVD-NIF-0004
 #     - nifcloud-computing-add-security-group-to-instance
+#     - add-security-group-to-instance
+#   long_id: nifcloud-computing-add-security-group-to-instance
 #   provider: nifcloud
 #   service: computing
 #   severity: CRITICAL
-#   long_id: nifcloud-computing-add-security-group-to-instance
 #   recommended_action: Add security group for all instances
 #   input:
 #     selector:

@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - google-compute-project-level-oslogin
 #   id: GCP-0042
+#   aliases:
+#     - AVD-GCP-0042
+#     - project-level-oslogin
+#   long_id: google-compute-project-level-oslogin
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
-#   long_id: google-compute-project-level-oslogin
 #   recommended_action: Enable OS Login at project level
 #   input:
 #     selector:

@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/efs/latest/ug/encryption.html
 # custom:
-#   aliases:
-#     - aws-efs-enable-at-rest-encryption
 #   id: AWS-0037
+#   aliases:
+#     - AVD-AWS-0037
+#     - enable-at-rest-encryption
+#   long_id: aws-efs-enable-at-rest-encryption
 #   provider: aws
 #   service: efs
 #   severity: HIGH
-#   long_id: aws-efs-enable-at-rest-encryption
 #   recommended_action: Enable encryption for EFS
 #   input:
 #     selector:

@@ -12,11 +12,13 @@
 # custom:
 #   id: AWS-0099
 #   aliases:
-#     - aws-ec2-add-description-to-security-group
+#     - AVD-AWS-0099
+#     - aws-vpc-add-description-to-security-group
+#     - add-description-to-security-group
+#   long_id: aws-ec2-add-description-to-security-group
 #   provider: aws
 #   service: ec2
 #   severity: LOW
-#   long_id: aws-ec2-add-description-to-security-group
 #   recommended_action: Add descriptions for all security groups
 #   input:
 #     selector:

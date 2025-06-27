@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonECR/latest/public/public-repository-policies.html
 # custom:
-#   aliases:
-#     - aws-ecr-no-public-access
 #   id: AWS-0032
+#   aliases:
+#     - AVD-AWS-0032
+#     - no-public-access
+#   long_id: aws-ecr-no-public-access
 #   provider: aws
 #   service: ecr
 #   severity: HIGH
-#   long_id: aws-ecr-no-public-access
 #   recommended_action: Do not allow public access in the policy
 #   input:
 #     selector:

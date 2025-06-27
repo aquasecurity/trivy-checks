@@ -12,11 +12,13 @@
 # custom:
 #   id: NIF-0015
 #   aliases:
+#     - AVD-NIF-0015
 #     - nifcloud-nas-add-description-to-nas-security-group
+#     - add-description-to-nas-security-group
+#   long_id: nifcloud-nas-add-description-to-nas-security-group
 #   provider: nifcloud
 #   service: nas
 #   severity: LOW
-#   long_id: nifcloud-nas-add-description-to-nas-security-group
 #   recommended_action: Add descriptions for all nas security groups
 #   input:
 #     selector:

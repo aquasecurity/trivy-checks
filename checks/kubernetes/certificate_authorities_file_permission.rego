@@ -3,19 +3,23 @@
 # description: "Ensure that the certificate authorities file has permissions of 600 or more restrictive."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0075
-#   severity: CRITICAL
+#   aliases:
+#     - AVD-KCV-0075
+#     - KCV0075
+#     - ensure-certificate-authorities-file-permissions-600-or-more-restrictive.
 #   long_id: kubernetes-ensure-certificate-authorities-file-permissions-600-or-more-restrictive.
+#   severity: CRITICAL
 #   recommended_action: "Change the certificate authorities file permissions to 600 or more restrictive if exist"
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0075
 
 import rego.v1

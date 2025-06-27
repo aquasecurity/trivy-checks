@@ -8,12 +8,13 @@
 # custom:
 #   id: AWS-0122
 #   aliases:
+#     - AVD-AWS-0122
 #     - aws-autoscaling-no-sensitive-info
-#     - aws-ec2-no-sensitive-info
+#     - no-sensitive-info
+#   long_id: aws-ec2-no-sensitive-info
 #   provider: aws
 #   service: ec2
 #   severity: HIGH
-#   long_id: aws-ec2-no-sensitive-info
 #   recommended_action: Don't use sensitive data in user data
 #   input:
 #     selector:

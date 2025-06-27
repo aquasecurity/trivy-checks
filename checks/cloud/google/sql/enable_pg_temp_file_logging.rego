@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://postgresqlco.nf/doc/en/param/log_temp_files/
 # custom:
-#   aliases:
-#     - google-sql-enable-pg-temp-file-logging
 #   id: GCP-0014
+#   aliases:
+#     - AVD-GCP-0014
+#     - enable-pg-temp-file-logging
+#   long_id: google-sql-enable-pg-temp-file-logging
 #   provider: google
 #   service: sql
 #   severity: MEDIUM
-#   long_id: google-sql-enable-pg-temp-file-logging
 #   recommended_action: Enable temporary file logging for all files
 #   input:
 #     selector:

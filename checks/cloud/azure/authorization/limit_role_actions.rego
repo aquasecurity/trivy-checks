@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - azure-authorization-limit-role-actions
 #   id: AZU-0030
+#   aliases:
+#     - AVD-AZU-0030
+#     - limit-role-actions
+#   long_id: azure-authorization-limit-role-actions
 #   provider: azure
 #   service: authorization
 #   severity: MEDIUM
-#   long_id: azure-authorization-limit-role-actions
 #   recommended_action: Use targeted permissions for roles
 #   input:
 #     selector:
