@@ -12,8 +12,7 @@
 #   - https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-13
 #   - https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-14
 # custom:
-#   aliases:
-#     - aws-ec2-no-public-ingress-sgr
+#   id: AVD-AWS-0107
 #   avd_id: AVD-AWS-0107
 #   provider: aws
 #   service: ec2

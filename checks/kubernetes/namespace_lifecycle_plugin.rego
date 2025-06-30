@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0015
 #   avd_id: AVD-KCV-0015
 #   severity: LOW
 #   short_code: ensure-admission-control-plugin-namespace-lifecycle-is-set

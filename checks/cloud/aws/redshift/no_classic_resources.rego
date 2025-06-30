@@ -9,8 +9,7 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-classic-platform.html
 # custom:
-#   aliases:
-#     - aws-redshift-no-classic-resources
+#   id: AVD-AWS-0085
 #   avd_id: AVD-AWS-0085
 #   provider: aws
 #   service: redshift

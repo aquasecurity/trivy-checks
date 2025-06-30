@@ -7,6 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
+#   id: KSV052
 #   avd_id: AVD-KSV-0052
 #   severity: HIGH
 #   short_code: allow-role-clusterrolebindings-associate-privileged-cluster-role

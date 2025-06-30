@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0026
 #   avd_id: AVD-KCV-0026
 #   severity: LOW
 #   short_code: ensure-etcd-certfile-and-etcd-keyfile-arguments-are-set-as-appropriate

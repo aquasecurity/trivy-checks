@@ -7,6 +7,7 @@
 # related_resources:
 # - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#run
 # custom:
+#   id: DS020
 #   avd_id: AVD-DS-0020
 #   severity: HIGH
 #   short_code: purge-zipper-cache

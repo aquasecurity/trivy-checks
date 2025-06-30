@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KSV0012
 #   avd_id: AVD-KCV-0012
 #   severity: LOW
 #   short_code: ensure-admission-control-plugin-always-pull-images-is-set

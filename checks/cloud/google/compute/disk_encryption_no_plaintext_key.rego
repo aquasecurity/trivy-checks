@@ -8,8 +8,7 @@
 # related_resources:
 #   - https://cloud.google.com/compute/docs/disks/customer-supplied-encryption
 # custom:
-#   aliases:
-#     - google-compute-disk-encryption-no-plaintext-key
+#   id: AVD-GCP-0037
 #   avd_id: AVD-GCP-0037
 #   provider: google
 #   service: compute

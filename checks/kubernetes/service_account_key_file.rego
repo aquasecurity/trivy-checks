@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0025
 #   avd_id: AVD-KCV-0025
 #   severity: LOW
 #   short_code: ensure-service-account-key-file-argument-is-set-as-appropriate

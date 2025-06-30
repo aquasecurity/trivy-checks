@@ -11,8 +11,7 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createdomain-configure-slow-logs.html
 # custom:
-#   aliases:
-#     - aws-elasticsearch-enable-domain-logging
+#   id: AVD-AWS-0042
 #   avd_id: AVD-AWS-0042
 #   provider: aws
 #   service: elasticsearch

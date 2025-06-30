@@ -8,8 +8,7 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/platform-logs-overview
 # custom:
-#   aliases:
-#     - azure-monitor-activity-log-retention-set
+#   id: AVD-AZU-0031
 #   avd_id: AVD-AZU-0031
 #   provider: azure
 #   service: monitor

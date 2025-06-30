@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0087
 #   avd_id: AVD-KCV-0087
 #   severity: HIGH
 #   short_code: ensure-event-qps argument-set-0-or-level-forappropriate-event-capture

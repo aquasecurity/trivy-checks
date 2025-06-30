@@ -6,8 +6,7 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - google-kms-rotate-kms-keys
+#   id: AVD-GCP-0065
 #   avd_id: AVD-GCP-0065
 #   provider: google
 #   service: kms

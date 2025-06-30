@@ -5,6 +5,7 @@
 # schemas:
 # - input: schema["kubernetes"]
 # custom:
+#   id: KSV107
 #   avd_id: AVD-KSV-0107
 #   severity: LOW
 #   short_code: evaluate-k8s-deprecated-removed-apis

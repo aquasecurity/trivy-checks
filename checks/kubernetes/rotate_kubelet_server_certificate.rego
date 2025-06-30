@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0038
 #   avd_id: AVD-KCV-0038
 #   severity: LOW
 #   short_code: Ensure that the RotateKubeletServerCertificate argument is set to true

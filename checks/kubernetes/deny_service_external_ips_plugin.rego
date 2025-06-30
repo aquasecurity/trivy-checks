@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0003
 #   avd_id: AVD-KCV-0003
 #   severity: LOW
 #   short_code: Ensure-deny-service-external-ips-is-not-set

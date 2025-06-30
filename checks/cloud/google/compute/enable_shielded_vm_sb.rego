@@ -8,8 +8,7 @@
 # related_resources:
 #   - https://cloud.google.com/security/shielded-cloud/shielded-vm#secure-boot
 # custom:
-#   aliases:
-#     - google-compute-enable-shielded-vm-sb
+#   id: AVD-GCP-0067
 #   avd_id: AVD-GCP-0067
 #   provider: google
 #   service: compute

@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0017
 #   avd_id: AVD-KCV-0017
 #   severity: LOW
 #   short_code: ensure-secure-port-argument-is-not-set-to-0

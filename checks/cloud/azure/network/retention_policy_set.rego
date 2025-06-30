@@ -12,8 +12,7 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview
 # custom:
-#   aliases:
-#     - azure-network-retention-policy-set
+#   id: AVD-AZU-0049
 #   avd_id: AVD-AZU-0049
 #   provider: azure
 #   service: network

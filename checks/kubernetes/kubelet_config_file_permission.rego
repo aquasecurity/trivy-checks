@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0073
 #   avd_id: AVD-KCV-0073
 #   severity: HIGH
 #   short_code: ensure-kubelet.conf-file-permissions-600-or-more-restrictive.

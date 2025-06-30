@@ -7,6 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
+#   id: KSV053
 #   avd_id: AVD-KSV-0053
 #   severity: HIGH
 #   short_code: no-getting-shell-pods

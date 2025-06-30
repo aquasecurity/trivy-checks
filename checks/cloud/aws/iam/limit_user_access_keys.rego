@@ -8,8 +8,7 @@
 # related_resources:
 #   - https://console.aws.amazon.com/iam/
 # custom:
-#   aliases:
-#     - aws-iam-limit-user-access-keys
+#   id: AVD-AWS-0167
 #   avd_id: AVD-AWS-0167
 #   provider: aws
 #   service: iam

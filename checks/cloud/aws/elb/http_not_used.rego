@@ -9,8 +9,7 @@
 # related_resources:
 #   - https://www.cloudflare.com/en-gb/learning/ssl/why-is-http-not-secure/
 # custom:
-#   aliases:
-#     - aws-elb-http-not-used
+#   id: AVD-AWS-0054
 #   avd_id: AVD-AWS-0054
 #   provider: aws
 #   service: elb

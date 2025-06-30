@@ -9,6 +9,7 @@
 # - https://github.com/kubernetes/kubernetes/issues/131007
 # - https://github.com/kubernetes/kubernetes/issues/131006
 # custom:
+#   id: KCV0093
 #   avd_id: AVD-KCV-0093
 #   severity: CRITICAL
 #   short_code: insecure-ingress-nginx

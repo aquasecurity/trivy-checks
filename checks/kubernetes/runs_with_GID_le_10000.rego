@@ -7,6 +7,7 @@
 # related_resources:
 # - https://kubesec.io/basics/containers-securitycontext-runasuser/
 # custom:
+#   id: KSV021
 #   avd_id: AVD-KSV-0021
 #   severity: LOW
 #   short_code: use-high-gid
