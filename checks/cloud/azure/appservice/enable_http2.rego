@@ -6,8 +6,7 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - azure-appservice-enable-http2
+#   id: AVD-AZU-0005
 #   avd_id: AVD-AZU-0005
 #   provider: azure
 #   service: appservice

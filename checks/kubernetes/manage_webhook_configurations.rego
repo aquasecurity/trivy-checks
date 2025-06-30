@@ -7,6 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
+#   id: KSV114
 #   avd_id: AVD-KSV-0114
 #   severity: CRITICAL
 #   short_code: no-manage-webhook

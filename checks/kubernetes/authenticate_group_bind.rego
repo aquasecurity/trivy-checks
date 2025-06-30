@@ -7,6 +7,7 @@
 # related_resources:
 # - https://orca.security/resources/blog/sys-all-google-kubernetes-engine-risk/
 # custom:
+#   id: KSV01011
 #   avd_id: AVD-KSV-01011
 #   severity: CRITICAL
 #   short_code: no-system-authenticated-group-bind

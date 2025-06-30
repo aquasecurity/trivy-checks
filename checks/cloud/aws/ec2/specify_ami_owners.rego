@@ -9,8 +9,7 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami
 # custom:
-#   aliases:
-#     - aws-ami-ensure-ami-has-owners
+#   id: AVD-AWS-0344
 #   avd_id: AVD-AWS-0344
 #   provider: aws
 #   service: ami

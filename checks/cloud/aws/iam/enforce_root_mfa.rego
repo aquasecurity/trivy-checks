@@ -10,8 +10,7 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cis-controls.html#securityhub-cis-controls-1.14
 # custom:
-#   aliases:
-#     - aws-iam-enforce-root-mfa
+#   id: AVD-AWS-0142
 #   avd_id: AVD-AWS-0142
 #   provider: aws
 #   service: iam

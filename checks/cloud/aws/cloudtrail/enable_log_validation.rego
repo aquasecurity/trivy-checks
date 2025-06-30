@@ -8,8 +8,7 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-log-file-validation-intro.html
 # custom:
-#   aliases:
-#     - aws-cloudtrail-enable-log-validation
+#   id: AVD-AWS-0016
 #   avd_id: AVD-AWS-0016
 #   provider: aws
 #   service: cloudtrail

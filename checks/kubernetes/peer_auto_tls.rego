@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0047
 #   avd_id: AVD-KCV-0047
 #   severity: LOW
 #   short_code: ensure-peer-auto-tls-argument-is-not-set-to-true

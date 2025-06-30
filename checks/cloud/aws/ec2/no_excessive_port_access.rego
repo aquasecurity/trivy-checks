@@ -8,10 +8,10 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html
 # custom:
+#   id: AVD-AWS-0102
 #   avd_id: AVD-AWS-0102
 #   aliases:
 #     - aws-vpc-no-excessive-port-access
-#     - aws-ec2-no-excessive-port-access
 #   provider: aws
 #   service: ec2
 #   severity: CRITICAL

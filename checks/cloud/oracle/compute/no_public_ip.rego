@@ -8,8 +8,7 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - oracle-compute-no-public-ip
+#   id: AVD-OCI-0001
 #   avd_id: AVD-OCI-0001
 #   provider: oracle
 #   service: compute

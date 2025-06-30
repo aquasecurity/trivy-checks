@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0009
 #   avd_id: AVD-KCV-0009
 #   severity: LOW
 #   short_code: ensure-authorization-mode-argument-includes-rbac

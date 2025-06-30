@@ -6,8 +6,7 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - digitalocean-spaces-disable-force-destroy
+#   id: AVD-DIG-0009
 #   avd_id: AVD-DIG-0009
 #   provider: digitalocean
 #   service: spaces

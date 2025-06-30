@@ -9,8 +9,7 @@
 #   - https://cloud.google.com/storage/docs/uniform-bucket-level-access
 #   - https://jbrojbrojbro.medium.com/you-make-the-rules-with-authentication-controls-for-cloud-storage-53c32543747b
 # custom:
-#   aliases:
-#     - google-storage-enable-ubla
+#   id: AVD-GCP-0002
 #   avd_id: AVD-GCP-0002
 #   provider: google
 #   service: storage

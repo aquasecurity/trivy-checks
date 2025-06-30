@@ -6,8 +6,7 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - google-compute-use-secure-tls-policy
+#   id: AVD-GCP-0039
 #   avd_id: AVD-GCP-0039
 #   provider: google
 #   service: compute

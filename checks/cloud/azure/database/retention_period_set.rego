@@ -10,8 +10,7 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/azure-sql/database/auditing-overview
 # custom:
-#   aliases:
-#     - azure-database-retention-period-set
+#   id: AVD-AZU-0025
 #   avd_id: AVD-AZU-0025
 #   provider: azure
 #   service: database

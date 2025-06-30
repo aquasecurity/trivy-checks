@@ -14,8 +14,7 @@
 # related_resources:
 #   - https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster#protect_node_metadata_default_for_112
 # custom:
-#   aliases:
-#     - google-gke-metadata-endpoints-disabled
+#   id: AVD-GCP-0048
 #   avd_id: AVD-GCP-0048
 #   provider: google
 #   service: gke

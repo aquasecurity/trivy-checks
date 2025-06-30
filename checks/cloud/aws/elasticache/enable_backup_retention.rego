@@ -8,8 +8,7 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-automatic.html
 # custom:
-#   aliases:
-#     - aws-elasticache-enable-backup-retention
+#   id: AVD-AWS-0050
 #   avd_id: AVD-AWS-0050
 #   provider: aws
 #   service: elasticache

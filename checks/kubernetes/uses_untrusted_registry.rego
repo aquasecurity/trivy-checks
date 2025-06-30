@@ -8,6 +8,7 @@
 # - https://cloud.google.com/container-registry/docs/overview#registries
 # - https://docs.aws.amazon.com/general/latest/gr/ecr.html
 # custom:
+#   id: KSV0125
 #   avd_id: AVD-KSV-0125
 #   severity: MEDIUM
 #   short_code: use-trusted-registry

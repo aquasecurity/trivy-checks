@@ -9,8 +9,7 @@
 #   - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html
 #   - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html
 # custom:
-#   aliases:
-#     - aws-codebuild-enable-encryption
+#   id: AVD-AWS-0018
 #   avd_id: AVD-AWS-0018
 #   provider: aws
 #   service: codebuild

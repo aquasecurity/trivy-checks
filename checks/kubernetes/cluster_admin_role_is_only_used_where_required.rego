@@ -7,6 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
+#   id: KSV111
 #   avd_id: AVD-KSV-0111
 #   severity: MEDIUM
 #   short_code: cluster-admin0-role-only-used-where-required"

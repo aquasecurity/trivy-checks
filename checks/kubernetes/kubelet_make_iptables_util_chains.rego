@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0084
 #   avd_id: AVD-KCV-0084
 #   severity: HIGH
 #   short_code: ensure-make-iptables-util-chains-argument-set-true

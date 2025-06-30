@@ -5,8 +5,7 @@
 # schemas:
 # - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - aws-iam-no-s3-full-access
+#   id: AVD-AWS-0345
 #   avd_id: AVD-AWS-0345
 #   provider: aws
 #   service: iam

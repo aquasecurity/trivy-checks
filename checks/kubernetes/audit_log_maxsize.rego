@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0022
 #   avd_id: AVD-KCV-0022
 #   severity: LOW
 #   short_code: ensure-audit-log-maxsize-argument-is-set-to-100-or-as-appropriate

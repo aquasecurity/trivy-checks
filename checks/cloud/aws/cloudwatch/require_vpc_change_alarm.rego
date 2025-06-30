@@ -10,8 +10,7 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html
 # custom:
-#   aliases:
-#     - aws-cloudwatch-require-vpc-changes-alarm
+#   id: AVD-AWS-0160
 #   avd_id: AVD-AWS-0160
 #   provider: aws
 #   service: cloudwatch

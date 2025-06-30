@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0089
 #   avd_id: AVD-KCV-0089
 #   severity: CRITICAL
 #   short_code: ensure-tls-key-file-argument-set-appropriate
