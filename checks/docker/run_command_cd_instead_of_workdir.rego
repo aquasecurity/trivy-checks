@@ -7,6 +7,7 @@
 # related_resources:
 # - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#workdir
 # custom:
+#   id: DS013
 #   avd_id: AVD-DS-0013
 #   severity: MEDIUM
 #   short_code: use-workdir-over-cd

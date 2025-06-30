@@ -7,6 +7,7 @@
 # related_resources:
 # - https://docs.docker.com/engine/reference/builder/#entrypoint
 # custom:
+#   id: DS007
 #   avd_id: AVD-DS-0007
 #   severity: CRITICAL
 #   short_code: only-one-entrypoint

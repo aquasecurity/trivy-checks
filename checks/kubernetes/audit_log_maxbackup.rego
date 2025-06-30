@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0021
 #   avd_id: AVD-KCV-0021
 #   severity: LOW
 #   short_code: ensure-audit-log-maxbackup-argument-is-set-to-10-or-as-appropriate

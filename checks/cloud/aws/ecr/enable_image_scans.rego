@@ -8,8 +8,7 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html
 # custom:
-#   aliases:
-#     - aws-ecr-enable-image-scans
+#   id: AVD-AWS-0030
 #   avd_id: AVD-AWS-0030
 #   provider: aws
 #   service: ecr

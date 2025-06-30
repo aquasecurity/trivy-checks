@@ -5,6 +5,7 @@
 # schemas:
 # - input: schema["kubernetes"]
 # custom:
+#   id: KSV035
 #   avd_id: AVD-KSV-0035
 #   severity: MEDIUM
 #   short_code: no-untrusted-ecr-domain

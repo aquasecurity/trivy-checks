@@ -7,6 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
+#   id: KSV026
 #   avd_id: AVD-KSV-0026
 #   severity: MEDIUM
 #   short_code: no-unsafe-sysctl

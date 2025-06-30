@@ -5,6 +5,7 @@
 # schemas:
 # - input: schema["kubernetes"]
 # custom:
+#   id: AVD-KSV-0109
 #   avd_id: AVD-KSV-0109
 #   severity: HIGH
 #   short_code: configMap_with_secrets

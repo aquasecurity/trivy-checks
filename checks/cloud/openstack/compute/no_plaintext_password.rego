@@ -6,8 +6,7 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - openstack-compute-no-plaintext-password
+#   id: AVD-OPNSTK-0001
 #   avd_id: AVD-OPNSTK-0001
 #   provider: openstack
 #   service: compute

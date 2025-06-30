@@ -7,6 +7,7 @@
 # related_resources:
 # - https://github.com/gliderlabs/docker-alpine/blob/master/docs/usage.md#disabling-cache
 # custom:
+#   id: DS025
 #   avd_id: AVD-DS-0025
 #   severity: HIGH
 #   short_code: purge-apk-package-cache

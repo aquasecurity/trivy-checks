@@ -7,6 +7,7 @@
 # related_resources:
 # - https://blog.aquasec.com/docker-security-best-practices
 # custom:
+#   id: DS026
 #   avd_id: AVD-DS-0026
 #   severity: LOW
 #   short_code: no-healthcheck

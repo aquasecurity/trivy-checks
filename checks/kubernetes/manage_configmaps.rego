@@ -7,6 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
+#   id: KSV049
 #   avd_id: AVD-KSV-0049
 #   severity: MEDIUM
 #   short_code: no-manage-configmaps

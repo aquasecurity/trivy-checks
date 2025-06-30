@@ -7,6 +7,7 @@
 # related_resources:
 # - https://kubesec.io/basics/containers-resources-limits-memory/
 # custom:
+#   id: KSV018
 #   avd_id: AVD-KSV-0018
 #   severity: LOW
 #   short_code: limit-memory

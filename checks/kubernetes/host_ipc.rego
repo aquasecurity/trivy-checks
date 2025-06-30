@@ -7,6 +7,7 @@
 # schemas:
 # - input: schema["kubernetes"]
 # custom:
+#   id: KSV008
 #   avd_id: AVD-KSV-0008
 #   severity: HIGH
 #   short_code: no-shared-ipc-namespace

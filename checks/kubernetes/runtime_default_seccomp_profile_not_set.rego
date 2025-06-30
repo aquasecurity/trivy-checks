@@ -7,6 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 # custom:
+#   id: KSV030
 #   avd_id: AVD-KSV-0030
 #   severity: LOW
 #   short_code: use-default-seccomp

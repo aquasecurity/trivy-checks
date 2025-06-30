@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0011
 #   avd_id: AVD-KCV-0011
 #   severity: LOW
 #   short_code: ensure-admission-control-plugin-always-admit-is-not-set

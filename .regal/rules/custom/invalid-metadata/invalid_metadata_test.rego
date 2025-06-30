@@ -12,6 +12,7 @@ test_invalid_metadata if {
 # schemas:
 #   - input: schema["kubernetes"]
 # custom:
+#   id: TEST-001
 #   avdid: AVD-TEST-001
 #   examples: test/ff.json
 package policy
@@ -28,7 +29,7 @@ foo := true`)
 			"col": 1,
 			"end": {
 				"col": 27,
-				"row": 9,
+				"row": 10,
 			},
 			"file": "example.rego",
 			"row": 2,

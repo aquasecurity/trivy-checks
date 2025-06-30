@@ -9,8 +9,7 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/config/latest/developerguide/aggregate-data.html
 # custom:
-#   aliases:
-#     - aws-config-aggregate-all-regions
+#   id: AVD-AWS-0019
 #   avd_id: AVD-AWS-0019
 #   provider: aws
 #   service: config

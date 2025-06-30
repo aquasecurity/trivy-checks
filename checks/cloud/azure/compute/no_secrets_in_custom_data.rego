@@ -6,8 +6,7 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - azure-compute-no-secrets-in-custom-data
+#   id: AVD-AZU-0037
 #   avd_id: AVD-AZU-0037
 #   provider: azure
 #   service: compute

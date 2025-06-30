@@ -9,8 +9,7 @@
 #   - https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_environment_secret
 #   - https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions
 # custom:
-#   aliases:
-#     - github-environmentsecrets-no-plain-text-action-secrets
+#   id: AVD-GIT-0002
 #   avd_id: AVD-GIT-0002
 #   provider: github
 #   service: environmentsecrets

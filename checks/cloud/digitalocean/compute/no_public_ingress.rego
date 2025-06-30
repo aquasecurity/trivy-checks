@@ -8,8 +8,7 @@
 # related_resources:
 #   - https://docs.digitalocean.com/products/networking/firewalls/how-to/configure-rules/
 # custom:
-#   aliases:
-#     - digitalocean-compute-no-public-ingress
+#   id: AVD-DIG-0001
 #   avd_id: AVD-DIG-0001
 #   provider: digitalocean
 #   service: compute

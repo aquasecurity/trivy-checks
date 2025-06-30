@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0135
 #   avd_id: AVD-KCV-0035
 #   severity: LOW
 #   short_code: ensure-use-service-account-credentials-argument-is-set-to-true
