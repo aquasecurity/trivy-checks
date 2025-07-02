@@ -40,17 +40,23 @@ disallowed_domains := {
 	"zoho.com"
 }
 
-deny contains msg if {
+deny contains res if {
 	some binding in input.google.project_iam.bindings
 	some member in binding.members
-	is_disallowed_user_email(member)
-	msg := sprintf("IAM member %q uses a public or personal email domain.", [member])
+	is_disallowed_user_email(member.value)
+	res := result.new(
+		sprintf("IAM member %q uses a public or personal email domain.", [member.value]),
+		member,
+	)
 }
 
-deny contains msg if {
+deny contains res if {
 	some entry in input.google.project_iam.members
-	is_disallowed_user_email(entry.member)
-	msg := sprintf("IAM member %q uses a public or personal email domain.", [entry.member])
+	is_disallowed_user_email(entry.member.value)
+	res := result.new(
+		sprintf("IAM member %q uses a public or personal email domain.", [entry.member.value]),
+		entry.member,
+	)
 }
 
 is_disallowed_user_email(member) if {
