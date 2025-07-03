@@ -24,4 +24,4 @@ terraform:
     - |-
       resource "google_project_iam_member" "bad_example" {
         member = "user:temp@yahoo.com"
-      } 
+      }

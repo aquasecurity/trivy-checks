@@ -28,6 +28,8 @@ package builtin.google.iam.google0069
 
 import rego.v1
 
+import data.lib.google.iam
+
 disallowed_domains := {
 	"gmail.com",
 	"yahoo.com",
@@ -41,7 +43,7 @@ disallowed_domains := {
 }
 
 deny contains res if {
-	some binding in input.google.project_iam.bindings
+	some binding in iam.all_bindings
 	some member in binding.members
 	is_disallowed_user_email(member.value)
 	res := result.new(
@@ -51,7 +53,7 @@ deny contains res if {
 }
 
 deny contains res if {
-	some entry in input.google.project_iam.members
+	some entry in iam.all_members
 	is_disallowed_user_email(entry.member.value)
 	res := result.new(
 		sprintf("IAM member %q uses a public or personal email domain.", [entry.member.value]),
