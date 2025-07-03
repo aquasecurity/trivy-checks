@@ -30,24 +30,24 @@ import rego.v1
 import data.lib.net
 
 deny contains res if {
-    some network in input.google.compute.networks
-    count(object.get(network.firewall, "sourcetags", [])) == 0
-    count(object.get(network.firewall, "targettags", [])) == 0
+	some network in input.google.compute.networks
+	count(object.get(network.firewall, "sourcetags", [])) == 0
+	count(object.get(network.firewall, "targettags", [])) == 0
 
-    some rule in network.firewall.ingressrules
-    rule.firewallrule.isallow.value
-    rule.firewallrule.enforced.value
+	some rule in network.firewall.ingressrules
+	rule.firewallrule.isallow.value
+	rule.firewallrule.enforced.value
 
-    some source in rule.sourceranges
-    net.cidr_allows_all_ips(source.value)
+	some source in rule.sourceranges
+	net.cidr_allows_all_ips(source.value)
 
-    some port_range in rule.destinationports
-    port_range.value in ["3389", "3389-3389"]  
-    rule.protocol.value == "tcp"
+	some allow_rule in rule.allowrules
+	allow_rule.protocol.value == "tcp"
+	some port in allow_rule.ports
+	port.value in ["3389", "3389-3389"]
 
-    res := result.new(
-        "Firewall rule allows unrestricted access to TCP port 3389 from any IP address.",
-        source,
-    )
+	res := result.new(
+		"Firewall rule allows unrestricted access to TCP port 3389 from any IP address.",
+		source,
+	)
 }
-
