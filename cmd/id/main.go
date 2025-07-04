@@ -25,9 +25,8 @@ func run() error {
 	keyMap := make(map[string][]string)
 
 	for _, meta := range checksMetadata {
-		id := meta["id"].(string)
-		parts := strings.Split(id, "-")
-		keyMap[parts[1]] = append(keyMap[parts[1]], parts[2])
+		parts := strings.Split(meta.ID(), "-")
+		keyMap[parts[0]] = append(keyMap[parts[0]], parts[1])
 	}
 
 	var freeIDs []string
