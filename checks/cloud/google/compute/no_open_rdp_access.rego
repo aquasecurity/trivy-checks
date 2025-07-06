@@ -22,8 +22,6 @@
 #         subtypes:
 #           - service: compute
 #             provider: google
-# aliases:
-#   - google-misc-rdp-access-is-not-restricted
 package builtin.google.compute.google0070
 
 import rego.v1
@@ -42,10 +40,10 @@ deny contains res if {
 	some source in rule.sourceranges
 	net.cidr_allows_all_ips(source.value)
 
-	some allow_rule in rule.firewallrule.allowrules
-	allow_rule.protocol.value == "tcp"
-	some port in allow_rule.ports
-	port.value in ["3389", "3389-3389"]
+	rule.firewallrule.protocol.value == "tcp"
+	some port in rule.firewallrule.ports
+	port.start <= 3389
+	port.end >= 3389
 
 	res := result.new(
 		"Firewall rule allows unrestricted access to TCP port 3389 from any IP address.",
