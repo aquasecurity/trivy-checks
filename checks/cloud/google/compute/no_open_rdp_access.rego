@@ -8,6 +8,7 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall
 # custom:
+#   id: AVD-GCP-0070
 #   avd_id: AVD-GCP-0070
 #   provider: google
 #   service: compute
