@@ -10,6 +10,7 @@
 # custom:
 #   aliases:
 #     - google-iam-not-proper-email-account-in-use
+# 	id: AVD-GCP-0069
 #   avd_id: AVD-GCP-0069
 #   provider: google
 #   service: iam
