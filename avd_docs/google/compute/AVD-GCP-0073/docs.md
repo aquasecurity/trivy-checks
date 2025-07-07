@@ -1,5 +1,6 @@
 
-Default "allow all" firewall rules should be removed or replaced with more specific rules, as they violate least privilege.
+Ensures that Google Cloud's default firewall rules are disabled, as they may be overly permissive and pose security risks.
+The default network comes with pre-populated firewall rules that allow broad access and should be replaced with more restrictive custom rules.
 
 
 ### Impact
@@ -9,6 +10,6 @@ Default "allow all" firewall rules should be removed or replaced with more speci
 {{ remediationActions }}
 
 ### Links
-- https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall#name
+- https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall
 
 
