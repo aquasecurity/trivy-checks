@@ -6,8 +6,7 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - google-iam-no-default-network
+#   id: AVD-GCP-0010
 #   avd_id: AVD-GCP-0010
 #   provider: google
 #   service: iam

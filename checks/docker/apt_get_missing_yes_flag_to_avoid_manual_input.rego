@@ -7,6 +7,7 @@
 # schemas:
 # - input: schema["dockerfile"]
 # custom:
+#   id: DS021
 #   avd_id: AVD-DS-0021
 #   severity: HIGH
 #   short_code: use-apt-auto-confirm

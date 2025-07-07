@@ -7,6 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 # custom:
+#   id: KSV118
 #   avd_id: AVD-KSV-0118
 #   severity: HIGH
 #   short_code: no-default-security-context

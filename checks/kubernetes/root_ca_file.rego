@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0037
 #   avd_id: AVD-KCV-0037
 #   severity: LOW
 #   short_code: ensure-root-ca-file-argument-is-set-as-appropriate

@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0081
 #   avd_id: AVD-KCV-0081
 #   severity: CRITICAL
 #   short_code: ensure-client-ca-argument-set-appropriate

@@ -10,8 +10,7 @@
 #   - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.access-control.html#USER_PerfInsights.access-control.cmk-policy
 #   - https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-mgmt
 # custom:
-#   aliases:
-#     - aws-rds-performance-insights-encryption-customer-key
+#   id: AVD-AWS-0078
 #   avd_id: AVD-AWS-0078
 #   provider: aws
 #   service: rds

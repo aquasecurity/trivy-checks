@@ -5,6 +5,7 @@
 # schemas:
 # - input: schema["kubernetes"]
 # custom:
+#   id: KSV032
 #   avd_id: AVD-KSV-0032
 #   severity: MEDIUM
 #   short_code: use-azure-image-prefix

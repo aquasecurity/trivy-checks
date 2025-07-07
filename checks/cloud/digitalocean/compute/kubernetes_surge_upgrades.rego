@@ -8,8 +8,7 @@
 # related_resources:
 #   - https://docs.digitalocean.com/products/kubernetes/how-to/upgrade-cluster/#surge-upgrades
 # custom:
-#   aliases:
-#     - digitalocean-compute-surge-upgrades-not-enabled
+#   id: AVD-DIG-0005
 #   avd_id: AVD-DIG-0005
 #   provider: digitalocean
 #   service: compute

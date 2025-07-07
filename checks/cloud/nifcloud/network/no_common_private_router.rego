@@ -8,6 +8,7 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/service/plan.htm
 # custom:
+#   id: AVD-NIF-0017
 #   avd_id: AVD-NIF-0017
 #   aliases:
 #     - nifcloud-network-no-common-private-router

@@ -7,6 +7,7 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
+#   id: KSV042
 #   avd_id: AVD-KSV-0042
 #   severity: MEDIUM
 #   short_code: no-delete-pod-logs

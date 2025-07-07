@@ -8,8 +8,7 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/documentdb/latest/developerguide/event-auditing.html
 # custom:
-#   aliases:
-#     - aws-documentdb-enable-log-export
+#   id: AVD-AWS-0020
 #   avd_id: AVD-AWS-0020
 #   provider: aws
 #   service: documentdb

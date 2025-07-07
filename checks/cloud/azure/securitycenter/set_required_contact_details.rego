@@ -10,8 +10,7 @@
 # related_resources:
 #   - https://azure.microsoft.com/en-us/services/security-center/
 # custom:
-#   aliases:
-#     - azure-security-center-set-required-contact-details
+#   id: AVD-AZU-0046
 #   avd_id: AVD-AZU-0046
 #   provider: azure
 #   service: security-center

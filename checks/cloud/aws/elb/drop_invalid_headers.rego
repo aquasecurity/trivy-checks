@@ -9,8 +9,7 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html
 # custom:
-#   aliases:
-#     - aws-elb-drop-invalid-headers
+#   id: AVD-AWS-0052
 #   avd_id: AVD-AWS-0052
 #   provider: aws
 #   service: elb

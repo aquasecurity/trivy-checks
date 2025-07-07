@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0085
 #   avd_id: AVD-KCV-0085
 #   severity: HIGH
 #   short_code: disable-timeouts-streaming-connections.

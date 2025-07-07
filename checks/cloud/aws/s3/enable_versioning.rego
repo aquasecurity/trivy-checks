@@ -15,8 +15,7 @@
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html
 #   - https://aws.amazon.com/blogs/storage/reduce-storage-costs-with-fewer-noncurrent-versions-using-amazon-s3-lifecycle/
 # custom:
-#   aliases:
-#     - aws-s3-enable-versioning
+#   id: AVD-AWS-0090
 #   avd_id: AVD-AWS-0090
 #   provider: aws
 #   service: s3

@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   id: KCV0043
 #   avd_id: AVD-KCV-0043
 #   severity: LOW
 #   short_code: ensure-client-cert-auth-argument-is-set-to-true

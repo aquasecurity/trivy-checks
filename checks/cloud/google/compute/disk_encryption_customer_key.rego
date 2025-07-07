@@ -6,8 +6,7 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   aliases:
-#     - google-compute-disk-encryption-customer-key
+#   id: AVD-GCP-0034
 #   avd_id: AVD-GCP-0034
 #   provider: google
 #   service: compute

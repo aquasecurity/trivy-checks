@@ -8,8 +8,7 @@
 # related_resources:
 #   - https://cloud.google.com/security/shielded-cloud/shielded-vm#integrity-monitoring
 # custom:
-#   aliases:
-#     - google-compute-enable-shielded-vm-im
+#   id: AVD-GCP-0045
 #   avd_id: AVD-GCP-0045
 #   provider: google
 #   service: compute
