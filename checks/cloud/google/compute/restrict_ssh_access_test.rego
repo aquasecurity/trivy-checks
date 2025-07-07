@@ -32,4 +32,4 @@ test_allow_ssh_access_from_specific_ip if {
 
 	res := check.deny with input as inp
 	res == set()
-} 
+}

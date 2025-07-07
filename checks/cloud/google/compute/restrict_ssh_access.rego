@@ -43,7 +43,7 @@ deny contains res if {
 	# Check if rule allows access from public internet
 	some source in rule.sourceranges
 	net.cidr_allows_all_ips(source.value)
-	
+
 	res := result.new(
 		"Firewall rule allows SSH access from the public internet.",
 		source,

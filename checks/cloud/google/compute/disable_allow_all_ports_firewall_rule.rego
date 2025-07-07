@@ -14,7 +14,7 @@
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
-#   short_code: google-compute-network-using
+#   short_code: disable-allow-all-ports
 #   recommended_action: |
 #     Modify firewall rules that allow all ports to restrict to only required ports. Use separate rules for specific port ranges as needed, instead of a single overly broad rule.
 #   input:
@@ -38,7 +38,7 @@ deny contains res if {
 
 	# Check if rule allows all ports
 	allows_all_ports(rule)
-	
+
 	res := result.new(
 		"Firewall rule allows access to all ports.",
 		rule,
@@ -53,7 +53,7 @@ deny contains res if {
 
 	# Check if rule allows all ports
 	allows_all_ports(rule)
-	
+
 	res := result.new(
 		"Firewall rule allows access to all ports.",
 		rule,
@@ -70,4 +70,4 @@ allows_all_ports(rule) if {
 # Rule allows all ports if protocol is set to "all" or "-1"
 allows_all_ports(rule) if {
 	net.protocol(rule.firewallrule.protocol.value) in net.all_protocols
-} 
+}

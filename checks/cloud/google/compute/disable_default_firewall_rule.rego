@@ -37,7 +37,7 @@ deny contains res if {
 	rule.firewallrule.enforced.value
 
 	is_default_firewall_rule(rule)
-	
+
 	res := result.new(
 		"Default firewall rule should be disabled and replaced with more restrictive rules.",
 		rule,
@@ -46,12 +46,14 @@ deny contains res if {
 
 is_default_firewall_rule(rule) if {
 	some source in rule.sourceranges
+
 	# Check for default-allow-internal pattern (10.128.0.0/9)
 	source.value == "10.128.0.0/9"
 }
 
 is_default_firewall_rule(rule) if {
 	some source in rule.sourceranges
+
 	# Check for default public access rules (SSH, RDP, ICMP from anywhere)
 	net.cidr_allows_all_ips(source.value)
 }

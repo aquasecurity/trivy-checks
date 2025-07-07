@@ -32,4 +32,4 @@ test_allow_firewall_rule_specific_ports if {
 
 	res := check.deny with input as inp
 	res == set()
-} 
+}
