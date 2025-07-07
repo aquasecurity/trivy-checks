@@ -1,22 +1,22 @@
 # METADATA
-# title: Google Compute Network Using Default Firewall Rule
+# title: Disable Default Firewall Rules
 # description: |
-#   Default "allow all" firewall rules should be removed or replaced with more specific rules, as they violate least privilege.
+#   Ensures that Google Cloud's default firewall rules are disabled, as they may be overly permissive and pose security risks.
+#   The default network comes with pre-populated firewall rules that allow broad access and should be replaced with more restrictive custom rules.
 # scope: package
 # schemas:
 #   - input: schema["cloud"]
 # related_resources:
-#   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall#name
+#   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall
 # custom:
 #   avd_id: AVD-GCP-0073
 #   aliases:
-#     - google-misc-google-compute-network-using-default-firewall-rule
+#     - google-compute-disable-default-firewall-rules
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
-#   short_code: google-compute-network-using
-#   recommended_action: |
-#     Remove default firewall rules that allow broad access. Implement custom firewall rules that only allow necessary traffic from specific sources.
+#   short_code: disable-default-firewall-rules
+#   recommended_action: Replace default firewall rules with custom, more restrictive rules appropriate for your security requirements
 #   input:
 #     selector:
 #       - type: cloud
@@ -28,15 +28,7 @@ package builtin.google.compute.google0073
 
 import rego.v1
 
-# Default firewall rule name patterns used by Google Cloud
-default_rule_patterns := {
-	"default-allow-internal",
-	"default-allow-ssh",
-	"default-allow-rdp",
-	"default-allow-icmp",
-	"default-allow-https",
-	"default-allow-http",
-}
+import data.lib.net
 
 deny contains res if {
 	some network in input.google.compute.networks
@@ -44,21 +36,22 @@ deny contains res if {
 	rule.firewallrule.isallow.value
 	rule.firewallrule.enforced.value
 
-	# Check for overly broad access patterns that indicate default rules
-	is_likely_default_rule(rule)
+	is_default_firewall_rule(rule)
 	
 	res := result.new(
-		"Firewall rule allows overly broad access that may indicate default rule usage.",
+		"Default firewall rule should be disabled and replaced with more restrictive rules.",
 		rule,
 	)
 }
 
-# Detect patterns that suggest default firewall rules
-is_likely_default_rule(rule) if {
-	# Allow rule with broad internal network access (typical of default-allow-internal)
+is_default_firewall_rule(rule) if {
 	some source in rule.sourceranges
+	# Check for default-allow-internal pattern (10.128.0.0/9)
 	source.value == "10.128.0.0/9"
-	some port in rule.firewallrule.ports
-	port.fromport.value == 0
-	port.toport.value == 65535
+}
+
+is_default_firewall_rule(rule) if {
+	some source in rule.sourceranges
+	# Check for default public access rules (SSH, RDP, ICMP from anywhere)
+	net.cidr_allows_all_ips(source.value)
 }

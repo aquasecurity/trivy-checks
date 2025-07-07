@@ -1,20 +1,7 @@
 terraform:
   links:
-    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall#name
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall
   good:
-    - |-
-      resource "google_compute_firewall" "good_example" {
-        name    = "custom-web-access"
-        network = "default"
-
-        allow {
-          protocol = "tcp"
-          ports    = ["80", "443"]
-        }
-
-        source_ranges = ["0.0.0.0/0"]
-        target_tags   = ["web-servers"]
-      }
     - |-
       resource "google_compute_firewall" "custom-ssh-access" {
         name    = "custom-ssh-access"
@@ -30,7 +17,7 @@ terraform:
       }
   bad:
     - |-
-      resource "google_compute_firewall" "bad_example" {
+      resource "google_compute_firewall" "default-allow-internal" {
         name    = "default-allow-internal"
         network = "default"
 
