@@ -8,14 +8,15 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/service/plan.htm
 # custom:
-#   id: AVD-NIF-0019
-#   avd_id: AVD-NIF-0019
+#   id: NIF-0019
 #   aliases:
+#     - AVD-NIF-0019
 #     - nifcloud-network-no-common-private-elb
+#     - no-common-private-elb
+#   long_id: nifcloud-network-no-common-private-elb
 #   provider: nifcloud
 #   service: network
 #   severity: LOW
-#   short_code: no-common-private-elb
 #   recommended_action: Use private LAN
 #   input:
 #     selector:

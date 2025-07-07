@@ -3,28 +3,31 @@
 # description: "Windows pods offer the ability to run HostProcess containers which enable privileged access to the Windows node."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
+#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV103
-#   avd_id: AVD-KSV-0103
+#   id: KSV-0103
+#   aliases:
+#     - AVD-KSV-0103
+#     - KSV103
+#     - no-hostprocess-containers
+#   long_id: kubernetes-no-hostprocess-containers
 #   severity: MEDIUM
-#   short_code: no-hostprocess-containers
 #   recommended_action: "Do not enable 'hostProcess' on any securityContext"
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 package builtin.kubernetes.KSV103
 
 import rego.v1

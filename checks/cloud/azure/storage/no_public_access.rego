@@ -9,12 +9,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-configure?tabs=portal#set-the-public-access-level-for-a-container
 # custom:
-#   id: AVD-AZU-0007
-#   avd_id: AVD-AZU-0007
+#   id: AZU-0007
+#   aliases:
+#     - AVD-AZU-0007
+#     - no-public-access
+#   long_id: azure-storage-no-public-access
 #   provider: azure
 #   service: storage
 #   severity: HIGH
-#   short_code: no-public-access
 #   recommended_action: Disable public access to storage containers
 #   input:
 #     selector:

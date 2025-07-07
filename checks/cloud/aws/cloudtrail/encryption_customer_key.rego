@@ -1,7 +1,7 @@
 # METADATA
 # title: CloudTrail should use Customer managed keys to encrypt the logs
 # description: |
-#  Using AWS managed keys does not allow for fine grained control.  Using Customer managed keys provides comprehensive control over cryptographic keys, enabling management of policies, permissions, and rotation, thus enhancing security and compliance measures for sensitive data and systems.
+#   Using AWS managed keys does not allow for fine grained control.  Using Customer managed keys provides comprehensive control over cryptographic keys, enabling management of policies, permissions, and rotation, thus enhancing security and compliance measures for sensitive data and systems.
 # scope: package
 # schemas:
 #   - input: schema["cloud"]
@@ -9,12 +9,14 @@
 #   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/encrypting-cloudtrail-log-files-with-aws-kms.html
 #   - https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-mgmt
 # custom:
-#   id: AVD-AWS-0015
-#   avd_id: AVD-AWS-0015
+#   id: AWS-0015
+#   aliases:
+#     - AVD-AWS-0015
+#     - encryption-customer-managed-key
+#   long_id: aws-cloudtrail-encryption-customer-managed-key
 #   provider: aws
 #   service: cloudtrail
 #   severity: HIGH
-#   short_code: encryption-customer-managed-key
 #   recommended_action: Use Customer managed key
 #   input:
 #     selector:

@@ -3,20 +3,23 @@
 # description: "Ensure that the scheduler config file has permissions of 600 or more restrictive."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0062
-#   avd_id: AVD-KCV-0062
+#   id: KCV-0062
+#   aliases:
+#     - AVD-KCV-0062
+#     - KCV0062
+#     - ensure-scheduler-config-file-permissions-set-600-or-more-restrictive
+#   long_id: kubernetes-ensure-scheduler-config-file-permissions-set-600-or-more-restrictive
 #   severity: HIGH
-#   short_code: ensure-scheduler-config-file-permissions-set-600-or-more-restrictive
 #   recommended_action: "Change the scheduler config file /etc/kubernetes/scheduler.conf permissions of 600 or more restrictive "
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0062
 
 import rego.v1

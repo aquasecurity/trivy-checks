@@ -10,12 +10,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/storage/common/storage-analytics-logging?tabs=dotnet
 # custom:
-#   id: AVD-AZU-0009
-#   avd_id: AVD-AZU-0009
+#   id: AZU-0009
+#   aliases:
+#     - AVD-AZU-0009
+#     - queue-services-logging-enabled
+#   long_id: azure-storage-queue-services-logging-enabled
 #   provider: azure
 #   service: storage
 #   severity: MEDIUM
-#   short_code: queue-services-logging-enabled
 #   recommended_action: Enable logging for Queue Services
 #   input:
 #     selector:

@@ -3,20 +3,23 @@
 # description: "Ensure that the Kubernetes PKI certificate file permission is set to 600."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0068
-#   avd_id: AVD-KCV-0068
+#   id: KCV-0068
+#   aliases:
+#     - AVD-KCV-0068
+#     - KCV0068
+#     - ensure-kubernetes-pki-cert-file-permission-set-600.
+#   long_id: kubernetes-ensure-kubernetes-pki-cert-file-permission-set-600.
 #   severity: HIGH
-#   short_code: ensure-kubernetes-pki-cert-file-permission-set-600.
 #   recommended_action: "Change the Kubernetes PKI certificate file /etc/kubernetes/pki/*.crt permission to 600"
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0068
 
 import rego.v1

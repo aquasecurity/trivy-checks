@@ -12,12 +12,14 @@
 #   - https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html
 #   - https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesGeneral
 # custom:
-#   id: AVD-AWS-0013
-#   avd_id: AVD-AWS-0013
+#   id: AWS-0013
+#   aliases:
+#     - AVD-AWS-0013
+#     - use-secure-tls-policy
+#   long_id: aws-cloudfront-use-secure-tls-policy
 #   provider: aws
 #   service: cloudfront
 #   severity: HIGH
-#   short_code: use-secure-tls-policy
 #   recommended_action: Use the most modern TLS/SSL policies available
 #   input:
 #     selector:

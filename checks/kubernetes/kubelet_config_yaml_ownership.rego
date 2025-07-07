@@ -3,20 +3,23 @@
 # description: "Ensure that if the kubelet refers to a configuration file with the --config argument, that file is owned by root:root."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0078
-#   avd_id: AVD-KCV-0078
+#   id: KCV-0078
+#   aliases:
+#     - AVD-KCV-0078
+#     - KCV0078
+#     - ensure-kubeconfig-kubelet-config.yaml-ownership-set-root:root
+#   long_id: kubernetes-ensure-kubeconfig-kubelet-config.yaml-ownership-set-root:root
 #   severity: HIGH
-#   short_code: ensure-kubeconfig-kubelet-config.yaml-ownership-set-root:root
 #   recommended_action: "Change the kubelet config.yaml file ownership to root:root"
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0078
 
 import rego.v1

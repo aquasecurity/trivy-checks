@@ -12,12 +12,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html
 # custom:
-#   id: AVD-AWS-0174
-#   avd_id: AVD-AWS-0174
+#   id: AWS-0174
+#   aliases:
+#     - AVD-AWS-0174
+#     - require-org-changes-alarm
+#   long_id: aws-cloudwatch-require-org-changes-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   short_code: require-org-changes-alarm
 #   recommended_action: Create an alarm to alert on organisation changes
 #   frameworks:
 #     cis-aws-1.4:

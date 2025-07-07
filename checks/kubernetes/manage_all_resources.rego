@@ -3,20 +3,23 @@
 # description: "Full control of the cluster resources, and therefore also root on all nodes where workloads can run and has access to all pods, secrets, and data."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+#   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV046
-#   avd_id: AVD-KSV-0046
+#   id: KSV-0046
+#   aliases:
+#     - AVD-KSV-0046
+#     - KSV046
+#     - no-wildcard-resource-clusterrole
+#   long_id: kubernetes-no-wildcard-resource-clusterrole
 #   severity: CRITICAL
-#   short_code: no-wildcard-resource-clusterrole
 #   recommended_actions: "Remove '*' from 'rules.resources'. Provide specific list of resources to be managed by cluster role"
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: clusterrole
+#       - type: kubernetes
+#         subtypes:
+#           - kind: clusterrole
 package builtin.kubernetes.KSV046
 
 import rego.v1

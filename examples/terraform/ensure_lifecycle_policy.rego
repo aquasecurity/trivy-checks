@@ -10,7 +10,6 @@
 #   - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_lifecycle_configuration
 # custom:
 #   id: USR-TF-0001
-#   avd_id: USR-TF-0001
 #   severity: MEDIUM
 #   short_code: ensure-lifecycle-policies
 #   recommended_action: Define lifecycle policies for S3 buckets to manage object storage effectively.

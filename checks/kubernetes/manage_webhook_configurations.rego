@@ -3,21 +3,24 @@
 # description: "Webhooks can silently intercept or actively mutate/block resources as they are being created or updated. This includes secrets and pod specs."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+#   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV114
-#   avd_id: AVD-KSV-0114
+#   id: KSV-0114
+#   aliases:
+#     - AVD-KSV-0114
+#     - KSV114
+#     - no-manage-webhook
+#   long_id: kubernetes-no-manage-webhook
 #   severity: CRITICAL
-#   short_code: no-manage-webhook
 #   recommended_actions: "Remove webhook configuration resources/verbs, acceptable values for verbs ['get', 'list', 'watch']"
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: clusterrole
-#         - kind: role
+#       - type: kubernetes
+#         subtypes:
+#           - kind: clusterrole
+#           - kind: role
 package builtin.kubernetes.KSV114
 
 import rego.v1

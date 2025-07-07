@@ -3,21 +3,24 @@
 # description: "Binding to system:authenticate group to any clusterrole or role is a security risk."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://orca.security/resources/blog/sys-all-google-kubernetes-engine-risk/
+#   - https://orca.security/resources/blog/sys-all-google-kubernetes-engine-risk/
 # custom:
-#   id: KSV01011
-#   avd_id: AVD-KSV-01011
+#   id: KSV-01011
+#   aliases:
+#     - AVD-KSV-01011
+#     - KSV01011
+#     - no-system-authenticated-group-bind
+#   long_id: kubernetes-no-system-authenticated-group-bind
 #   severity: CRITICAL
-#   short_code: no-system-authenticated-group-bind
 #   recommended_action: "Remove system:authenticated group binding from clusterrolebinding or rolebinding."
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: rolebinding
-#         - kind: clusterrolebinding
+#       - type: kubernetes
+#         subtypes:
+#           - kind: rolebinding
+#           - kind: clusterrolebinding
 
 package appshield.kubernetes.KSV01011
 

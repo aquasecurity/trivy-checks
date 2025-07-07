@@ -26,7 +26,7 @@ spec:
       Check with the following command: 
       > sudo systemctl status kubelet
     checks: 
-      - id: AVD-KCV-0071
+      - id: KCV-0071
     commands:
       - id: CMD-0024
     severity: HIGH
@@ -34,7 +34,7 @@ spec:
     name: Ensure that the kubelet service file ownership is set to root:root (Automated)
     description: Ensure that the kubelet service file ownership is set to root:root
     checks:
-      - id: AVD-KCV-0070
+      - id: KCV-0070
     commands:
       - id: CMD-0023
     severity: HIGH
@@ -44,7 +44,7 @@ spec:
       Ensure that if the kubelet refers to a configuration file with the
       --config argument, that file has permissions of 600 or more restrictive
     checks:
-      - id: AVD-KCV-0077
+      - id: KCV-0077
     commands:
       - id: CMD-0030
     severity: HIGH
@@ -54,7 +54,7 @@ spec:
       Ensure that if the kubelet refers to a configuration file with the
       --config argument, that file is owned by root:root
     checks:
-      - id: AVD-KCV-0078
+      - id: KCV-0078
     commands:
       - id: CMD-0031
     severity: HIGH
@@ -62,7 +62,7 @@ spec:
     name: Ensure that the Anonymous Auth is Not Enabled (Automated)
     description: Disable anonymous requests to the Kubelet server.
     checks:
-      - id: AVD-KCV-0079
+      - id: KCV-0079
     commands:
       - id: CMD-0032
     severity: CRITICAL
@@ -70,13 +70,13 @@ spec:
     name: Ensure that the --authorization-mode argument is not set to AlwaysAllow (Automated)
     description: Do not allow all requests. Enable explicit authorization.
     checks:
-      - id: AVD-KCV-0007
+      - id: KCV-0007
     severity: LOW
   - id: 3.2.3
     name: Ensure that a Client CA File is Configured (Automated)
     description: Enable Kubelet authentication using certificates.
     checks:
-      - id: AVD-KCV-0081
+      - id: KCV-0081
     commands:
       - id: CMD-0034
     severity: CRITICAL
@@ -87,7 +87,7 @@ spec:
       Unauthenticated access is provided to this read-only API which could possibly retrieve
       potentially sensitive information about the cluster.
     checks:
-      - id: AVD-KCV-0082
+      - id: KCV-0082
     commands:
       - id: CMD-0035
     severity: HIGH
@@ -95,7 +95,7 @@ spec:
     name: Ensure that the --streaming-connection-idle-timeout argument is not set to 0 (Automated)
     description: Do not disable timeouts on streaming connections.
     checks:
-      - id: AVD-KCV-0085
+      - id: KCV-0085
     commands:
       - id: CMD-0036
     severity: HIGH
@@ -103,7 +103,7 @@ spec:
     name: Ensure that the --make-iptables-util-chains argument is set to true (Automated)
     description: Allow Kubelet to manage iptables.
     checks:
-      - id: AVD-KCV-0084
+      - id: KCV-0084
     commands:
       - id: CMD-0038
     severity: HIGH
@@ -121,7 +121,7 @@ spec:
     name: Ensure that the --rotate-certificates argument is not present or is set to true (Automated)
     description: Enable kubelet client certificate rotation.
     checks:
-      - id: AVD-KCV-0090
+      - id: KCV-0090
     commands:
       - id: CMD-0043
     severity: CRITICAL
@@ -129,8 +129,8 @@ spec:
     name: Ensure that the RotateKubeletServerCertificate argument is set to true (Automated)
     description: Enable kubelet server certificate rotation.
     checks:
-      - id: AVD-KCV-0091
-      - id: AVD-KCV-0038
+      - id: KCV-0091
+      - id: KCV-0038
     commands:
       - id: CMD-0044
     severity: CRITICAL
@@ -148,7 +148,7 @@ spec:
       The RBAC role cluster-admin provides wide-ranging powers over the environment and
       should be used only where and when needed.
     checks:
-      - id: AVD-KSV-0111
+      - id: KSV-0111
     severity: HIGH
   - id: 4.1.2
     name: Minimize access to secrets (Automated)
@@ -158,7 +158,7 @@ spec:
       should be restricted to the smallest possible group of users to reduce the risk of
       privilege escalation.
     checks:
-      - id: AVD-KSV-0041
+      - id: KSV-0041
     severity: HIGH
   - id: 4.1.3
     name: Minimize wildcard use in Roles and ClusterRoles (Automated)
@@ -170,9 +170,9 @@ spec:
       inadvertent access to be granted when new resources are added to the Kubernetes API
       either as CRDs or in later versions of the product.
     checks:
-      - id: AVD-KSV-0044
-      - id: AVD-KSV-0045
-      - id: AVD-KSV-0046
+      - id: KSV-0044
+      - id: KSV-0045
+      - id: KSV-0046
     severity: HIGH
   - id: 4.1.4
     name: Minimize access to create pods (Manual)
@@ -213,31 +213,31 @@ spec:
       or service account, except where strictly necessary (e.g. bootstrapping access prior to
       RBAC being fully available)
     checks:
-      - id: AVD-KSV-0123
+      - id: KSV-0123
     severity: CRITICAL
   - id: 4.2.1
     name: Minimize the admission of privileged containers (Automated)
     description: Do not generally permit containers to be run with the securityContext.privileged flag set to true.
     checks:
-      - id: AVD-KSV-0017
+      - id: KSV-0017
     severity: HIGH
   - id: 4.2.2
     name: Minimize the admission of containers wishing to share the host process ID namespace (Automated)
     description: Do not generally permit containers to be run with the hostPID flag set to true.
     checks:
-      - id: AVD-KSV-0010
+      - id: KSV-0010
     severity: HIGH
   - id: 4.2.3
     name: Minimize the admission of containers wishing to share the host IPC namespace (Automated)
     description: Do not generally permit containers to be run with the hostIPC flag set to true.
     checks:
-      - id: AVD-KSV-0008
+      - id: KSV-0008
     severity: HIGH
   - id: 4.2.4
     name: Minimize the admission of containers wishing to share the host network namespace (Automated)
     description: Do not generally permit containers to be run with the hostNetwork flag set to true.
     checks:
-      - id: AVD-KSV-0009
+      - id: KSV-0009
     severity: HIGH
   - id: 4.2.5
     name: Minimize the admission of containers with allowPrivilegeEscalation (Automated)
@@ -246,26 +246,26 @@ spec:
       to true. Allowing this right can lead to a process running a container getting more rights
       than it started with.
     checks:
-      - id: AVD-KSV-0001
+      - id: KSV-0001
     severity: HIGH
   - id: 4.2.6
     name: Minimize the admission of root containers (Automated)
     description: Do not generally permit containers to be run as the root user.
     checks:
-      - id: AVD-KSV-0012
+      - id: KSV-0012
     severity: MEDIUM
   - id: 4.2.7
     name: Minimize the admission of containers with added capabilities (Automated)
     description: Do not generally permit containers with capabilities assigned beyond the default set.
     checks:
-      - id: AVD-KSV-0004
+      - id: KSV-0004
     severity: LOW
   - id: 4.2.8
     name: Minimize the admission of containers with capabilities assigned (Automated)
     description: Do not generally permit containers with capabilities
     checks: 
-      - id: AVD-KSV-0103
-      - id: AVD-KSV-0003
+      - id: KSV-0103
+      - id: KSV-0003
     severity: MEDIUM
   - id: 4.3.1
     name: Ensure CNI plugin supports network policies (Manual)
@@ -279,7 +279,7 @@ spec:
     name: Ensure that all Namespaces have Network Policies defined (Automated)
     description: Use network policies to isolate traffic in your cluster network.
     checks:
-      - id: AVD-KSV-0038
+      - id: KSV-0038
     severity: MEDIUM
   - id: 4.4.1
     name: Prefer using secrets as files over secrets as environment variables (Manual)
@@ -307,12 +307,12 @@ spec:
     name: Apply Security Context to Your Pods and Containers (Automated)
     description: Apply Security Context to Your Pods and Containers
     checks:
-      - id: AVD-KSV-0021
-      - id: AVD-KSV-0020
-      - id: AVD-KSV-0005
-      - id: AVD-KSV-0025
-      - id: AVD-KSV-0104
-      - id: AVD-KSV-0030
+      - id: KSV-0021
+      - id: KSV-0020
+      - id: KSV-0005
+      - id: KSV-0025
+      - id: KSV-0104
+      - id: KSV-0030
     severity: HIGH
   - id: 4.5.3
     name: The default namespace should not be used (Automated)
@@ -321,7 +321,7 @@ spec:
       is specified for them. Placing objects in this namespace makes application of RBAC and
       other controls more difficult.
     checks:
-     - id: AVD-KSV-0110
+     - id: KSV-0110
     severity: MEDIUM
   - id: 5.1.1
     name: Ensure Image Vulnerability Scanning using Amazon ECR image scanning or a third party provider (Automated)

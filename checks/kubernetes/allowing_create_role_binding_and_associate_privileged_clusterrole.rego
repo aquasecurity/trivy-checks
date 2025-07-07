@@ -3,18 +3,21 @@
 # description: "Check whether role permits creating role bindings and associating to privileged role/clusterrole"
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+#   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV051
-#   avd_id: AVD-KSV-0051
+#   id: KSV-0051
+#   aliases:
+#     - AVD-KSV-0051
+#     - KSV051
+#     - do-not-allow-role-binding-associate-privileged-role
+#   long_id: kubernetes-do-not-allow-role-binding-associate-privileged-role
 #   severity: HIGH
-#   short_code: do-not-allow-role-binding-associate-privileged-role
 #   recommended_action: "Create a role which does not permit creation of role bindings and associating with privileged cluster role"
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KSV051
 
 import rego.v1

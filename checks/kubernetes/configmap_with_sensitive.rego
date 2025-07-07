@@ -3,18 +3,20 @@
 # description: "Storing sensitive content such as usernames and email addresses in configMaps is unsafe"
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # custom:
-#   id: AVD-KSV-01010
-#   avd_id: AVD-KSV-01010
+#   id: KSV-01010
+#   aliases:
+#     - AVD-KSV-01010
+#     - configMap_with_sensitive
+#   long_id: kubernetes-configMap-with-sensitive
 #   severity: MEDIUM
-#   short_code: configMap_with_sensitive
 #   recommended_action: "Remove sensitive content from configMap data value"
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: configmap
+#       - type: kubernetes
+#         subtypes:
+#           - kind: configmap
 package builtin.kubernetes.KSV01010
 
 import rego.v1

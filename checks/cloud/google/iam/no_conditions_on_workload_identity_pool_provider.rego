@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://www.revblock.dev/exploiting-misconfigured-google-cloud-service-accounts-from-github-actions/
 # custom:
-#   id: AVD-GCP-0068
-#   avd_id: AVD-GCP-0068
+#   id: GCP-0068
+#   aliases:
+#     - AVD-GCP-0068
+#     - no-conditions-workload-identity-pool-provider
+#   long_id: google-iam-no-conditions-workload-identity-pool-provider
 #   provider: google
 #   service: iam
 #   severity: HIGH
-#   short_code: no-conditions-workload-identity-pool-provider
 #   recommended_action: Set conditions on this provider, for example by restricting it to only be allowed from repositories in your GitHub organization
 #   input:
 #     selector:
