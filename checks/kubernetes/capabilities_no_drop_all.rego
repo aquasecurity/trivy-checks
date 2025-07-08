@@ -3,28 +3,31 @@
 # description: "The container should drop all default capabilities and add only those that are needed for its execution."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/
+#   - https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/
 # custom:
-#   id: KSV003
-#   avd_id: AVD-KSV-0003
+#   id: KSV-0003
+#   aliases:
+#     - AVD-KSV-0003
+#     - KSV003
+#     - drop-default-capabilities
+#   long_id: kubernetes-drop-default-capabilities
 #   severity: LOW
-#   short_code: drop-default-capabilities
 #   recommended_action: "Add 'ALL' to containers[].securityContext.capabilities.drop."
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 package builtin.kubernetes.KSV003
 
 import rego.v1

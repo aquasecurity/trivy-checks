@@ -9,12 +9,14 @@
 #   - https://docs.microsoft.com/en-us/azure/app-service/configure-ssl-bindings#enforce-https
 #   - https://docs.microsoft.com/en-us/azure/azure-functions/security-concepts
 # custom:
-#   id: AVD-AZU-0004
-#   avd_id: AVD-AZU-0004
+#   id: AZU-0004
+#   aliases:
+#     - AVD-AZU-0004
+#     - enforce-https
+#   long_id: azure-appservice-enforce-https
 #   provider: azure
 #   service: appservice
 #   severity: CRITICAL
-#   short_code: enforce-https
 #   recommended_action: You can redirect all HTTP requests to the HTTPS port.
 #   input:
 #     selector:

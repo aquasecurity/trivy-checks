@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://cloud.google.com/iam/docs/understanding-roles
 # custom:
-#   id: AVD-GCP-0007
-#   avd_id: AVD-GCP-0007
+#   id: GCP-0007
+#   aliases:
+#     - AVD-GCP-0007
+#     - no-privileged-service-accounts
+#   long_id: google-iam-no-privileged-service-accounts
 #   provider: google
 #   service: iam
 #   severity: HIGH
-#   short_code: no-privileged-service-accounts
 #   recommended_action: Limit service account access to minimal required set
 #   input:
 #     selector:

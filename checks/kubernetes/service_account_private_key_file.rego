@@ -3,18 +3,21 @@
 # description: "Explicitly set a service account private key file for service accounts on the controller manager."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0036
-#   avd_id: AVD-KCV-0036
+#   id: KCV-0036
+#   aliases:
+#     - AVD-KCV-0036
+#     - KCV0036
+#     - ensure-service-account-private-key-file-argument-is-set-as-appropriate
+#   long_id: kubernetes-ensure-service-account-private-key-file-argument-is-set-as-appropriate
 #   severity: LOW
-#   short_code: ensure-service-account-private-key-file-argument-is-set-as-appropriate
 #   recommended_action: "Edit the Controller Manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml on the Control Plane node and set the --service-account-private-key-file parameter to the private key file for service accounts."
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KCV0036
 
 import rego.v1

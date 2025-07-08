@@ -3,23 +3,25 @@
 # description: "Ensures that S3 buckets have DNS complaint bucket names."
 # scope: package
 # schemas:
-# - input: schema["cloud"]
+#   - input: schema["cloud"]
 # related_resources:
-# - https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html
+#   - https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html
 # custom:
-#   id: AVD-AWS-0320
-#   avd_id: AVD-AWS-0320
+#   id: AWS-0320
+#   aliases:
+#     - AVD-AWS-0320
+#     - dns-compliant-name
+#   long_id: aws-s3-dns-compliant-name
 #   provider: aws
 #   service: s3
 #   severity: MEDIUM
-#   short_code: dns-compliant-name
 #   recommended_action: "Recreate S3 bucket to use - instead of . in S3 bucket names"
 #   input:
 #     selector:
-#     - type: cloud
-#       subtypes:
-#         - service: s3
-#           provider: aws
+#       - type: cloud
+#         subtypes:
+#           - service: s3
+#             provider: aws
 package builtin.aws.s3.aws0320
 
 import rego.v1

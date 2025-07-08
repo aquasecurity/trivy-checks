@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/cross-db-ownership-chaining-server-configuration-option?view=sql-server-ver15
 # custom:
-#   id: AVD-GCP-0019
-#   avd_id: AVD-GCP-0019
+#   id: GCP-0019
+#   aliases:
+#     - AVD-GCP-0019
+#     - no-cross-db-ownership-chaining
+#   long_id: google-sql-no-cross-db-ownership-chaining
 #   provider: google
 #   service: sql
 #   severity: MEDIUM
-#   short_code: no-cross-db-ownership-chaining
 #   recommended_action: Disable cross database ownership chaining
 #   input:
 #     selector:

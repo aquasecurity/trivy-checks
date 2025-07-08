@@ -9,12 +9,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html
 # custom:
-#   id: AVD-AWS-0153
-#   avd_id: AVD-AWS-0153
+#   id: AWS-0153
+#   aliases:
+#     - AVD-AWS-0153
+#     - require-cmk-disabled-alarm
+#   long_id: aws-cloudwatch-require-cmk-disabled-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   short_code: require-cmk-disabled-alarm
 #   recommended_action: Create an alarm to alert on CMKs being disabled or scheduled for deletion
 #   frameworks:
 #     cis-aws-1.2:

@@ -5,11 +5,14 @@
 #   - input: schema["kubernetes"]
 # custom:
 #   id: KSV-0124
-#   avd_id: AVD-KSV-0124
+#   aliases:
+#     - AVD-KSV-0124
+#     - ambiguous-repo-pattern
+#   long_id: kubernetes-ambiguous-repo-pattern
 #   severity: HIGH
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KSV0124
 
 import rego.v1

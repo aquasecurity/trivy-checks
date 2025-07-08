@@ -3,12 +3,14 @@
 # description: "Storing secrets in configMaps is unsafe"
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # custom:
-#   id: AVD-KSV-0109
-#   avd_id: AVD-KSV-0109
+#   id: KSV-0109
+#   aliases:
+#     - AVD-KSV-0109
+#     - configMap_with_secrets
+#   long_id: kubernetes-configMap-with-secrets
 #   severity: HIGH
-#   short_code: configMap_with_secrets
 #   recommended_action: "Remove password/secret from configMap data value"
 #   input:
 #     selector:

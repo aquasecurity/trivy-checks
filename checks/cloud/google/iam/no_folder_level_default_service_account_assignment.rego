@@ -7,12 +7,14 @@
 #   - input: schema["cloud"]
 # related_resources:
 # custom:
-#   id: AVD-GCP-0004
-#   avd_id: AVD-GCP-0004
+#   id: GCP-0004
+#   aliases:
+#     - AVD-GCP-0004
+#     - no-folder-level-default-service-account-assignment
+#   long_id: google-iam-no-folder-level-default-service-account-assignment
 #   provider: google
 #   service: iam
 #   severity: MEDIUM
-#   short_code: no-folder-level-default-service-account-assignment
 #   recommended_action: Use specialised service accounts for specific purposes.
 #   input:
 #     selector:

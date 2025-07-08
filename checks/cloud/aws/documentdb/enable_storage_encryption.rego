@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/documentdb/latest/developerguide/encryption-at-rest.html
 # custom:
-#   id: AVD-AWS-0021
-#   avd_id: AVD-AWS-0021
+#   id: AWS-0021
+#   aliases:
+#     - AVD-AWS-0021
+#     - enable-storage-encryption
+#   long_id: aws-documentdb-enable-storage-encryption
 #   provider: aws
 #   service: documentdb
 #   severity: HIGH
-#   short_code: enable-storage-encryption
 #   recommended_action: Enable storage encryption
 #   input:
 #     selector:

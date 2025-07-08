@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/azure-sql/database/auditing-overview
 # custom:
-#   id: AVD-AZU-0027
-#   avd_id: AVD-AZU-0027
+#   id: AZU-0027
+#   aliases:
+#     - AVD-AZU-0027
+#     - enable-audit
+#   long_id: azure-database-enable-audit
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
-#   short_code: enable-audit
 #   recommended_action: Enable auditing on Azure SQL databases
 #   input:
 #     selector:

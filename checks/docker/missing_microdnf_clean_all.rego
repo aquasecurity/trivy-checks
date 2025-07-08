@@ -3,18 +3,21 @@
 # description: "Cached package data should be cleaned after installation to reduce image size."
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+#   - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 # custom:
-#   id: DS027
-#   avd_id: AVD-DS-0027
+#   id: DS-0027
+#   aliases:
+#     - AVD-DS-0027
+#     - DS027
+#     - purge-microdnf-package-cache
+#   long_id: docker-purge-microdnf-package-cache
 #   severity: HIGH
-#   short_code: purge-microdnf-package-cache
 #   recommended_action: "Add 'microdnf clean all' to Dockerfile"
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 package builtin.dockerfile.DS027
 
 import rego.v1

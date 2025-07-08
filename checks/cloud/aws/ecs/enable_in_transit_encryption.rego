@@ -9,12 +9,14 @@
 #   - https://docs.aws.amazon.com/AmazonECS/latest/userguide/efs-volumes.html
 #   - https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html
 # custom:
-#   id: AVD-AWS-0035
-#   avd_id: AVD-AWS-0035
+#   id: AWS-0035
+#   aliases:
+#     - AVD-AWS-0035
+#     - enable-in-transit-encryption
+#   long_id: aws-ecs-enable-in-transit-encryption
 #   provider: aws
 #   service: ecs
 #   severity: HIGH
-#   short_code: enable-in-transit-encryption
 #   recommended_action: Enable in transit encryption when using efs
 #   input:
 #     selector:
