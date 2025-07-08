@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://console.aws.amazon.com/iam/
 # custom:
-#   id: AVD-AWS-0144
-#   avd_id: AVD-AWS-0144
+#   id: AWS-0144
+#   aliases:
+#     - AVD-AWS-0144
+#     - disable-unused-credentials
+#   long_id: aws-iam-disable-unused-credentials
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
-#   short_code: disable-unused-credentials
 #   recommended_action: Disable credentials which are no longer used.
 #   frameworks:
 #     cis-aws-1.2:

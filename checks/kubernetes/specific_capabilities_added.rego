@@ -3,28 +3,31 @@
 # description: "According to pod security standard 'Capabilities', capabilities beyond the default set must not be added."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
+#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV022
-#   avd_id: AVD-KSV-0022
+#   id: KSV-0022
+#   aliases:
+#     - AVD-KSV-0022
+#     - KSV022
+#     - no-non-default-capabilities
+#   long_id: kubernetes-no-non-default-capabilities
 #   severity: MEDIUM
-#   short_code: no-non-default-capabilities
 #   recommended_action: "Do not set spec.containers[*].securityContext.capabilities.add and spec.initContainers[*].securityContext.capabilities.add."
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 #   examples: checks/kubernetes/specific_capabilities_added.yaml
 package builtin.kubernetes.KSV022
 

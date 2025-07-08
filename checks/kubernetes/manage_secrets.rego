@@ -3,20 +3,23 @@
 # description: "Viewing secrets at the cluster-scope is akin to cluster-admin in most clusters as there are typically at least one service accounts (their token stored in a secret) bound to cluster-admin directly or a role/clusterrole that gives similar permissions."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+#   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV041
-#   avd_id: AVD-KSV-0041
+#   id: KSV-0041
+#   aliases:
+#     - AVD-KSV-0041
+#     - KSV041
+#     - no-manage-secrets
+#   long_id: kubernetes-no-manage-secrets
 #   severity: CRITICAL
-#   short_code: no-manage-secrets
 #   recommended_actions: "Manage secrets are not allowed. Remove resource 'secrets' from cluster role"
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: clusterrole
+#       - type: kubernetes
+#         subtypes:
+#           - kind: clusterrole
 package builtin.kubernetes.KSV041
 
 import rego.v1

@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://jbrojbrojbro.medium.com/you-make-the-rules-with-authentication-controls-for-cloud-storage-53c32543747b
 # custom:
-#   id: AVD-GCP-0001
-#   avd_id: AVD-GCP-0001
+#   id: GCP-0001
+#   aliases:
+#     - AVD-GCP-0001
+#     - no-public-access
+#   long_id: google-storage-no-public-access
 #   provider: google
 #   service: storage
 #   severity: HIGH
-#   short_code: no-public-access
 #   recommended_action: Restrict public access to the bucket.
 #   input:
 #     selector:

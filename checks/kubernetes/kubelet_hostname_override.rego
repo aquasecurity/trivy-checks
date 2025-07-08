@@ -3,20 +3,23 @@
 # description: "Do not override node hostnames."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0086
-#   avd_id: AVD-KCV-0086
+#   id: KCV-0086
+#   aliases:
+#     - AVD-KCV-0086
+#     - KCV0086
+#     - ensure-hostname-override-argument-not-set
+#   long_id: kubernetes-ensure-hostname-override-argument-not-set
 #   severity: HIGH
-#   short_code: ensure-hostname-override-argument-not-set
 #   recommended_action: "Edit the kubelet service file /etc/systemd/system/kubelet.service.d/10-kubeadm.conf on each worker node and remove the --hostname-override argument"
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0086
 
 import rego.v1

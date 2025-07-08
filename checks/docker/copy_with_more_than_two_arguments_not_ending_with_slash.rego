@@ -3,18 +3,21 @@
 # description: "When a COPY command has more than two arguments, the last one should end with a slash."
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/engine/reference/builder/#copy
+#   - https://docs.docker.com/engine/reference/builder/#copy
 # custom:
-#   id: DS011
-#   avd_id: AVD-DS-0011
+#   id: DS-0011
+#   aliases:
+#     - AVD-DS-0011
+#     - DS011
+#     - use-slash-for-copy-args
+#   long_id: docker-use-slash-for-copy-args
 #   severity: CRITICAL
-#   short_code: use-slash-for-copy-args
 #   recommended_action: "Add slash to last COPY argument"
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/copy_with_more_than_two_arguments_not_ending_with_slash.yaml
 package builtin.dockerfile.DS011
 

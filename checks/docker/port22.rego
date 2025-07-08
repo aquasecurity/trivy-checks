@@ -3,16 +3,19 @@
 # description: "Exposing port 22 might allow users to SSH into the container."
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # custom:
-#   id: DS004
-#   avd_id: AVD-DS-0004
+#   id: DS-0004
+#   aliases:
+#     - AVD-DS-0004
+#     - DS004
+#     - no-ssh-port
+#   long_id: docker-no-ssh-port
 #   severity: MEDIUM
-#   short_code: no-ssh-port
 #   recommended_action: "Remove 'EXPOSE 22' statement from the Dockerfile"
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/port22.yaml
 package builtin.dockerfile.DS004
 

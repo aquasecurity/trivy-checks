@@ -10,12 +10,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/data-factory/data-movement-security-considerations#hybrid-scenarios
 # custom:
-#   id: AVD-AZU-0035
-#   avd_id: AVD-AZU-0035
+#   id: AZU-0035
+#   aliases:
+#     - AVD-AZU-0035
+#     - no-public-access
+#   long_id: azure-datafactory-no-public-access
 #   provider: azure
 #   service: datafactory
 #   severity: CRITICAL
-#   short_code: no-public-access
 #   recommended_action: Set public access to disabled for Data Factory
 #   input:
 #     selector:

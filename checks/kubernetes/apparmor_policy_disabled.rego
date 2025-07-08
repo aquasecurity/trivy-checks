@@ -3,28 +3,31 @@
 # description: "According to pod security standard 'AppArmor', the AppArmor key must be set to the runtime/default profile or to be undefined."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
+#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV002
-#   avd_id: AVD-KSV-0002
+#   id: KSV-0002
+#   aliases:
+#     - AVD-KSV-0002
+#     - KSV002
+#     - use-default-apparmor-profile
+#   long_id: kubernetes-use-default-apparmor-profile
 #   severity: LOW
-#   short_code: use-default-apparmor-profile
 #   recommended_action: "set the 'runtime/default' value from 'container.apparmor.security.beta.kubernetes.io'."
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 #   examples: checks/kubernetes/apparmor_policy_disabled.yaml
 package builtin.kubernetes.KSV002
 

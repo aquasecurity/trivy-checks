@@ -3,28 +3,31 @@
 # description: "Force the running image to run as a non-root user to ensure least privileges."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
+#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 # custom:
-#   id: KSV012
-#   avd_id: AVD-KSV-0012
+#   id: KSV-0012
+#   aliases:
+#     - AVD-KSV-0012
+#     - KSV012
+#     - no-root
+#   long_id: kubernetes-no-root
 #   severity: MEDIUM
-#   short_code: no-root
 #   recommended_action: "Set 'containers[].securityContext.runAsNonRoot' to true."
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 #   examples: checks/kubernetes/runs_as_root.yaml
 package builtin.kubernetes.KSV012
 

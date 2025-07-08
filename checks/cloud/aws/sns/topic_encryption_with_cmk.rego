@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html
 # custom:
-#   id: AVD-AWS-0136
-#   avd_id: AVD-AWS-0136
+#   id: AWS-0136
+#   aliases:
+#     - AVD-AWS-0136
+#     - topic-encryption-use-cmk
+#   long_id: aws-sns-topic-encryption-use-cmk
 #   provider: aws
 #   service: sns
 #   severity: HIGH
-#   short_code: topic-encryption-use-cmk
 #   recommended_action: Use a CMK for SNS Topic encryption
 #   input:
 #     selector:

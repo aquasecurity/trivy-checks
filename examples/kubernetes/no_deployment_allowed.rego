@@ -12,7 +12,6 @@
 #   - https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 # custom:
 #   id: USR-KUBE-0001
-#   avd_id: USR-KUBE-0001
 #   severity: HIGH
 #   short_code: no-deployment-allowed
 #   recommended_action: Avoid using Kubernetes Deployments. Consider alternative resources like StatefulSets or DaemonSets.
