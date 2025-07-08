@@ -8,14 +8,14 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam#google_project_iam_binding
 # custom:
+#   id: GCP-0069
 #   aliases:
-#     - google-iam-not-proper-email-account-in-use
-#   id: AVD-GCP-0069
-#   avd_id: AVD-GCP-0069
+#     - AVD-GCP-0069
+#     - not-proper-email-account-in-use
+#   long_id: google-iam-no-personal-emails
 #   provider: google
 #   service: iam
 #   severity: LOW
-#   short_code: not-proper-email-account
 #   recommended_action: |
 #     Use approved organizational email accounts for IAM bindings. Audit IAM policies to replace any personal or unapproved email accounts with proper service accounts or corporate emails.
 #   input:
