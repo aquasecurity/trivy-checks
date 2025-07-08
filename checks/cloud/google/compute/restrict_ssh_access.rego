@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall
 # custom:
-#   avd_id: AVD-GCP-0071
+#   id: GCP-0071
 #   aliases:
-#     - google-misc-ssh-access-is-not-restricted
+#     - AVD-GCP-0071
+#     - ssh-access-is-not-restricted
+#   long_id: google-compute-restrict-ssh-access
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
-#   short_code: ssh-access-is-not
 #   recommended_action: |
 #     Restrict SSH (TCP port 22) access in firewall rules to known IP addresses or ranges. Avoid open 0.0.0.0/0 access for SSH.
 #   input:

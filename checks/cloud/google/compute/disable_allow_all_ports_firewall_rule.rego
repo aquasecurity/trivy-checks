@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall#allow
 # custom:
-#   avd_id: AVD-GCP-0072
+#   id: GCP-0072
 #   aliases:
-#     - google-misc-google-compute-network-using-firewall-rule-that-allows-all-p
+#     - AVD-GCP-0072
+#     - network-using-firewall-rule-that-allows-all-ports
+#   long_id: google-compute-disable-allow-all-ports
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
-#   short_code: disable-allow-all-ports
 #   recommended_action: |
 #     Modify firewall rules that allow all ports to restrict to only required ports. Use separate rules for specific port ranges as needed, instead of a single overly broad rule.
 #   input:

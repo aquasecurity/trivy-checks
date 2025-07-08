@@ -9,13 +9,14 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall
 # custom:
-#   avd_id: AVD-GCP-0073
+#   id: GCP-0073
 #   aliases:
+#     - AVD-GCP-0073
 #     - google-compute-disable-default-firewall-rules
+#   long_id: google-compute-disable-default-firewall-rules
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
-#   short_code: disable-default-firewall-rules
 #   recommended_action: Replace default firewall rules with custom, more restrictive rules appropriate for your security requirements
 #   input:
 #     selector:
