@@ -13,10 +13,10 @@ import (
 )
 
 func GetCheckExamples(meta metadata.Metadata) (CheckExamples, string, error) {
-	if _, ok := meta["examples"]; !ok {
+	if _, ok := meta.Custom["examples"]; !ok {
 		return CheckExamples{}, "", nil
 	}
-	path := meta["examples"].(string)
+	path := meta.Custom["examples"].(string)
 	if path == "" {
 		return CheckExamples{}, "", nil
 	}
