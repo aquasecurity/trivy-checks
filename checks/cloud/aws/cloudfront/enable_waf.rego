@@ -32,7 +32,7 @@ deny contains res if {
 	some dist in input.aws.cloudfront.distributions
 	waf_not_enabled(dist)
 	res := result.new(
-		"Distribution does not utilise a WAF.",
+		"Distribution does not utilize a WAF.",
 		object.get(dist, "wafid", dist),
 	)
 }
