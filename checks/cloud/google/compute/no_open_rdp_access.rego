@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall
 # custom:
-#   id: AVD-GCP-0070
-#   avd_id: AVD-GCP-0070
+#   id: GCP-0070
+#   aliases:
+#     - AVD-GCP-0070
+#     - rdp-access-not-restricted
+#   long_id: google-compute-no-open-rdp-access
 #   provider: google
 #   service: compute
 #   severity: HIGH
-#   short_code: rdp-access-not-restricted
 #   recommended_action: |
 #     Restrict RDP (TCP port 3389) ingress in firewall rules. Only allow trusted IP ranges or use Identity-Aware Proxy for RDP access.
 #   input:
