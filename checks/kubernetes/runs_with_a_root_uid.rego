@@ -3,18 +3,21 @@
 # description: "Containers should be forbidden from running with a root UID."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
+#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 # custom:
-#   id: KSV105
-#   avd_id: AVD-KSV-0105
+#   id: KSV-0105
+#   aliases:
+#     - AVD-KSV-0105
+#     - KSV105
+#     - containers-not-run-as-root
+#   long_id: kubernetes-containers-not-run-as-root
 #   severity: LOW
-#   short_code: containers-not-run-as-root
 #   recommended_action: "Set 'securityContext.runAsUser' to a non-zero integer or leave undefined."
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KSV105
 
 import rego.v1

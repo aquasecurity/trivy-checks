@@ -3,28 +3,31 @@
 # description: "It is best to avoid using the ':latest' image tag when deploying containers in production. Doing so makes it hard to track which version of the image is running, and hard to roll back the version."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/configuration/overview/#container-images
+#   - https://kubernetes.io/docs/concepts/configuration/overview/#container-images
 # custom:
-#   id: KSV013
-#   avd_id: AVD-KSV-0013
+#   id: KSV-0013
+#   aliases:
+#     - AVD-KSV-0013
+#     - KSV013
+#     - use-specific-tags
+#   long_id: kubernetes-use-specific-tags
 #   severity: MEDIUM
-#   short_code: use-specific-tags
 #   recommended_action: "Use a specific container image tag that is not 'latest'."
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 package builtin.kubernetes.KSV013
 
 import rego.v1

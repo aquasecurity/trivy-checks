@@ -9,7 +9,6 @@
 #   - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#apt-get
 # custom:
 #   id: USR-DF-0001
-#   avd_id: USR-DF-0001
 #   severity: HIGH
 #   short_code: avoid-unstable-packages
 #   recommended_action: Specify the exact version of packages when using RUN instructions.

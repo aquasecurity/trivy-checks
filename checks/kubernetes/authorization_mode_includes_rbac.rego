@@ -3,18 +3,21 @@
 # description: "Turn on Role Based Access Control."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0009
-#   avd_id: AVD-KCV-0009
+#   id: KCV-0009
+#   aliases:
+#     - AVD-KCV-0009
+#     - KCV0009
+#     - ensure-authorization-mode-argument-includes-rbac
+#   long_id: kubernetes-ensure-authorization-mode-argument-includes-rbac
 #   severity: LOW
-#   short_code: ensure-authorization-mode-argument-includes-rbac
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --authorization-mode parameter to a value that includes RBAC."
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KCV0009
 
 import rego.v1

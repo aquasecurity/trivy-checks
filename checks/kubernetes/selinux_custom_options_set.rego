@@ -3,28 +3,31 @@
 # description: "According to pod security standard 'SElinux', setting custom SELinux options should be disallowed."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
+#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV025
-#   avd_id: AVD-KSV-0025
+#   id: KSV-0025
+#   aliases:
+#     - AVD-KSV-0025
+#     - KSV025
+#     - no-custom-selinux-options
+#   long_id: kubernetes-no-custom-selinux-options
 #   severity: MEDIUM
-#   short_code: no-custom-selinux-options
 #   recommended_action: "Do not set 'spec.securityContext.seLinuxOptions', spec.containers[*].securityContext.seLinuxOptions and spec.initContainers[*].securityContext.seLinuxOptions."
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 #   examples: checks/kubernetes/selinux_custom_options_set.yaml
 package builtin.kubernetes.KSV025
 

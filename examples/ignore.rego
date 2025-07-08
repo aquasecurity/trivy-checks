@@ -1,4 +1,6 @@
 package trivy
 
+import rego.v1
+
 # disable all built-in checks
-ignore := startswith(input.AVDID, "AVD-")
+ignore if not startswith(input.ID, "USR-")

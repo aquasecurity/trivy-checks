@@ -3,18 +3,21 @@
 # description: "Cached package data should be cleaned after installation to reduce image size."
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+#   - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 # custom:
-#   id: DS019
-#   avd_id: AVD-DS-0019
+#   id: DS-0019
+#   aliases:
+#     - AVD-DS-0019
+#     - DS019
+#     - purge-dnf-package-cache
+#   long_id: docker-purge-dnf-package-cache
 #   severity: HIGH
-#   short_code: purge-dnf-package-cache
 #   recommended_action: "Add 'dnf clean all' to Dockerfile"
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/missing_dnf_clean_all.yaml
 package builtin.dockerfile.DS019
 

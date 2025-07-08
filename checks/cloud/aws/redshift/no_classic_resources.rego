@@ -9,12 +9,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-classic-platform.html
 # custom:
-#   id: AVD-AWS-0085
-#   avd_id: AVD-AWS-0085
+#   id: AWS-0085
+#   aliases:
+#     - AVD-AWS-0085
+#     - no-classic-resources
+#   long_id: aws-redshift-no-classic-resources
 #   provider: aws
 #   service: redshift
 #   severity: CRITICAL
-#   short_code: no-classic-resources
 #   recommended_action: Switch to VPC resources
 #   input:
 #     selector:
