@@ -14,7 +14,7 @@ test_allow_root_block_device_encrypted if {
 test_deny_root_block_device_not_encrypted if {
 	inp := {"aws": {"ec2": {"instances": [{"rootblockdevice": {"encrypted": {"value": false}}}]}}}
 
-	test.assert_equal_message("Instance does not have encryption enabled for root block device", check.deny) with input as inp
+	test.assert_equal_message("Root block device is not encrypted.", check.deny) with input as inp
 }
 
 test_allow_ebs_block_device_encrypted if {

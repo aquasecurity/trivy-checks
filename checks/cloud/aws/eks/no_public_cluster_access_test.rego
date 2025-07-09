@@ -8,7 +8,7 @@ import data.lib.test
 test_deny_public_access_enabled if {
 	inp := {"aws": {"eks": {"clusters": [{"publicaccessenabled": {"value": true}}]}}}
 
-	test.assert_equal_message("public access should be enabled", check.deny) with input as inp
+	test.assert_equal_message("Public cluster access is enabled.", check.deny) with input as inp
 }
 
 test_allow_public_access_disabled if {

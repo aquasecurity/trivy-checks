@@ -38,5 +38,5 @@ test_deny_table_sse_disabled if {
 		},
 	}]}}}
 
-	test.assert_equal_message("Table encryption explicitly uses the default KMS key.", check.deny) with input as inp
+	test.assert_equal_message("Table encryption does not use a customer-managed KMS key.", check.deny) with input as inp
 }
