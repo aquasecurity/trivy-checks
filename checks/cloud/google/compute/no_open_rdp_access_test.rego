@@ -12,10 +12,8 @@ test_deny_access_with_multiple_public_sources if {
 			"firewallrule": {
 				"isallow": {"value": true},
 				"enforced": {"value": true},
-				"allowrules": [{
-					"protocol": {"value": "tcp"},
-					"ports": [{"value": "3389"}],
-				}],
+				"protocol": {"value": "tcp"},
+				"ports": [{"value": "3389"}],
 			},
 			"sourceranges": [
 				{"value": "0.0.0.0/0"},
@@ -36,10 +34,8 @@ test_allow_access_with_restricted_source_address if {
 			"firewallrule": {
 				"isallow": {"value": true},
 				"enforced": {"value": true},
-				"allowrules": [{
-					"protocol": {"value": "tcp"},
-					"ports": [{"value": "3389"}],
-				}],
+				"protocol": {"value": "tcp"},
+				"ports": [{"value": "3389"}],
 			},
 			"sourceranges": [{"value": "1.2.3.4/32"}],
 		}],
@@ -57,10 +53,8 @@ test_allow_access_with_different_port if {
 			"firewallrule": {
 				"isallow": {"value": true},
 				"enforced": {"value": true},
-				"allowrules": [{
-					"protocol": {"value": "tcp"},
-					"ports": [{"value": "80"}],
-				}],
+				"protocol": {"value": "tcp"},
+				"ports": [{"value": "80"}],
 			},
 			"sourceranges": [{"value": "0.0.0.0/0"}],
 		}],
@@ -78,10 +72,8 @@ test_allow_access_with_different_protocol if {
 			"firewallrule": {
 				"isallow": {"value": true},
 				"enforced": {"value": true},
-				"allowrules": [{
-					"protocol": {"value": "udp"},
-					"ports": [{"value": "3389"}],
-				}],
+				"protocol": {"value": "udp"},
+				"ports": [{"value": "3389"}],
 			},
 			"sourceranges": [{"value": "0.0.0.0/0"}],
 		}],

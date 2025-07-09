@@ -11,7 +11,7 @@ terraform:
         source_ranges = ["1.2.3.4/32"]
         allow {
           protocol = "tcp"
-          ports    = ["3389"]
+          ports    = ["3380-3390"]
         }
       }
     - |-
@@ -22,7 +22,7 @@ terraform:
         source_ranges = ["0.0.0.0/0"]
         allow {
           protocol = "tcp"
-          ports    = ["8081"]
+          ports    = ["8080-8090"]
         }
       }
     - |-
@@ -35,7 +35,7 @@ terraform:
         target_tags   = ["some-machine"]
         allow {
           protocol = "tcp"
-          ports    = ["3389"]
+          ports    = ["3380-3390"]
         }
       }
     - |-
@@ -46,7 +46,7 @@ terraform:
         source_ranges = ["0.0.0.0/0"]
         allow {
           protocol = "udp"
-          ports    = ["3389"]
+          ports    = ["3380-3390"]
         }
       }
   bad:
@@ -58,7 +58,7 @@ terraform:
         source_ranges = ["0.0.0.0/0"]
         allow {
           protocol = "tcp"
-          ports    = ["3389"]
+          ports    = ["3380-3390"]
         }
       }
     - |-
@@ -69,6 +69,6 @@ terraform:
         source_ranges = ["0.0.0.0/0"]
         allow {
           protocol = "tcp"
-          ports    = ["3380-3390"]
+          ports    = ["3300-3400"]
         }
       }

@@ -43,13 +43,20 @@ deny contains res if {
 	net.cidr_allows_all_ips(source.value)
 
 	rule.firewallrule.protocol.value == "tcp"
-	some allow in rule.firewallrule.allowrules
-	some port in allow.ports
-	port.start <= 3389
-	port.end >= 3389
+	some port in rule.firewallrule.ports
+	port_allows_rdp(port)
 
 	res := result.new(
 		"Firewall rule allows unrestricted access to TCP port 3389 from any IP address.",
 		source,
 	)
+}
+
+port_allows_rdp(port) if {
+	port.value == "3389"
+}
+
+port_allows_rdp(port) if {
+	port.start <= 3389
+	port.end >= 3389
 }
