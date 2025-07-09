@@ -8,7 +8,7 @@ import data.lib.test
 test_deny_with_outdated_tls_policy if {
 	inp := {"aws": {"elb": {"loadbalancers": [{"listeners": [{"tlspolicy": {"value": "ELBSecurityPolicy-TLS-1-0-2015-04"}}]}]}}}
 
-	test.assert_equal_message("Load balancer listener using TLS v1.0", check.deny) with input as inp
+	test.assert_equal_message("Listener uses an outdated TLS policy.", check.deny) with input as inp
 }
 
 test_allow_not_managed if {

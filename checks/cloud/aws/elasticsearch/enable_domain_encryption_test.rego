@@ -14,5 +14,5 @@ test_allow_encryption_enabled if {
 test_deny_encryption_disabled if {
 	inp := {"aws": {"elasticsearch": {"domains": [{"atrestencryption": {"enabled": {"value": false}}}]}}}
 
-	test.assert_equal_message("Domain has at-rest encryption enabled.", check.deny) with input as inp
+	test.assert_equal_message("Domain does not have at-rest encryption enabled.", check.deny) with input as inp
 }
