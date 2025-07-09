@@ -43,7 +43,8 @@ deny contains res if {
 	net.cidr_allows_all_ips(source.value)
 
 	rule.firewallrule.protocol.value == "tcp"
-	some port in rule.firewallrule.ports
+	some allow in rule.firewallrule.allowrules
+	some port in allow.ports
 	port.start <= 3389
 	port.end >= 3389
 
