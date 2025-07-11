@@ -24,6 +24,7 @@
 #         subtypes:
 #           - service: compute
 #             provider: google
+#   examples: checks/cloud/google/compute/no_open_rdp_access.yaml
 package builtin.google.compute.google0070
 
 import rego.v1
@@ -44,19 +45,10 @@ deny contains res if {
 
 	rule.firewallrule.protocol.value == "tcp"
 	some port in rule.firewallrule.ports
-	port_allows_rdp(port)
+	net.is_port_range_include(port.start.value, port.end.value, net.rdp_port)
 
 	res := result.new(
 		"Firewall rule allows unrestricted access to TCP port 3389 from any IP address.",
 		source,
 	)
-}
-
-port_allows_rdp(port) if {
-	port.value == "3389"
-}
-
-port_allows_rdp(port) if {
-	port.start <= 3389
-	port.end >= 3389
 }
