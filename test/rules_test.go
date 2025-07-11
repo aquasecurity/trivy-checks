@@ -26,7 +26,7 @@ func TestIDs(t *testing.T) {
 				t.Errorf("Rule detected with duplicate ID: %s", id)
 			}
 
-			if !meta.IsDeprecated() {
+			if !meta.Deprecated() {
 				existing[id] = struct{}{}
 			}
 		})
