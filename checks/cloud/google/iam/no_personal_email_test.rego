@@ -126,12 +126,12 @@ test_deny_multiple_personal_emails if {
 				{"value": "user:user1@gmail.com"},
 				{"value": "user:user2@yahoo.com"},
 			],
-			"__defsec_metadata": {"managed": true}
+			"__defsec_metadata": {"managed": true},
 		}],
 		"members": [{
 			"role": {"value": "roles/editor"},
 			"member": {"value": "user:user3@hotmail.com"},
-			"__defsec_metadata": {"managed": true}
+			"__defsec_metadata": {"managed": true},
 		}],
 	}]}}}
 
@@ -142,7 +142,7 @@ test_deny_multiple_personal_emails if {
 test_deny_all_disallowed_domains if {
 	disallowed_domains := {
 		"gmail.com",
-		"yahoo.com", 
+		"yahoo.com",
 		"hotmail.com",
 		"outlook.com",
 		"aol.com",
@@ -157,7 +157,7 @@ test_deny_all_disallowed_domains if {
 			"role": {"value": "roles/viewer"},
 			"members": [{"value": sprintf("user:test@%s", [domain])}],
 		}])
-		
+
 		res := check.deny with input as inp
 		count(res) == 1
 	}

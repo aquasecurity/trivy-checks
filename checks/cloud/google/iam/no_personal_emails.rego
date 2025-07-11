@@ -40,7 +40,7 @@ disallowed_domains := {
 	"icloud.com",
 	"protonmail.com",
 	"mail.com",
-	"zoho.com"
+	"zoho.com",
 }
 
 deny contains res if {
