@@ -177,7 +177,7 @@ func setupTarget(t *testing.T, targetDir string) map[string][]string {
 			continue
 		}
 
-		if meta.IsDeprecated() {
+		if meta.Deprecated() {
 			continue
 		}
 

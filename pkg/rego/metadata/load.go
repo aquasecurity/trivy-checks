@@ -36,9 +36,12 @@ func LoadChecksMetadata(fsys fs.FS) (map[string]Metadata, error) {
 			continue
 		}
 
-		checksMetadata[path] = annotations[0].Custom
-		checksMetadata[path]["description"] = annotations[0].Description
-		checksMetadata[path]["links"] = relatedResourcesToLinks(annotations[0].RelatedResources)
+		checksMetadata[path] = Metadata{
+			Title:       annotations[0].Title,
+			Description: annotations[0].Description,
+			Links:       relatedResourcesToLinks(annotations[0].RelatedResources),
+			Custom:      annotations[0].Custom,
+		}
 	}
 	return checksMetadata, nil
 }
