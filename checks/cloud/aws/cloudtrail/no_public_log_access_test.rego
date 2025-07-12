@@ -20,5 +20,5 @@ test_disallow_bucket_with_public_access if {
 		"s3": {"buckets": [{"name": {"value": "bucket_name"}, "acl": {"value": "public-read"}}]},
 	}}
 
-	test.assert_equal_message("Bucket has public access", check.deny) with input as inp
+	test.assert_equal_message("Trail S3 bucket is publicly exposed", check.deny) with input as inp
 }

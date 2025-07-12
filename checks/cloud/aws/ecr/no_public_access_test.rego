@@ -21,7 +21,7 @@ test_deny_with_public_access_all if {
 		"Principal": "*",
 	}]})}}]}]}}}
 
-	test.assert_equal_message("Policy provides public access to the ECR repository", check.deny) with input as inp
+	test.assert_equal_message("Policy provides public access to the ECR repository.", check.deny) with input as inp
 }
 
 test_deny_with_public_acces_any if {
@@ -31,5 +31,5 @@ test_deny_with_public_acces_any if {
 		"Effect": "Allow",
 	}]})}}]}]}}}
 
-	test.assert_equal_message("Policy provides public access to the ECR repository", check.deny) with input as inp
+	test.assert_equal_message("Policy provides public access to the ECR repository.", check.deny) with input as inp
 }

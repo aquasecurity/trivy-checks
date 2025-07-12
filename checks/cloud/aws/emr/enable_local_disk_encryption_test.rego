@@ -14,5 +14,5 @@ test_allow_with_encryption if {
 test_deny_without_encryption if {
 	inp := {"aws": {"emr": {"securityconfiguration": [{"configuration": {"value": json.marshal({"EncryptionConfiguration": {"AtRestEncryptionConfiguration": {"LocalDiskEncryptionConfiguration": {"EncryptionKeyProviderType": ""}}}})}}]}}}
 
-	test.assert_equal_message("EMR cluster does not have in-transit encryption enabled.", check.deny) with input as inp
+	test.assert_equal_message("EMR cluster does not have local-disk encryption enabled.", check.deny) with input as inp
 }

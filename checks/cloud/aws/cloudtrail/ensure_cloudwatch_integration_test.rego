@@ -12,5 +12,5 @@ test_allow_cloudwatch_integration if {
 
 test_disallow_without_cloudwatch_integration if {
 	inp := {"aws": {"cloudtrail": {"trails": [{"cloudwatchlogsloggrouparn": {"value": ""}}]}}}
-	test.assert_equal_message("CloudWatch integration is not configured.", check.deny) with input as inp
+	test.assert_equal_message("Trail does not have CloudWatch logging configured", check.deny) with input as inp
 }

@@ -126,15 +126,15 @@ func fail(msg string, args ...interface{}) {
 }
 
 var docsMarkdownTemplate = `
-{{ .description }}
+{{ .Description }}
 
 ### Impact
-{{ if .impact }}{{ .impact }}{{ else }}<!-- Add Impact here -->{{ end }}
+{{ if .Custom.impact }}{{ .Custom.impact }}{{ else }}<!-- Add Impact here -->{{ end }}
 
 <!-- DO NOT CHANGE -->
 {{ ` + "`{{ " + `remediationActions ` + "`}}" + `}}
 
-{{ if .links }}### Links{{ range .links }}
+{{ if .Links }}### Links{{ range .Links }}
 - {{ . }}
 {{ end}}
 {{ end }}
@@ -146,7 +146,7 @@ var templates = map[string]string{
 }
 
 var terraformMarkdownTemplate = `
-{{ .Metadata.recommended_action }}
+{{ .Metadata.Custom.recommended_action }}
 
 {{ if .Examples.Good }}{{ range .Examples.Good }}` + "```hcl" + `
 {{ . }}
@@ -158,7 +158,7 @@ var terraformMarkdownTemplate = `
 `
 
 var cloudformationMarkdownTemplate = `
-{{ .Metadata.recommended_action }}
+{{ .Metadata.Custom.recommended_action }}
 
 {{ if .Examples.Good }}{{ range .Examples.Good }}` + "```yaml" + `
 {{ . }}
