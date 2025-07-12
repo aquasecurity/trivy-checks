@@ -1,0 +1,42 @@
+terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall
+  good:
+    - |-
+      resource "google_compute_firewall" "custom-ssh-access" {
+        name    = "custom-ssh-access"
+        network = "default"
+
+        allow {
+          protocol = "tcp"
+          ports    = ["22"]
+        }
+
+        source_ranges = ["192.168.1.0/24"]
+        target_tags   = ["ssh-allowed"]
+      }
+  bad:
+    - |-
+      resource "google_compute_firewall" "default-allow-internal" {
+        name    = "default-allow-internal"
+        network = "default"
+
+        allow {
+          protocol = "tcp"
+          ports    = ["0-65535"]
+        }
+
+        source_ranges = ["10.128.0.0/9"]
+      }
+    - |-
+      resource "google_compute_firewall" "default-allow-ssh" {
+        name    = "default-allow-ssh"
+        network = "default"
+
+        allow {
+          protocol = "tcp"
+          ports    = ["22"]
+        }
+
+        source_ranges = ["0.0.0.0/0"]
+      }
