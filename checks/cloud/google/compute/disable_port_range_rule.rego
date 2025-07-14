@@ -8,6 +8,7 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall#allow
 # custom:
+#   id: GCP-0074
 #   aliases:
 #     - compute-network-using-firewall-rule-that-allows-large-port-range
 #     - AVD-GCP-0074
