@@ -6,7 +6,7 @@ import rego.v1
 
 test_deny_policy_with_s3_get_and_put_wildcards if {
 	policies := [{
-		"name": "policy_with_literal_get_and_put",
+		"name": {"value": "policy_with_literal_get_and_put"},
 		"document": {"value": json.marshal({
 			"Version": "2012-10-17",
 			"Statement": [{
@@ -23,7 +23,7 @@ test_deny_policy_with_s3_get_and_put_wildcards if {
 
 test_allow_policy_with_denied_actions_on_s3_wildcards if {
 	policies := [{
-		"name": "policy_with_literal_get_and_put",
+		"name": {"value": "policy_with_literal_get_and_put"},
 		"document": {"value": json.marshal({
 			"Version": "2012-10-17",
 			"Statement": [{
@@ -40,7 +40,7 @@ test_allow_policy_with_denied_actions_on_s3_wildcards if {
 
 test_allow_s3_only_get if {
 	policies := [{
-		"name": "policy_with_only_get",
+		"name": {"value": "policy_with_only_get"},
 		"document": {"value": json.marshal({
 			"Version": "2012-10-17",
 			"Statement": [{
@@ -57,7 +57,7 @@ test_allow_s3_only_get if {
 
 test_allow_s3_get_and_put_limited_resource if {
 	policies := [{
-		"name": "policy_with_get_and_put_limited_resource",
+		"name": {"value": "policy_with_get_and_put_limited_resource"},
 		"document": {"value": json.marshal({
 			"Version": "2012-10-17",
 			"Statement": [{

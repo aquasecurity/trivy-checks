@@ -13,6 +13,7 @@ require (
 	github.com/stretchr/testify v1.10.0
 	github.com/testcontainers/testcontainers-go v0.37.1-0.20250602105123-1720acdcb24e
 	github.com/testcontainers/testcontainers-go/modules/registry v0.37.0
+	github.com/xeipuuv/gojsonschema v1.2.0
 	golang.org/x/text v0.26.0
 	gopkg.in/yaml.v3 v3.0.1
 	mvdan.cc/sh/v3 v3.11.0

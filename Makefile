@@ -10,7 +10,7 @@ ifeq ($(shell uname), Darwin)
 endif
 
 .PHONY: test
-test:
+test: download-schemas
 	go test -v ./...
 
 .PHONY: integration-test

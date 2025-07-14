@@ -11,9 +11,9 @@ test_deny_missing_owners if {
 }
 
 test_allow_valid_owners if {
-	test.assert_empty(check.deny) with input as {"aws": {"ec2": {"requestedamis": [{"owners": ["self"]}]}}}
+	test.assert_empty(check.deny) with input as {"aws": {"ec2": {"requestedamis": [{"owners": [{"value": "self"}]}]}}}
 }
 
 test_allow_valid_multiple_owners if {
-	test.assert_empty(check.deny) with input as {"aws": {"ec2": {"requestedamis": [{"owners": ["amazon", "self"]}]}}}
+	test.assert_empty(check.deny) with input as {"aws": {"ec2": {"requestedamis": [{"owners": [{"value": "amazon"}, {"value": "self"}]}]}}}
 }

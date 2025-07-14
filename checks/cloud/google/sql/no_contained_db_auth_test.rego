@@ -30,7 +30,7 @@ test_allow_db_auth_enabled_for_non_sqlserver if {
 		"settings": {"flags": {"containeddatabaseauthentication": {"value": true}}},
 	})
 
-	res := check.deny with input as input
+	res := check.deny with input as inp
 	res == set()
 }
 
