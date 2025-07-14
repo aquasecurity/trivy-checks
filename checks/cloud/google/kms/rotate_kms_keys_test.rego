@@ -14,5 +14,6 @@ test_deny_key_rotation_period_greather_than_90_days if {
 test_allow_key_rotation_period_less_than_90_days if {
 	inp := {"google": {"kms": {"keyrings": [{"keys": [{"rotationperiodseconds": {"value": 2592000}}]}]}}} # 30 days
 
-	check.deny with input as inp == set()
+	res := check.deny with input as inp
+	res == set()
 }

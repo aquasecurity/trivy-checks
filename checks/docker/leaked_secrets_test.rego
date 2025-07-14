@@ -128,33 +128,29 @@ test_allow_secret_in_set_command_with_secret_mount if {
 }
 
 test_deny_secret_key if {
-	# starts with uppercase secret token
-	case1 := check.deny with input as build_simple_input("env", ["SECRET_PASSPHRASE", "test", "="])
-	count(case1) = 1
+	tc := {
+		build_simple_input("env", ["SECRET_PASSPHRASE", "test", "="]),
+		build_simple_input("env", ["password", "test", "="]),
+		build_simple_input("arg", ["AWS_SECRET_ACCESS_KEY"]),
+		build_simple_input("arg", ["ARTIFACTORY_USR"]),
+		build_simple_input("arg", ["ARTIFACTORY_PSW"]),
+	}
 
-	# starts with lowercase secret token
-	case2 := check.deny with input as build_simple_input("env", ["password", "test", "="])
-	count(case2) = 1
-
-	# contains uppercase secret token after underscore
-	case3 := check.deny with input as build_simple_input("arg", ["AWS_SECRET_ACCESS_KEY"])
-	count(case3) = 1
-
-	case4 := check.deny with input as build_simple_input("arg", ["ARTIFACTORY_USR"])
-	count(case4) = 1
-
-	case5 := check.deny with input as build_simple_input("arg", ["ARTIFACTORY_PSW"])
-	count(case5) = 1
+	every tt in tc {
+		res := check.deny with input as tt
+		count(res) = 1
+	}
 }
 
 test_allow_secret_key if {
-	# starts with uppercase secret token
-	case1 := check.deny with input as build_simple_input("env", ["PUBLIC_KEY", "test", "="])
-	count(case1) = 0
-
-	# starts with lowercase secret token
-	case2 := check.deny with input as build_simple_input("arg", ["public_token"])
-	count(case2) = 0
+	tc := {
+		build_simple_input("env", ["PUBLIC_KEY", "test", "="]),
+		build_simple_input("arg", ["public_token"]),
+	}
+	every tt in tc {
+		res := check.deny with input as tt
+		count(res) = 0
+	}
 }
 
 instruction(cmd, val) := {

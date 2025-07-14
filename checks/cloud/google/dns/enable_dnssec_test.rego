@@ -20,7 +20,8 @@ test_allow_dns_sec_enabled if {
 		"dnssec": {"enabled": {"value": true}},
 	})
 
-	check.deny with input as inp == set()
+	res := check.deny with input as inp
+	res == set()
 }
 
 test_allow_dns_sec_disabled_for_private_zone if {
@@ -29,7 +30,8 @@ test_allow_dns_sec_disabled_for_private_zone if {
 		"dnssec": {"enabled": {"value": false}},
 	})
 
-	check.deny with input as inp == set()
+	res := check.deny with input as inp
+	res == set()
 }
 
 build_input(zone) := {"google": {"dns": {"managedzones": [zone]}}}

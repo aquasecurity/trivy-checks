@@ -20,7 +20,8 @@ test_allow_logging_disabled_for_all_statements if {
 		"settings": {"flags": {"logmindurationstatement": {"value": false}}},
 	})
 
-	check.deny with input as inp == set()
+	res := check.deny with input as inp
+	res == set()
 }
 
 test_allow_logging_enabled_for_all_statements_for_non_postgres if {
@@ -29,7 +30,8 @@ test_allow_logging_enabled_for_all_statements_for_non_postgres if {
 		"settings": {"flags": {"logmindurationstatement": {"value": true}}},
 	})
 
-	check.deny with input as inp == set()
+	res := check.deny with input as inp
+	res == set()
 }
 
 build_input(instance) := {"google": {"sql": {"instances": [instance]}}}

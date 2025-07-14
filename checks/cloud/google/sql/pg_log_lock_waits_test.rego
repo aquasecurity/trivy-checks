@@ -20,7 +20,8 @@ test_allow_lock_waits_loggging_enabled if {
 		"settings": {"flags": {"loglockwaits": {"value": true}}},
 	})
 
-	check.deny with input as inp == set()
+	res := check.deny with input as inp
+	res == set()
 }
 
 test_allow_lock_waits_loggging_disabled_for_non_postgres if {
@@ -29,7 +30,8 @@ test_allow_lock_waits_loggging_disabled_for_non_postgres if {
 		"settings": {"flags": {"loglockwaits": {"value": false}}},
 	})
 
-	check.deny with input as inp == set()
+	res := check.deny with input as inp
+	res == set()
 }
 
 build_input(instance) := {"google": {"sql": {"instances": [instance]}}}

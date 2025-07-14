@@ -14,7 +14,8 @@ test_deny_ipv4_enabled if {
 test_allow_ipv4_disabled if {
 	inp := build_input({"settings": {"ipconfiguration": {"enableipv4": {"value": false}}}})
 
-	check.deny with input as inp == set()
+	res := check.deny with input as inp
+	res == set()
 }
 
 build_input(instance) := {"google": {"sql": {"instances": [instance]}}}
