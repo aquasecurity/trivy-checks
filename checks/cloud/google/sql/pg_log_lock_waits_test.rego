@@ -26,7 +26,7 @@ test_allow_lock_waits_loggging_enabled if {
 
 test_allow_lock_waits_loggging_disabled_for_non_postgres if {
 	inp := build_input({
-		"databaseversion": {"value": "POSTGRES_11"},
+		"databaseversion": {"value": "SQLSERVER_2017_STANDARD"},
 		"settings": {"flags": {"loglockwaits": {"value": false}}},
 	})
 

@@ -26,7 +26,7 @@ test_allow_cross_database_ownership_chaining_disabled if {
 
 test_allow_cross_database_ownership_chaining_enabled_for_non_sql_servers if {
 	inp := build_input({
-		"databaseversion": {"value": "SQLSERVER_2017_STANDARD"},
+		"databaseversion": {"value": "POSTGRES_15"},
 		"settings": {"flags": {"crossdbownershipchaining": {"value": true}}},
 	})
 

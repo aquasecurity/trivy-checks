@@ -53,7 +53,7 @@ test_allow_nonactive_user_access_key_not_used_100_days if {
 
 test_allow_user_access_key_used_today if {
 	test.assert_empty(check.deny) with input as build_input({
-		"name":{"value":  "test"},
+		"name": {"value": "test"},
 		"lastaccess": {"value": time.format(time.now_ns())},
 		"accesskeys": [{
 			"accesskeyid": {"value": "AKIACKCEVSQ6C2EXAMPLE"},

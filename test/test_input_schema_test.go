@@ -8,7 +8,6 @@ import (
 	"os"
 	"path/filepath"
 	"slices"
-	"strconv"
 	"strings"
 	"testing"
 
@@ -40,15 +39,17 @@ func TestTestInputsConformToSchema(t *testing.T) {
 			schemaLoader, err := loaderByPackage(schemaLoaders, query)
 			require.NoError(t, err)
 
-			documentLoader := gojsonschema.NewGoLoader(res)
-			result, err := gojsonschema.Validate(schemaLoader, documentLoader)
-			require.NoError(t, err)
+			for _, el := range res {
+				documentLoader := gojsonschema.NewGoLoader(el)
+				result, err := gojsonschema.Validate(schemaLoader, documentLoader)
+				require.NoError(t, err)
 
-			if !result.Valid() {
-				errs := lo.Map(result.Errors(), func(err gojsonschema.ResultError, _ int) string {
-					return err.String()
-				})
-				assert.True(t, false, fmt.Sprintf("%s\nAt %s", strings.Join(errs, "\n"), loc))
+				if !result.Valid() {
+					errs := lo.Map(result.Errors(), func(err gojsonschema.ResultError, _ int) string {
+						return err.String()
+					})
+					assert.True(t, false, fmt.Sprintf("%s\nAt %s", strings.Join(errs, "\n"), loc))
+				}
 			}
 		})
 	}
@@ -71,7 +72,7 @@ func buildEvalInputRules(t *testing.T, modules map[string]*ast.Module) map[strin
 	queries := make(map[string]string)
 
 	for path, module := range modules {
-		if !testRegoFile(path) {
+		if !isTestRegoFile(path) {
 			continue
 		}
 
@@ -81,9 +82,10 @@ func buildEvalInputRules(t *testing.T, modules map[string]*ast.Module) map[strin
 
 		copied := module.Copy()
 		for _, r := range module.Rules {
-			if !strings.HasPrefix(r.Head.Name.String(), "test_") {
+			if !isTestRule(r) {
 				continue
 			}
+
 			newRule := generateEvalInpRule(t, r)
 			if newRule == nil {
 				continue
@@ -96,6 +98,10 @@ func buildEvalInputRules(t *testing.T, modules map[string]*ast.Module) map[strin
 		modules[path] = copied
 	}
 	return queries
+}
+
+func isTestRule(r *ast.Rule) bool {
+	return strings.HasPrefix(r.Head.Reference[0].String(), "test_")
 }
 
 func compileModules(t *testing.T, modules map[string]*ast.Module) *ast.Compiler {
@@ -133,7 +139,7 @@ func loaderByPackage(loaders map[string]gojsonschema.JSONLoader, pkg string) (go
 	}
 }
 
-func evalRuleInput(ctx context.Context, c *ast.Compiler, query string) (any, error) {
+func evalRuleInput(ctx context.Context, c *ast.Compiler, query string) ([]any, error) {
 	r := rego.New(
 		rego.Query(query),
 		rego.Compiler(c),
@@ -147,7 +153,12 @@ func evalRuleInput(ctx context.Context, c *ast.Compiler, query string) (any, err
 		return nil, fmt.Errorf("bad result: %v", rs)
 	}
 
-	return rs[0].Expressions[0].Value, nil
+	val := rs[0].Expressions[0].Value
+	arr, ok := val.([]any)
+	if !ok {
+		return nil, fmt.Errorf("expected array, but got %T", val)
+	}
+	return arr, nil
 }
 
 func loadModules(fsys fs.FS) (*loader.Result, error) {
@@ -169,7 +180,7 @@ func generateEvalInpRule(t *testing.T, rule *ast.Rule) *ast.Rule {
 	}
 
 	for i, expr := range rule.Body {
-		for k, w := range expr.With {
+		for _, w := range expr.With {
 			if w.Target.String() == "input" {
 				newBody := ast.NewBody()
 				for j := 0; j <= i-1; j++ {
@@ -177,11 +188,14 @@ func generateEvalInpRule(t *testing.T, rule *ast.Rule) *ast.Rule {
 				}
 				term := ast.MustParseExpr(fmt.Sprintf("res := %s", w.Value.String()))
 				newBody.Append(term)
-				newName := rule.Head.Name.String() + strconv.Itoa(k) + "_eval_inp"
+				newName := rule.Head.Reference[0].String() + "_eval_inp"
+				refTerm := ast.VarTerm(newName)
+				refTerm.SetLocation(ast.NewLocation([]byte(newName), "", -1, -1))
 				newRule := &ast.Rule{
 					Head: &ast.Head{
-						Name:  ast.Var(newName),
-						Value: ast.NewTerm(ast.Var("res")),
+						Name:      ast.Var(newName),
+						Reference: []*ast.Term{refTerm},
+						Key:       ast.VarTerm("res"),
 					},
 					Body: newBody,
 				}
@@ -201,7 +215,7 @@ func isRegoFile(name string) bool {
 	return strings.HasSuffix(name, ".rego")
 }
 
-func testRegoFile(name string) bool {
+func isTestRegoFile(name string) bool {
 	return strings.HasSuffix(name, "_test.rego")
 }
 
