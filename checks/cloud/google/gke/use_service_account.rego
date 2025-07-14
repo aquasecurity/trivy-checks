@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster#use_least_privilege_sa
 # custom:
+#   id: GCP-0050
 #   aliases:
-#     - google-gke-use-service-account
-#   avd_id: AVD-GCP-0050
+#     - AVD-GCP-0050
+#     - use-service-account
+#   long_id: google-gke-use-service-account
 #   provider: google
 #   service: gke
 #   severity: MEDIUM
-#   short_code: use-service-account
 #   recommended_action: Use limited permissions for service accounts to be effective
 #   input:
 #     selector:

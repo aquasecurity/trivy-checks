@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html
 # custom:
+#   id: AWS-0017
 #   aliases:
-#     - aws-cloudwatch-log-group-customer-key
-#   avd_id: AVD-AWS-0017
+#     - AVD-AWS-0017
+#     - log-group-customer-key
+#   long_id: aws-cloudwatch-log-group-customer-key
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   short_code: log-group-customer-key
 #   recommended_action: Enable CMK encryption of CloudWatch Log Groups
 #   input:
 #     selector:

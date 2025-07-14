@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/streams/latest/dev/server-side-encryption.html
 # custom:
+#   id: AWS-0064
 #   aliases:
-#     - aws-kinesis-enable-in-transit-encryption
-#   avd_id: AVD-AWS-0064
+#     - AVD-AWS-0064
+#     - enable-in-transit-encryption
+#   long_id: aws-kinesis-enable-in-transit-encryption
 #   provider: aws
 #   service: kinesis
 #   severity: HIGH
-#   short_code: enable-in-transit-encryption
 #   recommended_action: Enable in transit encryption
 #   input:
 #     selector:

@@ -3,19 +3,23 @@
 # description: "Protect tuned kernel parameters from overriding kubelet default kernel parameter values."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   avd_id: AVD-KCV-0083
+#   id: KCV-0083
+#   aliases:
+#     - AVD-KCV-0083
+#     - KCV0083
+#     - ensure-protect-kernel-defaults-set-true
+#   long_id: kubernetes-ensure-protect-kernel-defaults-set-true
 #   severity: HIGH
-#   short_code: ensure-protect-kernel-defaults-set-true
 #   recommended_action: "If using a Kubelet config file, edit the file to set protectKernelDefaults: true"
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0083
 
 import rego.v1

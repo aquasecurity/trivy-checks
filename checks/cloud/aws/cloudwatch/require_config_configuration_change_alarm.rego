@@ -9,13 +9,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html
 # custom:
+#   id: AWS-0155
 #   aliases:
-#     - aws-cloudwatch-require-config-configuration-changes-alarm
-#   avd_id: AVD-AWS-0155
+#     - AVD-AWS-0155
+#     - require-config-configuration-changes-alarm
+#   long_id: aws-cloudwatch-require-config-configuration-changes-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   short_code: require-config-configuration-changes-alarm
 #   recommended_action: Create an alarm to alert on AWS Config configuration changes
 #   frameworks:
 #     cis-aws-1.2:

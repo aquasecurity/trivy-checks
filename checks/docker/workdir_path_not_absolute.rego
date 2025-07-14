@@ -3,17 +3,21 @@
 # description: "For clarity and reliability, you should always use absolute paths for your WORKDIR."
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#workdir
+#   - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#workdir
 # custom:
-#   avd_id: AVD-DS-0009
+#   id: DS-0009
+#   aliases:
+#     - AVD-DS-0009
+#     - DS009
+#     - user-absolute-workdir
+#   long_id: docker-user-absolute-workdir
 #   severity: HIGH
-#   short_code: user-absolute-workdir
 #   recommended_action: "Use absolute paths for your WORKDIR"
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/workdir_path_not_absolute.yaml
 package builtin.dockerfile.DS009
 

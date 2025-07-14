@@ -30,8 +30,7 @@ A simple rule looks like the following example:
 # related_resources:
 # - https://docs.aws.amazon.com/neptune/latest/userguide/iam-auth.html
 # custom:
-#   id: AVD-AWS-0176
-#   avd_id: AVD-AWS-0176
+#   id: AWS-0176
 #   provider: aws
 #   service: rds
 #   severity: MEDIUM
@@ -65,7 +64,7 @@ Let's break the metadata down.
 - `scope` is used to define the scope of the policy. In this case, we are defining a policy that applies to the entire package. _defsec_ only supports using package scope for metadata at the moment, so this should always be the same.
 - `schemas` tells Rego that it should use the `AWS` schema to validate the use of the input data in the policy. We currently support [these](https://github.com/aquasecurity/defsec/tree/9b3cc255faff5dc57de5ff77ed0ce0009c80a4bb/pkg/rego/schemas) schemas. Using a schema can help you validate your policy faster for syntax issues.
 - `custom` is used to define custom fields that can be used by defsec to provide additional context to the policy and any related detections. This can contain the following:
-  - `avd_id` is the ID of the rule in the [AWS Vulnerability Database](https://avd.aquasec.com/). This is used to link the rule to the AVD entry. You can generate an ID to use for this field using `make id`.
+  - `id` is the ID of the rule in the [AWS Vulnerability Database](https://avd.aquasec.com/). This is used to link the rule to the AVD entry. You can generate an ID to use for this field using `make id`.
   - `provider` is the name of the provider the rule targets. This should be the same as the provider name in the `pkg/providers` directory, e.g. `aws`.
   - `service` is the name of the service the rule targets. This should be the same as the service name in the `pkg/providers` directory, e.g. `rds`.
   - `severity` is the severity of the rule. This should be one of `LOW`, `MEDIUM`, `HIGH`, or `CRITICAL`.

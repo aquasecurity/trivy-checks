@@ -3,20 +3,24 @@
 # description: "Some workloads leverage configmaps to store sensitive data or configuration parameters that affect runtime behavior that can be modified by an attacker or combined with another issue to potentially lead to compromise."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+#   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   avd_id: AVD-KSV-0049
+#   id: KSV-0049
+#   aliases:
+#     - AVD-KSV-0049
+#     - KSV049
+#     - no-manage-configmaps
+#   long_id: kubernetes-no-manage-configmaps
 #   severity: MEDIUM
-#   short_code: no-manage-configmaps
 #   recommended_action: "Remove write permission verbs for resource 'configmaps'"
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: clusterrole
-#         - kind: role
+#       - type: kubernetes
+#         subtypes:
+#           - kind: clusterrole
+#           - kind: role
 package builtin.kubernetes.KSV049
 
 import rego.v1

@@ -7,53 +7,130 @@ import (
 	"golang.org/x/text/language"
 )
 
-type Metadata map[string]any
+const (
+	DefaultProvider = "generic"
+	DefaultService  = "general"
+)
+
+type Metadata struct {
+	Title       string
+	Description string
+	Links       []string
+	Custom      map[string]any
+}
+
+func (m Metadata) ID() string {
+	if v, ok := m.Custom["id"].(string); ok {
+		return v
+	}
+	return ""
+}
 
 func (m Metadata) AVDID() string {
-	return m["avd_id"].(string)
-}
-
-func (m Metadata) IsDeprecated() bool {
-	deprecated, ok := m["deprecated"]
-	return ok && deprecated.(bool)
-}
-
-func (m Metadata) HasDefaultFramework() bool {
-	frameworks, ok := m["frameworks"]
-	if !ok {
-		return true
+	aliases := m.Aliases()
+	if len(aliases) > 0 {
+		return aliases[0]
 	}
+	return ""
+}
 
-	if f, ok := frameworks.(map[string]any); ok {
-		if _, exists := f["default"]; exists {
-			return true
-		}
+func (m Metadata) Severity() string {
+	if v, ok := m.Custom["severity"].(string); ok {
+		return v
+	}
+	return ""
+}
+
+func (m Metadata) Deprecated() bool {
+	if v, ok := m.Custom["deprecated"].(bool); ok {
+		return v
 	}
 	return false
 }
 
-func (m Metadata) Provider() Provider {
-	if p, ok := m["provider"]; ok {
-		return Provider(p.(string))
+func (m Metadata) Frameworks() map[string][]string {
+	result := make(map[string][]string)
+
+	raw, ok := m.Custom["frameworks"]
+	if !ok {
+		return result
 	}
 
-	if input, ok := m["input"]; ok {
-		if selector, ok := input.(map[string]any)["selector"]; ok {
-			typ := selector.([]any)[0].(map[string]any)["type"].(string)
-			if typ != "" {
-				return Provider(typ)
+	rawMap, ok := raw.(map[string]any)
+	if !ok {
+		return result
+	}
+
+	for k, v := range rawMap {
+		if arr, ok := v.([]any); ok {
+			var strArr []string
+			for _, item := range arr {
+				if s, ok := item.(string); ok {
+					strArr = append(strArr, s)
+				}
 			}
+			result[k] = strArr
 		}
 	}
-	return "generic"
+	return result
+}
+
+func (m Metadata) HasDefaultFramework() bool {
+	_, exists := m.Frameworks()["default"]
+	return exists
+}
+
+func (m Metadata) Provider() Provider {
+	if p, ok := m.Custom["provider"].(string); ok {
+		return Provider(p)
+	}
+
+	input, ok := m.Custom["input"].(map[string]any)
+	if !ok {
+		return DefaultProvider
+	}
+
+	selector, ok := input["selector"].([]any)
+	if !ok || len(selector) == 0 {
+		return DefaultProvider
+	}
+
+	first, ok := selector[0].(map[string]any)
+	if !ok {
+		return DefaultProvider
+	}
+
+	if typ, ok := first["type"].(string); ok && typ != "" {
+		return Provider(typ)
+	}
+
+	return DefaultProvider
 }
 
 func (m Metadata) Service() string {
-	if s, ok := m["service"]; ok {
-		return s.(string)
+	if s, ok := m.Custom["service"].(string); ok {
+		return s
+	}
+	return DefaultService
+}
+
+func (m Metadata) Aliases() []string {
+	raw, ok := m.Custom["aliases"]
+	if !ok {
+		return nil
 	}
 
-	return "general"
+	s, ok := raw.([]any)
+	if !ok {
+		return nil
+	}
+	aliases := make([]string, 0, len(s))
+	for _, ss := range s {
+		if str, ok := ss.(string); ok {
+			aliases = append(aliases, str)
+		}
+	}
+	return aliases
 }
 
 type Provider string
@@ -61,7 +138,7 @@ type Provider string
 func (p Provider) DisplayName() string {
 	switch p {
 	case "aws":
-		return strings.ToUpper(string(p))
+		return "AWS"
 	case "digitalocean":
 		return "Digital Ocean"
 	case "github":

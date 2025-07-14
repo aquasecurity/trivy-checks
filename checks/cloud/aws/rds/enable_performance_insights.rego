@@ -9,13 +9,14 @@
 # related_resources:
 #   - https://aws.amazon.com/rds/performance-insights/
 # custom:
+#   id: AWS-0133
 #   aliases:
-#     - aws-rds-enable-performance-insights
-#   avd_id: AVD-AWS-0133
+#     - AVD-AWS-0133
+#     - enable-performance-insights
+#   long_id: aws-rds-enable-performance-insights
 #   provider: aws
 #   service: rds
 #   severity: LOW
-#   short_code: enable-performance-insights
 #   recommended_action: Enable performance insights
 #   input:
 #     selector:

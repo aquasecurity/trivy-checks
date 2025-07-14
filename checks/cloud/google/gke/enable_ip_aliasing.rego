@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   id: GCP-0049
 #   aliases:
-#     - google-gke-enable-ip-aliasing
-#   avd_id: AVD-GCP-0049
+#     - AVD-GCP-0049
+#     - enable-ip-aliasing
+#   long_id: google-gke-enable-ip-aliasing
 #   provider: google
 #   service: gke
 #   severity: LOW
-#   short_code: enable-ip-aliasing
 #   recommended_action: Enable IP aliasing
 #   input:
 #     selector:

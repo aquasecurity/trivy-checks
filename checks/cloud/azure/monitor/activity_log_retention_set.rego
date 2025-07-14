@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/platform-logs-overview
 # custom:
+#   id: AZU-0031
 #   aliases:
-#     - azure-monitor-activity-log-retention-set
-#   avd_id: AVD-AZU-0031
+#     - AVD-AZU-0031
+#     - activity-log-retention-set
+#   long_id: azure-monitor-activity-log-retention-set
 #   provider: azure
 #   service: monitor
 #   severity: MEDIUM
-#   short_code: activity-log-retention-set
 #   recommended_action: Set a retention period that will allow for delayed investigation
 #   input:
 #     selector:

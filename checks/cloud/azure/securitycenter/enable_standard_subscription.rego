@@ -10,13 +10,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/security-center/security-center-pricing
 # custom:
+#   id: AZU-0045
 #   aliases:
-#     - azure-security-center-enable-standard-subscription
-#   avd_id: AVD-AZU-0045
+#     - AVD-AZU-0045
+#     - enable-standard-subscription
+#   long_id: azure-securitycenter-enable-standard-subscription
 #   provider: azure
 #   service: security-center
 #   severity: LOW
-#   short_code: enable-standard-subscription
 #   recommended_action: Enable standard subscription tier to benefit from Azure Defender
 #   input:
 #     selector:

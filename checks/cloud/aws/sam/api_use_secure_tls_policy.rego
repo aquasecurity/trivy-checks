@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-api-domainconfiguration.html#sam-api-domainconfiguration-securitypolicy
 # custom:
+#   id: AWS-0112
 #   aliases:
-#     - aws-sam-api-use-secure-tls-policy
-#   avd_id: AVD-AWS-0112
+#     - AVD-AWS-0112
+#     - api-use-secure-tls-policy
+#   long_id: aws-sam-api-use-secure-tls-policy
 #   provider: aws
 #   service: sam
 #   severity: HIGH
-#   short_code: api-use-secure-tls-policy
 #   recommended_action: Use the most modern TLS/SSL policies available
 #   input:
 #     selector:

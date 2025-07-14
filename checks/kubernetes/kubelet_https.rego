@@ -3,17 +3,21 @@
 # description: "Use https for kubelet connections."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   avd_id: AVD-KCV-0004
+#   id: KCV-0004
+#   aliases:
+#     - AVD-KCV-0004
+#     - KCV0004
+#     - ensure-kubelet-https-argument-is-set-to-true
+#   long_id: kubernetes-ensure-kubelet-https-argument-is-set-to-true
 #   severity: LOW
-#   short_code: ensure-kubelet-https-argument-is-set-to-true
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and remove the --kubelet-https parameter."
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KCV0004
 
 import rego.v1

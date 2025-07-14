@@ -14,13 +14,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html
 # custom:
+#   id: AWS-0175
 #   aliases:
-#     - aws-accessanalyzer-enable-access-analyzer
-#   avd_id: AVD-AWS-0175
+#     - AVD-AWS-0175
+#     - enable-access-analyzer
+#   long_id: aws-accessanalyzer-enable-access-analyzer
 #   provider: aws
 #   service: accessanalyzer
 #   severity: LOW
-#   short_code: enable-access-analyzer
 #   deprecated: true
 #   recommended_action: Enable IAM Access analyzer across all regions.
 #   frameworks:

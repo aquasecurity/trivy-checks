@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/waf/latest/developerguide/cloudfront-features.html
 # custom:
+#   id: AWS-0011
 #   aliases:
-#     - aws-cloudfront-enable-waf
-#   avd_id: AVD-AWS-0011
+#     - AVD-AWS-0011
+#     - enable-waf
+#   long_id: aws-cloudfront-enable-waf
 #   provider: aws
 #   service: cloudfront
 #   severity: HIGH
-#   short_code: enable-waf
 #   recommended_action: Enable WAF for the CloudFront distribution
 #   input:
 #     selector:
@@ -33,7 +34,7 @@ deny contains res if {
 	some dist in input.aws.cloudfront.distributions
 	waf_not_enabled(dist)
 	res := result.new(
-		"Distribution does not utilise a WAF.",
+		"Distribution does not utilize a WAF.",
 		object.get(dist, "wafid", dist),
 	)
 }

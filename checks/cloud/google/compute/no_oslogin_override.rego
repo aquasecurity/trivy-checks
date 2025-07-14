@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   id: GCP-0036
 #   aliases:
-#     - google-compute-no-oslogin-override
-#   avd_id: AVD-GCP-0036
+#     - AVD-GCP-0036
+#     - no-oslogin-override
+#   long_id: google-compute-no-oslogin-override
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
-#   short_code: no-oslogin-override
 #   recommended_action: Enable OS Login at project level and remove instance-level overrides
 #   input:
 #     selector:

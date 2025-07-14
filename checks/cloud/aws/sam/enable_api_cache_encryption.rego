@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachedataencrypted
 # custom:
+#   id: AWS-0110
 #   aliases:
-#     - aws-sam-enable-api-cache-encryption
-#   avd_id: AVD-AWS-0110
+#     - AVD-AWS-0110
+#     - enable-api-cache-encryption
+#   long_id: aws-sam-enable-api-cache-encryption
 #   provider: aws
 #   service: sam
 #   severity: MEDIUM
-#   short_code: enable-api-cache-encryption
 #   recommended_action: Enable cache encryption
 #   input:
 #     selector:

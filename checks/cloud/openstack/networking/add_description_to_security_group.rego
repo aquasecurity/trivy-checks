@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   id: OPNSTK-0005
 #   aliases:
-#     - openstack-networking-describe-security-group
-#   avd_id: AVD-OPNSTK-0005
+#     - AVD-OPNSTK-0005
+#     - describe-security-group
+#   long_id: openstack-networking-describe-security-group
 #   provider: openstack
 #   service: networking
 #   severity: MEDIUM
-#   short_code: describe-security-group
 #   recommended_action: Add descriptions for all security groups
 #   input:
 #     selector:

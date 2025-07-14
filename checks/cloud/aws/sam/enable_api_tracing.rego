@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-api.html#sam-api-tracingenabled
 # custom:
+#   id: AWS-0111
 #   aliases:
-#     - aws-sam-enable-api-tracing
-#   avd_id: AVD-AWS-0111
+#     - AVD-AWS-0111
+#     - enable-api-tracing
+#   long_id: aws-sam-enable-api-tracing
 #   provider: aws
 #   service: sam
 #   severity: LOW
-#   short_code: enable-api-tracing
 #   recommended_action: Enable tracing
 #   input:
 #     selector:

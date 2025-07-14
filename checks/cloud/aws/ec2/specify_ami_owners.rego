@@ -9,13 +9,14 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami
 # custom:
+#   id: AWS-0344
 #   aliases:
-#     - aws-ami-ensure-ami-has-owners
-#   avd_id: AVD-AWS-0344
+#     - AVD-AWS-0344
+#     - ensure-ami-has-owners
+#   long_id: aws-ec2-ensure-ami-has-owners
 #   provider: aws
-#   service: ami
+#   service: ec2
 #   severity: LOW
-#   short_code: ensure-ami-has-owners
 #   recommended_action: Specify the owners field in the AWS AMI data source configuration
 #   input:
 #     selector:

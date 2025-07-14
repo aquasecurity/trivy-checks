@@ -8,14 +8,15 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/help/router/change.htm
 # custom:
-#   avd_id: AVD-NIF-0016
+#   id: NIF-0016
 #   aliases:
+#     - AVD-NIF-0016
 #     - nifcloud-computing-add-security-group-to-router
-#     - nifcloud-network-add-security-group-to-router
+#     - add-security-group-to-router
+#   long_id: nifcloud-network-add-security-group-to-router
 #   provider: nifcloud
 #   service: network
 #   severity: CRITICAL
-#   short_code: add-security-group-to-router
 #   recommended_action: Add security group for all routers
 #   input:
 #     selector:

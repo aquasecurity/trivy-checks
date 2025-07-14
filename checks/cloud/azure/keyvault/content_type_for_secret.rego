@@ -10,13 +10,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/key-vault/secrets/about-secrets
 # custom:
+#   id: AZU-0015
 #   aliases:
-#     - azure-keyvault-content-type-for-secret
-#   avd_id: AVD-AZU-0015
+#     - AVD-AZU-0015
+#     - content-type-for-secret
+#   long_id: azure-keyvault-content-type-for-secret
 #   provider: azure
 #   service: keyvault
 #   severity: LOW
-#   short_code: content-type-for-secret
 #   recommended_action: Provide content type for secrets to aid interpretation on retrieval
 #   input:
 #     selector:

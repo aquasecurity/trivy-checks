@@ -3,17 +3,21 @@
 # description: "Retain 10 or an appropriate number of old log files."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   avd_id: AVD-KCV-0021
+#   id: KCV-0021
+#   aliases:
+#     - AVD-KCV-0021
+#     - KCV0021
+#     - ensure-audit-log-maxbackup-argument-is-set-to-10-or-as-appropriate
+#   long_id: kubernetes-ensure-audit-log-maxbackup-argument-is-set-to-10-or-as-appropriate
 #   severity: LOW
-#   short_code: ensure-audit-log-maxbackup-argument-is-set-to-10-or-as-appropriate
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --audit-log-maxbackup parameter to 10 or to an appropriate value."
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KCV0021
 
 import rego.v1

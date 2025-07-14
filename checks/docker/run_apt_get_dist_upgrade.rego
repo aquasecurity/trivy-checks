@@ -3,16 +3,20 @@
 # description: "'apt-get dist-upgrade' upgrades a major version so it doesn't make more sense in Dockerfile."
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # custom:
+#   id: DS-0024
+#   aliases:
+#     - AVD-DS-0024
+#     - DS024
+#     - no-dist-upgrade
+#   long_id: docker-no-dist-upgrade
 #   deprecated: true
-#   avd_id: AVD-DS-0024
 #   severity: HIGH
-#   short_code: no-dist-upgrade
 #   recommended_action: "Just use different image"
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/run_apt_get_dist_upgrade.yaml
 package builtin.dockerfile.DS024
 

@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html
 # custom:
+#   id: AWS-0141
 #   aliases:
-#     - aws-iam-no-root-access-keys
-#   avd_id: AVD-AWS-0141
+#     - AVD-AWS-0141
+#     - no-root-access-keys
+#   long_id: aws-iam-no-root-access-keys
 #   provider: aws
 #   service: iam
 #   severity: CRITICAL
-#   short_code: no-root-access-keys
 #   recommended_action: Use lower privileged accounts instead, so only required privileges are available.
 #   frameworks:
 #     default:

@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/EncryptionAtRest.html
 # custom:
+#   id: AWS-0025
 #   aliases:
-#     - aws-dynamodb-table-customer-key
-#   avd_id: AVD-AWS-0025
+#     - AVD-AWS-0025
+#     - table-customer-key
+#   long_id: aws-dynamodb-table-customer-key
 #   provider: aws
 #   service: dynamodb
 #   severity: LOW
-#   short_code: table-customer-key
 #   recommended_action: Enable server side encryption with a customer managed key
 #   input:
 #     selector:

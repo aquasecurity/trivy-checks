@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   id: GCP-0051
 #   aliases:
-#     - google-gke-use-cluster-labels
-#   avd_id: AVD-GCP-0051
+#     - AVD-GCP-0051
+#     - use-cluster-labels
+#   long_id: google-gke-use-cluster-labels
 #   provider: google
 #   service: gke
 #   severity: LOW
-#   short_code: use-cluster-labels
 #   recommended_action: Set cluster resource labels
 #   input:
 #     selector:

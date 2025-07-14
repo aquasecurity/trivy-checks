@@ -9,13 +9,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/redshift/latest/mgmt/managing-clusters-vpc.html
 # custom:
+#   id: AWS-0127
 #   aliases:
-#     - aws-redshift-use-vpc
-#   avd_id: AVD-AWS-0127
+#     - AVD-AWS-0127
+#     - use-vpc
+#   long_id: aws-redshift-use-vpc
 #   provider: aws
 #   service: redshift
 #   severity: HIGH
-#   short_code: use-vpc
 #   recommended_action: Deploy Redshift cluster into a non default VPC
 #   input:
 #     selector:

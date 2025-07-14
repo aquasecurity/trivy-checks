@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html
 # custom:
+#   id: DIG-0007
 #   aliases:
-#     - digitalocean-spaces-versioning-enabled
-#   avd_id: AVD-DIG-0007
+#     - AVD-DIG-0007
+#     - versioning-enabled
+#   long_id: digitalocean-spaces-versioning-enabled
 #   provider: digitalocean
 #   service: spaces
 #   severity: MEDIUM
-#   short_code: versioning-enabled
 #   recommended_action: Enable versioning to protect against accidental or malicious removal or modification
 #   input:
 #     selector:

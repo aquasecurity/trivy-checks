@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://sprocketfox.io/xssfox/2022/02/09/terraformsupply/
 # custom:
+#   id: AWS-0134
 #   aliases:
-#     - aws-ssm-avoid-leaks-via-http
-#   avd_id: AVD-AWS-0134
+#     - AVD-AWS-0134
+#     - avoid-leaks-via-http
+#   long_id: aws-ssm-avoid-leaks-via-http
 #   provider: aws
 #   service: ssm
 #   severity: CRITICAL
-#   short_code: avoid-leaks-via-http
 #   deprecated: true
 #   recommended_action: Remove this potential exfiltration HTTP request.
 #   input:

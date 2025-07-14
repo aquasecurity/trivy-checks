@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://cloud.google.com/sql/docs/mysql/backup-recovery/backups
 # custom:
+#   id: GCP-0024
 #   aliases:
-#     - google-sql-enable-backup
-#   avd_id: AVD-GCP-0024
+#     - AVD-GCP-0024
+#     - enable-backup
+#   long_id: google-sql-enable-backup
 #   provider: google
 #   service: sql
 #   severity: MEDIUM
-#   short_code: enable-backup
 #   recommended_action: Enable automated backups
 #   input:
 #     selector:

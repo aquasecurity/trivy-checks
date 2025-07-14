@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html
 # custom:
+#   id: AWS-0086
 #   aliases:
-#     - aws-s3-block-public-acls
-#   avd_id: AVD-AWS-0086
+#     - AVD-AWS-0086
+#     - block-public-acls
+#   long_id: aws-s3-block-public-acls
 #   provider: aws
 #   service: s3
 #   severity: HIGH
-#   short_code: block-public-acls
 #   recommended_action: Enable blocking any PUT calls with a public ACL specified
 #   input:
 #     selector:

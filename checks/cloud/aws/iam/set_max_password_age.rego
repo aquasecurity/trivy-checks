@@ -10,13 +10,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#password-policy-details
 # custom:
+#   id: AWS-0062
 #   aliases:
-#     - aws-iam-set-max-password-age
-#   avd_id: AVD-AWS-0062
+#     - AVD-AWS-0062
+#     - set-max-password-age
+#   long_id: aws-iam-set-max-password-age
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
-#   short_code: set-max-password-age
 #   recommended_action: Limit the password duration with an expiry in the policy
 #   frameworks:
 #     default:

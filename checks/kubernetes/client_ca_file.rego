@@ -3,17 +3,21 @@
 # description: "Setup TLS connection on the API server."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   avd_id: AVD-KCV-0028
+#   id: KCV-0028
+#   aliases:
+#     - AVD-KCV-0028
+#     - KCV0028
+#     - ensure-client-ca-file-argument-is-set-as-appropriate
+#   long_id: kubernetes-ensure-client-ca-file-argument-is-set-as-appropriate
 #   severity: LOW
-#   short_code: ensure-client-ca-file-argument-is-set-as-appropriate
 #   recommended_action: "Follow the Kubernetes documentation and set up the TLS connection on the apiserver. Then, edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the master node and set the client certificate authority file."
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KCV0028
 
 import rego.v1

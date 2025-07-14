@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/aks/api-server-authorized-ip-ranges
 # custom:
+#   id: AZU-0041
 #   aliases:
-#     - azure-container-limit-authorized-ips
-#   avd_id: AVD-AZU-0041
+#     - AVD-AZU-0041
+#     - limit-authorized-ips
+#   long_id: azure-container-limit-authorized-ips
 #   provider: azure
 #   service: container
 #   severity: CRITICAL
-#   short_code: limit-authorized-ips
 #   recommended_action: Limit the access to the API server to a limited IP range
 #   input:
 #     selector:

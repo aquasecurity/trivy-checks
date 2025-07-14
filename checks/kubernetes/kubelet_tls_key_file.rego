@@ -3,19 +3,23 @@
 # description: "Setup TLS connection on the Kubelets."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   avd_id: AVD-KCV-0089
+#   id: KCV-0089
+#   aliases:
+#     - AVD-KCV-0089
+#     - KCV0089
+#     - ensure-tls-key-file-argument-set-appropriate
+#   long_id: kubernetes-ensure-tls-key-file-argument-set-appropriate
 #   severity: CRITICAL
-#   short_code: ensure-tls-key-file-argument-set-appropriate
 #   recommended_action: "If using a Kubelet config file, edit the file to set tlskeyFile to the location"
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0089
 
 import rego.v1

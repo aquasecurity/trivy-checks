@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html
 # custom:
+#   id: AWS-0131
 #   aliases:
-#     - aws-ec2-enable-at-rest-encryption
-#   avd_id: AVD-AWS-0131
+#     - AVD-AWS-0131
+#     - enable-at-rest-encryption
+#   long_id: aws-ec2-enable-at-rest-encryption
 #   provider: aws
 #   service: ec2
 #   severity: HIGH
-#   short_code: enable-at-rest-encryption
 #   recommended_action: Turn on encryption for all block devices
 #   input:
 #     selector:

@@ -3,27 +3,31 @@
 # description: "According to pod security standard 'Seccomp', the RuntimeDefault seccomp profile must be required, or allow specific additional profiles."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
+#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 # custom:
-#   avd_id: AVD-KSV-0030
+#   id: KSV-0030
+#   aliases:
+#     - AVD-KSV-0030
+#     - KSV030
+#     - use-default-seccomp
+#   long_id: kubernetes-use-default-seccomp
 #   severity: LOW
-#   short_code: use-default-seccomp
 #   recommended_action: "Set 'spec.securityContext.seccompProfile.type', 'spec.containers[*].securityContext.seccompProfile' and 'spec.initContainers[*].securityContext.seccompProfile' to 'RuntimeDefault' or undefined."
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 #   examples: checks/kubernetes/runtime_default_seccomp_profile_not_set.yaml
 package builtin.kubernetes.KSV030
 

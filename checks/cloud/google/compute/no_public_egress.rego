@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://cloud.google.com/vpc/docs/using-firewalls
 # custom:
+#   id: GCP-0035
 #   aliases:
-#     - google-compute-no-public-egress
-#   avd_id: AVD-GCP-0035
+#     - AVD-GCP-0035
+#     - no-public-egress
+#   long_id: google-compute-no-public-egress
 #   provider: google
 #   service: compute
 #   severity: CRITICAL
-#   short_code: no-public-egress
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

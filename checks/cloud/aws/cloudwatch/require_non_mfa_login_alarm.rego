@@ -9,13 +9,14 @@
 # related_resources:
 #   - https://aws.amazon.com/iam/features/mfa/
 # custom:
+#   id: AWS-0148
 #   aliases:
-#     - aws-cloudwatch-require-non-mfa-login-alarm
-#   avd_id: AVD-AWS-0148
+#     - AVD-AWS-0148
+#     - require-non-mfa-login-alarm
+#   long_id: aws-cloudwatch-require-non-mfa-login-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   short_code: require-non-mfa-login-alarm
 #   recommended_action: Create an alarm to alert on non MFA logins
 #   frameworks:
 #     cis-aws-1.2:

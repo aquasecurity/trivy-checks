@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   id: GCP-0061
 #   aliases:
-#     - google-gke-enable-master-networks
-#   avd_id: AVD-GCP-0061
+#     - AVD-GCP-0061
+#     - enable-master-networks
+#   long_id: google-gke-enable-master-networks
 #   provider: google
 #   service: gke
 #   severity: HIGH
-#   short_code: enable-master-networks
 #   recommended_action: Enable master authorized networks
 #   input:
 #     selector:

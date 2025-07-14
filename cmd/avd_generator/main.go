@@ -46,7 +46,7 @@ func writeDocsFile(meta metadata.Metadata, path string) {
 	docpath := filepath.Join(path,
 		strings.ToLower(meta.Provider().ConstName()),
 		strings.ToLower(strings.ReplaceAll(meta.Service(), "-", "")),
-		meta.AVDID(),
+		meta.ID(),
 	)
 
 	if err := os.MkdirAll(docpath, os.ModePerm); err != nil {
@@ -62,7 +62,7 @@ func writeDocsFile(meta metadata.Metadata, path string) {
 		fail("error occurred generating the document %s", err.Error())
 	}
 
-	fmt.Printf("Generating docs file for policy %s\n", meta.AVDID())
+	fmt.Printf("Generating docs file for policy %s\n", meta.ID())
 
 	exmpls, path, err := examples.GetCheckExamples(meta)
 	if err != nil {
@@ -115,7 +115,7 @@ func generateProviderExamplesDocs(
 	if err := tmpl.Execute(file, data); err != nil {
 		return fmt.Errorf("execute template: %w", err)
 	}
-	fmt.Printf("Generating %s file for policy %s\n", provider, meta.AVDID())
+	fmt.Printf("Generating %s file for policy %s\n", provider, meta.ID())
 
 	return nil
 }
@@ -126,15 +126,15 @@ func fail(msg string, args ...interface{}) {
 }
 
 var docsMarkdownTemplate = `
-{{ .description }}
+{{ .Description }}
 
 ### Impact
-{{ if .impact }}{{ .impact }}{{ else }}<!-- Add Impact here -->{{ end }}
+{{ if .Custom.impact }}{{ .Custom.impact }}{{ else }}<!-- Add Impact here -->{{ end }}
 
 <!-- DO NOT CHANGE -->
 {{ ` + "`{{ " + `remediationActions ` + "`}}" + `}}
 
-{{ if .links }}### Links{{ range .links }}
+{{ if .Links }}### Links{{ range .Links }}
 - {{ . }}
 {{ end}}
 {{ end }}
@@ -146,7 +146,7 @@ var templates = map[string]string{
 }
 
 var terraformMarkdownTemplate = `
-{{ .Metadata.recommended_action }}
+{{ .Metadata.Custom.recommended_action }}
 
 {{ if .Examples.Good }}{{ range .Examples.Good }}` + "```hcl" + `
 {{ . }}
@@ -158,7 +158,7 @@ var terraformMarkdownTemplate = `
 `
 
 var cloudformationMarkdownTemplate = `
-{{ .Metadata.recommended_action }}
+{{ .Metadata.Custom.recommended_action }}
 
 {{ if .Examples.Good }}{{ range .Examples.Good }}` + "```yaml" + `
 {{ . }}

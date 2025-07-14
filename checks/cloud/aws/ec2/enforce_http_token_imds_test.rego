@@ -20,7 +20,7 @@ test_deny_instance_without_tokens if {
 		"httpendpoint": {"value": "enabled"},
 	})
 
-	test.assert_equal_message("Instance does not require IMDS access to require a token", check.deny) with input as inp
+	test.assert_equal_message("Instance does not require IMDS access to require a token.", check.deny) with input as inp
 }
 
 test_allow_instance_with_endpoint_disabled if {

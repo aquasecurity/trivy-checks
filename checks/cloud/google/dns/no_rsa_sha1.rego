@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   id: GCP-0012
 #   aliases:
-#     - google-dns-no-rsa-sha1
-#   avd_id: AVD-GCP-0012
+#     - AVD-GCP-0012
+#     - no-rsa-sha1
+#   long_id: google-dns-no-rsa-sha1
 #   provider: google
 #   service: dns
 #   severity: MEDIUM
-#   short_code: no-rsa-sha1
 #   recommended_action: Use RSA SHA512
 #   input:
 #     selector:

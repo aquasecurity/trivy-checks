@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-simpletable.html#sam-simpletable-ssespecification
 # custom:
+#   id: AWS-0121
 #   aliases:
-#     - aws-sam-enable-table-encryption
-#   avd_id: AVD-AWS-0121
+#     - AVD-AWS-0121
+#     - enable-table-encryption
+#   long_id: aws-sam-enable-table-encryption
 #   provider: aws
 #   service: sam
 #   severity: HIGH
-#   short_code: enable-table-encryption
 #   recommended_action: Enable server side encryption
 #   input:
 #     selector:

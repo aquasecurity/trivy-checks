@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://cloud.google.com/security/shielded-cloud/shielded-vm#secure-boot
 # custom:
+#   id: GCP-0067
 #   aliases:
-#     - google-compute-enable-shielded-vm-sb
-#   avd_id: AVD-GCP-0067
+#     - AVD-GCP-0067
+#     - enable-shielded-vm-sb
+#   long_id: google-compute-enable-shielded-vm-sb
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
-#   short_code: enable-shielded-vm-sb
 #   recommended_action: Enable Shielded VM secure boot
 #   input:
 #     selector:

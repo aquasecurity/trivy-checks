@@ -3,17 +3,21 @@
 # description: "Avoid using both 'wget' and 'curl' since these tools have the same effect."
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#run
+#   - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#run
 # custom:
-#   avd_id: AVD-DS-0014
+#   id: DS-0014
+#   aliases:
+#     - AVD-DS-0014
+#     - DS014
+#     - standardise-remote-get
+#   long_id: docker-standardise-remote-get
 #   severity: LOW
-#   short_code: standardise-remote-get
 #   recommended_action: "Pick one util, either 'wget' or 'curl'"
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/run_using_wget_and_curl.yaml
 package builtin.dockerfile.DS014
 

@@ -9,13 +9,14 @@
 # related_resources:
 #   - https://aws.amazon.com/iam/features/mfa/
 # custom:
+#   id: AWS-0149
 #   aliases:
-#     - aws-cloudwatch-require-root-user-usage-alarm
-#   avd_id: AVD-AWS-0149
+#     - AVD-AWS-0149
+#     - require-root-user-usage-alarm
+#   long_id: aws-cloudwatch-require-root-user-usage-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
-#   short_code: require-root-user-usage-alarm
 #   recommended_action: Create an alarm to alert on root user login
 #   frameworks:
 #     cis-aws-1.2:

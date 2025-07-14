@@ -10,13 +10,14 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/guide/dns/zone_new.htm
 # custom:
+#   id: NIF-0007
 #   aliases:
-#     - nifcloud-dns-remove-verified-record
-#   avd_id: AVD-NIF-0007
+#     - AVD-NIF-0007
+#     - remove-verified-record
+#   long_id: nifcloud-dns-remove-verified-record
 #   provider: nifcloud
 #   service: dns
 #   severity: CRITICAL
-#   short_code: remove-verified-record
 #   recommended_action: Remove verified record
 #   input:
 #     selector:

@@ -8,14 +8,15 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html
 # custom:
-#   avd_id: AVD-AWS-0008
+#   id: AWS-0008
 #   aliases:
+#     - AVD-AWS-0008
 #     - aws-autoscaling-enable-at-rest-encryption
-#     - aws-ec2-enable-launch-config-at-rest-encryption
+#     - enable-launch-config-at-rest-encryption
+#   long_id: aws-ec2-enable-launch-config-at-rest-encryption
 #   provider: aws
 #   service: ec2
 #   severity: HIGH
-#   short_code: enable-launch-config-at-rest-encryption
 #   recommended_action: Turn on encryption for all block devices
 #   input:
 #     selector:

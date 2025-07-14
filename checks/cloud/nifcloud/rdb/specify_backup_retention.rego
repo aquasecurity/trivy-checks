@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/spec/rdb/snapshot_backup.htm
 # custom:
+#   id: NIF-0009
 #   aliases:
-#     - nifcloud-rdb-specify-backup-retention
-#   avd_id: AVD-NIF-0009
+#     - AVD-NIF-0009
+#     - specify-backup-retention
+#   long_id: nifcloud-rdb-specify-backup-retention
 #   provider: nifcloud
 #   service: rdb
 #   severity: MEDIUM
-#   short_code: specify-backup-retention
 #   recommended_action: Explicitly set the retention period to greater than the default
 #   input:
 #     selector:

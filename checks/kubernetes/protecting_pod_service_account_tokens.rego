@@ -3,17 +3,21 @@
 # description: "ensure that Pod specifications disable the secret token being mounted by setting automountServiceAccountToken: false"
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/#serviceaccount-admission-controller
+#   - https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/#serviceaccount-admission-controller
 # custom:
-#   avd_id: AVD-KSV-0036
+#   id: KSV-0036
+#   aliases:
+#     - AVD-KSV-0036
+#     - KSV036
+#     - no-auto-mount-service-token
+#   long_id: kubernetes-no-auto-mount-service-token
 #   severity: MEDIUM
-#   short_code: no-auto-mount-service-token
 #   recommended_action: "Disable the mounting of service account secret token by setting automountServiceAccountToken to false"
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 #   examples: checks/kubernetes/protecting_pod_service_account_tokens.yaml
 package builtin.kubernetes.KSV036
 

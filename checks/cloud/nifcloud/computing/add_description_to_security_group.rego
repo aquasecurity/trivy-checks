@@ -10,13 +10,15 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/help/fw/change.htm
 # custom:
-#   avd_id: AVD-NIF-0002
+#   id: NIF-0002
 #   aliases:
+#     - AVD-NIF-0002
 #     - nifcloud-computing-add-description-to-security-group
+#     - add-description-to-security-group
+#   long_id: nifcloud-computing-add-description-to-security-group
 #   provider: nifcloud
 #   service: computing
 #   severity: LOW
-#   short_code: add-description-to-security-group
 #   recommended_action: Add descriptions for all security groups
 #   input:
 #     selector:

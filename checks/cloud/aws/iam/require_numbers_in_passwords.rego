@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#password-policy-details
 # custom:
+#   id: AWS-0059
 #   aliases:
-#     - aws-iam-require-numbers-in-passwords
-#   avd_id: AVD-AWS-0059
+#     - AVD-AWS-0059
+#     - require-numbers-in-passwords
+#   long_id: aws-iam-require-numbers-in-passwords
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
-#   short_code: require-numbers-in-passwords
 #   recommended_action: Enforce longer, more complex passwords in the policy
 #   frameworks:
 #     default:

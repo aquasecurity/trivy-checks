@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   id: AWS-0003
 #   aliases:
-#     - aws-apigateway-enable-tracing
-#   avd_id: AVD-AWS-0003
+#     - AVD-AWS-0003
+#     - enable-tracing
+#   long_id: aws-apigateway-enable-tracing
 #   provider: aws
 #   service: apigateway
 #   severity: LOW
-#   short_code: enable-tracing
 #   recommended_action: Enable tracing
 #   input:
 #     selector:

@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/dev-retired/access-control-block-public-access.html
 # custom:
+#   id: AWS-0093
 #   aliases:
-#     - aws-s3-no-public-buckets
-#   avd_id: AVD-AWS-0093
+#     - AVD-AWS-0093
+#     - no-public-buckets
+#   long_id: aws-s3-no-public-buckets
 #   provider: aws
 #   service: s3
 #   severity: HIGH
-#   short_code: no-public-buckets
 #   recommended_action: Limit the access to public buckets to only the owner or AWS Services (eg; CloudFront)
 #   input:
 #     selector:

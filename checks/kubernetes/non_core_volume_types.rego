@@ -3,27 +3,31 @@
 # description: "According to pod security standard 'Volume types', non-core volume types must not be used."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
+#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 # custom:
-#   avd_id: AVD-KSV-0028
+#   id: KSV-0028
+#   aliases:
+#     - AVD-KSV-0028
+#     - KSV028
+#     - no-non-ephemeral-volumes
+#   long_id: kubernetes-no-non-ephemeral-volumes
 #   severity: LOW
-#   short_code: no-non-ephemeral-volumes
 #   recommended_action: "Do not Set 'spec.volumes[*]' to any of the disallowed volume types."
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 #   examples: checks/kubernetes/non_core_volume_types.yaml
 package builtin.kubernetes.KSV028
 

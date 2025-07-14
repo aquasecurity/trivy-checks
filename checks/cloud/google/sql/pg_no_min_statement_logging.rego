@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT
 # custom:
+#   id: GCP-0021
 #   aliases:
-#     - google-sql-pg-no-min-statement-logging
-#   avd_id: AVD-GCP-0021
+#     - AVD-GCP-0021
+#     - pg-no-min-statement-logging
+#   long_id: google-sql-pg-no-min-statement-logging
 #   provider: google
 #   service: sql
 #   severity: LOW
-#   short_code: pg-no-min-statement-logging
 #   recommended_action: Disable minimum duration statement logging completely
 #   input:
 #     selector:

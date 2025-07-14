@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://dev.mysql.com/doc/refman/8.0/en/load-data-local-security.html
 # custom:
+#   id: GCP-0026
 #   aliases:
-#     - google-sql-mysql-no-local-infile
-#   avd_id: AVD-GCP-0026
+#     - AVD-GCP-0026
+#     - mysql-no-local-infile
+#   long_id: google-sql-mysql-no-local-infile
 #   provider: google
 #   service: sql
 #   severity: HIGH
-#   short_code: mysql-no-local-infile
 #   recommended_action: Disable the local infile setting
 #   input:
 #     selector:

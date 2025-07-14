@@ -10,13 +10,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#password-policy-details
 # custom:
+#   id: AWS-0056
 #   aliases:
-#     - aws-iam-no-password-reuse
-#   avd_id: AVD-AWS-0056
+#     - AVD-AWS-0056
+#     - no-password-reuse
+#   long_id: aws-iam-no-password-reuse
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
-#   short_code: no-password-reuse
 #   recommended_action: Prevent password reuse in the policy
 #   frameworks:
 #     default:

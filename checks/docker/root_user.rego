@@ -3,17 +3,21 @@
 # description: "Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile."
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+#   - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 # custom:
-#   avd_id: AVD-DS-0002
+#   id: DS-0002
+#   aliases:
+#     - AVD-DS-0002
+#     - DS002
+#     - least-privilege-user
+#   long_id: docker-least-privilege-user
 #   severity: HIGH
-#   short_code: least-privilege-user
 #   recommended_action: "Add 'USER <non root user name>' line to the Dockerfile"
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/root_user.yaml
 package builtin.dockerfile.DS002
 
@@ -36,7 +40,7 @@ fail_user_count if {
 # fail_last_user_root is true if the last USER command
 # value is "root"
 fail_last_user_root contains lastUser if {
-	users := [user | user := docker.user[_]; true]
+	users := [user | user := docker.user[_]]
 	lastUser := users[count(users) - 1]
 	regex.match("^root(:.+){0,1}$", lastUser.Value[0])
 }
@@ -44,7 +48,7 @@ fail_last_user_root contains lastUser if {
 # fail_last_user_root is true if the last USER command
 # value is "0"
 fail_last_user_root contains lastUser if {
-	users := [user | user := docker.user[_]; true]
+	users := [user | user := docker.user[_]]
 	lastUser := users[count(users) - 1]
 	regex.match("^0(:.+){0,1}$", lastUser.Value[0])
 }

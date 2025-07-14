@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.digitalocean.com/reference/api/spaces-api/#access-control-lists-acls
 # custom:
+#   id: DIG-0006
 #   aliases:
-#     - digitalocean-spaces-acl-no-public-read
-#   avd_id: AVD-DIG-0006
+#     - AVD-DIG-0006
+#     - acl-no-public-read
+#   long_id: digitalocean-spaces-acl-no-public-read
 #   provider: digitalocean
 #   service: spaces
 #   severity: CRITICAL
-#   short_code: acl-no-public-read
 #   recommended_action: Apply a more restrictive ACL
 #   input:
 #     selector:

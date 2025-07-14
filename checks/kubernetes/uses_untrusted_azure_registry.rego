@@ -3,26 +3,30 @@
 # description: "Containers should only use images from trusted registries."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # custom:
-#   avd_id: AVD-KSV-0032
+#   id: KSV-0032
+#   aliases:
+#     - AVD-KSV-0032
+#     - KSV032
+#     - use-azure-image-prefix
+#   long_id: kubernetes-use-azure-image-prefix
 #   severity: MEDIUM
-#   short_code: use-azure-image-prefix
 #   recommended_action: "Use images from trusted Azure registries."
 #   deprecated: true
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 package builtin.kubernetes.KSV032
 
 import rego.v1

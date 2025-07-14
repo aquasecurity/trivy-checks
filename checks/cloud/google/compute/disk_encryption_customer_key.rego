@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   id: GCP-0034
 #   aliases:
-#     - google-compute-disk-encryption-customer-key
-#   avd_id: AVD-GCP-0034
+#     - AVD-GCP-0034
+#     - disk-encryption-customer-key
+#   long_id: google-compute-disk-encryption-customer-key
 #   provider: google
 #   service: compute
 #   severity: LOW
-#   short_code: disk-encryption-customer-key
 #   recommended_action: Use managed keys to encrypt disks.
 #   input:
 #     selector:

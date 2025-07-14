@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   id: GCP-0054
 #   aliases:
-#     - google-gke-node-pool-uses-cos
-#   avd_id: AVD-GCP-0054
+#     - AVD-GCP-0054
+#     - node-pool-uses-cos
+#   long_id: google-gke-node-pool-uses-cos
 #   provider: google
 #   service: gke
 #   severity: LOW
-#   short_code: node-pool-uses-cos
 #   recommended_action: Use the COS image type
 #   input:
 #     selector:

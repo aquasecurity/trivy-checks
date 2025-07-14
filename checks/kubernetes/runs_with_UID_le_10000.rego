@@ -3,27 +3,31 @@
 # description: "Force the container to run with user ID > 10000 to avoid conflicts with the host’s user table."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubesec.io/basics/containers-securitycontext-runasuser/
+#   - https://kubesec.io/basics/containers-securitycontext-runasuser/
 # custom:
-#   avd_id: AVD-KSV-0020
+#   id: KSV-0020
+#   aliases:
+#     - AVD-KSV-0020
+#     - KSV020
+#     - use-high-uid
+#   long_id: kubernetes-use-high-uid
 #   severity: LOW
-#   short_code: use-high-uid
 #   recommended_action: "Set 'containers[].securityContext.runAsUser' to an integer > 10000."
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 package builtin.kubernetes.KSV020
 
 import rego.v1

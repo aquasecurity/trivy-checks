@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   id: CLDSTK-0001
 #   aliases:
-#     - cloudstack-compute-no-sensitive-info
-#   avd_id: AVD-CLDSTK-0001
+#     - AVD-CLDSTK-0001
+#     - no-sensitive-info
+#   long_id: cloudstack-compute-no-sensitive-info
 #   provider: cloudstack
 #   service: compute
 #   severity: HIGH
-#   short_code: no-sensitive-info
 #   recommended_action: Don't use sensitive data in the user data section
 #   input:
 #     selector:

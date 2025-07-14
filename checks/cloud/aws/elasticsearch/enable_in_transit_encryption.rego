@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/ntn.html
 # custom:
+#   id: AWS-0043
 #   aliases:
-#     - aws-elasticsearch-enable-in-transit-encryption
-#   avd_id: AVD-AWS-0043
+#     - AVD-AWS-0043
+#     - enable-in-transit-encryption
+#   long_id: aws-elasticsearch-enable-in-transit-encryption
 #   provider: aws
 #   service: elasticsearch
 #   severity: HIGH
-#   short_code: enable-in-transit-encryption
 #   recommended_action: Enable encrypted node to node communication
 #   input:
 #     selector:

@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   id: GCP-0039
 #   aliases:
-#     - google-compute-use-secure-tls-policy
-#   avd_id: AVD-GCP-0039
+#     - AVD-GCP-0039
+#     - use-secure-tls-policy
+#   long_id: google-compute-use-secure-tls-policy
 #   provider: google
 #   service: compute
 #   severity: CRITICAL
-#   short_code: use-secure-tls-policy
 #   recommended_action: Enforce a minimum TLS version of 1.2
 #   input:
 #     selector:

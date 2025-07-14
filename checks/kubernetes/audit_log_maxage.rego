@@ -3,17 +3,21 @@
 # description: "Retain the logs for at least 30 days or as appropriate."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   avd_id: AVD-KCV-0020
+#   id: KCV-0020
+#   aliases:
+#     - AVD-KCV-0020
+#     - KCV0020
+#     - ensure-audit-log-maxage-argument-is-set-to-30-or-as-appropriate
+#   long_id: kubernetes-ensure-audit-log-maxage-argument-is-set-to-30-or-as-appropriate
 #   severity: LOW
-#   short_code: ensure-audit-log-maxage-argument-is-set-to-30-or-as-appropriate
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --audit-log-maxage parameter to 30 or as an appropriate number of days."
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KCV0020
 
 import rego.v1

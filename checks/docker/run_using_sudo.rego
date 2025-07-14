@@ -3,17 +3,21 @@
 # description: "Avoid using 'RUN' with 'sudo' commands, as it can lead to unpredictable behavior."
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/engine/reference/builder/#run
+#   - https://docs.docker.com/engine/reference/builder/#run
 # custom:
-#   avd_id: AVD-DS-0010
+#   id: DS-0010
+#   aliases:
+#     - AVD-DS-0010
+#     - DS010
+#     - no-sudo-run
+#   long_id: docker-no-sudo-run
 #   severity: CRITICAL
-#   short_code: no-sudo-run
 #   recommended_action: "Don't use sudo"
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/run_using_sudo.yaml
 package builtin.dockerfile.DS010
 

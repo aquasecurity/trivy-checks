@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   id: OPNSTK-0002
 #   aliases:
-#     - openstack-compute-no-public-access
-#   avd_id: AVD-OPNSTK-0002
+#     - AVD-OPNSTK-0002
+#     - no-public-access
+#   long_id: openstack-compute-no-public-access
 #   provider: openstack
 #   service: compute
 #   severity: MEDIUM
-#   short_code: no-public-access
 #   recommended_action: Employ more restrictive firewall rules
 #   input:
 #     selector:

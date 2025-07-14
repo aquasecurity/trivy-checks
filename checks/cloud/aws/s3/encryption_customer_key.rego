@@ -9,13 +9,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html
 # custom:
+#   id: AWS-0132
 #   aliases:
-#     - aws-s3-encryption-customer-key
-#   avd_id: AVD-AWS-0132
+#     - AVD-AWS-0132
+#     - encryption-customer-key
+#   long_id: aws-s3-encryption-customer-key
 #   provider: aws
 #   service: s3
 #   severity: HIGH
-#   short_code: encryption-customer-key
 #   recommended_action: Use SSE-KMS with a customer managed key (CMK)
 #   input:
 #     selector:

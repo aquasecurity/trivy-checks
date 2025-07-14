@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/in-transit-encryption.html
 # custom:
+#   id: AWS-0051
 #   aliases:
-#     - aws-elasticache-enable-in-transit-encryption
-#   avd_id: AVD-AWS-0051
+#     - AVD-AWS-0051
+#     - enable-in-transit-encryption
+#   long_id: aws-elasticache-enable-in-transit-encryption
 #   provider: aws
 #   service: elasticache
 #   severity: HIGH
-#   short_code: enable-in-transit-encryption
 #   recommended_action: Enable in transit encryption for replication group
 #   input:
 #     selector:

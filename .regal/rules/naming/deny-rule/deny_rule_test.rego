@@ -2,6 +2,7 @@ package custom.regal.rules.naming["deny-rule_test"]
 
 import rego.v1
 
+import data.custom.regal.rules.assert
 import data.custom.regal.rules.naming["deny-rule"] as rule
 
 test_rule_named_startswith_not_allowed if {
@@ -12,7 +13,7 @@ test_rule_named_startswith_not_allowed if {
 
 	r := rule.report with input as module
 
-	r == {{
+	expected := {{
 		"category": "naming",
 		"description": "Ensures that no rules in the check are named with the prefix 'deny_'",
 		"related_resources": [{
@@ -32,4 +33,5 @@ test_rule_named_startswith_not_allowed if {
 		},
 		"title": "deny-rule",
 	}}
+	assert.eq(expected, r)
 }

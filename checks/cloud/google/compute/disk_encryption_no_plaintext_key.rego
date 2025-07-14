@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://cloud.google.com/compute/docs/disks/customer-supplied-encryption
 # custom:
+#   id: GCP-0037
 #   aliases:
-#     - google-compute-disk-encryption-no-plaintext-key
-#   avd_id: AVD-GCP-0037
+#     - AVD-GCP-0037
+#     - disk-encryption-no-plaintext-key
+#   long_id: google-compute-disk-encryption-no-plaintext-key
 #   provider: google
 #   service: compute
 #   severity: CRITICAL
-#   short_code: disk-encryption-no-plaintext-key
 #   recommended_action: Reference a managed key rather than include the key in raw format.
 #   input:
 #     selector:

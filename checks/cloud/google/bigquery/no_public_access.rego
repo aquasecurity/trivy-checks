@@ -6,13 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
+#   id: GCP-0046
 #   aliases:
-#     - google-bigquery-no-public-access
-#   avd_id: AVD-GCP-0046
+#     - AVD-GCP-0046
+#     - no-public-access
+#   long_id: google-bigquery-no-public-access
 #   provider: google
 #   service: bigquery
 #   severity: CRITICAL
-#   short_code: no-public-access
 #   recommended_action: Configure access permissions with higher granularity
 #   input:
 #     selector:

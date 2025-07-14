@@ -3,27 +3,31 @@
 # description: "Mounting docker.sock from the host can give the container full root access to the host."
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubesec.io/basics/spec-volumes-hostpath-path-var-run-docker-sock/
+#   - https://kubesec.io/basics/spec-volumes-hostpath-path-var-run-docker-sock/
 # custom:
-#   avd_id: AVD-KSV-0006
+#   id: KSV-0006
+#   aliases:
+#     - AVD-KSV-0006
+#     - KSV006
+#     - no-docker-sock-mount
+#   long_id: kubernetes-no-docker-sock-mount
 #   severity: HIGH
-#   short_code: no-docker-sock-mount
 #   recommended_action: "Do not specify /var/run/docker.socket in 'spec.template.volumes.hostPath.path'."
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 package builtin.kubernetes.KSV006
 
 import rego.v1

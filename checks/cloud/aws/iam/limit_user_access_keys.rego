@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://console.aws.amazon.com/iam/
 # custom:
+#   id: AWS-0167
 #   aliases:
-#     - aws-iam-limit-user-access-keys
-#   avd_id: AVD-AWS-0167
+#     - AVD-AWS-0167
+#     - limit-user-access-keys
+#   long_id: aws-iam-limit-user-access-keys
 #   provider: aws
 #   service: iam
 #   severity: LOW
-#   short_code: limit-user-access-keys
 #   recommended_action: Limit the number of active access keys to one key per user.
 #   frameworks:
 #     cis-aws-1.4:

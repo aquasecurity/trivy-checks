@@ -8,13 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html
 # custom:
+#   id: AWS-0001
 #   aliases:
-#     - aws-apigateway-enable-access-logging
-#   avd_id: AVD-AWS-0001
+#     - AVD-AWS-0001
+#     - enable-access-logging
+#   long_id: aws-apigateway-enable-access-logging
 #   provider: aws
 #   service: apigateway
 #   severity: MEDIUM
-#   short_code: enable-access-logging
 #   recommended_action: Enable logging for API Gateway stages
 #   input:
 #     selector:

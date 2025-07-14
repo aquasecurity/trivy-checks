@@ -13,7 +13,7 @@ spec:
       name: Ensure a user for the container has been created
       description: 'Create a non-root user for the container in the Dockerfile for the container image.'
       checks:
-        - id: AVD-DS-0002
+        - id: DS-0002
       severity: 'HIGH'
     - id: '4.2'
       name: Ensure that containers use only trusted base images (Manual)
@@ -40,13 +40,13 @@ spec:
       name: Ensure HEALTHCHECK instructions have been added to the container image
       description: 'Add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.'
       checks:
-        - id: AVD-DS-0026
+        - id: DS-0026
       severity: 'LOW'
     - id: '4.7'
       name: Ensure update instructions are not used alone in the Dockerfile
       description: 'Do not use update instructions such as apt-get update alone or in a single line in the Dockerfile.'
       checks:
-        - id: AVD-DS-0017
+        - id: DS-0017
       severity: 'HIGH'
     - id: '4.8'
       name: Ensure setuid and setgid permissions are removed in the images (Manual)
@@ -57,7 +57,7 @@ spec:
       name: Ensure COPY is used instead of ADD
       description: 'Use COPY instruction instead of ADD instruction in the Dockerfile.'
       checks:
-        - id: AVD-DS-0005
+        - id: DS-0005
       severity: 'LOW'
     - id: '4.10'
       name: Ensure secrets are not stored in Dockerfiles
