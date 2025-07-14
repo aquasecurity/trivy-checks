@@ -6,7 +6,7 @@ import data.builtin.aws.iam.aws0060 as check
 import data.lib.test
 
 test_allow_policy_require_symbols_in_passwords if {
-	test.assert_empty(check.deny) with input.aws.iam.passwordpolicy.requiresymbols.value as true
+	test.assert_empty(check.deny) with input as {"aws": {"iam": {"passwordpolicy": {"requiresymbols": {"value": true}}}}}
 }
 
 test_disallow_policy_no_require_symbols_in_passwords if {
