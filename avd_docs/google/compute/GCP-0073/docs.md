@@ -12,4 +12,6 @@ The default network comes with pre-populated firewall rules that allow broad acc
 ### Links
 - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall
 
+- https://cloud.google.com/firewall/docs/firewalls#more_rules_default_vpc
+
 
