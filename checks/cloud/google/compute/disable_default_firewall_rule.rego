@@ -8,6 +8,7 @@
 #   - input: schema["cloud"]
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall
+#   - https://cloud.google.com/firewall/docs/firewalls#more_rules_default_vpc
 # custom:
 #   id: GCP-0073
 #   aliases:
