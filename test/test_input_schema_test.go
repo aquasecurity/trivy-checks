@@ -23,7 +23,7 @@ import (
 	_ "github.com/aquasecurity/trivy/pkg/iac/rego" // register Built-in Functions from Trivy
 )
 
-func TestTestInputsConformToSchema(t *testing.T) {
+func TestInputsConformToSchema(t *testing.T) {
 	modules := collectModules(t)
 	queries := buildEvalInputRules(t, modules)
 
