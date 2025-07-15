@@ -56,6 +56,7 @@ func TestTestInputsConformToSchema(t *testing.T) {
 }
 
 func collectModules(t *testing.T) map[string]*ast.Module {
+	t.Helper()
 	res1, err := loadModules(trivy_checks.EmbeddedPolicyFileSystem)
 	require.NoError(t, err)
 
@@ -69,6 +70,7 @@ func collectModules(t *testing.T) map[string]*ast.Module {
 }
 
 func buildEvalInputRules(t *testing.T, modules map[string]*ast.Module) map[string]string {
+	t.Helper()
 	queries := make(map[string]string)
 
 	for path, module := range modules {
@@ -105,6 +107,7 @@ func isTestRule(r *ast.Rule) bool {
 }
 
 func compileModules(t *testing.T, modules map[string]*ast.Module) *ast.Compiler {
+	t.Helper()
 	c := ast.NewCompiler()
 	c.Compile(modules)
 	require.Empty(t, c.Errors)
@@ -112,6 +115,7 @@ func compileModules(t *testing.T, modules map[string]*ast.Module) *ast.Compiler 
 }
 
 func loadSchemaLoaders(t *testing.T) map[string]gojsonschema.JSONLoader {
+	t.Helper()
 	load := func(filename string) gojsonschema.JSONLoader {
 		bytes, err := os.ReadFile(filepath.Join("..", "schemas", filename))
 		require.NoError(t, err)
