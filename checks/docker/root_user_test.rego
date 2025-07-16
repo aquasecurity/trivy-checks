@@ -43,7 +43,7 @@ test_no_user_cmd_denied if {
 		"Name": "alpine:3.13",
 		"Commands": [{
 			"Cmd": "expose",
-			"Value": [22],
+			"Value": ["22"],
 			"StartLine": 1,
 			"Stage": 1,
 		}],

@@ -14,7 +14,8 @@ test_deny_rsa_sha1 if {
 test_allow_rsa_sha512 if {
 	inp := build_input({"algorithm": {"value": "rsasha512"}})
 
-	check.deny with input as inp == set()
+	res := check.deny with input as inp
+	res == set()
 }
 
 build_input(key_spec) := {"google": {"dns": {"managedzones": [{"dnssec": {"defaultkeyspecs": [key_spec]}}]}}}

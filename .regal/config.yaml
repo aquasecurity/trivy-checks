@@ -41,3 +41,6 @@ rules:
       level: error
     sprintf-arguments-mismatch:
       level: error
+  testing:
+    identically-named-tests:
+      level: error

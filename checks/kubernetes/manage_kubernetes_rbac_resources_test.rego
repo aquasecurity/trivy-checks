@@ -20,7 +20,7 @@ test_manage_K8s_RBAC_resources_create if {
 	count(r) > 0
 }
 
-test_manage_K8s_RBAC_resources_create if {
+test_manage_K8s_RBAC_resources_create_2 if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -74,7 +74,7 @@ test_manage_K8s_RBAC_resources_deletecollection if {
 	count(r) > 0
 }
 
-test_manage_K8s_RBAC_resources_deletecollection if {
+test_manage_K8s_RBAC_resources_deletecollection_2 if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",
@@ -110,7 +110,7 @@ test_manage_K8s_RBAC_resources_all if {
 	count(r) > 0
 }
 
-test_manage_K8s_RBAC_resources_all if {
+test_manage_K8s_RBAC_resources_all_2 if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",

@@ -31,7 +31,7 @@ test_deny_ingress_sq_all_ips_for_ssh_port_and_uppercase_tcp if {
 
 test_deny_ingress_sq_all_ips_for_ssh_port_and_int_tcp if {
 	inp := build_input({
-		"protocol": {"value": 6},
+		"protocol": {"value": "6"},
 		"cidrs": [{"value": "0.0.0.0/0"}],
 		"fromport": {"value": net.ssh_port},
 		"toport": {"value": net.ssh_port},

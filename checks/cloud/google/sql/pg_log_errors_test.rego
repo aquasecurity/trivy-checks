@@ -20,7 +20,8 @@ test_allow_minimum_log_level_is_error if {
 		"settings": {"flags": {"logminmessages": {"value": "ERROR"}}},
 	})
 
-	check.deny with input as inp == set()
+	res := check.deny with input as inp
+	res == set()
 }
 
 test_allow_minimum_log_level_is_not_error_for_non_postgres if {
@@ -29,7 +30,8 @@ test_allow_minimum_log_level_is_not_error_for_non_postgres if {
 		"settings": {"flags": {"logminmessages": {"value": "PANIC"}}},
 	})
 
-	check.deny with input as inp == set()
+	res := check.deny with input as inp
+	res == set()
 }
 
 build_input(instance) := {"google": {"sql": {"instances": [instance]}}}

@@ -14,5 +14,6 @@ test_deny_public_access if {
 test_allow_no_public_access if {
 	inp := {"google": {"bigquery": {"datasets": [{"accessgrants": [{"specialgroup": {"value": "anotherGroup"}}]}]}}}
 
-	check.deny with input as inp == set()
+	res := check.deny with input as inp
+	res == set()
 }
