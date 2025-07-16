@@ -3,22 +3,19 @@
 # description: "Do not bind the scheduler service to non-loopback insecure addresses."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://www.cisecurity.org/benchmark/kubernetes
+# - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV-0039
-#   aliases:
-#     - AVD-KCV-0039
-#     - KCV0039
-#     - ensure-controller-manager-bind-address-is-loopback
-#   long_id: kubernetes-ensure-controller-manager-bind-address-is-loopback
+#   id: KCV0041
+#   avd_id: AVD-KCV-0041
 #   severity: LOW
-#   recommended_action: "Edit the Controller Manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml on the Control Plane node and ensure the correct value for the --bind-address parameter"
+#   short_code: ensure-scheduler-bind-address-is-loopback
+#   recommended_action: "Edit the Scheduler pod specification file /etc/kubernetes/manifests/kube-scheduler.yaml on the Control Plane node and ensure the correct value for the --bind-address parameter."
 #   input:
 #     selector:
-#       - type: kubernetes
-package builtin.kubernetes.KCV0039
+#     - type: kubernetes
+package builtin.kubernetes.KCV0041
 
 import rego.v1
 
@@ -34,7 +31,7 @@ checkFlag(container) if {
 
 deny contains res if {
 	container := kubernetes.containers[_]
-	kubernetes.is_controllermanager(container)
+	kubernetes.is_scheduler(container)
 	not checkFlag(container)
 	msg := "Ensure that the --bind-address argument is set to 127.0.0.1"
 	res := result.new(msg, container)

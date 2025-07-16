@@ -1,4 +1,4 @@
-package builtin.kubernetes.KCV0039
+package builtin.kubernetes.KCV0041
 
 import rego.v1
 
@@ -7,14 +7,14 @@ test_bind_address_is_set_to_localhost_ip if {
 		"apiVersion": "v1",
 		"kind": "Pod",
 		"metadata": {
-			"name": "controller-manager",
+			"name": "scheduler",
 			"labels": {
-				"component": "kube-controller-manager",
+				"component": "kube-scheduler",
 				"tier": "control-plane",
 			},
 		},
 		"spec": {"containers": [{
-			"command": ["kube-controller-manager", "--bind-address=127.0.0.1"],
+			"command": ["kube-scheduler", "--authentication-kubeconfig=<path/to/file>", "--bind-address=127.0.0.1"],
 			"image": "busybox",
 			"name": "hello",
 		}]},
@@ -28,15 +28,15 @@ test_bind_address_is_set_to_localhost_ip_args if {
 		"apiVersion": "v1",
 		"kind": "Pod",
 		"metadata": {
-			"name": "controller-manager",
+			"name": "scheduler",
 			"labels": {
-				"component": "kube-controller-manager",
+				"component": "kube-scheduler",
 				"tier": "control-plane",
 			},
 		},
 		"spec": {"containers": [{
-			"command": ["kube-controller-manager"],
-			"args": ["--bind-address=127.0.0.1"],
+			"command": ["kube-scheduler"],
+			"args": ["--authentication-kubeconfig=<path/to/file>", "--bind-address=127.0.0.1"],
 			"image": "busybox",
 			"name": "hello",
 		}]},
@@ -50,14 +50,14 @@ test_bind_address_is_set_to_different_ip if {
 		"apiVersion": "v1",
 		"kind": "Pod",
 		"metadata": {
-			"name": "controller-manager",
+			"name": "scheduler",
 			"labels": {
-				"component": "kube-controller-manager",
+				"component": "kube-scheduler",
 				"tier": "control-plane",
 			},
 		},
 		"spec": {"containers": [{
-			"command": ["kube-controller-manager", "--bind-address=192.168.0.1"],
+			"command": ["kube-scheduler", "--authentication-kubeconfig=<path/to/file>", "--bind-address=192.168.0.1"],
 			"image": "busybox",
 			"name": "hello",
 		}]},
@@ -72,14 +72,14 @@ test_bind_address_is_not_configured if {
 		"apiVersion": "v1",
 		"kind": "Pod",
 		"metadata": {
-			"name": "controller-manager",
+			"name": "scheduler",
 			"labels": {
-				"component": "kube-controller-manager",
+				"component": "kube-scheduler",
 				"tier": "control-plane",
 			},
 		},
 		"spec": {"containers": [{
-			"command": ["kube-controller-manager", "--allocate-node-cidrs=true"],
+			"command": ["kube-scheduler", "--authentication-kubeconfig=<path/to/file>", "--profiling=false"],
 			"image": "busybox",
 			"name": "hello",
 		}]},

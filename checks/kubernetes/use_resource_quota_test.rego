@@ -26,7 +26,7 @@ test_use_resource_quota_configure_no_hard if {
 		"spec": {},
 	}
 
-	r[_].msg == "A resource quota policy with hard memory and CPU limits should be configured per namespace"
+	r[_].msg == "resource quota policy with hard memory and cpu quota per namespace should be configure"
 }
 
 test_use_resource_quota_configure_no_request_cpu if {
@@ -41,7 +41,7 @@ test_use_resource_quota_configure_no_request_cpu if {
 		}},
 	}
 
-	r[_].msg == "A resource quota policy with hard memory and CPU limits should be configured per namespace"
+	r[_].msg == "resource quota policy with hard memory and cpu quota per namespace should be configure"
 }
 
 test_use_resource_quota_configure_no_request_memory if {
@@ -56,7 +56,7 @@ test_use_resource_quota_configure_no_request_memory if {
 		}},
 	}
 
-	r[_].msg == "A resource quota policy with hard memory and CPU limits should be configured per namespace"
+	r[_].msg == "resource quota policy with hard memory and cpu quota per namespace should be configure"
 }
 
 test_use_resource_quota_configure_no_limits_cpu if {
@@ -71,7 +71,7 @@ test_use_resource_quota_configure_no_limits_cpu if {
 		}},
 	}
 
-	r[_].msg == "A resource quota policy with hard memory and CPU limits should be configured per namespace"
+	r[_].msg == "resource quota policy with hard memory and cpu quota per namespace should be configure"
 }
 
 test_use_resource_quota_configure_no_limits_memory if {
@@ -86,5 +86,5 @@ test_use_resource_quota_configure_no_limits_memory if {
 		}},
 	}
 
-	r[_].msg == "A resource quota policy with hard memory and CPU limits should be configured per namespace"
+	r[_].msg == "resource quota policy with hard memory and cpu quota per namespace should be configure"
 }

@@ -3,39 +3,36 @@
 # description: "Disable profiling, if not needed."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://www.cisecurity.org/benchmark/kubernetes
+# - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV-0018
-#   aliases:
-#     - AVD-KCV-0018
-#     - KCV0018
-#     - ensure-profiling-argument-is-set-to-false
-#   long_id: kubernetes-ensure-profiling-argument-is-set-to-false
+#   id: KCV0040
+#   avd_id: AVD-KCV-0040
 #   severity: LOW
-#   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the below parameter."
+#   short_code: ensure-profiling-argument-is-set-to-false
+#   recommended_action: "Edit the Scheduler pod specification file /etc/kubernetes/manifests/kube-scheduler.yaml file on the Control Plane node and set the below parameter."
 #   input:
 #     selector:
-#       - type: kubernetes
-package builtin.kubernetes.KCV0018
+#     - type: kubernetes
+package builtin.kubernetes.KCV0040
 
 import rego.v1
 
 import data.lib.kubernetes
 
-check_flag(container) if {
+checkFlag(container) if {
 	kubernetes.command_has_flag(container.command, "--profiling=false")
 }
 
-check_flag(container) if {
+checkFlag(container) if {
 	kubernetes.command_has_flag(container.args, "--profiling=false")
 }
 
 deny contains res if {
 	container := kubernetes.containers[_]
-	kubernetes.is_apiserver(container)
-	not check_flag(container)
+	kubernetes.is_scheduler(container)
+	not checkFlag(container)
 	msg := "Ensure that the --profiling argument is set to false"
 	res := result.new(msg, container)
 }

@@ -1,51 +1,39 @@
 # METADATA
-# title: limit range usage
-# description: Ensure that a LimitRange policy is configured to limit resource usage for namespaces or nodes
+# title: "limit range usage"
+# description: "ensure limit range policy has configure in order to limit resource usage for namespaces or nodes"
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://kubernetes.io/docs/concepts/policy/limit-range/
-#   - https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/
-#   - https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-constraint-namespace/
+# - https://kubernetes.io/docs/tasks/administer-cluster/declare-network-policy/
 # custom:
-#   id: KSV-0039
-#   aliases:
-#     - AVD-KSV-0039
-#     - KSV039
-#     - limit-range-usage
-#   long_id: kubernetes-limit-range-usage
+#   id: KSV039
+#   avd_id: AVD-KSV-0039
 #   severity: LOW
-#   recommended_action: Create a LimitRange policy with default requests and limits for each container
+#   short_code: limit-range-usage
+#   recommended_action: "create limit range policy with a default request and limit, min and max request, for each container."
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: limitrange
+#     - type: kubernetes
 package builtin.kubernetes.KSV039
 
 import rego.v1
 
 import data.lib.kubernetes
 
-required_fields := {
-	"type",
-	"max",
-	"min",
-	"default",
-	"defaultRequest",
-}
-
-limit_range_configured if {
+limitRangeConfigure if {
+	lower(input.kind) == "limitrange"
 	kubernetes.has_field(input.spec, "limits")
-	some limit in input.spec.limits
-	every field in required_fields {
-		kubernetes.has_field(limit, field)
-	}
+	limit := input.spec.limits[_]
+	kubernetes.has_field(limit, "type")
+	kubernetes.has_field(limit, "max")
+	kubernetes.has_field(limit, "min")
+	kubernetes.has_field(limit, "default")
+	kubernetes.has_field(limit, "defaultRequest")
 }
 
 deny contains res if {
-	not limit_range_configured
-	msg := "A LimitRange policy with a default requests and limits for each container should be configured"
+	not limitRangeConfigure
+	msg := "limit range policy with a default request and limit, min and max request, for each container should be configure"
 	res := result.new(msg, input.spec)
 }

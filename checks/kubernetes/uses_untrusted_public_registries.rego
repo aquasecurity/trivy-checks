@@ -3,30 +3,26 @@
 # description: "Container images must not start with an empty prefix or a defined public registry domain."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # custom:
-#   id: KSV-0034
-#   aliases:
-#     - AVD-KSV-0034
-#     - KSV034
-#     - no-public-registries
-#   long_id: kubernetes-no-public-registries
+#   id: KSV034
+#   avd_id: AVD-KSV-0034
 #   severity: MEDIUM
+#   short_code: no-public-registries
 #   recommended_action: "Use images from private registries."
-#   deprecated: true
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: pod
-#           - kind: replicaset
-#           - kind: replicationcontroller
-#           - kind: deployment
-#           - kind: deploymentconfig
-#           - kind: statefulset
-#           - kind: daemonset
-#           - kind: cronjob
-#           - kind: job
+#     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: deploymentconfig
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV034
 
 import rego.v1

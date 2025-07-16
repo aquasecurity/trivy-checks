@@ -1,25 +1,21 @@
 # METADATA
-# title: "User resources should not be placed in kube-system namespace"
-# description: "ensure that user resources are not placed in kube-system namespace"
+# title: "User Pods should not be placed in kube-system namespace"
+# description: "ensure that User pods are not placed in kube-system namespace"
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://kubernetes.io/docs/reference/setup-tools/kubeadm/implementation-details/
+# - https://kubernetes.io/docs/reference/setup-tools/kubeadm/implementation-details/
 # custom:
-#   id: KSV-0037
-#   aliases:
-#     - AVD-KSV-0037
-#     - KSV037
-#     - no-user-pods-in-system-namespace
-#     - no-user-resources-in-system-namespace
-#   long_id: kubernetes-no-user-resources-in-system-namespace
+#   id: KSV037
+#   avd_id: AVD-KSV-0037
 #   severity: MEDIUM
-#   recommended_action: "Deploy the user resources into a designated namespace which is not kube-system."
+#   short_code: no-user-pods-in-system-namespace
+#   recommended_action: "Deploy the use pods into a designated namespace which is not kube-system."
 #   input:
 #     selector:
-#       - type: kubernetes
-#   examples: checks/kubernetes/protect_core_components_namespace.yaml
+#     - type: kubernetes
+#   examples: checks/kubernetes/advanced/protect_core_components_namespace.yaml
 package builtin.kubernetes.KSV037
 
 import rego.v1

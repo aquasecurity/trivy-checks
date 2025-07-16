@@ -1,46 +1,37 @@
 # METADATA
-# title: resource quota usage
-# description: Ensure that a ResourceQuota policy is configured to limit aggregate resource usage within a namespace
+# title: "resource quota usage"
+# description: "ensure resource quota policy has configure in order to limit aggregate resource usage within namespace"
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/quota-memory-cpu-namespace/
+# - https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/quota-memory-cpu-namespace/
 # custom:
-#   id: KSV-0040
-#   aliases:
-#     - AVD-KSV-0040
-#     - KSV040
-#     - resource-quota-usage
-#   long_id: kubernetes-resource-quota-usage
+#   id: KSV040
+#   avd_id: AVD-KSV-0040
 #   severity: LOW
-#   recommended_action: Create a ResourceQuota policy with memory and CPU quotas for each namespace
+#   short_code: resource-quota-usage
+#   recommended_action: "create resource quota policy with mem and cpu quota per each namespace"
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: resourcequota
+#     - type: kubernetes
 package builtin.kubernetes.KSV040
 
 import rego.v1
 
 import data.lib.kubernetes
 
-required_fields := {
-	"requests.cpu",
-	"requests.memory",
-	"limits.cpu",
-	"limits.memory",
-}
-
-resource_quota_configured if {
-	every field in required_fields {
-		kubernetes.has_field(input.spec.hard, field)
-	}
+resourceQuotaConfigure if {
+	lower(input.kind) == "resourcequota"
+	input.spec[hard]
+	kubernetes.has_field(input.spec.hard, "requests.cpu")
+	kubernetes.has_field(input.spec.hard, "requests.memory")
+	kubernetes.has_field(input.spec.hard, "limits.cpu")
+	kubernetes.has_field(input.spec.hard, "limits.memory")
 }
 
 deny contains res if {
-	not resource_quota_configured
-	msg := "A resource quota policy with hard memory and CPU limits should be configured per namespace"
+	not resourceQuotaConfigure
+	msg := "resource quota policy with hard memory and cpu quota per namespace should be configure"
 	res := result.new(msg, object.get(input.spec, "hard", input.spec))
 }

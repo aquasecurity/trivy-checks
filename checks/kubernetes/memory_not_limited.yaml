@@ -17,7 +17,7 @@ kubernetes:
                   limits:
                     memory: 128Mi
     bad:
-        - |-
+        - |
           apiVersion: v1
           kind: Pod
           metadata:

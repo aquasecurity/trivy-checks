@@ -56,7 +56,7 @@ test_privilege_escalation_from_node_proxy_not_secret_resource if {
 	count(r) == 0
 }
 
-test_privilege_escalation_from_node_proxy_not_secret_resource_2 if {
+test_privilege_escalation_from_node_proxy_not_secret_resource if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "Role",

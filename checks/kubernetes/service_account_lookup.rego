@@ -3,21 +3,18 @@
 # description: "Validate service account before validating token."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://www.cisecurity.org/benchmark/kubernetes
+# - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV-0024
-#   aliases:
-#     - AVD-KCV-0024
-#     - KCV0024
-#     - ensure-service-account-lookup-argument-is-set-to-true
-#   long_id: kubernetes-ensure-service-account-lookup-argument-is-set-to-true
+#   id: KCV0024
+#   avd_id: AVD-KCV-0024
 #   severity: LOW
+#   short_code: ensure-service-account-lookup-argument-is-set-to-true
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the below parameter."
 #   input:
 #     selector:
-#       - type: kubernetes
+#     - type: kubernetes
 package builtin.kubernetes.KCV0024
 
 import rego.v1

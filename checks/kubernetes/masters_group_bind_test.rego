@@ -111,7 +111,7 @@ test_cluster_role_binding_with_non_system_masters_group_binding if {
 	count(r) == 0
 }
 
-test_role_binding_with_system_masters_group_binding_2 if {
+test_role_binding_with_system_masters_group_binding if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
 		"kind": "RoleBinding",
