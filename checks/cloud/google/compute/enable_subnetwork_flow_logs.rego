@@ -31,14 +31,27 @@ package builtin.google.compute.google0076
 import rego.v1
 
 deny contains res if {
-    some subnetwork in input.google.compute.networks[_].subnetworks
-    is_flow_logs_disabled(subnetwork)
-    res := result.new(
-        "Subnetwork does not have flow logs enabled.",
-        object.get(subnetwork, "enableflowlogs", subnetwork),
-    )
+	some subnetwork in input.google.compute.networks[_].subnetworks
+	is_flow_logs_disabled(subnetwork)
+	res := result.new(
+		"Subnetwork does not have flow logs enabled.",
+		object.get(subnetwork, "enableflowlogs", subnetwork),
+	)
 }
 
-is_flow_logs_disabled(subnetwork) if not subnetwork.enableflowlogs.value
+deny contains res if {
+	some subnetwork in input.google.compute.networks[_].subnetworks
+	is_flow_logs_configured(subnetwork)
+	res := result.new(
+		"Subnetwork does not have flow logs configured.",
+		object.get(subnetwork, "enableflowlogs", subnetwork),
+	)
+}
 
+is_flow_logs_disabled(subnetwork) if {
+	subnetwork.enableflowlogs.value == false
+}
 
+is_flow_logs_configured(subnetwork) if {
+	not "enableflowlogs" in object.keys(subnetwork)
+}

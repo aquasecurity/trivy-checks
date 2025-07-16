@@ -34,4 +34,4 @@ test_deny_multiple_subnetworks_mixed_flow_logs if {
 
 	res := check.deny with input as inp
 	count(res) == 2
-} 
+}
