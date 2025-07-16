@@ -44,7 +44,6 @@ deny contains res if {
 
 	# Allow rule is created by default.
 	# See https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#change-the-default-network-access-rule
-	account.publicnetworkaccess.value
 	res := result.new(
 		"Network rules allow access by default.",
 		account.publicnetworkaccess,

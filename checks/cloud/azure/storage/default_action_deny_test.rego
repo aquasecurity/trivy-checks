@@ -17,14 +17,8 @@ test_allow_rule_deny_acces_by_default if {
 	test.assert_empty(check.deny) with input as inp
 }
 
-test_deny_public_network_access_enabled if {
-	inp := {"azure": {"storage": {"accounts": [{"publicnetworkaccess": {"value": true}}]}}}
+test_deny_when_no_user_defined_rules if {
+	inp := {"azure": {"storage": {"accounts": [{"networkrules": []}]}}}
 
 	test.assert_count(check.deny, 1) with input as inp
-}
-
-test_allow_public_network_access_enabled_but_rule_deny_acces_by_default if {
-	inp := {"azure": {"storage": {"accounts": [{"publicnetworkaccess": {"value": true}, "networkrules": [{"allowbydefault": {"value": false}}]}]}}}
-
-	test.assert_empty(check.deny) with input as inp
 }
