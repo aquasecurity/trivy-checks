@@ -40,10 +40,15 @@ deny contains res if {
 
 deny contains res if {
 	some account in input.azure.storage.accounts
-	not account.networkrules
+	not has_networks(account)
+
+	# Allow rule is created by default.
+	# See https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#change-the-default-network-access-rule
 	account.publicnetworkaccess.value
 	res := result.new(
 		"Network rules allow access by default.",
 		account.publicnetworkaccess,
 	)
 }
+
+has_networks(account) if count(account.networkrules) > 0
