@@ -32,7 +32,7 @@ import rego.v1
 deny contains res if {
     some subnetwork in input.google.compute.networks[_].subnetworks
     subnetwork.privateipgoogleaccess.value == false
-    not subnetwork.privateipgoogleaccess.metadata.default  
+    not subnetwork.privateipgoogleaccess.metadata["default"]
     res := result.new(
         "Subnetwork has Private Google Access explicitly disabled.",
         subnetwork.privateipgoogleaccess,
@@ -41,7 +41,7 @@ deny contains res if {
 
 deny contains res if {
     some subnetwork in input.google.compute.networks[_].subnetworks
-    subnetwork.privateipgoogleaccess.metadata.default == true  
+    subnetwork.privateipgoogleaccess.metadata["default"] == true
     res := result.new(
         "Subnetwork does not have Private Google Access configured.",
         subnetwork.privateipgoogleaccess,  
