@@ -34,7 +34,7 @@ jobs:
       - name: Setup Regal
         uses: StyraInc/setup-regal@33a142b1189004e0f14bf42b15972c67eecce776 # v1
         with:
-          version: 0.29.0
+          version: 0.34.1
 
       - name: Lint Rego
         run: make lint-rego

@@ -13,7 +13,6 @@
 #   aliases:
 #     - AVD-GCP-0070
 #     - rdp-access-not-restricted
-#   long_id: google-compute-no-open-rdp-access
 #   provider: google
 #   service: compute
 #   severity: HIGH

@@ -15,7 +15,6 @@
 #   aliases:
 #     - AVD-GCP-0073
 #     - google-compute-disable-default-firewall-rules
-#   long_id: google-compute-disable-default-firewall-rules
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
