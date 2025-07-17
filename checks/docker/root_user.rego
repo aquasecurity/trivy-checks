@@ -37,7 +37,7 @@ fail_user_count if {
 # fail_last_user_root is true if the last USER command
 # value is "root"
 fail_last_user_root contains lastUser if {
-	users := [user | user := docker.user[_]; true]
+	users := [user | user := docker.user[_]]
 	lastUser := users[count(users) - 1]
 	regex.match("^root(:.+){0,1}$", lastUser.Value[0])
 }
@@ -45,7 +45,7 @@ fail_last_user_root contains lastUser if {
 # fail_last_user_root is true if the last USER command
 # value is "0"
 fail_last_user_root contains lastUser if {
-	users := [user | user := docker.user[_]; true]
+	users := [user | user := docker.user[_]]
 	lastUser := users[count(users) - 1]
 	regex.match("^0(:.+){0,1}$", lastUser.Value[0])
 }

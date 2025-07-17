@@ -13,7 +13,6 @@
 #   aliases:
 #     - AVD-GCP-0071
 #     - ssh-access-is-not-restricted
-#   long_id: google-compute-restrict-ssh-access
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
