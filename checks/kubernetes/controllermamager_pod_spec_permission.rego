@@ -30,6 +30,6 @@ validate_spec_permission(sp) := {"kubeControllerManagerSpecFilePermission": viol
 
 deny contains res if {
 	output := validate_spec_permission(input)
-	msg := "Ensure that the controller manager specification file permissions is set to 600 or more restrictive"
+	msg := "Ensure that the controller manager pod specification file permissions are set to 600 or more restrictive"
 	res := result.new(msg, output)
 }
