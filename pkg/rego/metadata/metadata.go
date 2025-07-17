@@ -23,6 +23,7 @@ func (m Metadata) ID() string {
 	if v, ok := m.Custom["id"].(string); ok {
 		return v
 	}
+	return ""
 }
 
 func (m Metadata) AVDID() string {
