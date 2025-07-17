@@ -33,5 +33,6 @@ test_rule_named_startswith_not_allowed if {
 		},
 		"title": "deny-rule",
 	}}
+
 	assert.eq(expected, r)
 }

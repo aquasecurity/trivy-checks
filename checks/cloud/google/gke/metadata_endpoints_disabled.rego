@@ -14,14 +14,12 @@
 # related_resources:
 #   - https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster#protect_node_metadata_default_for_112
 # custom:
-#   id: GCP-0048
-#   aliases:
-#     - AVD-GCP-0048
-#     - metadata-endpoints-disabled
-#   long_id: google-gke-metadata-endpoints-disabled
+#   id: AVD-GCP-0048
+#   avd_id: AVD-GCP-0048
 #   provider: google
 #   service: gke
 #   severity: HIGH
+#   short_code: metadata-endpoints-disabled
 #   recommended_action: Disable legacy metadata endpoints
 #   input:
 #     selector:

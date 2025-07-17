@@ -25,8 +25,9 @@ func run() error {
 	keyMap := make(map[string][]string)
 
 	for _, meta := range checksMetadata {
-		parts := strings.Split(meta.ID(), "-")
-		keyMap[parts[0]] = append(keyMap[parts[0]], parts[1])
+		avdid := meta.AVDID()
+		parts := strings.Split(avdid, "-")
+		keyMap[parts[1]] = append(keyMap[parts[1]], parts[2])
 	}
 
 	var freeIDs []string
@@ -35,7 +36,7 @@ func run() error {
 		all := keyMap[key]
 		max := all[len(all)-1]
 		i, _ := strconv.Atoi(max)
-		free := fmt.Sprintf("%s-%04d", key, i+1)
+		free := fmt.Sprintf("AVD-%s-%04d", key, i+1)
 		freeIDs = append(freeIDs, fmt.Sprintf("%16s: %s", key, free))
 	}
 

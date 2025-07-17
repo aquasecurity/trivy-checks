@@ -3,24 +3,21 @@
 # description: "Binding to anonymous user to any clusterrole or role is a security risk."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://blog.aquasec.com/kubernetes-exposed-one-yaml-away-from-disaster
+# - https://blog.aquasec.com/kubernetes-exposed-one-yaml-away-from-disaster
 # custom:
-#   id: KSV-0122
-#   aliases:
-#     - AVD-KSV-0122
-#     - KSV122
-#     - no-anonymous-user-bind
-#   long_id: kubernetes-no-anonymous-user-bind
+#   id: KSV122
+#   avd_id: AVD-KSV-0122
 #   severity: CRITICAL
+#   short_code: no-anonymous-user-bind
 #   recommended_action: "Remove anonymous user binding from clusterrolebinding or rolebinding."
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: rolebinding
-#           - kind: clusterrolebinding
+#     - type: kubernetes
+#       subtypes:
+#         - kind: rolebinding
+#         - kind: clusterrolebinding
 
 package appshield.kubernetes.KSV122
 

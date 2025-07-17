@@ -6,14 +6,12 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: GCP-0063
-#   aliases:
-#     - AVD-GCP-0063
-#     - enable-auto-repair
-#   long_id: google-gke-enable-auto-repair
+#   id: AVD-GCP-0063
+#   avd_id: AVD-GCP-0063
 #   provider: google
 #   service: gke
 #   severity: LOW
+#   short_code: enable-auto-repair
 #   recommended_action: Enable automatic repair
 #   input:
 #     selector:

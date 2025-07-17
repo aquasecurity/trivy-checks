@@ -8,15 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses
 # custom:
-#   id: AWS-0164
+#   id: AVD-AWS-0164
+#   avd_id: AVD-AWS-0164
 #   aliases:
-#     - AVD-AWS-0164
 #     - aws-vpc-no-public-ingress-sgr
-#     - no-public-ip-subnet
-#   long_id: aws-ec2-no-public-ip-subnet
 #   provider: aws
 #   service: ec2
 #   severity: HIGH
+#   short_code: no-public-ip-subnet
 #   recommended_action: Set the instance to not be publicly accessible
 #   input:
 #     selector:

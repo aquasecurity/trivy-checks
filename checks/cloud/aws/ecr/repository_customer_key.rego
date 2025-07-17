@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
 # custom:
-#   id: AWS-0033
-#   aliases:
-#     - AVD-AWS-0033
-#     - repository-customer-key
-#   long_id: aws-ecr-repository-customer-key
+#   id: AVD-AWS-0033
+#   avd_id: AVD-AWS-0033
 #   provider: aws
 #   service: ecr
 #   severity: LOW
+#   short_code: repository-customer-key
 #   recommended_action: Use customer managed keys
 #   input:
 #     selector:

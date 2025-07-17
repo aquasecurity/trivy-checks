@@ -3,19 +3,16 @@
 # description: The specified 'apiVersion' and 'kind' are deprecated and are planned to be removed
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # custom:
-#   id: KSV-0107
-#   aliases:
-#     - AVD-KSV-0107
-#     - KSV107
-#     - evaluate-k8s-deprecated-removed-apis
-#   long_id: kubernetes-evaluate-k8s-deprecated-removed-apis
+#   id: KSV107
+#   avd_id: AVD-KSV-0107
 #   severity: LOW
+#   short_code: evaluate-k8s-deprecated-removed-apis
 #   recommended_action: Migrate resource to new API
 #   input:
 #     selector:
-#       - type: kubernetes
+#     - type: kubernetes
 package defsec.kubernetes.KSV107
 
 import rego.v1
