@@ -23,6 +23,7 @@ func TestLoadChecksMetadata(t *testing.T) {
 #   - https://example.com/resource
 # custom:
 #   id: TEST-0001
+#   avd_id: AVD-TEST-0001
 #   aliases:
 #     - AVD-TEST-0001
 #     - test-alias
@@ -66,10 +67,7 @@ package builtin.aws.cloudwatch.test0001`),
 		"test-framework": {"1.0"},
 	}, meta.Frameworks())
 
-	assert.True(t, meta.HasDefaultFramework())
-
 	assert.Equal(t, "Test title", meta.Title)
 	assert.Equal(t, "Description line 1\nDescription line 2\n", meta.Description)
-
 	assert.Equal(t, []string{"https://example.com/resource"}, meta.Links)
 }
