@@ -30,6 +30,6 @@ validate_cni_permission(sp) := {"containerNetworkInterfaceFilePermissions": viol
 
 deny contains res if {
 	output := validate_cni_permission(input)
-	msg := "Ensure that the Container Network Interface specification file permissions is set to 600 or more restrictive"
+	msg := "Ensure that the Container Network Interface specification file permissions are set to 600 or more restrictive"
 	res := result.new(msg, output)
 }
