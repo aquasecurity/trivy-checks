@@ -23,15 +23,23 @@ func (m Metadata) ID() string {
 	if v, ok := m.Custom["id"].(string); ok {
 		return v
 	}
-	return ""
 }
 
 func (m Metadata) AVDID() string {
-	aliases := m.Aliases()
-	if len(aliases) > 0 {
-		return aliases[0]
+	return m.Custom["avd_id"].(string)
+}
+
+func (m Metadata) IsDeprecated() bool {
+	deprecated, ok := m.Custom["deprecated"]
+	return ok && deprecated.(bool)
+}
+
+func (m Metadata) HasDefaultFramework() bool {
+	_, ok := m.Custom["frameworks"]
+	if !ok {
+		return true
 	}
-	return ""
+	return false
 }
 
 func (m Metadata) Severity() string {
@@ -73,11 +81,6 @@ func (m Metadata) Frameworks() map[string][]string {
 		}
 	}
 	return result
-}
-
-func (m Metadata) HasDefaultFramework() bool {
-	_, exists := m.Frameworks()["default"]
-	return exists
 }
 
 func (m Metadata) Provider() Provider {

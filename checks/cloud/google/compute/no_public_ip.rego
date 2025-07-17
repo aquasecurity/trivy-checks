@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://cloud.google.com/compute/docs/ip-addresses#externaladdresses
 # custom:
-#   id: GCP-0031
-#   aliases:
-#     - AVD-GCP-0031
-#     - no-public-ip
-#   long_id: google-compute-no-public-ip
+#   id: AVD-GCP-0031
+#   avd_id: AVD-GCP-0031
 #   provider: google
 #   service: compute
 #   severity: HIGH
+#   short_code: no-public-ip
 #   recommended_action: Remove public IP
 #   input:
 #     selector:

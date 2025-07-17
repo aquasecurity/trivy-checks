@@ -43,8 +43,8 @@ check-rego: download-schemas
 
 .PHONY: lint-rego
 lint-rego: check-rego
-	regal test -v .regal/rules
-	regal lint lib checks \
+	@regal test .regal/rules
+	@regal lint lib checks \
 		--config-file .regal/config.yaml \
 		--timeout 5m
 

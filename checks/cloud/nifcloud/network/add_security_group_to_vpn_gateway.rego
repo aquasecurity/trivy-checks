@@ -8,15 +8,14 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/help/vpngw/change.htm
 # custom:
-#   id: NIF-0018
+#   id: AVD-NIF-0018
+#   avd_id: AVD-NIF-0018
 #   aliases:
-#     - AVD-NIF-0018
 #     - nifcloud-computing-add-security-group-to-vpn-gateway
-#     - add-security-group-to-vpn-gateway
-#   long_id: nifcloud-network-add-security-group-to-vpn-gateway
 #   provider: nifcloud
 #   service: network
 #   severity: CRITICAL
+#   short_code: add-security-group-to-vpn-gateway
 #   recommended_action: Add security group for all vpnGateways
 #   input:
 #     selector:

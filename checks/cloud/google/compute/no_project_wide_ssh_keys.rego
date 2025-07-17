@@ -6,14 +6,12 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: GCP-0030
-#   aliases:
-#     - AVD-GCP-0030
-#     - no-project-wide-ssh-keys
-#   long_id: google-compute-no-project-wide-ssh-keys
+#   id: AVD-GCP-0030
+#   avd_id: AVD-GCP-0030
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
+#   short_code: no-project-wide-ssh-keys
 #   recommended_action: Disable project-wide SSH keys
 #   input:
 #     selector:
