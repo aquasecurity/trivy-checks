@@ -2,6 +2,7 @@ package custom.regal.rules.custom["invalid-metadata_test"]
 
 import rego.v1
 
+import data.custom.regal.rules.assert
 import data.custom.regal.rules.custom["invalid-metadata"] as rule
 
 test_invalid_metadata if {
@@ -21,7 +22,7 @@ foo := true`)
 
 	r := rule.report with input as module
 
-	r == {{
+	expected := {{
 		"category": "custom",
 		"description": "(Root): avd_id is required\n(Root): input is required\n(Root): Additional property avdid is not allowed",
 		"level": "error",
@@ -37,4 +38,6 @@ foo := true`)
 		},
 		"title": "invalid-metadata",
 	}}
+
+	assert.eq(expected, r)
 }

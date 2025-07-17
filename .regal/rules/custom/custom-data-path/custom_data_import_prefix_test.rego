@@ -2,6 +2,7 @@ package custom.regal.rules.custom["custom-data-import-prefix_test"]
 
 import rego.v1
 
+import data.custom.regal.rules.assert
 import data.custom.regal.rules.custom["custom-data-import-prefix"] as rule
 
 test_import_path_id_mismatch if {
@@ -16,7 +17,7 @@ foo := true`)
 
 	r := rule.report with input as module
 
-	r == {{
+	expected := {{
 		"category": "custom",
 		"description": "Custom data import paths must follow the format `data.<custom_id>.*`,\nwhere `<custom_id>` is the check ID without the \"AVD-\" prefix and in lowercase.\nFor example, for the ID AVD-TEST-001, a valid import path would be `data.test001.<...>`.\n",
 		"level": "error",
@@ -28,6 +29,8 @@ foo := true`)
 		},
 		"title": "custom-data-import-prefix",
 	}}
+
+	assert.eq(expected, r)
 }
 
 test_import_path_id_match if {
@@ -42,5 +45,5 @@ foo := true`)
 
 	r := rule.report with input as module
 
-	r == set()
+	assert.eq(set(), r)
 }
