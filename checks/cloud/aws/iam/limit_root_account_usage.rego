@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html
 # custom:
-#   id: AWS-0140
-#   aliases:
-#     - AVD-AWS-0140
-#     - limit-root-account-usage
-#   long_id: aws-iam-limit-root-account-usage
+#   id: AVD-AWS-0140
+#   avd_id: AVD-AWS-0140
 #   provider: aws
 #   service: iam
 #   severity: LOW
+#   short_code: limit-root-account-usage
 #   recommended_action: Use lower privileged accounts instead, so only required privileges are available.
 #   frameworks:
 #     default:

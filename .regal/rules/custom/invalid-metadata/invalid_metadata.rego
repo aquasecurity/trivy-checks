@@ -19,13 +19,7 @@ report contains _violation_check(check_metadata_schema) if not _is_lib_package
 
 report contains violation if {
 	some annot in _pkg_annotations
-	message := _validate_id(annot.custom.id)
-	violation := _build_violation(annot, [message])
-}
-
-report contains violation if {
-	some annot in _pkg_annotations
-	message := _validate_long_id(annot.custom)
+	message := _validate_avd_id(annot.custom.avd_id)
 	violation := _build_violation(annot, [message])
 }
 
@@ -33,19 +27,10 @@ _is_lib_package if input["package"].path[1].value == "lib"
 
 _pkg_annotations := [annot | some annot in input["package"].annotations; annot.scope == "package"]
 
-_id_pattern := `^(AWS|GCP|DIG|AZU|KCV|KSV|DS|GIT|NIF|KUBE|OPNSTK|CLDSTK|OCI)-\d+$`
+_avd_id_pattern := `^AVD-(AWS|GCP|DIG|AZU|KCV|KSV|DS|GIT|NIF|KUBE|OPNSTK|CLDSTK|OCI)-\d+$`
 
-_validate_id(id) := sprintf("id (%s): Does not match pattern '%s'", [id, _id_pattern]) if {
-	not regex.match(_id_pattern, id)
-}
-
-_validate_long_id(custom_meta) := msg if {
-	prefix := sprintf("%s-%s-", [custom_meta.provider, replace(custom_meta.service, "-", "")])
-	not startswith(custom_meta.long_id, prefix)
-	msg := sprintf(
-		"long_id (%s): must start with  <provider>-<service>-...",
-		[custom_meta.long_id],
-	)
+_validate_avd_id(id) := sprintf("avd_id (%s): Does not match pattern '%s'", [id, _avd_id_pattern]) if {
+	not regex.match(_avd_id_pattern, id)
 }
 
 _build_violation(annot, errors) := result.fail(
@@ -79,10 +64,10 @@ check_metadata_schema := {
 	"type": "object",
 	"properties": {
 		"id": {"type": "string"},
+		"avd_id": {"type": "string"},
 		"provider": {"type": "string"},
 		"service": {"type": "string"},
 		"short_code": {"type": "string"},
-		"long_id": {"type": "string"},
 		"severity": {
 			"type": "string",
 			"enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"],
@@ -100,7 +85,7 @@ check_metadata_schema := {
 		"recommended_actions": {"type": "string"},
 		"recommended_action": {"type": "string"},
 	},
-	"required": ["id", "input"],
+	"required": ["id", "avd_id", "input"],
 	"additionalProperties": false,
 	"anyOf": [
 		{"required": ["recommended_actions"]},

@@ -6,14 +6,12 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: GCP-0043
-#   aliases:
-#     - AVD-GCP-0043
-#     - no-ip-forwarding
-#   long_id: google-compute-no-ip-forwarding
+#   id: AVD-GCP-0043
+#   avd_id: AVD-GCP-0043
 #   provider: google
 #   service: compute
 #   severity: HIGH
+#   short_code: no-ip-forwarding
 #   recommended_action: Disable IP forwarding
 #   input:
 #     selector:

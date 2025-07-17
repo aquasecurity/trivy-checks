@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/kms/latest/developerguide/services-secrets-manager.html#asm-encrypt
 # custom:
-#   id: AWS-0098
-#   aliases:
-#     - AVD-AWS-0098
-#     - secret-use-customer-key
-#   long_id: aws-ssm-secret-use-customer-key
+#   id: AVD-AWS-0098
+#   avd_id: AVD-AWS-0098
 #   provider: aws
 #   service: ssm
 #   severity: LOW
+#   short_code: secret-use-customer-key
 #   recommended_action: Use customer managed keys
 #   input:
 #     selector:

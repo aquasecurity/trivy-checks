@@ -9,14 +9,12 @@
 #   - https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/activity-log
 #   - https://docs.microsoft.com/en-us/cli/azure/monitor/log-profiles?view=azure-cli-latest#az_monitor_log_profiles_create-required-parameters
 # custom:
-#   id: AZU-0033
-#   aliases:
-#     - AVD-AZU-0033
-#     - capture-all-activities
-#   long_id: azure-monitor-capture-all-activities
+#   id: AVD-AZU-0033
+#   avd_id: AVD-AZU-0033
 #   provider: azure
 #   service: monitor
 #   severity: MEDIUM
+#   short_code: capture-all-activities
 #   recommended_action: Configure log profile to capture all activities
 #   input:
 #     selector:

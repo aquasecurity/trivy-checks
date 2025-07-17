@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://www.cloudconformity.com/knowledge-base/gcp/CloudSQL/publicly-accessible-cloud-sql-instances.html
 # custom:
-#   id: GCP-0017
-#   aliases:
-#     - AVD-GCP-0017
-#     - no-public-access
-#   long_id: google-sql-no-public-access
+#   id: AVD-GCP-0017
+#   avd_id: AVD-GCP-0017
 #   provider: google
 #   service: sql
 #   severity: HIGH
+#   short_code: no-public-access
 #   recommended_action: Remove public access from database instances
 #   input:
 #     selector:

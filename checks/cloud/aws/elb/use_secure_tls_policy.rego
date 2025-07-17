@@ -6,14 +6,12 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AWS-0047
-#   aliases:
-#     - AVD-AWS-0047
-#     - use-secure-tls-policy
-#   long_id: aws-elb-use-secure-tls-policy
+#   id: AVD-AWS-0047
+#   avd_id: AVD-AWS-0047
 #   provider: aws
 #   service: elb
 #   severity: CRITICAL
+#   short_code: use-secure-tls-policy
 #   recommended_action: Use a more recent TLS/SSL policy for the load balancer
 #   input:
 #     selector:

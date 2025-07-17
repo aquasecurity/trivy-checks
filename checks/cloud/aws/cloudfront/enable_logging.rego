@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html
 # custom:
-#   id: AWS-0010
-#   aliases:
-#     - AVD-AWS-0010
-#     - enable-logging
-#   long_id: aws-cloudfront-enable-logging
+#   id: AVD-AWS-0010
+#   avd_id: AVD-AWS-0010
 #   provider: aws
 #   service: cloudfront
 #   severity: MEDIUM
+#   short_code: enable-logging
 #   recommended_action: Enable logging for CloudFront distributions
 #   input:
 #     selector:

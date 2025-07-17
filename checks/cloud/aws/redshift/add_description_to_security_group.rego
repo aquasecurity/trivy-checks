@@ -9,14 +9,12 @@
 # related_resources:
 #   - https://www.cloudconformity.com/knowledge-base/aws/EC2/security-group-rules-description.html
 # custom:
-#   id: AWS-0083
-#   aliases:
-#     - AVD-AWS-0083
-#     - add-description-to-security-group
-#   long_id: aws-redshift-add-description-to-security-group
+#   id: AVD-AWS-0083
+#   avd_id: AVD-AWS-0083
 #   provider: aws
 #   service: redshift
 #   severity: LOW
+#   short_code: add-description-to-security-group
 #   recommended_action: Add descriptions for all security groups and rules
 #   input:
 #     selector:
