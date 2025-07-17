@@ -7,8 +7,11 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0051
-#   avd_id: AVD-KCV-0051
+#   id: KCV-0051
+#   aliases:
+#     - AVD-KCV-0051
+#     - KCV0051
+#     - ensure-controller-manager-pod-specification-ownership-set
 #   severity: HIGH
 #   short_code: ensure-controller-manager-pod-specification-ownership-set-root:root.
 #   recommended_action: "Change the controller manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml ownership to root:root"

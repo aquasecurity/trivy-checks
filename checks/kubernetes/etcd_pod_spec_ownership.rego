@@ -7,8 +7,11 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0055
-#   avd_id: AVD-KCV-0055
+#   id: KCV-0055
+#   aliases:
+#     - AVD-KCV-0055
+#     - KCV0055
+#     - ensure-etcd-pod-specification-ownership-set
 #   severity: HIGH
 #   short_code: ensure-etcd-pod-specification-ownership-set-root:root.
 #   recommended_action: "Change the etcd pod specification file /etc/kubernetes/manifests/etcd.yaml ownership to root:root"

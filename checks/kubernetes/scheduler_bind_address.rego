@@ -7,8 +7,11 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0041
-#   avd_id: AVD-KCV-0041
+#   id: KCV-0041
+#   aliases:
+#     - AVD-KCV-0041
+#     - KCV0041
+#     - ensure-scheduler-bind-address-is-loopback
 #   severity: LOW
 #   short_code: ensure-scheduler-bind-address-is-loopback
 #   recommended_action: "Edit the Scheduler pod specification file /etc/kubernetes/manifests/kube-scheduler.yaml on the Control Plane node and ensure the correct value for the --bind-address parameter."

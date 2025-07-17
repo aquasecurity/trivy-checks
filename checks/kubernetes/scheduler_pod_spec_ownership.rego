@@ -7,8 +7,11 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0053
-#   avd_id: AVD-KCV-0053
+#   id: KCV-0053
+#   aliases:
+#     - AVD-KCV-0053
+#     - KCV0053
+#     - ensure-scheduler-pod-specification-ownership-set
 #   severity: HIGH
 #   short_code: ensure-scheduler-pod-specification-ownership-set-root:root.
 #   recommended_action: "Change the scheduler pod specification file /etc/kubernetes/manifests/kube-scheduler.yaml ownership to root:root"
