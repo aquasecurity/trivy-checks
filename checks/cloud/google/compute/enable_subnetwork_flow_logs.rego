@@ -7,6 +7,7 @@
 #   - input: schema["cloud"]
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork
+#   - https://cloud.google.com/architecture/best-practices-vpc-design#tailor-logging
 # custom:
 #   id: GCP-0076
 #   aliases:
