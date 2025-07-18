@@ -10,7 +10,7 @@ test_deny_ssh_access_from_anywhere if {
 			"isallow": {"value": true},
 			"enforced": {"value": true},
 			"protocol": {"value": "tcp"},
-			"ports": [{"fromport": {"value": 22}, "toport": {"value": 22}}],
+			"ports": [{"start": {"value": 22}, "end": {"value": 22}}],
 		},
 		"sourceranges": [{"value": "0.0.0.0/0"}],
 	}]}}]}}}
@@ -25,7 +25,7 @@ test_allow_ssh_access_from_specific_ip if {
 			"isallow": {"value": true},
 			"enforced": {"value": true},
 			"protocol": {"value": "tcp"},
-			"ports": [{"fromport": {"value": 22}, "toport": {"value": 22}}],
+			"ports": [{"start": {"value": 22}, "end": {"value": 22}}],
 		},
 		"sourceranges": [{"value": "192.168.1.0/24"}],
 	}]}}]}}}
