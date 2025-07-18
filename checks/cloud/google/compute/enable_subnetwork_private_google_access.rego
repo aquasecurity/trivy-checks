@@ -18,7 +18,7 @@
 #   service: compute
 #   severity: LOW
 #   recommended_action: |
-#     Enable Private Google Access on subnets that host internal resources needing Google API access. In Terraform, set `private_ip_google_access = true` in the `google_compute_subnetwork` resource.
+#     Enable Private Google Access on subnets. In Terraform, set `private_ip_google_access = true` in the `google_compute_subnetwork` resource.
 #   input:
 #     selector:
 #       - type: cloud
