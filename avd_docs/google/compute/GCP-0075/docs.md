@@ -11,4 +11,6 @@ Private Google Access allows instances in a subnet to reach Google APIs and serv
 ### Links
 - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork#private_ip_google_access
 
+- https://cloud.google.com/architecture/best-practices-vpc-design#limit-access
+
 

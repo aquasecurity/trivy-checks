@@ -33,3 +33,36 @@ test_allow_exact_threshold if {
 	res := check.deny with input as inp
 	res == set()
 }
+
+test_check_port_range_custom_limits[name] if {
+	some name, tc in {
+		"exceeds default limit": {
+			"start_port": 8000,
+			"end_port": 8035, # 35 ports (exceeds default 30)
+			"custom_limit": null,
+			"expected": 1,
+		},
+		"within default limit": {
+			"start_port": 8000,
+			"end_port": 8025, # 25 ports (within default 30)
+			"custom_limit": null,
+			"expected": 0,
+		},
+		"exceeds custom limit": {
+			"start_port": 8000,
+			"end_port": 8015, # 15 ports (exceeds custom 10)
+			"custom_limit": 10,
+			"expected": 1,
+		},
+	}
+
+	inp := {"google": {"compute": {"networks": [{"firewall": {"ingressrules": [{"firewallrule": {"ports": [{
+		"start": {"value": tc.start_port},
+		"end": {"value": tc.end_port},
+	}]}}]}}]}}}
+
+	res := check.deny with input as inp
+		with data.gcp0074.max_port_range_size as tc.custom_limit
+
+	count(res) == tc.expected
+}
