@@ -2,6 +2,7 @@ package test
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io/fs"
 	"maps"
@@ -28,27 +29,31 @@ func TestInputsConformToSchema(t *testing.T) {
 	queries := buildEvalInputRules(t, modules)
 
 	compiler := compileModules(t, modules)
-	schemaLoaders := loadSchemaLoaders(t)
+	schemas := loadSchemas(t)
 
 	for query, loc := range queries {
 		ruleName := lo.LastOrEmpty(strings.Split(query, "."))
 		t.Run(ruleName, func(t *testing.T) {
 			res, err := evalRuleInput(t.Context(), compiler, query)
 			require.NoError(t, err, query)
+			require.Greater(t, len(res), 0)
 
-			schemaLoader, err := loaderByPackage(schemaLoaders, query)
+			schema, err := schemaByPackage(schemas, query)
 			require.NoError(t, err)
 
 			for _, el := range res {
 				documentLoader := gojsonschema.NewGoLoader(el)
-				result, err := gojsonschema.Validate(schemaLoader, documentLoader)
+
+				result, err := schema.Validate(documentLoader)
 				require.NoError(t, err)
 
 				if !result.Valid() {
 					errs := lo.Map(result.Errors(), func(err gojsonschema.ResultError, _ int) string {
 						return err.String()
 					})
-					assert.True(t, false, fmt.Sprintf("%s\nAt %s", strings.Join(errs, "\n"), loc))
+					abs, err := filepath.Abs(filepath.Join("..", loc))
+					require.NoError(t, err)
+					assert.True(t, false, fmt.Sprintf("%s\nAt %s", strings.Join(errs, "\n"), abs))
 				}
 			}
 		})
@@ -114,21 +119,62 @@ func compileModules(t *testing.T, modules map[string]*ast.Module) *ast.Compiler 
 	return c
 }
 
-func loadSchemaLoaders(t *testing.T) map[string]gojsonschema.JSONLoader {
+func loadSchemas(t *testing.T) map[string]*gojsonschema.Schema {
 	t.Helper()
-	load := func(filename string) gojsonschema.JSONLoader {
-		bytes, err := os.ReadFile(filepath.Join("..", "schemas", filename))
-		require.NoError(t, err)
-		return gojsonschema.NewBytesLoader(bytes)
-	}
-	return map[string]gojsonschema.JSONLoader{
-		"cloud":      load("cloud.json"),
-		"kubernetes": load("kubernetes.json"),
-		"dockerfile": load("dockerfile.json"),
+
+	return map[string]*gojsonschema.Schema{
+		"cloud":      loadSchema(t, "../schemas/cloud.json", enforceNoAdditionalProperties),
+		"kubernetes": loadSchema(t, "../schemas/kubernetes.json"),
+		"dockerfile": loadSchema(t, "../schemas/dockerfile.json"),
 	}
 }
 
-func loaderByPackage(loaders map[string]gojsonschema.JSONLoader, pkg string) (gojsonschema.JSONLoader, error) {
+type patchFunc func(map[string]any)
+
+func loadSchema(t *testing.T, filename string, patches ...patchFunc) *gojsonschema.Schema {
+	t.Helper()
+
+	bytes, err := os.ReadFile(filepath.Clean(filename))
+	require.NoError(t, err)
+
+	if len(patches) > 0 {
+		var schemaMap map[string]any
+		require.NoError(t, json.Unmarshal(bytes, &schemaMap))
+		for _, patch := range patches {
+			patch(schemaMap)
+		}
+		bytes, err = json.Marshal(schemaMap)
+		require.NoError(t, err)
+	}
+
+	schema, err := gojsonschema.NewSchema(gojsonschema.NewBytesLoader(bytes))
+	require.NoError(t, err)
+	return schema
+}
+
+func enforceNoAdditionalProperties(schema map[string]any) {
+	if schema["type"] == "object" {
+		if _, ok := schema["additionalProperties"]; !ok {
+			schema["additionalProperties"] = false
+		}
+	}
+
+	for _, key := range []string{"properties", "definitions"} {
+		if sub, ok := schema[key].(map[string]any); ok {
+			for name, v := range sub {
+				if key == "definitions" &&
+					name == "github.com.aquasecurity.trivy.pkg.iac.types.MapValue" {
+					continue
+				}
+				if m, ok := v.(map[string]any); ok {
+					enforceNoAdditionalProperties(m)
+				}
+			}
+		}
+	}
+}
+
+func schemaByPackage(loaders map[string]*gojsonschema.Schema, pkg string) (*gojsonschema.Schema, error) {
 	parts := strings.Split(pkg, ".")
 	switch parts[2] {
 	case "aws", "azure", "google", "cloudstack", "oracle",
