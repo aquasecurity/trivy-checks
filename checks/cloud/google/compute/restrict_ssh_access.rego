@@ -53,5 +53,5 @@ deny contains res if {
 
 is_ssh_port(rule) if {
 	some port in rule.firewallrule.ports
-	net.is_port_range_include(port.fromport.value, port.toport.value, net.ssh_port)
+	net.is_port_range_include(port.start.value, port.end.value, net.ssh_port)
 }

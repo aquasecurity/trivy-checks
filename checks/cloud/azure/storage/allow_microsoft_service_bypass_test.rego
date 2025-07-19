@@ -6,10 +6,7 @@ import data.builtin.azure.storage.azure0010 as check
 import data.lib.test
 
 test_deny_rule_does_not_allow_bypass_access if {
-	inp := {"azure": {"storage": {"accounts": [{
-		"name": "test",
-		"networkrules": [{"bypass": []}],
-	}]}}}
+	inp := {"azure": {"storage": {"accounts": [{"networkrules": [{"bypass": []}]}]}}}
 
 	test.assert_count(check.deny, 1) with input as inp
 }

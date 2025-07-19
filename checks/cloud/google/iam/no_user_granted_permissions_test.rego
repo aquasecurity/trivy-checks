@@ -25,7 +25,6 @@ test_deny_permissions_granted_to_folder_users if {
 	inp := {"google": {"iam": {"folders": [{"bindings": [{"members": [user_member]}]}]}}}
 
 	res := check.deny with input as inp
-	print(res)
 	count(res) == 1
 }
 
