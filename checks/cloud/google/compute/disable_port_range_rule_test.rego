@@ -54,6 +54,12 @@ test_check_port_range_custom_limits[name] if {
 			"custom_limit": 10,
 			"expected": 1,
 		},
+		"invalid custom input": {
+			"start_port": 8000,
+			"end_port": 8015, # 15 ports (within default 30, exceeds custom)
+			"custom_limit": -10,
+			"expected": 0,
+		},
 	}
 
 	inp := {"google": {"compute": {"networks": [{"firewall": {"ingressrules": [{"firewallrule": {"ports": [{
