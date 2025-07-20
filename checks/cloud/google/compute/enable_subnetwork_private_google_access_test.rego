@@ -37,7 +37,7 @@ test_allow_private_google_access_enabled if {
 test_deny_private_google_access_default_true_regardless_of_value if {
 	inp := {"google": {"compute": {"networks": [{"subnetworks": [{"privateipgoogleaccess": {
 		"value": false,
-		"metadata": {"explicit": false},
+		"explicit": false,
 	}}]}]}}}
 
 	res := check.deny with input as inp
