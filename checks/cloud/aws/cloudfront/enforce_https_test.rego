@@ -16,7 +16,7 @@ test_deny_ordered_cache_behaviors_with_allow_all if {
 }
 
 test_allow_default_cache_behavior_with_https if {
-	inp := build_input({"defaultcachebehavior": {"viewerprotocolpolicy": {"value": "https-only"}}})
+	inp := build_input({"defaultcachebehaviour": {"viewerprotocolpolicy": {"value": "https-only"}}})
 	test.assert_empty(check.deny) with input as inp
 }
 
