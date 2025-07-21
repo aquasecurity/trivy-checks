@@ -37,6 +37,6 @@ deny contains res if {
 
 	res := result.new(
 		"Storage bucket logging is not configured with a target log bucket.",
-		metadata.obj_by_path(bucket, ["logging" , "log_bucket"]),
+		metadata.obj_by_path(bucket, ["logging", "log_bucket"]),
 	)
 }

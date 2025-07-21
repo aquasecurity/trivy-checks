@@ -37,6 +37,6 @@ deny contains res if {
 
 	res := result.new(
 		"Storage bucket versioning is not enabled.",
-		metadata.obj_by_path(bucket, ["versioning" , "enabled"]),
+		metadata.obj_by_path(bucket, ["versioning", "enabled"]),
 	)
 }
