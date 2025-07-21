@@ -34,10 +34,10 @@ import data.lib.cloud.value
 
 deny contains res if {
 	some bucket in input.google.storage.buckets
-	input.google.gke.clusters[_].loggingservice.value
+	not bucket.logging.log_bucket
 
 	res := result.new(
-		"Storage bucket encryption does not use a customer-managed key.",
-		metadata.obj_by_path(bucket, ["encryption", "defaultkmskeyname"]),
+		"Storage bucket logging is not configured with a target log bucket.",
+		metadata.obj_by_path(bucket, ["logging" , "log_bucket"]),
 	)
 }
