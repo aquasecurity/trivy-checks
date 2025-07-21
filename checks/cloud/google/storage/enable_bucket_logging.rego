@@ -1,7 +1,7 @@
-#  METADATA
-#  title: Cloud Storage Bucket Logging Not Enabled
-#  description: |
-#    Cloud Storage bucket access logs should be enabled for audit purposes.
+# METADATA
+# title: Cloud Storage Bucket Logging Not Enabled
+# description: |
+#   Cloud Storage bucket access logs should be enabled for audit purposes.
 # scope: package
 # schemas:
 #   - input: schema["cloud"]
@@ -12,7 +12,7 @@
 #   aliases:
 #     - google-storage-cloud-storage-bucket-logging-not-enabled
 #     - AVD-GCP-0077
-#   long_id: google-compute-enable-bucket-logging
+#   long_id: google-storage-enable-bucket-logging
 #   provider: google
 #   service: storage
 #   severity: MEDIUM
@@ -25,12 +25,11 @@
 #           - service: storage
 #             provider: google
 #   examples: checks/cloud/google/storage/enable_bucket_logging.yaml
-package builtin.google.compute.google0077
+package builtin.google.storage.google0077
 
 import rego.v1
 
 import data.lib.cloud.metadata
-import data.lib.cloud.value
 
 deny contains res if {
 	some bucket in input.google.storage.buckets
