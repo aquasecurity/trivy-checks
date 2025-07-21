@@ -16,6 +16,7 @@
 #   provider: google
 #   service: storage
 #   severity: MEDIUM
+#   minimum_trivy_version: v0.64.1
 #   recommended_action: |
 #     Enable object versioning on Cloud Storage buckets to preserve older versions of objects. In Terraform, set `versioning { enabled = true }` for the bucket resource.
 #   input:

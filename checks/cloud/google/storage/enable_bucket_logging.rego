@@ -16,6 +16,7 @@
 #   provider: google
 #   service: storage
 #   severity: MEDIUM
+#   minimum_trivy_version: v0.64.1
 #   recommended_action: |
 #     Enable Access and Storage logs for Cloud Storage buckets by configuring a log sink or specifying a `log_bucket` in Terraform.
 #   input:
