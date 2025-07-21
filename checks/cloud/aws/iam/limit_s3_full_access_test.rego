@@ -4,7 +4,7 @@ import rego.v1
 
 test_with_allow_s3_full_access if {
 	policies := [{
-		"name": {"Value": "policy_with_s3_full_access"},
+		"name": {"value": "policy_with_s3_full_access"},
 		"document": {"value": json.marshal({
 			"Version": "2012-10-17",
 			"Statement": [{

@@ -43,7 +43,6 @@ deny contains res if {
 
 deny contains res if {
 	some binding in iam.all_bindings
-	print(binding)
 	some member in binding.members
 	startswith(member.value, "user:")
 	res := result.new("Permissions are granted directly to a user.", member)

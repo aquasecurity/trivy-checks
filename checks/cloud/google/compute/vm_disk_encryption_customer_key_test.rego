@@ -19,10 +19,10 @@ test_deny_instance_attached_disk_is_not_encrypted if {
 }
 
 test_allow_instance_disks_is_encrypted if {
-	inp := {"google": {"compute": {
+	inp := {"google": {"compute": {"instances": [{
 		"bootdisks": [{"encryption": {"kmskeylink": {"value": "kms-key-link"}}}],
-		"attacheddisks": [{"disk": {"encryption": {"kmskeylink": {"value": "kms-key-link"}}}}],
-	}}}
+		"attacheddisks": [{"encryption": {"kmskeylink": {"value": "kms-key-link"}}}],
+	}]}}}
 
 	res := check.deny with input as inp
 	res == set()

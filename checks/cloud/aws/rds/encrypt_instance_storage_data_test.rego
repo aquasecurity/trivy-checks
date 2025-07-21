@@ -7,7 +7,7 @@ import data.lib.test
 
 test_deny_unencrypted_storage if {
 	inp := {"aws": {"rds": {"instances": [{
-		"replciationsourcearn": {"value": ""},
+		"replicationsourcearn": {"value": ""},
 		"encryption": {"encryptstorage": {"value": false}},
 	}]}}}
 
@@ -16,7 +16,7 @@ test_deny_unencrypted_storage if {
 
 test_allow_encrypted_storage if {
 	inp := {"aws": {"rds": {"instances": [{
-		"replciationsourcearn": {"value": ""},
+		"replicationsourcearn": {"value": ""},
 		"encryption": {"encryptstorage": {"value": true}},
 	}]}}}
 
