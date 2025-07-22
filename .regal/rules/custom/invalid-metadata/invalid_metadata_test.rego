@@ -31,7 +31,7 @@ foo := true`)
 			"col": 1,
 			"end": {
 				"col": 27,
-				"row": 9,
+				"row": 11,
 			},
 			"file": "example.rego",
 			"row": 2,
