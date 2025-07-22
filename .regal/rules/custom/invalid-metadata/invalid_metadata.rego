@@ -23,6 +23,12 @@ report contains violation if {
 	violation := _build_violation(annot, [message])
 }
 
+report contains violation if {
+	some annot in _pkg_annotations
+	message := _validate_trivy_version(annot.custom.minimum_trivy_version)
+	violation := _build_violation(annot, [message])
+}
+
 _is_lib_package if input["package"].path[1].value == "lib"
 
 _pkg_annotations := [annot | some annot in input["package"].annotations; annot.scope == "package"]
@@ -31,6 +37,11 @@ _avd_id_pattern := `^AVD-(AWS|GCP|DIG|AZU|KCV|KSV|DS|GIT|NIF|KUBE|OPNSTK|CLDSTK|
 
 _validate_avd_id(id) := sprintf("avd_id (%s): Does not match pattern '%s'", [id, _avd_id_pattern]) if {
 	not regex.match(_avd_id_pattern, id)
+}
+
+_validate_trivy_version(ver) := msg if {
+	not semver.is_valid(ver)
+	msg := sprintf("minimum_trivy_version (%s) must be a valid SemVer string", [ver])
 }
 
 _build_violation(annot, errors) := result.fail(
@@ -84,6 +95,7 @@ check_metadata_schema := {
 		"terraform": {"$ref": "#/$defs/engine_metadata"},
 		"recommended_actions": {"type": "string"},
 		"recommended_action": {"type": "string"},
+		"minimum_trivy_version": {"type": "string"},
 	},
 	"required": ["id", "avd_id", "input"],
 	"additionalProperties": false,
