@@ -13,6 +13,7 @@ test_invalid_metadata if {
 # schemas:
 #   - input: schema["kubernetes"]
 # custom:
+#   minimum_trivy_version: 1.2.3
 #   examples: test/ff.json
 package policy
 
@@ -28,7 +29,7 @@ foo := true`)
 			"col": 1,
 			"end": {
 				"col": 27,
-				"row": 8,
+				"row": 9,
 			},
 			"file": "example.rego",
 			"row": 2,
