@@ -10,10 +10,10 @@
 #   - https://cloud.google.com/architecture/best-practices-vpc-design#tailor-logging
 # custom:
 #   id: GCP-0076
+#   avd_id: AVD-GCP-0076
 #   aliases:
 #     - google-misc-google-compute-subnetwork-logging-disabled
 #     - AVD-GCP-0076
-#   long_id: google-compute-enable-subnetwork-flow-logs
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
