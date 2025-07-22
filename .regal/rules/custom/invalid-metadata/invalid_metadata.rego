@@ -29,6 +29,12 @@ report contains violation if {
 	violation := _build_violation(annot, [message])
 }
 
+report contains violation if {
+	some annot in _pkg_annotations
+	message := _validate_trivy_version(annot.custom.minimum_trivy_version)
+	violation := _build_violation(annot, [message])
+}
+
 _is_lib_package if input["package"].path[1].value == "lib"
 
 _pkg_annotations := [annot | some annot in input["package"].annotations; annot.scope == "package"]
@@ -46,6 +52,11 @@ _validate_long_id(custom_meta) := msg if {
 		"long_id (%s): must start with  <provider>-<service>-...",
 		[custom_meta.long_id],
 	)
+}
+
+_validate_trivy_version(ver) := msg if {
+	not semver.is_valid(ver)
+	msg := sprintf("minimum_trivy_version (%s) must be a valid SemVer string", [ver])
 }
 
 _build_violation(annot, errors) := result.fail(
@@ -99,6 +110,7 @@ check_metadata_schema := {
 		"terraform": {"$ref": "#/$defs/engine_metadata"},
 		"recommended_actions": {"type": "string"},
 		"recommended_action": {"type": "string"},
+		"minimum_trivy_version": {"type": "string"},
 	},
 	"required": ["id", "input"],
 	"additionalProperties": false,
