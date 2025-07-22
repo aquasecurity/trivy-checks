@@ -10,13 +10,13 @@
 # custom:
 #   id: GCP-0077
 #   aliases:
-#     - google-storage-cloud-storage-bucket-logging-not-enabled
+#     - storage-bucket-logging-not-enabled
 #     - AVD-GCP-0077
 #   long_id: google-storage-enable-bucket-logging
 #   provider: google
 #   service: storage
 #   severity: MEDIUM
-#   minimum_trivy_version: v0.65.0
+#   minimum_trivy_version: 0.65.0
 #   recommended_action: |
 #     Enable Access and Storage logs for Cloud Storage buckets by configuring a log sink or specifying a `log_bucket` in Terraform.
 #   input:
