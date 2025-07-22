@@ -17,7 +17,7 @@
 #   provider: google
 #   service: compute
 #   severity: LOW
-#   minimum_trivy_version: v0.65.0
+#   minimum_trivy_version: 0.65.0
 #   recommended_action: |
 #     Enable Private Google Access on subnets. In Terraform, set `private_ip_google_access = true` in the `google_compute_subnetwork` resource.
 #   input:
