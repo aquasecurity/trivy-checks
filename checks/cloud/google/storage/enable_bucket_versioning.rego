@@ -34,7 +34,7 @@ import data.lib.cloud.metadata
 
 deny contains res if {
 	some bucket in input.google.storage.buckets
-	not bucket.versioning.enabled
+	not bucket.versioning.enabled.value
 
 	res := result.new(
 		"Storage bucket versioning is not enabled.",
