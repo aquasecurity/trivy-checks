@@ -14,6 +14,6 @@ test_allow_deletion_protection_enabled if {
 
 # If there is no cluster for database instances, they are added to an empty cluster.
 test_allow_deletion_protection_disabled_but_instances_orphaned if {
-	r := deny with input as {"aws": {"rds": {"clusters": [{"deletionprotection": {"__defsec_metadata": {"managed": false}, "value": false}}]}}}
+	r := deny with input as {"aws": {"rds": {"clusters": [{"deletionprotection": {"managed": false, "value": false}}]}}}
 	count(r) == 0
 }

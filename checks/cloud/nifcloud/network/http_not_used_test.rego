@@ -6,7 +6,7 @@ import data.builtin.nifcloud.network.nifcloud0021 as check
 
 test_deny_elastic_lb_with_http_protocol_on_global if {
 	inp := build_elb_input({
-		"networkinterfaces": [{"networkid": {"value": "net-COMMON_GLOBAL", "isvipnetwork": {"value": true}}}, {"networkid": {"value": "some-network"}}],
+		"networkinterfaces": [{"networkid": {"value": "net-COMMON_GLOBAL"}, "isvipnetwork": {"value": true}}, {"networkid": {"value": "some-network"}}],
 		"listeners": [{"protocol": {"value": "HTTP"}}],
 	})
 

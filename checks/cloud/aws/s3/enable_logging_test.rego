@@ -34,10 +34,7 @@ test_allow_logging_disabled_but_bucket_has_server_logging_access_grant if {
 		"acl": {"value": "log-delivery-write"},
 		"grants": [
 			{
-				"grantee": {
-					"id": {"value": "111122223333"},
-					"type": {"value": "CanonicalUser"},
-				},
+				"grantee": {"type": {"value": "CanonicalUser"}},
 				"permissions": [{"value": "FULL_CONTROL"}],
 			},
 			{

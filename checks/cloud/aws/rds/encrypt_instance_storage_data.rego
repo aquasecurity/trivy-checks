@@ -42,9 +42,9 @@ deny contains res if {
 	)
 }
 
-without_replication_source_arn(instance) if value.is_empty(instance.replciationsourcearn)
+without_replication_source_arn(instance) if value.is_empty(instance.replicationsourcearn)
 
-without_replication_source_arn(instance) if not instance.replciationsourcearn
+without_replication_source_arn(instance) if not instance.replicationsourcearn
 
 encryption_disabled(instance) if value.is_false(instance.encryption.encryptstorage)
 
