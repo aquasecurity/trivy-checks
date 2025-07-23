@@ -3,30 +3,27 @@
 # description: "Container images from non-ECR registries should be forbidden."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # custom:
-#   id: KSV-0035
-#   aliases:
-#     - AVD-KSV-0035
-#     - KSV035
-#     - no-untrusted-ecr-domain
-#   long_id: kubernetes-no-untrusted-ecr-domain
+#   id: KSV035
+#   avd_id: AVD-KSV-0035
 #   severity: MEDIUM
+#   short_code: no-untrusted-ecr-domain
 #   recommended_action: "Container image should be used from Amazon container Registry"
 #   deprecated: true
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: pod
-#           - kind: replicaset
-#           - kind: replicationcontroller
-#           - kind: deployment
-#           - kind: deploymentconfig
-#           - kind: statefulset
-#           - kind: daemonset
-#           - kind: cronjob
-#           - kind: job
+#     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: deploymentconfig
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV035
 
 import rego.v1

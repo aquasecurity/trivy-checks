@@ -141,12 +141,8 @@ func TestCustomChecks(t *testing.T) {
 			require.Len(t, results, 1)
 			fails := getFailureIDs(results)
 
-			expected := map[string]struct{}{
-				tt.expectedID: {},
-			}
-
 			require.Len(t, fails, 1)
-			assert.Equal(t, expected, lo.Values(fails)[0])
+			assert.Equal(t, []string{tt.expectedID}, lo.Values(fails)[0])
 		})
 	}
 }

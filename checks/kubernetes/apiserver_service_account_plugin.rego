@@ -3,21 +3,18 @@
 # description: "Automate service accounts management."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://www.cisecurity.org/benchmark/kubernetes
+# - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV-0014
-#   aliases:
-#     - AVD-KCV-0014
-#     - KCV0014
-#     - ensure-admission-control-plugin-service-account-is-set
-#   long_id: kubernetes-ensure-admission-control-plugin-service-account-is-set
+#   id: KCV0014
+#   avd_id: AVD-KCV-0014
 #   severity: LOW
+#   short_code: ensure-admission-control-plugin-service-account-is-set
 #   recommended_action: "Follow the documentation and create ServiceAccount objects as per your environment. Then, edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the master node and ensure that the --disable-admission-plugins parameter is set to a value that does not include ServiceAccount."
 #   input:
 #     selector:
-#       - type: kubernetes
+#     - type: kubernetes
 package builtin.kubernetes.KCV0014
 
 import rego.v1
