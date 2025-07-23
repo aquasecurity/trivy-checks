@@ -34,7 +34,7 @@ import data.lib.cloud.metadata
 
 deny contains res if {
 	some bucket in input.google.storage.buckets
-	not bucket.logging.logbucket
+	not bucket.logging.logbucket.value
 
 	res := result.new(
 		"Storage bucket logging is not configured with a target log bucket.",

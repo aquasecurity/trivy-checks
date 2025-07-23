@@ -5,7 +5,7 @@ import rego.v1
 import data.builtin.google.storage.google0077 as check
 
 test_allow_bucket_with_logging if {
-	inp := {"google": {"storage": {"buckets": [{"logging": {"logbucket": "my-log-bucket"}}]}}}
+	inp := {"google": {"storage": {"buckets": [{"logging": {"logbucket": {"value": "my-log-bucket"}}}]}}}
 
 	res := check.deny with input as inp
 	res == set()
