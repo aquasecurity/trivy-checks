@@ -8,10 +8,9 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall#allow
 # custom:
-#   id: GCP-0072
+#   id: AVD-GCP-0072
 #   avd_id: AVD-GCP-0072
 #   aliases:
-#     - AVD-GCP-0072
 #     - network-using-firewall-rule-that-allows-all-ports
 #   provider: google
 #   service: compute

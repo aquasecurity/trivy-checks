@@ -138,6 +138,9 @@ func pushBundle(t *testing.T, ctx context.Context, path string, image string) {
 	require.NoError(t, c.Terminate(ctx))
 }
 
+// TODO: skip checks based on the minimum_trivy_version field
+// (minimum supported version of Trivy)
+//
 // TODO: AVD-AWS-0344 check is excluded because its input does not match the scheme of older versions of Trivy.
 // Remove it for the latest version after this issue is resolved.
 var excludedChecks = map[string][]string{
@@ -147,6 +150,7 @@ var excludedChecks = map[string][]string{
 		"AVD-AWS-0114",
 		"AVD-AWS-0120",
 		"AVD-AWS-0134",
+		"AVD-GCP-0075",
 	},
 	"0.57.1": {
 		// After version 0.57.1, the bug with the field type was fixed and the example was updated. See: https://github.com/aquasecurity/trivy/pull/7995

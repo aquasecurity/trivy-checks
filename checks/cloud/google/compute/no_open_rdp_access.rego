@@ -8,10 +8,9 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall
 # custom:
-#   id: GCP-0070
+#   id: AVD-GCP-0070
 #   avd_id: AVD-GCP-0070
 #   aliases:
-#     - AVD-GCP-0070
 #     - rdp-access-not-restricted
 #   provider: google
 #   service: compute

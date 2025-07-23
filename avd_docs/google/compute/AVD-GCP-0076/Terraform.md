@@ -3,19 +3,6 @@ Enable VPC Flow Logs for subnets. In Terraform, set `enable_flow_logs = true` in
 
 
 ```hcl
-resource "google_compute_subnetwork" "good_example" {
-  name             = "test-subnetwork"
-  ip_cidr_range    = "10.2.0.0/16"
-  region           = "us-central1"
-  network          = google_compute_network.custom-test.id
-  enable_flow_logs = true
-}
-resource "google_compute_network" "custom-test" {
-  name                    = "test-network"
-  auto_create_subnetworks = false
-}
-```
-```hcl
 resource "google_compute_subnetwork" "good_example_with_log_config" {
   name          = "test-subnetwork"
   ip_cidr_range = "10.2.0.0/16"

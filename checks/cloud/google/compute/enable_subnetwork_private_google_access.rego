@@ -9,11 +9,10 @@
 #   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork#private_ip_google_access
 #   - https://cloud.google.com/architecture/best-practices-vpc-design#limit-access
 # custom:
-#   id: GCP-0075
+#   id: AVD-GCP-0075
 #   avd_id: AVD-GCP-0075
 #   aliases:
 #     - google-misc-google-compute-subnetwork-with-private-google-access-disable
-#     - AVD-GCP-0075
 #   provider: google
 #   service: compute
 #   severity: LOW
