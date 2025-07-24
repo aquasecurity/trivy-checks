@@ -59,11 +59,21 @@ func TestScanCheckExamples(t *testing.T) {
 	for _, version := range trivyVersions {
 		t.Run(version, func(t *testing.T) {
 			reportFileName := version + "_" + "report.json"
-			trivy, err := testcontainer.RunTrivy(ctx, "aquasec/trivy:"+version, []string{"-c", "echo ready  && sleep infinity"},
+
+			trivyVer := getActualTrivyVersion(t, version)
+
+			args := []string{
+				"conf",
+				"--checks-bundle-repository", bundleImage,
+				"--format", "json",
+				"--output", "/testdata/" + reportFileName,
+				"--include-deprecated-checks=false",
+				"/testdata/examples",
+			}
+			trivy, err := testcontainer.RunTrivy(ctx, "aquasec/trivy:"+version, args,
 				testcontainers.CustomizeRequest(testcontainers.GenericContainerRequest{
 					ContainerRequest: testcontainers.ContainerRequest{
-						Entrypoint: []string{"sh"},
-						WaitingFor: wait.ForLog("ready"),
+						AlwaysPullImage: false,
 					},
 				}),
 				testcontainers.WithHostConfigModifier(func(hc *container.HostConfig) {
@@ -80,23 +90,10 @@ func TestScanCheckExamples(t *testing.T) {
 			require.NoError(t, err)
 			t.Cleanup(func() { trivy.Terminate(ctx) })
 
-			trivyVer := getActualTrivyVersion(t, trivy)
-
-			scanArgs := []string{
-				"trivy",
-				"conf",
-				"--checks-bundle-repository", bundleImage,
-				"--format", "json",
-				"--output", "/testdata/" + reportFileName,
-				"--include-deprecated-checks=false",
-				"/testdata/examples",
-			}
-
-			code, out, err := trivy.Exec(t.Context(), scanArgs)
+			rc, err := trivy.Logs(ctx)
 			require.NoError(t, err)
-			require.Equal(t, 0, code)
 
-			b, err := io.ReadAll(out)
+			b, err := io.ReadAll(rc)
 			require.NoError(t, err)
 
 			// trivy switches to embedded checks if the bundle load fails, so we should check this out
@@ -117,23 +114,33 @@ func TestScanCheckExamples(t *testing.T) {
 	}
 }
 
-func getActualTrivyVersion(t *testing.T, c testcontainers.Container) semver.Version {
+func getActualTrivyVersion(t *testing.T, version string) semver.Version {
 	t.Helper()
 
-	verArgs := []string{
-		"trivy",
+	args := []string{
 		"version",
 		"-f", "json",
+		"-q",
 	}
-	code, out, err := c.Exec(t.Context(), verArgs)
-	require.NoError(t, err)
-	require.Equal(t, 0, code)
 
-	b, err := io.ReadAll(out)
-	t.Logf("Version response: %q", b)
+	trivy, err := testcontainer.RunTrivy(t.Context(), "aquasec/trivy:"+version, args,
+		testcontainers.CustomizeRequest(testcontainers.GenericContainerRequest{
+			ContainerRequest: testcontainers.ContainerRequest{
+				WaitingFor: wait.ForExit(),
+			},
+		}),
+	)
+	defer trivy.Terminate(t.Context())
+
+	rc, err := trivy.Logs(t.Context())
 	require.NoError(t, err)
 
-	b = cleanupExecResponse(b)
+	b, err := io.ReadAll(rc)
+	require.NoError(t, err)
+
+	t.Logf("Version response: %q", string(b))
+	require.NoError(t, err)
+
 	var resp struct {
 		Version string `json:"Version"`
 	}
@@ -144,16 +151,6 @@ func getActualTrivyVersion(t *testing.T, c testcontainers.Container) semver.Vers
 	require.NoError(t, err)
 	t.Logf("Actual Trivy version is %s", ver.String())
 	return ver
-}
-
-func cleanupExecResponse(b []byte) []byte {
-	// the output may contain a strange prefix
-	// e.g. "\x01\x00\x00\x00\x00\x00\x00("
-	// as a workaround, just truncate the data before the start of the JSON
-	if idx := bytes.IndexByte(b, '{'); idx != -1 {
-		return b[idx:]
-	}
-	return b
 }
 
 func buildBundle(t *testing.T) string {
