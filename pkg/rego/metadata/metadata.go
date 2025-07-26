@@ -76,7 +76,11 @@ func (m Metadata) Frameworks() map[string][]string {
 }
 
 func (m Metadata) HasDefaultFramework() bool {
-	_, exists := m.Frameworks()["default"]
+	frameworks := m.Frameworks()
+	if len(frameworks) == 0 {
+		return true
+	}
+	_, exists := frameworks["default"]
 	return exists
 }
 
@@ -131,6 +135,13 @@ func (m Metadata) Aliases() []string {
 		}
 	}
 	return aliases
+}
+
+func (m Metadata) MinimumTrivyVersion() string {
+	if v, ok := m.Custom["minimum_trivy_version"].(string); ok {
+		return v
+	}
+	return ""
 }
 
 type Provider string
