@@ -29,7 +29,7 @@ package builtin.aws.ec2.aws0344
 import rego.v1
 
 deny contains res if {
-	some ami in input.aws.ec2.requestedamis
+	some ami in input.aws.ec2.instances
 	owners_not_specified(ami)
 	res := result.new("AWS AMI data source should specify owners to ensure AMIs come from trusted sources", ami)
 }
