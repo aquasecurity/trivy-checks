@@ -309,11 +309,6 @@ func shouldSkipCheck(
 		return false
 	}
 
-	// canary always contains the latest changes
-	if trivyVer.IsPreRelease() {
-		return false
-	}
-
 	minVer, ok := minVersions[id]
 	if !ok {
 		raw := meta.MinimumTrivyVersion()
