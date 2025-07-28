@@ -45,6 +45,19 @@ deny contains res if {
 	audit_config := project.auditconfigs[_]
 	isManaged(audit_config)
 
+	audit_config.service.value != "allServices"
+
+	res := result.new(
+		"Audit configuration should use 'allServices' to ensure comprehensive coverage across all Google Cloud services.",
+		audit_config.service,
+	)
+}
+
+deny contains res if {
+	project := input.google.iam.projects[_]
+	audit_config := project.auditconfigs[_]
+	isManaged(audit_config)
+
 	required_log_types := {"ADMIN_READ", "DATA_WRITE", "DATA_READ"}
 	configured_log_types := {log_config.logtype.value | log_config := audit_config.auditlogconfigs[_]}
 

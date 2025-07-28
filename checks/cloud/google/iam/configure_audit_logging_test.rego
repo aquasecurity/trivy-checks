@@ -10,15 +10,26 @@ test_deny_project_without_audit_config if {
 	count(res) == 1
 }
 
+test_deny_audit_config_wrong_service_scope if {
+	inp := {"google": {"iam": {"projects": [{"auditconfigs": [{"service": {"value": "cloudresourcemanager.googleapis.com"}, "auditlogconfigs": [
+		{"logtype": {"value": "ADMIN_READ"}},
+		{"logtype": {"value": "DATA_READ"}},
+		{"logtype": {"value": "DATA_WRITE"}},
+	]}]}]}}}
+
+	res := check.deny with input as inp
+	count(res) == 1
+}
+
 test_deny_audit_config_missing_log_types if {
-	inp := {"google": {"iam": {"projects": [{"auditconfigs": [{"auditlogconfigs": [{"logtype": {"value": "ADMIN_READ"}}]}]}]}}}
+	inp := {"google": {"iam": {"projects": [{"auditconfigs": [{"service": {"value": "allServices"}, "auditlogconfigs": [{"logtype": {"value": "ADMIN_READ"}}]}]}]}}}
 
 	res := check.deny with input as inp
 	count(res) == 1
 }
 
 test_deny_broad_exemption_all_users if {
-	inp := {"google": {"iam": {"projects": [{"auditconfigs": [{"auditlogconfigs": [
+	inp := {"google": {"iam": {"projects": [{"auditconfigs": [{"service": {"value": "allServices"}, "auditlogconfigs": [
 		{"logtype": {"value": "ADMIN_READ"}},
 		{"logtype": {"value": "DATA_READ"}},
 		{
@@ -32,7 +43,7 @@ test_deny_broad_exemption_all_users if {
 }
 
 test_allow_proper_audit_config if {
-	inp := {"google": {"iam": {"projects": [{"auditconfigs": [{"auditlogconfigs": [
+	inp := {"google": {"iam": {"projects": [{"auditconfigs": [{"service": {"value": "allServices"}, "auditlogconfigs": [
 		{"logtype": {"value": "ADMIN_READ"}},
 		{"logtype": {"value": "DATA_READ"}},
 		{"logtype": {"value": "DATA_WRITE"}},

@@ -20,7 +20,7 @@ resource "google_project_iam_audit_config" "config" {
 ```hcl
 resource "google_project_iam_audit_config" "config" {
   project = "your-project-id"
-  service = "cloudresourcemanager.googleapis.com"
+  service = "allServices"
   audit_log_config {
     log_type = "ADMIN_READ"
   }
