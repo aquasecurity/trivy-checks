@@ -32,8 +32,14 @@ import rego.v1
 
 import data.lib.cloud.metadata
 
+buckets_for_logging := {name |
+	some bucket in input.google.storage.buckets
+	name := bucket.logging.logbucket.value
+}
+
 deny contains res if {
 	some bucket in input.google.storage.buckets
+	not bucket.name.value in buckets_for_logging
 	not bucket.logging.logbucket.value
 
 	res := result.new(
