@@ -15,7 +15,7 @@ test_allow_non_root_user_without_mfa if {
 
 test_allow_root_user_with_mfa if {
 	test.assert_empty(check.deny) with input as build_input({
-		"name": "root",
+		"name": {"value": "root"},
 		"mfadevices": [
 			{"isvirtual": {"value": false}},
 			{"isvirtual": {"value": true}},

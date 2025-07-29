@@ -32,7 +32,6 @@ import data.lib.google.iam
 
 deny contains res if {
 	some member in iam.all_members
-	print(member)
 	iam.is_service_account(member.member.value)
 	iam.is_role_privileged(member.role.value)
 	res := result.new("Service account is granted a privileged role.", member.role)

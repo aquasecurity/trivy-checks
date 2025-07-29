@@ -64,8 +64,14 @@ deny contains res if {
 # Rule allows all ports if it covers the entire port range
 allows_all_ports(rule) if {
 	some port in rule.firewallrule.ports
-	port.fromport.value == 0
-	port.toport.value == 65535
+	port.start.value == 0
+	port.end.value == 65535
+}
+
+# If no ports are specified, this rule applies to connections through any port.
+# See https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall#ports-1
+allows_all_ports(rule) if {
+	not rule.firewallrule.ports
 }
 
 # Rule allows all ports if protocol is set to "all" or "-1"

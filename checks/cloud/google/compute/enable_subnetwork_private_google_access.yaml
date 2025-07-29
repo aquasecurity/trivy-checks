@@ -1,0 +1,40 @@
+terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_subnetwork#private_ip_google_access
+  good:
+    - |-
+      resource "google_compute_subnetwork" "good_example" {
+        name                     = "test-subnetwork"
+        ip_cidr_range            = "10.2.0.0/16"
+        region                   = "us-central1"
+        network                  = google_compute_network.custom-test.id
+        private_ip_google_access = true
+      }
+      resource "google_compute_network" "custom-test" {
+        name                    = "test-network"
+        auto_create_subnetworks = false
+      }
+  bad:
+    - |-
+      resource "google_compute_subnetwork" "bad_example" {
+        name                     = "test-subnetwork"
+        ip_cidr_range            = "10.2.0.0/16"
+        region                   = "us-central1"
+        network                  = google_compute_network.custom-test.id
+        private_ip_google_access = false
+      }
+      resource "google_compute_network" "custom-test" {
+        name                    = "test-network"
+        auto_create_subnetworks = false
+      }
+    - |-
+      resource "google_compute_subnetwork" "bad_example_unspecified" {
+        name          = "test-subnetwork"
+        ip_cidr_range = "10.2.0.0/16"
+        region        = "us-central1"
+        network       = google_compute_network.custom-test.id
+      }
+      resource "google_compute_network" "custom-test" {
+        name                    = "test-network"
+        auto_create_subnetworks = false
+      }

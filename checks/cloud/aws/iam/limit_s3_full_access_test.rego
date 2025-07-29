@@ -4,7 +4,7 @@ import rego.v1
 
 test_with_allow_s3_full_access if {
 	policies := [{
-		"name": "policy_with_s3_full_access",
+		"name": {"value": "policy_with_s3_full_access"},
 		"document": {"value": json.marshal({
 			"Version": "2012-10-17",
 			"Statement": [{
@@ -21,7 +21,7 @@ test_with_allow_s3_full_access if {
 
 test_with_allow_s3_full_access_with_verb_non_mixed if {
 	policies := [{
-		"name": "policy_with_s3_full_access",
+		"name": {"value": "policy_with_s3_full_access"},
 		"document": {"value": json.marshal({
 			"Version": "2012-10-17",
 			"Statement": [
@@ -45,7 +45,7 @@ test_with_allow_s3_full_access_with_verb_non_mixed if {
 
 test_with_allow_s3_full_access_overriden_by_deny if {
 	policies := [{
-		"name": "policy_with_s3_full_access",
+		"name": {"value": "policy_with_s3_full_access"},
 		"document": {"value": json.marshal({
 			"Version": "2012-10-17",
 			"Statement": [
@@ -69,7 +69,7 @@ test_with_allow_s3_full_access_overriden_by_deny if {
 
 test_with_deny_s3_full_access if {
 	policies := [{
-		"name": "policy_with_s3_full_access",
+		"name": {"value": "policy_with_s3_full_access"},
 		"document": {"value": json.marshal({
 			"Version": "2012-10-17",
 			"Statement": [{
@@ -85,7 +85,7 @@ test_with_deny_s3_full_access if {
 
 test_with_no_s3_full_access if {
 	policies := [{
-		"name": "policy_without_s3_full_access",
+		"name": {"value": "policy_without_s3_full_access"},
 		"document": {"value": json.marshal({
 			"Version": "2012-10-17",
 			"Statement": [{
@@ -102,7 +102,7 @@ test_with_no_s3_full_access if {
 
 test_with_role_using_amazon_s3_full_access_policy if {
 	roles := [{
-		"name": "role_with_amazon_s3_full_access",
+		"name": {"value": "role_with_amazon_s3_full_access"},
 		"policies": [{"document": {"value": json.marshal({
 			"Version": "2012-10-17",
 			"Statement": [{
@@ -119,7 +119,7 @@ test_with_role_using_amazon_s3_full_access_policy if {
 
 test_with_role_not_using_amazon_s3_full_access_policy if {
 	roles := [{
-		"name": "role_without_amazon_s3_full_access",
+		"name": {"value": "role_without_amazon_s3_full_access"},
 		"policies": [{"document": {"value": json.marshal({
 			"Version": "2012-10-17",
 			"Statement": [{

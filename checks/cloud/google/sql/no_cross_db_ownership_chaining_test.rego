@@ -20,16 +20,18 @@ test_allow_cross_database_ownership_chaining_disabled if {
 		"settings": {"flags": {"crossdbownershipchaining": {"value": false}}},
 	})
 
-	check.deny with input as inp == set()
+	res := check.deny with input as inp
+	res == set()
 }
 
 test_allow_cross_database_ownership_chaining_enabled_for_non_sql_servers if {
 	inp := build_input({
-		"databaseversion": {"value": "SQLSERVER_2017_STANDARD"},
+		"databaseversion": {"value": "POSTGRES_15"},
 		"settings": {"flags": {"crossdbownershipchaining": {"value": true}}},
 	})
 
-	check.deny with input as inp == set()
+	res := check.deny with input as inp
+	res == set()
 }
 
 build_input(instance) := {"google": {"sql": {"instances": [instance]}}}

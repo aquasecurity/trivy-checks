@@ -10,7 +10,8 @@ test_allow_db_auth_disabled if {
 		"settings": {"flags": {"containeddatabaseauthentication": {"value": false}}},
 	})
 
-	check.deny with input as inp == set()
+	res := check.deny with input as inp
+	res == set()
 }
 
 test_deny_db_auth_enabled if {
@@ -29,7 +30,8 @@ test_allow_db_auth_enabled_for_non_sqlserver if {
 		"settings": {"flags": {"containeddatabaseauthentication": {"value": true}}},
 	})
 
-	check.deny with input as inp == set()
+	res := check.deny with input as inp
+	res == set()
 }
 
 build_input(instance) := {"google": {"sql": {"instances": [instance]}}}

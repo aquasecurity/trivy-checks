@@ -6,7 +6,7 @@ import data.builtin.aws.iam.aws0059 as check
 import data.lib.test
 
 test_allow_policy_require_numbers_in_passwords if {
-	test.assert_empty(check.deny) with input.aws.iam.passwordpolicy.requirenumbers.value as true
+	test.assert_empty(check.deny) with input as {"aws": {"iam": {"passwordpolicy": {"requirenumbers": {"value": true}}}}}
 }
 
 test_disallow_policy_no_require_numbers_in_passwords if {

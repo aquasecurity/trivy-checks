@@ -8,7 +8,7 @@ import data.lib.test
 
 test_allow_user_logged_in_today if {
 	test.assert_empty(check.deny) with input as build_input({
-		"name": "test",
+		"name": {"value": "test"},
 		"lastaccess": {"value": time.format(time.now_ns())},
 	})
 }
@@ -41,7 +41,7 @@ test_disallow_user_access_key_not_used_100_days if {
 
 test_allow_nonactive_user_access_key_not_used_100_days if {
 	test.assert_empty(check.deny) with input as build_input({
-		"name": "test",
+		"name": {"value": "test"},
 		"lastaccess": {"value": time.format(time.now_ns())},
 		"accesskeys": [{
 			"accesskeyid": {"value": "AKIACKCEVSQ6C2EXAMPLE"},
@@ -53,7 +53,7 @@ test_allow_nonactive_user_access_key_not_used_100_days if {
 
 test_allow_user_access_key_used_today if {
 	test.assert_empty(check.deny) with input as build_input({
-		"name": "test",
+		"name": {"value": "test"},
 		"lastaccess": {"value": time.format(time.now_ns())},
 		"accesskeys": [{
 			"accesskeyid": {"value": "AKIACKCEVSQ6C2EXAMPLE"},
@@ -65,7 +65,7 @@ test_allow_user_access_key_used_today if {
 
 test_disallow_one_of_the_user_access_key_used_100_days if {
 	test.assert_equal_message(`User access key "AKIACKCEVSQ6C2EXAMPLE" has not been used in >90 days`, check.deny) with input as build_input({
-		"name": "test",
+		"name": {"value": "test"},
 		"lastaccess": {"value": time.format(time.now_ns())},
 		"accesskeys": [
 			{

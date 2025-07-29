@@ -29,11 +29,13 @@ test_allow_log_bucket_without_kms_key if {
 }
 
 test_allow_log_bucket_with_grant if {
-	inp := {"aws": {"s3": {"buckets": [{"grants": [{
+	inp := {"aws": {"s3": {"buckets": [{
 		"encryption": {},
-		"grantee": {"uri": {"value": "http://acs.amazonaws.com/groups/s3/LogDelivery"}},
-		"permissions": [{"value": "WRITE"}],
-	}]}]}}}
+		"grants": [{
+			"grantee": {"uri": {"value": "http://acs.amazonaws.com/groups/s3/LogDelivery"}},
+			"permissions": [{"value": "WRITE"}],
+		}],
+	}]}}}
 
 	res := check.deny with input as inp
 	count(res) == 0

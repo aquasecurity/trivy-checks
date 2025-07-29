@@ -6,7 +6,7 @@ import data.builtin.aws.iam.aws0061 as check
 import data.lib.test
 
 test_allow_policy_require_uppercase_in_passwords if {
-	test.assert_empty(check.deny) with input.aws.iam.passwordpolicy.requireuppercase.value as true
+	test.assert_empty(check.deny) with input as {"aws": {"iam": {"passwordpolicy": {"requireuppercase": {"value": true}}}}}
 }
 
 test_disallow_policy_no_require_uppercase_in_passwords if {
