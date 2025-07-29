@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/waf/latest/developerguide/cloudfront-features.html
 # custom:
-#   id: AWS-0011
-#   aliases:
-#     - AVD-AWS-0011
-#     - enable-waf
-#   long_id: aws-cloudfront-enable-waf
+#   id: AVD-AWS-0011
+#   avd_id: AVD-AWS-0011
 #   provider: aws
 #   service: cloudfront
 #   severity: HIGH
+#   short_code: enable-waf
 #   recommended_action: Enable WAF for the CloudFront distribution
 #   input:
 #     selector:

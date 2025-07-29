@@ -9,14 +9,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html
 # custom:
-#   id: AWS-0154
-#   aliases:
-#     - AVD-AWS-0154
-#     - require-s3-bucket-policy-change-alarm
-#   long_id: aws-cloudwatch-require-s3-bucket-policy-change-alarm
+#   id: AVD-AWS-0154
+#   avd_id: AVD-AWS-0154
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
+#   short_code: require-s3-bucket-policy-change-alarm
 #   recommended_action: Create an alarm to alert on S3 Bucket policy changes
 #   frameworks:
 #     cis-aws-1.2:

@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#password-policy-details
 # custom:
-#   id: AWS-0060
-#   aliases:
-#     - AVD-AWS-0060
-#     - require-symbols-in-passwords
-#   long_id: aws-iam-require-symbols-in-passwords
+#   id: AVD-AWS-0060
+#   avd_id: AVD-AWS-0060
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
+#   short_code: require-symbols-in-passwords
 #   recommended_action: Enforce longer, more complex passwords in the policy
 #   frameworks:
 #     default:

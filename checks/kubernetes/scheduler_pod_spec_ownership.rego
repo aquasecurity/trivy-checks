@@ -7,6 +7,7 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
+#   avd_id: AVD-KCV-0053
 #   id: KCV-0053
 #   aliases:
 #     - AVD-KCV-0053

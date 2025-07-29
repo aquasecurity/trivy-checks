@@ -44,7 +44,7 @@ terraform:
         direction = "INGRESS"
         allow {
           protocol = "tcp"
-          ports    = ["8000-8021"] # 21 ports (just over threshold)
+          ports    = ["8000-8031"] # 31 ports (just over threshold)
         }
         source_ranges = ["192.168.1.0/24"]
       }

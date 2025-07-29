@@ -11,6 +11,7 @@
 #   - https://docs.docker.com/reference/compose-file/services/#image
 # custom:
 #   id: USR-COMPOSE-0001
+#   avd_id: USR-COMPOSE-0001
 #   provider: generic
 #   severity: MEDIUM
 #   short_code: avoid-latest-tag

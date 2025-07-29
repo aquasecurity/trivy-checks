@@ -9,14 +9,12 @@
 #   - https://docs.aws.amazon.com/systems-manager/latest/userguide/integration-ps-secretsmanager.html
 #   - https://www.vaultproject.io/
 # custom:
-#   id: AWS-0036
-#   aliases:
-#     - AVD-AWS-0036
-#     - no-plaintext-secrets
-#   long_id: aws-ecs-no-plaintext-secrets
+#   id: AVD-AWS-0036
+#   avd_id: AVD-AWS-0036
 #   provider: aws
 #   service: ecs
 #   severity: CRITICAL
+#   short_code: no-plaintext-secrets
 #   recommended_action: Use secrets for the task definition
 #   input:
 #     selector:

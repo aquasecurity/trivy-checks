@@ -6,14 +6,12 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: GCP-0056
-#   aliases:
-#     - AVD-GCP-0056
-#     - enable-network-policy
-#   long_id: google-gke-enable-network-policy
+#   id: AVD-GCP-0056
+#   avd_id: AVD-GCP-0056
 #   provider: google
 #   service: gke
 #   severity: MEDIUM
+#   short_code: enable-network-policy
 #   recommended_action: Enable network policy
 #   input:
 #     selector:
