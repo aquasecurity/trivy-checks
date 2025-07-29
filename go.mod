@@ -3,6 +3,7 @@ module github.com/aquasecurity/trivy-checks
 go 1.24.4
 
 require (
+	github.com/aquasecurity/go-version v0.0.1
 	github.com/aquasecurity/trivy v0.61.1-0.20250407075540-f1329c7ea1aa
 	github.com/aws-cloudformation/rain v1.23.1
 	github.com/docker/docker v28.2.2+incompatible
@@ -28,7 +29,6 @@ require (
 	github.com/agnivade/levenshtein v1.2.1 // indirect
 	github.com/alecthomas/chroma v0.10.0 // indirect
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
-	github.com/aquasecurity/go-version v0.0.1 // indirect
 	github.com/aquasecurity/iamgo v0.0.10 // indirect
 	github.com/aquasecurity/jfather v0.0.8 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
