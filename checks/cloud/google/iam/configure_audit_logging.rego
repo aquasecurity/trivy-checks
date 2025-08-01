@@ -77,7 +77,6 @@ deny contains res if {
 	log_config := audit_config.auditlogconfigs[_]
 	isManaged(log_config)
 
-	log_config.exemptedmembers
 	exempted_member := log_config.exemptedmembers[_]
 	exempted_member.value in ["allUsers", "allAuthenticatedUsers"]
 
