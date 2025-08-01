@@ -39,7 +39,6 @@ buckets_for_logging := {name |
 
 deny contains res if {
 	some bucket in input.google.storage.buckets
-	isManaged(bucket)
 	not bucket.name.value in buckets_for_logging
 	not has_logging(bucket)
 
