@@ -16,7 +16,7 @@
 #   provider: google
 #   service: storage
 #   severity: MEDIUM
-#   minimum_trivy_version: 0.65.0
+#   minimum_trivy_version: 0.66.0
 #   recommended_action: |
 #     Enable Access and Storage logs for Cloud Storage buckets by configuring a log sink or specifying a `log_bucket` in Terraform.
 #   input:
@@ -40,10 +40,12 @@ buckets_for_logging := {name |
 deny contains res if {
 	some bucket in input.google.storage.buckets
 	not bucket.name.value in buckets_for_logging
-	not bucket.logging.logbucket.value
+	not has_logging(bucket)
 
 	res := result.new(
 		"Storage bucket logging is not configured with a target log bucket.",
 		metadata.obj_by_path(bucket, ["logging", "logbucket"]),
 	)
 }
+
+has_logging(bucket) if bucket.logging.logbucket.value != ""
