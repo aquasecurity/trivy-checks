@@ -16,6 +16,7 @@
 #   provider: google
 #   service: iam
 #   severity: LOW
+#   minimum_trivy_version: 0.66.0
 #   recommended_action: |
 #     Configure IAM Audit Logs for required services and log types. In Terraform, use `google_project_iam_audit_config` to specify the services and log types (ADMIN_READ, DATA_READ, DATA_WRITE) to be audited.
 #   input:
