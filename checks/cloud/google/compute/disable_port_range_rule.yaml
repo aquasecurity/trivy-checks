@@ -1,0 +1,50 @@
+terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall#allow
+    - https://cloud.google.com/vpc/docs/using-firewalls
+  good:
+    - |-
+      resource "google_compute_firewall" "good_example_specific_ports" {
+        name      = "allow-specific-ports"
+        network   = "default"
+        direction = "INGRESS"
+        allow {
+          protocol = "tcp"
+          ports    = ["80", "443", "8080"]
+        }
+        source_ranges = ["0.0.0.0/0"]
+      }
+    - |-
+      resource "google_compute_firewall" "good_example_small_range" {
+        name      = "allow-small-range"
+        network   = "default"
+        direction = "INGRESS"
+        allow {
+          protocol = "tcp"
+          ports    = ["8000-8010"] # 10 ports
+        }
+        source_ranges = ["10.0.0.0/16"]
+      }
+  bad:
+    - |-
+      resource "google_compute_firewall" "bad_example_large_range" {
+        name      = "allow-large-range"
+        network   = "default"
+        direction = "INGRESS"
+        allow {
+          protocol = "tcp"
+          ports    = ["8000-8050"] # 50 ports (exceeds threshold)
+        }
+        source_ranges = ["0.0.0.0/0"]
+      }
+    - |-
+      resource "google_compute_firewall" "bad_example_just_over_threshold" {
+        name      = "allow-just-over-threshold"
+        network   = "default"
+        direction = "INGRESS"
+        allow {
+          protocol = "tcp"
+          ports    = ["8000-8031"] # 31 ports (just over threshold)
+        }
+        source_ranges = ["192.168.1.0/24"]
+      }

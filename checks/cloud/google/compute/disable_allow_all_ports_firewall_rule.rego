@@ -68,6 +68,12 @@ allows_all_ports(rule) if {
 	port.end.value == 65535
 }
 
+# If no ports are specified, this rule applies to connections through any port.
+# See https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall#ports-1
+allows_all_ports(rule) if {
+	not rule.firewallrule.ports
+}
+
 # Rule allows all ports if protocol is set to "all" or "-1"
 allows_all_ports(rule) if {
 	net.protocol(rule.firewallrule.protocol.value) in net.all_protocols
