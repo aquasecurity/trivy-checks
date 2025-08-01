@@ -5,12 +5,12 @@ package integration
 import (
 	"bytes"
 	"context"
+	"encoding/json"
 	"io"
 	"io/fs"
 	"os"
 	"os/exec"
 	"path/filepath"
-	"slices"
 	"strconv"
 	"strings"
 	"testing"
@@ -21,7 +21,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/testcontainers/testcontainers-go"
 	"github.com/testcontainers/testcontainers-go/modules/registry"
+	"github.com/testcontainers/testcontainers-go/wait"
 
+	"github.com/aquasecurity/go-version/pkg/semver"
 	"github.com/aquasecurity/trivy-checks/integration/testcontainer"
 	"github.com/aquasecurity/trivy-checks/internal/examples"
 	"github.com/aquasecurity/trivy-checks/pkg/rego/metadata"
@@ -37,13 +39,14 @@ func TestScanCheckExamples(t *testing.T) {
 	t.Cleanup(func() { os.RemoveAll(tmpDir) })
 
 	examplesPath := filepath.Join(tmpDir, "examples")
-	checkAliases := setupTarget(t, examplesPath)
+	checksMetadata := setupTarget(t, examplesPath)
 
 	targetDir, err := filepath.Abs(tmpDir)
 	require.NoError(t, err)
 
 	registryContainer, err := registry.Run(ctx, "registry:2")
 	require.NoError(t, err)
+	t.Cleanup(func() { registryContainer.Terminate(context.TODO()) })
 
 	registryHost, err := registryContainer.HostAddress(ctx)
 	require.NoError(t, err)
@@ -56,6 +59,9 @@ func TestScanCheckExamples(t *testing.T) {
 	for _, version := range trivyVersions {
 		t.Run(version, func(t *testing.T) {
 			reportFileName := version + "_" + "report.json"
+
+			trivyVer := getActualTrivyVersion(t, version)
+
 			args := []string{
 				"conf",
 				"--checks-bundle-repository", bundleImage,
@@ -64,8 +70,12 @@ func TestScanCheckExamples(t *testing.T) {
 				"--include-deprecated-checks=false",
 				"/testdata/examples",
 			}
-
 			trivy, err := testcontainer.RunTrivy(ctx, "aquasec/trivy:"+version, args,
+				testcontainers.CustomizeRequest(testcontainers.GenericContainerRequest{
+					ContainerRequest: testcontainers.ContainerRequest{
+						AlwaysPullImage: false,
+					},
+				}),
 				testcontainers.WithHostConfigModifier(func(hc *container.HostConfig) {
 					hc.NetworkMode = "host"
 					hc.Mounts = []mount.Mount{
@@ -77,7 +87,6 @@ func TestScanCheckExamples(t *testing.T) {
 					}
 				}),
 			)
-
 			require.NoError(t, err)
 			t.Cleanup(func() { trivy.Terminate(ctx) })
 
@@ -100,12 +109,53 @@ func TestScanCheckExamples(t *testing.T) {
 			report := readTrivyReport(t, reportPath)
 			require.NoError(t, os.Remove(reportPath))
 
-			verifyReport(t, report, examplesPath, version, checkAliases)
+			verifyReport(t, report, examplesPath, trivyVer, checksMetadata)
 		})
 	}
 }
 
+func getActualTrivyVersion(t *testing.T, version string) semver.Version {
+	t.Helper()
+
+	args := []string{
+		"version",
+		"-f", "json",
+		"-q",
+	}
+
+	trivy, err := testcontainer.RunTrivy(t.Context(), "aquasec/trivy:"+version, args,
+		testcontainers.CustomizeRequest(testcontainers.GenericContainerRequest{
+			ContainerRequest: testcontainers.ContainerRequest{
+				WaitingFor: wait.ForExit(),
+			},
+		}),
+	)
+	defer trivy.Terminate(t.Context())
+
+	rc, err := trivy.Logs(t.Context())
+	require.NoError(t, err)
+
+	b, err := io.ReadAll(rc)
+	require.NoError(t, err)
+
+	t.Logf("Version response: %q", string(b))
+	require.NoError(t, err)
+
+	var resp struct {
+		Version string `json:"Version"`
+	}
+	require.NoError(t, json.Unmarshal(b, &resp))
+	require.NotEmpty(t, resp.Version)
+
+	ver, err := semver.Parse(resp.Version)
+	require.NoError(t, err)
+	t.Logf("Actual Trivy version is %s", ver.String())
+	return ver
+}
+
 func buildBundle(t *testing.T) string {
+	t.Helper()
+
 	cmd := exec.Command("make", "create-bundle")
 	cmd.Dir = ".."
 	require.NoError(t, cmd.Run())
@@ -117,6 +167,8 @@ func buildBundle(t *testing.T) string {
 }
 
 func pushBundle(t *testing.T, ctx context.Context, path string, image string) {
+	t.Helper()
+
 	orasCmd := []string{
 		"push", image,
 		"--artifact-type", "application/vnd.cncf.openpolicyagent.config.v1+json",
@@ -138,38 +190,13 @@ func pushBundle(t *testing.T, ctx context.Context, path string, image string) {
 	require.NoError(t, c.Terminate(ctx))
 }
 
-// TODO: AWS-0344 check is excluded because its input does not match the scheme of older versions of Trivy.
-// Remove it for the latest version after this issue is resolved.
-var excludedChecks = map[string][]string{
-	// Excluded for all versions, as these checks are only for documentation and lack implementation.
-	"": {
-		"AWS-0057",
-		"AWS-0114",
-		"AWS-0120",
-		"AWS-0134",
-	},
-	"0.57.1": {
-		// After version 0.57.1, the bug with the field type was fixed and the example was updated. See: https://github.com/aquasecurity/trivy/pull/7995
-		"AWS-0036",
-		"AWS-0344",
-		"GCP-0050",
-	},
-	"0.58.1": {
-		"AWS-0344",
-		"GCP-0050",
-	},
-	"latest": {
-		"AWS-0344",
-	},
-}
-
-func setupTarget(t *testing.T, targetDir string) map[string][]string {
+func setupTarget(t *testing.T, targetDir string) map[string]metadata.Metadata {
 	t.Helper()
 
 	checksMetadata, err := metadata.LoadDefaultChecksMetadata()
 	require.NoError(t, err)
 
-	checkAliases := make(map[string][]string)
+	metadataByID := make(map[string]metadata.Metadata)
 
 	for _, meta := range checksMetadata {
 		// TODO: scan all frameworks
@@ -185,17 +212,18 @@ func setupTarget(t *testing.T, targetDir string) map[string][]string {
 		require.NoError(t, err)
 
 		if path == "" {
+			t.Logf("Skip check %s without examples", meta.ID())
 			continue
 		}
 
-		checkAliases[meta.ID()] = meta.Aliases()
+		metadataByID[meta.ID()] = meta
 
 		for provider, providerExamples := range checkExamples {
 			writeExamples(t, providerExamples.Bad.ToStrings(), provider, targetDir, meta.ID(), "bad")
 			writeExamples(t, providerExamples.Good.ToStrings(), provider, targetDir, meta.ID(), "good")
 		}
 	}
-	return checkAliases
+	return metadataByID
 }
 
 func writeExamples(t *testing.T, examples []string, provider, cacheDir string, id string, typ string) {
@@ -208,10 +236,14 @@ func writeExamples(t *testing.T, examples []string, provider, cacheDir string, i
 }
 
 func verifyReport(
-	t *testing.T, results []Result, targetDir string, version string,
-	checkAliases map[string][]string,
+	t *testing.T, results []Result, targetDir string, trivyVer semver.Version,
+	checksMetadata map[string]metadata.Metadata,
 ) {
+	t.Helper()
+
 	got := getFailureIDs(results)
+
+	minVersions := make(map[string]semver.Version)
 
 	err := filepath.Walk(targetDir, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -229,19 +261,19 @@ func verifyReport(
 
 		id, _, exampleType := parts[0], parts[1], parts[2]
 
+		// Trivy filters the checks by the minimum supported version itself,
+		// but this feature appeared after some of the checks had already been updated,
+		// so here we re-apply filtering for compatibility.
+		if shouldSkipCheck(t, id, checksMetadata, minVersions, trivyVer) {
+			t.Logf("Skip unsupported check %s for %s", id, trivyVer.String())
+			return filepath.SkipDir
+		}
+
+		meta := checksMetadata[id]
 		shouldBePresent := exampleType == "bad"
 
-		if slices.Contains(excludedChecks[""], id) {
-			return nil
-		}
-
-		if slices.Contains(excludedChecks[version], id) {
-			return nil
-		}
-
 		t.Run(relPath, func(t *testing.T) {
-			aliases := checkAliases[id]
-			allIDs := append(aliases, id)
+			allIDs := append(meta.Aliases(), id)
 			gotIDs, exists := got[relPath]
 
 			var contains bool
@@ -263,6 +295,30 @@ func verifyReport(
 	})
 
 	require.NoError(t, err)
+}
+
+func shouldSkipCheck(
+	t *testing.T,
+	id string,
+	checksMetadata map[string]metadata.Metadata,
+	minVersions map[string]semver.Version,
+	trivyVer semver.Version,
+) bool {
+	meta := checksMetadata[id]
+	if meta.MinimumTrivyVersion() == "" {
+		return false
+	}
+
+	minVer, ok := minVersions[id]
+	if !ok {
+		raw := meta.MinimumTrivyVersion()
+		var err error
+		minVer, err = semver.Parse(raw)
+		require.NoError(t, err)
+		minVersions[id] = minVer
+	}
+
+	return trivyVer.LessThan(minVer)
 }
 
 func fileNameByProvider(provider string) string {
