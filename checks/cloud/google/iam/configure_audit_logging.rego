@@ -48,7 +48,7 @@ deny contains res if {
 deny contains res if {
 	project := input.google.iam.projects[_]
 	audit_config := project.auditconfigs[_]
-	isManaged(audit_config)
+	isManaged(project)
 
 	audit_config.service.value != "allServices"
 
