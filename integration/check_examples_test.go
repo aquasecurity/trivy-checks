@@ -38,12 +38,6 @@ func TestScanCheckExamples(t *testing.T) {
 	require.NoError(t, err)
 	t.Cleanup(func() { os.RemoveAll(tmpDir) })
 
-	examplesPath := filepath.Join(tmpDir, "examples")
-	checksMetadata := setupTarget(t, examplesPath)
-
-	targetDir, err := filepath.Abs(tmpDir)
-	require.NoError(t, err)
-
 	registryContainer, err := registry.Run(ctx, "registry:2")
 	require.NoError(t, err)
 	t.Cleanup(func() { registryContainer.Terminate(context.TODO()) })
@@ -53,14 +47,21 @@ func TestScanCheckExamples(t *testing.T) {
 
 	bundleImage := registryHost + "/" + "trivy-checks:latest"
 
-	bundlePath := buildBundle(t)
-	pushBundle(t, ctx, bundlePath, bundleImage)
-
 	for _, version := range trivyVersions {
 		t.Run(version, func(t *testing.T) {
-			reportFileName := version + "_" + "report.json"
+			verDir := filepath.Join(tmpDir, version)
+			examplesPath := filepath.Join(verDir, "examples")
 
 			trivyVer := getActualTrivyVersion(t, version)
+			checksMetadata, skipped := setupTarget(t, examplesPath, trivyVer)
+
+			bundlePath := buildBundle(t, skipped)
+			pushBundle(t, ctx, bundlePath, bundleImage)
+
+			targetDir, err := filepath.Abs(verDir)
+			require.NoError(t, err)
+
+			reportFileName := version + "_" + "report.json"
 
 			args := []string{
 				"conf",
@@ -96,6 +97,13 @@ func TestScanCheckExamples(t *testing.T) {
 			b, err := io.ReadAll(rc)
 			require.NoError(t, err)
 
+			state, err := trivy.State(t.Context())
+			require.NoError(t, err)
+
+			if state.ExitCode != 0 {
+				t.Fatal(string(b))
+			}
+
 			// trivy switches to embedded checks if the bundle load fails, so we should check this out
 			if bytes.Contains(b, []byte("Falling back to embedded checks")) {
 				t.Log(string(b))
@@ -109,7 +117,7 @@ func TestScanCheckExamples(t *testing.T) {
 			report := readTrivyReport(t, reportPath)
 			require.NoError(t, os.Remove(reportPath))
 
-			verifyReport(t, report, examplesPath, trivyVer, checksMetadata)
+			verifyReport(t, report, examplesPath, checksMetadata)
 		})
 	}
 }
@@ -153,12 +161,14 @@ func getActualTrivyVersion(t *testing.T, version string) semver.Version {
 	return ver
 }
 
-func buildBundle(t *testing.T) string {
+func buildBundle(t *testing.T, skipped []string) string {
 	t.Helper()
 
-	cmd := exec.Command("make", "create-bundle")
+	cmd := exec.Command("./cmd/bundle/bundle.sh", skipped...)
 	cmd.Dir = ".."
-	require.NoError(t, cmd.Run())
+	var stderr bytes.Buffer
+	cmd.Stderr = &stderr
+	require.NoError(t, cmd.Run(), "stderr: %s", stderr.String())
 	t.Cleanup(func() { os.Remove("../bundle.tar.gz") })
 
 	bundlePath, err := filepath.Abs("../bundle.tar.gz")
@@ -190,13 +200,15 @@ func pushBundle(t *testing.T, ctx context.Context, path string, image string) {
 	require.NoError(t, c.Terminate(ctx))
 }
 
-func setupTarget(t *testing.T, targetDir string) map[string]metadata.Metadata {
+func setupTarget(t *testing.T, targetDir string, trivyVer semver.Version) (map[string]metadata.Metadata, []string) {
 	t.Helper()
 
 	checksMetadata, err := metadata.LoadDefaultChecksMetadata()
 	require.NoError(t, err)
 
 	metadataByID := make(map[string]metadata.Metadata)
+	minVersions := make(map[string]semver.Version)
+	var skipped []string
 
 	for _, meta := range checksMetadata {
 		// TODO: scan all frameworks
@@ -216,6 +228,15 @@ func setupTarget(t *testing.T, targetDir string) map[string]metadata.Metadata {
 			continue
 		}
 
+		// Trivy filters the checks by the minimum supported version itself,
+		// but this feature appeared after some of the checks had already been updated,
+		// so here we re-apply filtering for compatibility.
+		if shouldSkipCheck(t, meta, minVersions, trivyVer) {
+			t.Logf("Skip unsupported check %s for %s", meta.ID(), trivyVer.String())
+			skipped = append(skipped, meta.ID())
+			continue
+		}
+
 		metadataByID[meta.ID()] = meta
 
 		for provider, providerExamples := range checkExamples {
@@ -223,7 +244,7 @@ func setupTarget(t *testing.T, targetDir string) map[string]metadata.Metadata {
 			writeExamples(t, providerExamples.Good.ToStrings(), provider, targetDir, meta.ID(), "good")
 		}
 	}
-	return metadataByID
+	return metadataByID, skipped
 }
 
 func writeExamples(t *testing.T, examples []string, provider, cacheDir string, id string, typ string) {
@@ -236,15 +257,10 @@ func writeExamples(t *testing.T, examples []string, provider, cacheDir string, i
 }
 
 func verifyReport(
-	t *testing.T, results []Result, targetDir string, trivyVer semver.Version,
-	checksMetadata map[string]metadata.Metadata,
-) {
+	t *testing.T, results []Result, targetDir string, checksMetadata map[string]metadata.Metadata) {
 	t.Helper()
 
 	got := getFailureIDs(results)
-
-	minVersions := make(map[string]semver.Version)
-
 	err := filepath.Walk(targetDir, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
@@ -260,14 +276,6 @@ func verifyReport(
 		require.Len(t, parts, 5)
 
 		id, _, exampleType := parts[0], parts[1], parts[2]
-
-		// Trivy filters the checks by the minimum supported version itself,
-		// but this feature appeared after some of the checks had already been updated,
-		// so here we re-apply filtering for compatibility.
-		if shouldSkipCheck(t, id, checksMetadata, minVersions, trivyVer) {
-			t.Logf("Skip unsupported check %s for %s", id, trivyVer.String())
-			return filepath.SkipDir
-		}
 
 		meta := checksMetadata[id]
 		shouldBePresent := exampleType == "bad"
@@ -299,23 +307,20 @@ func verifyReport(
 
 func shouldSkipCheck(
 	t *testing.T,
-	id string,
-	checksMetadata map[string]metadata.Metadata,
+	meta metadata.Metadata,
 	minVersions map[string]semver.Version,
 	trivyVer semver.Version,
 ) bool {
-	meta := checksMetadata[id]
 	if meta.MinimumTrivyVersion() == "" {
 		return false
 	}
 
-	minVer, ok := minVersions[id]
+	minVer, ok := minVersions[meta.ID()]
 	if !ok {
-		raw := meta.MinimumTrivyVersion()
 		var err error
-		minVer, err = semver.Parse(raw)
+		minVer, err = semver.Parse(meta.MinimumTrivyVersion())
 		require.NoError(t, err)
-		minVersions[id] = minVer
+		minVersions[meta.ID()] = minVer
 	}
 
 	return trivyVer.LessThan(minVer)
