@@ -19,7 +19,7 @@ make_grep_pattern() {
 }
 
 grep_pattern=$(make_grep_pattern)
-echo "Patttern: $grep_pattern"
+echo "Pattern: $grep_pattern"
 
 rsync_with_content_filter() {
     local src="$1"
