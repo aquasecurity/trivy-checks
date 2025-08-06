@@ -74,18 +74,3 @@ deny contains res if {
 		audit_config,
 	)
 }
-
-deny contains res if {
-	project := input.google.iam.projects[_]
-	audit_config := project.auditconfigs[_]
-	log_config := audit_config.auditlogconfigs[_]
-	isManaged(log_config)
-
-	exempted_member := log_config.exemptedmembers[_]
-	exempted_member.value in ["allUsers", "allAuthenticatedUsers"]
-
-	res := result.new(
-		sprintf("Audit log exemption '%s' is too broad and may compromise security.", [exempted_member.value]),
-		exempted_member,
-	)
-}

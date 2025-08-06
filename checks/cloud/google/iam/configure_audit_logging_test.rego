@@ -28,20 +28,6 @@ test_deny_audit_config_missing_log_types if {
 	count(res) == 1
 }
 
-test_deny_broad_exemption_all_users if {
-	inp := {"google": {"iam": {"projects": [{"auditconfigs": [{"service": {"value": "allServices"}, "auditlogconfigs": [
-		{"logtype": {"value": "ADMIN_READ"}},
-		{"logtype": {"value": "DATA_READ"}},
-		{
-			"logtype": {"value": "DATA_WRITE"},
-			"exemptedmembers": [{"value": "allUsers"}],
-		},
-	]}]}]}}}
-
-	res := check.deny with input as inp
-	count(res) == 1
-}
-
 test_allow_proper_audit_config if {
 	inp := {"google": {"iam": {"projects": [{"auditconfigs": [{"service": {"value": "allServices"}, "auditlogconfigs": [
 		{"logtype": {"value": "ADMIN_READ"}},
