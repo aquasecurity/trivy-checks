@@ -117,3 +117,41 @@ test_image_with_no_tag_with_digest_allowed if {
 
 	count(r) == 0
 }
+
+test_image_with_registry_with_tag if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-tag"},
+		"spec": {"containers": [{
+			"command": [
+				"sh",
+				"-c",
+				"echo 'Hello' && sleep 1h",
+			],
+			"image": "127.0.0.1:5000/busybox:1.33.1",
+			"name": "hello",
+		}]},
+	}
+
+	count(r) == 0
+}
+
+test_image_with_registry_without_tag if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-tag"},
+		"spec": {"containers": [{
+			"command": [
+				"sh",
+				"-c",
+				"echo 'Hello' && sleep 1h",
+			],
+			"image": "127.0.0.1:5000/busybox",
+			"name": "hello",
+		}]},
+	}
+
+	count(r) == 1
+}
