@@ -39,7 +39,7 @@ deny contains res if {
 	)
 }
 
-dangerous_actions := {"Microsoft.Authorization/roleDefinitions/write", "Microsoft.Authorization/*", "*"}
+dangerous_actions := {"Microsoft.Authorization/roleDefinitions/write","Microsoft.Authorization/*/Write", "Microsoft.Authorization/*", "*"}
 
 allows_custom_role_creation(action_value) if {
 	action_value in dangerous_actions
