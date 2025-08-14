@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io"
 	"io/fs"
+	"log"
 	"path/filepath"
 	"strings"
 )
@@ -43,6 +44,7 @@ func WithFilters(filters ...FileFilter) Option {
 }
 
 // WithGithubRef sets the GitHub ref string to be used for manifest substitution.
+// The ref should be in the format "refs/tags/v1.2.3".
 func WithGithubRef(ref string) Option {
 	return func(b *Bundler) {
 		b.githubRef = ref
@@ -116,6 +118,7 @@ func (b *Bundler) prepareFiles() error {
 	b.files = make(map[string]string)
 	for _, job := range b.jobs {
 		rootPath := filepath.Join(b.root, job.from)
+		var jobCount int
 		walkFn := func(path string, info fs.DirEntry, err error) error {
 			if err != nil {
 				return err
@@ -141,12 +144,15 @@ func (b *Bundler) prepareFiles() error {
 				return err
 			}
 			b.files[path] = filepath.ToSlash(filepath.Join(job.to, relToJobFrom))
+			jobCount++
 			return nil
 		}
 
 		if err := fs.WalkDir(b.fsys, rootPath, walkFn); err != nil {
 			return err
 		}
+
+		log.Printf("Prepared %d files from %q to %q", jobCount, rootPath, job.to)
 	}
 
 	return nil
@@ -170,6 +176,7 @@ func (b *Bundler) prepareManifest() error {
 		if releaseVersion == b.githubRef {
 			return fmt.Errorf("unexpected GitHub ref: %s", b.githubRef)
 		}
+		log.Printf("Using GitHub ref %q -> release version %q", b.githubRef, releaseVersion)
 		data = bytes.ReplaceAll(data, []byte(placeholder), []byte(releaseVersion))
 	}
 
@@ -189,12 +196,16 @@ func (b *Bundler) archive(w io.Writer) error {
 		return fmt.Errorf("write manifest: %w", err)
 	}
 
+	var added int
 	for src, dst := range b.files {
 		err := b.addFileToTar(tw, src, b.prefix+dst)
 		if err != nil {
 			return fmt.Errorf("add file to tar: %w", err)
 		}
+		added++
 	}
+
+	log.Printf("Added %d files to archive", added)
 	return nil
 }
 

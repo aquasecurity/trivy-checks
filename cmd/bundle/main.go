@@ -23,7 +23,7 @@ func main() {
 	if err := buildBundle(*root, *output, githubRef); err != nil {
 		log.Fatalf("Error: %v", err)
 	}
-	log.Println("Bundle successfully created")
+	log.Printf("Bundle %q successfully created", *output)
 }
 
 func buildBundle(root, outFile, githubRef string) error {
