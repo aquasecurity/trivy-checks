@@ -10,7 +10,7 @@
 # custom:
 #   id: AZU-0052
 #   aliases:
-#     - AVD-ID-0052
+#     - AVD-AZU-0052
 #     - azure-role-definition-allows-custom-role-creation
 #   long_id: azure-authorization-prevent-custom-role-creation
 #   provider: azure
