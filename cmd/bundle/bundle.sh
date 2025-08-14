@@ -2,7 +2,6 @@
 
 rm -rf bundle || true
 rm bundle.tar.gz || true
-RELEASE_VERSION=${GITHUB_REF/refs\/tags\/v/}
 
 IDS=("$@")
 
@@ -79,8 +78,5 @@ done
 mkdir -p bundle/specs/compliance
 rsync -avr --exclude="*.go" --exclude="*.md" pkg/compliance bundle/specs
 
-cp checks/.manifest bundle/
-rm bundle/policies/.manifest
-sed -i -e "s/\[GITHUB_SHA\]/${RELEASE_VERSION}/" bundle/.manifest
 tar -C bundle -czvf bundle.tar.gz .
 rm -rf bundle
