@@ -9,7 +9,6 @@ import (
 	"io"
 	"io/fs"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"strconv"
 	"strings"
@@ -17,6 +16,7 @@ import (
 
 	"github.com/docker/docker/api/types/container"
 	"github.com/docker/docker/api/types/mount"
+	"github.com/open-policy-agent/opa/v1/ast"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/testcontainers/testcontainers-go"
@@ -25,6 +25,7 @@ import (
 
 	"github.com/aquasecurity/go-version/pkg/semver"
 	"github.com/aquasecurity/trivy-checks/integration/testcontainer"
+	"github.com/aquasecurity/trivy-checks/internal/bundler"
 	"github.com/aquasecurity/trivy-checks/internal/examples"
 	"github.com/aquasecurity/trivy-checks/pkg/rego/metadata"
 )
@@ -55,7 +56,7 @@ func TestScanCheckExamples(t *testing.T) {
 			trivyVer := getActualTrivyVersion(t, version)
 			checksMetadata, skipped := setupTarget(t, examplesPath, trivyVer)
 
-			bundlePath := buildBundle(t, skipped)
+			bundlePath := buildBundle(t, verDir, skipped)
 			pushBundle(t, ctx, bundlePath, bundleImage)
 
 			targetDir, err := filepath.Abs(verDir)
@@ -161,19 +162,48 @@ func getActualTrivyVersion(t *testing.T, version string) semver.Version {
 	return ver
 }
 
-func buildBundle(t *testing.T, skipped []string) string {
+func buildBundle(t *testing.T, path string, skipped []string) string {
 	t.Helper()
 
-	cmd := exec.Command("./cmd/bundle/bundle.sh", skipped...)
-	cmd.Dir = ".."
-	var stderr bytes.Buffer
-	cmd.Stderr = &stderr
-	require.NoError(t, cmd.Run(), "stderr: %s", stderr.String())
-	t.Cleanup(func() { os.Remove("../bundle.tar.gz") })
+	fsys := os.DirFS("..")
+	b := bundler.New(".", fsys, bundler.WithFilters(makeSkipIDFilter(t, skipped, fsys)))
 
-	bundlePath, err := filepath.Abs("../bundle.tar.gz")
+	bundlePath := filepath.Join(path, "bundle.tar.gz")
+	f, err := os.Create(bundlePath)
 	require.NoError(t, err)
+
+	require.NoError(t, b.Build(f))
 	return bundlePath
+}
+
+func makeSkipIDFilter(t *testing.T, skipped []string, fsys fs.FS) func(path string) bool {
+	skipMap := make(map[string]struct{}, len(skipped))
+	for _, id := range skipped {
+		skipMap[id] = struct{}{}
+	}
+
+	return func(path string) bool {
+		if !strings.HasSuffix(path, ".rego") {
+			return true
+		}
+
+		b, err := fs.ReadFile(fsys, path)
+		require.NoError(t, err)
+
+		module, err := ast.ParseModuleWithOpts(path, string(b), ast.ParserOptions{
+			ProcessAnnotation: true,
+		})
+		require.NoError(t, err)
+
+		meta, ok := metadata.GetCheckMetadata(module)
+		require.True(t, ok, "failed to get metadata for %s", path)
+
+		if _, found := skipMap[meta.ID()]; found {
+			t.Logf("Skip check %s by id filter", meta.ID())
+			return false
+		}
+		return true
+	}
 }
 
 func pushBundle(t *testing.T, ctx context.Context, path string, image string) {
@@ -185,13 +215,16 @@ func pushBundle(t *testing.T, ctx context.Context, path string, image string) {
 		filepath.Base(path) + ":application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip",
 	}
 
+	absPath, err := filepath.Abs(path)
+	require.NoError(t, err)
+
 	c, err := testcontainer.RunOras(ctx, orasCmd,
 		testcontainers.WithHostConfigModifier(func(config *container.HostConfig) {
 			config.NetworkMode = "host"
 			config.Mounts = []mount.Mount{
 				{
 					Type:   mount.TypeBind,
-					Source: path,
+					Source: absPath,
 					Target: "/" + filepath.Base(path),
 				}}
 		}),
