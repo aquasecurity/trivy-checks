@@ -16,3 +16,9 @@ test_allow_rule_deny_acces_by_default if {
 
 	test.assert_empty(check.deny) with input as inp
 }
+
+test_deny_when_no_user_defined_rules if {
+	inp := {"azure": {"storage": {"accounts": [{"networkrules": []}]}}}
+
+	test.assert_count(check.deny, 1) with input as inp
+}

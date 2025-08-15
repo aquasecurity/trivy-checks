@@ -16,6 +16,7 @@
 #   provider: aws
 #   service: s3
 #   severity: HIGH
+#   deprecated: true
 #   recommended_action: Configure bucket encryption
 #   input:
 #     selector:
