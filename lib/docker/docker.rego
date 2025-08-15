@@ -78,10 +78,7 @@ healthcheck contains instruction if {
 	instruction.Cmd == "healthcheck"
 }
 
-split_cmd(s) := cmds if {
-	cmd_parts := regex.split(`\s*&&\s*`, s)
-	cmds := [split(cmd, " ") | cmd := cmd_parts[_]]
-}
+split_cmd(s) := sh.parse_commands(s)
 
 command_indexes(cmds, cmds_to_check, package_manager) := cmd_indexes if {
 	cmd_indexes = [idx |
