@@ -172,9 +172,9 @@ func (b *Bundler) prepareManifest() error {
 	}
 
 	if b.githubRef != "" {
-		releaseVersion := strings.TrimPrefix(b.githubRef, prefix)
-		if releaseVersion == b.githubRef {
-			return fmt.Errorf("unexpected GitHub ref: %s", b.githubRef)
+		releaseVersion, ok := strings.CutPrefix(b.githubRef, prefix)
+		if !ok {
+			log.Printf("GitHub ref %q does not start with %q — using unchanged value", b.githubRef, prefix)
 		}
 		log.Printf("Using GitHub ref %q -> release version %q", b.githubRef, releaseVersion)
 		data = bytes.ReplaceAll(data, []byte(placeholder), []byte(releaseVersion))
