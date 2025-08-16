@@ -93,3 +93,8 @@ push-bundle: create-bundle
 		$$REPO \
 		 --artifact-type application/vnd.cncf.openpolicyagent.config.v1+json \
 		"$(BUNDLE_FILE):application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip"
+
+.PHONY: genspec
+# Generate specification files
+genspec:
+	go run ./cmd/genspec
