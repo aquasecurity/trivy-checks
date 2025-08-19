@@ -127,25 +127,24 @@ test_allowed if {
 	count(r) == 0
 }
 
-# TODO: improve command splitting
-# test_allowed_cmds_separated_by_semicolon {
-# 	r := deny with input as {"Stages": [{"Name": "ubuntu:18.04", "Commands": [
-# 		{
-# 			"Cmd": "from",
-# 			"Value": ["ubuntu:18.04"],
-# 		},
-# 		{
-# 			"Cmd": "run",
-# 			"Value": ["apt-get update -y ; apt-get install -y curl"],
-# 		},
-# 		{
-# 			"Cmd": "entrypoint",
-# 			"Value": ["mysql"],
-# 		},
-# 	]}]}
+test_allowed_cmds_separated_by_semicolon if {
+	r := deny with input as {"Stages": [{"Name": "ubuntu:18.04", "Commands": [
+		{
+			"Cmd": "from",
+			"Value": ["ubuntu:18.04"],
+		},
+		{
+			"Cmd": "run",
+			"Value": ["apt-get update -y ; apt-get install -y curl"],
+		},
+		{
+			"Cmd": "entrypoint",
+			"Value": ["mysql"],
+		},
+	]}]}
 
-# 	count(r) == 0
-# }
+	count(r) == 0
+}
 
 test_allowed_multiple_install_cmds if {
 	r := deny with input as {"Stages": [{"Name": "ubuntu:18.04", "Commands": [

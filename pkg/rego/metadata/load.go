@@ -30,20 +30,27 @@ func LoadChecksMetadata(fsys fs.FS) (map[string]Metadata, error) {
 
 	checksMetadata := make(map[string]Metadata)
 	for path, module := range res.ParsedModules() {
-		annotations := packageAnnotations(module)
-		if len(annotations) != 1 {
-			// TODO: so the check has an deprecated way of specifying metadata
+		meta, ok := GetCheckMetadata(module)
+		if !ok {
 			continue
 		}
-
-		checksMetadata[path] = Metadata{
-			Title:       annotations[0].Title,
-			Description: annotations[0].Description,
-			Links:       relatedResourcesToLinks(annotations[0].RelatedResources),
-			Custom:      annotations[0].Custom,
-		}
+		checksMetadata[path] = meta
 	}
 	return checksMetadata, nil
+}
+
+func GetCheckMetadata(module *ast.Module) (Metadata, bool) {
+	annotations := packageAnnotations(module)
+	if len(annotations) != 1 {
+		// TODO: so the check has an deprecated way of specifying metadata
+		return Metadata{}, false
+	}
+	return Metadata{
+		Title:       annotations[0].Title,
+		Description: annotations[0].Description,
+		Links:       relatedResourcesToLinks(annotations[0].RelatedResources),
+		Custom:      annotations[0].Custom,
+	}, true
 }
 
 func relatedResourcesToLinks(relatedResources []*ast.RelatedResourceAnnotation) []string {
