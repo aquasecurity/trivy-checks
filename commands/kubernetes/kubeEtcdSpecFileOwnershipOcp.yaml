@@ -1,0 +1,8 @@
+---
+- id: CMD-0058
+  key: kubeEtcdSpecFileOwnership
+  title: Etcd pod specification file ownership
+  nodeType: master
+  audit: for i in $(oc get pods -n openshift-etcd -l app=etcd -o name | grep etcd );do oc rsh -n openshift-etcd $i stat -c %U:%G /etc/kubernetes/manifests/etcd-pod.yaml;done
+  platforms:
+    - ocp
