@@ -13,7 +13,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           token: ${{ secrets.AUTO_COMMIT_TOKEN }}
 
@@ -28,7 +28,7 @@ jobs:
         run: make fmt-rego
 
       - name: Push Changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v6
         with:
           commit_message: "Update outdated API data"
           push_options: --force
