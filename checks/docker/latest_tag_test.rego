@@ -30,7 +30,7 @@ test_no_tag_denied if {
 	}]}]}
 
 	count(r) == 1
-	r[_].msg == "Specify a tag in the 'FROM' statement for image 'openjdk'"
+	r[_].msg == "Omitted tag in the 'FROM' statement for image 'openjdk'; pin version or digeest."
 }
 
 # Test FROM with scratch
@@ -165,7 +165,7 @@ test_multi_stage_denied if {
 	]}
 
 	count(r) == 1
-	r[_].msg == "Specify a tag in the 'FROM' statement for image 'alpine'"
+	r[_].msg == "Omitted tag in the 'FROM' statement for image 'alpine'; pin version or digest."
 }
 
 test_multi_stage_no_tag_denied if {
@@ -187,7 +187,7 @@ test_multi_stage_no_tag_denied if {
 	]}
 
 	count(r) == 1
-	r[_].msg == "Specify a tag in the 'FROM' statement for image 'alpine'"
+	r[_].msg == "Omitted tag in the 'FROM' statement for image 'alpine'; pin version or digest."
 }
 
 test_deny_latest_tag_ref_to_global_arg_with_default_value if {
@@ -324,4 +324,89 @@ test_deny_missing_tag_arg if {
 
 	count(r) == 1
 	r[_].msg == "Specify a tag in the 'FROM' statement for image 'alpine'"
+}
+
+# =========================
+# New tests for ARG cases
+# =========================
+
+# Implicit latest via ARG after resolution (ARG BASE=ubuntu; FROM ${BASE})
+test_deny_implicit_latest_via_arg if {
+    r := deny with input as {"Stages": [
+        {"Name": "", "Commands": [{
+            "Cmd": "arg",
+            "Value": ["BASE=ubuntu"],
+        }]},
+        {"Name": "${BASE}", "Commands": [{
+            "Cmd": "from",
+            "Value": ["${BASE}"],
+        }]},
+    ]}
+
+    count(r) == 1
+    r[_].msg == "Omitted tag in the 'FROM' statement for image 'ubuntu'; pin version or digest."
+}
+
+# Explicit :latest via ARG after resolution (ARG BASE=ubuntu:latest; FROM ${BASE})
+test_deny_explicit_latest_via_arg if {
+    r := deny with input as {"Stages": [
+        {"Name": "", "Commands": [{
+            "Cmd": "arg",
+            "Value": ["BASE=ubuntu:latest"],
+        }]},
+        {"Name": "${BASE}", "Commands": [{
+            "Cmd": "from",
+            "Value": ["${BASE}"],
+        }]},
+    ]}
+
+    count(r) == 1
+    r[_].msg == "Specify a tag in the 'FROM' statement for image 'ubuntu'"
+}
+
+# Unresolved ARG in FROM should produce WARN, not DENY
+test_warn_unresolved_arg if {
+    w := warn with input as {"Stages": [
+        {"Name": "", "Commands": []},
+        {"Name": "${BASE}", "Commands": [{
+            "Cmd": "from",
+            "Value": ["${BASE}"],
+        }]},
+    ]}
+
+    count(w) == 1
+    some i
+    contains(w[i].msg, "unresolved build ARGs")
+}
+
+# Digest pin should be allowed even if ARG is used
+test_allow_digest_pin_via_arg if {
+    r := deny with input as {"Stages": [
+        {"Name": "", "Commands": [{
+            "Cmd": "arg",
+            "Value": ["IMG=alpine@sha256:1111111111111111111111111111111111111111111111111111111111111111"],
+        }]},
+        {"Name": "${IMG}", "Commands": [{
+            "Cmd": "from",
+            "Value": ["${IMG}"],
+        }]},
+    ]}
+
+    count(r) == 0
+}
+
+# Evaluated string without tag part but ending with a variable should NOT misfire (edge safety)
+test_allow_when_string_ends_with_var if {
+    r := deny with input as {"Stages": [
+        {"Name": "", "Commands": [{
+            "Cmd": "arg",
+            "Value": ["REPO=myrepo"],
+        }]},
+        {"Name": "${REPO}/image-${TAG}", "Commands": [{
+            "Cmd": "from",
+            "Value": ["${REPO}/image-${TAG}"],
+        }]},
+    ]}
+
+    count(r) == 0
 }
