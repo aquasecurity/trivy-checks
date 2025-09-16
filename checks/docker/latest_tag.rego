@@ -99,6 +99,58 @@ is_string_ending_with_var(reference) if {
 	endswith(reference, var_ref)
 }
 
+
+# FROM with digest pinning is considered safe
+digest_pinned_from(instruction) if {
+    contains(instruction.Value[0], "@sha256:")
+}
+
+# Returns true if all ${VAR}/$VAR in s can be resolved from vars
+all_var_refs_resolvable(s, vars) if {
+    refs := find_var_refs(s)
+    count(refs) == 0
+} else if {
+    every ref in find_var_refs(s) {
+        object.get(vars, extract_var_name(ref), null) != null
+    }
+}
+
+# unresolved build args should not be hard failed, but surfaced as a warning
+warn contains res if {
+    some instruction in input.Stages[i].Commands
+    instruction.Cmd == "from"
+    contains(instruction.Value[0], "$")
+    vars := stage_vars(i)
+    not all_var_refs_resolvable(instruction.Value[0], vars)
+    res := result.new(
+        sprintf("FROM uses unresolved build ARGs: %q. Ensure the resolved image is version- or digest-pinned.", [instruction.Value[0]]),
+        instruction,
+    )
+}
+
+# Implicit latest (tag omitted) after resolving variables -> deny
+deny contains res if {
+    some instruction in input.Stages[i].Commands
+    instruction.Cmd == "from"
+    not digest_pinned_from(instruction)
+
+    vars := stage_vars(i)
+    [img, tag] := parse_image_and_tag(instruction, vars)
+
+    img != "scratch"
+    img != ""
+    not is_alias(img)
+
+    tag == "latest"
+    not endswith(lower(instruction.Value[0]), ":latest")
+
+    res := result.new(
+        sprintf("Omitted tag in the 'FROM' statement for image '%s'; pin version or digest.", [img]),
+        instruction,
+    )
+}
+
+
 # parses the image and tag if the evaluated reference contains a tag
 # that does not reference any variable. Example: ${REGISTRY}/foo:bar
 parse_image_and_tag(from, vars) := [img, tag] if {
