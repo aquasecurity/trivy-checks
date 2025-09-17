@@ -31,5 +31,5 @@ import data.lib.google.iam
 deny contains res if {
 	some role in iam.roles("organizations")
 	iam.is_privileged_access_role(role.value)
-	res := result.new("Service account access is granted to a user at project level.", role)
+	res := result.new("Organization-level service account access grants the member broad impersonation rights.", role)
 }
