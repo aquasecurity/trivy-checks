@@ -2,7 +2,6 @@ package bundler
 
 import (
 	"archive/tar"
-	"bytes"
 	"compress/gzip"
 	"fmt"
 	"io"
@@ -23,15 +22,13 @@ type FileFilter func(path string) bool
 
 // Bundler is responsible for preparing and archiving a bundle of files from a root directory
 type Bundler struct {
-	root      string
-	fsys      fs.FS
-	prefix    string // Prefix path inside the archive, e.g. "bundle"
-	githubRef string // GitHub ref string, e.g. "refs/tags/v1.2.3"
-	filters   []FileFilter
+	root    string
+	fsys    fs.FS
+	prefix  string // Prefix path inside the archive, e.g. "bundle"
+	filters []FileFilter
 
-	jobs     []copyJob
-	files    map[string]string // map of source file paths to their relative destination paths in the bundle
-	manifest []byte            // prepared manifest content with placeholders replaced
+	jobs  []copyJob
+	files map[string]string // map of source file paths to their relative destination paths in the bundle
 }
 
 type Option func(*Bundler)
@@ -40,14 +37,6 @@ type Option func(*Bundler)
 func WithFilters(filters ...FileFilter) Option {
 	return func(b *Bundler) {
 		b.filters = append(b.filters, filters...)
-	}
-}
-
-// WithGithubRef sets the GitHub ref string to be used for manifest substitution.
-// The ref should be in the format "refs/tags/v1.2.3".
-func WithGithubRef(ref string) Option {
-	return func(b *Bundler) {
-		b.githubRef = ref
 	}
 }
 
@@ -101,15 +90,13 @@ func defaultFilters() []FileFilter {
 	}
 }
 
-// Build prepares the list of files to archive, processes the manifest, and writes
+// Build prepares the list of files to archive and writes
 // the resulting archive as a compressed tar.gz to the provided io.Writer.
 func (b *Bundler) Build(w io.Writer) error {
 	if err := b.prepareFiles(); err != nil {
 		return err
 	}
-	if err := b.prepareManifest(); err != nil {
-		return err
-	}
+
 	return b.archive(w)
 }
 
@@ -158,43 +145,13 @@ func (b *Bundler) prepareFiles() error {
 	return nil
 }
 
-// prepareManifest reads the manifest template file, replaces the placeholder
-// "[GITHUB_SHA]" with the GitHub release version extracted from b.githubRef
-func (b *Bundler) prepareManifest() error {
-	const (
-		placeholder = "[GITHUB_SHA]"
-		prefix      = "refs/tags/v"
-	)
-
-	data, err := fs.ReadFile(b.fsys, filepath.Join(b.root, "checks", ".manifest"))
-	if err != nil {
-		return fmt.Errorf("read .manifest: %w", err)
-	}
-
-	if b.githubRef != "" {
-		releaseVersion, ok := strings.CutPrefix(b.githubRef, prefix)
-		if !ok {
-			log.Printf("GitHub ref %q does not start with %q — using unchanged value", b.githubRef, prefix)
-		}
-		log.Printf("Using GitHub ref %q -> release version %q", b.githubRef, releaseVersion)
-		data = bytes.ReplaceAll(data, []byte(placeholder), []byte(releaseVersion))
-	}
-
-	b.manifest = data
-	return nil
-}
-
-// archive writes all prepared files and the manifest into a compressed tar.gz archive
+// archive writes all prepared files into a compressed tar.gz archive
 func (b *Bundler) archive(w io.Writer) error {
 	gw := gzip.NewWriter(w)
 	defer gw.Close()
 
 	tw := tar.NewWriter(gw)
 	defer tw.Close()
-
-	if err := b.writeManifest(tw); err != nil {
-		return fmt.Errorf("write manifest: %w", err)
-	}
 
 	var added int
 	for src, dst := range b.files {
@@ -206,21 +163,6 @@ func (b *Bundler) archive(w io.Writer) error {
 	}
 
 	log.Printf("Added %d files to archive", added)
-	return nil
-}
-
-func (b *Bundler) writeManifest(tw *tar.Writer) error {
-	hdr := &tar.Header{
-		Name: b.prefix + ".manifest",
-		Mode: 0o644,
-		Size: int64(len(b.manifest)),
-	}
-	if err := tw.WriteHeader(hdr); err != nil {
-		return fmt.Errorf("write manifest header: %w", err)
-	}
-	if _, err := tw.Write(b.manifest); err != nil {
-		return fmt.Errorf("write manifest content: %w", err)
-	}
 	return nil
 }
 
