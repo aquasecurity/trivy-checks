@@ -37,13 +37,15 @@ import rego.v1
 deny contains res if {
 	project := input.google.iam.projects[_]
 	isManaged(project)
-	count(project.auditconfigs) == 0
+	not has_audit_confgis(project)
 
 	res := result.new(
 		"Project should have audit logging configured for security compliance.",
 		project,
 	)
 }
+
+has_audit_confgis(project) if count(project.auditconfigs) > 0
 
 deny contains res if {
 	project := input.google.iam.projects[_]
