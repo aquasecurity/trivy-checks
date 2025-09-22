@@ -41,9 +41,14 @@ terraform:
         project_id = "your-project-id"
       }
     - |-
+      resource "google_project" "test" {
+        name       = "My Project"
+        project_id = "your-project-id"
+      }
+
       # Missing required log types
       resource "google_project_iam_audit_config" "config" {
-        project = "your-project-id"
+        project = google_project.test.id
         service = "allServices"
         audit_log_config {
           log_type = "ADMIN_READ"
@@ -51,9 +56,14 @@ terraform:
         # Missing DATA_READ and DATA_WRITE
       }
     - |-
+      resource "google_project" "test" {
+        name       = "My Project"
+        project_id = "your-project-id"
+      }
+
       # Service scope too limited
       resource "google_project_iam_audit_config" "config" {
-        project = "your-project-id"
+        project = google_project.test.id
         service = "cloudresourcemanager.googleapis.com" # Should be "allServices"
         audit_log_config {
           log_type = "ADMIN_READ"
