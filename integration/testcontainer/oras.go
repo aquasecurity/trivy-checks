@@ -14,7 +14,7 @@ type OrasContainer struct {
 
 func RunOras(ctx context.Context, cmd []string, opts ...testcontainers.ContainerCustomizer) (*OrasContainer, error) {
 	req := testcontainers.ContainerRequest{
-		Image:      "bitnami/oras:latest",
+		Image:      "ghcr.io/oras-project/oras:v1.3.0",
 		Cmd:        cmd,
 		WaitingFor: wait.ForExit(),
 	}
