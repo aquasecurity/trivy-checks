@@ -38,13 +38,16 @@ type Misconfiguration struct {
 	Status string `json:"Status"`
 }
 
-func getFailureIDs(results []Result) map[string][]string {
-	ids := make(map[string][]string)
+func getFailureIDs(results []Result) map[string]map[string]struct{} {
+	ids := make(map[string]map[string]struct{})
 
 	for _, result := range results {
 		for _, misconf := range result.Misconfigurations {
 			if misconf.Status == "FAIL" {
-				ids[result.Target] = append(ids[result.Target], misconf.AVDID)
+				if _, ok := ids[result.Target]; !ok {
+					ids[result.Target] = make(map[string]struct{})
+				}
+				ids[result.Target][misconf.AVDID] = struct{}{}
 			}
 		}
 	}

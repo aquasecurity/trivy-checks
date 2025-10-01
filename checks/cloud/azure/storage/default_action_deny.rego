@@ -31,7 +31,21 @@ deny contains res if {
 	some rule in input.azure.storage.accounts[_].networkrules
 	rule.allowbydefault.value
 	res := result.new(
-		"Network rules allow access by default.",
+		"A network rule is configured to allow access.",
 		rule.allowbydefault,
 	)
 }
+
+deny contains res if {
+	some account in input.azure.storage.accounts
+	not has_networks(account)
+
+	# Default 'Allow' rule is applied when no network rules are defined.
+	# See https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#change-the-default-network-access-rule
+	res := result.new(
+		"No network rules defined and default action allows access.",
+		account,
+	)
+}
+
+has_networks(account) if count(account.networkrules) > 0

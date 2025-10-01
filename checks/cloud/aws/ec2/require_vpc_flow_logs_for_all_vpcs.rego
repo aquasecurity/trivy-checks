@@ -23,6 +23,7 @@
 #         subtypes:
 #           - service: ec2
 #             provider: aws
+#   examples: checks/cloud/aws/ec2/require_vpc_flow_logs_for_all_vpcs.yaml
 package builtin.aws.ec2.aws0178
 
 import rego.v1

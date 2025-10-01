@@ -14,6 +14,7 @@
 #   service: s3
 #   severity: HIGH
 #   short_code: enable-bucket-encryption
+#   deprecated: true
 #   recommended_action: Configure bucket encryption
 #   input:
 #     selector:

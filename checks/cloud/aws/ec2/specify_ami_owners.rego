@@ -15,6 +15,7 @@
 #   service: ami
 #   severity: LOW
 #   short_code: ensure-ami-has-owners
+#   minimum_trivy_version: 0.61.0
 #   recommended_action: Specify the owners field in the AWS AMI data source configuration
 #   input:
 #     selector:
@@ -22,6 +23,7 @@
 #         subtypes:
 #           - service: ec2
 #             provider: aws
+#   examples: checks/cloud/aws/ec2/specify_ami_owners.yaml
 package builtin.aws.ec2.aws0344
 
 import rego.v1

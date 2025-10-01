@@ -31,13 +31,19 @@ import rego.v1
 
 import data.lib.kubernetes
 
-# is_container_tagged checks if a container has a tag or digest.
-# It returns true if the image contains a digest (indicated by '@'), or if the tag is not "latest".
-is_container_tagged(container) if contains(container.image, "@")
+# is_image_tagged returns true if the image contains a digest ("@...").
+# A digest makes the image immutable regardless of whether a tag is present.
+is_image_tagged(image) if contains(image, "@")
 
-is_container_tagged(container) if {
-	# No digest, look at tag
-	[_, tag] := split(container.image, ":")
+# is_image_tagged returns true if the image has an explicit tag (":...") other than "latest".
+# The check is performed on the last path segment after the last "/", to avoid mistaking a registry port for a tag.
+is_image_tagged(image) if {
+	no_digest := split(image, "@")[0]
+	path_parts := split(no_digest, "/")
+	last := path_parts[count(path_parts) - 1]
+	tag_parts := split(last, ":")
+	count(tag_parts) > 1
+	tag := tag_parts[count(tag_parts) - 1]
 	tag != "latest"
 }
 
@@ -45,7 +51,7 @@ is_container_tagged(container) if {
 # have untagged images or images with the latest tag.
 untagged_containers contains container if {
 	some container in kubernetes.containers
-	not is_container_tagged(container)
+	not is_image_tagged(container.image)
 }
 
 deny contains res if {

@@ -14,6 +14,7 @@
 #   service: gke
 #   severity: MEDIUM
 #   short_code: use-service-account
+#   minimum_trivy_version: 0.62.0
 #   recommended_action: Use limited permissions for service accounts to be effective
 #   input:
 #     selector:

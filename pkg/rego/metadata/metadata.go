@@ -39,11 +39,12 @@ func (m Metadata) IsDeprecated() bool {
 }
 
 func (m Metadata) HasDefaultFramework() bool {
-	_, ok := m.Custom["frameworks"]
-	if !ok {
+	frameworks := m.Frameworks()
+	if len(frameworks) == 0 {
 		return true
 	}
-	return false
+	_, exists := frameworks["default"]
+	return exists
 }
 
 func (m Metadata) Severity() string {
@@ -138,6 +139,13 @@ func (m Metadata) Aliases() []string {
 		}
 	}
 	return aliases
+}
+
+func (m Metadata) MinimumTrivyVersion() string {
+	if v, ok := m.Custom["minimum_trivy_version"].(string); ok {
+		return v
+	}
+	return ""
 }
 
 type Provider string

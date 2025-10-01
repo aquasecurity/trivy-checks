@@ -15,6 +15,7 @@
 #   service: ecs
 #   severity: CRITICAL
 #   short_code: no-plaintext-secrets
+#   minimum_trivy_version: 0.58.0
 #   recommended_action: Use secrets for the task definition
 #   input:
 #     selector:
