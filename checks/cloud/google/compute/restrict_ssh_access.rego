@@ -9,10 +9,10 @@
 #   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall
 # custom:
 #   id: GCP-0071
+#   avd_id: AVD-GCP-0071
 #   aliases:
-#     - AVD-GCP-0071
 #     - ssh-access-is-not-restricted
-#   long_id: google-compute-restrict-ssh-access
+#   short_code: restrict-ssh-access
 #   provider: google
 #   service: compute
 #   severity: MEDIUM

@@ -3,31 +3,28 @@
 # description: "According to pod security standard '/proc Mount Type', the default /proc masks are set up to reduce attack surface, and should be required."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
+# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV-0027
-#   aliases:
-#     - AVD-KSV-0027
-#     - KSV027
-#     - no-custom-proc-mask
-#   long_id: kubernetes-no-custom-proc-mask
+#   id: KSV027
+#   avd_id: AVD-KSV-0027
 #   severity: MEDIUM
+#   short_code: no-custom-proc-mask
 #   recommended_action: "Do not set spec.containers[*].securityContext.procMount and spec.initContainers[*].securityContext.procMount."
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: pod
-#           - kind: replicaset
-#           - kind: replicationcontroller
-#           - kind: deployment
-#           - kind: deploymentconfig
-#           - kind: statefulset
-#           - kind: daemonset
-#           - kind: cronjob
-#           - kind: job
+#     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: deploymentconfig
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 #   examples: checks/kubernetes/non_default_proc_masks_set.yaml
 package builtin.kubernetes.KSV027
 

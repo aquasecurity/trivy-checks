@@ -6,14 +6,12 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: GCP-0060
-#   aliases:
-#     - AVD-GCP-0060
-#     - enable-stackdriver-logging
-#   long_id: google-gke-enable-stackdriver-logging
+#   id: AVD-GCP-0060
+#   avd_id: AVD-GCP-0060
 #   provider: google
 #   service: gke
 #   severity: LOW
+#   short_code: enable-stackdriver-logging
 #   recommended_action: Enable StackDriver logging
 #   input:
 #     selector:

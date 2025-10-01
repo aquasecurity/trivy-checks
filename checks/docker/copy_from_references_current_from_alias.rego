@@ -3,21 +3,18 @@
 # description: "COPY '--from' should not mention the current FROM alias, since it is impossible to copy from itself."
 # scope: package
 # schemas:
-#   - input: schema["dockerfile"]
+# - input: schema["dockerfile"]
 # related_resources:
-#   - https://docs.docker.com/develop/develop-images/multistage-build/
+# - https://docs.docker.com/develop/develop-images/multistage-build/
 # custom:
-#   id: DS-0006
-#   aliases:
-#     - AVD-DS-0006
-#     - DS006
-#     - no-self-referencing-copy-from
-#   long_id: docker-no-self-referencing-copy-from
+#   id: DS006
+#   avd_id: AVD-DS-0006
 #   severity: CRITICAL
+#   short_code: no-self-referencing-copy-from
 #   recommended_action: "Change the '--from' so that it will not refer to itself"
 #   input:
 #     selector:
-#       - type: dockerfile
+#     - type: dockerfile
 #   examples: checks/docker/copy_from_references_current_from_alias.yaml
 package builtin.dockerfile.DS006
 

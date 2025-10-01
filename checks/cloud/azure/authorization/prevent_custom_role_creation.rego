@@ -9,10 +9,10 @@
 #   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_definition#actions
 # custom:
 #   id: AZU-0052
+#   avd_id: AVD-AZU-0052
 #   aliases:
-#     - AVD-AZU-0052
 #     - azure-role-definition-allows-custom-role-creation
-#   long_id: azure-authorization-prevent-custom-role-creation
+#   short_code: prevent-custom-role-creation
 #   provider: azure
 #   service: authorization
 #   severity: MEDIUM

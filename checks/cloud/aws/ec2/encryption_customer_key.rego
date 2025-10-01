@@ -8,15 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
 # custom:
-#   id: AWS-0027
+#   id: AVD-AWS-0027
+#   avd_id: AVD-AWS-0027
 #   aliases:
-#     - AVD-AWS-0027
 #     - aws-ebs-encryption-customer-key
-#     - volume-encryption-customer-key
-#   long_id: aws-ec2-volume-encryption-customer-key
 #   provider: aws
 #   service: ec2
 #   severity: LOW
+#   short_code: volume-encryption-customer-key
 #   recommended_action: Enable encryption using customer managed keys
 #   input:
 #     selector:

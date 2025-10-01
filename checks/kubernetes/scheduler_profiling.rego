@@ -8,8 +8,8 @@
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0040
+#   avd_id: AVD-KCV-0040
 #   aliases:
-#     - AVD-KCV-0040
 #     - KCV0040
 #     - ensure-scheduler-profiling-argument-set-to-false
 #   severity: LOW
