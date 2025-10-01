@@ -75,7 +75,7 @@ docs-test:
 
 .PHONY: create-bundle
 create-bundle:
-	go run ./cmd/bundle -root .
+	go run ./cmd/bundle -root . -out ${BUNDLE_FILE}
 
 build-opa:
 	go build ./cmd/opa
@@ -89,7 +89,7 @@ stop-registry:
 push-bundle: create-bundle
 	@REPO=localhost:${REGISTRY_PORT}/trivy-checks:latest ;\
 	echo "Pushing to repository: $$REPO" ;\
-	docker run --rm -it --net=host -v $$PWD/${BUNDLE_FILE}:/${BUNDLE_FILE} bitnami/oras:latest push \
+	docker run --rm -it --net=host -v $$PWD/${BUNDLE_FILE}:/workspace/${BUNDLE_FILE} ghcr.io/oras-project/oras:v1.3.0 push \
 		$$REPO \
 		 --artifact-type application/vnd.cncf.openpolicyagent.config.v1+json \
 		"$(BUNDLE_FILE):application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip"
