@@ -3,21 +3,19 @@
 # description: You should not expose infrastructure to the public internet except where explicitly required
 # scope: package
 # schemas:
-#   - input: schema["cloud"]
+# - input: schema["cloud"]
 # custom:
-#   id: KUBE-0002
-#   aliases:
-#     - AVD-KUBE-0002
-#     - no-public-egress
-#   long_id: kubernetes-network-no-public-egress
+#   id: AVD-KUBE-0002
+#   avd_id: AVD-KUBE-0002
 #   provider: kubernetes
 #   service: network
 #   severity: HIGH
+#   short_code: no-public-egress
 #   recommended_action: Remove public access except where explicitly required
 #   input:
 #     selector:
-#       - type: cloud
-#         subtypes:
+#     - type: cloud
+#       subtypes:
 #           - provider: kubernetes
 #             service: networkpolicies
 #   examples: checks/cloud/kubernetes/network/no_public_egress.yaml

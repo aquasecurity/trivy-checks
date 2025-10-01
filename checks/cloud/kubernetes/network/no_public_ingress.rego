@@ -4,21 +4,19 @@
 #   Opening up ports to allow connections from the public internet is generally to be avoided. You should restrict access to IP addresses or ranges that are explicitly required where possible.
 # scope: package
 # schemas:
-#   - input: schema["cloud"]
+# - input: schema["cloud"]
 # custom:
-#   id: KUBE-0001
-#   aliases:
-#     - AVD-KUBE-0001
-#     - no-public-ingress
-#   long_id: kubernetes-network-no-public-ingress
+#   id: AVD-KUBE-0001
+#   avd_id: AVD-KUBE-0001
 #   provider: kubernetes
 #   service: network
 #   severity: HIGH
+#   short_code: no-public-ingress
 #   recommended_action: Remove public access except where explicitly required
 #   input:
 #     selector:
-#       - type: cloud
-#         subtypes:
+#     - type: cloud
+#       subtypes:
 #           - provider: kubernetes
 #             service: networkpolicies
 #   examples: checks/cloud/kubernetes/network/no_public_ingress.yaml

@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-CHECKPOINTS
 # custom:
-#   id: GCP-0025
-#   aliases:
-#     - AVD-GCP-0025
-#     - pg-log-checkpoints
-#   long_id: google-sql-pg-log-checkpoints
+#   id: AVD-GCP-0025
+#   avd_id: AVD-GCP-0025
 #   provider: google
 #   service: sql
 #   severity: MEDIUM
+#   short_code: pg-log-checkpoints
 #   recommended_action: Enable checkpoints logging.
 #   input:
 #     selector:

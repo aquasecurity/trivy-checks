@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html
 # custom:
-#   id: AWS-0135
-#   aliases:
-#     - AVD-AWS-0135
-#     - queue-encryption-use-cmk
-#   long_id: aws-sqs-queue-encryption-use-cmk
+#   id: AVD-AWS-0135
+#   avd_id: AVD-AWS-0135
 #   provider: aws
 #   service: sqs
 #   severity: HIGH
+#   short_code: queue-encryption-use-cmk
 #   recommended_action: Encrypt SQS Queue with a customer-managed key
 #   input:
 #     selector:

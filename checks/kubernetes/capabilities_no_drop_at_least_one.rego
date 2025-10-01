@@ -3,31 +3,28 @@
 # description: "Security best practices require containers to run with minimal required capabilities."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/
+# - https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/
 # custom:
-#   id: KSV-0004
-#   aliases:
-#     - AVD-KSV-0004
-#     - KSV004
-#     - drop-unused-capabilities
-#   long_id: kubernetes-drop-unused-capabilities
+#   id: KSV004
+#   avd_id: AVD-KSV-0004
 #   severity: LOW
+#   short_code: drop-unused-capabilities
 #   recommended_action: "Specify at least one unneeded capability in 'containers[].securityContext.capabilities.drop'"
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: pod
-#           - kind: replicaset
-#           - kind: replicationcontroller
-#           - kind: deployment
-#           - kind: deploymentconfig
-#           - kind: statefulset
-#           - kind: daemonset
-#           - kind: cronjob
-#           - kind: job
+#     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: deploymentconfig
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV004
 
 import rego.v1

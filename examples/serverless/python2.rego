@@ -12,6 +12,7 @@
 #   - https://www.python.org/doc/sunset-python-2/
 # custom:
 #   id: USR-SERVERLESS-0001
+#   avd_id: USR-SERVERLESS-0001
 #   provider: generic
 #   severity: HIGH
 #   short_code: avoid-python2

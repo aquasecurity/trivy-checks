@@ -3,23 +3,20 @@
 # description: "Ensure that the kubelet service file has permissions of 600 or more restrictive."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://www.cisecurity.org/benchmark/kubernetes
+# - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV-0069
-#   aliases:
-#     - AVD-KCV-0069
-#     - KCV0069
-#     - ensure-kubelet-service-file-permissions-set-600-or-more-restrictive
-#   long_id: kubernetes-ensure-kubelet-service-file-permissions-set-600-or-more-restrictive
+#   id: KCV0069
+#   avd_id: AVD-KCV-0069
 #   severity: HIGH
+#   short_code: ensure-kubelet-service-file-permissions-set-600-or-more-restrictive
 #   recommended_action: "Change the kubelet service file /etc/systemd/system/kubelet.service.d/10-kubeadm.conf permissions of 600 or more restrictive "
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: nodeinfo
+#     - type: kubernetes
+#       subtypes:
+#         - kind: nodeinfo
 package builtin.kubernetes.KCV0069
 
 import rego.v1

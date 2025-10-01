@@ -273,8 +273,8 @@ func setupTarget(t *testing.T, targetDir string, trivyVer semver.Version) (map[s
 		metadataByID[meta.ID()] = meta
 
 		for provider, providerExamples := range checkExamples {
-			writeExamples(t, providerExamples.Bad.ToStrings(), provider, targetDir, meta.ID(), "bad")
-			writeExamples(t, providerExamples.Good.ToStrings(), provider, targetDir, meta.ID(), "good")
+			writeExamples(t, providerExamples.Bad.ToStrings(), provider, targetDir, meta.AVDID(), "bad")
+			writeExamples(t, providerExamples.Good.ToStrings(), provider, targetDir, meta.AVDID(), "good")
 		}
 	}
 	return metadataByID, skipped

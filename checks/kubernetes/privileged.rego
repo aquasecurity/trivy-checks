@@ -3,31 +3,28 @@
 # description: "Privileged containers share namespaces with the host system and do not offer any security. They should be used exclusively for system containers that require high privileges."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
+# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV-0017
-#   aliases:
-#     - AVD-KSV-0017
-#     - KSV017
-#     - no-privileged-containers
-#   long_id: kubernetes-no-privileged-containers
+#   id: KSV017
+#   avd_id: AVD-KSV-0017
 #   severity: HIGH
+#   short_code: no-privileged-containers
 #   recommended_action: "Change 'containers[].securityContext.privileged' to 'false'."
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: pod
-#           - kind: replicaset
-#           - kind: replicationcontroller
-#           - kind: deployment
-#           - kind: deploymentconfig
-#           - kind: statefulset
-#           - kind: daemonset
-#           - kind: cronjob
-#           - kind: job
+#     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: deploymentconfig
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 #   examples: checks/kubernetes/privileged.yaml
 package builtin.kubernetes.KSV017
 
