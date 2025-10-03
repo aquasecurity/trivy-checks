@@ -8,8 +8,8 @@
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0053
+#   avd_id: AVD-KCV-0053
 #   aliases:
-#     - AVD-KCV-0053
 #     - KCV0053
 #     - ensure-scheduler-pod-specification-ownership-set
 #   severity: HIGH

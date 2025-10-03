@@ -6,14 +6,12 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: GCP-0065
-#   aliases:
-#     - AVD-GCP-0065
-#     - rotate-kms-keys
-#   long_id: google-kms-rotate-kms-keys
+#   id: AVD-GCP-0065
+#   avd_id: AVD-GCP-0065
 #   provider: google
 #   service: kms
 #   severity: HIGH
+#   short_code: rotate-kms-keys
 #   recommended_action: Set key rotation period to 90 days
 #   input:
 #     selector:

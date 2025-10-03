@@ -8,8 +8,8 @@
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0050
+#   avd_id: AVD-KCV-0050
 #   aliases:
-#     - AVD-KCV-0050
 #     - KCV0050
 #     - ensure-controller-manager-pod-specification-file-permissions-set
 #   severity: HIGH

@@ -23,8 +23,8 @@ func TestLoadChecksMetadata(t *testing.T) {
 #   - https://example.com/resource
 # custom:
 #   id: TEST-0001
+#   avd_id: AVD-TEST-0001
 #   aliases:
-#     - AVD-TEST-0001
 #     - test-alias
 #   provider: aws
 #   service: cloudwatch
@@ -52,14 +52,13 @@ package builtin.aws.cloudwatch.test0001`),
 	meta, ok := metadataMap["check.rego"]
 	require.True(t, ok)
 
-	assert.Equal(t, "TEST-0001", meta.ID())
 	assert.Equal(t, "AVD-TEST-0001", meta.AVDID())
 	assert.Equal(t, "LOW", meta.Severity())
 	assert.False(t, meta.Deprecated())
 	assert.Equal(t, metadata.Provider("aws"), meta.Provider())
 	assert.Equal(t, "cloudwatch", meta.Service())
 
-	assert.Equal(t, []string{"AVD-TEST-0001", "test-alias"}, meta.Aliases())
+	assert.Equal(t, []string{"test-alias"}, meta.Aliases())
 
 	assert.Equal(t, map[string][]string{
 		"default":        nil,

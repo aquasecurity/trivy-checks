@@ -8,8 +8,8 @@
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0051
+#   avd_id: AVD-KCV-0051
 #   aliases:
-#     - AVD-KCV-0051
 #     - KCV0051
 #     - ensure-controller-manager-pod-specification-ownership-set
 #   severity: HIGH

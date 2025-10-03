@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html
 # custom:
-#   id: AWS-0038
-#   aliases:
-#     - AVD-AWS-0038
-#     - enable-control-plane-logging
-#   long_id: aws-eks-enable-control-plane-logging
+#   id: AVD-AWS-0038
+#   avd_id: AVD-AWS-0038
 #   provider: aws
 #   service: eks
 #   severity: MEDIUM
+#   short_code: enable-control-plane-logging
 #   recommended_action: Enable logging for the EKS control plane
 #   input:
 #     selector:

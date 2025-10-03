@@ -8,8 +8,8 @@
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0057
+#   avd_id: AVD-KCV-0057
 #   aliases:
-#     - AVD-KCV-0057
 #     - KCV0057
 #     - ensure-container-network-interface-ownership-set
 #   severity: HIGH

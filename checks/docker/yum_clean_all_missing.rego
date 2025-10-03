@@ -3,21 +3,18 @@
 # description: "You should use 'yum clean all' after using a 'yum install' command to clean package cached data and reduce image size."
 # scope: package
 # schemas:
-#   - input: schema["dockerfile"]
+# - input: schema["dockerfile"]
 # related_resources:
-#   - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#run
+# - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#run
 # custom:
-#   id: DS-0015
-#   aliases:
-#     - AVD-DS-0015
-#     - DS015
-#     - purge-yum-package-cache
-#   long_id: docker-purge-yum-package-cache
+#   id: DS015
+#   avd_id: AVD-DS-0015
 #   severity: HIGH
+#   short_code: purge-yum-package-cache
 #   recommended_action: "Add 'yum clean all' to Dockerfile"
 #   input:
 #     selector:
-#       - type: dockerfile
+#     - type: dockerfile
 #   examples: checks/docker/yum_clean_all_missing.yaml
 package builtin.dockerfile.DS015
 

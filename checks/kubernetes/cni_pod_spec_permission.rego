@@ -8,8 +8,8 @@
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0056
+#   avd_id: AVD-KCV-0056
 #   aliases:
-#     - AVD-KCV-0056
 #     - KCV0056
 #     - ensure-container-network-interface-file-permissions-set
 #   severity: HIGH

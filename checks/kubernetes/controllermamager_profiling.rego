@@ -8,8 +8,8 @@
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0034
+#   avd_id: AVD-KCV-0034
 #   aliases:
-#     - AVD-KCV-0034
 #     - KCV0034
 #     - ensure-controller-manager-profiling-argument-set-to-false
 #   severity: LOW

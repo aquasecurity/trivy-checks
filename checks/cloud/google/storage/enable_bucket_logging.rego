@@ -9,10 +9,10 @@
 #   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket#log_bucket
 # custom:
 #   id: GCP-0077
+#   avd_id: AVD-GCP-0077
 #   aliases:
 #     - storage-bucket-logging-not-enabled
-#     - AVD-GCP-0077
-#   long_id: google-storage-enable-bucket-logging
+#   short_code: enable-bucket-logging
 #   provider: google
 #   service: storage
 #   severity: MEDIUM

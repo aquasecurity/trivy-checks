@@ -35,7 +35,7 @@ var trivyVersions = []string{"0.57.1", "0.58.1", "latest", "canary"}
 func TestScanCheckExamples(t *testing.T) {
 	ctx := context.Background()
 
-	tmpDir, err := os.MkdirTemp(".", "trivy-checks-examples-*")
+	tmpDir, err := os.MkdirTemp("", "trivy-checks-examples-*")
 	require.NoError(t, err)
 	t.Cleanup(func() { os.RemoveAll(tmpDir) })
 
@@ -198,8 +198,8 @@ func makeSkipIDFilter(t *testing.T, skipped []string, fsys fs.FS) func(path stri
 		meta, ok := metadata.GetCheckMetadata(module)
 		require.True(t, ok, "failed to get metadata for %s", path)
 
-		if _, found := skipMap[meta.ID()]; found {
-			t.Logf("Skip check %s by id filter", meta.ID())
+		if _, found := skipMap[meta.AVDID()]; found {
+			t.Logf("Skip check %s by id filter", meta.AVDID())
 			return false
 		}
 		return true
@@ -233,6 +233,31 @@ func pushBundle(t *testing.T, ctx context.Context, path string, image string) {
 	require.NoError(t, c.Terminate(ctx))
 }
 
+// TODO: AVD-AWS-0344 check is excluded because its input does not match the scheme of older versions of Trivy.
+// Remove it for the latest version after this issue is resolved.
+var excludedChecks = map[string][]string{
+	// Excluded for all versions, as these checks are only for documentation and lack implementation.
+	"": {
+		"AVD-AWS-0057",
+		"AVD-AWS-0114",
+		"AVD-AWS-0120",
+		"AVD-AWS-0134",
+	},
+	"0.57.1": {
+		// After version 0.57.1, the bug with the field type was fixed and the example was updated. See: https://github.com/aquasecurity/trivy/pull/7995
+		"AVD-AWS-0036",
+		"AVD-AWS-0344",
+		"AVD-GCP-0050",
+	},
+	"0.58.1": {
+		"AVD-AWS-0344",
+		"AVD-GCP-0050",
+	},
+	"latest": {
+		"AVD-AWS-0344",
+	},
+}
+
 func setupTarget(t *testing.T, targetDir string, trivyVer semver.Version) (map[string]metadata.Metadata, []string) {
 	t.Helper()
 
@@ -257,7 +282,7 @@ func setupTarget(t *testing.T, targetDir string, trivyVer semver.Version) (map[s
 		require.NoError(t, err)
 
 		if path == "" {
-			t.Logf("Skip check %s without examples", meta.ID())
+			t.Logf("Skip check %s without examples", meta.AVDID())
 			continue
 		}
 
@@ -265,16 +290,16 @@ func setupTarget(t *testing.T, targetDir string, trivyVer semver.Version) (map[s
 		// but this feature appeared after some of the checks had already been updated,
 		// so here we re-apply filtering for compatibility.
 		if shouldSkipCheck(t, meta, minVersions, trivyVer) {
-			t.Logf("Skip unsupported check %s for %s", meta.ID(), trivyVer.String())
-			skipped = append(skipped, meta.ID())
+			t.Logf("Skip unsupported check %s for %s", meta.AVDID(), trivyVer.String())
+			skipped = append(skipped, meta.AVDID())
 			continue
 		}
 
-		metadataByID[meta.ID()] = meta
+		metadataByID[meta.AVDID()] = meta
 
 		for provider, providerExamples := range checkExamples {
-			writeExamples(t, providerExamples.Bad.ToStrings(), provider, targetDir, meta.ID(), "bad")
-			writeExamples(t, providerExamples.Good.ToStrings(), provider, targetDir, meta.ID(), "good")
+			writeExamples(t, providerExamples.Bad.ToStrings(), provider, targetDir, meta.AVDID(), "bad")
+			writeExamples(t, providerExamples.Good.ToStrings(), provider, targetDir, meta.AVDID(), "good")
 		}
 	}
 	return metadataByID, skipped
@@ -348,12 +373,12 @@ func shouldSkipCheck(
 		return false
 	}
 
-	minVer, ok := minVersions[meta.ID()]
+	minVer, ok := minVersions[meta.AVDID()]
 	if !ok {
 		var err error
 		minVer, err = semver.Parse(meta.MinimumTrivyVersion())
 		require.NoError(t, err)
-		minVersions[meta.ID()] = minVer
+		minVersions[meta.AVDID()] = minVer
 	}
 
 	return trivyVer.LessThan(minVer)
