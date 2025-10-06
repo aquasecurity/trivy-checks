@@ -27,7 +27,7 @@ deny contains res if {
 	resource.values.desired_capacity > 10
 
 	res := result.new(
-		sprintf("ASG $q desires too much capacity: %d.", [resource.name, resource.values.desired_capacity]),
+		sprintf("ASG %q desires too much capacity: %d.", [resource.name, resource.values.desired_capacity]),
 		{},
 	)
 }
