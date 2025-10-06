@@ -8,8 +8,8 @@
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0041
+#   avd_id: AVD-KCV-0041
 #   aliases:
-#     - AVD-KCV-0041
 #     - KCV0041
 #     - ensure-scheduler-bind-address-is-loopback
 #   severity: LOW

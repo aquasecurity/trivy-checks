@@ -6,14 +6,12 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AWS-0004
-#   aliases:
-#     - AVD-AWS-0004
-#     - no-public-access
-#   long_id: aws-apigateway-no-public-access
+#   id: AVD-AWS-0004
+#   avd_id: AVD-AWS-0004
 #   provider: aws
 #   service: apigateway
 #   severity: LOW
+#   short_code: no-public-access
 #   recommended_action: Use and authorization method or require API Key
 #   input:
 #     selector:

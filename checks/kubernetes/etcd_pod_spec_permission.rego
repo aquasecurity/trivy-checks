@@ -8,8 +8,8 @@
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0054
+#   avd_id: AVD-KCV-0054
 #   aliases:
-#     - AVD-KCV-0054
 #     - KCV0054
 #     - ensure-etcd-pod-specification-file-permissions-set
 #   severity: HIGH

@@ -2,21 +2,18 @@
 # title: Secrets passed via `build-args` or envs or copied secret files
 # description: Passing secrets via `build-args` or envs or copying secret files can leak them out
 # schemas:
-#   - input: schema["dockerfile"]
+# - input: schema["dockerfile"]
 # related_resources:
-#   - https://docs.docker.com/build/building/secrets/
+# - https://docs.docker.com/build/building/secrets/
 # custom:
-#   id: DS-0031
-#   aliases:
-#     - AVD-DS-0031
-#     - DS031
-#     - do-not-pass-secrets
-#   long_id: docker-do-not-pass-secrets
+#   id: DS031
+#   avd_id: AVD-DS-0031
 #   severity: CRITICAL
+#   short_code: do-not-pass-secrets
 #   recommended_action: Use secret mount if secrets are needed during image build. Use volume mount if secret files are needed during container runtime.
 #   input:
 #     selector:
-#       - type: dockerfile
+#     - type: dockerfile
 package builtin.dockerfile.DS031
 
 import rego.v1

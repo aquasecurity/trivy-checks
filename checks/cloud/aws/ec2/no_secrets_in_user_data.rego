@@ -8,15 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-add-user-data.html
 # custom:
-#   id: AWS-0029
+#   id: AVD-AWS-0029
+#   avd_id: AVD-AWS-0029
 #   aliases:
-#     - AVD-AWS-0029
 #     - aws-autoscaling-no-public-ip
-#     - no-secrets-in-user-data
-#   long_id: aws-ec2-no-secrets-in-user-data
 #   provider: aws
 #   service: ec2
 #   severity: CRITICAL
+#   short_code: no-secrets-in-user-data
 #   recommended_action: Remove sensitive data from the EC2 instance user-data
 #   input:
 #     selector:
