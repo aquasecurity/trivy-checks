@@ -3,23 +3,20 @@
 # description: "Enable Kubelet authentication using certificates."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://www.cisecurity.org/benchmark/kubernetes
+# - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV-0081
-#   aliases:
-#     - AVD-KCV-0081
-#     - KCV0081
-#     - ensure-client-ca-argument-set-appropriate
-#   long_id: kubernetes-ensure-client-ca-argument-set-appropriate
+#   id: KCV0081
+#   avd_id: AVD-KCV-0081
 #   severity: CRITICAL
+#   short_code: ensure-client-ca-argument-set-appropriate
 #   recommended_action: "If using a Kubelet config file, edit  the --client-ca-file argument ito appropriate value"
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: nodeinfo
+#     - type: kubernetes
+#       subtypes:
+#         - kind: nodeinfo
 package builtin.kubernetes.KCV0081
 
 import rego.v1

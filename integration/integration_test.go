@@ -34,7 +34,7 @@ type Result struct {
 }
 
 type Misconfiguration struct {
-	ID     string `json:"id"`
+	AVDID  string `json:"AVDID"`
 	Status string `json:"Status"`
 }
 
@@ -47,7 +47,7 @@ func getFailureIDs(results []Result) map[string]map[string]struct{} {
 				if _, ok := ids[result.Target]; !ok {
 					ids[result.Target] = make(map[string]struct{})
 				}
-				ids[result.Target][misconf.ID] = struct{}{}
+				ids[result.Target][misconf.AVDID] = struct{}{}
 			}
 		}
 	}

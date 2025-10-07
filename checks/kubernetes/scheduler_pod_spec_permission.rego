@@ -8,8 +8,8 @@
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0052
+#   avd_id: AVD-KCV-0052
 #   aliases:
-#     - AVD-KCV-0052
 #     - KCV0052
 #     - ensure-scheduler-pod-specification-file-permissions-set
 #   severity: HIGH

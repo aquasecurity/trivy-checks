@@ -75,6 +75,14 @@ func TestCustomChecks(t *testing.T) {
 			},
 			expectedID: "USR-TFPLAN-0001",
 		},
+		{
+			dir: "terraform-raw",
+			args: []string{
+				"--misconfig-scanners", "terraform",
+				"--raw-config-scanners", "terraform",
+			},
+			expectedID: "USR-TFRAW-0001",
+		},
 	}
 
 	for _, tt := range tests {

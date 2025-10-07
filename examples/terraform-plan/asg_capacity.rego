@@ -10,6 +10,7 @@
 #   - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group
 # custom:
 #   id: USR-TFPLAN-0001
+#   avd_id: USR-TFPLAN-0001
 #   severity: MEDIUM
 #   short_code: asg-too-much-capacity
 #   recommended_action: Reduce the desired capacity of the Auto Scaling Group to an appropriate value.
@@ -26,7 +27,7 @@ deny contains res if {
 	resource.values.desired_capacity > 10
 
 	res := result.new(
-		sprintf("ASG $q desires too much capacity: %d.", [resource.name, resource.values.desired_capacity]),
+		sprintf("ASG %q desires too much capacity: %d.", [resource.name, resource.values.desired_capacity]),
 		{},
 	)
 }

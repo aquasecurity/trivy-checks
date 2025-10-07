@@ -9,10 +9,10 @@
 #   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall#allow
 # custom:
 #   id: GCP-0074
+#   avd_id: AVD-GCP-0074
 #   aliases:
 #     - compute-network-using-firewall-rule-that-allows-large-port-range
-#     - AVD-GCP-0074
-#   long_id: google-compute-disable-port-range-rule
+#   short_code: disable-port-range-rule
 #   provider: google
 #   service: compute
 #   severity: LOW

@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/configure-logging-monitoring-activemq.html
 # custom:
-#   id: AWS-0071
-#   aliases:
-#     - AVD-AWS-0071
-#     - enable-general-logging
-#   long_id: aws-mq-enable-general-logging
+#   id: AVD-AWS-0071
+#   avd_id: AVD-AWS-0071
 #   provider: aws
 #   service: mq
 #   severity: LOW
+#   short_code: enable-general-logging
 #   recommended_action: Enable general logging
 #   input:
 #     selector:

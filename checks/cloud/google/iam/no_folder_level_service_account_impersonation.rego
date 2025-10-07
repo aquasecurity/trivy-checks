@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://cloud.google.com/iam/docs/impersonating-service-accounts
 # custom:
-#   id: GCP-0005
-#   aliases:
-#     - AVD-GCP-0005
-#     - no-folder-level-service-account-impersonation
-#   long_id: google-iam-no-folder-level-service-account-impersonation
+#   id: AVD-GCP-0005
+#   avd_id: AVD-GCP-0005
 #   provider: google
 #   service: iam
 #   severity: MEDIUM
+#   short_code: no-folder-level-service-account-impersonation
 #   recommended_action: Provide access at the service-level instead of folder-level, if required
 #   input:
 #     selector:
@@ -33,5 +31,5 @@ import data.lib.google.iam
 deny contains res if {
 	some role in iam.roles("folders")
 	iam.is_privileged_access_role(role.value)
-	res := result.new("Service account access is granted to a user at project level.", role)
+	res := result.new("Folder-level service account access grants the member broad impersonation rights.", role)
 }
