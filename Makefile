@@ -1,7 +1,11 @@
-OUTDATED_API_DATA_URL=https://raw.githubusercontent.com/aquasecurity/trivy-db-data/refs/heads/main/k8s/api/k8s-outdated-api.json
-OUTDATED_API_CHECK=checks/kubernetes/workloads/outdated_api.rego
-BUNDLE_FILE=bundle.tar.gz
-REGISTRY_PORT=5111
+OUTDATED_API_DATA_URL := https://raw.githubusercontent.com/aquasecurity/trivy-db-data/refs/heads/main/k8s/api/k8s-outdated-api.json
+OUTDATED_API_CHECK := checks/kubernetes/workloads/outdated_api.rego
+
+ORAS_IMAGE := ghcr.io/oras-project/oras:v1.3.0
+BUNDLE_FILE := bundle.tar.gz
+
+REGISTRY_NAME := trivy-checks-registry
+REGISTRY_PORT := 5111
 
 SED ?= sed
 
@@ -81,15 +85,15 @@ build-opa:
 	go build ./cmd/opa
 
 start-registry:
-	docker run --rm -it -d -p ${REGISTRY_PORT}:5000 --name registry registry:2
+	docker run --rm -it -d -p ${REGISTRY_PORT}:5000 --name ${REGISTRY_NAME} registry:2
 
 stop-registry:
-	docker stop registry
+	docker stop ${REGISTRY_NAME}
 
 push-bundle: create-bundle
 	@REPO=localhost:${REGISTRY_PORT}/trivy-checks:latest ;\
 	echo "Pushing to repository: $$REPO" ;\
-	docker run --rm -it --net=host -v $$PWD/${BUNDLE_FILE}:/workspace/${BUNDLE_FILE} ghcr.io/oras-project/oras:v1.3.0 push \
+	docker run --rm -it --net=host -v $$PWD/${BUNDLE_FILE}:/workspace/${BUNDLE_FILE} ${ORAS_IMAGE} push \
 		$$REPO \
 		 --artifact-type application/vnd.cncf.openpolicyagent.config.v1+json \
 		"$(BUNDLE_FILE):application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip"
