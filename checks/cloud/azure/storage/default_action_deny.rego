@@ -38,6 +38,7 @@ deny contains res if {
 
 deny contains res if {
 	some account in input.azure.storage.accounts
+	isManaged(account)
 	not has_networks(account)
 
 	# Default 'Allow' rule is applied when no network rules are defined.
