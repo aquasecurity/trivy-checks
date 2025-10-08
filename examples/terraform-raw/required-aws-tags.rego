@@ -6,6 +6,7 @@
 #   - input: schema["terraform-raw"]
 # custom:
 #   id:  USR-TFRAW-0001
+#   avd_id:  USR-TFRAW-0001
 #   severity: CRITICAL
 #   short_code: required-aws-resource-tags
 #   recommended_actions: "Add the required tags to AWS resources."
