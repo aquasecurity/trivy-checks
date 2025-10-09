@@ -130,7 +130,7 @@ func pushBundle(t *testing.T, ctx context.Context, path string, image string) {
 				{
 					Type:   mount.TypeBind,
 					Source: path,
-					Target: "/" + filepath.Base(path),
+					Target: "/workspace/" + filepath.Base(path),
 				}}
 		}),
 	)
