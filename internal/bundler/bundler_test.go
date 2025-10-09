@@ -15,7 +15,6 @@ import (
 
 func TestBundlerBuild(t *testing.T) {
 	fsys := fstest.MapFS{
-		"checks/.manifest":                   &fstest.MapFile{Data: []byte("version: [GITHUB_SHA]")},
 		"checks/kubernetes/policy.rego":      &fstest.MapFile{Data: []byte("package kubernetes")},
 		"checks/kubernetes/policy.yaml":      &fstest.MapFile{Data: []byte("should be filtered out")},
 		"checks/kubernetes/policy_test.rego": &fstest.MapFile{Data: []byte("should be filtered out")},
@@ -32,7 +31,7 @@ func TestBundlerBuild(t *testing.T) {
 		"pkg/compliance/README.md":           &fstest.MapFile{Data: []byte("should be filtered out")},
 	}
 
-	b := bundler.New(".", fsys, bundler.WithGithubRef("refs/tags/v1.2.3"))
+	b := bundler.New(".", fsys)
 
 	var buf bytes.Buffer
 	require.NoError(t, b.Build(&buf))
@@ -52,12 +51,6 @@ func TestBundlerBuild(t *testing.T) {
 		}
 		require.NoError(t, err)
 		foundFiles[hdr.Name] = true
-
-		if hdr.Name == ".manifest" {
-			data, err := io.ReadAll(tr)
-			require.NoError(t, err)
-			assert.Contains(t, string(data), "version: 1.2.3")
-		}
 	}
 
 	t.Log(foundFiles)
@@ -73,7 +66,6 @@ func TestBundlerBuild(t *testing.T) {
 		"commands/config/test.yaml",
 		"commands/kubernetes/test.yaml",
 		"specs/compliance/test.yaml",
-		".manifest",
 	}
 
 	assert.Len(t, foundFiles, len(expectedFiles))
