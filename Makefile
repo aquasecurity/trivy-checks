@@ -79,8 +79,8 @@ check-rego-matrix: download-schemas build-opa
 				if [ "$$min_version" != "null" ]; then \
 					ver=$${version#v};\
 					cmp=$$(printf "%s\n%s\n" "$$ver" "$$min_version" | sort -V | head -n1); \
-					if [ "$$cmp" = "$$ver" ] && [ "$$ver" != "$$min_version" ]; then \
-						echo "Skipping undefined ref in $$file: matrix version $$ver < minimum required $$min_version"; \
+					if [ "$$cmp" = "$$ver" ]; then \
+						echo "Skipping undefined ref in $$file: matrix version $$ver <= minimum required $$min_version"; \
 						continue; \
 					fi; \
 				fi; \
