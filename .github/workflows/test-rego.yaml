@@ -49,3 +49,7 @@ jobs:
 
       - name: Test Rego checks
         run: make test-rego
+
+      - name: Run OPA Check
+        run: make check-rego-matrix
+        shell: bash
