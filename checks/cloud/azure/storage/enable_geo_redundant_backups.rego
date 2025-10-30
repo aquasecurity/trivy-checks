@@ -10,9 +10,9 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy
 # custom:
-#   id: AZU-0059
+#   id: AZU-0058
 #   aliases:
-#     - AVD-AZU-0059
+#     - AVD-AZU-0058
 #     - enable-geo-redundant-backups
 #   long_id: azure-storage-enable-geo-redundant-backups
 #   provider: azure
@@ -26,7 +26,7 @@
 #           - service: storage
 #             provider: azure
 #   examples: checks/cloud/azure/storage/enable_geo_redundant_backups.yaml
-package builtin.azure.storage.azure0059
+package builtin.azure.storage.azure0058
 
 import rego.v1
 

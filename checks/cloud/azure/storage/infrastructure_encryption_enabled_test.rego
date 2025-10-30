@@ -1,8 +1,8 @@
-package builtin.azure.storage.azure0062_test
+package builtin.azure.storage.azure0061_test
 
 import rego.v1
 
-import data.builtin.azure.storage.azure0062 as check
+import data.builtin.azure.storage.azure0061 as check
 import data.lib.test
 
 test_deny_infrastructure_encryption_disabled if {

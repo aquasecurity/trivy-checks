@@ -11,9 +11,9 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/storage/common/infrastructure-encryption-enable
 # custom:
-#   id: AZU-0062
+#   id: AZU-0061
 #   aliases:
-#     - AVD-AZU-0062
+#     - AVD-AZU-0061
 #     - infrastructure-encryption-enabled
 #   long_id: azure-storage-infrastructure-encryption-enabled
 #   provider: azure
@@ -27,7 +27,7 @@
 #           - service: storage
 #             provider: azure
 #   examples: checks/cloud/azure/storage/infrastructure_encryption_enabled.yaml
-package builtin.azure.storage.azure0062
+package builtin.azure.storage.azure0061
 
 import rego.v1
 

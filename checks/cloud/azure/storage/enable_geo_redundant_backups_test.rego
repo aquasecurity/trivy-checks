@@ -1,8 +1,8 @@
-package builtin.azure.storage.azure0059_test
+package builtin.azure.storage.azure0058_test
 
 import rego.v1
 
-import data.builtin.azure.storage.azure0059 as check
+import data.builtin.azure.storage.azure0058 as check
 import data.lib.test
 
 test_deny_lrs_replication if {

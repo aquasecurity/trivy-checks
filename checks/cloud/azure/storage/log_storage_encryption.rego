@@ -10,9 +10,9 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer
 # custom:
-#   id: AZU-0060
+#   id: AZU-0059
 #   aliases:
-#     - AVD-AZU-0060
+#     - AVD-AZU-0059
 #     - log-storage-encryption
 #   long_id: azure-storage-log-storage-encryption
 #   provider: azure
@@ -26,7 +26,7 @@
 #           - service: storage
 #             provider: azure
 #   examples: checks/cloud/azure/storage/log_storage_encryption.yaml
-package builtin.azure.storage.azure0060
+package builtin.azure.storage.azure0059
 
 import rego.v1
 

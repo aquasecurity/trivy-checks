@@ -10,9 +10,9 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview
 # custom:
-#   id: AZU-0061
+#   id: AZU-0060
 #   aliases:
-#     - AVD-AZU-0061
+#     - AVD-AZU-0060
 #     - blob-container-cmk-encrypted
 #   long_id: azure-storage-blob-container-cmk-encrypted
 #   provider: azure
@@ -26,7 +26,7 @@
 #           - service: storage
 #             provider: azure
 #   examples: checks/cloud/azure/storage/blob_container_cmk_encrypted.yaml
-package builtin.azure.storage.azure0061
+package builtin.azure.storage.azure0060
 
 import rego.v1
 
