@@ -18,6 +18,7 @@
 #   provider: azure
 #   service: storage
 #   severity: HIGH
+#   minimum_trivy_version: 0.68.0
 #   recommended_action: Enable secure transfer and set minimum TLS version to TLS1_2
 #   input:
 #     selector:

@@ -18,6 +18,7 @@
 #   provider: azure
 #   service: storage
 #   severity: MEDIUM
+#   minimum_trivy_version: 0.68.0
 #   recommended_action: Enable logging for at least one storage service (Queue, Table, or Blob)
 #   input:
 #     selector:

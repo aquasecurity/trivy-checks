@@ -18,6 +18,7 @@
 #   provider: azure
 #   service: storage
 #   severity: MEDIUM
+#   minimum_trivy_version: 0.68.0
 #   recommended_action: Enable soft delete for blobs with an appropriate retention period
 #   input:
 #     selector:

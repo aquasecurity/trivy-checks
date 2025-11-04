@@ -18,6 +18,7 @@
 #   provider: azure
 #   service: storage
 #   severity: MEDIUM
+#   minimum_trivy_version: 0.68.0
 #   recommended_action: Configure customer-managed keys for storage account encryption
 #   input:
 #     selector:

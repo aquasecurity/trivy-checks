@@ -19,6 +19,7 @@
 #   provider: azure
 #   service: storage
 #   severity: MEDIUM
+#   minimum_trivy_version: 0.68.0
 #   recommended_action: Enable infrastructure encryption for storage account
 #   input:
 #     selector:

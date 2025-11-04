@@ -18,6 +18,7 @@
 #   provider: azure
 #   service: storage
 #   severity: LOW
+#   minimum_trivy_version: 0.68.0
 #   recommended_action: Configure storage account to use geo-redundant replication (GRS, RAGRS, GZRS, or RAGZRS)
 #   input:
 #     selector:
