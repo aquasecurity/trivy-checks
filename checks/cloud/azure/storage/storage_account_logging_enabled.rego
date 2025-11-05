@@ -11,10 +11,10 @@
 #   - https://docs.microsoft.com/en-us/azure/storage/common/storage-analytics-logging
 # custom:
 #   id: AZU-0057
+#   avd_id: AVD-AZU-0057
 #   aliases:
 #     - AVD-AZU-0057
 #     - storage-account-logging-enabled
-#   long_id: azure-storage-storage-account-logging-enabled
 #   provider: azure
 #   service: storage
 #   severity: MEDIUM
@@ -30,8 +30,6 @@
 package builtin.azure.storage.azure0057
 
 import rego.v1
-
-import data.lib.cloud.metadata
 
 deny contains res if {
 	some account in input.azure.storage.accounts

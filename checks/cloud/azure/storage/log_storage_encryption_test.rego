@@ -6,7 +6,10 @@ import data.builtin.azure.storage.azure0059 as check
 import data.lib.test
 
 test_deny_https_disabled if {
-	inp := {"azure": {"storage": {"accounts": [{"enforcehttps": {"value": false}}]}}}
+	inp := {"azure": {"storage": {"accounts": [{
+		"enforcehttps": {"value": false},
+		"minimumtlsversion": {"value": "TLS1_2"},
+	}]}}}
 
 	test.assert_count(check.deny, 1) with input as inp
 }

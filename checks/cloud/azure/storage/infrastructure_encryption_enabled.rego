@@ -2,7 +2,7 @@
 # title: Storage account should have infrastructure encryption enabled
 # description: |
 #   Infrastructure encryption provides an additional layer of encryption at the infrastructure level.
-#   When infrastructure encryption is enabled, data in the storage account is encrypted twice - 
+#   When infrastructure encryption is enabled, data in the storage account is encrypted twice -
 #   once at the service level and once at the infrastructure level with two different encryption algorithms.
 #   This provides double encryption for enhanced security.
 # scope: package
@@ -12,10 +12,10 @@
 #   - https://docs.microsoft.com/en-us/azure/storage/common/infrastructure-encryption-enable
 # custom:
 #   id: AZU-0061
+#   avd_id: AVD-AZU-0061
 #   aliases:
 #     - AVD-AZU-0061
 #     - infrastructure-encryption-enabled
-#   long_id: azure-storage-infrastructure-encryption-enabled
 #   provider: azure
 #   service: storage
 #   severity: MEDIUM
