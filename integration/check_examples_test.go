@@ -6,10 +6,12 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"fmt"
 	"io"
 	"io/fs"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strconv"
 	"strings"
 	"testing"
@@ -35,7 +37,7 @@ var trivyVersions = []string{"0.57.1", "0.58.1", "latest", "canary"}
 func TestScanCheckExamples(t *testing.T) {
 	ctx := context.Background()
 
-	tmpDir, err := os.MkdirTemp("", "trivy-checks-examples-*")
+	tmpDir, err := os.MkdirTemp(".", "trivy-checks-examples-*")
 	require.NoError(t, err)
 	t.Cleanup(func() { os.RemoveAll(tmpDir) })
 
@@ -56,7 +58,7 @@ func TestScanCheckExamples(t *testing.T) {
 			trivyVer := getActualTrivyVersion(t, version)
 			checksMetadata, skipped := setupTarget(t, examplesPath, trivyVer)
 
-			bundlePath := buildBundle(t, verDir, skipped)
+			bundlePath := buildBundle(t, verDir, skipped, trivyVer)
 			pushBundle(t, ctx, bundlePath, bundleImage)
 
 			targetDir, err := filepath.Abs(verDir)
@@ -162,13 +164,21 @@ func getActualTrivyVersion(t *testing.T, version string) semver.Version {
 	return ver
 }
 
-func buildBundle(t *testing.T, path string, skipped []string) string {
+func buildBundle(t *testing.T, outputDir string, skipped []string, trivyVer semver.Version) string {
 	t.Helper()
 
 	fsys := os.DirFS("..")
-	b := bundler.New(".", fsys, bundler.WithFilters(makeSkipIDFilter(t, skipped, fsys)))
+	opts := []bundler.Option{
+		bundler.WithFilters(skipCheckByIdFilter(t, skipped, fsys)),
+	}
 
-	bundlePath := filepath.Join(path, "bundle.tar.gz")
+	if trivyVer.IsPreRelease() {
+		opts = append(opts, bundler.WithPlainTransforms(overrideMinimumVersionTransform(t, trivyVer)))
+	}
+
+	b := bundler.New(".", fsys, opts...)
+
+	bundlePath := filepath.Join(outputDir, "bundle.tar.gz")
 	f, err := os.Create(bundlePath)
 	require.NoError(t, err)
 
@@ -176,14 +186,14 @@ func buildBundle(t *testing.T, path string, skipped []string) string {
 	return bundlePath
 }
 
-func makeSkipIDFilter(t *testing.T, skipped []string, fsys fs.FS) func(path string) bool {
+func skipCheckByIdFilter(t *testing.T, skipped []string, fsys fs.FS) bundler.FileFilter {
 	skipMap := make(map[string]struct{}, len(skipped))
 	for _, id := range skipped {
 		skipMap[id] = struct{}{}
 	}
 
 	return func(path string) bool {
-		if !strings.HasSuffix(path, ".rego") {
+		if !isRegoFile(path) {
 			return true
 		}
 
@@ -204,6 +214,39 @@ func makeSkipIDFilter(t *testing.T, skipped []string, fsys fs.FS) func(path stri
 		}
 		return true
 	}
+}
+
+var minVerRe = regexp.MustCompile(`#\s+minimum_trivy_version:\s*(\S+)`)
+
+func overrideMinimumVersionTransform(t *testing.T, trivyVersion semver.Version) bundler.PlainTransform {
+	return func(path string, raw []byte) []byte {
+		if !isRegoFile(path) {
+			return raw
+		}
+		return minVerRe.ReplaceAllFunc(raw, func(match []byte) []byte {
+			matches := minVerRe.FindSubmatch(match)
+			if len(matches) < 2 {
+				return match
+			}
+
+			currentVersionStr := string(matches[1])
+			currentVersion, err := semver.Parse(currentVersionStr)
+			if err != nil {
+				return match
+			}
+
+			if currentVersion.GreaterThan(trivyVersion) {
+				t.Logf("Minimum check version in %s overridden: %s -> %s",
+					filepath.Base(path), currentVersionStr, trivyVersion.String())
+				return fmt.Appendf(nil, "#   minimum_trivy_version: %s", trivyVersion.String())
+			}
+			return match
+		})
+	}
+}
+
+func isRegoFile(path string) bool {
+	return strings.HasSuffix(path, ".rego")
 }
 
 func pushBundle(t *testing.T, ctx context.Context, path string, image string) {
@@ -231,31 +274,6 @@ func pushBundle(t *testing.T, ctx context.Context, path string, image string) {
 	)
 	require.NoError(t, err)
 	require.NoError(t, c.Terminate(ctx))
-}
-
-// TODO: AVD-AWS-0344 check is excluded because its input does not match the scheme of older versions of Trivy.
-// Remove it for the latest version after this issue is resolved.
-var excludedChecks = map[string][]string{
-	// Excluded for all versions, as these checks are only for documentation and lack implementation.
-	"": {
-		"AVD-AWS-0057",
-		"AVD-AWS-0114",
-		"AVD-AWS-0120",
-		"AVD-AWS-0134",
-	},
-	"0.57.1": {
-		// After version 0.57.1, the bug with the field type was fixed and the example was updated. See: https://github.com/aquasecurity/trivy/pull/7995
-		"AVD-AWS-0036",
-		"AVD-AWS-0344",
-		"AVD-GCP-0050",
-	},
-	"0.58.1": {
-		"AVD-AWS-0344",
-		"AVD-GCP-0050",
-	},
-	"latest": {
-		"AVD-AWS-0344",
-	},
 }
 
 func setupTarget(t *testing.T, targetDir string, trivyVer semver.Version) (map[string]metadata.Metadata, []string) {
@@ -381,7 +399,7 @@ func shouldSkipCheck(
 		minVersions[meta.AVDID()] = minVer
 	}
 
-	return trivyVer.LessThan(minVer)
+	return !trivyVer.IsPreRelease() && trivyVer.LessThan(minVer)
 }
 
 func fileNameByProvider(provider string) string {
