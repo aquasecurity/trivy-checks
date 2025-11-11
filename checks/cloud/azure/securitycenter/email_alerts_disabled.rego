@@ -29,6 +29,8 @@ package builtin.azure.securitycenter.azure0063
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some contact in input.azure.securitycenter.contacts
 	isManaged(contact)
@@ -52,15 +54,13 @@ deny contains res if {
 }
 
 alert_notifications_disabled(contact) if {
-	contact.enablealertnotifications
-	not contact.enablealertnotifications.value
+	value.is_false(contact.enablealertnotifications)
 }
 
 alert_notifications_disabled(contact) if not contact.enablealertnotifications
 
 alerts_to_admins_disabled(contact) if {
-	contact.enablealertstoadmins
-	not contact.enablealertstoadmins.value
+	value.is_false(contact.enablealertstoadmins)
 }
 
 alerts_to_admins_disabled(contact) if not contact.enablealertstoadmins

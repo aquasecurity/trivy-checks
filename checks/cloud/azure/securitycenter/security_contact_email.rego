@@ -29,6 +29,8 @@ package builtin.azure.securitycenter.azure0062
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some contact in input.azure.securitycenter.contacts
 	isManaged(contact)
@@ -40,7 +42,7 @@ deny contains res if {
 }
 
 contact_without_email(contact) if {
-	contact.email.value == ""
+	value.is_empty(contact.email)
 }
 
 contact_without_email(contact) if not contact.email
