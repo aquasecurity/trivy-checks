@@ -33,21 +33,18 @@ import rego.v1
 
 import data.lib.cloud.value
 
+import data.lib.cloud.metadata
+
 deny contains res if {
 	some account in input.azure.storage.accounts
 	isManaged(account)
 	logging_disabled(account)
 	res := result.new(
 		"Storage account does not have logging enabled for any service.",
-		account,
+		metadata.obj_by_path(account, ["queueproperties", "enablelogging"]),
 	)
 }
 
-logging_disabled(account) if {
-	not queue_logging_enabled(account)
-}
+logging_disabled(account) if not account.queueproperties
 
-queue_logging_enabled(account) if {
-	isManaged(account.queueproperties.enablelogging)
-	value.is_true(account.queueproperties.enablelogging)
-}
+logging_disabled(account) if value.is_false(account.queueproperties.enablelogging)
