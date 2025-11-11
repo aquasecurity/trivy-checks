@@ -50,6 +50,5 @@ infrastructure_encryption_disabled(account) if {
 }
 
 infrastructure_encryption_disabled(account) if {
-  account.infrastructureencryptionenabled
 	value.is_false(account.infrastructureencryptionenabled)
 }
