@@ -32,18 +32,37 @@ package builtin.azure.storage.azure0058
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some account in input.azure.storage.accounts
 	isManaged(account)
-	not is_geo_redundant(account)
+	not_geo_redundant(account)
 	res := result.new(
 		"Storage account does not use geo-redundant replication.",
 		metadata.obj_by_path(account, ["accountreplicationtype"]),
 	)
 }
 
-is_geo_redundant(account) if {
+not_geo_redundant(account) if {
+	not account.accountreplicationtype
+}
+
+not_geo_redundant(account) if {
+	account.accountreplicationtype
+	not isManaged(account.accountreplicationtype)
+}
+
+not_geo_redundant(account) if {
+	account.accountreplicationtype
 	isManaged(account.accountreplicationtype)
-	account.accountreplicationtype.value in {"GRS", "RAGRS", "GZRS", "RAGZRS"}
+	geo_redundant_types := {"GRS", "RAGRS", "GZRS", "RAGZRS"}
+	not value.is_unresolvable(account.accountreplicationtype)
+	not account.accountreplicationtype.value in geo_redundant_types
+}
+
+not_geo_redundant(account) if {
+	account.accountreplicationtype
+	isManaged(account.accountreplicationtype)
+	value.is_unresolvable(account.accountreplicationtype)
 }

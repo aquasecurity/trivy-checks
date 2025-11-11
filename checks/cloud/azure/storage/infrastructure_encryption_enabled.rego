@@ -33,18 +33,29 @@ package builtin.azure.storage.azure0061
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some account in input.azure.storage.accounts
 	isManaged(account)
-	not infrastructure_encryption_enabled(account)
+	infrastructure_encryption_disabled(account)
 	res := result.new(
 		"Storage account does not have infrastructure encryption enabled.",
 		metadata.obj_by_path(account, ["infrastructureencryptionenabled"]),
 	)
 }
 
-infrastructure_encryption_enabled(account) if {
+infrastructure_encryption_disabled(account) if {
+	not account.infrastructureencryptionenabled
+}
+
+infrastructure_encryption_disabled(account) if {
+	account.infrastructureencryptionenabled
+	not isManaged(account.infrastructureencryptionenabled)
+}
+
+infrastructure_encryption_disabled(account) if {
+	account.infrastructureencryptionenabled
 	isManaged(account.infrastructureencryptionenabled)
-	account.infrastructureencryptionenabled.value
+	not value.is_true(account.infrastructureencryptionenabled)
 }

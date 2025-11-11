@@ -32,18 +32,44 @@ package builtin.azure.storage.azure0056
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some account in input.azure.storage.accounts
 	isManaged(account)
-	not has_blob_soft_delete_enabled(account)
+	blob_soft_delete_disabled(account)
 	res := result.new(
 		"Storage account does not have blob soft delete enabled.",
 		metadata.obj_by_path(account, ["blobproperties", "deleteretentionpolicy"]),
 	)
 }
 
-has_blob_soft_delete_enabled(account) if {
+blob_soft_delete_disabled(account) if {
+	not account.blobproperties
+}
+
+blob_soft_delete_disabled(account) if {
+	account.blobproperties
+	not account.blobproperties.deleteretentionpolicy
+}
+
+blob_soft_delete_disabled(account) if {
+	account.blobproperties
+	account.blobproperties.deleteretentionpolicy
+	not account.blobproperties.deleteretentionpolicy.days
+}
+
+blob_soft_delete_disabled(account) if {
+	account.blobproperties
+	account.blobproperties.deleteretentionpolicy
+	account.blobproperties.deleteretentionpolicy.days
+	not isManaged(account.blobproperties.deleteretentionpolicy.days)
+}
+
+blob_soft_delete_disabled(account) if {
+	account.blobproperties
+	account.blobproperties.deleteretentionpolicy
+	account.blobproperties.deleteretentionpolicy.days
 	isManaged(account.blobproperties.deleteretentionpolicy.days)
-	account.blobproperties.deleteretentionpolicy.days.value > 0
+	not value.greater_than(account.blobproperties.deleteretentionpolicy.days, 0)
 }

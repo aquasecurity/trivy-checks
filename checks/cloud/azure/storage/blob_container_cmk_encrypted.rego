@@ -32,19 +32,37 @@ package builtin.azure.storage.azure0060
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some account in input.azure.storage.accounts
 	isManaged(account)
 	count(account.containers) > 0
-	not has_customer_managed_keys(account)
+	lacks_customer_managed_keys(account)
 	res := result.new(
 		"Storage account with blob containers should use customer-managed keys for encryption.",
 		metadata.obj_by_path(account, ["customermanagedkey"]),
 	)
 }
 
-has_customer_managed_keys(account) if {
+lacks_customer_managed_keys(account) if {
+	not account.customermanagedkey
+}
+
+lacks_customer_managed_keys(account) if {
+	account.customermanagedkey
+	not account.customermanagedkey.keyvaultkeyid
+}
+
+lacks_customer_managed_keys(account) if {
+	account.customermanagedkey
+	account.customermanagedkey.keyvaultkeyid
+	not isManaged(account.customermanagedkey.keyvaultkeyid)
+}
+
+lacks_customer_managed_keys(account) if {
+	account.customermanagedkey
+	account.customermanagedkey.keyvaultkeyid
 	isManaged(account.customermanagedkey.keyvaultkeyid)
-	account.customermanagedkey.keyvaultkeyid.value != ""
+	value.is_empty(account.customermanagedkey.keyvaultkeyid)
 }

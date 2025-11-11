@@ -32,11 +32,12 @@ package builtin.azure.storage.azure0059
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some account in input.azure.storage.accounts
 	isManaged(account)
-	not account.enforcehttps.value
+	https_not_enforced(account)
 	res := result.new(
 		"Storage account does not enforce HTTPS for secure transfer.",
 		metadata.obj_by_path(account, ["enforcehttps"]),
@@ -46,14 +47,39 @@ deny contains res if {
 deny contains res if {
 	some account in input.azure.storage.accounts
 	isManaged(account)
-	not has_secure_tls_version(account)
+	insecure_tls_version(account)
 	res := result.new(
 		"Storage account does not use a secure TLS version.",
 		metadata.obj_by_path(account, ["minimumtlsversion"]),
 	)
 }
 
-has_secure_tls_version(account) if {
+https_not_enforced(account) if {
+	not account.enforcehttps
+}
+
+https_not_enforced(account) if {
+	account.enforcehttps
+	not isManaged(account.enforcehttps)
+}
+
+https_not_enforced(account) if {
+	account.enforcehttps
+	isManaged(account.enforcehttps)
+	not value.is_true(account.enforcehttps)
+}
+
+insecure_tls_version(account) if {
+	not account.minimumtlsversion
+}
+
+insecure_tls_version(account) if {
+	account.minimumtlsversion
+	not isManaged(account.minimumtlsversion)
+}
+
+insecure_tls_version(account) if {
+	account.minimumtlsversion
 	isManaged(account.minimumtlsversion)
-	account.minimumtlsversion.value == "TLS1_2"
+	not value.is_equal(account.minimumtlsversion, "TLS1_2")
 }

@@ -31,21 +31,25 @@ package builtin.azure.storage.azure0057
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some account in input.azure.storage.accounts
 	isManaged(account)
-	not has_any_logging_enabled(account)
+	logging_disabled(account)
 	res := result.new(
 		"Storage account does not have logging enabled for any service.",
 		account,
 	)
 }
 
-has_any_logging_enabled(account) if {
-	has_queue_logging_enabled(account)
+logging_disabled(account) if {
+	not queue_logging_enabled(account)
 }
 
-has_queue_logging_enabled(account) if {
+queue_logging_enabled(account) if {
+	account.queueproperties
+	account.queueproperties.enablelogging
 	isManaged(account.queueproperties.enablelogging)
-	account.queueproperties.enablelogging.value
+	value.is_true(account.queueproperties.enablelogging)
 }
