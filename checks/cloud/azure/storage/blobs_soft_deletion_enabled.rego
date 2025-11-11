@@ -40,7 +40,7 @@ deny contains res if {
 	blob_soft_delete_disabled(account)
 	res := result.new(
 		"Storage account does not have blob soft delete enabled.",
-		metadata.obj_by_path(account, ["blobproperties", "deleteretentionpolicy"]),
+		metadata.obj_by_path(account, ["blobproperties", "deleteretentionpolicy", "days"]),
 	)
 }
 
