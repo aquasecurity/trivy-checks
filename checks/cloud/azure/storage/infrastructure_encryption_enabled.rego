@@ -50,12 +50,10 @@ infrastructure_encryption_disabled(account) if {
 }
 
 infrastructure_encryption_disabled(account) if {
-	account.infrastructureencryptionenabled
 	not isManaged(account.infrastructureencryptionenabled)
 }
 
 infrastructure_encryption_disabled(account) if {
-	account.infrastructureencryptionenabled
 	isManaged(account.infrastructureencryptionenabled)
 	not value.is_true(account.infrastructureencryptionenabled)
 }

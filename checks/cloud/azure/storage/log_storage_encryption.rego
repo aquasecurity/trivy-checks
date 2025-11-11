@@ -59,12 +59,10 @@ https_not_enforced(account) if {
 }
 
 https_not_enforced(account) if {
-	account.enforcehttps
 	not isManaged(account.enforcehttps)
 }
 
 https_not_enforced(account) if {
-	account.enforcehttps
 	isManaged(account.enforcehttps)
 	not value.is_true(account.enforcehttps)
 }
@@ -74,12 +72,10 @@ insecure_tls_version(account) if {
 }
 
 insecure_tls_version(account) if {
-	account.minimumtlsversion
 	not isManaged(account.minimumtlsversion)
 }
 
 insecure_tls_version(account) if {
-	account.minimumtlsversion
 	isManaged(account.minimumtlsversion)
 	not value.is_equal(account.minimumtlsversion, "TLS1_2")
 }

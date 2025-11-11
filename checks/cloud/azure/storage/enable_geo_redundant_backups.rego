@@ -49,12 +49,10 @@ not_geo_redundant(account) if {
 }
 
 not_geo_redundant(account) if {
-	account.accountreplicationtype
 	not isManaged(account.accountreplicationtype)
 }
 
 not_geo_redundant(account) if {
-	account.accountreplicationtype
 	isManaged(account.accountreplicationtype)
 	geo_redundant_types := {"GRS", "RAGRS", "GZRS", "RAGZRS"}
 	not value.is_unresolvable(account.accountreplicationtype)
@@ -62,7 +60,6 @@ not_geo_redundant(account) if {
 }
 
 not_geo_redundant(account) if {
-	account.accountreplicationtype
 	isManaged(account.accountreplicationtype)
 	value.is_unresolvable(account.accountreplicationtype)
 }

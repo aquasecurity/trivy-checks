@@ -48,8 +48,6 @@ logging_disabled(account) if {
 }
 
 queue_logging_enabled(account) if {
-	account.queueproperties
-	account.queueproperties.enablelogging
 	isManaged(account.queueproperties.enablelogging)
 	value.is_true(account.queueproperties.enablelogging)
 }

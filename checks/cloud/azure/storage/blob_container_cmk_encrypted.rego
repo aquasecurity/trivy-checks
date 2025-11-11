@@ -55,14 +55,10 @@ lacks_customer_managed_keys(account) if {
 }
 
 lacks_customer_managed_keys(account) if {
-	account.customermanagedkey
-	account.customermanagedkey.keyvaultkeyid
 	not isManaged(account.customermanagedkey.keyvaultkeyid)
 }
 
 lacks_customer_managed_keys(account) if {
-	account.customermanagedkey
-	account.customermanagedkey.keyvaultkeyid
 	isManaged(account.customermanagedkey.keyvaultkeyid)
 	value.is_empty(account.customermanagedkey.keyvaultkeyid)
 }
