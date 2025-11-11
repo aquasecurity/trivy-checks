@@ -45,25 +45,9 @@ deny contains res if {
 }
 
 blob_soft_delete_disabled(account) if {
-	not account.blobproperties
-}
-
-blob_soft_delete_disabled(account) if {
-	account.blobproperties
-	not account.blobproperties.deleteretentionpolicy
-}
-
-blob_soft_delete_disabled(account) if {
-	account.blobproperties
-	account.blobproperties.deleteretentionpolicy
 	not account.blobproperties.deleteretentionpolicy.days
 }
 
 blob_soft_delete_disabled(account) if {
-	not isManaged(account.blobproperties.deleteretentionpolicy.days)
-}
-
-blob_soft_delete_disabled(account) if {
-	isManaged(account.blobproperties.deleteretentionpolicy.days)
 	value.is_equal(account.blobproperties.deleteretentionpolicy.days, 0)
 }
