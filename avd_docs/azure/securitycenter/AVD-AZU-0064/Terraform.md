@@ -1,0 +1,28 @@
+
+Enable the security contact to ensure security notifications are delivered.
+
+```hcl
+resource "azurerm_security_center_contact" "good_example" {
+  email               = "security@example.com"
+  phone               = "+1-555-555-5555"
+  alert_notifications = true
+  alerts_to_admins    = true
+
+  # Security contact is enabled by default
+}
+```
+```hcl
+resource "azurerm_security_center_contact" "good_example_explicit" {
+  email               = "security@example.com"
+  phone               = "+1-555-555-5555"
+  alert_notifications = true
+  alerts_to_admins    = true
+
+  # Explicitly enabled
+  enabled = true
+}
+```
+
+#### Remediation Links
+ - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/security_center_contact
+
