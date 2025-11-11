@@ -46,19 +46,9 @@ deny contains res if {
 }
 
 lacks_customer_managed_keys(account) if {
-	not account.customermanagedkey
-}
-
-lacks_customer_managed_keys(account) if {
-	account.customermanagedkey
 	not account.customermanagedkey.keyvaultkeyid
 }
 
 lacks_customer_managed_keys(account) if {
-	not isManaged(account.customermanagedkey.keyvaultkeyid)
-}
-
-lacks_customer_managed_keys(account) if {
-	isManaged(account.customermanagedkey.keyvaultkeyid)
 	value.is_empty(account.customermanagedkey.keyvaultkeyid)
 }
