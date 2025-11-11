@@ -54,6 +54,10 @@ deny contains res if {
 	)
 }
 
-https_not_enforced(account) := value.is_false(account.enforcehttps)
+https_not_enforced(account) if not account.enforcehttps
 
-insecure_tls_version(account) := value.is_not_equal(account.minimumtlsversion, "TLS1_2")
+https_not_enforced(account) if value.is_false(account.enforcehttps)
+
+insecure_tls_version(account) if not account.minimumtlsversion
+
+insecure_tls_version(account) if value.is_not_equal(account.minimumtlsversion, "TLS1_2")
