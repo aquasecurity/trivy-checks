@@ -54,18 +54,7 @@ deny contains res if {
 	)
 }
 
-https_not_enforced(account) if {
-	not account.enforcehttps
-}
-
-https_not_enforced(account) if {
-	not isManaged(account.enforcehttps)
-}
-
-https_not_enforced(account) if {
-	isManaged(account.enforcehttps)
-	not value.is_true(account.enforcehttps)
-}
+https_not_enforced(account) := value.is_false(account.enforcehttps)
 
 insecure_tls_version(account) if {
 	not account.minimumtlsversion
