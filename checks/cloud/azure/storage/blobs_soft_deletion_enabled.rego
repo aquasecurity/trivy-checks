@@ -65,5 +65,5 @@ blob_soft_delete_disabled(account) if {
 
 blob_soft_delete_disabled(account) if {
 	isManaged(account.blobproperties.deleteretentionpolicy.days)
-	not value.greater_than(account.blobproperties.deleteretentionpolicy.days, 0)
+	value.is_equal(account.blobproperties.deleteretentionpolicy.days, 0)
 }
