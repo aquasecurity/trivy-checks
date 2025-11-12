@@ -11,6 +11,3 @@ terraform:
 
         # Security contact is enabled by default when created
       }
-  # Note: The azurerm provider does not support disabling security contacts.
-  # This check primarily applies to ARM templates where isEnabled can be set to false.
-  # For notification control in Terraform, see the email_alerts_disabled check.

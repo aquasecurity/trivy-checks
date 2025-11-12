@@ -8,18 +8,7 @@ resource "azurerm_security_center_contact" "good_example" {
   alert_notifications = true
   alerts_to_admins    = true
 
-  # Security contact is enabled by default
-}
-```
-```hcl
-resource "azurerm_security_center_contact" "good_example_explicit" {
-  email               = "security@example.com"
-  phone               = "+1-555-555-5555"
-  alert_notifications = true
-  alerts_to_admins    = true
-
-  # Explicitly enabled
-  enabled = true
+  # Security contact is enabled by default when created
 }
 ```
 
