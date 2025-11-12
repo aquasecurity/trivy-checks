@@ -43,5 +43,6 @@ deny contains res if {
 }
 
 contact_disabled(contact) if {
+	isManaged(contact.isenabled)
 	value.is_false(contact.isenabled)
 }
