@@ -11,10 +11,10 @@ test_deny_soft_delete_disabled if {
 	test.assert_count(check.deny, 1) with input as inp
 }
 
-test_deny_soft_delete_not_configured if {
+test_allow_soft_delete_not_configured if {
 	inp := {"azure": {"storage": {"accounts": [{}]}}}
 
-	test.assert_count(check.deny, 1) with input as inp
+	test.assert_empty(check.deny) with input as inp
 }
 
 test_allow_soft_delete_enabled if {

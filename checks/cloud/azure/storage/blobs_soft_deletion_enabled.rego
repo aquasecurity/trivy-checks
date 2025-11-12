@@ -45,9 +45,5 @@ deny contains res if {
 }
 
 blob_soft_delete_disabled(account) if {
-	not account.blobproperties.deleteretentionpolicy.days
-}
-
-blob_soft_delete_disabled(account) if {
 	value.is_equal(account.blobproperties.deleteretentionpolicy.days, 0)
 }
