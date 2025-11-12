@@ -9,26 +9,8 @@ terraform:
         alert_notifications = true
         alerts_to_admins    = true
 
-        # Security contact is enabled by default
+        # Security contact is enabled by default when created
       }
-    - |-
-      resource "azurerm_security_center_contact" "good_example_explicit" {
-        email               = "security@example.com"
-        phone               = "+1-555-555-5555"
-        alert_notifications = true
-        alerts_to_admins    = true
-
-        # Explicitly enabled
-        enabled = true
-      }
-  bad:
-    - |-
-      resource "azurerm_security_center_contact" "bad_example" {
-        email               = "security@example.com"
-        phone               = "+1-555-555-5555"
-        alert_notifications = true
-        alerts_to_admins    = true
-
-        # Security contact is explicitly disabled
-        enabled = false
-      }
+  # Note: The azurerm provider does not support disabling security contacts.
+  # This check primarily applies to ARM templates where isEnabled can be set to false.
+  # For notification control in Terraform, see the email_alerts_disabled check.
