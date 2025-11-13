@@ -1,0 +1,39 @@
+# METADATA
+# title: Ensure AKS cluster has private cluster enabled
+# description: |
+#   A public AKS API server endpoint increases exposure to unauthorized access or attack. Enable private cluster to ensure the API server endpoint is only accessible from within the virtual network.
+# scope: package
+# schemas:
+#   - input: schema["cloud"]
+# related_resources:
+#   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#private_cluster_enabled
+# custom:
+#   id: AVD-AZU-0065
+#   avd_id: AVD-AZU-0065
+#   provider: azure
+#   service: container
+#   severity: MEDIUM
+#   short_code: enable-private-cluster
+#   recommended_action: Provision the AKS cluster with `private_cluster_enabled = true` and use private endpoints.
+#   minimum_trivy_version: 0.68.0
+#   input:
+#     selector:
+#       - type: cloud
+#         subtypes:
+#           - service: container
+#             provider: azure
+#   examples: checks/cloud/azure/container/enable_private_cluster.yaml
+package builtin.azure.container.azure0065
+
+import rego.v1
+
+import data.lib.cloud.metadata
+
+deny contains res if {
+	some cluster in input.azure.container.kubernetesclusters
+	not cluster.enableprivatecluster.value
+	res := result.new(
+		"Cluster does not have private cluster enabled.",
+		metadata.obj_by_path(cluster, ["enableprivatecluster"]),
+	)
+}
