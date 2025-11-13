@@ -29,11 +29,18 @@ import rego.v1
 
 import data.lib.cloud.metadata
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some cluster in input.azure.container.kubernetesclusters
-	not cluster.enableprivatecluster.value
+	isManaged(cluster)
+	is_private_cluster_disabled(cluster)
 	res := result.new(
 		"Cluster does not have private cluster enabled.",
 		metadata.obj_by_path(cluster, ["enableprivatecluster"]),
 	)
 }
+
+is_private_cluster_disabled(cluster) if not cluster.enableprivatecluster
+
+is_private_cluster_disabled(cluster) if value.is_false(cluster.enableprivatecluster)

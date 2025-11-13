@@ -32,6 +32,7 @@ import data.lib.cloud.value
 
 deny contains res if {
 	some cluster in input.azure.container.kubernetesclusters
+	isManaged(cluster)
 	is_disk_encryption_missing(cluster)
 	res := result.new(
 		"Cluster does not have disk encryption set ID configured.",
