@@ -29,11 +29,17 @@ import rego.v1
 
 import data.lib.cloud.metadata
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some cluster in input.azure.container.kubernetesclusters
-	not cluster.addonprofile.azurepolicy.enabled.value
+	isManaged(cluster)
+	is_policy_disabled(cluster)
 	res := result.new(
 		"Cluster does not have Azure Policy add-on enabled.",
 		metadata.obj_by_path(cluster, ["addonprofile", "azurepolicy", "enabled"]),
 	)
 }
+
+is_policy_disabled(cluster) if not cluster.addonprofile.azurepolicy.enabled
+is_policy_disabled(cluster) if value.is_false(cluster.addonprofile.azurepolicy.enabled)
