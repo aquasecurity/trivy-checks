@@ -42,5 +42,4 @@ deny contains res if {
 }
 
 is_private_cluster_disabled(cluster) if not cluster.enableprivatecluster
-
 is_private_cluster_disabled(cluster) if value.is_false(cluster.enableprivatecluster)

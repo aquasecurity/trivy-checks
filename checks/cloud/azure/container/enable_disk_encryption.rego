@@ -40,6 +40,5 @@ deny contains res if {
 	)
 }
 
-is_disk_encryption_missing(cluster) if value.is_empty(cluster.diskencryptionsetid)
-
 is_disk_encryption_missing(cluster) if not cluster.diskencryptionsetid
+is_disk_encryption_missing(cluster) if value.is_empty(cluster.diskencryptionsetid)
