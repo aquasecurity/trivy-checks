@@ -123,9 +123,9 @@ func loadSchemas(t *testing.T) map[string]*gojsonschema.Schema {
 	t.Helper()
 
 	return map[string]*gojsonschema.Schema{
-		"cloud":      loadSchema(t, "../schemas/cloud.json", enforceNoAdditionalProperties),
-		"kubernetes": loadSchema(t, "../schemas/kubernetes.json"),
-		"dockerfile": loadSchema(t, "../schemas/dockerfile.json"),
+		"cloud":      loadSchema(t, "../schemas/latest/cloud.json", enforceNoAdditionalProperties),
+		"kubernetes": loadSchema(t, "../schemas/latest/kubernetes.json"),
+		"dockerfile": loadSchema(t, "../schemas/latest/dockerfile.json"),
 	}
 }
 
