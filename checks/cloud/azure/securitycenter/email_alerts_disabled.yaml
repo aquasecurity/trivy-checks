@@ -1,0 +1,37 @@
+terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/security_center_contact
+  good:
+    - |-
+      resource "azurerm_security_center_contact" "good_example" {
+        email = "security@example.com"
+        phone = "+1-555-555-5555"
+
+        alert_notifications = true
+        alerts_to_admins    = true
+      }
+  bad:
+    - |-
+      resource "azurerm_security_center_contact" "bad_example1" {
+        email = "security@example.com"
+        phone = "+1-555-555-5555"
+
+        alert_notifications = false
+        alerts_to_admins    = true
+      }
+    - |-
+      resource "azurerm_security_center_contact" "bad_example2" {
+        email = "security@example.com"
+        phone = "+1-555-555-5555"
+
+        alert_notifications = true
+        alerts_to_admins    = false
+      }
+    - |-
+      resource "azurerm_security_center_contact" "bad_example3" {
+        email = "security@example.com"
+        phone = "+1-555-555-5555"
+
+        alert_notifications = false
+        alerts_to_admins    = false
+      }
