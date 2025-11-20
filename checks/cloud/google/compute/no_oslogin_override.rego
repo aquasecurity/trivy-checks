@@ -24,8 +24,13 @@ package builtin.google.compute.google0036
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some instance in input.google.compute.instances
-	instance.osloginenabled.value == false
+	os_login_disabled(instance)
 	res := result.new("Instance has OS Login disabled.", instance.osloginenabled)
 }
+
+os_login_disabled(instance) if not instance.osloginenabled
+os_login_disabled(instance) if value.is_false(instance.osloginenabled)
