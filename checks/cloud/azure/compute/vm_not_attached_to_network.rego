@@ -17,6 +17,7 @@
 #   severity: MEDIUM
 #   short_code: vm-not-attached-to-network
 #   recommended_action: Associate an NSG to the VM's NIC or subnet to control traffic.
+#   minimum_trivy_version: 0.68.0
 #   input:
 #     selector:
 #       - type: cloud
@@ -28,8 +29,6 @@ package builtin.azure.compute.azure0068
 
 import rego.v1
 
-import data.lib.cloud.metadata
-
 deny contains res if {
 	vms := array.concat(
 		object.get(input.azure.compute, "linuxvirtualmachines", []),
@@ -37,7 +36,6 @@ deny contains res if {
 	)
 
 	some vm in vms
-	isManaged(vm)
 	some nic in vm.virtualmachine.networkinterfaces
 	count(nic.securitygroups) == 0
 	res := result.new(

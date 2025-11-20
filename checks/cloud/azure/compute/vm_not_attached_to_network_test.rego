@@ -24,23 +24,10 @@ test_allow_windows_vm_with_security_group if {
 	count(res) == 0
 }
 
+build_linux_input_no_nsg := {"azure": {"compute": {"linuxvirtualmachines": [{"virtualmachine": {"networkinterfaces": [{"securitygroups": []}]}}]}}}
 
-build_linux_input_no_nsg := {"azure": {"compute": {"linuxvirtualmachines": [{
-	"__defsec_metadata": {"managed": true},
-	"virtualmachine": {"networkinterfaces": [{"securitygroups": []}]},
-}]}}}
+build_linux_input_with_nsg := {"azure": {"compute": {"linuxvirtualmachines": [{"virtualmachine": {"networkinterfaces": [{"securitygroups": [{"__defsec_metadata": {}, "rules": []}]}]}}]}}}
 
-build_linux_input_with_nsg := {"azure": {"compute": {"linuxvirtualmachines": [{
-	"__defsec_metadata": {"managed": true},
-	"virtualmachine": {"networkinterfaces": [{"securitygroups": [{"name": "test-nsg"}]}]},
-}]}}}
+build_windows_input_no_nsg := {"azure": {"compute": {"windowsvirtualmachines": [{"virtualmachine": {"networkinterfaces": [{"securitygroups": []}]}}]}}}
 
-build_windows_input_no_nsg := {"azure": {"compute": {"windowsvirtualmachines": [{
-	"__defsec_metadata": {"managed": true},
-	"virtualmachine": {"networkinterfaces": [{"securitygroups": []}]},
-}]}}}
-
-build_windows_input_with_nsg := {"azure": {"compute": {"windowsvirtualmachines": [{
-	"__defsec_metadata": {"managed": true},
-	"virtualmachine": {"networkinterfaces": [{"securitygroups": [{"name": "test-nsg"}]}]},
-}]}}}
+build_windows_input_with_nsg := {"azure": {"compute": {"windowsvirtualmachines": [{"virtualmachine": {"networkinterfaces": [{"securitygroups": [{"__defsec_metadata": {}, "rules": []}]}]}}]}}}
