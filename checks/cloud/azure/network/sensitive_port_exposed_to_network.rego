@@ -1,0 +1,57 @@
+# METADATA
+# title: Sensitive Port Is Exposed To Entire Network
+# description: |
+#   Sensitive legacy ports like Telnet or POP3 should not be open to broad networks.
+# scope: package
+# schemas:
+#   - input: schema["cloud"]
+# related_resources:
+#   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_rule
+# custom:
+#   id: AVD-AZU-0074
+#   avd_id: AVD-AZU-0074
+#   aliases:
+#     - azure-sensitive-port-is-exposed-to-entire-network
+#   provider: azure
+#   service: network
+#   severity: HIGH
+#   minimum_trivy_version: 0.68.0
+#   short_code: sensitive-port-is-exposed-to-entire-network
+#   recommended_action: Remove NSG rules allowing legacy or unencrypted protocols on broad scopes.
+#   input:
+#     selector:
+#       - type: cloud
+#         subtypes:
+#           - service: network
+#             provider: azure
+#   examples: checks/cloud/azure/network/sensitive_port_exposed_to_network.yaml
+package builtin.azure.network.azure0074
+
+import rego.v1
+
+import data.lib.net
+
+# Sensitive ports that should not be exposed to broad networks
+sensitive_ports := {20, 21, 23, 25, 53, 110, 135, 139, 143, 161, 389, 636, 993, 995, 1433, 1521, 3306, 5432, 6379}
+
+deny contains res if {
+	some group in input.azure.network.securitygroups
+	some rule in group.rules
+	rule.allow.value
+	not rule.outbound.value
+	lower(rule.protocol.value) != "icmp"
+	some ports in rule.destinationports
+	some sensitive_port in sensitive_ports
+	port_range_includes(ports.start, ports.end, sensitive_port)
+	some ip in rule.sourceaddresses
+	net.cidr_allows_all_ips(ip.value)
+	res := result.new(
+		sprintf("Security group rule allows unrestricted ingress to sensitive port %d from any IP address.", [sensitive_port]),
+		ip,
+	)
+}
+
+port_range_includes(from, to, port) if {
+	from.value <= port
+	port <= to.value
+}
