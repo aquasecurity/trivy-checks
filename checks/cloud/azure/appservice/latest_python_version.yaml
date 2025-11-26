@@ -1,0 +1,49 @@
+terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#python_version
+  good:
+    - |-
+      resource "azurerm_app_service" "good_example" {
+        name                = "example-app-service"
+        location            = azurerm_resource_group.example.location
+        resource_group_name = azurerm_resource_group.example.name
+        app_service_plan_id = azurerm_app_service_plan.example.id
+
+        site_config {
+          python_version = "3.11"
+        }
+      }
+    - |-
+      resource "azurerm_app_service" "good_example_no_python" {
+        name                = "example-app-service"
+        location            = azurerm_resource_group.example.location
+        resource_group_name = azurerm_resource_group.example.name
+        app_service_plan_id = azurerm_app_service_plan.example.id
+
+        site_config {
+          # No Python version specified - not using Python
+        }
+      }
+  bad:
+    - |-
+      resource "azurerm_app_service" "bad_example" {
+        name                = "example-app-service"
+        location            = azurerm_resource_group.example.location
+        resource_group_name = azurerm_resource_group.example.name
+        app_service_plan_id = azurerm_app_service_plan.example.id
+
+        site_config {
+          python_version = "3.8"
+        }
+      }
+    - |-
+      resource "azurerm_app_service" "bad_example_old" {
+        name                = "example-app-service"
+        location            = azurerm_resource_group.example.location
+        resource_group_name = azurerm_resource_group.example.name
+        app_service_plan_id = azurerm_app_service_plan.example.id
+
+        site_config {
+          python_version = "3.9"
+        }
+      }
