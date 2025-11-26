@@ -26,7 +26,6 @@ import data.lib.kubernetes
 # Note: adding many complex patterns may impact evaluation performance.
 cm_value_patterns := {
 	"(?i)(password\\s*(=|:))",
-	"(?i)(pw\\s*(=|:))",
 	"(?i)(pass\\s*(=|:))",
 	"(?i)(pword\\s*(=|:))",
 	"(?i)(passphrase\\s*(=|:))",
@@ -46,7 +45,6 @@ cm_value_patterns := {
 # Note: adding many complex patterns may impact evaluation performance.
 cm_key_patterns := {
 	"(?i)(password\\s*)",
-	"(?i)(pw\\s*)",
 	"(?i)(pass\\s*)",
 	"(?i)(pword\\s*)",
 	"(?i)(passphrase\\s*)",
