@@ -1,20 +1,20 @@
 # METADATA
-# title: "'apt-get' missing '--no-install-recommends'"
-# description: "'apt-get' install should use '--no-install-recommends' to minimize image size."
+# title: '''apt-get'' missing ''--no-install-recommends'''
+# description: '''apt-get'' install should use ''--no-install-recommends'' to minimize image size.'
 # scope: package
 # related_resources:
-# - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+#   - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # custom:
 #   id: DS029
 #   avd_id: AVD-DS-0029
 #   severity: HIGH
 #   short_code: use-apt-no-install-recommends
-#   recommended_action: "Add '--no-install-recommends' flag to 'apt-get'"
+#   recommended_action: Add '--no-install-recommends' flag to 'apt-get'
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 package builtin.dockerfile.DS029
 
 import rego.v1

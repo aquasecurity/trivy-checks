@@ -1,22 +1,22 @@
 # METADATA
-# title: "If the kubelet config.yaml configuration file is being used validate permissions set to 600 or more restrictive"
-# description: "Ensure that if the kubelet refers to a configuration file with the --config argument, that file has permissions of 600 or more restrictive."
+# title: If the kubelet config.yaml configuration file is being used validate permissions set to 600 or more restrictive
+# description: Ensure that if the kubelet refers to a configuration file with the --config argument, that file has permissions of 600 or more restrictive.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV0077
 #   avd_id: AVD-KCV-0077
 #   severity: HIGH
 #   short_code: ensure-kubelet-config.yaml--permissions-600-or-more-restrictive.
-#   recommended_action: "Change the kubelet config yaml permissions to 600 or more restrictive if exist"
+#   recommended_action: Change the kubelet config yaml permissions to 600 or more restrictive if exist
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0077
 
 import rego.v1

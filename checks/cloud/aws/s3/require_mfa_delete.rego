@@ -17,7 +17,7 @@
 #   recommended_action: Enable MFA deletion protection on the bucket
 #   frameworks:
 #     cis-aws-1.4:
-#       - "2.1.3"
+#       - 2.1.3
 #   input:
 #     selector:
 #       - type: cloud

@@ -1,30 +1,30 @@
 # METADATA
-# title: "CPU not limited"
-# description: "Enforcing CPU limits prevents DoS via resource exhaustion."
+# title: CPU not limited
+# description: Enforcing CPU limits prevents DoS via resource exhaustion.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://cloud.google.com/blog/products/containers-kubernetes/kubernetes-best-practices-resource-requests-and-limits
+#   - https://cloud.google.com/blog/products/containers-kubernetes/kubernetes-best-practices-resource-requests-and-limits
 # custom:
 #   id: KSV011
 #   avd_id: AVD-KSV-0011
 #   severity: LOW
 #   short_code: limit-cpu
-#   recommended_action: "Set a limit value under 'containers[].resources.limits.cpu'."
+#   recommended_action: Set a limit value under 'containers[].resources.limits.cpu'.
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 package builtin.kubernetes.KSV011
 
 import rego.v1

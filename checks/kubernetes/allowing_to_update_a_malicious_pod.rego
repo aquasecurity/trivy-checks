@@ -1,23 +1,23 @@
 # METADATA
-# title: "Manage Kubernetes workloads and pods"
-# description: "Depending on the policies enforced by the admission controller, this permission ranges from the ability to steal compute (crypto) by running workloads or allowing for creating workloads that escape to the node as root and escalation to cluster-admin."
+# title: Manage Kubernetes workloads and pods
+# description: Depending on the policies enforced by the admission controller, this permission ranges from the ability to steal compute (crypto) by running workloads or allowing for creating workloads that escape to the node as root and escalation to cluster-admin.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+#   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
 #   id: KSV048
 #   avd_id: AVD-KSV-0048
 #   severity: MEDIUM
 #   short_code: deny-create-update-malicious-pod
-#   recommended_action: "Kubernetes workloads resources are only allowed for verbs 'list', 'watch', 'get'"
+#   recommended_action: Kubernetes workloads resources are only allowed for verbs 'list', 'watch', 'get'
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: clusterrole
-#         - kind: role
+#       - type: kubernetes
+#         subtypes:
+#           - kind: clusterrole
+#           - kind: role
 package builtin.kubernetes.KSV048
 
 import rego.v1

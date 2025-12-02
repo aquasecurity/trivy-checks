@@ -1,30 +1,30 @@
 # METADATA
-# title: "Runs with a root primary or supplementary GID"
-# description: "According to pod security standard 'Non-root groups', containers should be forbidden from running with a root primary or supplementary GID."
+# title: Runs with a root primary or supplementary GID
+# description: According to pod security standard 'Non-root groups', containers should be forbidden from running with a root primary or supplementary GID.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubesec.io/basics/containers-securitycontext-runasuser/
+#   - https://kubesec.io/basics/containers-securitycontext-runasuser/
 # custom:
 #   id: KSV116
 #   avd_id: AVD-KSV-0116
 #   severity: LOW
 #   short_code: primary-supplementary-gid
-#   recommended_actions: "Set 'containers[].securityContext.runAsGroup' to a non-zero integer or leave undefined."
+#   recommended_actions: Set 'containers[].securityContext.runAsGroup' to a non-zero integer or leave undefined.
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 package builtin.kubernetes.KSV116
 
 import rego.v1

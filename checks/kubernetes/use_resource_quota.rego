@@ -3,9 +3,9 @@
 # description: Ensure that a ResourceQuota policy is configured to limit aggregate resource usage within a namespace
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/quota-memory-cpu-namespace/
+#   - https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/quota-memory-cpu-namespace/
 # custom:
 #   id: KSV040
 #   avd_id: AVD-KSV-0040
@@ -14,9 +14,9 @@
 #   recommended_action: Create a ResourceQuota policy with memory and CPU quotas for each namespace
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: resourcequota
+#       - type: kubernetes
+#         subtypes:
+#           - kind: resourcequota
 package builtin.kubernetes.KSV040
 
 import rego.v1

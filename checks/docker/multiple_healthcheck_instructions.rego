@@ -1,20 +1,20 @@
 # METADATA
-# title: "Multiple HEALTHCHECK defined"
-# description: "Providing more than one HEALTHCHECK instruction per stage is confusing and error-prone."
+# title: Multiple HEALTHCHECK defined
+# description: Providing more than one HEALTHCHECK instruction per stage is confusing and error-prone.
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/engine/reference/builder/#healthcheck
+#   - https://docs.docker.com/engine/reference/builder/#healthcheck
 # custom:
 #   id: DS023
 #   avd_id: AVD-DS-0023
 #   severity: MEDIUM
 #   short_code: only-one-healthcheck
-#   recommended_action: "One HEALTHCHECK instruction must remain in Dockerfile. Remove all other instructions."
+#   recommended_action: One HEALTHCHECK instruction must remain in Dockerfile. Remove all other instructions.
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/multiple_healthcheck_instructions.yaml
 package builtin.dockerfile.DS023
 

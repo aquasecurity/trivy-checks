@@ -1,18 +1,18 @@
 # METADATA
-# title: "Port 22 exposed"
-# description: "Exposing port 22 might allow users to SSH into the container."
+# title: Port 22 exposed
+# description: Exposing port 22 might allow users to SSH into the container.
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # custom:
 #   id: DS004
 #   avd_id: AVD-DS-0004
 #   severity: MEDIUM
 #   short_code: no-ssh-port
-#   recommended_action: "Remove 'EXPOSE 22' statement from the Dockerfile"
+#   recommended_action: Remove 'EXPOSE 22' statement from the Dockerfile
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/port22.yaml
 package builtin.dockerfile.DS004
 

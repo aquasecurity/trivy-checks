@@ -1,20 +1,20 @@
 # METADATA
-# title: "RUN using 'sudo'"
-# description: "Avoid using 'RUN' with 'sudo' commands, as it can lead to unpredictable behavior."
+# title: RUN using 'sudo'
+# description: Avoid using 'RUN' with 'sudo' commands, as it can lead to unpredictable behavior.
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/engine/reference/builder/#run
+#   - https://docs.docker.com/engine/reference/builder/#run
 # custom:
 #   id: DS010
 #   avd_id: AVD-DS-0010
 #   severity: CRITICAL
 #   short_code: no-sudo-run
-#   recommended_action: "Don't use sudo"
+#   recommended_action: Don't use sudo
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/run_using_sudo.yaml
 package builtin.dockerfile.DS010
 

@@ -1,22 +1,22 @@
 # METADATA
-# title: "Manage all resources at the namespace"
-# description: "Full control of the resources within a namespace.  In some cluster configurations, this is excessive. In others, this is normal (a gitops deployment operator like flux)"
+# title: Manage all resources at the namespace
+# description: Full control of the resources within a namespace.  In some cluster configurations, this is excessive. In others, this is normal (a gitops deployment operator like flux)
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+#   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
 #   id: KSV112
 #   avd_id: AVD-KSV-0112
 #   severity: CRITICAL
 #   short_code: no-wildcard-resource-role
-#   recommended_actions: "Remove '*' from 'rules.resources'. Provide specific list of resources to be managed by role in namespace"
+#   recommended_actions: Remove '*' from 'rules.resources'. Provide specific list of resources to be managed by role in namespace
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: role
+#       - type: kubernetes
+#         subtypes:
+#           - kind: role
 package builtin.kubernetes.KSV112
 
 import rego.v1

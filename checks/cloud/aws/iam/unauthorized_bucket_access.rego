@@ -5,7 +5,7 @@
 # related_resources:
 #   - https://www.aquasec.com/blog/shadow-roles-aws-defaults-lead-to-service-takeover/
 # schemas:
-# - input: schema["cloud"]
+#   - input: schema["cloud"]
 # custom:
 #   id: AVD-AWS-0346
 #   avd_id: AVD-AWS-0346
@@ -16,10 +16,10 @@
 #   recommended_action: Allowing Get* along with Put* on all Resources can potentially allow unauthorized access and/or information disclosure from sensitive buckets.
 #   input:
 #     selector:
-#     - type: cloud
-#       subtypes:
-#         - service: iam
-#           provider: aws
+#       - type: cloud
+#         subtypes:
+#           - service: iam
+#             provider: aws
 package builtin.aws.iam.aws0346
 
 import rego.v1

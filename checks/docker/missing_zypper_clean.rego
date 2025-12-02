@@ -1,20 +1,20 @@
 # METADATA
-# title: "'zypper clean' missing"
-# description: "The layer and image size should be reduced by deleting unneeded caches after running zypper."
+# title: '''zypper clean'' missing'
+# description: The layer and image size should be reduced by deleting unneeded caches after running zypper.
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#run
+#   - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#run
 # custom:
 #   id: DS020
 #   avd_id: AVD-DS-0020
 #   severity: HIGH
 #   short_code: purge-zipper-cache
-#   recommended_action: "Add 'zypper clean' to Dockerfile"
+#   recommended_action: Add 'zypper clean' to Dockerfile
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/missing_zypper_clean.yaml
 package builtin.dockerfile.DS020
 

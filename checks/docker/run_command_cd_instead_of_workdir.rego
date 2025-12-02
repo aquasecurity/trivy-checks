@@ -1,20 +1,20 @@
 # METADATA
-# title: "'RUN cd ...' to change directory"
-# description: "Use WORKDIR instead of proliferating instructions like 'RUN cd … && do-something', which are hard to read, troubleshoot, and maintain."
+# title: '''RUN cd ...'' to change directory'
+# description: Use WORKDIR instead of proliferating instructions like 'RUN cd … && do-something', which are hard to read, troubleshoot, and maintain.
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#workdir
+#   - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#workdir
 # custom:
 #   id: DS013
 #   avd_id: AVD-DS-0013
 #   severity: MEDIUM
 #   short_code: use-workdir-over-cd
-#   recommended_action: "Use WORKDIR to change directory"
+#   recommended_action: Use WORKDIR to change directory
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/run_command_cd_instead_of_workdir.yaml
 package builtin.dockerfile.DS013
 

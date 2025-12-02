@@ -1,20 +1,20 @@
 # METADATA
-# title: "'apt-get' missing '-y' to avoid manual input"
-# description: "'apt-get' calls should use the flag '-y' to avoid manual user input."
+# title: '''apt-get'' missing ''-y'' to avoid manual input'
+# description: '''apt-get'' calls should use the flag ''-y'' to avoid manual user input.'
 # scope: package
 # related_resources:
-# - https://docs.docker.com/engine/reference/builder/#run
+#   - https://docs.docker.com/engine/reference/builder/#run
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # custom:
 #   id: DS021
 #   avd_id: AVD-DS-0021
 #   severity: HIGH
 #   short_code: use-apt-auto-confirm
-#   recommended_action: "Add '-y' flag to 'apt-get'"
+#   recommended_action: Add '-y' flag to 'apt-get'
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/apt_get_missing_yes_flag_to_avoid_manual_input.yaml
 package builtin.dockerfile.DS021
 

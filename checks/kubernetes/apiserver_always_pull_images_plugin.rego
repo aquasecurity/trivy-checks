@@ -1,20 +1,20 @@
 # METADATA
-# title: "Ensure that the admission control plugin AlwaysPullImages is set"
-# description: "Always pull images."
+# title: Ensure that the admission control plugin AlwaysPullImages is set
+# description: Always pull images.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KSV0012
 #   avd_id: AVD-KCV-0012
 #   severity: LOW
 #   short_code: ensure-admission-control-plugin-always-pull-images-is-set
-#   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --enable-admission-plugins parameter to include AlwaysPullImages."
+#   recommended_action: Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --enable-admission-plugins parameter to include AlwaysPullImages.
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KCV0012
 
 import rego.v1

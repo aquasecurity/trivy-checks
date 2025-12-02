@@ -1,11 +1,11 @@
 # METADATA
-# title: "Ensure that the controller manager pod specification file ownership is set to root:root"
-# description: "Ensure that the controller manager pod specification file ownership is set to root:root."
+# title: Ensure that the controller manager pod specification file ownership is set to root:root
+# description: Ensure that the controller manager pod specification file ownership is set to root:root.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0051
 #   avd_id: AVD-KCV-0051
@@ -14,12 +14,12 @@
 #     - ensure-controller-manager-pod-specification-ownership-set
 #   severity: HIGH
 #   short_code: ensure-controller-manager-pod-specification-ownership-set-root:root.
-#   recommended_action: "Change the controller manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml ownership to root:root"
+#   recommended_action: Change the controller manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml ownership to root:root
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0051
 
 import rego.v1

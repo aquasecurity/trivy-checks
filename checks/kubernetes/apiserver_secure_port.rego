@@ -1,20 +1,20 @@
 # METADATA
-# title: "Ensure that the --secure-port argument is not set to 0"
-# description: "Do not disable the secure port."
+# title: Ensure that the --secure-port argument is not set to 0
+# description: Do not disable the secure port.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV0017
 #   avd_id: AVD-KCV-0017
 #   severity: LOW
 #   short_code: ensure-secure-port-argument-is-not-set-to-0
-#   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and either remove the --secure-port parameter or set it to a different (non-zero) desired port."
+#   recommended_action: Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and either remove the --secure-port parameter or set it to a different (non-zero) desired port.
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KCV0017
 
 import rego.v1

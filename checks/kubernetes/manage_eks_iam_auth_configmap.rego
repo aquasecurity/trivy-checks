@@ -1,23 +1,23 @@
 # METADATA
-# title: "Manage EKS IAM Auth ConfigMap"
-# description: "Ability to add AWS IAM to RBAC bindings via special EKS configmap."
+# title: Manage EKS IAM Auth ConfigMap
+# description: Ability to add AWS IAM to RBAC bindings via special EKS configmap.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+#   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
 #   id: KSV115
 #   avd_id: AVD-KSV-0115
 #   severity: CRITICAL
 #   short_code: eks-iam-configmap
-#   recommended_actions: "Remove write permission verbs for resource 'configmaps' named 'aws-auth'"
+#   recommended_actions: Remove write permission verbs for resource 'configmaps' named 'aws-auth'
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: clusterrole
-#         - kind: role
+#       - type: kubernetes
+#         subtypes:
+#           - kind: clusterrole
+#           - kind: role
 package builtin.kubernetes.KSV115
 
 import rego.v1

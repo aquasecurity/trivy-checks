@@ -1,20 +1,20 @@
 # METADATA
-# title: "Ensure that the admission control plugin NamespaceLifecycle is set"
-# description: "Reject creating objects in a namespace that is undergoing termination."
+# title: Ensure that the admission control plugin NamespaceLifecycle is set
+# description: Reject creating objects in a namespace that is undergoing termination.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV0015
 #   avd_id: AVD-KCV-0015
 #   severity: LOW
 #   short_code: ensure-admission-control-plugin-namespace-lifecycle-is-set
-#   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --disable-admission-plugins parameter to ensure it does not include NamespaceLifecycle."
+#   recommended_action: Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --disable-admission-plugins parameter to ensure it does not include NamespaceLifecycle.
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KCV0015
 
 import rego.v1

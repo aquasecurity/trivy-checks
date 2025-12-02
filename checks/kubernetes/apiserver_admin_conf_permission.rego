@@ -1,22 +1,22 @@
 # METADATA
-# title: "Ensure that the admin config file permissions are set to 600 or more restrictive"
-# description: "Ensure that the admin config file has permissions of 600 or more restrictive."
+# title: Ensure that the admin config file permissions are set to 600 or more restrictive
+# description: Ensure that the admin config file has permissions of 600 or more restrictive.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV0060
 #   avd_id: AVD-KCV-0060
 #   severity: CRITICAL
 #   short_code: ensure-admin-config-file-permissions-set-600-or-more-restrictive
-#   recommended_action: "Change the admin config file /etc/kubernetes/admin.conf permissions of 600 or more restrictive "
+#   recommended_action: 'Change the admin config file /etc/kubernetes/admin.conf permissions of 600 or more restrictive '
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0060
 
 import rego.v1

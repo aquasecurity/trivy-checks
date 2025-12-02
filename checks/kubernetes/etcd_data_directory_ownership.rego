@@ -1,22 +1,22 @@
 # METADATA
-# title: "Ensure that the etcd data directory ownership is set to etcd:etcd"
-# description: "Ensure that the etcd data directory ownership is set to etcd:etcd."
+# title: Ensure that the etcd data directory ownership is set to etcd:etcd
+# description: Ensure that the etcd data directory ownership is set to etcd:etcd.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV0059
 #   avd_id: AVD-KCV-0059
 #   severity: LOW
 #   short_code: ensure-etcd-data-directory-ownership-set-etcd:etcd.
-#   recommended_action: "Change the etcd data directory /var/lib/etcd ownership to etcd:etcd"
+#   recommended_action: Change the etcd data directory /var/lib/etcd ownership to etcd:etcd
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0059
 
 import rego.v1

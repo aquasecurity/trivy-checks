@@ -1,23 +1,23 @@
 # METADATA
-# title: "Exec into Pods"
-# description: "The ability to exec into a container with privileged access to the host or with an attached SA with higher RBAC permissions is a common escalation path to cluster-admin."
+# title: Exec into Pods
+# description: The ability to exec into a container with privileged access to the host or with an attached SA with higher RBAC permissions is a common escalation path to cluster-admin.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+#   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
 #   id: KSV053
 #   avd_id: AVD-KSV-0053
 #   severity: HIGH
 #   short_code: no-getting-shell-pods
-#   recommended_action: "Remove write permission verbs for resource 'pods/exec'"
+#   recommended_action: Remove write permission verbs for resource 'pods/exec'
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: clusterrole
-#         - kind: role
+#       - type: kubernetes
+#         subtypes:
+#           - kind: clusterrole
+#           - kind: role
 package builtin.kubernetes.KSV053
 
 import rego.v1

@@ -1,20 +1,20 @@
 # METADATA
-# title: "Multiple CMD instructions listed"
-# description: "There can only be one CMD instruction in a Dockerfile. If you list more than one CMD then only the last CMD will take effect."
+# title: Multiple CMD instructions listed
+# description: There can only be one CMD instruction in a Dockerfile. If you list more than one CMD then only the last CMD will take effect.
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/engine/reference/builder/#cmd
+#   - https://docs.docker.com/engine/reference/builder/#cmd
 # custom:
 #   id: DS016
 #   avd_id: AVD-DS-0016
 #   severity: HIGH
 #   short_code: only-one-cmd
-#   recommended_action: "Dockerfile should only have one CMD instruction. Remove all the other CMD instructions"
+#   recommended_action: Dockerfile should only have one CMD instruction. Remove all the other CMD instructions
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/multiple_cmd_instructions_listed.yaml
 package builtin.dockerfile.DS016
 

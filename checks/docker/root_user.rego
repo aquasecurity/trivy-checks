@@ -1,20 +1,20 @@
 # METADATA
-# title: "Image user should not be 'root'"
-# description: "Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile."
+# title: Image user should not be 'root'
+# description: Running containers with 'root' user can lead to a container escape situation. It is a best practice to run containers as non-root users, which can be done by adding a 'USER' statement to the Dockerfile.
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+#   - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 # custom:
 #   id: DS002
 #   avd_id: AVD-DS-0002
 #   severity: HIGH
 #   short_code: least-privilege-user
-#   recommended_action: "Add 'USER <non root user name>' line to the Dockerfile"
+#   recommended_action: Add 'USER <non root user name>' line to the Dockerfile
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/root_user.yaml
 package builtin.dockerfile.DS002
 

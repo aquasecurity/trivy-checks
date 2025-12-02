@@ -1,30 +1,30 @@
 # METADATA
-# title: "Unsafe sysctl options set"
-# description: "Sysctls can disable security mechanisms or affect all containers on a host, and should be disallowed except for an allowed 'safe' subset. A sysctl is considered safe if it is namespaced in the container or the Pod, and it is isolated from other Pods or processes on the same Node."
+# title: Unsafe sysctl options set
+# description: Sysctls can disable security mechanisms or affect all containers on a host, and should be disallowed except for an allowed 'safe' subset. A sysctl is considered safe if it is namespaced in the container or the Pod, and it is isolated from other Pods or processes on the same Node.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
+#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
 #   id: KSV026
 #   avd_id: AVD-KSV-0026
 #   severity: MEDIUM
 #   short_code: no-unsafe-sysctl
-#   recommended_action: "Do not set 'spec.securityContext.sysctls' or set to values in an allowed subset"
+#   recommended_action: Do not set 'spec.securityContext.sysctls' or set to values in an allowed subset
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 #   examples: checks/kubernetes/unsafe_sysctl_options_set.yaml
 package builtin.kubernetes.KSV026
 

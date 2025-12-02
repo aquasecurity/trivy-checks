@@ -1,29 +1,29 @@
 # METADATA
-# title: "All container images must start with a GCR domain"
-# description: "Containers should only use images from trusted GCR registries."
+# title: All container images must start with a GCR domain
+# description: Containers should only use images from trusted GCR registries.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # custom:
 #   id: KSV033
 #   avd_id: AVD-KSV-0033
 #   severity: MEDIUM
 #   short_code: use-gcr-domain
-#   recommended_action: "Use images from trusted GCR registries."
+#   recommended_action: Use images from trusted GCR registries.
 #   deprecated: true
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 package builtin.kubernetes.KSV033
 
 import rego.v1

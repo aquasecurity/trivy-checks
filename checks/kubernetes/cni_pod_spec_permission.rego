@@ -1,11 +1,11 @@
 # METADATA
-# title: "Ensure that the container network interface file permissions are set to 600 or more restrictive"
-# description: "Ensure that the container network interface file has permissions of 600 or more restrictive."
+# title: Ensure that the container network interface file permissions are set to 600 or more restrictive
+# description: Ensure that the container network interface file has permissions of 600 or more restrictive.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0056
 #   avd_id: AVD-KCV-0056
@@ -14,12 +14,12 @@
 #     - ensure-container-network-interface-file-permissions-set
 #   severity: HIGH
 #   short_code: ensure-container-network-interface-file-permissions-set-600-or-more-restrictive
-#   recommended_action: "Change the container network interface file path/to/cni/files permissions of 600 or more restrictive "
+#   recommended_action: 'Change the container network interface file path/to/cni/files permissions of 600 or more restrictive '
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0056
 
 import rego.v1

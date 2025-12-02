@@ -1,11 +1,11 @@
 # METADATA
-# title: "RDS Publicly Accessible"
-# description: "Ensures RDS instances and RDS Cluster instances are not launched into the public cloud."
+# title: RDS Publicly Accessible
+# description: Ensures RDS instances and RDS Cluster instances are not launched into the public cloud.
 # scope: package
 # schemas:
-# - input: schema["cloud"]
+#   - input: schema["cloud"]
 # related_resources:
-# - http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html
+#   - http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html
 # custom:
 #   id: AVD-AWS-0180
 #   avd_id: AVD-AWS-0180
@@ -13,14 +13,14 @@
 #   service: rds
 #   severity: HIGH
 #   short_code: enable-public-access
-#   recommended_action: "Remove the public endpoint from the RDS instance."
+#   recommended_action: Remove the public endpoint from the RDS instance.
 #   input:
 #     selector:
-#     - type: cloud
-#       subtypes:
-#         - service: rds
-#           provider: aws
-#   examples: "checks/cloud/aws/rds/disable_public_access.yaml"
+#       - type: cloud
+#         subtypes:
+#           - service: rds
+#             provider: aws
+#   examples: checks/cloud/aws/rds/disable_public_access.yaml
 package builtin.aws.rds.aws0180
 
 import rego.v1

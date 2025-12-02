@@ -1,20 +1,20 @@
 # METADATA
-# title: "'RUN <package-manager> update' instruction alone"
-# description: "The instruction 'RUN <package-manager> update' should always be followed by '<package-manager> install' in the same RUN statement."
+# title: '''RUN <package-manager> update'' instruction alone'
+# description: The instruction 'RUN <package-manager> update' should always be followed by '<package-manager> install' in the same RUN statement.
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/develop/develop-images/instructions/#run
+#   - https://docs.docker.com/develop/develop-images/instructions/#run
 # custom:
 #   id: DS017
 #   avd_id: AVD-DS-0017
 #   severity: HIGH
 #   short_code: no-orphan-package-update
-#   recommended_action: "Combine '<package-manager> update' and '<package-manager> install' instructions to single one"
+#   recommended_action: Combine '<package-manager> update' and '<package-manager> install' instructions to single one
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/update_instruction_alone.yaml
 package builtin.dockerfile.DS017
 

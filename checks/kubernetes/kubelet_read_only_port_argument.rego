@@ -1,22 +1,22 @@
 # METADATA
-# title: "Verify that the --read-only-port argument is set to 0"
-# description: "Disable the read-only port."
+# title: Verify that the --read-only-port argument is set to 0
+# description: Disable the read-only port.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV0082
 #   avd_id: AVD-KCV-0082
 #   severity: HIGH
 #   short_code: verify-read-only-port-argument-set-0
-#   recommended_action: "Disable the read-only port"
+#   recommended_action: Disable the read-only port
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0082
 
 import rego.v1

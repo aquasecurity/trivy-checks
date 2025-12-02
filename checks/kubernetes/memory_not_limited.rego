@@ -1,30 +1,30 @@
 # METADATA
-# title: "Memory not limited"
-# description: "Enforcing memory limits prevents DoS via resource exhaustion."
+# title: Memory not limited
+# description: Enforcing memory limits prevents DoS via resource exhaustion.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubesec.io/basics/containers-resources-limits-memory/
+#   - https://kubesec.io/basics/containers-resources-limits-memory/
 # custom:
 #   id: KSV018
 #   avd_id: AVD-KSV-0018
 #   severity: LOW
 #   short_code: limit-memory
-#   recommended_action: "Set a limit value under 'containers[].resources.limits.memory'."
+#   recommended_action: Set a limit value under 'containers[].resources.limits.memory'.
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 package builtin.kubernetes.KSV018
 
 import rego.v1

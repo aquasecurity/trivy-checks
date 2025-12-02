@@ -1,22 +1,22 @@
 # METADATA
-# title: "Ensure that the --rotate-certificates argument is not set to false"
-# description: "Enable kubelet client certificate rotation."
+# title: Ensure that the --rotate-certificates argument is not set to false
+# description: Enable kubelet client certificate rotation.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV0090
 #   avd_id: AVD-KCV-0090
 #   severity: HIGH
 #   short_code: ensure-rotate-certificates-argument-set-false
-#   recommended_action: "If using a Kubelet config file, edit the file to add the line rotateCertificates: true or remove it altogether to use the default value."
+#   recommended_action: 'If using a Kubelet config file, edit the file to add the line rotateCertificates: true or remove it altogether to use the default value.'
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0090
 
 import rego.v1

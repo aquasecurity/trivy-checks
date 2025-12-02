@@ -1,30 +1,30 @@
 # METADATA
-# title: "SYS_ADMIN capability added"
-# description: "SYS_ADMIN gives the processes running inside the container privileges that are equivalent to root."
+# title: SYS_ADMIN capability added
+# description: SYS_ADMIN gives the processes running inside the container privileges that are equivalent to root.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubesec.io/basics/containers-securitycontext-capabilities-add-index-sys-admin/
+#   - https://kubesec.io/basics/containers-securitycontext-capabilities-add-index-sys-admin/
 # custom:
 #   id: KSV005
 #   avd_id: AVD-KSV-0005
 #   severity: HIGH
 #   short_code: no-sysadmin-capability
-#   recommended_action: "Remove the SYS_ADMIN capability from 'containers[].securityContext.capabilities.add'."
+#   recommended_action: Remove the SYS_ADMIN capability from 'containers[].securityContext.capabilities.add'.
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: pod
-#         - kind: replicaset
-#         - kind: replicationcontroller
-#         - kind: deployment
-#         - kind: deploymentconfig
-#         - kind: statefulset
-#         - kind: daemonset
-#         - kind: cronjob
-#         - kind: job
+#       - type: kubernetes
+#         subtypes:
+#           - kind: pod
+#           - kind: replicaset
+#           - kind: replicationcontroller
+#           - kind: deployment
+#           - kind: deploymentconfig
+#           - kind: statefulset
+#           - kind: daemonset
+#           - kind: cronjob
+#           - kind: job
 package builtin.kubernetes.KSV005
 
 import rego.v1

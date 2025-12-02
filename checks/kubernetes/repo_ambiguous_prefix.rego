@@ -9,7 +9,7 @@
 #   severity: HIGH
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KSV0124
 
 import rego.v1
