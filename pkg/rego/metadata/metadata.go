@@ -19,6 +19,13 @@ type Metadata struct {
 	Custom      map[string]any
 }
 
+func (m Metadata) ID() string {
+	if v, ok := m.Custom["id"].(string); ok {
+		return v
+	}
+	return ""
+}
+
 func (m Metadata) AVDID() string {
 	if v, ok := m.Custom["avd_id"].(string); ok {
 		return v

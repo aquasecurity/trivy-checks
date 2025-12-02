@@ -25,9 +25,9 @@ func run() error {
 	keyMap := make(map[string][]string)
 
 	for _, meta := range checksMetadata {
-		avdid := meta.AVDID()
+		avdid := meta.ID()
 		parts := strings.Split(avdid, "-")
-		keyMap[parts[1]] = append(keyMap[parts[1]], parts[2])
+		keyMap[parts[0]] = append(keyMap[parts[0]], parts[1])
 	}
 
 	var freeIDs []string
