@@ -12,7 +12,7 @@
 #   aliases:
 #     - AVD-KCV-0049
 #     - KCV0049
-#     - ensure-api-server-pod-specification-ownership-set-root:root.
+#     - ensure-api-server-pod-specification-ownership-set-root:root
 #   severity: HIGH
 #   recommended_action: Change the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml ownership to root:root
 #   input:

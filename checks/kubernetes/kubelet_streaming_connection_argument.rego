@@ -12,7 +12,7 @@
 #   aliases:
 #     - AVD-KCV-0085
 #     - KCV0085
-#     - disable-timeouts-streaming-connections.
+#     - disable-timeouts-streaming-connections
 #   severity: HIGH
 #   recommended_action: 'Edit the kubelet service file /etc/kubernetes/kubelet.conf and set --streaming-connection-idle-timeout=5m '
 #   input:

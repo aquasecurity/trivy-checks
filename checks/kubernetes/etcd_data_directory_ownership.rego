@@ -12,7 +12,7 @@
 #   aliases:
 #     - AVD-KCV-0059
 #     - KCV0059
-#     - ensure-etcd-data-directory-ownership-set-etcd:etcd.
+#     - ensure-etcd-data-directory-ownership-set-etcd:etcd
 #   severity: LOW
 #   recommended_action: Change the etcd data directory /var/lib/etcd ownership to etcd:etcd
 #   input:
