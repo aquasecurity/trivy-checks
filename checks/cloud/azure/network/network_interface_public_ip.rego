@@ -35,7 +35,7 @@ networkinterfaces := input.azure.network.networkinterfaces
 
 deny contains res if {
 	some ni in networkinterfaces
-	ni.haspublicip.value
+	value.is_true(ni.haspublicip)
 	res := result.new(
 		"Network interface has a public IP address assigned, which increases attack surface.",
 		metadata.obj_by_path(ni, ["haspublicip"]),
