@@ -8,9 +8,9 @@
 #   id: DS-0004
 #   long_id: docker-no-ssh-port
 #   aliases:
-#     - no-ssh-port
-#     - DS004
 #     - AVD-DS-0004
+#     - DS004
+#     - no-ssh-port
 #   severity: MEDIUM
 #   recommended_action: Remove 'EXPOSE 22' statement from the Dockerfile
 #   input:

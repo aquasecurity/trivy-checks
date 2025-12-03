@@ -11,8 +11,8 @@
 #   long_id: kubernetes-ensure-authorization-mode-argument-includes-node
 #   aliases:
 #     - AVD-KCV-0008
-#     - ensure-authorization-mode-argument-includes-node
 #     - KCV0008
+#     - ensure-authorization-mode-argument-includes-node
 #   severity: LOW
 #   recommended_action: Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --authorization-mode parameter to a value that includes Node.
 #   input:

@@ -11,8 +11,8 @@
 #   id: AWS-0074
 #   long_id: aws-msk-enable-logging
 #   aliases:
-#     - enable-logging
 #     - AVD-AWS-0074
+#     - enable-logging
 #   provider: aws
 #   service: msk
 #   severity: MEDIUM

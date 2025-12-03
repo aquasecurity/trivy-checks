@@ -11,8 +11,8 @@
 #   long_id: kubernetes-ensure-rotate-kubelet-server-certificate-argument-set-true
 #   aliases:
 #     - AVD-KCV-0091
-#     - ensure-rotate-kubelet-server-certificate-argument-set-true
 #     - KCV0091
+#     - ensure-rotate-kubelet-server-certificate-argument-set-true
 #   severity: HIGH
 #   recommended_action: Edit the kubelet service file /etc/kubernetes/kubelet.conf and set --feature-gates=RotateKubeletServerCertificate=true
 #   input:

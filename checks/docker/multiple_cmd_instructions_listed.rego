@@ -10,8 +10,8 @@
 #   id: DS-0016
 #   long_id: docker-only-one-cmd
 #   aliases:
-#     - DS016
 #     - AVD-DS-0016
+#     - DS016
 #     - only-one-cmd
 #   severity: HIGH
 #   recommended_action: Dockerfile should only have one CMD instruction. Remove all the other CMD instructions

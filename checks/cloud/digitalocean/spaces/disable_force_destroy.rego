@@ -9,8 +9,8 @@
 #   id: DIG-0009
 #   long_id: digitalocean-spaces-disable-force-destroy
 #   aliases:
-#     - disable-force-destroy
 #     - AVD-DIG-0009
+#     - disable-force-destroy
 #   provider: digitalocean
 #   service: spaces
 #   severity: MEDIUM

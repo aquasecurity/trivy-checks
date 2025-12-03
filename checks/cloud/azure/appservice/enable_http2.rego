@@ -9,8 +9,8 @@
 #   id: AZU-0005
 #   long_id: azure-appservice-enable-http2
 #   aliases:
-#     - enable-http2
 #     - AVD-AZU-0005
+#     - enable-http2
 #   provider: azure
 #   service: appservice
 #   severity: LOW

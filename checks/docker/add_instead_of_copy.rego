@@ -11,8 +11,8 @@
 #   long_id: docker-use-copy-over-add
 #   aliases:
 #     - AVD-DS-0005
-#     - use-copy-over-add
 #     - DS005
+#     - use-copy-over-add
 #   severity: LOW
 #   recommended_action: Use COPY instead of ADD
 #   input:

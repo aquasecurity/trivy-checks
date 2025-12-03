@@ -10,8 +10,8 @@
 #   id: KSV-0048
 #   long_id: kubernetes-deny-create-update-malicious-pod
 #   aliases:
-#     - KSV048
 #     - AVD-KSV-0048
+#     - KSV048
 #     - deny-create-update-malicious-pod
 #   severity: MEDIUM
 #   recommended_action: Kubernetes workloads resources are only allowed for verbs 'list', 'watch', 'get'

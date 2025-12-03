@@ -11,8 +11,8 @@
 #   long_id: kubernetes-ensure-kubelet.conf-file-permissions-600-or-more-restrictive.
 #   aliases:
 #     - AVD-KCV-0073
-#     - ensure-kubelet.conf-file-permissions-600-or-more-restrictive.
 #     - KCV0073
+#     - ensure-kubelet.conf-file-permissions-600-or-more-restrictive.
 #   severity: HIGH
 #   recommended_action: Change the kubelet.conf file permissions to 600 or more restrictive if exist
 #   input:

@@ -11,8 +11,8 @@
 #   long_id: docker-use-apt-auto-confirm
 #   aliases:
 #     - AVD-DS-0021
-#     - use-apt-auto-confirm
 #     - DS021
+#     - use-apt-auto-confirm
 #   severity: HIGH
 #   recommended_action: Add '-y' flag to 'apt-get'
 #   input:

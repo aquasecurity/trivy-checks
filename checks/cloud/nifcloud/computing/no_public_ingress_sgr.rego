@@ -13,9 +13,9 @@
 #   id: NIF-0001
 #   long_id: nifcloud-computing-no-public-ingress-sgr
 #   aliases:
-#     - nifcloud-computing-no-public-ingress-sgr
 #     - AVD-NIF-0001
 #     - no-public-ingress-sgr
+#     - nifcloud-computing-no-public-ingress-sgr
 #   provider: nifcloud
 #   service: computing
 #   severity: CRITICAL

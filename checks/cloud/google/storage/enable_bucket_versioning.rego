@@ -11,9 +11,9 @@
 #   id: GCP-0078
 #   long_id: google-storage-enable-bucket-versioning
 #   aliases:
-#     - storage-bucket-versioning-disabled
 #     - AVD-GCP-0078
 #     - enable-bucket-versioning
+#     - storage-bucket-versioning-disabled
 #   provider: google
 #   service: storage
 #   severity: MEDIUM

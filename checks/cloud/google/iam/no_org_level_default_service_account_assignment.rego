@@ -9,8 +9,8 @@
 #   id: GCP-0008
 #   long_id: google-iam-no-org-level-default-service-account-assignment
 #   aliases:
-#     - no-org-level-default-service-account-assignment
 #     - AVD-GCP-0008
+#     - no-org-level-default-service-account-assignment
 #   provider: google
 #   service: iam
 #   severity: MEDIUM

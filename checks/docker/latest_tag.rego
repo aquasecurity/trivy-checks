@@ -9,8 +9,8 @@
 #   long_id: docker-use-specific-tags
 #   aliases:
 #     - AVD-DS-0001
-#     - use-specific-tags
 #     - DS001
+#     - use-specific-tags
 #   severity: MEDIUM
 #   recommended_action: Add a tag to the image in the 'FROM' statement
 #   input:

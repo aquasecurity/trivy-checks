@@ -9,8 +9,8 @@
 #   long_id: kubernetes-no-tiller
 #   aliases:
 #     - AVD-KSV-0102
-#     - no-tiller
 #     - KSV102
+#     - no-tiller
 #   severity: CRITICAL
 #   recommended_action: Migrate to Helm v3 which no longer has Tiller component
 #   input:

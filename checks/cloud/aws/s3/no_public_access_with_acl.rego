@@ -11,8 +11,8 @@
 #   id: AWS-0092
 #   long_id: aws-s3-no-public-access-with-acl
 #   aliases:
-#     - no-public-access-with-acl
 #     - AVD-AWS-0092
+#     - no-public-access-with-acl
 #   provider: aws
 #   service: s3
 #   severity: HIGH

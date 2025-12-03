@@ -10,8 +10,8 @@
 #   id: KSV-0002
 #   long_id: kubernetes-use-default-apparmor-profile
 #   aliases:
-#     - KSV002
 #     - AVD-KSV-0002
+#     - KSV002
 #     - use-default-apparmor-profile
 #   severity: LOW
 #   recommended_action: set the 'runtime/default' value from 'container.apparmor.security.beta.kubernetes.io'.

@@ -11,8 +11,8 @@
 #   long_id: docker-no-maintainer
 #   aliases:
 #     - AVD-DS-0022
-#     - no-maintainer
 #     - DS022
+#     - no-maintainer
 #   severity: HIGH
 #   recommended_action: Use LABEL instead of MAINTAINER
 #   input:

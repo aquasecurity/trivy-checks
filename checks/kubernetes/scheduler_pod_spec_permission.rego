@@ -10,10 +10,10 @@
 #   id: KCV-0052
 #   long_id: kubernetes-ensure-scheduler-pod-specification-file-permissions-set-600-or-more-restrictive
 #   aliases:
-#     - ensure-scheduler-pod-specification-file-permissions-set-600-or-more-restrictive
+#     - AVD-KCV-0052
 #     - KCV0052
 #     - ensure-scheduler-pod-specification-file-permissions-set
-#     - AVD-KCV-0052
+#     - ensure-scheduler-pod-specification-file-permissions-set-600-or-more-restrictive
 #   severity: HIGH
 #   recommended_action: 'Change the scheduler pod specification file /etc/kubernetes/manifests/kube-scheduler.yaml permissions of 600 or more restrictive '
 #   input:

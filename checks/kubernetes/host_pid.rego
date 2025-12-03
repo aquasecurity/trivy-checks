@@ -10,8 +10,8 @@
 #   id: KSV-0010
 #   long_id: kubernetes-no-host-pid
 #   aliases:
-#     - KSV010
 #     - AVD-KSV-0010
+#     - KSV010
 #     - no-host-pid
 #   severity: HIGH
 #   recommended_action: Do not set 'spec.template.spec.hostPID' to true.

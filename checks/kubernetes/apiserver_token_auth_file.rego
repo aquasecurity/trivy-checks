@@ -11,8 +11,8 @@
 #   long_id: kubernetes-ensure-token-auth-file-parameter-is-not-set
 #   aliases:
 #     - AVD-KCV-0002
-#     - ensure-token-auth-file-parameter-is-not-set
 #     - KCV0002
+#     - ensure-token-auth-file-parameter-is-not-set
 #   severity: LOW
 #   recommended_action: Follow the documentation and configure alternate mechanisms for authentication. Then, edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the master node and remove the --token-auth-file=<filename> parameter.
 #   input:

@@ -10,8 +10,8 @@
 #   id: DS-0023
 #   long_id: docker-only-one-healthcheck
 #   aliases:
-#     - DS023
 #     - AVD-DS-0023
+#     - DS023
 #     - only-one-healthcheck
 #   severity: MEDIUM
 #   recommended_action: One HEALTHCHECK instruction must remain in Dockerfile. Remove all other instructions.

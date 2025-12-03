@@ -11,8 +11,8 @@
 #   id: AWS-0066
 #   long_id: aws-lambda-enable-tracing
 #   aliases:
-#     - enable-tracing
 #     - AVD-AWS-0066
+#     - enable-tracing
 #   provider: aws
 #   service: lambda
 #   severity: LOW

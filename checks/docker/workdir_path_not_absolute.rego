@@ -11,8 +11,8 @@
 #   long_id: docker-user-absolute-workdir
 #   aliases:
 #     - AVD-DS-0009
-#     - user-absolute-workdir
 #     - DS009
+#     - user-absolute-workdir
 #   severity: HIGH
 #   recommended_action: Use absolute paths for your WORKDIR
 #   input:

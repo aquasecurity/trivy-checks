@@ -11,8 +11,8 @@
 #   id: AWS-0016
 #   long_id: aws-cloudtrail-enable-log-validation
 #   aliases:
-#     - enable-log-validation
 #     - AVD-AWS-0016
+#     - enable-log-validation
 #   provider: aws
 #   service: cloudtrail
 #   severity: HIGH

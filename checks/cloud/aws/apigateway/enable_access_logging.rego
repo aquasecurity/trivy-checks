@@ -11,8 +11,8 @@
 #   id: AWS-0001
 #   long_id: aws-apigateway-enable-access-logging
 #   aliases:
-#     - enable-access-logging
 #     - AVD-AWS-0001
+#     - enable-access-logging
 #   provider: aws
 #   service: apigateway
 #   severity: MEDIUM

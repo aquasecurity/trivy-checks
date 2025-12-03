@@ -12,8 +12,8 @@
 #   id: AZU-0004
 #   long_id: azure-appservice-enforce-https
 #   aliases:
-#     - enforce-https
 #     - AVD-AZU-0004
+#     - enforce-https
 #   provider: azure
 #   service: appservice
 #   severity: CRITICAL

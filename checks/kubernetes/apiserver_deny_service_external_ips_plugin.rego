@@ -11,8 +11,8 @@
 #   long_id: kubernetes-Ensure-deny-service-external-ips-is-not-set
 #   aliases:
 #     - AVD-KCV-0003
-#     - Ensure-deny-service-external-ips-is-not-set
 #     - KCV0003
+#     - Ensure-deny-service-external-ips-is-not-set
 #   severity: LOW
 #   recommended_action: Edit the API server pod specification file $apiserverconf on the control plane node and remove the `DenyServiceExternalIPs` from enabled admission plugins.
 #   input:

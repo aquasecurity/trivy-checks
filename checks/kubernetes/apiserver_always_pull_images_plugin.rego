@@ -10,8 +10,8 @@
 #   id: KCV-0012
 #   long_id: kubernetes-ensure-admission-control-plugin-always-pull-images-is-set
 #   aliases:
-#     - KSV0012
 #     - AVD-KCV-0012
+#     - KSV0012
 #     - ensure-admission-control-plugin-always-pull-images-is-set
 #   severity: LOW
 #   recommended_action: Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --enable-admission-plugins parameter to include AlwaysPullImages.

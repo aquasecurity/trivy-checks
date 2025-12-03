@@ -11,8 +11,8 @@
 #   id: GCP-0017
 #   long_id: google-sql-no-public-access
 #   aliases:
-#     - no-public-access
 #     - AVD-GCP-0017
+#     - no-public-access
 #   provider: google
 #   service: sql
 #   severity: HIGH

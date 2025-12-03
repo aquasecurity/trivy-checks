@@ -9,9 +9,9 @@
 #   id: AWS-0122
 #   long_id: aws-ec2-no-sensitive-info
 #   aliases:
-#     - aws-autoscaling-no-sensitive-info
 #     - AVD-AWS-0122
 #     - no-sensitive-info
+#     - aws-autoscaling-no-sensitive-info
 #   provider: aws
 #   service: ec2
 #   severity: HIGH

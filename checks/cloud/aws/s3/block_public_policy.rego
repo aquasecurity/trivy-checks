@@ -11,8 +11,8 @@
 #   id: AWS-0087
 #   long_id: aws-s3-block-public-policy
 #   aliases:
-#     - block-public-policy
 #     - AVD-AWS-0087
+#     - block-public-policy
 #   provider: aws
 #   service: s3
 #   severity: HIGH

@@ -11,8 +11,8 @@
 #   id: AWS-0111
 #   long_id: aws-sam-enable-api-tracing
 #   aliases:
-#     - enable-api-tracing
 #     - AVD-AWS-0111
+#     - enable-api-tracing
 #   provider: aws
 #   service: sam
 #   severity: LOW

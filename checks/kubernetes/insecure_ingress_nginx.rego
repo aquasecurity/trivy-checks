@@ -12,8 +12,8 @@
 #   id: KCV-0093
 #   long_id: kubernetes-insecure-ingress-nginx
 #   aliases:
-#     - KCV0093
 #     - AVD-KCV-0093
+#     - KCV0093
 #     - insecure-ingress-nginx
 #   severity: CRITICAL
 #   recommended_action: Ensure that ingress-nginx annotations do not contain suspicious characters.

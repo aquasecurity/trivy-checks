@@ -9,8 +9,8 @@
 #   id: GCP-0006
 #   long_id: google-iam-no-project-level-default-service-account-assignment
 #   aliases:
-#     - no-project-level-default-service-account-assignment
 #     - AVD-GCP-0006
+#     - no-project-level-default-service-account-assignment
 #   provider: google
 #   service: iam
 #   severity: MEDIUM

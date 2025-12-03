@@ -10,8 +10,8 @@
 #   id: KSV-0111
 #   long_id: kubernetes-cluster-admin0-role-only-used-where-required"
 #   aliases:
-#     - KSV111
 #     - AVD-KSV-0111
+#     - KSV111
 #     - cluster-admin0-role-only-used-where-required"
 #   severity: MEDIUM
 #   recommended_action: Remove binding for clusterrole 'cluster-admin', 'admin' or 'edit'

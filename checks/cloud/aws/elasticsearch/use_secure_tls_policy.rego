@@ -11,8 +11,8 @@
 #   id: AWS-0126
 #   long_id: aws-elasticsearch-use-secure-tls-policy
 #   aliases:
-#     - use-secure-tls-policy
 #     - AVD-AWS-0126
+#     - use-secure-tls-policy
 #   provider: aws
 #   service: elasticsearch
 #   severity: HIGH

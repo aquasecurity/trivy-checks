@@ -11,8 +11,8 @@
 #   long_id: kubernetes-no-privileged-containers
 #   aliases:
 #     - AVD-KSV-0017
-#     - no-privileged-containers
 #     - KSV017
+#     - no-privileged-containers
 #   severity: HIGH
 #   recommended_action: Change 'containers[].securityContext.privileged' to 'false'.
 #   input:

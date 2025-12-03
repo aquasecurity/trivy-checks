@@ -11,8 +11,8 @@
 #   id: GCP-0011
 #   long_id: google-iam-no-project-level-service-account-impersonation
 #   aliases:
-#     - no-project-level-service-account-impersonation
 #     - AVD-GCP-0011
+#     - no-project-level-service-account-impersonation
 #   provider: google
 #   service: iam
 #   severity: MEDIUM

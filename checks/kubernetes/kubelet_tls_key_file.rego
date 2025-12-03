@@ -11,8 +11,8 @@
 #   long_id: kubernetes-ensure-tls-key-file-argument-set-appropriate
 #   aliases:
 #     - AVD-KCV-0089
-#     - ensure-tls-key-file-argument-set-appropriate
 #     - KCV0089
+#     - ensure-tls-key-file-argument-set-appropriate
 #   severity: CRITICAL
 #   recommended_action: If using a Kubelet config file, edit the file to set tlskeyFile to the location
 #   input:

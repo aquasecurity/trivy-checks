@@ -9,8 +9,8 @@
 #   long_id: docker-no-dist-upgrade
 #   aliases:
 #     - AVD-DS-0024
-#     - no-dist-upgrade
 #     - DS024
+#     - no-dist-upgrade
 #   deprecated: true
 #   severity: HIGH
 #   recommended_action: Just use different image

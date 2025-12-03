@@ -11,8 +11,8 @@
 #   long_id: kubernetes-no-docker-sock-mount
 #   aliases:
 #     - AVD-KSV-0006
-#     - no-docker-sock-mount
 #     - KSV006
+#     - no-docker-sock-mount
 #   severity: HIGH
 #   recommended_action: Do not specify /var/run/docker.socket in 'spec.template.volumes.hostPath.path'.
 #   input:

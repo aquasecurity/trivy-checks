@@ -11,8 +11,8 @@
 #   long_id: kubernetes-limit-cpu
 #   aliases:
 #     - AVD-KSV-0011
-#     - limit-cpu
 #     - KSV011
+#     - limit-cpu
 #   severity: LOW
 #   recommended_action: Set a limit value under 'containers[].resources.limits.cpu'.
 #   input:

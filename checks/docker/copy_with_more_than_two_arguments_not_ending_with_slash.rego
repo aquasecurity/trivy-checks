@@ -11,8 +11,8 @@
 #   long_id: docker-use-slash-for-copy-args
 #   aliases:
 #     - AVD-DS-0011
-#     - use-slash-for-copy-args
 #     - DS011
+#     - use-slash-for-copy-args
 #   severity: CRITICAL
 #   recommended_action: Add slash to last COPY argument
 #   input:

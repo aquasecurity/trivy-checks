@@ -10,9 +10,9 @@
 #   id: KSV-0044
 #   long_id: kubernetes-no-wildcard-verb-resource-role
 #   aliases:
-#     - no-wildcard-verb-resource-role
-#     - KSV044
 #     - AVD-KSV-0044
+#     - KSV044
+#     - no-wildcard-verb-resource-role
 #   severity: CRITICAL
 #   recommended_action: Create a role which does not permit wildcard verb on wildcard resource
 #   input:

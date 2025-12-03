@@ -11,8 +11,8 @@
 #   long_id: kubernetes-no-host-port-access
 #   aliases:
 #     - AVD-KSV-0024
-#     - no-host-port-access
 #     - KSV024
+#     - no-host-port-access
 #   severity: HIGH
 #   recommended_action: Do not set spec.containers[*].ports[*].hostPort and spec.initContainers[*].ports[*].hostPort.
 #   input:

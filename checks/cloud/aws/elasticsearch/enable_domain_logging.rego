@@ -14,8 +14,8 @@
 #   id: AWS-0042
 #   long_id: aws-elasticsearch-enable-domain-logging
 #   aliases:
-#     - enable-domain-logging
 #     - AVD-AWS-0042
+#     - enable-domain-logging
 #   provider: aws
 #   service: elasticsearch
 #   severity: MEDIUM

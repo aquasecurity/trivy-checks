@@ -11,8 +11,8 @@
 #   long_id: docker-purge-dnf-package-cache
 #   aliases:
 #     - AVD-DS-0019
-#     - purge-dnf-package-cache
 #     - DS019
+#     - purge-dnf-package-cache
 #   severity: HIGH
 #   recommended_action: Add 'dnf clean all' to Dockerfile
 #   input:

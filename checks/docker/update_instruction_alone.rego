@@ -11,8 +11,8 @@
 #   long_id: docker-no-orphan-package-update
 #   aliases:
 #     - AVD-DS-0017
-#     - no-orphan-package-update
 #     - DS017
+#     - no-orphan-package-update
 #   severity: HIGH
 #   recommended_action: Combine '<package-manager> update' and '<package-manager> install' instructions to single one
 #   input:

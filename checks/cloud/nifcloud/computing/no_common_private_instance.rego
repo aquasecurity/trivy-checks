@@ -11,9 +11,9 @@
 #   id: NIF-0005
 #   long_id: nifcloud-computing-no-common-private-instance
 #   aliases:
+#     - AVD-NIF-0005
 #     - no-common-private-instance
 #     - nifcloud-computing-no-common-private-instance
-#     - AVD-NIF-0005
 #   provider: nifcloud
 #   service: computing
 #   severity: LOW

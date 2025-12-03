@@ -11,8 +11,8 @@
 #   long_id: docker-no-healthcheck
 #   aliases:
 #     - AVD-DS-0026
-#     - no-healthcheck
 #     - DS026
+#     - no-healthcheck
 #   severity: LOW
 #   recommended_action: Add HEALTHCHECK instruction in Dockerfile
 #   input:

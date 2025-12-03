@@ -11,8 +11,8 @@
 #   id: AWS-0011
 #   long_id: aws-cloudfront-enable-waf
 #   aliases:
-#     - enable-waf
 #     - AVD-AWS-0011
+#     - enable-waf
 #   provider: aws
 #   service: cloudfront
 #   severity: HIGH

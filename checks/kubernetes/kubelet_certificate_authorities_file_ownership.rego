@@ -11,8 +11,8 @@
 #   long_id: kubernetes-ensure-certificate-authorities-ownership-set-root:root
 #   aliases:
 #     - AVD-KCV-0076
-#     - ensure-certificate_authorities-ownership-set-root:root
 #     - KCV0076
+#     - ensure-certificate_authorities-ownership-set-root:root
 #   severity: CRITICAL
 #   recommended_action: Change the certificate authorities file ownership to root:root
 #   input:

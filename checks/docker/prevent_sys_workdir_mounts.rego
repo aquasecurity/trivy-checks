@@ -11,8 +11,8 @@
 #   long_id: docker-avoid-sys-workdir-mounts
 #   aliases:
 #     - AVD-DS-0030
-#     - avoid-sys-workdir-mounts
 #     - DS030
+#     - avoid-sys-workdir-mounts
 #   severity: HIGH
 #   recommended_action: Avoid using system directories to mount WORKDIR
 #   input:

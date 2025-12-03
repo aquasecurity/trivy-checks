@@ -11,8 +11,8 @@
 #   long_id: kubernetes-no-manage-webhook
 #   aliases:
 #     - AVD-KSV-0114
-#     - no-manage-webhook
 #     - KSV114
+#     - no-manage-webhook
 #   severity: CRITICAL
 #   recommended_actions: Remove webhook configuration resources/verbs, acceptable values for verbs ['get', 'list', 'watch']
 #   input:

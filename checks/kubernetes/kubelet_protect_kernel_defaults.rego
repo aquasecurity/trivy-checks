@@ -11,8 +11,8 @@
 #   long_id: kubernetes-ensure-protect-kernel-defaults-set-true
 #   aliases:
 #     - AVD-KCV-0083
-#     - ensure-protect-kernel-defaults-set-true
 #     - KCV0083
+#     - ensure-protect-kernel-defaults-set-true
 #   severity: HIGH
 #   recommended_action: 'If using a Kubelet config file, edit the file to set protectKernelDefaults: true'
 #   input:

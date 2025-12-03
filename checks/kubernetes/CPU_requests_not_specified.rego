@@ -11,8 +11,8 @@
 #   long_id: kubernetes-no-unspecified-cpu-requests
 #   aliases:
 #     - AVD-KSV-0015
-#     - no-unspecified-cpu-requests
 #     - KSV015
+#     - no-unspecified-cpu-requests
 #   severity: LOW
 #   recommended_action: Set 'containers[].resources.requests.cpu'.
 #   input:

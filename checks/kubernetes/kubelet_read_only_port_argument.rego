@@ -11,8 +11,8 @@
 #   long_id: kubernetes-verify-read-only-port-argument-set-0
 #   aliases:
 #     - AVD-KCV-0082
-#     - verify-read-only-port-argument-set-0
 #     - KCV0082
+#     - verify-read-only-port-argument-set-0
 #   severity: HIGH
 #   recommended_action: Disable the read-only port
 #   input:

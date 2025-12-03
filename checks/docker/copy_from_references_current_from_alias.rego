@@ -11,8 +11,8 @@
 #   long_id: docker-no-self-referencing-copy-from
 #   aliases:
 #     - AVD-DS-0006
-#     - no-self-referencing-copy-from
 #     - DS006
+#     - no-self-referencing-copy-from
 #   severity: CRITICAL
 #   recommended_action: Change the '--from' so that it will not refer to itself
 #   input:

@@ -10,10 +10,10 @@
 #   id: KCV-0050
 #   long_id: kubernetes-ensure-controller-manager-pod-specification-file-permissions-set-600-or-more-restrictive
 #   aliases:
-#     - ensure-controller-manager-pod-specification-file-permissions-set-600-or-more-restrictive
+#     - AVD-KCV-0050
 #     - KCV0050
 #     - ensure-controller-manager-pod-specification-file-permissions-set
-#     - AVD-KCV-0050
+#     - ensure-controller-manager-pod-specification-file-permissions-set-600-or-more-restrictive
 #   severity: HIGH
 #   recommended_action: 'Change the controller manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml permissions of 600 or more restrictive '
 #   input:
