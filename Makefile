@@ -103,7 +103,7 @@ check-rego-matrix: download-schemas build-opa
 	done
 
 .PHONY: lint-rego
-lint-rego: check-rego
+lint-rego:
 	@regal test .regal/rules
 	@regal lint lib checks \
 		--config-file .regal/config.yaml \

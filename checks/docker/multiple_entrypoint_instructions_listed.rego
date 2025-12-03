@@ -1,20 +1,23 @@
 # METADATA
-# title: "Multiple ENTRYPOINT instructions listed"
-# description: "There can only be one ENTRYPOINT instruction in a Dockerfile. Only the last ENTRYPOINT instruction in the Dockerfile will have an effect."
+# title: Multiple ENTRYPOINT instructions listed
+# description: There can only be one ENTRYPOINT instruction in a Dockerfile. Only the last ENTRYPOINT instruction in the Dockerfile will have an effect.
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/engine/reference/builder/#entrypoint
+#   - https://docs.docker.com/engine/reference/builder/#entrypoint
 # custom:
-#   id: DS007
-#   avd_id: AVD-DS-0007
+#   id: DS-0007
+#   long_id: docker-only-one-entrypoint
+#   aliases:
+#     - AVD-DS-0007
+#     - DS007
+#     - only-one-entrypoint
 #   severity: CRITICAL
-#   short_code: only-one-entrypoint
-#   recommended_action: "Remove unnecessary ENTRYPOINT instruction."
+#   recommended_action: Remove unnecessary ENTRYPOINT instruction.
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/multiple_entrypoint_instructions_listed.yaml
 package builtin.dockerfile.DS007
 

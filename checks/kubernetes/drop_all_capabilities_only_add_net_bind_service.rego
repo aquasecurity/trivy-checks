@@ -1,20 +1,23 @@
 # METADATA
-# title: "Container capabilities must only include NET_BIND_SERVICE"
-# description: "Containers must drop ALL capabilities, and are only permitted to add back the NET_BIND_SERVICE capability."
+# title: Container capabilities must only include NET_BIND_SERVICE
+# description: Containers must drop ALL capabilities, and are only permitted to add back the NET_BIND_SERVICE capability.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
+#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 # custom:
-#   id: KSV106
-#   avd_id: AVD-KSV-0106
+#   id: KSV-0106
+#   long_id: kubernetes-drop-caps-add-bind-svc
+#   aliases:
+#     - AVD-KSV-0106
+#     - KSV106
+#     - drop-caps-add-bind-svc
 #   severity: LOW
-#   short_code: drop-caps-add-bind-svc
-#   recommended_action: "Set 'spec.containers[*].securityContext.capabilities.drop' to 'ALL' and only add 'NET_BIND_SERVICE' to 'spec.containers[*].securityContext.capabilities.add'."
+#   recommended_action: Set 'spec.containers[*].securityContext.capabilities.drop' to 'ALL' and only add 'NET_BIND_SERVICE' to 'spec.containers[*].securityContext.capabilities.add'.
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KSV106
 
 import rego.v1

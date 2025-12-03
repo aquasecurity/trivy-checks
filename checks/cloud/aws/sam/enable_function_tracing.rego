@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-tracing
 # custom:
-#   id: AVD-AWS-0125
-#   avd_id: AVD-AWS-0125
+#   id: AWS-0125
+#   long_id: aws-sam-enable-function-tracing
+#   aliases:
+#     - AVD-AWS-0125
+#     - enable-function-tracing
 #   provider: aws
 #   service: sam
 #   severity: LOW
-#   short_code: enable-function-tracing
 #   recommended_action: Enable tracing
 #   input:
 #     selector:

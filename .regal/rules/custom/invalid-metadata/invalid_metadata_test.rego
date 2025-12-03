@@ -12,7 +12,6 @@ test_invalid_metadata if {
 # schemas:
 #   - input: schema["kubernetes"]
 # custom:
-#   id: TEST-001
 #   avdid: AVD-TEST-001
 #   minimum_trivy_version: 1.2.3
 #   examples: test/ff.json
@@ -24,13 +23,13 @@ foo := true`)
 
 	r == {{
 		"category": "custom",
-		"description": "(Root): avd_id is required\n(Root): input is required\n(Root): Additional property avdid is not allowed",
+		"description": "(Root): id is required\n(Root): input is required\n(Root): Additional property avdid is not allowed",
 		"level": "error",
 		"location": {
 			"col": 1,
 			"end": {
 				"col": 27,
-				"row": 11,
+				"row": 10,
 			},
 			"file": "example.rego",
 			"row": 2,

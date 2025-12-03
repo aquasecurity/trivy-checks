@@ -18,7 +18,7 @@ func Test_AVDPageGeneration(t *testing.T) {
 	generateDocs(tmpDir)
 
 	// check golang policies
-	b, err := os.ReadFile(filepath.Join(tmpDir, "aws/rds/AVD-AWS-0077", "Terraform.md"))
+	b, err := os.ReadFile(filepath.Join(tmpDir, "aws/rds/AWS-0077", "Terraform.md"))
 	require.NoError(t, err)
 	assert.Contains(t, string(b), `hcl
 resource "aws_rds_cluster" "good_example" {
@@ -33,7 +33,7 @@ resource "aws_rds_cluster" "good_example" {
   preferred_backup_window = "07:00-09:00"
 }`)
 
-	b, err = os.ReadFile(filepath.Join(tmpDir, "aws/rds/AVD-AWS-0077", "CloudFormation.md"))
+	b, err = os.ReadFile(filepath.Join(tmpDir, "aws/rds/AWS-0077", "CloudFormation.md"))
 	require.NoError(t, err)
 	assert.Contains(t, string(b), `Resources:
   GoodExample:
@@ -43,14 +43,14 @@ resource "aws_rds_cluster" "good_example" {
 `)
 
 	// check rego policies
-	b, err = os.ReadFile(filepath.Join(tmpDir, "aws/rds/AVD-AWS-0180", "Terraform.md"))
+	b, err = os.ReadFile(filepath.Join(tmpDir, "aws/rds/AWS-0180", "Terraform.md"))
 	require.NoError(t, err)
 	assert.Contains(t, string(b), `hcl
 resource "aws_db_instance" "good_example" {
   publicly_accessible = false
 }`)
 
-	b, err = os.ReadFile(filepath.Join(tmpDir, "aws/rds/AVD-AWS-0180", "CloudFormation.md"))
+	b, err = os.ReadFile(filepath.Join(tmpDir, "aws/rds/AWS-0180", "CloudFormation.md"))
 	require.NoError(t, err)
 	assert.Contains(t, string(b), `Resources:
   GoodExample:

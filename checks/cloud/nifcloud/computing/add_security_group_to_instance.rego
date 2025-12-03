@@ -8,14 +8,15 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/help/server/change_fw.htm
 # custom:
-#   id: AVD-NIF-0004
-#   avd_id: AVD-NIF-0004
+#   id: NIF-0004
+#   long_id: nifcloud-computing-add-security-group-to-instance
 #   aliases:
+#     - AVD-NIF-0004
+#     - add-security-group-to-instance
 #     - nifcloud-computing-add-security-group-to-instance
 #   provider: nifcloud
 #   service: computing
 #   severity: CRITICAL
-#   short_code: add-security-group-to-instance
 #   recommended_action: Add security group for all instances
 #   input:
 #     selector:

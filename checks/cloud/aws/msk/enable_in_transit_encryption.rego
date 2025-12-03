@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/msk/latest/developerguide/msk-encryption.html
 # custom:
-#   id: AVD-AWS-0073
-#   avd_id: AVD-AWS-0073
+#   id: AWS-0073
+#   long_id: aws-msk-enable-in-transit-encryption
+#   aliases:
+#     - AVD-AWS-0073
+#     - enable-in-transit-encryption
 #   provider: aws
 #   service: msk
 #   severity: HIGH
-#   short_code: enable-in-transit-encryption
 #   recommended_action: Enable in transit encryption
 #   input:
 #     selector:

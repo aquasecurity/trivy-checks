@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/postgresql/concepts-server-logs#configure-logging
 # custom:
-#   id: AVD-AZU-0021
-#   avd_id: AVD-AZU-0021
+#   id: AZU-0021
+#   long_id: azure-database-postgres-configuration-connection-throttling
+#   aliases:
+#     - AVD-AZU-0021
+#     - postgres-configuration-connection-throttling
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
-#   short_code: postgres-configuration-connection-throttling
 #   recommended_action: Enable connection throttling logging
 #   input:
 #     selector:

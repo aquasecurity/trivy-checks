@@ -1,20 +1,23 @@
 # METADATA
-# title: "Ensure that the --client-cert-auth argument is set to true"
-# description: "Enable client authentication on etcd service."
+# title: Ensure that the --client-cert-auth argument is set to true
+# description: Enable client authentication on etcd service.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0043
-#   avd_id: AVD-KCV-0043
+#   id: KCV-0043
+#   long_id: kubernetes-ensure-client-cert-auth-argument-is-set-to-true
+#   aliases:
+#     - AVD-KCV-0043
+#     - KCV0043
+#     - ensure-client-cert-auth-argument-is-set-to-true
 #   severity: LOW
-#   short_code: ensure-client-cert-auth-argument-is-set-to-true
-#   recommended_action: "Edit the etcd pod specification file /etc/kubernetes/manifests/etcd.yaml on the master node and set the below parameter."
+#   recommended_action: Edit the etcd pod specification file /etc/kubernetes/manifests/etcd.yaml on the master node and set the below parameter.
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KCV0043
 
 import rego.v1

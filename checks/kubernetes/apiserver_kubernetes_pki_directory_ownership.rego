@@ -1,22 +1,25 @@
 # METADATA
-# title: "Ensure that the Kubernetes PKI directory and file file ownership is set to root:root"
-# description: "Ensure that the Kubernetes PKI directory and file file ownership is set to root:root."
+# title: Ensure that the Kubernetes PKI directory and file file ownership is set to root:root
+# description: Ensure that the Kubernetes PKI directory and file file ownership is set to root:root.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0066
-#   avd_id: AVD-KCV-0066
+#   id: KCV-0066
+#   long_id: kubernetes-ensure-kubernetes-pki-directory-file-ownership-set-root:root.
+#   aliases:
+#     - AVD-KCV-0066
+#     - KCV0066
+#     - ensure-kubernetes-pki-directory-file-ownership-set-root:root
 #   severity: CRITICAL
-#   short_code: ensure-kubernetes-pki-directory-file-ownership-set-root:root.
-#   recommended_action: "Change the Kubernetes PKI directory and file file /etc/kubernetes/pki/ ownership to root:root"
+#   recommended_action: Change the Kubernetes PKI directory and file file /etc/kubernetes/pki/ ownership to root:root
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0066
 
 import rego.v1

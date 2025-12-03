@@ -1,25 +1,26 @@
 # METADATA
-# title: "Ensure that the container network interface file ownership is set to root:root"
-# description: "Ensure that the container network interface file ownership is set to root:root."
+# title: Ensure that the container network interface file ownership is set to root:root
+# description: Ensure that the container network interface file ownership is set to root:root.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0057
-#   avd_id: AVD-KCV-0057
+#   long_id: kubernetes-ensure-container-network-interface-ownership-set-root:root.
 #   aliases:
+#     - AVD-KCV-0057
 #     - KCV0057
 #     - ensure-container-network-interface-ownership-set
+#     - ensure-container-network-interface-ownership-set-root:root
 #   severity: HIGH
-#   short_code: ensure-container-network-interface-ownership-set-root:root.
-#   recommended_action: "Change the container network interface file path/to/cni/files ownership to root:root"
+#   recommended_action: Change the container network interface file path/to/cni/files ownership to root:root
 #   input:
 #     selector:
-#     - type: kubernetes
-#       subtypes:
-#         - kind: nodeinfo
+#       - type: kubernetes
+#         subtypes:
+#           - kind: nodeinfo
 package builtin.kubernetes.KCV0057
 
 import rego.v1

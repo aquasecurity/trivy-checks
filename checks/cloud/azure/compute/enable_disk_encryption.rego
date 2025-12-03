@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-encryption
 # custom:
-#   id: AVD-AZU-0038
-#   avd_id: AVD-AZU-0038
+#   id: AZU-0038
+#   long_id: azure-compute-enable-disk-encryption
+#   aliases:
+#     - AVD-AZU-0038
+#     - enable-disk-encryption
 #   provider: azure
 #   service: compute
 #   severity: HIGH
-#   short_code: enable-disk-encryption
 #   recommended_action: Enable encryption on managed disks
 #   input:
 #     selector:

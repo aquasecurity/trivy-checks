@@ -1,20 +1,23 @@
 # METADATA
-# title: "Exposed port out of range"
-# description: "UNIX ports outside the range 0-65535 are exposed."
+# title: Exposed port out of range
+# description: UNIX ports outside the range 0-65535 are exposed.
 # scope: package
 # schemas:
-# - input: schema["dockerfile"]
+#   - input: schema["dockerfile"]
 # related_resources:
-# - https://docs.docker.com/engine/reference/builder/#expose
+#   - https://docs.docker.com/engine/reference/builder/#expose
 # custom:
-#   id: DS008
-#   avd_id: AVD-DS-0008
+#   id: DS-0008
+#   long_id: docker-port-out-of-range
+#   aliases:
+#     - AVD-DS-0008
+#     - DS008
+#     - port-out-of-range
 #   severity: CRITICAL
-#   short_code: port-out-of-range
-#   recommended_action: "Use port number within range"
+#   recommended_action: Use port number within range
 #   input:
 #     selector:
-#     - type: dockerfile
+#       - type: dockerfile
 #   examples: checks/docker/unix_ports_out_of_range.yaml
 package builtin.dockerfile.DS008
 

@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://cloud.google.com/sql/docs/mysql/configure-ssl-instance
 # custom:
-#   id: AVD-GCP-0015
-#   avd_id: AVD-GCP-0015
+#   id: GCP-0015
+#   long_id: google-sql-encrypt-in-transit-data
+#   aliases:
+#     - AVD-GCP-0015
+#     - encrypt-in-transit-data
 #   provider: google
 #   service: sql
 #   severity: HIGH
-#   short_code: encrypt-in-transit-data
 #   recommended_action: Enforce SSL for all connections
 #   input:
 #     selector:

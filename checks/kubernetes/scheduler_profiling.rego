@@ -1,23 +1,24 @@
 # METADATA
-# title: "Ensure that the --profiling argument is set to false"
-# description: "Disable profiling, if not needed."
+# title: Ensure that the --profiling argument is set to false
+# description: Disable profiling, if not needed.
 # scope: package
 # schemas:
-# - input: schema["kubernetes"]
+#   - input: schema["kubernetes"]
 # related_resources:
-# - https://www.cisecurity.org/benchmark/kubernetes
+#   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0040
-#   avd_id: AVD-KCV-0040
+#   long_id: kubernetes-ensure-profiling-argument-is-set-to-false
 #   aliases:
+#     - AVD-KCV-0040
 #     - KCV0040
+#     - ensure-profiling-argument-is-set-to-false
 #     - ensure-scheduler-profiling-argument-set-to-false
 #   severity: LOW
-#   short_code: ensure-profiling-argument-is-set-to-false
-#   recommended_action: "Edit the Scheduler pod specification file /etc/kubernetes/manifests/kube-scheduler.yaml file on the Control Plane node and set the below parameter."
+#   recommended_action: Edit the Scheduler pod specification file /etc/kubernetes/manifests/kube-scheduler.yaml file on the Control Plane node and set the below parameter.
 #   input:
 #     selector:
-#     - type: kubernetes
+#       - type: kubernetes
 package builtin.kubernetes.KCV0040
 
 import rego.v1

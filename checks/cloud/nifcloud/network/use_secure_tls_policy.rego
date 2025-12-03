@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/service/lb_l4.htm
 # custom:
-#   id: AVD-NIF-0020
-#   avd_id: AVD-NIF-0020
+#   id: NIF-0020
+#   long_id: nifcloud-network-use-secure-tls-policy
+#   aliases:
+#     - AVD-NIF-0020
+#     - use-secure-tls-policy
 #   provider: nifcloud
 #   service: network
 #   severity: CRITICAL
-#   short_code: use-secure-tls-policy
 #   recommended_action: Use a more recent TLS/SSL policy for the load balancer
 #   input:
 #     selector:
