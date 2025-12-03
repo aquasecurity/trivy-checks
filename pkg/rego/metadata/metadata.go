@@ -26,13 +26,6 @@ func (m Metadata) ID() string {
 	return ""
 }
 
-func (m Metadata) AVDID() string {
-	if v, ok := m.Custom["avd_id"].(string); ok {
-		return v
-	}
-	return ""
-}
-
 func (m Metadata) IsDeprecated() bool {
 	deprecated, ok := m.Custom["deprecated"]
 	return ok && deprecated.(bool)

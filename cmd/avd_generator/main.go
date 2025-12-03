@@ -115,7 +115,7 @@ func generateProviderExamplesDocs(
 	if err := tmpl.Execute(file, data); err != nil {
 		return fmt.Errorf("execute template: %w", err)
 	}
-	fmt.Printf("Generating %s file for policy %s\n", provider, meta.AVDID())
+	fmt.Printf("Generating %s file for policy %s\n", provider, meta.ID())
 
 	return nil
 }
