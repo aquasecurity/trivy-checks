@@ -6,12 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-GCP-0008
-#   avd_id: AVD-GCP-0008
+#   id: GCP-0008
+#   long_id: google-iam-no-org-level-default-service-account-assignment
+#   aliases:
+#     - no-org-level-default-service-account-assignment
+#     - AVD-GCP-0008
 #   provider: google
 #   service: iam
 #   severity: MEDIUM
-#   short_code: no-org-level-default-service-account-assignment
 #   recommended_action: Use specialised service accounts for specific purposes.
 #   input:
 #     selector:

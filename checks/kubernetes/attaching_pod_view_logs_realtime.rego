@@ -7,10 +7,13 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV054
-#   avd_id: AVD-KSV-0054
+#   id: KSV-0054
+#   long_id: kubernetes-no-attaching-shell-pods
+#   aliases:
+#     - AVD-KSV-0054
+#     - no-attaching-shell-pods
+#     - KSV054
 #   severity: HIGH
-#   short_code: no-attaching-shell-pods
 #   recommended_action: Create a role which does not permit attaching to shell on pods
 #   input:
 #     selector:

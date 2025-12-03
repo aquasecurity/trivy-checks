@@ -5,10 +5,13 @@
 # schemas:
 #   - input: schema["kubernetes"]
 # custom:
-#   id: KSV035
-#   avd_id: AVD-KSV-0035
+#   id: KSV-0035
+#   long_id: kubernetes-no-untrusted-ecr-domain
+#   aliases:
+#     - AVD-KSV-0035
+#     - no-untrusted-ecr-domain
+#     - KSV035
 #   severity: MEDIUM
-#   short_code: no-untrusted-ecr-domain
 #   recommended_action: Container image should be used from Amazon container Registry
 #   deprecated: true
 #   input:

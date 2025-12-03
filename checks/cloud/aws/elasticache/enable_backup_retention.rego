@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-automatic.html
 # custom:
-#   id: AVD-AWS-0050
-#   avd_id: AVD-AWS-0050
+#   id: AWS-0050
+#   long_id: aws-elasticache-enable-backup-retention
+#   aliases:
+#     - enable-backup-retention
+#     - AVD-AWS-0050
 #   provider: aws
 #   service: elasticache
 #   severity: MEDIUM
-#   short_code: enable-backup-retention
 #   recommended_action: Configure snapshot retention for redis cluster
 #   input:
 #     selector:

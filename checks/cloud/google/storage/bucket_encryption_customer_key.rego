@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://cloud.google.com/storage/docs/encryption/customer-managed-keys
 # custom:
-#   id: AVD-GCP-0066
-#   avd_id: AVD-GCP-0066
+#   id: GCP-0066
+#   long_id: google-storage-bucket-encryption-customer-key
+#   aliases:
+#     - bucket-encryption-customer-key
+#     - AVD-GCP-0066
 #   provider: google
 #   service: storage
 #   severity: LOW
-#   short_code: bucket-encryption-customer-key
 #   recommended_action: Encrypt Cloud Storage buckets using customer-managed keys.
 #   input:
 #     selector:

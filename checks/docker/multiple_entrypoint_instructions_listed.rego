@@ -7,10 +7,13 @@
 # related_resources:
 #   - https://docs.docker.com/engine/reference/builder/#entrypoint
 # custom:
-#   id: DS007
-#   avd_id: AVD-DS-0007
+#   id: DS-0007
+#   long_id: docker-only-one-entrypoint
+#   aliases:
+#     - AVD-DS-0007
+#     - only-one-entrypoint
+#     - DS007
 #   severity: CRITICAL
-#   short_code: only-one-entrypoint
 #   recommended_action: Remove unnecessary ENTRYPOINT instruction.
 #   input:
 #     selector:

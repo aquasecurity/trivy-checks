@@ -7,10 +7,13 @@
 # related_resources:
 #   - https://kubesec.io/basics/containers-resources-limits-memory/
 # custom:
-#   id: KSV016
-#   avd_id: AVD-KSV-0016
+#   id: KSV-0016
+#   long_id: kubernetes-no-unspecified-memory-requests
+#   aliases:
+#     - no-unspecified-memory-requests
+#     - KSV016
+#     - AVD-KSV-0016
 #   severity: LOW
-#   short_code: no-unspecified-memory-requests
 #   recommended_action: Set 'containers[].resources.requests.memory'.
 #   input:
 #     selector:

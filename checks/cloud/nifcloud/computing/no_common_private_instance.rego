@@ -8,14 +8,15 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/service/plan.htm
 # custom:
-#   id: AVD-NIF-0005
-#   avd_id: AVD-NIF-0005
+#   id: NIF-0005
+#   long_id: nifcloud-computing-no-common-private-instance
 #   aliases:
+#     - no-common-private-instance
 #     - nifcloud-computing-no-common-private-instance
+#     - AVD-NIF-0005
 #   provider: nifcloud
 #   service: computing
 #   severity: LOW
-#   short_code: no-common-private-instance
 #   recommended_action: Use private LAN
 #   input:
 #     selector:

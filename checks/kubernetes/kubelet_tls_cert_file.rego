@@ -7,10 +7,13 @@
 # related_resources:
 #   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0088
-#   avd_id: AVD-KCV-0088
+#   id: KCV-0088
+#   long_id: kubernetes-ensure-tls-cert-file-argument-set-appropriate
+#   aliases:
+#     - KCV0088
+#     - AVD-KCV-0088
+#     - ensure-tls-cert-file-argument-set-appropriate
 #   severity: CRITICAL
-#   short_code: ensure-tls-cert-file-argument-set-appropriate
 #   recommended_action: If using a Kubelet config file, edit the file to set tlsCertFile to the location
 #   input:
 #     selector:

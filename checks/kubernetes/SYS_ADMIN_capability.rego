@@ -7,10 +7,13 @@
 # related_resources:
 #   - https://kubesec.io/basics/containers-securitycontext-capabilities-add-index-sys-admin/
 # custom:
-#   id: KSV005
-#   avd_id: AVD-KSV-0005
+#   id: KSV-0005
+#   long_id: kubernetes-no-sysadmin-capability
+#   aliases:
+#     - KSV005
+#     - AVD-KSV-0005
+#     - no-sysadmin-capability
 #   severity: HIGH
-#   short_code: no-sysadmin-capability
 #   recommended_action: Remove the SYS_ADMIN capability from 'containers[].securityContext.capabilities.add'.
 #   input:
 #     selector:

@@ -7,10 +7,13 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV055
-#   avd_id: AVD-KSV-0055
+#   id: KSV-0055
+#   long_id: kubernetes-view-all-secrets
+#   aliases:
+#     - KSV055
+#     - AVD-KSV-0055
+#     - view-all-secrets
 #   severity: LOW
-#   short_code: view-all-secrets
 #   recommended_action: Create a role which does not permit allowing users in a rolebinding to add other users to their rolebindings if not needed
 #   input:
 #     selector:

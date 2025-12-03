@@ -7,10 +7,13 @@
 # related_resources:
 #   - https://docs.docker.com/engine/reference/builder/#run
 # custom:
-#   id: DS010
-#   avd_id: AVD-DS-0010
+#   id: DS-0010
+#   long_id: docker-no-sudo-run
+#   aliases:
+#     - no-sudo-run
+#     - DS010
+#     - AVD-DS-0010
 #   severity: CRITICAL
-#   short_code: no-sudo-run
 #   recommended_action: Don't use sudo
 #   input:
 #     selector:

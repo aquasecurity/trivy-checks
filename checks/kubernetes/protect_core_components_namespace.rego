@@ -7,12 +7,14 @@
 # related_resources:
 #   - https://kubernetes.io/docs/reference/setup-tools/kubeadm/implementation-details/
 # custom:
-#   id: KSV037
-#   avd_id: AVD-KSV-0037
+#   id: KSV-0037
+#   long_id: kubernetes-no-user-resources-in-system-namespace
 #   aliases:
+#     - AVD-KSV-0037
+#     - no-user-resources-in-system-namespace
+#     - KSV037
 #     - no-user-pods-in-system-namespace
 #   severity: MEDIUM
-#   short_code: no-user-resources-in-system-namespace
 #   recommended_action: Deploy the user resources into a designated namespace which is not kube-system.
 #   input:
 #     selector:

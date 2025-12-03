@@ -7,10 +7,13 @@
 # schemas:
 #   - input: schema["dockerfile"]
 # custom:
-#   id: DS029
-#   avd_id: AVD-DS-0029
+#   id: DS-0029
+#   long_id: docker-use-apt-no-install-recommends
+#   aliases:
+#     - use-apt-no-install-recommends
+#     - DS029
+#     - AVD-DS-0029
 #   severity: HIGH
-#   short_code: use-apt-no-install-recommends
 #   recommended_action: Add '--no-install-recommends' flag to 'apt-get'
 #   input:
 #     selector:

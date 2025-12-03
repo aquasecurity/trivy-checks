@@ -7,10 +7,13 @@
 # related_resources:
 #   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0065
-#   avd_id: AVD-KCV-0065
+#   id: KCV-0065
+#   long_id: kubernetes-ensure-controller-manager-config-ownership-set-root:root.
+#   aliases:
+#     - AVD-KCV-0065
+#     - ensure-controller-manager-config-ownership-set-root:root.
+#     - KCV0065
 #   severity: HIGH
-#   short_code: ensure-controller-manager-config-ownership-set-root:root.
 #   recommended_action: Change the controller-manager config  file /etc/kubernetes/controller-manager.conf ownership to root:root
 #   input:
 #     selector:

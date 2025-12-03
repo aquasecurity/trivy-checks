@@ -7,10 +7,13 @@
 # schemas:
 #   - input: schema["dockerfile"]
 # custom:
-#   id: DS005
-#   avd_id: AVD-DS-0005
+#   id: DS-0005
+#   long_id: docker-use-copy-over-add
+#   aliases:
+#     - AVD-DS-0005
+#     - use-copy-over-add
+#     - DS005
 #   severity: LOW
-#   short_code: use-copy-over-add
 #   recommended_action: Use COPY instead of ADD
 #   input:
 #     selector:

@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-api.html#sam-api-accesslogsetting
 # custom:
-#   id: AVD-AWS-0113
-#   avd_id: AVD-AWS-0113
+#   id: AWS-0113
+#   long_id: aws-sam-enable-api-access-logging
+#   aliases:
+#     - AVD-AWS-0113
+#     - enable-api-access-logging
 #   provider: aws
 #   service: sam
 #   severity: MEDIUM
-#   short_code: enable-api-access-logging
 #   recommended_action: Enable logging for API Gateway stages
 #   input:
 #     selector:

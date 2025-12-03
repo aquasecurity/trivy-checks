@@ -7,10 +7,13 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV111
-#   avd_id: AVD-KSV-0111
+#   id: KSV-0111
+#   long_id: kubernetes-cluster-admin0-role-only-used-where-required"
+#   aliases:
+#     - KSV111
+#     - AVD-KSV-0111
+#     - cluster-admin0-role-only-used-where-required"
 #   severity: MEDIUM
-#   short_code: cluster-admin0-role-only-used-where-required"
 #   recommended_action: Remove binding for clusterrole 'cluster-admin', 'admin' or 'edit'
 #   input:
 #     selector:

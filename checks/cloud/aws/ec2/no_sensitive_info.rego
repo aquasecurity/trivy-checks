@@ -6,14 +6,15 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-AWS-0122
-#   avd_id: AVD-AWS-0122
+#   id: AWS-0122
+#   long_id: aws-ec2-no-sensitive-info
 #   aliases:
 #     - aws-autoscaling-no-sensitive-info
+#     - AVD-AWS-0122
+#     - no-sensitive-info
 #   provider: aws
 #   service: ec2
 #   severity: HIGH
-#   short_code: no-sensitive-info
 #   recommended_action: Don't use sensitive data in user data
 #   input:
 #     selector:

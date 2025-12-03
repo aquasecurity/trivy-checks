@@ -7,10 +7,13 @@
 # related_resources:
 #   - https://docs.docker.com/engine/reference/builder/#cmd
 # custom:
-#   id: DS016
-#   avd_id: AVD-DS-0016
+#   id: DS-0016
+#   long_id: docker-only-one-cmd
+#   aliases:
+#     - DS016
+#     - AVD-DS-0016
+#     - only-one-cmd
 #   severity: HIGH
-#   short_code: only-one-cmd
 #   recommended_action: Dockerfile should only have one CMD instruction. Remove all the other CMD instructions
 #   input:
 #     selector:

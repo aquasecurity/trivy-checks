@@ -11,9 +11,10 @@
 #   - https://docs.microsoft.com/en-us/azure/storage/blobs/soft-delete-blob-overview
 # custom:
 #   id: AZU-0056
-#   avd_id: AVD-AZU-0056
+#   long_id: azure-storage-
 #   aliases:
 #     - AVD-AZU-0056
+#     - ""
 #     - blobs-soft-deletion-enabled
 #   provider: azure
 #   service: storage

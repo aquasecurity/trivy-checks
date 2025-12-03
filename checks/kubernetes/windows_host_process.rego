@@ -7,10 +7,13 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV103
-#   avd_id: AVD-KSV-0103
+#   id: KSV-0103
+#   long_id: kubernetes-no-hostprocess-containers
+#   aliases:
+#     - AVD-KSV-0103
+#     - no-hostprocess-containers
+#     - KSV103
 #   severity: MEDIUM
-#   short_code: no-hostprocess-containers
 #   recommended_action: Do not enable 'hostProcess' on any securityContext
 #   input:
 #     selector:

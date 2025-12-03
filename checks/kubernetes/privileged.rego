@@ -7,10 +7,13 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV017
-#   avd_id: AVD-KSV-0017
+#   id: KSV-0017
+#   long_id: kubernetes-no-privileged-containers
+#   aliases:
+#     - AVD-KSV-0017
+#     - no-privileged-containers
+#     - KSV017
 #   severity: HIGH
-#   short_code: no-privileged-containers
 #   recommended_action: Change 'containers[].securityContext.privileged' to 'false'.
 #   input:
 #     selector:

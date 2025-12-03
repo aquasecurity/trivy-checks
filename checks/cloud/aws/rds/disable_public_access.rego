@@ -7,12 +7,14 @@
 # related_resources:
 #   - http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html
 # custom:
-#   id: AVD-AWS-0180
-#   avd_id: AVD-AWS-0180
+#   id: AWS-0180
+#   long_id: aws-rds-enable-public-access
+#   aliases:
+#     - AVD-AWS-0180
+#     - enable-public-access
 #   provider: aws
 #   service: rds
 #   severity: HIGH
-#   short_code: enable-public-access
 #   recommended_action: Remove the public endpoint from the RDS instance.
 #   input:
 #     selector:

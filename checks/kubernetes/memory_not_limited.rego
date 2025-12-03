@@ -7,10 +7,13 @@
 # related_resources:
 #   - https://kubesec.io/basics/containers-resources-limits-memory/
 # custom:
-#   id: KSV018
-#   avd_id: AVD-KSV-0018
+#   id: KSV-0018
+#   long_id: kubernetes-limit-memory
+#   aliases:
+#     - AVD-KSV-0018
+#     - limit-memory
+#     - KSV018
 #   severity: LOW
-#   short_code: limit-memory
 #   recommended_action: Set a limit value under 'containers[].resources.limits.memory'.
 #   input:
 #     selector:

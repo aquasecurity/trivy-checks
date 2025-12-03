@@ -7,10 +7,13 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV114
-#   avd_id: AVD-KSV-0114
+#   id: KSV-0114
+#   long_id: kubernetes-no-manage-webhook
+#   aliases:
+#     - AVD-KSV-0114
+#     - no-manage-webhook
+#     - KSV114
 #   severity: CRITICAL
-#   short_code: no-manage-webhook
 #   recommended_actions: Remove webhook configuration resources/verbs, acceptable values for verbs ['get', 'list', 'watch']
 #   input:
 #     selector:

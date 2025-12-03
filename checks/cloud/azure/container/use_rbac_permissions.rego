@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/aks/concepts-identity
 # custom:
-#   id: AVD-AZU-0042
-#   avd_id: AVD-AZU-0042
+#   id: AZU-0042
+#   long_id: azure-container-use-rbac-permissions
+#   aliases:
+#     - use-rbac-permissions
+#     - AVD-AZU-0042
 #   provider: azure
 #   service: container
 #   severity: HIGH
-#   short_code: use-rbac-permissions
 #   recommended_action: Enable RBAC
 #   input:
 #     selector:

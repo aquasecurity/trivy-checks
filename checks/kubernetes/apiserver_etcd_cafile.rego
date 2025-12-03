@@ -7,10 +7,13 @@
 # related_resources:
 #   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0029
-#   avd_id: AVD-KCV-0029
+#   id: KCV-0029
+#   long_id: kubernetes-ensure-etcd-cafile-argument-is-set-as-appropriate
+#   aliases:
+#     - AVD-KCV-0029
+#     - ensure-etcd-cafile-argument-is-set-as-appropriate
+#     - KCV0029
 #   severity: LOW
-#   short_code: ensure-etcd-cafile-argument-is-set-as-appropriate
 #   recommended_action: Follow the Kubernetes documentation and set up the TLS connection between the apiserver and etcd. Then, edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the master node and set the etcd certificate authority file parameter.
 #   input:
 #     selector:

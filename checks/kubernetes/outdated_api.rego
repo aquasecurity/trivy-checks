@@ -5,10 +5,13 @@
 # schemas:
 #   - input: schema["kubernetes"]
 # custom:
-#   id: KSV107
-#   avd_id: AVD-KSV-0107
+#   id: KSV-0107
+#   long_id: kubernetes-evaluate-k8s-deprecated-removed-apis
+#   aliases:
+#     - evaluate-k8s-deprecated-removed-apis
+#     - KSV107
+#     - AVD-KSV-0107
 #   severity: LOW
-#   short_code: evaluate-k8s-deprecated-removed-apis
 #   recommended_action: Migrate resource to new API
 #   input:
 #     selector:

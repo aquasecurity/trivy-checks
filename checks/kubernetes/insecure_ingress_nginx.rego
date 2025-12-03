@@ -9,16 +9,18 @@
 #   - https://github.com/kubernetes/kubernetes/issues/131007
 #   - https://github.com/kubernetes/kubernetes/issues/131006
 # custom:
-#   id: KCV0093
-#   avd_id: AVD-KCV-0093
+#   id: KCV-0093
+#   long_id: kubernetes-insecure-ingress-nginx
+#   aliases:
+#     - KCV0093
+#     - AVD-KCV-0093
+#     - insecure-ingress-nginx
 #   severity: CRITICAL
-#   short_code: insecure-ingress-nginx
 #   recommended_action: Ensure that ingress-nginx annotations do not contain suspicious characters.
 #   input:
 #     selector:
 #       - type: kubernetes
 #   examples: checks/kubernetes/insecure_ingress_nginx.yaml
-
 package builtin.kubernetes.kcv0093
 
 import data.lib.kubernetes

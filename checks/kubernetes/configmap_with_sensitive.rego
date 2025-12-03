@@ -5,10 +5,12 @@
 # schemas:
 #   - input: schema["kubernetes"]
 # custom:
-#   id: AVD-KSV-01010
-#   avd_id: AVD-KSV-01010
+#   id: KSV-01010
+#   long_id: kubernetes-configMap-with-sensitive
+#   aliases:
+#     - AVD-KSV-01010
+#     - configMap_with_sensitive
 #   severity: MEDIUM
-#   short_code: configMap_with_sensitive
 #   recommended_action: Remove sensitive content from configMap data value
 #   input:
 #     selector:

@@ -7,10 +7,13 @@
 # related_resources:
 #   - https://docs.docker.com/engine/reference/builder/#expose
 # custom:
-#   id: DS008
-#   avd_id: AVD-DS-0008
+#   id: DS-0008
+#   long_id: docker-port-out-of-range
+#   aliases:
+#     - AVD-DS-0008
+#     - port-out-of-range
+#     - DS008
 #   severity: CRITICAL
-#   short_code: port-out-of-range
 #   recommended_action: Use port number within range
 #   input:
 #     selector:

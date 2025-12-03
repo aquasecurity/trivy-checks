@@ -9,12 +9,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/firewall/rule-processing
 # custom:
-#   id: AVD-AZU-0012
-#   avd_id: AVD-AZU-0012
+#   id: AZU-0012
+#   long_id: azure-storage-default-action-deny
+#   aliases:
+#     - default-action-deny
+#     - AVD-AZU-0012
 #   provider: azure
 #   service: storage
 #   severity: CRITICAL
-#   short_code: default-action-deny
 #   recommended_action: Set network rules to deny
 #   input:
 #     selector:

@@ -5,10 +5,13 @@
 # schemas:
 #   - input: schema["kubernetes"]
 # custom:
-#   id: KSV033
-#   avd_id: AVD-KSV-0033
+#   id: KSV-0033
+#   long_id: kubernetes-use-gcr-domain
+#   aliases:
+#     - KSV033
+#     - AVD-KSV-0033
+#     - use-gcr-domain
 #   severity: MEDIUM
-#   short_code: use-gcr-domain
 #   recommended_action: Use images from trusted GCR registries.
 #   deprecated: true
 #   input:
