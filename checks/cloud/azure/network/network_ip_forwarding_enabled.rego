@@ -35,7 +35,7 @@ networkinterfaces := input.azure.network.networkinterfaces
 
 deny contains res if {
 	some ni in networkinterfaces
-	ni.enableipforwarding.value
+	value.is_true(ni.enableipforwarding)
 	res := result.new(
 		"Network interface has IP forwarding enabled, which may pose a security risk.",
 		metadata.obj_by_path(ni, ["enableipforwarding"]),
