@@ -30,12 +30,11 @@ package builtin.azure.network.azure0073
 import rego.v1
 
 import data.lib.cloud.metadata
-
-flowlogs := input.azure.network.networkwatcherflowlogs
+import data.lib.cloud.value
 
 deny contains res if {
-	some flowlog in flowlogs
-	not flowlog.enabled.value
+	some flowlog in input.azure.network.networkwatcherflowlogs
+	value.is_false(flowlog.enabled)
 	res := result.new(
 		"Network Watcher flow log is disabled.",
 		metadata.obj_by_path(flowlog, ["enabled"]),

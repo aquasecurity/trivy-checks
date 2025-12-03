@@ -30,11 +30,10 @@ package builtin.azure.network.azure0076
 import rego.v1
 
 import data.lib.cloud.metadata
-
-networkinterfaces := input.azure.network.networkinterfaces
+import data.lib.cloud.value
 
 deny contains res if {
-	some ni in networkinterfaces
+	some ni in input.azure.network.networkinterfaces
 	value.is_true(ni.haspublicip)
 	res := result.new(
 		"Network interface has a public IP address assigned, which increases attack surface.",

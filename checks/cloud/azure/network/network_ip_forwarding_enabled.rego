@@ -30,11 +30,10 @@ package builtin.azure.network.azure0075
 import rego.v1
 
 import data.lib.cloud.metadata
-
-networkinterfaces := input.azure.network.networkinterfaces
+import data.lib.cloud.value
 
 deny contains res if {
-	some ni in networkinterfaces
+	some ni in input.azure.network.networkinterfaces
 	value.is_true(ni.enableipforwarding)
 	res := result.new(
 		"Network interface has IP forwarding enabled, which may pose a security risk.",
