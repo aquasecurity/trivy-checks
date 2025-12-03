@@ -46,7 +46,7 @@ func writeDocsFile(meta metadata.Metadata, path string) {
 	docpath := filepath.Join(path,
 		strings.ToLower(meta.Provider().ConstName()),
 		strings.ToLower(strings.ReplaceAll(meta.Service(), "-", "")),
-		meta.AVDID(),
+		meta.ID(),
 	)
 
 	if err := os.MkdirAll(docpath, os.ModePerm); err != nil {
@@ -62,7 +62,7 @@ func writeDocsFile(meta metadata.Metadata, path string) {
 		fail("error occurred generating the document %s", err.Error())
 	}
 
-	fmt.Printf("Generating docs file for policy %s\n", meta.AVDID())
+	fmt.Printf("Generating docs file for policy %s\n", meta.ID())
 
 	exmpls, path, err := examples.GetCheckExamples(meta)
 	if err != nil {
