@@ -42,7 +42,7 @@ deny contains res if {
 	lower(rule.protocol.value) != "icmp"
 	some ports in rule.destinationports
 	some sensitive_port in sensitive_ports
-	port_range_includes(ports.start, ports.end, sensitive_port)
+	net.is_port_range_include(port.start.value, port.end.value, sensitive_port)
 	some ip in rule.sourceaddresses
 	net.cidr_allows_all_ips(ip.value)
 	res := result.new(
