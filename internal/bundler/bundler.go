@@ -20,12 +20,16 @@ type copyJob struct {
 // should be included (returns true) or excluded (returns false) from the bundle.
 type FileFilter func(path string) bool
 
+// PlainTransform modifies the raw bytes of a file before it is added to the bundle.
+type PlainTransform func(path string, raw []byte) []byte
+
 // Bundler is responsible for preparing and archiving a bundle of files from a root directory
 type Bundler struct {
-	root    string
-	fsys    fs.FS
-	prefix  string // Prefix path inside the archive, e.g. "bundle"
-	filters []FileFilter
+	root            string
+	fsys            fs.FS
+	prefix          string // Prefix path inside the archive, e.g. "bundle"
+	filters         []FileFilter
+	plainTransforms []PlainTransform
 
 	jobs  []copyJob
 	files map[string]string // map of source file paths to their relative destination paths in the bundle
@@ -37,6 +41,14 @@ type Option func(*Bundler)
 func WithFilters(filters ...FileFilter) Option {
 	return func(b *Bundler) {
 		b.filters = append(b.filters, filters...)
+	}
+}
+
+// WithPlainTransforms adds one or more PlainTransform functions to the Bundler.
+// Transforms are applied in order to files before bundling.
+func WithPlainTransforms(transforms ...PlainTransform) Option {
+	return func(b *Bundler) {
+		b.plainTransforms = append(b.plainTransforms, transforms...)
 	}
 }
 
@@ -176,18 +188,25 @@ func (b *Bundler) addFileToTar(tw *tar.Writer, src, dst string) error {
 	if err != nil {
 		return err
 	}
-	header.Name = dst
 
-	if err := tw.WriteHeader(header); err != nil {
-		return err
-	}
-
-	f, err := b.fsys.Open(src)
+	data, err := fs.ReadFile(b.fsys, src)
 	if err != nil {
-		return err
+		return fmt.Errorf("read file: %w", err)
 	}
-	defer f.Close()
 
-	_, err = io.Copy(tw, f)
-	return err
+	for _, transform := range b.plainTransforms {
+		data = transform(src, data)
+	}
+
+	header.Name = dst
+	header.Size = int64(len(data))
+	if err := tw.WriteHeader(header); err != nil {
+		return fmt.Errorf("write header: %w", err)
+	}
+
+	if _, err := tw.Write(data); err != nil {
+		return fmt.Errorf("write data: %w", err)
+	}
+
+	return nil
 }

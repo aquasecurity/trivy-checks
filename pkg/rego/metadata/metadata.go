@@ -19,19 +19,16 @@ type Metadata struct {
 	Custom      map[string]any
 }
 
-func (m Metadata) ID() string {
-	if v, ok := m.Custom["id"].(string); ok {
+func (m Metadata) AVDID() string {
+	if v, ok := m.Custom["avd_id"].(string); ok {
 		return v
 	}
 	return ""
 }
 
-func (m Metadata) AVDID() string {
-	aliases := m.Aliases()
-	if len(aliases) > 0 {
-		return aliases[0]
-	}
-	return ""
+func (m Metadata) IsDeprecated() bool {
+	deprecated, ok := m.Custom["deprecated"]
+	return ok && deprecated.(bool)
 }
 
 func (m Metadata) Severity() string {

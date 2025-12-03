@@ -14,6 +14,7 @@ resource "google_compute_instance" "default" {
   }
 
   metadata = {
+    enable-oslogin = "TRUE"
   }
 }
 ```

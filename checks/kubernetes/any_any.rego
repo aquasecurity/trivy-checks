@@ -3,21 +3,18 @@
 # description: "Check whether role permits wildcard verb on wildcard resource"
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+# - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV-0044
-#   aliases:
-#     - AVD-KSV-0044
-#     - KSV044
-#     - no-wildcard-verb-resource-role
-#   long_id: kubernetes-no-wildcard-verb-resource-role
+#   id: KSV044
+#   avd_id: AVD-KSV-0044
 #   severity: CRITICAL
+#   short_code: no-wildcard-verb-resource-role
 #   recommended_action: "Create a role which does not permit wildcard verb on wildcard resource"
 #   input:
 #     selector:
-#       - type: kubernetes
+#     - type: kubernetes
 package builtin.kubernetes.KSV044
 
 import rego.v1

@@ -10,14 +10,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html
 # custom:
-#   id: AWS-0163
-#   aliases:
-#     - AVD-AWS-0163
-#     - require-bucket-access-logging
-#   long_id: aws-cloudtrail-require-bucket-access-logging
+#   id: AVD-AWS-0163
+#   avd_id: AVD-AWS-0163
 #   provider: aws
 #   service: cloudtrail
 #   severity: LOW
+#   short_code: require-bucket-access-logging
 #   recommended_action: Enable access logging on the bucket
 #   frameworks:
 #     default:

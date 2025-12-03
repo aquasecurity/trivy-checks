@@ -3,23 +3,20 @@
 # description: "Viewing secrets at the namespace scope can lead to escalation if another service account in that namespace has a higher privileged rolebinding or clusterrolebinding bound."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+# - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV-0113
-#   aliases:
-#     - AVD-KSV-0113
-#     - KSV113
-#     - no-manage-ns-secrets
-#   long_id: kubernetes-no-manage-ns-secrets
+#   id: KSV113
+#   avd_id: AVD-KSV-0113
 #   severity: MEDIUM
+#   short_code: no-manage-ns-secrets
 #   recommended_actions: "Manage namespace secrets are not allowed. Remove resource 'secrets' from role"
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: role
+#     - type: kubernetes
+#       subtypes:
+#         - kind: role
 package builtin.kubernetes.KSV113
 
 import rego.v1

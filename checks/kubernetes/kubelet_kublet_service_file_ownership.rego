@@ -3,23 +3,20 @@
 # description: "Ensure that the kubelet service file ownership is set to root:root."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://www.cisecurity.org/benchmark/kubernetes
+# - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV-0070
-#   aliases:
-#     - AVD-KCV-0070
-#     - KCV0070
-#     - ensure-kubelet-service-file-ownership-set-root:root.
-#   long_id: kubernetes-ensure-kubelet-service-file-ownership-set-root:root.
+#   id: KCV0070
+#   avd_id: AVD-KCV-0070
 #   severity: CRITICAL
+#   short_code: ensure-kubelet-service-file-ownership-set-root:root.
 #   recommended_action: "Change the kubelet service file /etc/systemd/system/kubelet.service.d/10-kubeadm.conf ownership to root:root"
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: nodeinfo
+#     - type: kubernetes
+#       subtypes:
+#         - kind: nodeinfo
 package builtin.kubernetes.KCV0070
 
 import rego.v1

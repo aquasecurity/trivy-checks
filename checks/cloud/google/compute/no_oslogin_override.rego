@@ -6,14 +6,12 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: GCP-0036
-#   aliases:
-#     - AVD-GCP-0036
-#     - no-oslogin-override
-#   long_id: google-compute-no-oslogin-override
+#   id: AVD-GCP-0036
+#   avd_id: AVD-GCP-0036
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
+#   short_code: no-oslogin-override
 #   recommended_action: Enable OS Login at project level and remove instance-level overrides
 #   input:
 #     selector:
@@ -26,8 +24,13 @@ package builtin.google.compute.google0036
 
 import rego.v1
 
+import data.lib.cloud.value
+
 deny contains res if {
 	some instance in input.google.compute.instances
-	instance.osloginenabled.value == false
+	os_login_disabled(instance)
 	res := result.new("Instance has OS Login disabled.", instance.osloginenabled)
 }
+
+os_login_disabled(instance) if not instance.osloginenabled
+os_login_disabled(instance) if value.is_false(instance.osloginenabled)

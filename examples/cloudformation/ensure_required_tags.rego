@@ -9,6 +9,7 @@
 #   - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/working-with-templates.html
 # custom:
 #   id: USR-CF-0001
+#   avd_id: USR-CF-0001
 #   severity: MEDIUM
 #   short_code: ensure-required-tags
 #   recommended_action: Ensure all resources are tagged with the appropriate metadata tags to facilitate resource management.

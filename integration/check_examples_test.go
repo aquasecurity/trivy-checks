@@ -6,10 +6,12 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"fmt"
 	"io"
 	"io/fs"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strconv"
 	"strings"
 	"testing"
@@ -56,7 +58,7 @@ func TestScanCheckExamples(t *testing.T) {
 			trivyVer := getActualTrivyVersion(t, version)
 			checksMetadata, skipped := setupTarget(t, examplesPath, trivyVer)
 
-			bundlePath := buildBundle(t, verDir, skipped)
+			bundlePath := buildBundle(t, verDir, skipped, trivyVer)
 			pushBundle(t, ctx, bundlePath, bundleImage)
 
 			targetDir, err := filepath.Abs(verDir)
@@ -162,13 +164,21 @@ func getActualTrivyVersion(t *testing.T, version string) semver.Version {
 	return ver
 }
 
-func buildBundle(t *testing.T, path string, skipped []string) string {
+func buildBundle(t *testing.T, outputDir string, skipped []string, trivyVer semver.Version) string {
 	t.Helper()
 
 	fsys := os.DirFS("..")
-	b := bundler.New(".", fsys, bundler.WithFilters(makeSkipIDFilter(t, skipped, fsys)))
+	opts := []bundler.Option{
+		bundler.WithFilters(skipCheckByIdFilter(t, skipped, fsys)),
+	}
 
-	bundlePath := filepath.Join(path, "bundle.tar.gz")
+	if trivyVer.IsPreRelease() {
+		opts = append(opts, bundler.WithPlainTransforms(overrideMinimumVersionTransform(t, trivyVer)))
+	}
+
+	b := bundler.New(".", fsys, opts...)
+
+	bundlePath := filepath.Join(outputDir, "bundle.tar.gz")
 	f, err := os.Create(bundlePath)
 	require.NoError(t, err)
 
@@ -176,14 +186,14 @@ func buildBundle(t *testing.T, path string, skipped []string) string {
 	return bundlePath
 }
 
-func makeSkipIDFilter(t *testing.T, skipped []string, fsys fs.FS) func(path string) bool {
+func skipCheckByIdFilter(t *testing.T, skipped []string, fsys fs.FS) bundler.FileFilter {
 	skipMap := make(map[string]struct{}, len(skipped))
 	for _, id := range skipped {
 		skipMap[id] = struct{}{}
 	}
 
 	return func(path string) bool {
-		if !strings.HasSuffix(path, ".rego") {
+		if !isRegoFile(path) {
 			return true
 		}
 
@@ -198,12 +208,45 @@ func makeSkipIDFilter(t *testing.T, skipped []string, fsys fs.FS) func(path stri
 		meta, ok := metadata.GetCheckMetadata(module)
 		require.True(t, ok, "failed to get metadata for %s", path)
 
-		if _, found := skipMap[meta.ID()]; found {
-			t.Logf("Skip check %s by id filter", meta.ID())
+		if _, found := skipMap[meta.AVDID()]; found {
+			t.Logf("Skip check %s by id filter", meta.AVDID())
 			return false
 		}
 		return true
 	}
+}
+
+var minVerRe = regexp.MustCompile(`#\s+minimum_trivy_version:\s*(\S+)`)
+
+func overrideMinimumVersionTransform(t *testing.T, trivyVersion semver.Version) bundler.PlainTransform {
+	return func(path string, raw []byte) []byte {
+		if !isRegoFile(path) {
+			return raw
+		}
+		return minVerRe.ReplaceAllFunc(raw, func(match []byte) []byte {
+			matches := minVerRe.FindSubmatch(match)
+			if len(matches) < 2 {
+				return match
+			}
+
+			currentVersionStr := string(matches[1])
+			currentVersion, err := semver.Parse(currentVersionStr)
+			if err != nil {
+				return match
+			}
+
+			if currentVersion.GreaterThan(trivyVersion) {
+				t.Logf("Minimum check version in %s overridden: %s -> %s",
+					filepath.Base(path), currentVersionStr, trivyVersion.String())
+				return fmt.Appendf(nil, "#   minimum_trivy_version: %s", trivyVersion.String())
+			}
+			return match
+		})
+	}
+}
+
+func isRegoFile(path string) bool {
+	return strings.HasSuffix(path, ".rego")
 }
 
 func pushBundle(t *testing.T, ctx context.Context, path string, image string) {
@@ -225,7 +268,7 @@ func pushBundle(t *testing.T, ctx context.Context, path string, image string) {
 				{
 					Type:   mount.TypeBind,
 					Source: absPath,
-					Target: "/" + filepath.Base(path),
+					Target: "/workspace/" + filepath.Base(path),
 				}}
 		}),
 	)
@@ -257,7 +300,7 @@ func setupTarget(t *testing.T, targetDir string, trivyVer semver.Version) (map[s
 		require.NoError(t, err)
 
 		if path == "" {
-			t.Logf("Skip check %s without examples", meta.ID())
+			t.Logf("Skip check %s without examples", meta.AVDID())
 			continue
 		}
 
@@ -265,16 +308,16 @@ func setupTarget(t *testing.T, targetDir string, trivyVer semver.Version) (map[s
 		// but this feature appeared after some of the checks had already been updated,
 		// so here we re-apply filtering for compatibility.
 		if shouldSkipCheck(t, meta, minVersions, trivyVer) {
-			t.Logf("Skip unsupported check %s for %s", meta.ID(), trivyVer.String())
-			skipped = append(skipped, meta.ID())
+			t.Logf("Skip unsupported check %s for %s", meta.AVDID(), trivyVer.String())
+			skipped = append(skipped, meta.AVDID())
 			continue
 		}
 
-		metadataByID[meta.ID()] = meta
+		metadataByID[meta.AVDID()] = meta
 
 		for provider, providerExamples := range checkExamples {
-			writeExamples(t, providerExamples.Bad.ToStrings(), provider, targetDir, meta.ID(), "bad")
-			writeExamples(t, providerExamples.Good.ToStrings(), provider, targetDir, meta.ID(), "good")
+			writeExamples(t, providerExamples.Bad.ToStrings(), provider, targetDir, meta.AVDID(), "bad")
+			writeExamples(t, providerExamples.Good.ToStrings(), provider, targetDir, meta.AVDID(), "good")
 		}
 	}
 	return metadataByID, skipped
@@ -348,15 +391,15 @@ func shouldSkipCheck(
 		return false
 	}
 
-	minVer, ok := minVersions[meta.ID()]
+	minVer, ok := minVersions[meta.AVDID()]
 	if !ok {
 		var err error
 		minVer, err = semver.Parse(meta.MinimumTrivyVersion())
 		require.NoError(t, err)
-		minVersions[meta.ID()] = minVer
+		minVersions[meta.AVDID()] = minVer
 	}
 
-	return trivyVer.LessThan(minVer)
+	return !trivyVer.IsPreRelease() && trivyVer.LessThan(minVer)
 }
 
 func fileNameByProvider(provider string) string {

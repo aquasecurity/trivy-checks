@@ -3,25 +3,22 @@
 # description: Ensure that a LimitRange policy is configured to limit resource usage for namespaces or nodes
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://kubernetes.io/docs/concepts/policy/limit-range/
-#   - https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/
-#   - https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-constraint-namespace/
+# - https://kubernetes.io/docs/concepts/policy/limit-range/
+# - https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/
+# - https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-constraint-namespace/
 # custom:
-#   id: KSV-0039
-#   aliases:
-#     - AVD-KSV-0039
-#     - KSV039
-#     - limit-range-usage
-#   long_id: kubernetes-limit-range-usage
+#   id: KSV039
+#   avd_id: AVD-KSV-0039
 #   severity: LOW
+#   short_code: limit-range-usage
 #   recommended_action: Create a LimitRange policy with default requests and limits for each container
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: limitrange
+#     - type: kubernetes
+#       subtypes:
+#         - kind: limitrange
 package builtin.kubernetes.KSV039
 
 import rego.v1

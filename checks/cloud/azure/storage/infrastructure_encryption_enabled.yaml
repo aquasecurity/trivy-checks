@@ -1,0 +1,31 @@
+terraform:
+  links:
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account#infrastructure_encryption_enabled
+  good:
+    - |-
+      resource "azurerm_storage_account" "good_example" {
+        name                              = "storageaccountname"
+        resource_group_name               = azurerm_resource_group.example.name
+        location                          = azurerm_resource_group.example.location
+        account_tier                      = "Standard"
+        account_replication_type          = "GRS"
+        infrastructure_encryption_enabled = true
+      }
+  bad:
+    - |-
+      resource "azurerm_storage_account" "bad_example" {
+        name                              = "storageaccountname"
+        resource_group_name               = azurerm_resource_group.example.name
+        location                          = azurerm_resource_group.example.location
+        account_tier                      = "Standard"
+        account_replication_type          = "GRS"
+        infrastructure_encryption_enabled = false
+      }
+    - |-
+      resource "azurerm_storage_account" "bad_example" {
+        name                     = "storageaccountname"
+        resource_group_name      = azurerm_resource_group.example.name
+        location                 = azurerm_resource_group.example.location
+        account_tier             = "Standard"
+        account_replication_type = "GRS"
+      }

@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://cloud.google.com/iam/docs/impersonating-service-accounts
 # custom:
-#   id: GCP-0009
-#   aliases:
-#     - AVD-GCP-0009
-#     - no-org-level-service-account-impersonation
-#   long_id: google-iam-no-org-level-service-account-impersonation
+#   id: AVD-GCP-0009
+#   avd_id: AVD-GCP-0009
 #   provider: google
 #   service: iam
 #   severity: MEDIUM
+#   short_code: no-org-level-service-account-impersonation
 #   recommended_action: Provide access at the service-level instead of organization-level, if required
 #   input:
 #     selector:
@@ -33,5 +31,5 @@ import data.lib.google.iam
 deny contains res if {
 	some role in iam.roles("organizations")
 	iam.is_privileged_access_role(role.value)
-	res := result.new("Service account access is granted to a user at project level.", role)
+	res := result.new("Organization-level service account access grants the member broad impersonation rights.", role)
 }
