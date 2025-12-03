@@ -12,11 +12,10 @@
 #   - https://docs.microsoft.com/en-us/azure/storage/common/infrastructure-encryption-enable
 # custom:
 #   id: AZU-0061
-#   long_id: azure-storage-
+#   long_id: azure-storage-infrastructure-encryption-enabled
 #   aliases:
-#     - ""
-#     - infrastructure-encryption-enabled
 #     - AVD-AZU-0061
+#     - infrastructure-encryption-enabled
 #   provider: azure
 #   service: storage
 #   severity: MEDIUM

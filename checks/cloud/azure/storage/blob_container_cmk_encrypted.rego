@@ -11,10 +11,9 @@
 #   - https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview
 # custom:
 #   id: AZU-0060
-#   long_id: azure-storage-
+#   long_id: azure-storage-blob-container-cmk-encrypted
 #   aliases:
 #     - AVD-AZU-0060
-#     - ""
 #     - blob-container-cmk-encrypted
 #   provider: azure
 #   service: storage

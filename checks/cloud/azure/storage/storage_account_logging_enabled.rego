@@ -11,10 +11,9 @@
 #   - https://docs.microsoft.com/en-us/azure/storage/common/storage-analytics-logging
 # custom:
 #   id: AZU-0057
-#   long_id: azure-storage-
+#   long_id: azure-storage-account-logging-enabled
 #   aliases:
 #     - AVD-AZU-0057
-#     - ""
 #     - storage-account-logging-enabled
 #   provider: azure
 #   service: storage

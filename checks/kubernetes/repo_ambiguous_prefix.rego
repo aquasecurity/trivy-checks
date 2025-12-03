@@ -5,10 +5,10 @@
 #   - input: schema["kubernetes"]
 # custom:
 #   id: KSV-0124
-#   long_id: kubernetes-
+#   long_id: kubernetes-gatekeeper-ambiguous-repo
 #   aliases:
 #     - AVD-KSV-0124
-#     - ""
+#     - gatekeeper-ambiguous-repo
 #   severity: HIGH
 #   input:
 #     selector:
