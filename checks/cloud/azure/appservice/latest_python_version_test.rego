@@ -10,16 +10,28 @@ test_deny_outdated_python_version if {
 	count(res) == 1
 }
 
-test_deny_old_python_version if {
-	inp := {"azure": {"appservice": {"services": [{"site": {"pythonversion": {"value": "3.9"}}}]}}}
+test_deny_eol_python_version_37 if {
+	inp := {"azure": {"appservice": {"services": [{"site": {"pythonversion": {"value": "3.7"}}}]}}}
 	res := check.deny with input as inp
 	count(res) == 1
 }
 
-test_allow_latest_python_version if {
-	inp := {"azure": {"appservice": {"services": [{"site": {"pythonversion": {"value": check.latest_python_version}}}]}}}
+test_allow_supported_python_version if {
+	inp := {"azure": {"appservice": {"services": [{"site": {"pythonversion": {"value": "3.9"}}}]}}}
 	res := check.deny with input as inp
 	res == set()
+}
+
+test_allow_current_python_version if {
+	inp := {"azure": {"appservice": {"services": [{"site": {"pythonversion": {"value": "3.12"}}}]}}}
+	res := check.deny with input as inp
+	res == set()
+}
+
+test_deny_patch_version_of_eol_python if {
+	inp := {"azure": {"appservice": {"services": [{"site": {"pythonversion": {"value": "3.8.10"}}}]}}}
+	res := check.deny with input as inp
+	count(res) == 1
 }
 
 test_allow_no_python_configured if {

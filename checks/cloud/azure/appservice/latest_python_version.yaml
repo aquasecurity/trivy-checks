@@ -1,19 +1,34 @@
 terraform:
   links:
     - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#python_version
+    - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app#python_version
   good:
     - |-
-      resource "azurerm_app_service" "good_example" {
+      # Supported Python version (3.9 or higher)
+      resource "azurerm_app_service" "good_example_supported" {
         name                = "example-app-service"
         location            = azurerm_resource_group.example.location
         resource_group_name = azurerm_resource_group.example.name
         app_service_plan_id = azurerm_app_service_plan.example.id
 
         site_config {
-          python_version = "3.11"
+          python_version = "3.9"
         }
       }
     - |-
+      # Current stable version
+      resource "azurerm_app_service" "good_example_current" {
+        name                = "example-app-service"
+        location            = azurerm_resource_group.example.location
+        resource_group_name = azurerm_resource_group.example.name
+        app_service_plan_id = azurerm_app_service_plan.example.id
+
+        site_config {
+          python_version = "3.12"
+        }
+      }
+    - |-
+      # No Python version specified - not using Python
       resource "azurerm_app_service" "good_example_no_python" {
         name                = "example-app-service"
         location            = azurerm_resource_group.example.location
@@ -24,9 +39,24 @@ terraform:
           # No Python version specified - not using Python
         }
       }
+    - |-
+      # Modern Linux Web App with latest Python (recommended approach)
+      resource "azurerm_linux_web_app" "good_example_modern" {
+        name                = "example-linux-webapp"
+        location            = azurerm_resource_group.example.location
+        resource_group_name = azurerm_resource_group.example.name
+        service_plan_id     = azurerm_service_plan.example.id
+
+        site_config {
+          application_stack {
+            python_version = "3.12"
+          }
+        }
+      }
   bad:
     - |-
-      resource "azurerm_app_service" "bad_example" {
+      # EOL Python version 3.8 (reached EOL in October 2024)
+      resource "azurerm_app_service" "bad_example_python38" {
         name                = "example-app-service"
         location            = azurerm_resource_group.example.location
         resource_group_name = azurerm_resource_group.example.name
@@ -37,13 +67,26 @@ terraform:
         }
       }
     - |-
-      resource "azurerm_app_service" "bad_example_old" {
+      # EOL Python version 3.7 (reached EOL in June 2023)
+      resource "azurerm_app_service" "bad_example_python37" {
         name                = "example-app-service"
         location            = azurerm_resource_group.example.location
         resource_group_name = azurerm_resource_group.example.name
         app_service_plan_id = azurerm_app_service_plan.example.id
 
         site_config {
-          python_version = "3.9"
+          python_version = "3.7"
+        }
+      }
+    - |-
+      # Version with patch number - should still be detected as unsupported
+      resource "azurerm_app_service" "bad_example_python38_patch" {
+        name                = "example-app-service"
+        location            = azurerm_resource_group.example.location
+        resource_group_name = azurerm_resource_group.example.name
+        app_service_plan_id = azurerm_app_service_plan.example.id
+
+        site_config {
+          python_version = "3.8.10"
         }
       }

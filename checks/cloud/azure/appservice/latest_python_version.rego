@@ -1,21 +1,24 @@
 # METADATA
-# title: App Service Without Latest Python Version
+# title: App Service Using Unsupported Python Version
 # description: |
-#   An outdated Python runtime in Azure App Service may miss security patches and improvements, leading to exploitable conditions.
+#   Using an unsupported Python runtime in Azure App Service may expose applications to security vulnerabilities
+#   as these versions no longer receive security patches. This check ensures Python versions are still supported by the Python Foundation.
 # scope: package
 # schemas:
 #   - input: schema["cloud"]
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#python_version
+#   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app#python_version
+#   - https://peps.python.org/pep-0602/
 # custom:
 #   id: AVD-AZU-0070
 #   avd_id: AVD-AZU-0070
 #   provider: azure
 #   service: appservice
-#   severity: LOW
+#   severity: MEDIUM
 #   minimum_trivy_version: 0.68.0
-#   short_code: latest-python-version
-#   recommended_action: Update the App Service runtime to the newest stable Python version for security and support.
+#   short_code: supported-python-version
+#   recommended_action: Update to a supported Python version (3.9 or higher). Consider migrating from azurerm_app_service to azurerm_linux_web_app for access to modern Python versions.
 #   input:
 #     selector:
 #       - type: cloud
@@ -29,16 +32,29 @@ import rego.v1
 
 import data.lib.cloud.metadata
 
-# Latest supported Python version as of common practice
-latest_python_version := "3.11"
+# Minimum supported Python version - Python 3.8 reached EOL in October 2024
+minimum_supported_python_version := "3.9"
+
+# NOTE: Resource type considerations
+# - azurerm_app_service (deprecated): Limited to older Python versions, direct python_version in site_config
+# - azurerm_linux_web_app (recommended): Supports modern Python versions, python_version nested under application_stack
+# The input.azure.appservice.services structure handles both resource types in a unified format,
+# with the python version accessible via service.site.pythonversion.value regardless of source resource type.
+
+# Unsupported Python versions (those that have reached EOL)
+unsupported_python_versions := {
+	"3.7", # EOL: June 2023
+	"3.8", # EOL: October 2024
+	"2.7", # EOL: January 2020
+}
 
 deny contains res if {
 	some service in input.azure.appservice.services
 	isManaged(service)
 	has_python_configured(service)
-	not is_latest_python_version(service)
+	is_unsupported_python_version(service)
 	res := result.new(
-		sprintf("App service is not using the latest Python version (%s). Current version: %s", [latest_python_version, service.site.pythonversion.value]),
+		sprintf("App service is using an unsupported Python version (%s). Use Python %s or higher for continued security support.", [service.site.pythonversion.value, minimum_supported_python_version]),
 		metadata.obj_by_path(service, ["site", "pythonversion"]),
 	)
 }
@@ -47,6 +63,17 @@ has_python_configured(service) if {
 	service.site.pythonversion.value != ""
 }
 
-is_latest_python_version(service) if {
-	service.site.pythonversion.value == latest_python_version
+is_unsupported_python_version(service) if {
+	service.site.pythonversion.value in unsupported_python_versions
+}
+
+is_unsupported_python_version(service) if {
+	version := service.site.pythonversion.value
+	version != ""
+
+	# Handle version strings like "3.8.x" by extracting major.minor
+	version_parts := split(version, ".")
+	count(version_parts) >= 2
+	major_minor := sprintf("%s.%s", [version_parts[0], version_parts[1]])
+	major_minor in unsupported_python_versions
 }
