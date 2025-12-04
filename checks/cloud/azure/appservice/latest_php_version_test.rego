@@ -16,8 +16,8 @@ test_deny_old_php_version if {
 	count(res) == 1
 }
 
-test_allow_latest_php_version if {
-	inp := {"azure": {"appservice": {"services": [{"site": {"phpversion": {"value": check.latest_php_version}}}]}}}
+test_allow_supported_php_version if {
+	inp := {"azure": {"appservice": {"services": [{"site": {"phpversion": {"value": check.minimum_supported_php_version}}}]}}}
 	res := check.deny with input as inp
 	res == set()
 }

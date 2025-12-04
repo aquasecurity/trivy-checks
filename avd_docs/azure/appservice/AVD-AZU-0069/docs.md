@@ -1,5 +1,6 @@
 
-Running outdated PHP on App Service exposes apps to known vulnerabilities and performance degradation.
+Using an unsupported PHP runtime in Azure App Service may expose applications to security vulnerabilities
+as these versions no longer receive security patches. This check ensures PHP versions are still supported.
 
 
 ### Impact

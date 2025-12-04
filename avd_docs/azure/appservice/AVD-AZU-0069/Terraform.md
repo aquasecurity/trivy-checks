@@ -1,5 +1,5 @@
 
-Upgrade to the latest supported PHP version in the App Service configuration settings.
+Update to a supported PHP version (8.1 or higher). Consider migrating from azurerm_app_service to azurerm_linux_web_app for access to modern PHP versions.
 
 ```hcl
 resource "azurerm_app_service" "good_example" {
