@@ -15,6 +15,7 @@ terraform:
         }
 
         metadata = {
+          enable-oslogin = "TRUE"
         }
       }
   bad:
