@@ -1,0 +1,61 @@
+
+Enable NSG flow logs via Network Watcher and configure a storage account for log export.
+
+```hcl
+resource "azurerm_resource_group" "example" {
+  name     = "example-resources"
+  location = "West Europe"
+}
+
+resource "azurerm_virtual_network" "example" {
+  name                = "example-network"
+  address_space       = ["10.0.0.0/16"]
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+}
+
+resource "azurerm_subnet" "example" {
+  name                 = "internal"
+  resource_group_name  = azurerm_resource_group.example.name
+  virtual_network_name = azurerm_virtual_network.example.name
+  address_prefixes     = ["10.0.2.0/24"]
+}
+
+resource "azurerm_network_security_group" "example" {
+  name                = "example-security-group"
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+}
+
+resource "azurerm_network_watcher" "example" {
+  name                = "example-watcher"
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+}
+
+resource "azurerm_storage_account" "example" {
+  name                     = "examplestorageaccount"
+  resource_group_name      = azurerm_resource_group.example.name
+  location                 = azurerm_resource_group.example.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
+
+resource "azurerm_network_watcher_flow_log" "good_example" {
+  network_watcher_name = azurerm_network_watcher.example.name
+  resource_group_name  = azurerm_resource_group.example.name
+
+  network_security_group_id = azurerm_network_security_group.example.id
+  storage_account_id        = azurerm_storage_account.example.id
+  enabled                   = true
+
+  retention_policy {
+    enabled = true
+    days    = 7
+  }
+}
+```
+
+#### Remediation Links
+ - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_watcher_flow_log
+
