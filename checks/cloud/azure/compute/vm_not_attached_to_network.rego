@@ -29,6 +29,10 @@ package builtin.azure.compute.azure0068
 
 import rego.v1
 
+no_security_groups(ni) if not ni.securitygroups
+
+no_security_groups(ni) if count(ni.securitygroups) == 0
+
 deny contains res if {
 	vms := array.concat(
 		object.get(input.azure.compute, "linuxvirtualmachines", []),
@@ -37,7 +41,7 @@ deny contains res if {
 
 	some vm in vms
 	some nic in vm.virtualmachine.networkinterfaces
-	count(nic.securitygroups) == 0
+	no_security_groups(nic)
 	res := result.new(
 		"Virtual machine network interface is not associated with a network security group.",
 		nic,
