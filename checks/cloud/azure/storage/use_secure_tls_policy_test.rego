@@ -16,3 +16,9 @@ test_allow_tls_1_2 if {
 
 	test.assert_empty(check.deny) with input as inp
 }
+
+test_allow_tls_1_3 if {
+	inp := {"azure": {"storage": {"accounts": [{"minimumtlsversion": {"value": "TLS1_3"}}]}}}
+
+	test.assert_empty(check.deny) with input as inp
+}
