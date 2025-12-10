@@ -1,3 +1,5 @@
+export CGO_ENABLED=0
+
 SHELL := /bin/bash
 
 OUTDATED_API_DATA_URL := https://raw.githubusercontent.com/aquasecurity/trivy-db-data/refs/heads/main/k8s/api/k8s-outdated-api.json

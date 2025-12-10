@@ -6,6 +6,7 @@ package lib.cloud.value
 import rego.v1
 
 is_unresolvable(val) if val.unresolvable
+is_known(val) if not is_unresolvable(val)
 
 # string
 
