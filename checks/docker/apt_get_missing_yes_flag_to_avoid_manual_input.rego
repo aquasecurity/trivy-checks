@@ -7,13 +7,10 @@
 # schemas:
 #   - input: schema["dockerfile"]
 # custom:
-#   id: DS-0021
-#   long_id: docker-use-apt-auto-confirm
-#   aliases:
-#     - AVD-DS-0021
-#     - use-apt-auto-confirm
-#     - DS021
+#   id: DS021
+#   avd_id: AVD-DS-0021
 #   severity: HIGH
+#   short_code: use-apt-auto-confirm
 #   recommended_action: Add '-y' flag to 'apt-get'
 #   input:
 #     selector:

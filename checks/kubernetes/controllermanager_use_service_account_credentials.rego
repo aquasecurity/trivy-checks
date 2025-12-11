@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV-0035
-#   long_id: kubernetes-ensure-use-service-account-credentials-argument-is-set-to-true
-#   aliases:
-#     - AVD-KCV-0035
-#     - ensure-use-service-account-credentials-argument-is-set-to-true
-#     - KCV0135
+#   id: KCV0135
+#   avd_id: AVD-KCV-0035
 #   severity: LOW
+#   short_code: ensure-use-service-account-credentials-argument-is-set-to-true
 #   recommended_action: Edit the Controller Manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml on the Control Plane node to set the below parameter.
 #   input:
 #     selector:

@@ -10,14 +10,12 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/security_center_contact#email
 # custom:
-#   id: AZU-0062
-#   long_id: azure-securitycenter-security-contact-email
-#   aliases:
-#     - AVD-AZU-0062
-#     - security-contact-email
+#   id: AVD-AZU-0062
+#   avd_id: AVD-AZU-0062
 #   provider: azure
 #   service: security-center
 #   severity: MEDIUM
+#   short_code: security-contact-email
 #   recommended_action: Set additional security contact emails in Defender for Cloud under Environment Settings > Email notifications.
 #   minimum_trivy_version: 0.68.0
 #   input:

@@ -8,15 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#password-policy-details
 # custom:
-#   id: AWS-0123
-#   long_id: aws-iam-enforce-group-mfa
+#   id: AVD-AWS-0123
+#   avd_id: AVD-AWS-0123
 #   aliases:
-#     - AVD-AWS-0123
-#     - enforce-group-mfa
 #     - aws-iam-enforce-mfa
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
+#   short_code: enforce-group-mfa
 #   recommended_action: Use terraform-module/enforce-mfa/aws to ensure that MFA is enforced
 #   input:
 #     selector:

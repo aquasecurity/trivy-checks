@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/rest/api/sql/2021-02-01-preview/firewall-rules/create-or-update
 # custom:
-#   id: AZU-0029
-#   long_id: azure-database-no-public-firewall-access
-#   aliases:
-#     - no-public-firewall-access
-#     - AVD-AZU-0029
+#   id: AVD-AZU-0029
+#   avd_id: AVD-AZU-0029
 #   provider: azure
 #   service: database
 #   severity: HIGH
+#   short_code: no-public-firewall-access
 #   recommended_action: Don't use wide ip ranges for the sql firewall
 #   input:
 #     selector:

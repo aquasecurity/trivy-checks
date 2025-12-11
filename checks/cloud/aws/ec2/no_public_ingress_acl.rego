@@ -12,15 +12,14 @@
 #   - https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html
 #   - https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-21
 # custom:
-#   id: AWS-0105
-#   long_id: aws-ec2-no-public-ingress-acl
+#   id: AVD-AWS-0105
+#   avd_id: AVD-AWS-0105
 #   aliases:
-#     - AVD-AWS-0105
-#     - no-public-ingress-acl
 #     - aws-vpc-no-public-ingress-acl
 #   provider: aws
 #   service: ec2
 #   severity: MEDIUM
+#   short_code: no-public-ingress-acl
 #   recommended_action: Set a more restrictive CIDR range
 #   frameworks:
 #     default:

@@ -10,14 +10,12 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/storage/common/transport-layer-security-configure-minimum-version
 # custom:
-#   id: AZU-0011
-#   long_id: azure-storage-use-secure-tls-policy
-#   aliases:
-#     - AVD-AZU-0011
-#     - use-secure-tls-policy
+#   id: AVD-AZU-0011
+#   avd_id: AVD-AZU-0011
 #   provider: azure
 #   service: storage
 #   severity: CRITICAL
+#   short_code: use-secure-tls-policy
 #   recommended_action: Use a more recent TLS/SSL policy for the load balancer
 #   input:
 #     selector:

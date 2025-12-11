@@ -12,14 +12,12 @@
 #   - https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-13
 #   - https://docs.aws.amazon.com/securityhub/latest/userguide/ec2-controls.html#ec2-14
 # custom:
-#   id: AWS-0107
-#   long_id: aws-ec2-no-public-ingress-sgr
-#   aliases:
-#     - AVD-AWS-0107
-#     - no-public-ingress-sgr
+#   id: AVD-AWS-0107
+#   avd_id: AVD-AWS-0107
 #   provider: aws
 #   service: ec2
 #   severity: HIGH
+#   short_code: no-public-ingress-sgr
 #   recommended_action: Set a more restrictive CIDR range
 #   frameworks:
 #     default:

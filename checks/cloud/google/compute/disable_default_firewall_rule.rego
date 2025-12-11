@@ -11,11 +11,10 @@
 #   - https://cloud.google.com/firewall/docs/firewalls#more_rules_default_vpc
 # custom:
 #   id: GCP-0073
-#   long_id: google-compute-disable-default-firewall-rules
+#   avd_id: AVD-GCP-0073
 #   aliases:
 #     - google-compute-disable-default-firewall-rules
-#     - AVD-GCP-0073
-#     - disable-default-firewall-rules
+#   short_code: disable-default-firewall-rules
 #   provider: google
 #   service: compute
 #   severity: MEDIUM

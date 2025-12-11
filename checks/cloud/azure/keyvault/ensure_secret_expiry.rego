@@ -10,14 +10,12 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/key-vault/secrets/about-secrets
 # custom:
-#   id: AZU-0017
-#   long_id: azure-keyvault-ensure-secret-expiry
-#   aliases:
-#     - AVD-AZU-0017
-#     - ensure-secret-expiry
+#   id: AVD-AZU-0017
+#   avd_id: AVD-AZU-0017
 #   provider: azure
 #   service: keyvault
 #   severity: LOW
+#   short_code: ensure-secret-expiry
 #   recommended_action: Set an expiry for secrets
 #   input:
 #     selector:

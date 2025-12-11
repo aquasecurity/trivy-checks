@@ -10,14 +10,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html#password-policy-details
 # custom:
-#   id: AWS-0063
-#   long_id: aws-iam-set-minimum-password-length
-#   aliases:
-#     - AVD-AWS-0063
-#     - set-minimum-password-length
+#   id: AVD-AWS-0063
+#   avd_id: AVD-AWS-0063
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
+#   short_code: set-minimum-password-length
 #   recommended_action: Enforce longer, more complex passwords in the policy
 #   frameworks:
 #     default:

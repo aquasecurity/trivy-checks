@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV-0042
-#   long_id: kubernetes-no-delete-pod-logs
-#   aliases:
-#     - no-delete-pod-logs
-#     - KSV042
-#     - AVD-KSV-0042
+#   id: KSV042
+#   avd_id: AVD-KSV-0042
 #   severity: MEDIUM
+#   short_code: no-delete-pod-logs
 #   recommended_action: Remove verbs 'delete' and 'deletecollection' for resource 'pods/log' for Role and ClusterRole
 #   input:
 #     selector:

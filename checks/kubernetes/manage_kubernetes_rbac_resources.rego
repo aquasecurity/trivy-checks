@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV-0050
-#   long_id: kubernetes-no-manage-rbac-resources
-#   aliases:
-#     - AVD-KSV-0050
-#     - no-manage-rbac-resources
-#     - KSV050
+#   id: KSV050
+#   avd_id: AVD-KSV-0050
 #   severity: CRITICAL
+#   short_code: no-manage-rbac-resources
 #   recommended_action: Remove write permission verbs for resource 'roles' and 'rolebindings'
 #   input:
 #     selector:

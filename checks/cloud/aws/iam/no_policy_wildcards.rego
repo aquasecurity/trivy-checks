@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html
 # custom:
-#   id: AWS-0057
-#   long_id: aws-iam-no-policy-wildcards
-#   aliases:
-#     - AVD-AWS-0057
-#     - no-policy-wildcards
+#   id: AVD-AWS-0057
+#   avd_id: AVD-AWS-0057
 #   provider: aws
 #   service: iam
 #   severity: HIGH
+#   short_code: no-policy-wildcards
 #   deprecated: true
 #   recommended_action: Specify the exact permissions required, and to which resources they should apply instead of using wildcards.
 #   frameworks:

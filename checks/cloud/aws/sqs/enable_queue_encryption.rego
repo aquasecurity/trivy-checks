@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html
 # custom:
-#   id: AWS-0096
-#   long_id: aws-sqs-enable-queue-encryption
-#   aliases:
-#     - AVD-AWS-0096
-#     - enable-queue-encryption
+#   id: AVD-AWS-0096
+#   avd_id: AVD-AWS-0096
 #   provider: aws
 #   service: sqs
 #   severity: HIGH
+#   short_code: enable-queue-encryption
 #   recommended_action: Turn on SQS Queue encryption
 #   input:
 #     selector:

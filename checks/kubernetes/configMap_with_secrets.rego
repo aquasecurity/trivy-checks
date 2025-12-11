@@ -5,12 +5,10 @@
 # schemas:
 #   - input: schema["kubernetes"]
 # custom:
-#   id: KSV-0109
-#   long_id: kubernetes-configMap-with-secrets
-#   aliases:
-#     - AVD-KSV-0109
-#     - configMap_with_secrets
+#   id: AVD-KSV-0109
+#   avd_id: AVD-KSV-0109
 #   severity: HIGH
+#   short_code: configMap_with_secrets
 #   recommended_action: Remove password/secret from configMap data value
 #   input:
 #     selector:

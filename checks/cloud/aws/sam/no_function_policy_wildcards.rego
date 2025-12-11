@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-policies
 # custom:
-#   id: AWS-0114
-#   long_id: aws-sam-no-function-policy-wildcards
-#   aliases:
-#     - AVD-AWS-0114
-#     - no-function-policy-wildcards
+#   id: AVD-AWS-0114
+#   avd_id: AVD-AWS-0114
 #   provider: aws
 #   service: sam
 #   severity: HIGH
+#   short_code: no-function-policy-wildcards
 #   deprecated: true
 #   recommended_action: Specify the exact permissions required, and to which resources they should apply instead of using wildcards.
 #   input:

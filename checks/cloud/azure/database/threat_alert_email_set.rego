@@ -6,14 +6,12 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AZU-0018
-#   long_id: azure-database-threat-alert-email-set
-#   aliases:
-#     - AVD-AZU-0018
-#     - threat-alert-email-set
+#   id: AVD-AZU-0018
+#   avd_id: AVD-AZU-0018
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
+#   short_code: threat-alert-email-set
 #   recommended_action: Provide at least one email address for threat alerts
 #   input:
 #     selector:

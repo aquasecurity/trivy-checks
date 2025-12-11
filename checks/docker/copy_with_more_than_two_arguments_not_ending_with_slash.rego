@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://docs.docker.com/engine/reference/builder/#copy
 # custom:
-#   id: DS-0011
-#   long_id: docker-use-slash-for-copy-args
-#   aliases:
-#     - AVD-DS-0011
-#     - use-slash-for-copy-args
-#     - DS011
+#   id: DS011
+#   avd_id: AVD-DS-0011
 #   severity: CRITICAL
+#   short_code: use-slash-for-copy-args
 #   recommended_action: Add slash to last COPY argument
 #   input:
 #     selector:

@@ -9,14 +9,12 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/bastion/tutorial-create-host-portal
 # custom:
-#   id: AZU-0048
-#   long_id: azure-network-disable-rdp-from-internet
-#   aliases:
-#     - AVD-AZU-0048
-#     - disable-rdp-from-internet
+#   id: AVD-AZU-0048
+#   avd_id: AVD-AZU-0048
 #   provider: azure
 #   service: network
 #   severity: CRITICAL
+#   short_code: disable-rdp-from-internet
 #   recommended_action: Block RDP port from internet
 #   input:
 #     selector:

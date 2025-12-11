@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/postgresql/concepts-server-logs#configure-logging
 # custom:
-#   id: AZU-0024
-#   long_id: azure-database-postgres-configuration-log-checkpoints
-#   aliases:
-#     - AVD-AZU-0024
-#     - postgres-configuration-log-checkpoints
+#   id: AVD-AZU-0024
+#   avd_id: AVD-AZU-0024
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
+#   short_code: postgres-configuration-log-checkpoints
 #   recommended_action: Enable checkpoint logging
 #   input:
 #     selector:

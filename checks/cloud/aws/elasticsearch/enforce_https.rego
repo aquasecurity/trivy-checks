@@ -9,14 +9,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-data-protection.html
 # custom:
-#   id: AWS-0046
-#   long_id: aws-elasticsearch-enforce-https
-#   aliases:
-#     - AVD-AWS-0046
-#     - enforce-https
+#   id: AVD-AWS-0046
+#   avd_id: AVD-AWS-0046
 #   provider: aws
 #   service: elasticsearch
 #   severity: CRITICAL
+#   short_code: enforce-https
 #   recommended_action: Enforce the use of HTTPS for ElasticSearch
 #   input:
 #     selector:

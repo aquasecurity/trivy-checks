@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV-0077
-#   long_id: kubernetes-ensure-kubelet-config.yaml--permissions-600-or-more-restrictive.
-#   aliases:
-#     - AVD-KCV-0077
-#     - ensure-kubelet-config.yaml--permissions-600-or-more-restrictive.
-#     - KCV0077
+#   id: KCV0077
+#   avd_id: AVD-KCV-0077
 #   severity: HIGH
+#   short_code: ensure-kubelet-config.yaml--permissions-600-or-more-restrictive.
 #   recommended_action: Change the kubelet config yaml permissions to 600 or more restrictive if exist
 #   input:
 #     selector:

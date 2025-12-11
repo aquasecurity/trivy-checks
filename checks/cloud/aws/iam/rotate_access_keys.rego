@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/automatically-rotate-iam-user-access-keys-at-scale-with-aws-organizations-and-aws-secrets-manager.html
 # custom:
-#   id: AWS-0146
-#   long_id: aws-iam-rotate-access-keys
-#   aliases:
-#     - AVD-AWS-0146
-#     - rotate-access-keys
+#   id: AVD-AWS-0146
+#   avd_id: AVD-AWS-0146
 #   provider: aws
 #   service: iam
 #   severity: LOW
+#   short_code: rotate-access-keys
 #   recommended_action: Rotate keys every 90 days or less
 #   frameworks:
 #     cis-aws-1.2:

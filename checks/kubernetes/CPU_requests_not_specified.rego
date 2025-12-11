@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://cloud.google.com/blog/products/containers-kubernetes/kubernetes-best-practices-resource-requests-and-limits
 # custom:
-#   id: KSV-0015
-#   long_id: kubernetes-no-unspecified-cpu-requests
-#   aliases:
-#     - AVD-KSV-0015
-#     - no-unspecified-cpu-requests
-#     - KSV015
+#   id: KSV015
+#   avd_id: AVD-KSV-0015
 #   severity: LOW
+#   short_code: no-unspecified-cpu-requests
 #   recommended_action: Set 'containers[].resources.requests.cpu'.
 #   input:
 #     selector:

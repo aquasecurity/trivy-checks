@@ -6,14 +6,12 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: DIG-0009
-#   long_id: digitalocean-spaces-disable-force-destroy
-#   aliases:
-#     - disable-force-destroy
-#     - AVD-DIG-0009
+#   id: AVD-DIG-0009
+#   avd_id: AVD-DIG-0009
 #   provider: digitalocean
 #   service: spaces
 #   severity: MEDIUM
+#   short_code: disable-force-destroy
 #   recommended_action: Don't use force destroy on bucket configuration
 #   input:
 #     selector:

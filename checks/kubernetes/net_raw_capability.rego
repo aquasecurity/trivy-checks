@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/security/pod-security-standards/
 # custom:
-#   id: KSV-0119
-#   long_id: kubernetes-no-net-raw
-#   aliases:
-#     - AVD-KSV-0119
-#     - no-net-raw
-#     - KSV119
+#   id: KSV119
+#   avd_id: AVD-KSV-0119
 #   severity: HIGH
+#   short_code: no-net-raw
 #   recommended_action: To mitigate potential security risks, it is strongly recommended to remove the NET_RAW capability from 'containers[].securityContext.capabilities.add'. It is advisable to follow the practice of dropping all capabilities and only adding the necessary ones.
 #   input:
 #     selector:

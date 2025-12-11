@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#azure_policy_enabled
 # custom:
-#   id: AZU-0066
-#   long_id: azure-container-enable-azure-policy-addon
-#   aliases:
-#     - AVD-AZU-0066
-#     - enable-azure-policy-addon
+#   id: AVD-AZU-0066
+#   avd_id: AVD-AZU-0066
 #   provider: azure
 #   service: container
 #   severity: LOW
+#   short_code: enable-azure-policy-addon
 #   recommended_action: Enable Azure Policy add-on on the AKS cluster to enforce governance policies.
 #   minimum_trivy_version: 0.68.0
 #   input:

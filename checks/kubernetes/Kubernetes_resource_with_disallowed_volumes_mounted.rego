@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 # custom:
-#   id: KSV-0121
-#   long_id: kubernetes-no-k8s-with-disallowed-volumes
-#   aliases:
-#     - AVD-KSV-0121
-#     - no-k8s-with-disallowed-volumes
-#     - KSV121
+#   id: KSV121
+#   avd_id: AVD-KSV-0121
 #   severity: HIGH
+#   short_code: no-k8s-with-disallowed-volumes
 #   recommended_action: Do not Set 'spec.volumes[*].hostPath.path' to any of the disallowed volumes.
 #   input:
 #     selector:

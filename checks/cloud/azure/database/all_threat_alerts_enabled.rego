@@ -6,14 +6,12 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AZU-0028
-#   long_id: azure-database-all-threat-alerts-enabled
-#   aliases:
-#     - AVD-AZU-0028
-#     - all-threat-alerts-enabled
+#   id: AVD-AZU-0028
+#   avd_id: AVD-AZU-0028
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
+#   short_code: all-threat-alerts-enabled
 #   recommended_action: Use all provided threat alerts
 #   input:
 #     selector:

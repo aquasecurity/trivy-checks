@@ -10,14 +10,12 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/azure/azure-sql/database/auditing-overview
 # custom:
-#   id: AZU-0025
-#   long_id: azure-database-retention-period-set
-#   aliases:
-#     - AVD-AZU-0025
-#     - retention-period-set
+#   id: AVD-AZU-0025
+#   avd_id: AVD-AZU-0025
 #   provider: azure
 #   service: database
 #   severity: MEDIUM
+#   short_code: retention-period-set
 #   recommended_action: Set retention periods of database auditing to greater than 90 days
 #   input:
 #     selector:

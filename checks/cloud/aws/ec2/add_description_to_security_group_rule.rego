@@ -10,15 +10,14 @@
 # related_resources:
 #   - https://www.cloudconformity.com/knowledge-base/aws/EC2/security-group-rules-description.html
 # custom:
-#   id: AWS-0124
-#   long_id: aws-ec2-add-description-to-security-group-rule
+#   id: AVD-AWS-0124
+#   avd_id: AVD-AWS-0124
 #   aliases:
-#     - AVD-AWS-0124
-#     - add-description-to-security-group-rule
 #     - aws-vpc-add-description-to-security-group-rule
 #   provider: aws
 #   service: ec2
 #   severity: LOW
+#   short_code: add-description-to-security-group-rule
 #   recommended_action: Add descriptions for all security groups rules
 #   input:
 #     selector:

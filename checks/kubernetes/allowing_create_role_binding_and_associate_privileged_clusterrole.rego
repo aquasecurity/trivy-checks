@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV-0051
-#   long_id: kubernetes-do-not-allow-role-binding-associate-privileged-role
-#   aliases:
-#     - AVD-KSV-0051
-#     - do-not-allow-role-binding-associate-privileged-role
-#     - KSV051
+#   id: KSV051
+#   avd_id: AVD-KSV-0051
 #   severity: HIGH
+#   short_code: do-not-allow-role-binding-associate-privileged-role
 #   recommended_action: Create a role which does not permit creation of role bindings and associating with privileged cluster role
 #   input:
 #     selector:

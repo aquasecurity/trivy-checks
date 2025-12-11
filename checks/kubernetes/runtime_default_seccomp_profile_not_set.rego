@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 # custom:
-#   id: KSV-0030
-#   long_id: kubernetes-use-default-seccomp
-#   aliases:
-#     - KSV030
-#     - AVD-KSV-0030
-#     - use-default-seccomp
+#   id: KSV030
+#   avd_id: AVD-KSV-0030
 #   severity: LOW
+#   short_code: use-default-seccomp
 #   recommended_action: Set 'spec.securityContext.seccompProfile.type', 'spec.containers[*].securityContext.seccompProfile' and 'spec.initContainers[*].securityContext.seccompProfile' to 'RuntimeDefault' or undefined.
 #   input:
 #     selector:

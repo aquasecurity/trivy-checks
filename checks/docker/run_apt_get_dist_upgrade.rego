@@ -5,14 +5,11 @@
 # schemas:
 #   - input: schema["dockerfile"]
 # custom:
-#   id: DS-0024
-#   long_id: docker-no-dist-upgrade
-#   aliases:
-#     - AVD-DS-0024
-#     - no-dist-upgrade
-#     - DS024
+#   id: DS024
 #   deprecated: true
+#   avd_id: AVD-DS-0024
 #   severity: HIGH
+#   short_code: no-dist-upgrade
 #   recommended_action: Just use different image
 #   input:
 #     selector:

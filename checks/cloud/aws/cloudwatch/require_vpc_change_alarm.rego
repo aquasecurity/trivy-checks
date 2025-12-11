@@ -10,14 +10,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.html
 # custom:
-#   id: AWS-0160
-#   long_id: aws-cloudwatch-require-vpc-changes-alarm
-#   aliases:
-#     - AVD-AWS-0160
-#     - require-vpc-changes-alarm
+#   id: AVD-AWS-0160
+#   avd_id: AVD-AWS-0160
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW
+#   short_code: require-vpc-changes-alarm
 #   recommended_action: Create an alarm to alert on route table changes
 #   frameworks:
 #     cis-aws-1.2:

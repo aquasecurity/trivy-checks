@@ -10,14 +10,12 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/security_center_contact
 # custom:
-#   id: AZU-0063
-#   long_id: azure-securitycenter-email-alerts-disabled
-#   aliases:
-#     - AVD-AZU-0063
-#     - email-alerts-disabled
+#   id: AVD-AZU-0063
+#   avd_id: AVD-AZU-0063
 #   provider: azure
 #   service: security-center
 #   severity: MEDIUM
+#   short_code: email-alerts-disabled
 #   recommended_action: Enable alert notifications in Defender for Cloud and configure security contacts.
 #   minimum_trivy_version: 0.68.0
 #   input:

@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 # custom:
-#   id: KSV-0012
-#   long_id: kubernetes-no-root
-#   aliases:
-#     - AVD-KSV-0012
-#     - no-root
-#     - KSV012
+#   id: KSV012
+#   avd_id: AVD-KSV-0012
 #   severity: MEDIUM
+#   short_code: no-root
 #   recommended_action: Set 'containers[].securityContext.runAsNonRoot' to true.
 #   input:
 #     selector:

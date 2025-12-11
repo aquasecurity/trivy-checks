@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV-0113
-#   long_id: kubernetes-no-manage-ns-secrets
-#   aliases:
-#     - KSV113
-#     - AVD-KSV-0113
-#     - no-manage-ns-secrets
+#   id: KSV113
+#   avd_id: AVD-KSV-0113
 #   severity: MEDIUM
+#   short_code: no-manage-ns-secrets
 #   recommended_actions: Manage namespace secrets are not allowed. Remove resource 'secrets' from role
 #   input:
 #     selector:

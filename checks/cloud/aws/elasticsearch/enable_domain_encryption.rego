@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/encryption-at-rest.html
 # custom:
-#   id: AWS-0048
-#   long_id: aws-elasticsearch-enable-domain-encryption
-#   aliases:
-#     - AVD-AWS-0048
-#     - enable-domain-encryption
+#   id: AVD-AWS-0048
+#   avd_id: AVD-AWS-0048
 #   provider: aws
 #   service: elasticsearch
 #   severity: HIGH
+#   short_code: enable-domain-encryption
 #   recommended_action: Enable ElasticSearch domain encryption
 #   input:
 #     selector:

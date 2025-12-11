@@ -10,15 +10,14 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/help/fw/rule_new.htm
 # custom:
-#   id: NIF-0001
-#   long_id: nifcloud-computing-no-public-ingress-sgr
+#   id: AVD-NIF-0001
+#   avd_id: AVD-NIF-0001
 #   aliases:
 #     - nifcloud-computing-no-public-ingress-sgr
-#     - AVD-NIF-0001
-#     - no-public-ingress-sgr
 #   provider: nifcloud
 #   service: computing
 #   severity: CRITICAL
+#   short_code: no-public-ingress-sgr
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

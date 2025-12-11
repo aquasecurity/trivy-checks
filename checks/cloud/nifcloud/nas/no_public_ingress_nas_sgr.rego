@@ -8,15 +8,14 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/api/nas/AuthorizeNASSecurityGroupIngress.htm
 # custom:
-#   id: NIF-0014
-#   long_id: nifcloud-nas-no-public-ingress-nas-sgr
+#   id: AVD-NIF-0014
+#   avd_id: AVD-NIF-0014
 #   aliases:
-#     - no-public-ingress-nas-sgr
 #     - nifcloud-nas-no-public-ingress-nas-sgr
-#     - AVD-NIF-0014
 #   provider: nifcloud
 #   service: nas
 #   severity: CRITICAL
+#   short_code: no-public-ingress-nas-sgr
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

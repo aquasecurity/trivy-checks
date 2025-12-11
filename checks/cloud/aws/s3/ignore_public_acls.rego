@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html
 # custom:
-#   id: AWS-0091
-#   long_id: aws-s3-ignore-public-acls
-#   aliases:
-#     - AVD-AWS-0091
-#     - ignore-public-acls
+#   id: AVD-AWS-0091
+#   avd_id: AVD-AWS-0091
 #   provider: aws
 #   service: s3
 #   severity: HIGH
+#   short_code: ignore-public-acls
 #   recommended_action: Enable ignoring the application of public ACLs in PUT calls
 #   input:
 #     selector:

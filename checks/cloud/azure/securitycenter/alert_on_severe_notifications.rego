@@ -10,14 +10,12 @@
 # related_resources:
 #   - https://azure.microsoft.com/en-us/services/security-center/
 # custom:
-#   id: AZU-0044
-#   long_id: azure-securitycenter-alert-on-severe-notifications
-#   aliases:
-#     - AVD-AZU-0044
-#     - alert-on-severe-notifications
+#   id: AVD-AZU-0044
+#   avd_id: AVD-AZU-0044
 #   provider: azure
 #   service: security-center
 #   severity: MEDIUM
+#   short_code: alert-on-severe-notifications
 #   recommended_action: Set alert notifications to be on
 #   input:
 #     selector:

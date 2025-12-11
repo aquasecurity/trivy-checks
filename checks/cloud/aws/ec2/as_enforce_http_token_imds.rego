@@ -12,15 +12,14 @@
 # related_resources:
 #   - https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service
 # custom:
-#   id: AWS-0130
-#   long_id: aws-ec2-enforce-launch-config-http-token-imds
+#   id: AVD-AWS-0130
+#   avd_id: AVD-AWS-0130
 #   aliases:
-#     - AVD-AWS-0130
-#     - enforce-launch-config-http-token-imds
 #     - aws-autoscaling-enforce-http-token-imds
 #   provider: aws
 #   service: ec2
 #   severity: HIGH
+#   short_code: enforce-launch-config-http-token-imds
 #   recommended_action: Enable HTTP token requirement for IMDS
 #   input:
 #     selector:

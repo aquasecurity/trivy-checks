@@ -11,10 +11,9 @@
 #   - https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer
 # custom:
 #   id: AZU-0059
-#   long_id: azure-storage-
+#   avd_id: AVD-AZU-0059
 #   aliases:
 #     - AVD-AZU-0059
-#     - ""
 #     - log-storage-encryption
 #   provider: azure
 #   service: storage

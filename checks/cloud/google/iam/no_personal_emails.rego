@@ -9,11 +9,10 @@
 #   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam#google_project_iam_binding
 # custom:
 #   id: GCP-0069
-#   long_id: google-iam-no-personal-emails
+#   avd_id: AVD-GCP-0069
 #   aliases:
-#     - AVD-GCP-0069
-#     - no-personal-emails
 #     - not-proper-email-account-in-use
+#   short_code: no-personal-emails
 #   provider: google
 #   service: iam
 #   severity: LOW

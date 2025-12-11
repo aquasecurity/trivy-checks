@@ -10,14 +10,12 @@
 # related_resources:
 #   - https://azure.microsoft.com/en-us/services/security-center/
 # custom:
-#   id: AZU-0046
-#   long_id: azure-securitycenter-set-required-contact-details
-#   aliases:
-#     - AVD-AZU-0046
-#     - set-required-contact-details
+#   id: AVD-AZU-0046
+#   avd_id: AVD-AZU-0046
 #   provider: azure
 #   service: security-center
 #   severity: LOW
+#   short_code: set-required-contact-details
 #   recommended_action: Set a telephone number for security center contact
 #   input:
 #     selector:

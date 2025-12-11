@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://console.aws.amazon.com/iam/
 # custom:
-#   id: AWS-0145
-#   long_id: aws-iam-enforce-user-mfa
-#   aliases:
-#     - AVD-AWS-0145
-#     - enforce-user-mfa
+#   id: AVD-AWS-0145
+#   avd_id: AVD-AWS-0145
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
+#   short_code: enforce-user-mfa
 #   recommended_action: Enable MFA for the user account
 #   frameworks:
 #     cis-aws-1.2:

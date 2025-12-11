@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://docs.docker.com/develop/develop-images/multistage-build/
 # custom:
-#   id: DS-0006
-#   long_id: docker-no-self-referencing-copy-from
-#   aliases:
-#     - AVD-DS-0006
-#     - no-self-referencing-copy-from
-#     - DS006
+#   id: DS006
+#   avd_id: AVD-DS-0006
 #   severity: CRITICAL
+#   short_code: no-self-referencing-copy-from
 #   recommended_action: Change the '--from' so that it will not refer to itself
 #   input:
 #     selector:

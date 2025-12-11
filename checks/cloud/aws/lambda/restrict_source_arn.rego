@@ -10,14 +10,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html
 # custom:
-#   id: AWS-0067
-#   long_id: aws-lambda-restrict-source-arn
-#   aliases:
-#     - AVD-AWS-0067
-#     - restrict-source-arn
+#   id: AVD-AWS-0067
+#   avd_id: AVD-AWS-0067
 #   provider: aws
 #   service: lambda
 #   severity: CRITICAL
+#   short_code: restrict-source-arn
 #   recommended_action: Always provide a source arn for Lambda permissions
 #   input:
 #     selector:

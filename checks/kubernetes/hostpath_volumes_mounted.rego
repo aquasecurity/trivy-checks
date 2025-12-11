@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV-0023
-#   long_id: kubernetes-no-mounted-hostpath
-#   aliases:
-#     - KSV023
-#     - AVD-KSV-0023
-#     - no-mounted-hostpath
+#   id: KSV023
+#   avd_id: AVD-KSV-0023
 #   severity: MEDIUM
+#   short_code: no-mounted-hostpath
 #   recommended_action: Do not set 'spec.volumes[*].hostPath'.
 #   input:
 #     selector:

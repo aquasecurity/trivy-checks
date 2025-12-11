@@ -9,14 +9,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/SecurityGroups.Creating.html
 # custom:
-#   id: AWS-0049
-#   long_id: aws-elasticache-add-description-for-security-group
-#   aliases:
-#     - AVD-AWS-0049
-#     - add-description-for-security-group
+#   id: AVD-AWS-0049
+#   avd_id: AVD-AWS-0049
 #   provider: aws
 #   service: elasticache
 #   severity: LOW
+#   short_code: add-description-for-security-group
 #   recommended_action: Add descriptions for all security groups and rules
 #   input:
 #     selector:

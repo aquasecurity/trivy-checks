@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://www.digitalocean.com/community/tutorials/understanding-the-ssh-encryption-and-connection-process
 # custom:
-#   id: DIG-0004
-#   long_id: digitalocean-compute-use-ssh-keys
-#   aliases:
-#     - AVD-DIG-0004
-#     - use-ssh-keys
+#   id: AVD-DIG-0004
+#   avd_id: AVD-DIG-0004
 #   provider: digitalocean
 #   service: compute
 #   severity: HIGH
+#   short_code: use-ssh-keys
 #   recommended_action: Use ssh keys for login
 #   input:
 #     selector:

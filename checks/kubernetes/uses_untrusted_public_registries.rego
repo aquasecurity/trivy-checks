@@ -5,13 +5,10 @@
 # schemas:
 #   - input: schema["kubernetes"]
 # custom:
-#   id: KSV-0034
-#   long_id: kubernetes-no-public-registries
-#   aliases:
-#     - KSV034
-#     - AVD-KSV-0034
-#     - no-public-registries
+#   id: KSV034
+#   avd_id: AVD-KSV-0034
 #   severity: MEDIUM
+#   short_code: no-public-registries
 #   recommended_action: Use images from private registries.
 #   deprecated: true
 #   input:

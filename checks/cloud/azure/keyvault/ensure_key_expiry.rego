@@ -10,14 +10,12 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/powershell/module/az.keyvault/update-azkeyvaultkey?view=azps-5.8.0#example-1--modify-a-key-to-enable-it--and-set-the-expiration-date-and-tags
 # custom:
-#   id: AZU-0014
-#   long_id: azure-keyvault-ensure-key-expiry
-#   aliases:
-#     - AVD-AZU-0014
-#     - ensure-key-expiry
+#   id: AVD-AZU-0014
+#   avd_id: AVD-AZU-0014
 #   provider: azure
 #   service: keyvault
 #   severity: MEDIUM
+#   short_code: ensure-key-expiry
 #   recommended_action: Set an expiration date on the vault key
 #   input:
 #     selector:

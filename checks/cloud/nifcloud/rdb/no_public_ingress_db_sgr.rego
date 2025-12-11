@@ -8,15 +8,14 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/api/rdb/AuthorizeDBSecurityGroupIngress.htm
 # custom:
-#   id: NIF-0011
-#   long_id: nifcloud-rdb-no-public-ingress-db-sgr
+#   id: AVD-NIF-0011
+#   avd_id: AVD-NIF-0011
 #   aliases:
-#     - AVD-NIF-0011
-#     - no-public-ingress-db-sgr
 #     - nifcloud-rdb-no-public-ingress-db-sgr
 #   provider: nifcloud
 #   service: rdb
 #   severity: CRITICAL
+#   short_code: no-public-ingress-db-sgr
 #   recommended_action: Set a more restrictive cidr range
 #   input:
 #     selector:

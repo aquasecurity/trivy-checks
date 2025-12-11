@@ -10,14 +10,12 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/security_center_contact
 # custom:
-#   id: AZU-0064
-#   long_id: azure-securitycenter-security-contact-disabled
-#   aliases:
-#     - AVD-AZU-0064
-#     - security-contact-disabled
+#   id: AVD-AZU-0064
+#   avd_id: AVD-AZU-0064
 #   provider: azure
 #   service: security-center
 #   severity: HIGH
+#   short_code: security-contact-disabled
 #   recommended_action: Enable the security contact to ensure security notifications are delivered.
 #   minimum_trivy_version: 0.68.0
 #   input:

@@ -6,14 +6,12 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: GCP-0059
-#   long_id: google-gke-enable-private-cluster
-#   aliases:
-#     - AVD-GCP-0059
-#     - enable-private-cluster
+#   id: AVD-GCP-0059
+#   avd_id: AVD-GCP-0059
 #   provider: google
 #   service: gke
 #   severity: MEDIUM
+#   short_code: enable-private-cluster
 #   recommended_action: Enable private cluster
 #   input:
 #     selector:

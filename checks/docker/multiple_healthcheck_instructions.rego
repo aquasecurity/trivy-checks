@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://docs.docker.com/engine/reference/builder/#healthcheck
 # custom:
-#   id: DS-0023
-#   long_id: docker-only-one-healthcheck
-#   aliases:
-#     - DS023
-#     - AVD-DS-0023
-#     - only-one-healthcheck
+#   id: DS023
+#   avd_id: AVD-DS-0023
 #   severity: MEDIUM
+#   short_code: only-one-healthcheck
 #   recommended_action: One HEALTHCHECK instruction must remain in Dockerfile. Remove all other instructions.
 #   input:
 #     selector:

@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV-0010
-#   long_id: kubernetes-no-host-pid
-#   aliases:
-#     - KSV010
-#     - AVD-KSV-0010
-#     - no-host-pid
+#   id: KSV010
+#   avd_id: AVD-KSV-0010
 #   severity: HIGH
+#   short_code: no-host-pid
 #   recommended_action: Do not set 'spec.template.spec.hostPID' to true.
 #   input:
 #     selector:

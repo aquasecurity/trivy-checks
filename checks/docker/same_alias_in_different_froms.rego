@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://docs.docker.com/develop/develop-images/multistage-build/
 # custom:
-#   id: DS-0012
-#   long_id: docker-no-duplicate-alias
-#   aliases:
-#     - AVD-DS-0012
-#     - no-duplicate-alias
-#     - DS012
+#   id: DS012
+#   avd_id: AVD-DS-0012
 #   severity: CRITICAL
+#   short_code: no-duplicate-alias
 #   recommended_action: Change aliases to make them different
 #   input:
 #     selector:

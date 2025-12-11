@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/
 # custom:
-#   id: KSV-0004
-#   long_id: kubernetes-drop-unused-capabilities
-#   aliases:
-#     - AVD-KSV-0004
-#     - drop-unused-capabilities
-#     - KSV004
+#   id: KSV004
+#   avd_id: AVD-KSV-0004
 #   severity: LOW
+#   short_code: drop-unused-capabilities
 #   recommended_action: Specify at least one unneeded capability in 'containers[].securityContext.capabilities.drop'
 #   input:
 #     selector:

@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html
 # custom:
-#   id: AWS-0030
-#   long_id: aws-ecr-enable-image-scans
-#   aliases:
-#     - AVD-AWS-0030
-#     - enable-image-scans
+#   id: AVD-AWS-0030
+#   avd_id: AVD-AWS-0030
 #   provider: aws
 #   service: ecr
 #   severity: HIGH
+#   short_code: enable-image-scans
 #   recommended_action: Enable ECR image scanning
 #   input:
 #     selector:

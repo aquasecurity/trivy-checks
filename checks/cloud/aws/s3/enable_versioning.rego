@@ -15,14 +15,12 @@
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html
 #   - https://aws.amazon.com/blogs/storage/reduce-storage-costs-with-fewer-noncurrent-versions-using-amazon-s3-lifecycle/
 # custom:
-#   id: AWS-0090
-#   long_id: aws-s3-enable-versioning
-#   aliases:
-#     - AVD-AWS-0090
-#     - enable-versioning
+#   id: AVD-AWS-0090
+#   avd_id: AVD-AWS-0090
 #   provider: aws
 #   service: s3
 #   severity: MEDIUM
+#   short_code: enable-versioning
 #   recommended_action: Enable versioning to protect against accidental/malicious removal or modification
 #   input:
 #     selector:

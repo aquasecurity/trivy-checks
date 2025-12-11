@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV-0018
-#   long_id: kubernetes-ensure-profiling-argument-is-set-to-false
-#   aliases:
-#     - KCV0018
-#     - AVD-KCV-0018
-#     - ensure-profiling-argument-is-set-to-false
+#   id: KCV0018
+#   avd_id: AVD-KCV-0018
 #   severity: LOW
+#   short_code: ensure-profiling-argument-is-set-to-false
 #   recommended_action: Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the below parameter.
 #   input:
 #     selector:

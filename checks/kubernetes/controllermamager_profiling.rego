@@ -8,13 +8,12 @@
 #   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0034
-#   long_id: kubernetes-ensure-profiling-argument-is-set-to-false
+#   avd_id: AVD-KCV-0034
 #   aliases:
-#     - ensure-controller-manager-profiling-argument-set-to-false
-#     - AVD-KCV-0034
-#     - ensure-profiling-argument-is-set-to-false
 #     - KCV0034
+#     - ensure-controller-manager-profiling-argument-set-to-false
 #   severity: LOW
+#   short_code: ensure-profiling-argument-is-set-to-false
 #   recommended_action: Edit the Controller Manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml on the Control Plane node and set the below parameter.
 #   input:
 #     selector:

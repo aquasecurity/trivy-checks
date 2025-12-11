@@ -9,11 +9,10 @@
 #   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket#enabled
 # custom:
 #   id: GCP-0078
-#   long_id: google-storage-enable-bucket-versioning
+#   avd_id: AVD-GCP-0078
 #   aliases:
 #     - storage-bucket-versioning-disabled
-#     - AVD-GCP-0078
-#     - enable-bucket-versioning
+#   short_code: enable-bucket-versioning
 #   provider: google
 #   service: storage
 #   severity: MEDIUM

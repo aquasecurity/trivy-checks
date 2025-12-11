@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://cloud.google.com/iam/docs/impersonating-service-accounts
 # custom:
-#   id: GCP-0011
-#   long_id: google-iam-no-project-level-service-account-impersonation
-#   aliases:
-#     - no-project-level-service-account-impersonation
-#     - AVD-GCP-0011
+#   id: AVD-GCP-0011
+#   avd_id: AVD-GCP-0011
 #   provider: google
 #   service: iam
 #   severity: MEDIUM
+#   short_code: no-project-level-service-account-impersonation
 #   recommended_action: Provide access at the service-level instead of project-level, if required
 #   input:
 #     selector:

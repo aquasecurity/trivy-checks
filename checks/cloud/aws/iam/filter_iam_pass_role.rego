@@ -7,14 +7,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html
 # custom:
-#   id: AWS-0342
-#   long_id: aws-iam-filter-passrole-access
-#   aliases:
-#     - AVD-AWS-0342
-#     - filter-passrole-access
+#   id: AVD-AWS-0342
+#   avd_id: AVD-AWS-0342
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
+#   short_code: filter-passrole-access
 #   recommended_action: Resolve permission escalations by denying pass role'
 #   input:
 #     selector:

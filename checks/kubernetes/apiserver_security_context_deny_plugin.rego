@@ -7,18 +7,15 @@
 # related_resources:
 #   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV-0013
-#   long_id: kubernetes-ensure-admission-control-plugin-security-context-deny-is-set-if-pod-security-policy-is-not-used
-#   aliases:
-#     - KCV0013
-#     - AVD-KCV-0013
-#     - ensure-admission-control-plugin-security-context-deny-is-set-if-pod-security-policy-is-not-used
+#   id: KCV0013
+#   avd_id: AVD-KCV-0013
 #   frameworks:
 #     k8s-cis-1.23:
 #       - 1.2.13
 #     rke2-cis-1.24:
 #       - 1.2.13
 #   severity: LOW
+#   short_code: ensure-admission-control-plugin-security-context-deny-is-set-if-pod-security-policy-is-not-used
 #   recommended_action: Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --enable-admission-plugins parameter to include SecurityContextDeny, unless PodSecurityPolicy is already in place.
 #   input:
 #     selector:

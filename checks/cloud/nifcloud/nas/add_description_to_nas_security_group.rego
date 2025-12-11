@@ -10,15 +10,14 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/help/nas/fw_new.htm
 # custom:
-#   id: NIF-0015
-#   long_id: nifcloud-nas-add-description-to-nas-security-group
+#   id: AVD-NIF-0015
+#   avd_id: AVD-NIF-0015
 #   aliases:
-#     - AVD-NIF-0015
-#     - add-description-to-nas-security-group
 #     - nifcloud-nas-add-description-to-nas-security-group
 #   provider: nifcloud
 #   service: nas
 #   severity: LOW
+#   short_code: add-description-to-nas-security-group
 #   recommended_action: Add descriptions for all nas security groups
 #   input:
 #     selector:

@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#workdir
 # custom:
-#   id: DS-0009
-#   long_id: docker-user-absolute-workdir
-#   aliases:
-#     - AVD-DS-0009
-#     - user-absolute-workdir
-#     - DS009
+#   id: DS009
+#   avd_id: AVD-DS-0009
 #   severity: HIGH
+#   short_code: user-absolute-workdir
 #   recommended_action: Use absolute paths for your WORKDIR
 #   input:
 #     selector:

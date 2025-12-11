@@ -10,11 +10,10 @@
 #   - https://cloud.google.com/architecture/best-practices-vpc-design#limit-access
 # custom:
 #   id: GCP-0075
-#   long_id: google-compute-enable-subnetwork-private-google-access
+#   avd_id: AVD-GCP-0075
 #   aliases:
 #     - google-misc-google-compute-subnetwork-with-private-google-access-disable
-#     - AVD-GCP-0075
-#     - enable-subnetwork-private-google-access
+#   short_code: enable-subnetwork-private-google-access
 #   provider: google
 #   service: compute
 #   severity: LOW

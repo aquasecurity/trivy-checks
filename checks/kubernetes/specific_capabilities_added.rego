@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV-0022
-#   long_id: kubernetes-no-non-default-capabilities
-#   aliases:
-#     - AVD-KSV-0022
-#     - no-non-default-capabilities
-#     - KSV022
+#   id: KSV022
+#   avd_id: AVD-KSV-0022
 #   severity: MEDIUM
+#   short_code: no-non-default-capabilities
 #   recommended_action: Do not set spec.containers[*].securityContext.capabilities.add and spec.initContainers[*].securityContext.capabilities.add.
 #   input:
 #     selector:

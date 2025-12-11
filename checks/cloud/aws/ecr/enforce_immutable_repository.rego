@@ -9,14 +9,12 @@
 # related_resources:
 #   - https://sysdig.com/blog/toctou-tag-mutability/
 # custom:
-#   id: AWS-0031
-#   long_id: aws-ecr-enforce-immutable-repository
-#   aliases:
-#     - AVD-AWS-0031
-#     - enforce-immutable-repository
+#   id: AVD-AWS-0031
+#   avd_id: AVD-AWS-0031
 #   provider: aws
 #   service: ecr
 #   severity: HIGH
+#   short_code: enforce-immutable-repository
 #   recommended_action: Only use immutable images in ECR
 #   input:
 #     selector:

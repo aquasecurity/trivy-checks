@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://cloud.google.com/iam/docs/impersonating-service-accounts
 # custom:
-#   id: GCP-0005
-#   long_id: google-iam-no-folder-level-service-account-impersonation
-#   aliases:
-#     - no-folder-level-service-account-impersonation
-#     - AVD-GCP-0005
+#   id: AVD-GCP-0005
+#   avd_id: AVD-GCP-0005
 #   provider: google
 #   service: iam
 #   severity: MEDIUM
+#   short_code: no-folder-level-service-account-impersonation
 #   recommended_action: Provide access at the service-level instead of folder-level, if required
 #   input:
 #     selector:

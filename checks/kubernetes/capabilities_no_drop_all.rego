@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/
 # custom:
-#   id: KSV-0003
-#   long_id: kubernetes-drop-default-capabilities
-#   aliases:
-#     - AVD-KSV-0003
-#     - drop-default-capabilities
-#     - KSV003
+#   id: KSV003
+#   avd_id: AVD-KSV-0003
 #   severity: LOW
+#   short_code: drop-default-capabilities
 #   recommended_action: Add 'ALL' to containers[].securityContext.capabilities.drop.
 #   input:
 #     selector:

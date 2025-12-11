@@ -7,13 +7,10 @@
 # related_resources:
 #   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV-0068
-#   long_id: kubernetes-ensure-kubernetes-pki-cert-file-permission-set-600.
-#   aliases:
-#     - AVD-KCV-0068
-#     - ensure-kubernetes-pki-cert-file-permission-set-600.
-#     - KCV0068
+#   id: KCV0068
+#   avd_id: AVD-KCV-0068
 #   severity: HIGH
+#   short_code: ensure-kubernetes-pki-cert-file-permission-set-600.
 #   recommended_action: Change the Kubernetes PKI certificate file /etc/kubernetes/pki/*.crt permission to 600
 #   input:
 #     selector:

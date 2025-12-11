@@ -8,13 +8,12 @@
 #   - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0054
-#   long_id: kubernetes-ensure-etcd-pod-specification-file-permissions-set-600-or-more-restrictive
+#   avd_id: AVD-KCV-0054
 #   aliases:
-#     - AVD-KCV-0054
-#     - ensure-etcd-pod-specification-file-permissions-set-600-or-more-restrictive
 #     - KCV0054
 #     - ensure-etcd-pod-specification-file-permissions-set
 #   severity: HIGH
+#   short_code: ensure-etcd-pod-specification-file-permissions-set-600-or-more-restrictive
 #   recommended_action: 'Change the etcd pod specification file /etc/kubernetes/manifests/etcd.yaml permissions of 600 or more restrictive '
 #   input:
 #     selector:

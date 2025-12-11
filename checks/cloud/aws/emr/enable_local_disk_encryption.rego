@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/config/latest/developerguide/operational-best-practices-for-nist_800-171.html
 # custom:
-#   id: AWS-0139
-#   long_id: aws-emr-enable-local-disk-encryption
-#   aliases:
-#     - AVD-AWS-0139
-#     - enable-local-disk-encryption
+#   id: AVD-AWS-0139
+#   avd_id: AVD-AWS-0139
 #   provider: aws
 #   service: emr
 #   severity: HIGH
+#   short_code: enable-local-disk-encryption
 #   recommended_action: Enable local-disk encryption for EMR cluster
 #   input:
 #     selector:

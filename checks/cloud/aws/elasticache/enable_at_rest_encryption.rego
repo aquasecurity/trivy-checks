@@ -8,14 +8,12 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/at-rest-encryption.html
 # custom:
-#   id: AWS-0045
-#   long_id: aws-elasticache-enable-at-rest-encryption
-#   aliases:
-#     - AVD-AWS-0045
-#     - enable-at-rest-encryption
+#   id: AVD-AWS-0045
+#   avd_id: AVD-AWS-0045
 #   provider: aws
 #   service: elasticache
 #   severity: HIGH
+#   short_code: enable-at-rest-encryption
 #   recommended_action: Enable at-rest encryption for replication group
 #   input:
 #     selector:
