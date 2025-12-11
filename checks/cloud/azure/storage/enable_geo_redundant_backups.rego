@@ -11,10 +11,11 @@
 #   - https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy
 # custom:
 #   id: AZU-0058
-#   long_id: azure-storage-enable-geo-redundant-backups
+#   long_id: azure-storage-
 #   aliases:
-#     - AVD-AZU-0058
 #     - enable-geo-redundant-backups
+#     - AVD-AZU-0058
+#     - ""
 #   provider: azure
 #   service: storage
 #   severity: LOW
