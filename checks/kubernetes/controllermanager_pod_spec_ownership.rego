@@ -13,7 +13,7 @@
 #     - AVD-KCV-0051
 #     - KCV0051
 #     - ensure-controller-manager-pod-specification-ownership-set
-#     - ensure-controller-manager-pod-specification-ownership-set-root:root
+#     - ensure-controller-manager-pod-specification-ownership-set-root:root.
 #   severity: HIGH
 #   recommended_action: Change the controller manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml ownership to root:root
 #   input:

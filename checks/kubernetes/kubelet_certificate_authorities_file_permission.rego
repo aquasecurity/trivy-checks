@@ -12,7 +12,7 @@
 #   aliases:
 #     - AVD-KCV-0075
 #     - KCV0075
-#     - ensure-certificate-authorities-file-permissions-600-or-more-restrictive
+#     - ensure-certificate-authorities-file-permissions-600-or-more-restrictive.
 #   severity: CRITICAL
 #   recommended_action: Change the certificate authorities file permissions to 600 or more restrictive if exist
 #   input:

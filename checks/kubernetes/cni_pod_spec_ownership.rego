@@ -13,7 +13,7 @@
 #     - AVD-KCV-0057
 #     - KCV0057
 #     - ensure-container-network-interface-ownership-set
-#     - ensure-container-network-interface-ownership-set-root:root
+#     - ensure-container-network-interface-ownership-set-root:root.
 #   severity: HIGH
 #   recommended_action: Change the container network interface file path/to/cni/files ownership to root:root
 #   input:
