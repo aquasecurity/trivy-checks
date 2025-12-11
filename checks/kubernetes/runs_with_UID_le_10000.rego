@@ -11,8 +11,8 @@
 #   long_id: kubernetes-use-high-uid
 #   aliases:
 #     - AVD-KSV-0020
-#     - KSV020
 #     - use-high-uid
+#     - KSV020
 #   severity: LOW
 #   recommended_action: Set 'containers[].securityContext.runAsUser' to an integer > 10000.
 #   input:

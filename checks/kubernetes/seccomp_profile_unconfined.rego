@@ -11,8 +11,8 @@
 #   long_id: kubernetes-no-seccomp-unconfined
 #   aliases:
 #     - AVD-KSV-0104
-#     - KSV104
 #     - no-seccomp-unconfined
+#     - KSV104
 #   severity: MEDIUM
 #   recommended_action: Specify seccomp either by annotation or by seccomp profile type having allowed values as per pod security standards
 #   input:

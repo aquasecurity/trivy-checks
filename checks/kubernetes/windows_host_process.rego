@@ -11,8 +11,8 @@
 #   long_id: kubernetes-no-hostprocess-containers
 #   aliases:
 #     - AVD-KSV-0103
-#     - KSV103
 #     - no-hostprocess-containers
+#     - KSV103
 #   severity: MEDIUM
 #   recommended_action: Do not enable 'hostProcess' on any securityContext
 #   input:

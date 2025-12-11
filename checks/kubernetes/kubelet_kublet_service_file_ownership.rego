@@ -11,8 +11,8 @@
 #   long_id: kubernetes-ensure-kubelet-service-file-ownership-set-root:root.
 #   aliases:
 #     - AVD-KCV-0070
-#     - KCV0070
 #     - ensure-kubelet-service-file-ownership-set-root:root.
+#     - KCV0070
 #   severity: CRITICAL
 #   recommended_action: Change the kubelet service file /etc/systemd/system/kubelet.service.d/10-kubeadm.conf ownership to root:root
 #   input:

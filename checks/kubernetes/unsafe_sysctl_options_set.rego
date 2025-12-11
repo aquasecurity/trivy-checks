@@ -11,8 +11,8 @@
 #   long_id: kubernetes-no-unsafe-sysctl
 #   aliases:
 #     - AVD-KSV-0026
-#     - KSV026
 #     - no-unsafe-sysctl
+#     - KSV026
 #   severity: MEDIUM
 #   recommended_action: Do not set 'spec.securityContext.sysctls' or set to values in an allowed subset
 #   input:

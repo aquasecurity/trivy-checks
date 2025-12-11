@@ -11,8 +11,8 @@
 #   long_id: docker-port-out-of-range
 #   aliases:
 #     - AVD-DS-0008
-#     - DS008
 #     - port-out-of-range
+#     - DS008
 #   severity: CRITICAL
 #   recommended_action: Use port number within range
 #   input:

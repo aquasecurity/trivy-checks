@@ -11,8 +11,8 @@
 #   long_id: kubernetes-no-wildcard-resource-role
 #   aliases:
 #     - AVD-KSV-0112
-#     - KSV112
 #     - no-wildcard-resource-role
+#     - KSV112
 #   severity: CRITICAL
 #   recommended_actions: Remove '*' from 'rules.resources'. Provide specific list of resources to be managed by role in namespace
 #   input:

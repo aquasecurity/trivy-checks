@@ -8,9 +8,9 @@
 #   id: KSV-0107
 #   long_id: kubernetes-evaluate-k8s-deprecated-removed-apis
 #   aliases:
-#     - AVD-KSV-0107
-#     - KSV107
 #     - evaluate-k8s-deprecated-removed-apis
+#     - KSV107
+#     - AVD-KSV-0107
 #   severity: LOW
 #   recommended_action: Migrate resource to new API
 #   input:

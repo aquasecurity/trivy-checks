@@ -12,8 +12,8 @@
 #   long_id: kubernetes-use-trusted-registry
 #   aliases:
 #     - AVD-KSV-0125
-#     - KSV0125
 #     - use-trusted-registry
+#     - KSV0125
 #   severity: MEDIUM
 #   recommended_action: Use images from trusted registries.
 #   input:

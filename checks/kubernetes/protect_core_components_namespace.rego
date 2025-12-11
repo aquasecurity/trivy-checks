@@ -11,9 +11,9 @@
 #   long_id: kubernetes-no-user-resources-in-system-namespace
 #   aliases:
 #     - AVD-KSV-0037
+#     - no-user-resources-in-system-namespace
 #     - KSV037
 #     - no-user-pods-in-system-namespace
-#     - no-user-resources-in-system-namespace
 #   severity: MEDIUM
 #   recommended_action: Deploy the user resources into a designated namespace which is not kube-system.
 #   input:

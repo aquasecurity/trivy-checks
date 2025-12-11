@@ -11,8 +11,8 @@
 #   id: AWS-0072
 #   long_id: aws-mq-no-public-access
 #   aliases:
-#     - AVD-AWS-0072
 #     - no-public-access
+#     - AVD-AWS-0072
 #   provider: aws
 #   service: mq
 #   severity: HIGH

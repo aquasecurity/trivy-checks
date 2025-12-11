@@ -10,8 +10,8 @@
 #   id: KSV-0113
 #   long_id: kubernetes-no-manage-ns-secrets
 #   aliases:
-#     - AVD-KSV-0113
 #     - KSV113
+#     - AVD-KSV-0113
 #     - no-manage-ns-secrets
 #   severity: MEDIUM
 #   recommended_actions: Manage namespace secrets are not allowed. Remove resource 'secrets' from role

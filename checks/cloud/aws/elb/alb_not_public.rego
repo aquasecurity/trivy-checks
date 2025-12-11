@@ -9,8 +9,8 @@
 #   id: AWS-0053
 #   long_id: aws-elb-alb-not-public
 #   aliases:
-#     - AVD-AWS-0053
 #     - alb-not-public
+#     - AVD-AWS-0053
 #   provider: aws
 #   service: elb
 #   severity: HIGH

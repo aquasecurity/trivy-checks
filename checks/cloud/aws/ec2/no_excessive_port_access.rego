@@ -11,9 +11,9 @@
 #   id: AWS-0102
 #   long_id: aws-ec2-no-excessive-port-access
 #   aliases:
-#     - AVD-AWS-0102
 #     - no-excessive-port-access
 #     - aws-vpc-no-excessive-port-access
+#     - AVD-AWS-0102
 #   provider: aws
 #   service: ec2
 #   severity: CRITICAL

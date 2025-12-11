@@ -11,8 +11,8 @@
 #   long_id: docker-standardise-remote-get
 #   aliases:
 #     - AVD-DS-0014
-#     - DS014
 #     - standardise-remote-get
+#     - DS014
 #   severity: LOW
 #   recommended_action: Pick one util, either 'wget' or 'curl'
 #   input:

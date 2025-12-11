@@ -11,8 +11,8 @@
 #   long_id: kubernetes-ensure-etcd-data-directory-ownership-set-etcd:etcd.
 #   aliases:
 #     - AVD-KCV-0059
-#     - KCV0059
 #     - ensure-etcd-data-directory-ownership-set-etcd:etcd.
+#     - KCV0059
 #   severity: LOW
 #   recommended_action: Change the etcd data directory /var/lib/etcd ownership to etcd:etcd
 #   input:

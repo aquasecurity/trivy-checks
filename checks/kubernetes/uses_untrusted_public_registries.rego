@@ -8,8 +8,8 @@
 #   id: KSV-0034
 #   long_id: kubernetes-no-public-registries
 #   aliases:
-#     - AVD-KSV-0034
 #     - KSV034
+#     - AVD-KSV-0034
 #     - no-public-registries
 #   severity: MEDIUM
 #   recommended_action: Use images from private registries.

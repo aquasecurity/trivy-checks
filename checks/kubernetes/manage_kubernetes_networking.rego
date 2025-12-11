@@ -11,8 +11,8 @@
 #   long_id: kubernetes-no-manage-networking-resources
 #   aliases:
 #     - AVD-KSV-0056
-#     - KSV056
 #     - no-manage-networking-resources
+#     - KSV056
 #   severity: HIGH
 #   recommended_action: Networking resources are only allowed for verbs 'list', 'watch', 'get'
 #   input:

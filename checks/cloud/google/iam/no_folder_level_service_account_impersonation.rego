@@ -11,8 +11,8 @@
 #   id: GCP-0005
 #   long_id: google-iam-no-folder-level-service-account-impersonation
 #   aliases:
-#     - AVD-GCP-0005
 #     - no-folder-level-service-account-impersonation
+#     - AVD-GCP-0005
 #   provider: google
 #   service: iam
 #   severity: MEDIUM

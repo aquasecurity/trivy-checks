@@ -10,9 +10,9 @@
 #   id: KCV-0001
 #   long_id: kubernetes-ensure-anonymous-auth-argument-is-false
 #   aliases:
-#     - AVD-KCV-0001
-#     - KCV0001
 #     - ensure-anonymous-auth-argument-is-false
+#     - KCV0001
+#     - AVD-KCV-0001
 #   severity: MEDIUM
 #   recommended_action: Set '--anonymous-auth' to 'false'.
 #   input:

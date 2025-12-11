@@ -11,8 +11,8 @@
 #   long_id: kubernetes-no-manage-rbac-resources
 #   aliases:
 #     - AVD-KSV-0050
-#     - KSV050
 #     - no-manage-rbac-resources
+#     - KSV050
 #   severity: CRITICAL
 #   recommended_action: Remove write permission verbs for resource 'roles' and 'rolebindings'
 #   input:

@@ -10,8 +10,8 @@
 #   id: KCV-0061
 #   long_id: kubernetes-ensure-admin-config-ownership-set-root:root.
 #   aliases:
-#     - AVD-KCV-0061
 #     - KCV0061
+#     - AVD-KCV-0061
 #     - ensure-admin-config-ownership-set-root:root.
 #   severity: CRITICAL
 #   recommended_action: Change the admin config  file /etc/kubernetes/admin.conf ownership to root:root

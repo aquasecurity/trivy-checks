@@ -10,8 +10,8 @@
 #   id: DS-0025
 #   long_id: docker-purge-apk-package-cache
 #   aliases:
-#     - AVD-DS-0025
 #     - DS025
+#     - AVD-DS-0025
 #     - purge-apk-package-cache
 #   severity: HIGH
 #   recommended_action: Add '--no-cache' to 'apk add' in Dockerfile

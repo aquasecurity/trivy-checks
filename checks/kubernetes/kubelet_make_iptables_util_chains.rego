@@ -11,8 +11,8 @@
 #   long_id: kubernetes-ensure-make-iptables-util-chains-argument-set-true
 #   aliases:
 #     - AVD-KCV-0084
-#     - KCV0084
 #     - ensure-make-iptables-util-chains-argument-set-true
+#     - KCV0084
 #   severity: HIGH
 #   recommended_action: 'If using a Kubelet config file, edit the file to set makeIPTablesUtilChains: true'
 #   input:

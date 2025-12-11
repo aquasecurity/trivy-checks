@@ -11,8 +11,8 @@
 #   long_id: kubernetes-no-non-default-capabilities
 #   aliases:
 #     - AVD-KSV-0022
-#     - KSV022
 #     - no-non-default-capabilities
+#     - KSV022
 #   severity: MEDIUM
 #   recommended_action: Do not set spec.containers[*].securityContext.capabilities.add and spec.initContainers[*].securityContext.capabilities.add.
 #   input:

@@ -11,9 +11,9 @@
 #   id: AWS-0104
 #   long_id: aws-ec2-no-public-egress-sgr
 #   aliases:
-#     - AVD-AWS-0104
 #     - no-public-egress-sgr
 #     - aws-vpc-no-public-egress-sgr
+#     - AVD-AWS-0104
 #   provider: aws
 #   service: ec2
 #   severity: CRITICAL

@@ -10,9 +10,9 @@
 #   id: DS-0029
 #   long_id: docker-use-apt-no-install-recommends
 #   aliases:
-#     - AVD-DS-0029
-#     - DS029
 #     - use-apt-no-install-recommends
+#     - DS029
+#     - AVD-DS-0029
 #   severity: HIGH
 #   recommended_action: Add '--no-install-recommends' flag to 'apt-get'
 #   input:

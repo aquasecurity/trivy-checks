@@ -11,8 +11,8 @@
 #   long_id: kubernetes-ensure-api-server-pod-specification-file-permissions-set-600-or-more-restrictive
 #   aliases:
 #     - AVD-KCV-0048
-#     - KCV0048
 #     - ensure-api-server-pod-specification-file-permissions-set-600-or-more-restrictive
+#     - KCV0048
 #   severity: HIGH
 #   recommended_action: 'Change the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml permissions of 600 or more restrictive '
 #   input:

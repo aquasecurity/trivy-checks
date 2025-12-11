@@ -11,8 +11,8 @@
 #   id: AWS-0167
 #   long_id: aws-iam-limit-user-access-keys
 #   aliases:
-#     - AVD-AWS-0167
 #     - limit-user-access-keys
+#     - AVD-AWS-0167
 #   provider: aws
 #   service: iam
 #   severity: LOW

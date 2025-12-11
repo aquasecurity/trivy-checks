@@ -10,8 +10,8 @@
 #   id: KSV-0005
 #   long_id: kubernetes-no-sysadmin-capability
 #   aliases:
-#     - AVD-KSV-0005
 #     - KSV005
+#     - AVD-KSV-0005
 #     - no-sysadmin-capability
 #   severity: HIGH
 #   recommended_action: Remove the SYS_ADMIN capability from 'containers[].securityContext.capabilities.add'.

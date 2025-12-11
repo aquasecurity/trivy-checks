@@ -11,8 +11,8 @@
 #   long_id: kubernetes-no-host-network
 #   aliases:
 #     - AVD-KSV-0009
-#     - KSV009
 #     - no-host-network
+#     - KSV009
 #   severity: HIGH
 #   recommended_action: Do not set 'spec.template.spec.hostNetwork' to true.
 #   input:

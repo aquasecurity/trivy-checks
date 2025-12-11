@@ -11,8 +11,8 @@
 #   id: AWS-0038
 #   long_id: aws-eks-enable-control-plane-logging
 #   aliases:
-#     - AVD-AWS-0038
 #     - enable-control-plane-logging
+#     - AVD-AWS-0038
 #   provider: aws
 #   service: eks
 #   severity: MEDIUM

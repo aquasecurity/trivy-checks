@@ -11,9 +11,9 @@
 #   id: NIF-0014
 #   long_id: nifcloud-nas-no-public-ingress-nas-sgr
 #   aliases:
-#     - AVD-NIF-0014
 #     - no-public-ingress-nas-sgr
 #     - nifcloud-nas-no-public-ingress-nas-sgr
+#     - AVD-NIF-0014
 #   provider: nifcloud
 #   service: nas
 #   severity: CRITICAL

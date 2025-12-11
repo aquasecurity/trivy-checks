@@ -11,8 +11,8 @@
 #   long_id: kubernetes-use-readonly-filesystem
 #   aliases:
 #     - AVD-KSV-0014
-#     - KSV014
 #     - use-readonly-filesystem
+#     - KSV014
 #   severity: HIGH
 #   recommended_action: Change 'containers[].securityContext.readOnlyRootFilesystem' to 'true'.
 #   input:

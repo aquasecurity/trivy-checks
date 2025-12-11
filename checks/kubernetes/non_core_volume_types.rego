@@ -11,8 +11,8 @@
 #   long_id: kubernetes-no-non-ephemeral-volumes
 #   aliases:
 #     - AVD-KSV-0028
-#     - KSV028
 #     - no-non-ephemeral-volumes
+#     - KSV028
 #   severity: LOW
 #   recommended_action: Do not Set 'spec.volumes[*]' to any of the disallowed volume types.
 #   input:

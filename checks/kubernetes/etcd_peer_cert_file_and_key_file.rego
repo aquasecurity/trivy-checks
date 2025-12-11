@@ -11,8 +11,8 @@
 #   long_id: kubernetes-ensure-peer-cert-file-and-peer-key-file-arguments-are-set-as-appropriate
 #   aliases:
 #     - AVD-KCV-0045
-#     - KCV0045
 #     - ensure-peer-cert-file-and-peer-key-file-arguments-are-set-as-appropriate
+#     - KCV0045
 #   severity: LOW
 #   recommended_action: Follow the etcd service documentation and configure peer TLS encryption as appropriate for your etcd cluster. Then, edit the etcd pod specification file /etc/kubernetes/manifests/etcd.yaml on the master node and set the below parameters.
 #   input:

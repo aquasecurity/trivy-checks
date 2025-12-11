@@ -11,8 +11,8 @@
 #   id: AZU-0029
 #   long_id: azure-database-no-public-firewall-access
 #   aliases:
-#     - AVD-AZU-0029
 #     - no-public-firewall-access
+#     - AVD-AZU-0029
 #   provider: azure
 #   service: database
 #   severity: HIGH

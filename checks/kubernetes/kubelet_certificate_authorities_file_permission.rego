@@ -11,8 +11,8 @@
 #   long_id: kubernetes-ensure-certificate-authorities-file-permissions-600-or-more-restrictive.
 #   aliases:
 #     - AVD-KCV-0075
-#     - KCV0075
 #     - ensure-certificate-authorities-file-permissions-600-or-more-restrictive.
+#     - KCV0075
 #   severity: CRITICAL
 #   recommended_action: Change the certificate authorities file permissions to 600 or more restrictive if exist
 #   input:

@@ -11,8 +11,8 @@
 #   long_id: kubernetes-no-shared-ipc-namespace
 #   aliases:
 #     - AVD-KSV-0008
-#     - KSV008
 #     - no-shared-ipc-namespace
+#     - KSV008
 #   severity: HIGH
 #   recommended_action: Do not set 'spec.template.spec.hostIPC' to true.
 #   input:

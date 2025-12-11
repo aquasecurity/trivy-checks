@@ -11,9 +11,9 @@
 #   long_id: kubernetes-ensure-container-network-interface-ownership-set-root:root.
 #   aliases:
 #     - AVD-KCV-0057
+#     - ensure-container-network-interface-ownership-set-root:root.
 #     - KCV0057
 #     - ensure-container-network-interface-ownership-set
-#     - ensure-container-network-interface-ownership-set-root:root.
 #   severity: HIGH
 #   recommended_action: Change the container network interface file path/to/cni/files ownership to root:root
 #   input:

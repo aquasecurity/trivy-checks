@@ -10,8 +10,8 @@
 #   id: DS-0002
 #   long_id: docker-least-privilege-user
 #   aliases:
-#     - AVD-DS-0002
 #     - DS002
+#     - AVD-DS-0002
 #     - least-privilege-user
 #   severity: HIGH
 #   recommended_action: Add 'USER <non root user name>' line to the Dockerfile

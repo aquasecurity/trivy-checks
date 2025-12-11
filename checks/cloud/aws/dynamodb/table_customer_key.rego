@@ -11,8 +11,8 @@
 #   id: AWS-0025
 #   long_id: aws-dynamodb-table-customer-key
 #   aliases:
-#     - AVD-AWS-0025
 #     - table-customer-key
+#     - AVD-AWS-0025
 #   provider: aws
 #   service: dynamodb
 #   severity: LOW

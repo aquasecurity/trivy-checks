@@ -11,8 +11,8 @@
 #   long_id: docker-no-duplicate-alias
 #   aliases:
 #     - AVD-DS-0012
-#     - DS012
 #     - no-duplicate-alias
+#     - DS012
 #   severity: CRITICAL
 #   recommended_action: Change aliases to make them different
 #   input:

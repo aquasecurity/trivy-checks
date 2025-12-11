@@ -10,9 +10,9 @@
 #   id: KCV-0051
 #   long_id: kubernetes-ensure-controller-manager-pod-specification-ownership-set-root:root.
 #   aliases:
-#     - AVD-KCV-0051
 #     - KCV0051
 #     - ensure-controller-manager-pod-specification-ownership-set
+#     - AVD-KCV-0051
 #     - ensure-controller-manager-pod-specification-ownership-set-root:root.
 #   severity: HIGH
 #   recommended_action: Change the controller manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml ownership to root:root

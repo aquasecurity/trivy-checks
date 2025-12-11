@@ -12,9 +12,9 @@
 #   id: GCP-0075
 #   long_id: google-compute-enable-subnetwork-private-google-access
 #   aliases:
+#     - google-misc-google-compute-subnetwork-with-private-google-access-disable
 #     - AVD-GCP-0075
 #     - enable-subnetwork-private-google-access
-#     - google-misc-google-compute-subnetwork-with-private-google-access-disable
 #   provider: google
 #   service: compute
 #   severity: LOW

@@ -10,9 +10,9 @@
 #   id: KSV-0016
 #   long_id: kubernetes-no-unspecified-memory-requests
 #   aliases:
-#     - AVD-KSV-0016
-#     - KSV016
 #     - no-unspecified-memory-requests
+#     - KSV016
+#     - AVD-KSV-0016
 #   severity: LOW
 #   recommended_action: Set 'containers[].resources.requests.memory'.
 #   input:

@@ -11,8 +11,8 @@
 #   long_id: kubernetes-ensure-client-ca-argument-set-appropriate
 #   aliases:
 #     - AVD-KCV-0081
-#     - KCV0081
 #     - ensure-client-ca-argument-set-appropriate
+#     - KCV0081
 #   severity: CRITICAL
 #   recommended_action: If using a Kubelet config file, edit  the --client-ca-file argument ito appropriate value
 #   input:

@@ -11,8 +11,8 @@
 #   long_id: kubernetes-no-system-authenticated-group-bind
 #   aliases:
 #     - AVD-KSV-01011
-#     - KSV01011
 #     - no-system-authenticated-group-bind
+#     - KSV01011
 #   severity: CRITICAL
 #   recommended_action: Remove system:authenticated group binding from clusterrolebinding or rolebinding.
 #   input:

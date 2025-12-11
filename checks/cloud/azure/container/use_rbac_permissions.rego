@@ -11,8 +11,8 @@
 #   id: AZU-0042
 #   long_id: azure-container-use-rbac-permissions
 #   aliases:
-#     - AVD-AZU-0042
 #     - use-rbac-permissions
+#     - AVD-AZU-0042
 #   provider: azure
 #   service: container
 #   severity: HIGH

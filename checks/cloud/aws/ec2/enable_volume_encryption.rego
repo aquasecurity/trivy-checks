@@ -11,9 +11,9 @@
 #   id: AWS-0026
 #   long_id: aws-ec2-enable-volume-encryption
 #   aliases:
-#     - AVD-AWS-0026
 #     - enable-volume-encryption
 #     - aws-ebs-enable-volume-encryption
+#     - AVD-AWS-0026
 #   provider: aws
 #   service: ec2
 #   severity: HIGH

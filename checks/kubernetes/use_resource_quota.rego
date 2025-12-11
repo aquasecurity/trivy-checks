@@ -10,9 +10,9 @@
 #   id: KSV-0040
 #   long_id: kubernetes-resource-quota-usage
 #   aliases:
-#     - AVD-KSV-0040
-#     - KSV040
 #     - resource-quota-usage
+#     - KSV040
+#     - AVD-KSV-0040
 #   severity: LOW
 #   recommended_action: Create a ResourceQuota policy with memory and CPU quotas for each namespace
 #   input:

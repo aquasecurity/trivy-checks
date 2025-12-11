@@ -10,8 +10,8 @@
 #   id: KSV-0023
 #   long_id: kubernetes-no-mounted-hostpath
 #   aliases:
-#     - AVD-KSV-0023
 #     - KSV023
+#     - AVD-KSV-0023
 #     - no-mounted-hostpath
 #   severity: MEDIUM
 #   recommended_action: Do not set 'spec.volumes[*].hostPath'.

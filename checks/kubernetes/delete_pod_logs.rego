@@ -10,9 +10,9 @@
 #   id: KSV-0042
 #   long_id: kubernetes-no-delete-pod-logs
 #   aliases:
-#     - AVD-KSV-0042
-#     - KSV042
 #     - no-delete-pod-logs
+#     - KSV042
+#     - AVD-KSV-0042
 #   severity: MEDIUM
 #   recommended_action: Remove verbs 'delete' and 'deletecollection' for resource 'pods/log' for Role and ClusterRole
 #   input:

@@ -11,8 +11,8 @@
 #   long_id: kubernetes-selector-usage-in-network-policies
 #   aliases:
 #     - AVD-KSV-0038
-#     - KSV038
 #     - selector-usage-in-network-policies
+#     - KSV038
 #   severity: MEDIUM
 #   recommended_action: create network policies and ensure that pods are selected using the podSelector and/or the namespaceSelector options
 #   input:

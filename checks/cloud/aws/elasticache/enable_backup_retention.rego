@@ -11,8 +11,8 @@
 #   id: AWS-0050
 #   long_id: aws-elasticache-enable-backup-retention
 #   aliases:
-#     - AVD-AWS-0050
 #     - enable-backup-retention
+#     - AVD-AWS-0050
 #   provider: aws
 #   service: elasticache
 #   severity: MEDIUM

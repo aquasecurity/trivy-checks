@@ -10,9 +10,9 @@
 #   id: DS-0010
 #   long_id: docker-no-sudo-run
 #   aliases:
-#     - AVD-DS-0010
-#     - DS010
 #     - no-sudo-run
+#     - DS010
+#     - AVD-DS-0010
 #   severity: CRITICAL
 #   recommended_action: Don't use sudo
 #   input:

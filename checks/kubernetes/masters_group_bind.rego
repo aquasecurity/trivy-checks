@@ -11,8 +11,8 @@
 #   long_id: kubernetes-no-system-masters-group-bind
 #   aliases:
 #     - AVD-KSV-0123
-#     - KSV0123
 #     - no-system-masters-group-bind
+#     - KSV0123
 #   severity: CRITICAL
 #   recommended_action: Remove system:masters group binding from clusterrolebinding or rolebinding.
 #   input:

@@ -11,8 +11,8 @@
 #   long_id: kubernetes-default-namespace-should-not-be-used
 #   aliases:
 #     - AVD-KSV-0110
-#     - KSV110
 #     - default-namespace-should-not-be-used
+#     - KSV110
 #   severity: LOW
 #   recommended_action: Set 'metadata.namespace' to a non-default namespace.
 #   input:

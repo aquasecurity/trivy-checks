@@ -8,8 +8,8 @@
 #   id: KSV-0033
 #   long_id: kubernetes-use-gcr-domain
 #   aliases:
-#     - AVD-KSV-0033
 #     - KSV033
+#     - AVD-KSV-0033
 #     - use-gcr-domain
 #   severity: MEDIUM
 #   recommended_action: Use images from trusted GCR registries.

@@ -9,8 +9,8 @@
 #   long_id: kubernetes-no-untrusted-ecr-domain
 #   aliases:
 #     - AVD-KSV-0035
-#     - KSV035
 #     - no-untrusted-ecr-domain
+#     - KSV035
 #   severity: MEDIUM
 #   recommended_action: Container image should be used from Amazon container Registry
 #   deprecated: true

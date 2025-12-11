@@ -11,8 +11,8 @@
 #   long_id: docker-only-one-entrypoint
 #   aliases:
 #     - AVD-DS-0007
-#     - DS007
 #     - only-one-entrypoint
+#     - DS007
 #   severity: CRITICAL
 #   recommended_action: Remove unnecessary ENTRYPOINT instruction.
 #   input:

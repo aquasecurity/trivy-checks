@@ -11,8 +11,8 @@
 #   long_id: kubernetes-ensure-secure-port-argument-is-not-set-to-0
 #   aliases:
 #     - AVD-KCV-0017
-#     - KCV0017
 #     - ensure-secure-port-argument-is-not-set-to-0
+#     - KCV0017
 #   severity: LOW
 #   recommended_action: Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and either remove the --secure-port parameter or set it to a different (non-zero) desired port.
 #   input:

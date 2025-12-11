@@ -11,8 +11,8 @@
 #   id: AWS-0014
 #   long_id: aws-cloudtrail-enable-all-regions
 #   aliases:
-#     - AVD-AWS-0014
 #     - enable-all-regions
+#     - AVD-AWS-0014
 #   provider: aws
 #   service: cloudtrail
 #   severity: MEDIUM

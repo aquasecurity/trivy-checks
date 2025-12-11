@@ -10,10 +10,10 @@
 #   id: KCV-0040
 #   long_id: kubernetes-ensure-profiling-argument-is-set-to-false
 #   aliases:
-#     - AVD-KCV-0040
-#     - KCV0040
-#     - ensure-profiling-argument-is-set-to-false
 #     - ensure-scheduler-profiling-argument-set-to-false
+#     - AVD-KCV-0040
+#     - ensure-profiling-argument-is-set-to-false
+#     - KCV0040
 #   severity: LOW
 #   recommended_action: Edit the Scheduler pod specification file /etc/kubernetes/manifests/kube-scheduler.yaml file on the Control Plane node and set the below parameter.
 #   input:

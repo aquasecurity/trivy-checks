@@ -10,9 +10,9 @@
 #   id: KSV-0122
 #   long_id: kubernetes-no-anonymous-user-bind
 #   aliases:
-#     - AVD-KSV-0122
-#     - KSV122
 #     - no-anonymous-user-bind
+#     - KSV122
+#     - AVD-KSV-0122
 #   severity: CRITICAL
 #   recommended_action: Remove anonymous user binding from clusterrolebinding or rolebinding.
 #   input:

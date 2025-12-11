@@ -12,8 +12,8 @@
 #   id: AWS-0085
 #   long_id: aws-redshift-no-classic-resources
 #   aliases:
-#     - AVD-AWS-0085
 #     - no-classic-resources
+#     - AVD-AWS-0085
 #   provider: aws
 #   service: redshift
 #   severity: CRITICAL

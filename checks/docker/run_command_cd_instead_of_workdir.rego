@@ -11,8 +11,8 @@
 #   long_id: docker-use-workdir-over-cd
 #   aliases:
 #     - AVD-DS-0013
-#     - DS013
 #     - use-workdir-over-cd
+#     - DS013
 #   severity: MEDIUM
 #   recommended_action: Use WORKDIR to change directory
 #   input:

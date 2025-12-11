@@ -12,8 +12,8 @@
 #   id: AWS-0152
 #   long_id: aws-cloudwatch-require-console-login-failures-alarm
 #   aliases:
-#     - AVD-AWS-0152
 #     - require-console-login-failures-alarm
+#     - AVD-AWS-0152
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW

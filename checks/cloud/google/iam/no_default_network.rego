@@ -9,8 +9,8 @@
 #   id: GCP-0010
 #   long_id: google-iam-no-default-network
 #   aliases:
-#     - AVD-GCP-0010
 #     - no-default-network
+#     - AVD-GCP-0010
 #   provider: google
 #   service: iam
 #   severity: HIGH

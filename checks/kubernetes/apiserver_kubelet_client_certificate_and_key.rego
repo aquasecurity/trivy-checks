@@ -11,8 +11,8 @@
 #   long_id: kubernetes-ensure-kubelet-client-certificate-and-kubelet-client-key-are-set
 #   aliases:
 #     - AVD-KCV-0005
-#     - KCV0005
 #     - ensure-kubelet-client-certificate-and-kubelet-client-key-are-set
+#     - KCV0005
 #   severity: LOW
 #   recommended_action: Follow the Kubernetes documentation and set up the TLS connection between the apiserver and kubelets.
 #   input:

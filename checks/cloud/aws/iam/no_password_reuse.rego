@@ -13,8 +13,8 @@
 #   id: AWS-0056
 #   long_id: aws-iam-no-password-reuse
 #   aliases:
-#     - AVD-AWS-0056
 #     - no-password-reuse
+#     - AVD-AWS-0056
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM
