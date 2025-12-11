@@ -1,9 +1,9 @@
 # METADATA
-# title: The minimum TLS version for Storage Accounts should be TLS1_2
+# title: The minimum TLS version for Storage Accounts should be TLS1_2 or higher
 # description: |
-#   Azure Storage currently supports three versions of the TLS protocol: 1.0, 1.1, and 1.2.
-#   Azure Storage uses TLS 1.2 on public HTTPS endpoints, but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
-#   This check will warn if the minimum TLS is not set to TLS1_2.
+#   Azure Storage supports four versions of the TLS protocol: 1.0, 1.1, 1.2, and 1.3.
+#   Azure Storage uses TLS 1.2 or TLS 1.3 on public HTTPS endpoints, while TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
+#   This check will warn if the minimum TLS version is set lower than TLS1_2. TLS1_2 and TLS1_3 are both allowed.
 # scope: package
 # schemas:
 #   - input: schema["cloud"]
@@ -18,7 +18,7 @@
 #   provider: azure
 #   service: storage
 #   severity: CRITICAL
-#   recommended_action: Use a more recent TLS/SSL policy for the load balancer
+#   recommended_action: Use a more recent TLS version for the storage account
 #   input:
 #     selector:
 #       - type: cloud
@@ -30,14 +30,23 @@ package builtin.azure.storage.azure0011
 
 import rego.v1
 
+import data.lib.cloud.value
+
+allowed_tls_versions := {"TLS1_2", "TLS1_3"}
+
 deny contains res if {
 	some account in input.azure.storage.accounts
 	isManaged(account)
-	not has_tls_1_2(account)
+	non_compliant_tls(account)
 	res := result.new(
 		"Storage account uses an insecure TLS version.",
 		object.get(account, "minimumtlsversion", account),
 	)
 }
 
-has_tls_1_2(account) := account.minimumtlsversion.value == "TLS1_2"
+non_compliant_tls(account) if not account.minimumtlsversion
+
+non_compliant_tls(account) if {
+	value.is_known(account.minimumtlsversion)
+	not account.minimumtlsversion.value in allowed_tls_versions
+}

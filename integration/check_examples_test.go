@@ -32,7 +32,7 @@ import (
 	"github.com/aquasecurity/trivy-checks/pkg/rego/metadata"
 )
 
-var trivyVersions = []string{"0.57.1", "0.58.1", "latest", "canary"}
+var trivyVersions = []string{"0.61.0", "latest", "canary"}
 
 func TestScanCheckExamples(t *testing.T) {
 	ctx := context.Background()
