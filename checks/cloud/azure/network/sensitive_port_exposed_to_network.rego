@@ -8,15 +8,16 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_rule
 # custom:
-#   id: AVD-AZU-0074
-#   avd_id: AVD-AZU-0074
+#   id: AZU-0074
+#   long_id: azure-network-sensitive-port-is-exposed-to-entire-network
 #   aliases:
+#     - AVD-AZU-0074
+#     - sensitive-port-is-exposed-to-entire-network
 #     - azure-sensitive-port-is-exposed-to-entire-network
 #   provider: azure
 #   service: network
 #   severity: HIGH
 #   minimum_trivy_version: 0.68.0
-#   short_code: sensitive-port-is-exposed-to-entire-network
 #   recommended_action: Remove NSG rules allowing legacy or unencrypted protocols on broad scopes.
 #   input:
 #     selector:

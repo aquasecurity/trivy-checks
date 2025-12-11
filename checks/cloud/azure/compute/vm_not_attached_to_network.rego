@@ -8,14 +8,15 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine#network_interface_ids
 # custom:
-#   id: AVD-AZU-0068
-#   avd_id: AVD-AZU-0068
+#   id: AZU-0068
+#   long_id: azure-compute-vm-not-attached-to-network
 #   aliases:
+#     - AVD-AZU-0068
+#     - vm-not-attached-to-network
 #     - azure-vm-not-attached-to-network
 #   provider: azure
 #   service: compute
 #   severity: MEDIUM
-#   short_code: vm-not-attached-to-network
 #   recommended_action: Associate an NSG to the VM's NIC or subnet to control traffic.
 #   minimum_trivy_version: 0.68.0
 #   input:

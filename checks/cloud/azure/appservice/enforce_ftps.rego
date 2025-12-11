@@ -8,13 +8,15 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#ftps_state
 # custom:
-#   id: AVD-AZU-0071
-#   avd_id: AVD-AZU-0071
+#   id: AZU-0071
+#   long_id: azure-appservice-enforce-ftps
+#   aliases:
+#     - AVD-AZU-0071
+#     - enforce-ftps
 #   provider: azure
 #   service: appservice
 #   severity: MEDIUM
 #   minimum_trivy_version: 0.68.0
-#   short_code: enforce-ftps
 #   recommended_action: Set FTPS state to 'FTPS Only' in App Service settings to prevent plaintext FTP.
 #   input:
 #     selector:
