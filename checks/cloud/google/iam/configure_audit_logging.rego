@@ -11,8 +11,10 @@
 #   - https://cloud.google.com/logging/docs/audit
 # custom:
 #   id: GCP-0079
-#   avd_id: AVD-GCP-0079
-#   short_code: configure-audit-logging
+#   long_id: google-iam-configure-audit-logging
+#   aliases:
+#     - AVD-GCP-0079
+#     - configure-audit-logging
 #   provider: google
 #   service: iam
 #   severity: LOW

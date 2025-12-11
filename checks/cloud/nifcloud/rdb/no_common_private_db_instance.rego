@@ -8,14 +8,15 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/service/plan.htm
 # custom:
-#   id: AVD-NIF-0010
-#   avd_id: AVD-NIF-0010
+#   id: NIF-0010
+#   long_id: nifcloud-rdb-no-common-private-db-instance
 #   aliases:
+#     - AVD-NIF-0010
+#     - no-common-private-db-instance
 #     - nifcloud-rdb-no-common-private-db-instance
 #   provider: nifcloud
 #   service: rdb
 #   severity: LOW
-#   short_code: no-common-private-db-instance
 #   recommended_action: Use private LAN
 #   input:
 #     selector:

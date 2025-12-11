@@ -9,10 +9,11 @@
 #   - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall#allow
 # custom:
 #   id: GCP-0072
-#   avd_id: AVD-GCP-0072
+#   long_id: google-compute-disable-allow-all-ports
 #   aliases:
+#     - AVD-GCP-0072
+#     - disable-allow-all-ports
 #     - network-using-firewall-rule-that-allows-all-ports
-#   short_code: disable-allow-all-ports
 #   provider: google
 #   service: compute
 #   severity: MEDIUM

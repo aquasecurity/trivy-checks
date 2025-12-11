@@ -8,14 +8,15 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html
 # custom:
-#   id: AVD-AWS-0101
-#   avd_id: AVD-AWS-0101
+#   id: AWS-0101
+#   long_id: aws-ec2-no-default-vpc
 #   aliases:
+#     - AVD-AWS-0101
+#     - no-default-vpc
 #     - aws-vpc-no-default-vpc
 #   provider: aws
 #   service: ec2
 #   severity: HIGH
-#   short_code: no-default-vpc
 #   recommended_action: Create a non-default vpc for resources to be created in
 #   input:
 #     selector:

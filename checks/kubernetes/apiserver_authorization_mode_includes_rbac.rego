@@ -7,10 +7,13 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0009
-#   avd_id: AVD-KCV-0009
+#   id: KCV-0009
+#   long_id: kubernetes-ensure-authorization-mode-argument-includes-rbac
+#   aliases:
+#     - AVD-KCV-0009
+#     - KCV0009
+#     - ensure-authorization-mode-argument-includes-rbac
 #   severity: LOW
-#   short_code: ensure-authorization-mode-argument-includes-rbac
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --authorization-mode parameter to a value that includes RBAC."
 #   input:
 #     selector:

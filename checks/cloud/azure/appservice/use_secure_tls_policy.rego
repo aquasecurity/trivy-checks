@@ -6,12 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-AZU-0006
-#   avd_id: AVD-AZU-0006
+#   id: AZU-0006
+#   long_id: azure-appservice-use-secure-tls-policy
+#   aliases:
+#     - AVD-AZU-0006
+#     - use-secure-tls-policy
 #   provider: azure
 #   service: appservice
 #   severity: HIGH
-#   short_code: use-secure-tls-policy
 #   recommended_action: The TLS version being outdated and has known vulnerabilities
 #   input:
 #     selector:

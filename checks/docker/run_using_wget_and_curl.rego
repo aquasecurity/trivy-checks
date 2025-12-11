@@ -7,10 +7,13 @@
 # related_resources:
 # - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#run
 # custom:
-#   id: DS014
-#   avd_id: AVD-DS-0014
+#   id: DS-0014
+#   long_id: docker-standardise-remote-get
+#   aliases:
+#     - AVD-DS-0014
+#     - DS014
+#     - standardise-remote-get
 #   severity: LOW
-#   short_code: standardise-remote-get
 #   recommended_action: "Pick one util, either 'wget' or 'curl'"
 #   input:
 #     selector:

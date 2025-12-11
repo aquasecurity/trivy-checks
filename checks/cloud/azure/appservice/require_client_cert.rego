@@ -6,12 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-AZU-0001
-#   avd_id: AVD-AZU-0001
+#   id: AZU-0001
+#   long_id: azure-appservice-require-client-cert
+#   aliases:
+#     - AVD-AZU-0001
+#     - require-client-cert
 #   provider: azure
 #   service: appservice
 #   severity: LOW
-#   short_code: require-client-cert
 #   recommended_action: Enable incoming certificates for clients
 #   input:
 #     selector:

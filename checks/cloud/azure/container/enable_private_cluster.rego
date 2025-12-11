@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#private_cluster_enabled
 # custom:
-#   id: AVD-AZU-0065
-#   avd_id: AVD-AZU-0065
+#   id: AZU-0065
+#   long_id: azure-container-enable-private-cluster
+#   aliases:
+#     - AVD-AZU-0065
+#     - enable-private-cluster
 #   provider: azure
 #   service: container
 #   severity: MEDIUM
-#   short_code: enable-private-cluster
 #   recommended_action: Provision the AKS cluster with `private_cluster_enabled = true` and use private endpoints.
 #   minimum_trivy_version: 0.68.0
 #   input:

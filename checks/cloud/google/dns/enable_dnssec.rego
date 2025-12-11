@@ -6,12 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-GCP-0013
-#   avd_id: AVD-GCP-0013
+#   id: GCP-0013
+#   long_id: google-dns-enable-dnssec
+#   aliases:
+#     - AVD-GCP-0013
+#     - enable-dnssec
 #   provider: google
 #   service: dns
 #   severity: MEDIUM
-#   short_code: enable-dnssec
 #   recommended_action: Enable DNSSEC
 #   input:
 #     selector:

@@ -8,12 +8,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-OCI-0001
-#   avd_id: AVD-OCI-0001
+#   id: OCI-0001
+#   long_id: oracle-compute-no-public-ip
+#   aliases:
+#     - AVD-OCI-0001
+#     - no-public-ip
 #   provider: oracle
 #   service: compute
 #   severity: CRITICAL
-#   short_code: no-public-ip
 #   recommended_action: Reconsider the use of an public IP
 #   input:
 #     selector:

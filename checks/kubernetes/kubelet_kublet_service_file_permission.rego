@@ -7,10 +7,13 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0069
-#   avd_id: AVD-KCV-0069
+#   id: KCV-0069
+#   long_id: kubernetes-ensure-kubelet-service-file-permissions-set-600-or-more-restrictive
+#   aliases:
+#     - AVD-KCV-0069
+#     - KCV0069
+#     - ensure-kubelet-service-file-permissions-set-600-or-more-restrictive
 #   severity: HIGH
-#   short_code: ensure-kubelet-service-file-permissions-set-600-or-more-restrictive
 #   recommended_action: "Change the kubelet service file /etc/systemd/system/kubelet.service.d/10-kubeadm.conf permissions of 600 or more restrictive "
 #   input:
 #     selector:

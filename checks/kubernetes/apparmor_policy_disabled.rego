@@ -7,10 +7,13 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV002
-#   avd_id: AVD-KSV-0002
+#   id: KSV-0002
+#   long_id: kubernetes-use-default-apparmor-profile
+#   aliases:
+#     - AVD-KSV-0002
+#     - KSV002
+#     - use-default-apparmor-profile
 #   severity: LOW
-#   short_code: use-default-apparmor-profile
 #   recommended_action: "set the 'runtime/default' value from 'container.apparmor.security.beta.kubernetes.io'."
 #   input:
 #     selector:

@@ -9,12 +9,14 @@
 # related_resources:
 #   - https://www.cloudflare.com/en-gb/learning/ssl/why-is-http-not-secure/
 # custom:
-#   id: AVD-AWS-0054
-#   avd_id: AVD-AWS-0054
+#   id: AWS-0054
+#   long_id: aws-elb-http-not-used
+#   aliases:
+#     - AVD-AWS-0054
+#     - http-not-used
 #   provider: aws
 #   service: elb
 #   severity: CRITICAL
-#   short_code: http-not-used
 #   recommended_action: Switch to HTTPS to benefit from TLS security features
 #   input:
 #     selector:

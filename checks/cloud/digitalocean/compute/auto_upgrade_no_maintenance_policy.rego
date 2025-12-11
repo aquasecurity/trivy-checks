@@ -7,12 +7,14 @@
 # related_resources:
 #   - https://docs.digitalocean.com/products/kubernetes/resources/best-practices/
 # custom:
-#   id: AVD-DIG-0008
-#   avd_id: AVD-DIG-0008
+#   id: DIG-0008
+#   long_id: digitalocean-compute-kubernetes-auto-upgrades-not-enabled
+#   aliases:
+#     - AVD-DIG-0008
+#     - kubernetes-auto-upgrades-not-enabled
 #   provider: digitalocean
 #   service: compute
 #   severity: CRITICAL
-#   short_code: kubernetes-auto-upgrades-not-enabled
 #   recommended_action: Set maintenance policy deterministically when auto upgrades are enabled
 #   input:
 #     selector:
