@@ -7,10 +7,13 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0078
-#   avd_id: AVD-KCV-0078
+#   id: KCV-0078
+#   long_id: kubernetes-ensure-kubeconfig-kubelet-config.yaml-ownership-set-root:root
+#   aliases:
+#     - AVD-KCV-0078
+#     - KCV0078
+#     - ensure-kubeconfig-kubelet-config.yaml-ownership-set-root:root
 #   severity: HIGH
-#   short_code: ensure-kubeconfig-kubelet-config.yaml-ownership-set-root:root
 #   recommended_action: "Change the kubelet config.yaml file ownership to root:root"
 #   input:
 #     selector:

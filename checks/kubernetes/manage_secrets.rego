@@ -7,10 +7,13 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV041
-#   avd_id: AVD-KSV-0041
+#   id: KSV-0041
+#   long_id: kubernetes-no-manage-secrets
+#   aliases:
+#     - AVD-KSV-0041
+#     - KSV041
+#     - no-manage-secrets
 #   severity: CRITICAL
-#   short_code: no-manage-secrets
 #   recommended_actions: "Manage secrets are not allowed. Remove resource 'secrets' from cluster role"
 #   input:
 #     selector:

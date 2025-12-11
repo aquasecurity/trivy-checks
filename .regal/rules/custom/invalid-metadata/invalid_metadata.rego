@@ -78,7 +78,7 @@ check_metadata_schema := {
 		"avd_id": {"type": "string"},
 		"provider": {"type": "string"},
 		"service": {"type": "string"},
-		"short_code": {"type": "string"},
+		"long_id": {"type": "string"},
 		"severity": {
 			"type": "string",
 			"enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"],
@@ -97,7 +97,7 @@ check_metadata_schema := {
 		"recommended_action": {"type": "string"},
 		"minimum_trivy_version": {"type": "string"},
 	},
-	"required": ["id", "avd_id", "input"],
+	"required": ["id", "input"],
 	"additionalProperties": false,
 	"anyOf": [
 		{"required": ["recommended_actions"]},

@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/msk/latest/developerguide/msk-logging.html
 # custom:
-#   id: AVD-AWS-0074
-#   avd_id: AVD-AWS-0074
+#   id: AWS-0074
+#   long_id: aws-msk-enable-logging
+#   aliases:
+#     - AVD-AWS-0074
+#     - enable-logging
 #   provider: aws
 #   service: msk
 #   severity: MEDIUM
-#   short_code: enable-logging
 #   recommended_action: Enable logging
 #   input:
 #     selector:

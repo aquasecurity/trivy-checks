@@ -7,10 +7,13 @@
 # related_resources:
 # - https://blog.aquasec.com/kubernetes-exposed-one-yaml-away-from-disaster
 # custom:
-#   id: KSV122
-#   avd_id: AVD-KSV-0122
+#   id: KSV-0122
+#   long_id: kubernetes-no-anonymous-user-bind
+#   aliases:
+#     - AVD-KSV-0122
+#     - KSV122
+#     - no-anonymous-user-bind
 #   severity: CRITICAL
-#   short_code: no-anonymous-user-bind
 #   recommended_action: "Remove anonymous user binding from clusterrolebinding or rolebinding."
 #   input:
 #     selector:

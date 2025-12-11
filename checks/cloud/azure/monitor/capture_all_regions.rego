@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://docs.microsoft.com/en-us/cli/azure/monitor/log-profiles?view=azure-cli-latest#az_monitor_log_profiles_create-required-parameters
 # custom:
-#   id: AVD-AZU-0032
-#   avd_id: AVD-AZU-0032
+#   id: AZU-0032
+#   long_id: azure-monitor-capture-all-regions
+#   aliases:
+#     - AVD-AZU-0032
+#     - capture-all-regions
 #   provider: azure
 #   service: monitor
 #   severity: MEDIUM
-#   short_code: capture-all-regions
 #   recommended_action: Enable capture for all locations
 #   input:
 #     selector:

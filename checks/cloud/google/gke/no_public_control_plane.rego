@@ -6,12 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-GCP-0053
-#   avd_id: AVD-GCP-0053
+#   id: GCP-0053
+#   long_id: google-gke-no-public-control-plane
+#   aliases:
+#     - AVD-GCP-0053
+#     - no-public-control-plane
 #   provider: google
 #   service: gke
 #   severity: HIGH
-#   short_code: no-public-control-plane
 #   recommended_action: Use private nodes and master authorised networks to prevent exposure
 #   input:
 #     selector:

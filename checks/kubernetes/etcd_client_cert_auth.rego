@@ -7,10 +7,13 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0043
-#   avd_id: AVD-KCV-0043
+#   id: KCV-0043
+#   long_id: kubernetes-ensure-client-cert-auth-argument-is-set-to-true
+#   aliases:
+#     - AVD-KCV-0043
+#     - KCV0043
+#     - ensure-client-cert-auth-argument-is-set-to-true
 #   severity: LOW
-#   short_code: ensure-client-cert-auth-argument-is-set-to-true
 #   recommended_action: "Edit the etcd pod specification file /etc/kubernetes/manifests/etcd.yaml on the master node and set the below parameter."
 #   input:
 #     selector:

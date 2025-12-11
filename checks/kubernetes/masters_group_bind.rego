@@ -7,10 +7,13 @@
 # related_resources:
 # - https://www.aquasec.com/blog/kubernetes-authorization/
 # custom:
-#   id: KSV0123
-#   avd_id: AVD-KSV-0123
+#   id: KSV-0123
+#   long_id: kubernetes-no-system-masters-group-bind
+#   aliases:
+#     - AVD-KSV-0123
+#     - KSV0123
+#     - no-system-masters-group-bind
 #   severity: CRITICAL
-#   short_code: no-system-masters-group-bind
 #   recommended_action: "Remove system:masters group binding from clusterrolebinding or rolebinding."
 #   input:
 #     selector:

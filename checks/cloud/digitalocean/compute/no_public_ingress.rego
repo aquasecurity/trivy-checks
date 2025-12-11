@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://docs.digitalocean.com/products/networking/firewalls/how-to/configure-rules/
 # custom:
-#   id: AVD-DIG-0001
-#   avd_id: AVD-DIG-0001
+#   id: DIG-0001
+#   long_id: digitalocean-compute-no-public-ingress
+#   aliases:
+#     - AVD-DIG-0001
+#     - no-public-ingress
 #   provider: digitalocean
 #   service: compute
 #   severity: CRITICAL
-#   short_code: no-public-ingress
 #   recommended_action: Set a more restrictive CIRDR range
 #   input:
 #     selector:

@@ -6,12 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-GCP-0052
-#   avd_id: AVD-GCP-0052
+#   id: GCP-0052
+#   long_id: google-gke-enable-stackdriver-monitoring
+#   aliases:
+#     - AVD-GCP-0052
+#     - enable-stackdriver-monitoring
 #   provider: google
 #   service: gke
 #   severity: LOW
-#   short_code: enable-stackdriver-monitoring
 #   recommended_action: Enable StackDriver monitoring
 #   input:
 #     selector:

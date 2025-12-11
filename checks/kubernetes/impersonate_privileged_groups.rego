@@ -7,10 +7,13 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV043
-#   avd_id: AVD-KSV-0043
+#   id: KSV-0043
+#   long_id: kubernetes-no-impersonate-privileged-groups
+#   aliases:
+#     - AVD-KSV-0043
+#     - KSV043
+#     - no-impersonate-privileged-groups
 #   severity: CRITICAL
-#   short_code: no-impersonate-privileged-groups
 #   recommended_action: "Create a role which does not permit to impersonate privileged groups if not needed"
 #   input:
 #     selector:

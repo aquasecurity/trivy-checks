@@ -7,10 +7,13 @@
 # related_resources:
 # - https://github.com/gliderlabs/docker-alpine/blob/master/docs/usage.md#disabling-cache
 # custom:
-#   id: DS025
-#   avd_id: AVD-DS-0025
+#   id: DS-0025
+#   long_id: docker-purge-apk-package-cache
+#   aliases:
+#     - AVD-DS-0025
+#     - DS025
+#     - purge-apk-package-cache
 #   severity: HIGH
-#   short_code: purge-apk-package-cache
 #   recommended_action: "Add '--no-cache' to 'apk add' in Dockerfile"
 #   input:
 #     selector:

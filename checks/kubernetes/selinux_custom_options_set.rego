@@ -7,10 +7,13 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
-#   id: KSV025
-#   avd_id: AVD-KSV-0025
+#   id: KSV-0025
+#   long_id: kubernetes-no-custom-selinux-options
+#   aliases:
+#     - AVD-KSV-0025
+#     - KSV025
+#     - no-custom-selinux-options
 #   severity: MEDIUM
-#   short_code: no-custom-selinux-options
 #   recommended_action: "Do not set 'spec.securityContext.seLinuxOptions', spec.containers[*].securityContext.seLinuxOptions and spec.initContainers[*].securityContext.seLinuxOptions."
 #   input:
 #     selector:

@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html
 # custom:
-#   id: AVD-AWS-0094
-#   avd_id: AVD-AWS-0094
+#   id: AWS-0094
+#   long_id: aws-s3-specify-public-access-block
+#   aliases:
+#     - AVD-AWS-0094
+#     - specify-public-access-block
 #   provider: aws
 #   service: s3
 #   severity: LOW
-#   short_code: specify-public-access-block
 #   recommended_action: Define a aws_s3_bucket_public_access_block for the given bucket to control public access policies
 #   input:
 #     selector:

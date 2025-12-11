@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster#disk_encryption_set_id
 # custom:
-#   id: AVD-AZU-0067
-#   avd_id: AVD-AZU-0067
+#   id: AZU-0067
+#   long_id: azure-container-enable-disk-encryption
+#   aliases:
+#     - AVD-AZU-0067
+#     - enable-disk-encryption
 #   provider: azure
 #   service: container
 #   severity: LOW
-#   short_code: enable-disk-encryption
 #   recommended_action: Configure a disk encryption set ID for the AKS cluster to enable customer-managed key encryption.
 #   minimum_trivy_version: 0.68.0
 #   input:

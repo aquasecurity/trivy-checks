@@ -9,13 +9,15 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#php_version
 # custom:
-#   id: AVD-AZU-0069
-#   avd_id: AVD-AZU-0069
+#   id: AZU-0069
+#   long_id: azure-appservice-supported-php-version
+#   aliases:
+#     - AVD-AZU-0069
+#     - supported-php-version
 #   provider: azure
 #   service: appservice
 #   severity: MEDIUM
 #   minimum_trivy_version: 0.68.0
-#   short_code: supported-php-version
 #   recommended_action: Update to a supported PHP version (8.1 or higher). Consider migrating from azurerm_app_service to azurerm_linux_web_app for access to modern PHP versions.
 #   input:
 #     selector:

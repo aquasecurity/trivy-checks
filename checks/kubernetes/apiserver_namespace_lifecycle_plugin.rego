@@ -7,10 +7,13 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0015
-#   avd_id: AVD-KCV-0015
+#   id: KCV-0015
+#   long_id: kubernetes-ensure-admission-control-plugin-namespace-lifecycle-is-set
+#   aliases:
+#     - AVD-KCV-0015
+#     - KCV0015
+#     - ensure-admission-control-plugin-namespace-lifecycle-is-set
 #   severity: LOW
-#   short_code: ensure-admission-control-plugin-namespace-lifecycle-is-set
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --disable-admission-plugins parameter to ensure it does not include NamespaceLifecycle."
 #   input:
 #     selector:

@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html
 # custom:
-#   id: AVD-AWS-0065
-#   avd_id: AVD-AWS-0065
+#   id: AWS-0065
+#   long_id: aws-kms-auto-rotate-keys
+#   aliases:
+#     - AVD-AWS-0065
+#     - auto-rotate-keys
 #   provider: aws
 #   service: kms
 #   severity: MEDIUM
-#   short_code: auto-rotate-keys
 #   recommended_action: Configure KMS key to auto rotate
 #   input:
 #     selector:

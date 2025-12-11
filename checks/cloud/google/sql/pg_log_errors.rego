@@ -9,12 +9,14 @@
 #   - https://postgresqlco.nf/doc/en/param/log_min_messages/
 #   - https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES
 # custom:
-#   id: AVD-GCP-0018
-#   avd_id: AVD-GCP-0018
+#   id: GCP-0018
+#   long_id: google-sql-pg-log-errors
+#   aliases:
+#     - AVD-GCP-0018
+#     - pg-log-errors
 #   provider: google
 #   service: sql
 #   severity: LOW
-#   short_code: pg-log-errors
 #   recommended_action: Set the minimum log severity to at least ERROR
 #   input:
 #     selector:

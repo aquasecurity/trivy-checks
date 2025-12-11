@@ -11,13 +11,15 @@
 #   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app#python_version
 #   - https://peps.python.org/pep-0602/
 # custom:
-#   id: AVD-AZU-0070
-#   avd_id: AVD-AZU-0070
+#   id: AZU-0070
+#   long_id: azure-appservice-supported-python-version
+#   aliases:
+#     - AVD-AZU-0070
+#     - supported-python-version
 #   provider: azure
 #   service: appservice
 #   severity: MEDIUM
 #   minimum_trivy_version: 0.68.0
-#   short_code: supported-python-version
 #   recommended_action: Update to a supported Python version (3.9 or higher). Consider migrating from azurerm_app_service to azurerm_linux_web_app for access to modern Python versions.
 #   input:
 #     selector:

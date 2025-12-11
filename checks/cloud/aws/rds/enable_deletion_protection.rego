@@ -7,12 +7,14 @@
 # related_resources:
 # - https://aws.amazon.com/about-aws/whats-new/2018/09/amazon-rds-now-provides-database-deletion-protection/
 # custom:
-#   id: AVD-AWS-0177
-#   avd_id: AVD-AWS-0177
+#   id: AWS-0177
+#   long_id: aws-rds-enable-deletion-protection
+#   aliases:
+#     - AVD-AWS-0177
+#     - enable-deletion-protection
 #   provider: aws
 #   service: rds
 #   severity: MEDIUM
-#   short_code: enable-deletion-protection
 #   recommended_action: "Modify the RDS instances to enable deletion protection."
 #   input:
 #     selector:

@@ -8,10 +8,13 @@
 # - https://cloud.google.com/container-registry/docs/overview#registries
 # - https://docs.aws.amazon.com/general/latest/gr/ecr.html
 # custom:
-#   id: KSV0125
-#   avd_id: AVD-KSV-0125
+#   id: KSV-0125
+#   long_id: kubernetes-use-trusted-registry
+#   aliases:
+#     - AVD-KSV-0125
+#     - KSV0125
+#     - use-trusted-registry
 #   severity: MEDIUM
-#   short_code: use-trusted-registry
 #   recommended_action: Use images from trusted registries.
 #   input:
 #     selector:

@@ -5,12 +5,14 @@
 # schemas:
 # - input: schema["cloud"]
 # custom:
-#   id: AVD-KUBE-0002
-#   avd_id: AVD-KUBE-0002
+#   id: KUBE-0002
+#   long_id: kubernetes-network-no-public-egress
+#   aliases:
+#     - AVD-KUBE-0002
+#     - no-public-egress
 #   provider: kubernetes
 #   service: network
 #   severity: HIGH
-#   short_code: no-public-egress
 #   recommended_action: Remove public access except where explicitly required
 #   input:
 #     selector:

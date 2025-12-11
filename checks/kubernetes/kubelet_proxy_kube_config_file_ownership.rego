@@ -7,10 +7,13 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0072
-#   avd_id: AVD-KCV-0072
+#   id: KCV-0072
+#   long_id: kubernetes-ensure-proxy-kubeconfig-ownership-set-root:root-if-exist
+#   aliases:
+#     - AVD-KCV-0072
+#     - KCV0072
+#     - ensure-proxy-kubeconfig-ownership-set-root:root-if-exist
 #   severity: HIGH
-#   short_code: ensure-proxy-kubeconfig-ownership-set-root:root-if-exist
 #   recommended_action: "Change the proxy kubeconfig file <path><filename> ownership to root:root if exist"
 #   input:
 #     selector:

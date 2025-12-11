@@ -5,12 +5,14 @@
 # schemas:
 # - input: schema["cloud"]
 # custom:
-#   id: AVD-AWS-0345
-#   avd_id: AVD-AWS-0345
+#   id: AWS-0345
+#   long_id: aws-iam-no-s3-full-access
+#   aliases:
+#     - AVD-AWS-0345
+#     - no-s3-full-access
 #   provider: aws
 #   service: iam
 #   severity: HIGH
-#   short_code: no-s3-full-access
 #   recommended_action: "Create more restrictive S3 policies"
 #   input:
 #     selector:

@@ -8,12 +8,13 @@
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV-0056
-#   avd_id: AVD-KCV-0056
+#   long_id: kubernetes-ensure-container-network-interface-file-permissions-set-600-or-more-restrictive
 #   aliases:
+#     - AVD-KCV-0056
 #     - KCV0056
 #     - ensure-container-network-interface-file-permissions-set
+#     - ensure-container-network-interface-file-permissions-set-600-or-more-restrictive
 #   severity: HIGH
-#   short_code: ensure-container-network-interface-file-permissions-set-600-or-more-restrictive
 #   recommended_action: "Change the container network interface file path/to/cni/files permissions of 600 or more restrictive "
 #   input:
 #     selector:

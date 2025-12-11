@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/configure-logging-monitoring-activemq.html
 # custom:
-#   id: AVD-AWS-0070
-#   avd_id: AVD-AWS-0070
+#   id: AWS-0070
+#   long_id: aws-mq-enable-audit-logging
+#   aliases:
+#     - AVD-AWS-0070
+#     - enable-audit-logging
 #   provider: aws
 #   service: mq
 #   severity: MEDIUM
-#   short_code: enable-audit-logging
 #   recommended_action: Enable audit logging
 #   input:
 #     selector:
