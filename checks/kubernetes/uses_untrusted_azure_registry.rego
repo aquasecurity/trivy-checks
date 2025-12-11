@@ -1,29 +1,29 @@
 # METADATA
-# title: All container images must start with the *.azurecr.io domain
-# description: Containers should only use images from trusted registries.
+# title: "All container images must start with the *.azurecr.io domain"
+# description: "Containers should only use images from trusted registries."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # custom:
 #   id: KSV032
 #   avd_id: AVD-KSV-0032
 #   severity: MEDIUM
 #   short_code: use-azure-image-prefix
-#   recommended_action: Use images from trusted Azure registries.
+#   recommended_action: "Use images from trusted Azure registries."
 #   deprecated: true
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: pod
-#           - kind: replicaset
-#           - kind: replicationcontroller
-#           - kind: deployment
-#           - kind: deploymentconfig
-#           - kind: statefulset
-#           - kind: daemonset
-#           - kind: cronjob
-#           - kind: job
+#     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: deploymentconfig
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV032
 
 import rego.v1

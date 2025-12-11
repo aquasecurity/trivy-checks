@@ -1,22 +1,22 @@
 # METADATA
-# title: Ensure that the --event-qps argument is set to 0 or a level which ensures appropriate event capture
-# description: Security relevant information should be captured. The --event-qps flag on the Kubelet can be used to limit the rate at which events are gathered
+# title: "Ensure that the --event-qps argument is set to 0 or a level which ensures appropriate event capture"
+# description: "Security relevant information should be captured. The --event-qps flag on the Kubelet can be used to limit the rate at which events are gathered"
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://www.cisecurity.org/benchmark/kubernetes
+# - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV0087
 #   avd_id: AVD-KCV-0087
 #   severity: HIGH
 #   short_code: ensure-event-qps argument-set-0-or-level-forappropriate-event-capture
-#   recommended_action: 'If using a Kubelet config file, edit the file to set eventRecordQPS: to an appropriate level. If using command line arguments, edit the kubelet service file'
+#   recommended_action: "If using a Kubelet config file, edit the file to set eventRecordQPS: to an appropriate level. If using command line arguments, edit the kubelet service file"
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: nodeinfo
+#     - type: kubernetes
+#       subtypes:
+#         - kind: nodeinfo
 package builtin.kubernetes.KCV0087
 
 import rego.v1

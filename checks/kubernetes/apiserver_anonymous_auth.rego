@@ -1,20 +1,20 @@
 # METADATA
-# title: Ensure that the --anonymous-auth argument is set to false
-# description: Disable anonymous requests to the API server.
+# title: "Ensure that the --anonymous-auth argument is set to false"
+# description: "Disable anonymous requests to the API server."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://www.cisecurity.org/benchmark/kubernetes
+# - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV0001
 #   avd_id: AVD-KCV-0001
 #   severity: MEDIUM
 #   short_code: ensure-anonymous-auth-argument-is-false
-#   recommended_action: Set '--anonymous-auth' to 'false'.
+#   recommended_action: "Set '--anonymous-auth' to 'false'."
 #   input:
 #     selector:
-#       - type: kubernetes
+#     - type: kubernetes
 package builtin.kubernetes.KCV0001
 
 import rego.v1

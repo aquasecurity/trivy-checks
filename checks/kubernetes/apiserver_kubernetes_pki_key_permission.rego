@@ -1,22 +1,22 @@
 # METADATA
-# title: Ensure that the Kubernetes PKI key file permission is set to 600
-# description: Ensure that the Kubernetes PKI key file permission is set to 600.
+# title: "Ensure that the Kubernetes PKI key file permission is set to 600"
+# description: "Ensure that the Kubernetes PKI key file permission is set to 600."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://www.cisecurity.org/benchmark/kubernetes
+# - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV0067
 #   avd_id: AVD-KCV-0067
 #   severity: CRITICAL
 #   short_code: ensure-kubernetes-pki-key-file-permission-set-600.
-#   recommended_action: Change the Kubernetes PKI key file /etc/kubernetes/pki/*.key permission to 600
+#   recommended_action: "Change the Kubernetes PKI key file /etc/kubernetes/pki/*.key permission to 600"
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: nodeinfo
+#     - type: kubernetes
+#       subtypes:
+#         - kind: nodeinfo
 package builtin.kubernetes.KCV0067
 
 import rego.v1

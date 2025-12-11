@@ -1,20 +1,20 @@
 # METADATA
-# title: No wildcard verb roles
-# description: Check whether role permits wildcard verb on specific resources
+# title: "No wildcard verb roles"
+# description: "Check whether role permits wildcard verb on specific resources"
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+# - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
 #   id: KSV045
 #   avd_id: AVD-KSV-0045
 #   severity: CRITICAL
 #   short_code: no-wildcard-verb-role
-#   recommended_action: Create a role which does not permit wildcard verb on specific resources
+#   recommended_action: "Create a role which does not permit wildcard verb on specific resources"
 #   input:
 #     selector:
-#       - type: kubernetes
+#     - type: kubernetes
 package builtin.kubernetes.KSV045
 
 import rego.v1

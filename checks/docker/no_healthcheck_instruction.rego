@@ -1,20 +1,20 @@
 # METADATA
-# title: No HEALTHCHECK defined
-# description: You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers.
+# title: "No HEALTHCHECK defined"
+# description: "You should add HEALTHCHECK instruction in your docker container images to perform the health check on running containers."
 # scope: package
 # schemas:
-#   - input: schema["dockerfile"]
+# - input: schema["dockerfile"]
 # related_resources:
-#   - https://blog.aquasec.com/docker-security-best-practices
+# - https://blog.aquasec.com/docker-security-best-practices
 # custom:
 #   id: DS026
 #   avd_id: AVD-DS-0026
 #   severity: LOW
 #   short_code: no-healthcheck
-#   recommended_action: Add HEALTHCHECK instruction in Dockerfile
+#   recommended_action: "Add HEALTHCHECK instruction in Dockerfile"
 #   input:
 #     selector:
-#       - type: dockerfile
+#     - type: dockerfile
 package builtin.dockerfile.DS026
 
 import rego.v1

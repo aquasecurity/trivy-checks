@@ -1,20 +1,20 @@
 # METADATA
-# title: Ensure that the --service-account-lookup argument is set to true
-# description: Validate service account before validating token.
+# title: "Ensure that the --service-account-lookup argument is set to true"
+# description: "Validate service account before validating token."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://www.cisecurity.org/benchmark/kubernetes
+# - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV0024
 #   avd_id: AVD-KCV-0024
 #   severity: LOW
 #   short_code: ensure-service-account-lookup-argument-is-set-to-true
-#   recommended_action: Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the below parameter.
+#   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the below parameter."
 #   input:
 #     selector:
-#       - type: kubernetes
+#     - type: kubernetes
 package builtin.kubernetes.KCV0024
 
 import rego.v1

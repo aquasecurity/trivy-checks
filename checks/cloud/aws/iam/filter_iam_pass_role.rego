@@ -1,11 +1,11 @@
 # METADATA
-# title: IAM Pass Role Filtering
-# description: Ensures any IAM pass role attached to roles are flagged and warned.
+# title: "IAM Pass Role Filtering"
+# description: "Ensures any IAM pass role attached to roles are flagged and warned."
 # scope: package
 # schemas:
-#   - input: schema["cloud"]
+# - input: schema["cloud"]
 # related_resources:
-#   - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html
+# - https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html
 # custom:
 #   id: AVD-AWS-0342
 #   avd_id: AVD-AWS-0342
@@ -13,13 +13,13 @@
 #   service: iam
 #   severity: MEDIUM
 #   short_code: filter-passrole-access
-#   recommended_action: Resolve permission escalations by denying pass role'
+#   recommended_action: "Resolve permission escalations by denying pass role'"
 #   input:
 #     selector:
-#       - type: cloud
-#         subtypes:
-#           - service: iam
-#             provider: aws
+#     - type: cloud
+#       subtypes:
+#         - service: iam
+#           provider: aws
 package builtin.aws.iam.aws0342
 
 import rego.v1

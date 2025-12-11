@@ -1,11 +1,11 @@
 # METADATA
-# title: RDS Cluster Deletion Protection Disabled
-# description: Ensure deletion protection is enabled for RDS clusters.
+# title: "RDS Cluster Deletion Protection Disabled"
+# description: "Ensure deletion protection is enabled for RDS clusters."
 # scope: package
 # schemas:
-#   - input: schema["cloud"]
+# - input: schema["cloud"]
 # related_resources:
-#   - https://docs.aws.amazon.com/config/latest/developerguide/rds-cluster-deletion-protection-enabled.html
+# - https://docs.aws.amazon.com/config/latest/developerguide/rds-cluster-deletion-protection-enabled.html
 # custom:
 #   id: AVD-AWS-0343
 #   avd_id: AVD-AWS-0343
@@ -13,13 +13,13 @@
 #   service: rds
 #   severity: MEDIUM
 #   short_code: enable-cluster-deletion-protection
-#   recommended_action: Modify the RDS clusters to enable deletion protection.
+#   recommended_action: "Modify the RDS clusters to enable deletion protection."
 #   input:
 #     selector:
-#       - type: cloud
-#         subtypes:
-#           - service: rds
-#             provider: aws
+#     - type: cloud
+#       subtypes:
+#         - service: rds
+#           provider: aws
 package builtin.aws.rds.aws0343
 
 import rego.v1

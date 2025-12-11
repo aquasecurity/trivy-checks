@@ -1,30 +1,30 @@
 # METADATA
-# title: Access to host network
-# description: Sharing the host’s network namespace permits processes in the pod to communicate with processes bound to the host’s loopback adapter.
+# title: "Access to host network"
+# description: "Sharing the host’s network namespace permits processes in the pod to communicate with processes bound to the host’s loopback adapter."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
+# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
 #   id: KSV009
 #   avd_id: AVD-KSV-0009
 #   severity: HIGH
 #   short_code: no-host-network
-#   recommended_action: Do not set 'spec.template.spec.hostNetwork' to true.
+#   recommended_action: "Do not set 'spec.template.spec.hostNetwork' to true."
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: pod
-#           - kind: replicaset
-#           - kind: replicationcontroller
-#           - kind: deployment
-#           - kind: deploymentconfig
-#           - kind: statefulset
-#           - kind: daemonset
-#           - kind: cronjob
-#           - kind: job
+#     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: deploymentconfig
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 #   examples: checks/kubernetes/host_network.yaml
 package builtin.kubernetes.KSV009
 

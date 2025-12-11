@@ -1,32 +1,32 @@
 # METADATA
-# title: Prevent binding to privileged ports
-# description: The ports which are lower than 1024 receive and transmit various sensitive and privileged data. Allowing containers to use them can bring serious implications.
+# title: "Prevent binding to privileged ports"
+# description: "The ports which are lower than 1024 receive and transmit various sensitive and privileged data. Allowing containers to use them can bring serious implications."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/
-#   - https://www.stigviewer.com/stig/kubernetes/2022-12-02/finding/V-242414
+# - https://kubernetes.io/docs/concepts/security/pod-security-standards/
+# - https://www.stigviewer.com/stig/kubernetes/2022-12-02/finding/V-242414
 # custom:
 #   id: KSV117
 #   avd_id: AVD-KSV-0117
 #   severity: MEDIUM
 #   short_code: no-privilege-port-binding
-#   recommended_action: Do not map the container ports to privileged host ports when starting a container.
+#   recommended_action: "Do not map the container ports to privileged host ports when starting a container."
 #   input:
 #     selector:
-#       - type: kubernetes
-#       - type: kubernetes
-#         subtypes:
-#           - kind: pod
-#           - kind: replicaset
-#           - kind: replicationcontroller
-#           - kind: deployment
-#           - kind: deploymentconfig
-#           - kind: statefulset
-#           - kind: daemonset
-#           - kind: cronjob
-#           - kind: job
+#     - type: kubernetes
+#     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: deploymentconfig
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV117
 
 import rego.v1

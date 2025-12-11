@@ -1,20 +1,20 @@
 # METADATA
-# title: Containers must not set runAsUser to 0
-# description: Containers should be forbidden from running with a root UID.
+# title: "Containers must not set runAsUser to 0"
+# description: "Containers should be forbidden from running with a root UID."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
+# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted
 # custom:
 #   id: KSV105
 #   avd_id: AVD-KSV-0105
 #   severity: LOW
 #   short_code: containers-not-run-as-root
-#   recommended_action: Set 'securityContext.runAsUser' to a non-zero integer or leave undefined.
+#   recommended_action: "Set 'securityContext.runAsUser' to a non-zero integer or leave undefined."
 #   input:
 #     selector:
-#       - type: kubernetes
+#     - type: kubernetes
 package builtin.kubernetes.KSV105
 
 import rego.v1

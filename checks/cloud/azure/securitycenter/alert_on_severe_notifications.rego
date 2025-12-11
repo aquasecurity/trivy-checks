@@ -16,7 +16,7 @@
 #   service: security-center
 #   severity: MEDIUM
 #   short_code: alert-on-severe-notifications
-#   recommended_action: Set alert notifications to be on
+#   recommended_action:  Set alert notifications to be on
 #   input:
 #     selector:
 #       - type: cloud

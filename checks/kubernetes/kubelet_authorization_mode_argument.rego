@@ -1,22 +1,22 @@
 # METADATA
-# title: Ensure that the --authorization-mode argument is not set to AlwaysAllow
-# description: Do not allow all requests. Enable explicit authorization.
+# title: "Ensure that the --authorization-mode argument is not set to AlwaysAllow"
+# description: "Do not allow all requests. Enable explicit authorization."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://www.cisecurity.org/benchmark/kubernetes
+# - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV0080
 #   avd_id: AVD-KCV-0080
 #   severity: HIGH
 #   short_code: ensure-authorization-mode-argument-set-alwaysallow
-#   recommended_action: 'edit Kubelet config and set authorization: mode to Webhook.'
+#   recommended_action: "edit Kubelet config and set authorization: mode to Webhook."
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: nodeinfo
+#     - type: kubernetes
+#       subtypes:
+#         - kind: nodeinfo
 package builtin.kubernetes.KCV0080
 
 import rego.v1

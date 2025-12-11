@@ -1,22 +1,22 @@
 # METADATA
-# title: Ensure that the etcd data directory permissions are set to 700 or more restrictive
-# description: Ensure that the etcd data directory has permissions of 700 or more restrictive.
+# title: "Ensure that the etcd data directory permissions are set to 700 or more restrictive"
+# description: "Ensure that the etcd data directory has permissions of 700 or more restrictive."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://www.cisecurity.org/benchmark/kubernetes
+# - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV0058
 #   avd_id: AVD-KCV-0058
 #   severity: LOW
 #   short_code: ensure-etcd-data-directory-permissions-set-700-or-more-restrictive
-#   recommended_action: 'Change the etcd data directory /var/lib/etcd permissions of 700 or more restrictive '
+#   recommended_action: "Change the etcd data directory /var/lib/etcd permissions of 700 or more restrictive "
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: nodeinfo
+#     - type: kubernetes
+#       subtypes:
+#         - kind: nodeinfo
 package builtin.kubernetes.KCV0058
 
 import rego.v1

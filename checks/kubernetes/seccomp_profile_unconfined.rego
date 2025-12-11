@@ -1,30 +1,30 @@
 # METADATA
-# title: Seccomp policies disabled
-# description: A program inside the container can bypass Seccomp protection policies.
+# title: "Seccomp policies disabled"
+# description: "A program inside the container can bypass Seccomp protection policies."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
+# - https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline
 # custom:
 #   id: KSV104
 #   avd_id: AVD-KSV-0104
 #   severity: MEDIUM
 #   short_code: no-seccomp-unconfined
-#   recommended_action: Specify seccomp either by annotation or by seccomp profile type having allowed values as per pod security standards
+#   recommended_action: "Specify seccomp either by annotation or by seccomp profile type having allowed values as per pod security standards"
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: pod
-#           - kind: replicaset
-#           - kind: replicationcontroller
-#           - kind: deployment
-#           - kind: deploymentconfig
-#           - kind: statefulset
-#           - kind: daemonset
-#           - kind: cronjob
-#           - kind: job
+#     - type: kubernetes
+#       subtypes:
+#         - kind: pod
+#         - kind: replicaset
+#         - kind: replicationcontroller
+#         - kind: deployment
+#         - kind: deploymentconfig
+#         - kind: statefulset
+#         - kind: daemonset
+#         - kind: cronjob
+#         - kind: job
 package builtin.kubernetes.KSV104
 
 import rego.v1

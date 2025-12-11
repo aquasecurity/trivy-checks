@@ -1,20 +1,20 @@
 # METADATA
-# title: Service with External IP
-# description: Services with external IP addresses allows direct access from the internet and might expose risk for CVE-2020-8554
+# title: "Service with External IP"
+# description: "Services with external IP addresses allows direct access from the internet and might expose risk for CVE-2020-8554"
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # custom:
 #   id: AVD-KSV-0108
 #   avd_id: AVD-KSV-0108
 #   severity: HIGH
 #   short_code: no_svc_with_extip
-#   recommended_action: Do not set spec.externalIPs
+#   recommended_action: "Do not set spec.externalIPs"
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: service
+#     - type: kubernetes
+#       subtypes:
+#         - kind: service
 package builtin.kubernetes.KSV0108
 
 import rego.v1

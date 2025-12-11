@@ -1,23 +1,23 @@
 # METADATA
-# title: Delete pod logs
-# description: Used to cover attacker’s tracks, but most clusters ship logs quickly off-cluster.
+# title: "Delete pod logs"
+# description: "Used to cover attacker’s tracks, but most clusters ship logs quickly off-cluster."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+# - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
 #   id: KSV042
 #   avd_id: AVD-KSV-0042
 #   severity: MEDIUM
 #   short_code: no-delete-pod-logs
-#   recommended_action: Remove verbs 'delete' and 'deletecollection' for resource 'pods/log' for Role and ClusterRole
+#   recommended_action: "Remove verbs 'delete' and 'deletecollection' for resource 'pods/log' for Role and ClusterRole"
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: clusterrole
-#           - kind: role
+#     - type: kubernetes
+#       subtypes:
+#         - kind: clusterrole
+#         - kind: role
 package builtin.kubernetes.KSV042
 
 import rego.v1

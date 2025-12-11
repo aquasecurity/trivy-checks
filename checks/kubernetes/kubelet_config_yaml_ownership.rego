@@ -1,22 +1,22 @@
 # METADATA
-# title: 'If the kubelet config.yaml configuration file is being used validate file ownership is set to root:root '
-# description: Ensure that if the kubelet refers to a configuration file with the --config argument, that file is owned by root:root.
+# title: "If the kubelet config.yaml configuration file is being used validate file ownership is set to root:root "
+# description: "Ensure that if the kubelet refers to a configuration file with the --config argument, that file is owned by root:root."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://www.cisecurity.org/benchmark/kubernetes
+# - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV0078
 #   avd_id: AVD-KCV-0078
 #   severity: HIGH
 #   short_code: ensure-kubeconfig-kubelet-config.yaml-ownership-set-root:root
-#   recommended_action: Change the kubelet config.yaml file ownership to root:root
+#   recommended_action: "Change the kubelet config.yaml file ownership to root:root"
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: nodeinfo
+#     - type: kubernetes
+#       subtypes:
+#         - kind: nodeinfo
 package builtin.kubernetes.KCV0078
 
 import rego.v1

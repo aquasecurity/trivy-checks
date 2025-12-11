@@ -1,22 +1,22 @@
 # METADATA
-# title: if proxy kubeconfig file exists ensure ownership is set to root:root
-# description: If kube-proxy is running, ensure that the file ownership of its kubeconfig file is set to root:root.
+# title: "if proxy kubeconfig file exists ensure ownership is set to root:root"
+# description: "If kube-proxy is running, ensure that the file ownership of its kubeconfig file is set to root:root."
 # scope: package
 # schemas:
-#   - input: schema["kubernetes"]
+# - input: schema["kubernetes"]
 # related_resources:
-#   - https://www.cisecurity.org/benchmark/kubernetes
+# - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
 #   id: KCV0072
 #   avd_id: AVD-KCV-0072
 #   severity: HIGH
 #   short_code: ensure-proxy-kubeconfig-ownership-set-root:root-if-exist
-#   recommended_action: Change the proxy kubeconfig file <path><filename> ownership to root:root if exist
+#   recommended_action: "Change the proxy kubeconfig file <path><filename> ownership to root:root if exist"
 #   input:
 #     selector:
-#       - type: kubernetes
-#         subtypes:
-#           - kind: nodeinfo
+#     - type: kubernetes
+#       subtypes:
+#         - kind: nodeinfo
 package builtin.kubernetes.KCV0072
 
 import rego.v1
