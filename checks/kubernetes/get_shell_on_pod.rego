@@ -7,10 +7,13 @@
 # related_resources:
 # - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
 # custom:
-#   id: KSV053
-#   avd_id: AVD-KSV-0053
+#   id: KSV-0053
+#   long_id: kubernetes-no-getting-shell-pods
+#   aliases:
+#     - AVD-KSV-0053
+#     - KSV053
+#     - no-getting-shell-pods
 #   severity: HIGH
-#   short_code: no-getting-shell-pods
 #   recommended_action: "Remove write permission verbs for resource 'pods/exec'"
 #   input:
 #     selector:

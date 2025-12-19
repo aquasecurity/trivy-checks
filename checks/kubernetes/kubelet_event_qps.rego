@@ -7,10 +7,13 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0087
-#   avd_id: AVD-KCV-0087
+#   id: KCV-0087
+#   long_id: kubernetes-ensure-event-qps argument-set-0-or-level-forappropriate-event-capture
+#   aliases:
+#     - AVD-KCV-0087
+#     - KCV0087
+#     - ensure-event-qps argument-set-0-or-level-forappropriate-event-capture
 #   severity: HIGH
-#   short_code: ensure-event-qps argument-set-0-or-level-forappropriate-event-capture
 #   recommended_action: "If using a Kubelet config file, edit the file to set eventRecordQPS: to an appropriate level. If using command line arguments, edit the kubelet service file"
 #   input:
 #     selector:

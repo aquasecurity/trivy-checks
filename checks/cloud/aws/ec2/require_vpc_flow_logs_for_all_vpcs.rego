@@ -8,14 +8,15 @@
 # related_resources:
 #   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html
 # custom:
-#   id: AVD-AWS-0178
-#   avd_id: AVD-AWS-0178
+#   id: AWS-0178
+#   long_id: aws-ec2-require-vpc-flow-logs-for-all-vpcs
 #   aliases:
+#     - AVD-AWS-0178
+#     - require-vpc-flow-logs-for-all-vpcs
 #     - aws-autoscaling-enable-at-rest-encryption
 #   provider: aws
 #   service: ec2
 #   severity: MEDIUM
-#   short_code: require-vpc-flow-logs-for-all-vpcs
 #   recommended_action: Enable flow logs for VPC
 #   input:
 #     selector:

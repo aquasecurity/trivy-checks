@@ -7,10 +7,13 @@
 # related_resources:
 # - https://orca.security/resources/blog/sys-all-google-kubernetes-engine-risk/
 # custom:
-#   id: KSV01011
-#   avd_id: AVD-KSV-01011
+#   id: KSV-01011
+#   long_id: kubernetes-no-system-authenticated-group-bind
+#   aliases:
+#     - AVD-KSV-01011
+#     - KSV01011
+#     - no-system-authenticated-group-bind
 #   severity: CRITICAL
-#   short_code: no-system-authenticated-group-bind
 #   recommended_action: "Remove system:authenticated group binding from clusterrolebinding or rolebinding."
 #   input:
 #     selector:

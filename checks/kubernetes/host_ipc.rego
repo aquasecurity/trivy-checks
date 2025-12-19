@@ -7,10 +7,13 @@
 # schemas:
 # - input: schema["kubernetes"]
 # custom:
-#   id: KSV008
-#   avd_id: AVD-KSV-0008
+#   id: KSV-0008
+#   long_id: kubernetes-no-shared-ipc-namespace
+#   aliases:
+#     - AVD-KSV-0008
+#     - KSV008
+#     - no-shared-ipc-namespace
 #   severity: HIGH
-#   short_code: no-shared-ipc-namespace
 #   recommended_action: Do not set 'spec.template.spec.hostIPC' to true.
 #   input:
 #     selector:

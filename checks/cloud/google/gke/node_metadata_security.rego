@@ -12,12 +12,14 @@
 # related_resources:
 #   - https://cloud.google.com/kubernetes-engine/docs/how-to/protecting-cluster-metadata#create-concealed
 # custom:
-#   id: AVD-GCP-0057
-#   avd_id: AVD-GCP-0057
+#   id: GCP-0057
+#   long_id: google-gke-node-metadata-security
+#   aliases:
+#     - AVD-GCP-0057
+#     - node-metadata-security
 #   provider: google
 #   service: gke
 #   severity: HIGH
-#   short_code: node-metadata-security
 #   recommended_action: Set mode to GKE_METADATA
 #   input:
 #     selector:

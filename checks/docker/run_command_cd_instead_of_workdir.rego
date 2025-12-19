@@ -7,10 +7,13 @@
 # related_resources:
 # - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#workdir
 # custom:
-#   id: DS013
-#   avd_id: AVD-DS-0013
+#   id: DS-0013
+#   long_id: docker-use-workdir-over-cd
+#   aliases:
+#     - AVD-DS-0013
+#     - DS013
+#     - use-workdir-over-cd
 #   severity: MEDIUM
-#   short_code: use-workdir-over-cd
 #   recommended_action: "Use WORKDIR to change directory"
 #   input:
 #     selector:

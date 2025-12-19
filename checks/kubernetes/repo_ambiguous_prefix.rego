@@ -5,7 +5,10 @@
 #   - input: schema["kubernetes"]
 # custom:
 #   id: KSV-0124
-#   avd_id: AVD-KSV-0124
+#   long_id: kubernetes-repo-ambiguous-prefix
+#   aliases:
+#     - AVD-KSV-0124
+#     - repo-ambiguous-prefix
 #   severity: HIGH
 #   input:
 #     selector:

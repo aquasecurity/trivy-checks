@@ -10,14 +10,15 @@
 # related_resources:
 #   - https://pfs.nifcloud.com/help/fw/rule_new.htm
 # custom:
-#   id: AVD-NIF-0003
-#   avd_id: AVD-NIF-0003
+#   id: NIF-0003
+#   long_id: nifcloud-computing-add-description-to-security-group-rule
 #   aliases:
+#     - AVD-NIF-0003
+#     - add-description-to-security-group-rule
 #     - nifcloud-computing-add-description-to-security-group-rule
 #   provider: nifcloud
 #   service: computing
 #   severity: LOW
-#   short_code: add-description-to-security-group-rule
 #   recommended_action: Add descriptions for all security groups rules
 #   input:
 #     selector:

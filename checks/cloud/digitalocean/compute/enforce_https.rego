@@ -9,12 +9,14 @@
 # related_resources:
 #   - https://docs.digitalocean.com/products/networking/load-balancers/
 # custom:
-#   id: AVD-DIG-0002
-#   avd_id: AVD-DIG-0002
+#   id: DIG-0002
+#   long_id: digitalocean-compute-enforce-https
+#   aliases:
+#     - AVD-DIG-0002
+#     - enforce-https
 #   provider: digitalocean
 #   service: compute
 #   severity: CRITICAL
-#   short_code: enforce-https
 #   recommended_action: Switch to HTTPS to benefit from TLS security features
 #   input:
 #     selector:

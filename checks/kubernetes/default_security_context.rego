@@ -7,10 +7,13 @@
 # related_resources:
 # - https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 # custom:
-#   id: KSV118
-#   avd_id: AVD-KSV-0118
+#   id: KSV-0118
+#   long_id: kubernetes-no-default-security-context
+#   aliases:
+#     - AVD-KSV-0118
+#     - KSV118
+#     - no-default-security-context
 #   severity: HIGH
-#   short_code: no-default-security-context
 #   recommended_action: "To enhance security, it is strongly recommended not to rely on the default security context. Instead, it is advisable to explicitly define the required security parameters (such as runAsNonRoot, capabilities, readOnlyRootFilesystem, etc.) within the security context."
 #   input:
 #     selector:

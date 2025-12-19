@@ -10,13 +10,14 @@
 #   - https://cloud.google.com/architecture/best-practices-vpc-design#tailor-logging
 # custom:
 #   id: GCP-0076
-#   avd_id: AVD-GCP-0076
+#   long_id: google-compute-google-compute-subnetwork-logging
 #   aliases:
+#     - AVD-GCP-0076
+#     - google-compute-subnetwork-logging
 #     - google-misc-google-compute-subnetwork-logging-disabled
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
-#   short_code: google-compute-subnetwork-logging
 #   recommended_action: |
 #     Enable VPC Flow Logs for subnets. In Terraform, set `enable_flow_logs = true` in the `google_compute_subnetwork` resource.
 #   input:

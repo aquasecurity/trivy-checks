@@ -7,10 +7,13 @@
 # related_resources:
 # - https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 # custom:
-#   id: KSV120
-#   avd_id: AVD-KSV-0120
+#   id: KSV-0120
+#   long_id: kubernetes-no-sysmodule-capability
+#   aliases:
+#     - AVD-KSV-0120
+#     - KSV120
+#     - no-sysmodule-capability
 #   severity: HIGH
-#   short_code: no-sysmodule-capability
 #   recommended_action: "To mitigate potential security risks, it is strongly recommended to remove the SYS_MODULE capability from 'containers[].securityContext.capabilities.add'. It is advisable to follow the practice of dropping all capabilities and only adding the necessary ones."
 #   input:
 #     selector:

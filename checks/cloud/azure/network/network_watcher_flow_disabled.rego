@@ -8,15 +8,16 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_watcher_flow_log
 # custom:
-#   id: AVD-AZU-0073
-#   avd_id: AVD-AZU-0073
+#   id: AZU-0073
+#   long_id: azure-network-network-watcher-flow-disabled
 #   aliases:
+#     - AVD-AZU-0073
+#     - network-watcher-flow-disabled
 #     - azure-network-watcher-flow-disabled
 #   provider: azure
 #   service: network
 #   severity: MEDIUM
 #   minimum_trivy_version: 0.68.0
-#   short_code: network-watcher-flow-disabled
 #   recommended_action: Enable NSG flow logs via Network Watcher and configure a storage account for log export.
 #   input:
 #     selector:

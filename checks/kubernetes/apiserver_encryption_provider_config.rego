@@ -7,10 +7,13 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0030
-#   avd_id: AVD-KCV-0030
+#   id: KCV-0030
+#   long_id: kubernetes-Ensure that the --encryption-provider-config argument is set as appropriate
+#   aliases:
+#     - AVD-KCV-0030
+#     - KCV0030
+#     - Ensure that the --encryption-provider-config argument is set as appropriate
 #   severity: LOW
-#   short_code: Ensure that the --encryption-provider-config argument is set as appropriate
 #   recommended_action: "Follow the Kubernetes documentation and configure a EncryptionConfig file. Then, edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the master node and set the --encryption-provider-config parameter to the path of that file"
 #   input:
 #     selector:

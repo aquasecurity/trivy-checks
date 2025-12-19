@@ -7,10 +7,13 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0033
-#   avd_id: AVD-KCV-0033
+#   id: KCV-0033
+#   long_id: kubernetes-ensure-terminated-pod-gc-threshold-argument-is-set-as-appropriate
+#   aliases:
+#     - AVD-KCV-0033
+#     - KCV0033
+#     - ensure-terminated-pod-gc-threshold-argument-is-set-as-appropriate
 #   severity: LOW
-#   short_code: ensure-terminated-pod-gc-threshold-argument-is-set-as-appropriate
 #   recommended_action: "Edit the Controller Manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml on the Control Plane node and set the --terminated-pod-gc-threshold to an appropriate threshold."
 #   input:
 #     selector:

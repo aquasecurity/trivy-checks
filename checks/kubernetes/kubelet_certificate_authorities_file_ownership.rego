@@ -7,10 +7,13 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0076
-#   avd_id: AVD-KCV-0076
+#   id: KCV-0076
+#   long_id: kubernetes-ensure-certificate-authorities-ownership-set-root:root
+#   aliases:
+#     - AVD-KCV-0076
+#     - KCV0076
+#     - ensure-certificate_authorities-ownership-set-root:root
 #   severity: CRITICAL
-#   short_code: ensure-certificate_authorities-ownership-set-root:root
 #   recommended_action: "Change the certificate authorities file ownership to root:root"
 #   input:
 #     selector:

@@ -208,8 +208,8 @@ func skipCheckByIdFilter(t *testing.T, skipped []string, fsys fs.FS) bundler.Fil
 		meta, ok := metadata.GetCheckMetadata(module)
 		require.True(t, ok, "failed to get metadata for %s", path)
 
-		if _, found := skipMap[meta.AVDID()]; found {
-			t.Logf("Skip check %s by id filter", meta.AVDID())
+		if _, found := skipMap[meta.ID()]; found {
+			t.Logf("Skip check %s by id filter", meta.ID())
 			return false
 		}
 		return true
@@ -300,7 +300,7 @@ func setupTarget(t *testing.T, targetDir string, trivyVer semver.Version) (map[s
 		require.NoError(t, err)
 
 		if path == "" {
-			t.Logf("Skip check %s without examples", meta.AVDID())
+			t.Logf("Skip check %s without examples", meta.ID())
 			continue
 		}
 
@@ -308,16 +308,16 @@ func setupTarget(t *testing.T, targetDir string, trivyVer semver.Version) (map[s
 		// but this feature appeared after some of the checks had already been updated,
 		// so here we re-apply filtering for compatibility.
 		if shouldSkipCheck(t, meta, minVersions, trivyVer) {
-			t.Logf("Skip unsupported check %s for %s", meta.AVDID(), trivyVer.String())
-			skipped = append(skipped, meta.AVDID())
+			t.Logf("Skip unsupported check %s for %s", meta.ID(), trivyVer.String())
+			skipped = append(skipped, meta.ID())
 			continue
 		}
 
-		metadataByID[meta.AVDID()] = meta
+		metadataByID[meta.ID()] = meta
 
 		for provider, providerExamples := range checkExamples {
-			writeExamples(t, providerExamples.Bad.ToStrings(), provider, targetDir, meta.AVDID(), "bad")
-			writeExamples(t, providerExamples.Good.ToStrings(), provider, targetDir, meta.AVDID(), "good")
+			writeExamples(t, providerExamples.Bad.ToStrings(), provider, targetDir, meta.ID(), "bad")
+			writeExamples(t, providerExamples.Good.ToStrings(), provider, targetDir, meta.ID(), "good")
 		}
 	}
 	return metadataByID, skipped
@@ -391,12 +391,12 @@ func shouldSkipCheck(
 		return false
 	}
 
-	minVer, ok := minVersions[meta.AVDID()]
+	minVer, ok := minVersions[meta.ID()]
 	if !ok {
 		var err error
 		minVer, err = semver.Parse(meta.MinimumTrivyVersion())
 		require.NoError(t, err)
-		minVersions[meta.AVDID()] = minVer
+		minVersions[meta.ID()] = minVer
 	}
 
 	return !trivyVer.IsPreRelease() && trivyVer.LessThan(minVer)

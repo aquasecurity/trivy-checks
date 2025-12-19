@@ -8,15 +8,16 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface#enable_ip_forwarding
 # custom:
-#   id: AVD-AZU-0075
-#   avd_id: AVD-AZU-0075
+#   id: AZU-0075
+#   long_id: azure-network-network-ip-forwarding-enabled
 #   aliases:
+#     - AVD-AZU-0075
+#     - network-ip-forwarding-enabled
 #     - azure-network-network-ip-forwarding-enabled
 #   provider: azure
 #   service: network
 #   severity: MEDIUM
 #   minimum_trivy_version: 0.68.0
-#   short_code: network-ip-forwarding-enabled
 #   recommended_action: Disable IP forwarding on network interfaces unless specifically required for routing purposes.
 #   input:
 #     selector:

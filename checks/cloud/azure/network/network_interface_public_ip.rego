@@ -8,15 +8,16 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface#public_ip_address_id
 # custom:
-#   id: AVD-AZU-0076
-#   avd_id: AVD-AZU-0076
+#   id: AZU-0076
+#   long_id: azure-network-network-interface-public-ip
 #   aliases:
+#     - AVD-AZU-0076
+#     - network-interface-public-ip
 #     - azure-network-network-interface-public-ip
 #   provider: azure
 #   service: network
 #   severity: MEDIUM
 #   minimum_trivy_version: 0.68.0
-#   short_code: network-interface-public-ip
 #   recommended_action: Remove public IP addresses from network interfaces unless they are specifically required for internet connectivity.
 #   input:
 #     selector:

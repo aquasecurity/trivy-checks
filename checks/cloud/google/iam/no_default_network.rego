@@ -6,12 +6,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-GCP-0010
-#   avd_id: AVD-GCP-0010
+#   id: GCP-0010
+#   long_id: google-iam-no-default-network
+#   aliases:
+#     - AVD-GCP-0010
+#     - no-default-network
 #   provider: google
 #   service: iam
 #   severity: HIGH
-#   short_code: no-default-network
 #   recommended_action: Disable automatic default network creation
 #   input:
 #     selector:

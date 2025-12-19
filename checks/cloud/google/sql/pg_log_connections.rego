@@ -8,12 +8,14 @@
 # related_resources:
 #   - https://www.postgresql.org/docs/13/runtime-config-logging.html#GUC-LOG-CONNECTIONS
 # custom:
-#   id: AVD-GCP-0016
-#   avd_id: AVD-GCP-0016
+#   id: GCP-0016
+#   long_id: google-sql-pg-log-connections
+#   aliases:
+#     - AVD-GCP-0016
+#     - pg-log-connections
 #   provider: google
 #   service: sql
 #   severity: MEDIUM
-#   short_code: pg-log-connections
 #   recommended_action: Enable connection logging.
 #   input:
 #     selector:

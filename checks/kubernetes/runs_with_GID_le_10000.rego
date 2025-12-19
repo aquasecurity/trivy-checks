@@ -7,10 +7,13 @@
 # related_resources:
 # - https://kubesec.io/basics/containers-securitycontext-runasuser/
 # custom:
-#   id: KSV021
-#   avd_id: AVD-KSV-0021
+#   id: KSV-0021
+#   long_id: kubernetes-use-high-gid
+#   aliases:
+#     - AVD-KSV-0021
+#     - KSV021
+#     - use-high-gid
 #   severity: LOW
-#   short_code: use-high-gid
 #   recommended_action: "Set 'containers[].securityContext.runAsGroup' to an integer > 10000."
 #   input:
 #     selector:

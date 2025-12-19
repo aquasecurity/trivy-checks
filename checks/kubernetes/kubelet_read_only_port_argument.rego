@@ -7,10 +7,13 @@
 # related_resources:
 # - https://www.cisecurity.org/benchmark/kubernetes
 # custom:
-#   id: KCV0082
-#   avd_id: AVD-KCV-0082
+#   id: KCV-0082
+#   long_id: kubernetes-verify-read-only-port-argument-set-0
+#   aliases:
+#     - AVD-KCV-0082
+#     - KCV0082
+#     - verify-read-only-port-argument-set-0
 #   severity: HIGH
-#   short_code: verify-read-only-port-argument-set-0
 #   recommended_action: "Disable the read-only port"
 #   input:
 #     selector:

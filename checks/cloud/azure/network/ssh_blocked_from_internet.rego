@@ -7,12 +7,14 @@
 # schemas:
 #   - input: schema["cloud"]
 # custom:
-#   id: AVD-AZU-0050
-#   avd_id: AVD-AZU-0050
+#   id: AZU-0050
+#   long_id: azure-network-ssh-blocked-from-internet
+#   aliases:
+#     - AVD-AZU-0050
+#     - ssh-blocked-from-internet
 #   provider: azure
 #   service: network
 #   severity: CRITICAL
-#   short_code: ssh-blocked-from-internet
 #   recommended_action: Block port 22 access from the internet
 #   input:
 #     selector:

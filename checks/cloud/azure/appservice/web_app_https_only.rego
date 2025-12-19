@@ -8,13 +8,15 @@
 # related_resources:
 #   - https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#https_only
 # custom:
-#   id: AVD-AZU-0072
-#   avd_id: AVD-AZU-0072
+#   id: AZU-0072
+#   long_id: azure-appservice-web-app-https-only
+#   aliases:
+#     - AVD-AZU-0072
+#     - web-app-https-only
 #   provider: azure
 #   service: appservice
 #   severity: MEDIUM
 #   minimum_trivy_version: 0.68.0
-#   short_code: web-app-https-only
 #   recommended_action: Set 'HTTPS Only' to true in App Service TLS settings to force encrypted transport.
 #   input:
 #     selector:

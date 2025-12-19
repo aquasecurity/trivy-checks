@@ -12,12 +12,14 @@
 #   - https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification
 #   - https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-signed-commits
 # custom:
-#   id: AVD-GIT-0004
-#   avd_id: AVD-GIT-0004
+#   id: GIT-0004
+#   long_id: github-branchprotections-require-signed-commits
+#   aliases:
+#     - AVD-GIT-0004
+#     - require_signed_commits
 #   provider: github
 #   service: branchprotections
 #   severity: HIGH
-#   short_code: require_signed_commits
 #   recommended_action: Require signed commits
 #   input:
 #     selector:
