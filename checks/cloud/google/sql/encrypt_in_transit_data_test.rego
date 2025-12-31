@@ -17,8 +17,15 @@ test_deny_tls_not_required if {
 	count(res) == 1
 }
 
-test_allow_tls_not_required_but_ssl_mode_require_ssl if {
-	inp := build_input({"requiretls": {"value": false}, "sslmode": {"value": check.ssl_mode_trusted_client_certificate_required}})
+test_allow_ssl_mode_require_ssl if {
+	inp := build_input({"requiretls": {"value": false}, "sslmode": {"value": check.ssl_trusted_cert_required}})
+
+	res := check.deny with input as inp
+	res == set()
+}
+
+test_allow_ssl_mode_require_ssl_2 if {
+	inp := build_input({"requiretls": {"value": false}, "sslmode": {"value": check.ssl_encrypted_only}})
 
 	res := check.deny with input as inp
 	res == set()
