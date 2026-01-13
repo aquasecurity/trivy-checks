@@ -31,8 +31,7 @@ import rego.v1
 
 import data.lib.cloud.metadata
 
-edge_policies := ["SecurityPolicy_TLS13_2025_EDGE", "SecurityPolicy_TLS12_PFS_2025_EDGE", "SecurityPolicy_TLS12_2018_EDGE"]
-regional_policies := ["SecurityPolicy_TLS13_1_3_2025_09", "SecurityPolicy_TLS13_1_3_FIPS_2025_09", "SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09", "SecurityPolicy_TLS13_1_2_PQ_2025_09"]
+policies := ["TLS_1_2", "SecurityPolicy_TLS12_*_EDGE", "SecurityPolicy_TLS13_*"]
 
 deny contains res if {
 	some domain in input.aws.apigateway.v1.domainnames
@@ -52,4 +51,4 @@ deny contains res if {
 	)
 }
 
-is_SecurityPolicy_TLS12(domain) := domain.securitypolicy.value in array.concat(edge_policies, regional_policies)
+is_SecurityPolicy_TLS12(domain) := domain.securitypolicy.value in policies
