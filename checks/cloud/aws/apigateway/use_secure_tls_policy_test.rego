@@ -9,15 +9,15 @@ test_allow_with_legacy_TLS_1_2 if {
 	test.assert_empty(check.deny) with input as {"aws": {"apigateway": {"v1": {"domainnames": [{"securitypolicy": {"value": "TLS_1_2"}}]}}}}
 }
 
-test_allow_with_edge_and_SecurityPolicy_TLS12_PFS_2025_EDGE if {
+test_allow_with_SecurityPolicy_TLS12_PFS_2025_EDGE if {
 	test.assert_empty(check.deny) with input as {"aws": {"apigateway": {"v1": {"domainnames": [{"securitypolicy": {"value": "SecurityPolicy_TLS12_PFS_2025_EDGE"}}]}}}}
 }
 
-test_allow_with_edge_and_SecurityPolicy_TLS12_PFS_2025_EDGE if {
+test_allow_with_SecurityPolicy_TLS13_2025_EDGE if {
 	test.assert_empty(check.deny) with input as {"aws": {"apigateway": {"v1": {"domainnames": [{"securitypolicy": {"value": "SecurityPolicy_TLS13_2025_EDGE"}}]}}}}
 }
 
-test_allow_with_edge_and_SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09 if {
+test_allow_with_SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09 if {
 	test.assert_empty(check.deny) with input as {"aws": {"apigateway": {"v1": {"domainnames": [{"securitypolicy": {"value": "SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09"}}]}}}}
 }
 
