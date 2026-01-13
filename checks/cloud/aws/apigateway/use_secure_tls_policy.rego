@@ -52,6 +52,6 @@ deny contains res if {
 }
 
 is_SecurityPolicy_TLS12(domain) if {
-  some p in policies
-  glob.match(p, [], domain.securitypolicy.value)
+	some p in policies
+	glob.match(p, [], domain.securitypolicy.value)
 }
