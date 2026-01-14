@@ -30,7 +30,13 @@ import rego.v1
 
 import data.lib.cloud.value
 
-ssl_mode_trusted_client_certificate_required := "TRUSTED_CLIENT_CERTIFICATE_REQUIRED"
+ssl_encrypted_only := "ENCRYPTED_ONLY"
+ssl_trusted_cert_required := "TRUSTED_CLIENT_CERTIFICATE_REQUIRED"
+
+valid_ssl_modes := {
+	ssl_encrypted_only,
+	ssl_trusted_cert_required,
+}
 
 deny contains res if {
 	some instance in input.google.sql.instances
@@ -41,18 +47,18 @@ deny contains res if {
 	)
 }
 
-# sslMode=ENCRYPTED_ONLY also allows SSL/TLS encrypted connections,
-# but the client certificate is not validated as in the case of `requiretls`.
-# https://cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/instances#sslmode
+# https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1/instances#DatabaseInstance.SslMode
 is_ssl_enforced(ipconf) if {
-	ipconf.sslmode.value == ssl_mode_trusted_client_certificate_required
+	value.is_known(ipconf.sslmode)
+	ipconf.sslmode.value in valid_ssl_modes
 }
 
 # "sslMode" has been added to replace "requireSsl", but we still have to support
 # the deprecated attribute for users using an older version of the provider
 is_ssl_enforced(ipconf) if {
-	not has_ssl_mode(ipconf)
-	ipconf.requiretls.value == true
+	ssl_mode_is_missing(ipconf)
+	value.is_true(ipconf.requiretls)
 }
 
-has_ssl_mode(ipconf) if not value.is_empty(ipconf.sslmode)
+ssl_mode_is_missing(ipconf) if not ipconf.sslmode
+ssl_mode_is_missing(ipconf) if value.is_empty(ipconf.sslmode)
