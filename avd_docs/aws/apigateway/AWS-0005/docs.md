@@ -11,4 +11,6 @@ You should not use outdated/insecure TLS versions for encryption. You should be 
 ### Links
 - https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html
 
+- https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-security-policies-list.html
+
 
