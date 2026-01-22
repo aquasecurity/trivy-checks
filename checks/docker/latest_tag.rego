@@ -33,7 +33,22 @@ is_alias(img) if img in all_aliases
 image_names := [from.Value[0] | some from in docker.from]
 
 # image_tags returns the image and tag.
-parse_tag(name) := [img, tag] if [img, tag] = split(name, ":")
+parse_tag(name) := [img, tag] if {
+	parts := split(name, ":")
+	count(parts) > 1
+	last_part := parts[count(parts) - 1]
+	not contains(last_part, "/")
+	img := substring(name, 0, (count(name) - count(last_part)) - 1)
+	tag := last_part
+}
+
+# image_tags returns the image and "latest" if a tag is not specified and image with a registry addr like "test.registry.com:3000"
+parse_tag(name) := [name, "latest"] if {
+	parts := split(name, ":")
+	count(parts) > 1
+	last_part := parts[count(parts) - 1]
+	contains(last_part, "/")
+}
 
 # image_tags returns the image and "latest" if a tag is not specified.
 parse_tag(img) := [img, "latest"] if not contains(img, ":")
@@ -87,7 +102,6 @@ parse_image_and_tag(from, vars) := [img, tag] if {
 	contains(reference, "$")
 
 	res := eval_string(reference, vars)
-	not contains(res, ":")
 	not is_string_ending_with_var(res)
 
 	[img, tag] = parse_tag(res)
@@ -106,7 +120,7 @@ parse_image_and_tag(from, vars) := [img, tag] if {
 	contains(reference, "$")
 
 	res := eval_string(reference, vars)
-	[img, tag] := split(res, ":")
+	[img, tag] := parse_tag(res)
 	not contains(tag, "$")
 }
 
