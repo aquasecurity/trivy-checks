@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-KSV-0050
 #     - KSV050
+#     - no-manage-rbac-resources
 #     - kubernetes-no-manage-rbac-resources
 #   severity: CRITICAL
 #   recommended_action: "Remove permissions for escalate, bind, and impersonate verbs on roles and rolebindings"
