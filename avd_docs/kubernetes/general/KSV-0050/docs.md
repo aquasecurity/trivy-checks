@@ -1,5 +1,5 @@
 
-An effective level of access equivalent to cluster-admin should not be provided.
+Check whether role permits escalate, bind, or impersonate on roles/rolebindings, which can lead to privilege escalation.
 
 ### Impact
 <!-- Add Impact here -->
@@ -9,5 +9,7 @@ An effective level of access equivalent to cluster-admin should not be provided.
 
 ### Links
 - https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+
+- https://kubernetes.io/docs/reference/access-authn-authz/rbac/#restrictions-on-role-creation-or-update
 
 

@@ -36,7 +36,7 @@ func run() error {
 		all := keyMap[key]
 		max := all[len(all)-1]
 		i, _ := strconv.Atoi(max)
-		free := fmt.Sprintf("AVD-%s-%04d", key, i+1)
+		free := fmt.Sprintf("%s-%04d", key, i+1)
 		freeIDs = append(freeIDs, fmt.Sprintf("%16s: %s", key, free))
 	}
 
