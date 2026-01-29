@@ -26,6 +26,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-go@v6
         with:
@@ -34,7 +36,7 @@ jobs:
       - name: Create bundle
         run: make create-bundle
 
-      - name: setup-oras
+      - name: Setup-oras
         uses: oras-project/setup-oras@v1.2.4
 
       - name: Login to GitHub Packages Container registry
@@ -50,13 +52,24 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Set release version
+        run: |
+          if [ "${{ inputs.nightly }}" == "true" ]; then
+            BASE_VERSION=$(git describe --tags --abbrev=0)
+            BASE_VERSION=${BASE_VERSION#v}
+            RELEASE_VERSION="${BASE_VERSION}-nightly.$(date +%Y%m%d)"
+          else
+            RELEASE_VERSION=${GITHUB_REF#refs/tags/v}
+          fi
+          echo "Using release version: $RELEASE_VERSION"
+          echo "RELEASE_VERSION=$RELEASE_VERSION" >> $GITHUB_ENV
+
       - name: Prepare image tags
         id: prepare-tags
         run: |
           if [ "${{ inputs.nightly }}" == "true" ]; then
              tags=("nightly")
            else
-             RELEASE_VERSION=${GITHUB_REF/refs\/tags\/v/}
              MINOR_VERSION=$(echo $RELEASE_VERSION | cut -d. -f1,2)
              MAJOR_VERSION=$(echo $RELEASE_VERSION | cut -d. -f1)
              tags=("latest" "$RELEASE_VERSION" "$MINOR_VERSION" "$MAJOR_VERSION")
@@ -73,6 +86,7 @@ jobs:
               --artifact-type application/vnd.cncf.openpolicyagent.config.v1+json \
               --annotation "org.opencontainers.image.source=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" \
               --annotation "org.opencontainers.image.revision=$GITHUB_SHA" \
+              --annotation "org.opencontainers.image.version=$RELEASE_VERSION" \
               bundle.tar.gz:application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip
           done
 
@@ -88,6 +102,8 @@ jobs:
               echo "Pushing artifact to ${registry}:${tag}"
               if oras push ${registry}:${tag} \
               --artifact-type application/vnd.cncf.openpolicyagent.config.v1+json \
+              --annotation "org.opencontainers.image.revision=$GITHUB_SHA" \
+              --annotation "org.opencontainers.image.version=$RELEASE_VERSION" \
               bundle.tar.gz:application/vnd.cncf.openpolicyagent.layer.v1.tar+gzip; then
                 echo "Successfully pushed artifact to ${registry}:${tag}"
               else
