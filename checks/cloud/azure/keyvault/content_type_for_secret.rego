@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0015
 #     - content-type-for-secret
+#     - azure-keyvault-content-type-for-secret
 #   provider: azure
 #   service: keyvault
 #   severity: LOW

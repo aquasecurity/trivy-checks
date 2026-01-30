@@ -14,6 +14,7 @@
 #     - AVD-AWS-0123
 #     - enforce-group-mfa
 #     - aws-iam-enforce-mfa
+#     - aws-iam-enforce-group-mfa
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM

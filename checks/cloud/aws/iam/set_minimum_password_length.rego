@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AWS-0063
 #     - set-minimum-password-length
+#     - aws-iam-set-minimum-password-length
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM

@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0070
 #     - enable-audit-logging
+#     - aws-mq-enable-audit-logging
 #   provider: aws
 #   service: mq
 #   severity: MEDIUM

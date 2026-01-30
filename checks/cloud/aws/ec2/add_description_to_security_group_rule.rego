@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AWS-0124
 #     - add-description-to-security-group-rule
+#     - aws-ec2-add-description-to-security-group-rule
 #     - aws-vpc-add-description-to-security-group-rule
 #   provider: aws
 #   service: ec2

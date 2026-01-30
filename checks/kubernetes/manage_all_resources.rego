@@ -13,6 +13,7 @@
 #     - AVD-KSV-0046
 #     - KSV046
 #     - no-wildcard-resource-clusterrole
+#     - kubernetes-no-wildcard-resource-clusterrole
 #   severity: CRITICAL
 #   recommended_actions: "Remove '*' from 'rules.resources'. Provide specific list of resources to be managed by cluster role"
 #   input:

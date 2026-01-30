@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0021
 #     - pg-no-min-statement-logging
+#     - google-sql-pg-no-min-statement-logging
 #   provider: google
 #   service: sql
 #   severity: LOW

@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AWS-0024
 #     - enable-recovery
+#     - aws-dynamodb-enable-recovery
 #   provider: aws
 #   service: dynamodb
 #   severity: MEDIUM

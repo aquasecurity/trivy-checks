@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0057
 #     - storage-account-logging-enabled
+#     - azure-storage-storage-account-logging-enabled
 #   provider: azure
 #   service: storage
 #   severity: MEDIUM

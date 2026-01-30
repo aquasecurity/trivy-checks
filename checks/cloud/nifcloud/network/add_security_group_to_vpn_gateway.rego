@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-NIF-0018
 #     - add-security-group-to-vpn-gateway
+#     - nifcloud-network-add-security-group-to-vpn-gateway
 #     - nifcloud-computing-add-security-group-to-vpn-gateway
 #   provider: nifcloud
 #   service: network

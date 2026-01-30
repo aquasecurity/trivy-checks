@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0165
 #     - enforce-root-hardware-mfa
+#     - aws-iam-enforce-root-hardware-mfa
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM

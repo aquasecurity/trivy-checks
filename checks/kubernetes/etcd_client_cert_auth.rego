@@ -13,6 +13,7 @@
 #     - AVD-KCV-0043
 #     - KCV0043
 #     - ensure-client-cert-auth-argument-is-set-to-true
+#     - kubernetes-ensure-client-cert-auth-argument-is-set-to-true
 #   severity: LOW
 #   recommended_action: "Edit the etcd pod specification file /etc/kubernetes/manifests/etcd.yaml on the master node and set the below parameter."
 #   input:

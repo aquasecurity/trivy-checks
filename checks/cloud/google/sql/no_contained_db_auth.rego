@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0023
 #     - no-contained-db-auth
+#     - google-sql-no-contained-db-auth
 #   provider: google
 #   service: sql
 #   severity: MEDIUM

@@ -18,6 +18,7 @@
 #   aliases:
 #     - AVD-AZU-0034
 #     - virtual-network-enabled
+#     - azure-synapse-virtual-network-enabled
 #   provider: azure
 #   service: synapse
 #   severity: MEDIUM

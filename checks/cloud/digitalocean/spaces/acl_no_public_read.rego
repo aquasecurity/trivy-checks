@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-DIG-0006
 #     - acl-no-public-read
+#     - digitalocean-spaces-acl-no-public-read
 #   provider: digitalocean
 #   service: spaces
 #   severity: CRITICAL

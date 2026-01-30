@@ -13,6 +13,7 @@
 #     - AVD-KCV-0019
 #     - KCV0019
 #     - ensure-audit-log-path-argument-is-set
+#     - kubernetes-ensure-audit-log-path-argument-is-set
 #   severity: LOW
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --audit-log-path parameter."
 #   input:

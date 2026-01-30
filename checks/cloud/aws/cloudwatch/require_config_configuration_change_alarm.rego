@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AWS-0155
 #     - require-config-configuration-changes-alarm
+#     - aws-cloudwatch-require-config-configuration-changes-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW

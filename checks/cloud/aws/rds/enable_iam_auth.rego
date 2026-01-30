@@ -12,6 +12,7 @@
 #   aliases:
 #     - AVD-AWS-0176
 #     - enable-iam-auth
+#     - aws-rds-enable-iam-auth
 #   provider: aws
 #   service: rds
 #   severity: MEDIUM

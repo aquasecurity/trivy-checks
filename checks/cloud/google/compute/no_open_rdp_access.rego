@@ -14,6 +14,7 @@
 #     - AVD-GCP-0070
 #     - no-open-rdp-access
 #     - rdp-access-not-restricted
+#     - google-compute-no-open-rdp-access
 #   provider: google
 #   service: compute
 #   severity: HIGH

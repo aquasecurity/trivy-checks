@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AWS-0036
 #     - no-plaintext-secrets
+#     - aws-ecs-no-plaintext-secrets
 #   provider: aws
 #   service: ecs
 #   severity: CRITICAL

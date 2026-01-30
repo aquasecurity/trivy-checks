@@ -10,6 +10,7 @@
 #   aliases:
 #     - AVD-KSV-0109
 #     - configMap_with_secrets
+#     - kubernetes-configMap-with-secrets
 #   severity: HIGH
 #   recommended_action: "Remove password/secret from configMap data value"
 #   input:

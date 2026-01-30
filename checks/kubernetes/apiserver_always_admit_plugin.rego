@@ -13,6 +13,7 @@
 #     - AVD-KCV-0011
 #     - KCV0011
 #     - ensure-admission-control-plugin-always-admit-is-not-set
+#     - kubernetes-ensure-admission-control-plugin-always-admit-is-not-set
 #   severity: LOW
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and either remove the --enable-admission- plugins parameter, or set it to a value that does not include AlwaysAdmit."
 #   input:

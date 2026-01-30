@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-AZU-0018
 #     - threat-alert-email-set
+#     - azure-database-threat-alert-email-set
 #   provider: azure
 #   service: database
 #   severity: MEDIUM

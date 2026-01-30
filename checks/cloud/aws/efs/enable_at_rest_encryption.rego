@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0037
 #     - enable-at-rest-encryption
+#     - aws-efs-enable-at-rest-encryption
 #   provider: aws
 #   service: efs
 #   severity: HIGH

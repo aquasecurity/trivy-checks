@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-GCP-0056
 #     - enable-network-policy
+#     - google-gke-enable-network-policy
 #   provider: google
 #   service: gke
 #   severity: MEDIUM

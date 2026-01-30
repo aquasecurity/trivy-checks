@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AWS-0133
 #     - enable-performance-insights
+#     - aws-rds-enable-performance-insights
 #   provider: aws
 #   service: rds
 #   severity: LOW

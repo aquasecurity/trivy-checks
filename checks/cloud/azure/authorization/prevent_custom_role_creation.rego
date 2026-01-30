@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AZU-0052
 #     - prevent-custom-role-creation
+#     - azure-authorization-prevent-custom-role-creation
 #     - azure-role-definition-allows-custom-role-creation
 #   provider: azure
 #   service: authorization

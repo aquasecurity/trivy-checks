@@ -14,6 +14,7 @@
 #     - AVD-AWS-0026
 #     - enable-volume-encryption
 #     - aws-ebs-enable-volume-encryption
+#     - aws-ec2-enable-volume-encryption
 #   provider: aws
 #   service: ec2
 #   severity: HIGH

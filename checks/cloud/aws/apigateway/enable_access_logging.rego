@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0001
 #     - enable-access-logging
+#     - aws-apigateway-enable-access-logging
 #   provider: aws
 #   service: apigateway
 #   severity: MEDIUM

@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0031
 #     - no-public-ip
+#     - google-compute-no-public-ip
 #   provider: google
 #   service: compute
 #   severity: HIGH

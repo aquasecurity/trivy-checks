@@ -13,6 +13,7 @@
 #     - AVD-KSV-0047
 #     - KSV047
 #     - no-privilege-escalation-from-node-proxy
+#     - kubernetes-no-privilege-escalation-from-node-proxy
 #   severity: HIGH
 #   recommended_action: "Create a role which does not permit privilege escalation from node proxy"
 #   input:

@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AZU-0007
 #     - no-public-access
+#     - azure-storage-no-public-access
 #   provider: azure
 #   service: storage
 #   severity: HIGH

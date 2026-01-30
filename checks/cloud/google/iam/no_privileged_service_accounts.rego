@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0007
 #     - no-privileged-service-accounts
+#     - google-iam-no-privileged-service-accounts
 #   provider: google
 #   service: iam
 #   severity: HIGH

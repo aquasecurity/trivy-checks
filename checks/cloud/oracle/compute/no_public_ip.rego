@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-OCI-0001
 #     - no-public-ip
+#     - oracle-compute-no-public-ip
 #   provider: oracle
 #   service: compute
 #   severity: CRITICAL

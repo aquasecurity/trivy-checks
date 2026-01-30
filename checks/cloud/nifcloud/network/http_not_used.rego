@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-NIF-0021
 #     - http-not-used
+#     - nifcloud-network-http-not-used
 #   provider: nifcloud
 #   service: network
 #   severity: CRITICAL

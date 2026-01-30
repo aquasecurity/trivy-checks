@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0138
 #     - enable-in-transit-encryption
+#     - aws-emr-enable-in-transit-encryption
 #   provider: aws
 #   service: emr
 #   severity: HIGH

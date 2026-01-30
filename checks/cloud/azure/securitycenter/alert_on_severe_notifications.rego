@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0044
 #     - alert-on-severe-notifications
+#     - azure-securitycenter-alert-on-severe-notifications
 #   provider: azure
 #   service: security-center
 #   severity: MEDIUM

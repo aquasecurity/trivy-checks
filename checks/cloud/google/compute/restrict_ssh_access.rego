@@ -14,6 +14,7 @@
 #     - AVD-GCP-0071
 #     - restrict-ssh-access
 #     - ssh-access-is-not-restricted
+#     - google-compute-restrict-ssh-access
 #   provider: google
 #   service: compute
 #   severity: MEDIUM

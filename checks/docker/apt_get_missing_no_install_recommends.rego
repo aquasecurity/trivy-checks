@@ -13,6 +13,7 @@
 #     - AVD-DS-0029
 #     - DS029
 #     - use-apt-no-install-recommends
+#     - docker-use-apt-no-install-recommends
 #   severity: HIGH
 #   recommended_action: "Add '--no-install-recommends' flag to 'apt-get'"
 #   input:

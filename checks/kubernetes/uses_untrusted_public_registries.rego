@@ -11,6 +11,7 @@
 #     - AVD-KSV-0034
 #     - KSV034
 #     - no-public-registries
+#     - kubernetes-no-public-registries
 #   severity: MEDIUM
 #   recommended_action: "Use images from private registries."
 #   deprecated: true

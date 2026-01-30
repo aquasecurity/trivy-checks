@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AWS-0153
 #     - require-cmk-disabled-alarm
+#     - aws-cloudwatch-require-cmk-disabled-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW

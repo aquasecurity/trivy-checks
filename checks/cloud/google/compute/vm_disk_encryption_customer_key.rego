@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-GCP-0033
 #     - vm-disk-encryption-customer-key
+#     - google-compute-vm-disk-encryption-customer-key
 #   provider: google
 #   service: compute
 #   severity: LOW

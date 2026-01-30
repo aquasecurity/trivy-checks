@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0048
 #     - enable-domain-encryption
+#     - aws-elasticsearch-enable-domain-encryption
 #   provider: aws
 #   service: elasticsearch
 #   severity: HIGH

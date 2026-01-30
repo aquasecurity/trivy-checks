@@ -10,6 +10,7 @@
 #   aliases:
 #     - AVD-KUBE-0002
 #     - no-public-egress
+#     - kubernetes-network-no-public-egress
 #   provider: kubernetes
 #   service: network
 #   severity: HIGH

@@ -13,6 +13,7 @@
 #     - AVD-KSV-0023
 #     - KSV023
 #     - no-mounted-hostpath
+#     - kubernetes-no-mounted-hostpath
 #   severity: MEDIUM
 #   recommended_action: "Do not set 'spec.volumes[*].hostPath'."
 #   input:

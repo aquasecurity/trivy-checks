@@ -13,6 +13,7 @@
 #     - AVD-KCV-0024
 #     - KCV0024
 #     - ensure-service-account-lookup-argument-is-set-to-true
+#     - kubernetes-ensure-service-account-lookup-argument-is-set-to-true
 #   severity: LOW
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the below parameter."
 #   input:

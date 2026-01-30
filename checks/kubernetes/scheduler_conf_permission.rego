@@ -13,6 +13,7 @@
 #     - AVD-KCV-0062
 #     - KCV0062
 #     - ensure-scheduler-config-file-permissions-set-600-or-more-restrictive
+#     - kubernetes-ensure-scheduler-config-file-permissions-set-600-or-more-restrictive
 #   severity: HIGH
 #   recommended_action: "Change the scheduler config file /etc/kubernetes/scheduler.conf permissions of 600 or more restrictive "
 #   input:

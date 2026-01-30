@@ -14,6 +14,7 @@
 #     - AVD-AWS-0008
 #     - enable-launch-config-at-rest-encryption
 #     - aws-autoscaling-enable-at-rest-encryption
+#     - aws-ec2-enable-launch-config-at-rest-encryption
 #   provider: aws
 #   service: ec2
 #   severity: HIGH

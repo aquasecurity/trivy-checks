@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-GCP-0076
 #     - google-compute-subnetwork-logging
+#     - google-compute-google-compute-subnetwork-logging
 #     - google-misc-google-compute-subnetwork-logging-disabled
 #   provider: google
 #   service: compute

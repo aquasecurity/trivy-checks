@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0006
 #     - enable-at-rest-encryption
+#     - aws-athena-enable-at-rest-encryption
 #   provider: aws
 #   service: athena
 #   severity: HIGH

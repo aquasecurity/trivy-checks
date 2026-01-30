@@ -12,6 +12,7 @@
 #     - AVD-DS-0031
 #     - DS031
 #     - do-not-pass-secrets
+#     - docker-do-not-pass-secrets
 #   severity: CRITICAL
 #   recommended_action: Use secret mount if secrets are needed during image build. Use volume mount if secret files are needed during container runtime.
 #   input:

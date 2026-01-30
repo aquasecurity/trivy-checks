@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0088
 #     - enable-bucket-encryption
+#     - aws-s3-enable-bucket-encryption
 #   provider: aws
 #   service: s3
 #   severity: HIGH

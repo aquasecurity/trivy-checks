@@ -13,6 +13,7 @@
 #     - AVD-KCV-0058
 #     - KCV0058
 #     - ensure-etcd-data-directory-permissions-set-700-or-more-restrictive
+#     - kubernetes-ensure-etcd-data-directory-permissions-set-700-or-more-restrictive
 #   severity: LOW
 #   recommended_action: "Change the etcd data directory /var/lib/etcd permissions of 700 or more restrictive "
 #   input:

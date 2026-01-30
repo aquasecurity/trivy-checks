@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AZU-0072
 #     - web-app-https-only
+#     - azure-appservice-web-app-https-only
 #   provider: azure
 #   service: appservice
 #   severity: MEDIUM

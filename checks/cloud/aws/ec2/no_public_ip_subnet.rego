@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0164
 #     - no-public-ip-subnet
+#     - aws-ec2-no-public-ip-subnet
 #     - aws-vpc-no-public-ingress-sgr
 #   provider: aws
 #   service: ec2

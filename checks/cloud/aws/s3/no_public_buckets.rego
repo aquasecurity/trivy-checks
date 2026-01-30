@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0093
 #     - no-public-buckets
+#     - aws-s3-no-public-buckets
 #   provider: aws
 #   service: s3
 #   severity: HIGH

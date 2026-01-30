@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AWS-0067
 #     - restrict-source-arn
+#     - aws-lambda-restrict-source-arn
 #   provider: aws
 #   service: lambda
 #   severity: CRITICAL

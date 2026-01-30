@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-AWS-0047
 #     - use-secure-tls-policy
+#     - aws-elb-use-secure-tls-policy
 #   provider: aws
 #   service: elb
 #   severity: CRITICAL

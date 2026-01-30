@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-CLDSTK-0001
 #     - no-sensitive-info
+#     - cloudstack-compute-no-sensitive-info
 #   provider: cloudstack
 #   service: compute
 #   severity: HIGH

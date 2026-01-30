@@ -20,6 +20,7 @@
 #   aliases:
 #     - AVD-AWS-0090
 #     - enable-versioning
+#     - aws-s3-enable-versioning
 #   provider: aws
 #   service: s3
 #   severity: MEDIUM

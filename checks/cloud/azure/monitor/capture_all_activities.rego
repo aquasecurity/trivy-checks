@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AZU-0033
 #     - capture-all-activities
+#     - azure-monitor-capture-all-activities
 #   provider: azure
 #   service: monitor
 #   severity: MEDIUM

@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-GCP-0039
 #     - use-secure-tls-policy
+#     - google-compute-use-secure-tls-policy
 #   provider: google
 #   service: compute
 #   severity: CRITICAL

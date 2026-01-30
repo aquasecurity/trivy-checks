@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0059
 #     - require-numbers-in-passwords
+#     - aws-iam-require-numbers-in-passwords
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM

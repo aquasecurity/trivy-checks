@@ -12,6 +12,7 @@
 #   aliases:
 #     - AVD-AWS-0180
 #     - enable-public-access
+#     - aws-rds-enable-public-access
 #   provider: aws
 #   service: rds
 #   severity: HIGH

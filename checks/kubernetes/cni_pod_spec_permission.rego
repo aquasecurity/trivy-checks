@@ -14,6 +14,7 @@
 #     - KCV0056
 #     - ensure-container-network-interface-file-permissions-set
 #     - ensure-container-network-interface-file-permissions-set-600-or-more-restrictive
+#     - kubernetes-ensure-container-network-interface-file-permissions-set-600-or-more-restrictive
 #   severity: HIGH
 #   recommended_action: "Change the container network interface file path/to/cni/files permissions of 600 or more restrictive "
 #   input:

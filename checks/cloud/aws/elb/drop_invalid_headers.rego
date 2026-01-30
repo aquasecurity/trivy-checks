@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AWS-0052
 #     - drop-invalid-headers
+#     - aws-elb-drop-invalid-headers
 #   provider: aws
 #   service: elb
 #   severity: HIGH

@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0112
 #     - api-use-secure-tls-policy
+#     - aws-sam-api-use-secure-tls-policy
 #   provider: aws
 #   service: sam
 #   severity: HIGH

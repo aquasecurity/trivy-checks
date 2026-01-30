@@ -13,6 +13,7 @@
 #     - AVD-KCV-0069
 #     - KCV0069
 #     - ensure-kubelet-service-file-permissions-set-600-or-more-restrictive
+#     - kubernetes-ensure-kubelet-service-file-permissions-set-600-or-more-restrictive
 #   severity: HIGH
 #   recommended_action: "Change the kubelet service file /etc/systemd/system/kubelet.service.d/10-kubeadm.conf permissions of 600 or more restrictive "
 #   input:

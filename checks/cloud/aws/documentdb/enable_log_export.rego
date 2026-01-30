@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0020
 #     - enable-log-export
+#     - aws-documentdb-enable-log-export
 #   provider: aws
 #   service: documentdb
 #   severity: MEDIUM

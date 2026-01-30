@@ -13,6 +13,7 @@
 #     - AVD-KSV-0016
 #     - KSV016
 #     - no-unspecified-memory-requests
+#     - kubernetes-no-unspecified-memory-requests
 #   severity: LOW
 #   recommended_action: "Set 'containers[].resources.requests.memory'."
 #   input:

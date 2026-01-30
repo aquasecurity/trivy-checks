@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0145
 #     - enforce-user-mfa
+#     - aws-iam-enforce-user-mfa
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM

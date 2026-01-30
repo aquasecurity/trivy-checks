@@ -15,6 +15,7 @@
 #     - AVD-KSV-0039
 #     - KSV039
 #     - limit-range-usage
+#     - kubernetes-limit-range-usage
 #   severity: LOW
 #   recommended_action: Create a LimitRange policy with default requests and limits for each container
 #   input:

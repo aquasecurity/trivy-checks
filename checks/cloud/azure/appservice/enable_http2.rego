@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-AZU-0005
 #     - enable-http2
+#     - azure-appservice-enable-http2
 #   provider: azure
 #   service: appservice
 #   severity: LOW

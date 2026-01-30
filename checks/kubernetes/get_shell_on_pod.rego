@@ -13,6 +13,7 @@
 #     - AVD-KSV-0053
 #     - KSV053
 #     - no-getting-shell-pods
+#     - kubernetes-no-getting-shell-pods
 #   severity: HIGH
 #   recommended_action: "Remove write permission verbs for resource 'pods/exec'"
 #   input:

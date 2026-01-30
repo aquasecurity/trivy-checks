@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-DIG-0004
 #     - use-ssh-keys
+#     - digitalocean-compute-use-ssh-keys
 #   provider: digitalocean
 #   service: compute
 #   severity: HIGH

@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0050
 #     - use-service-account
+#     - google-gke-use-service-account
 #   provider: google
 #   service: gke
 #   severity: MEDIUM

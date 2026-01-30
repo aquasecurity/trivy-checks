@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-AWS-0002
 #     - enable-cache-encryption
+#     - aws-apigateway-enable-cache-encryption
 #   provider: aws
 #   service: apigateway
 #   severity: MEDIUM

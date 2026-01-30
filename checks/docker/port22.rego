@@ -11,6 +11,7 @@
 #     - AVD-DS-0004
 #     - DS004
 #     - no-ssh-port
+#     - docker-no-ssh-port
 #   severity: MEDIUM
 #   recommended_action: "Remove 'EXPOSE 22' statement from the Dockerfile"
 #   input:

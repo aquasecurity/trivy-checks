@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-GCP-0075
 #     - enable-subnetwork-private-google-access
+#     - google-compute-enable-subnetwork-private-google-access
 #     - google-misc-google-compute-subnetwork-with-private-google-access-disable
 #   provider: google
 #   service: compute

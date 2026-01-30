@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0072
 #     - no-public-access
+#     - aws-mq-no-public-access
 #   provider: aws
 #   service: mq
 #   severity: HIGH

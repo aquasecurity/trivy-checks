@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-OPNSTK-0002
 #     - no-public-access
+#     - openstack-compute-no-public-access
 #   provider: openstack
 #   service: compute
 #   severity: MEDIUM

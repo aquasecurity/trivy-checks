@@ -13,6 +13,7 @@
 #     - AVD-KCV-0090
 #     - KCV0090
 #     - ensure-rotate-certificates-argument-set-false
+#     - kubernetes-ensure-rotate-certificates-argument-set-false
 #   severity: HIGH
 #   recommended_action: "If using a Kubelet config file, edit the file to add the line rotateCertificates: true or remove it altogether to use the default value."
 #   input:

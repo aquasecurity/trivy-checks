@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-DIG-0009
 #     - disable-force-destroy
+#     - digitalocean-spaces-disable-force-destroy
 #   provider: digitalocean
 #   service: spaces
 #   severity: MEDIUM

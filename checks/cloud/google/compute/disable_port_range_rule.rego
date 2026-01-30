@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0074
 #     - disable-port-range-rule
+#     - google-compute-disable-port-range-rule
 #     - compute-network-using-firewall-rule-that-allows-large-port-range
 #   provider: google
 #   service: compute

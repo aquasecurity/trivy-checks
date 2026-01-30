@@ -14,6 +14,7 @@
 #     - AVD-KSV-0125
 #     - KSV0125
 #     - use-trusted-registry
+#     - kubernetes-use-trusted-registry
 #   severity: MEDIUM
 #   recommended_action: Use images from trusted registries.
 #   input:

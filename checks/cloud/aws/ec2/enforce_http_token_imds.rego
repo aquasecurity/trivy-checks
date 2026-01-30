@@ -17,6 +17,7 @@
 #   aliases:
 #     - AVD-AWS-0028
 #     - enforce-http-token-imds
+#     - aws-ec2-enforce-http-token-imds
 #   provider: aws
 #   service: ec2
 #   severity: HIGH

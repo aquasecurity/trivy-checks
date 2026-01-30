@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0066
 #     - bucket-encryption-customer-key
+#     - google-storage-bucket-encryption-customer-key
 #   provider: google
 #   service: storage
 #   severity: LOW

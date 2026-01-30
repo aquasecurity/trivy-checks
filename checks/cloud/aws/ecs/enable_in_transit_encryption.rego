@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AWS-0035
 #     - enable-in-transit-encryption
+#     - aws-ecs-enable-in-transit-encryption
 #   provider: aws
 #   service: ecs
 #   severity: HIGH

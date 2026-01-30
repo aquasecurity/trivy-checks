@@ -15,6 +15,7 @@
 #     - AVD-KCV-0093
 #     - KCV0093
 #     - insecure-ingress-nginx
+#     - kubernetes-insecure-ingress-nginx
 #   severity: CRITICAL
 #   recommended_action: "Ensure that ingress-nginx annotations do not contain suspicious characters."
 #   input:

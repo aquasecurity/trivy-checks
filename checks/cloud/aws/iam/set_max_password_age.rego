@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AWS-0062
 #     - set-max-password-age
+#     - aws-iam-set-max-password-age
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM

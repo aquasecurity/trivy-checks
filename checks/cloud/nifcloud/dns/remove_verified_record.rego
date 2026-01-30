@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-NIF-0007
 #     - remove-verified-record
+#     - nifcloud-dns-remove-verified-record
 #   provider: nifcloud
 #   service: dns
 #   severity: CRITICAL

@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0022
 #     - encryption-customer-key
+#     - aws-documentdb-encryption-customer-key
 #   provider: aws
 #   service: documentdb
 #   severity: LOW

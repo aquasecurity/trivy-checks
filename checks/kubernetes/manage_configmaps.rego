@@ -13,6 +13,7 @@
 #     - AVD-KSV-0049
 #     - KSV049
 #     - no-manage-configmaps
+#     - kubernetes-no-manage-configmaps
 #   severity: MEDIUM
 #   recommended_action: "Remove write permission verbs for resource 'configmaps'"
 #   input:

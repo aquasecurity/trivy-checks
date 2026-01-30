@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0063
 #     - email-alerts-disabled
+#     - azure-securitycenter-email-alerts-disabled
 #   provider: azure
 #   service: security-center
 #   severity: MEDIUM

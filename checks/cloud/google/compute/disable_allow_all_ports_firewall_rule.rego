@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0072
 #     - disable-allow-all-ports
+#     - google-compute-disable-allow-all-ports
 #     - network-using-firewall-rule-that-allows-all-ports
 #   provider: google
 #   service: compute

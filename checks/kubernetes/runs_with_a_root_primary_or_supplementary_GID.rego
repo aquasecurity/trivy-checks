@@ -13,6 +13,7 @@
 #     - AVD-KSV-0116
 #     - KSV116
 #     - primary-supplementary-gid
+#     - kubernetes-primary-supplementary-gid
 #   severity: LOW
 #   recommended_actions: "Set 'containers[].securityContext.runAsGroup' to a non-zero integer or leave undefined."
 #   input:

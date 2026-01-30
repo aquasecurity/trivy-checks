@@ -17,6 +17,7 @@
 #   aliases:
 #     - AVD-AZU-0049
 #     - retention-policy-set
+#     - azure-network-retention-policy-set
 #   provider: azure
 #   service: network
 #   severity: LOW

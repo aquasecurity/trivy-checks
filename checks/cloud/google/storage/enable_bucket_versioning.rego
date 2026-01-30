@@ -14,6 +14,7 @@
 #     - AVD-GCP-0078
 #     - enable-bucket-versioning
 #     - storage-bucket-versioning-disabled
+#     - google-storage-enable-bucket-versioning
 #   provider: google
 #   service: storage
 #   severity: MEDIUM

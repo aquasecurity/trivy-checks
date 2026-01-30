@@ -18,6 +18,7 @@
 #     - AVD-AWS-0130
 #     - enforce-launch-config-http-token-imds
 #     - aws-autoscaling-enforce-http-token-imds
+#     - aws-ec2-enforce-launch-config-http-token-imds
 #   provider: aws
 #   service: ec2
 #   severity: HIGH

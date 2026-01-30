@@ -13,6 +13,7 @@
 #     - AVD-KSV-0013
 #     - KSV013
 #     - use-specific-tags
+#     - kubernetes-use-specific-tags
 #   severity: MEDIUM
 #   recommended_action: "Use a specific container image tag that is not 'latest'."
 #   input:

@@ -13,6 +13,7 @@
 #     - AVD-KCV-0087
 #     - KCV0087
 #     - ensure-event-qps argument-set-0-or-level-forappropriate-event-capture
+#     - kubernetes-ensure-event-qps argument-set-0-or-level-forappropriate-event-capture
 #   severity: HIGH
 #   recommended_action: "If using a Kubelet config file, edit the file to set eventRecordQPS: to an appropriate level. If using command line arguments, edit the kubelet service file"
 #   input:

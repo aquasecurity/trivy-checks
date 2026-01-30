@@ -13,6 +13,7 @@
 #     - AVD-KCV-0077
 #     - KCV0077
 #     - ensure-kubelet-config.yaml--permissions-600-or-more-restrictive.
+#     - kubernetes-ensure-kubelet-config.yaml--permissions-600-or-more-restrictive.
 #   severity: HIGH
 #   recommended_action: "Change the kubelet config yaml permissions to 600 or more restrictive if exist"
 #   input:

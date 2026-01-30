@@ -13,6 +13,7 @@
 #     - AVD-KSV-0043
 #     - KSV043
 #     - no-impersonate-privileged-groups
+#     - kubernetes-no-impersonate-privileged-groups
 #   severity: CRITICAL
 #   recommended_action: "Create a role which does not permit to impersonate privileged groups if not needed"
 #   input:

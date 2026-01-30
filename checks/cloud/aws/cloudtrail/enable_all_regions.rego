@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0014
 #     - enable-all-regions
+#     - aws-cloudtrail-enable-all-regions
 #   provider: aws
 #   service: cloudtrail
 #   severity: MEDIUM

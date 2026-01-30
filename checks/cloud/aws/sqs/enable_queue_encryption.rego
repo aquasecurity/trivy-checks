@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0096
 #     - enable-queue-encryption
+#     - aws-sqs-enable-queue-encryption
 #   provider: aws
 #   service: sqs
 #   severity: HIGH

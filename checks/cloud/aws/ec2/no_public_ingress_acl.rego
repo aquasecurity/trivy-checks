@@ -17,6 +17,7 @@
 #   aliases:
 #     - AVD-AWS-0105
 #     - no-public-ingress-acl
+#     - aws-ec2-no-public-ingress-acl
 #     - aws-vpc-no-public-ingress-acl
 #   provider: aws
 #   service: ec2

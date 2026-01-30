@@ -16,6 +16,7 @@
 #   aliases:
 #     - AVD-AZU-0061
 #     - infrastructure-encryption-enabled
+#     - azure-storage-infrastructure-encryption-enabled
 #   provider: azure
 #   service: storage
 #   severity: MEDIUM

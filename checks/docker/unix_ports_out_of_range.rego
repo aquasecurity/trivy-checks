@@ -13,6 +13,7 @@
 #     - AVD-DS-0008
 #     - DS008
 #     - port-out-of-range
+#     - docker-port-out-of-range
 #   severity: CRITICAL
 #   recommended_action: "Use port number within range"
 #   input:

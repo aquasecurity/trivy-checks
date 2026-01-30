@@ -14,6 +14,7 @@
 #     - KCV0055
 #     - ensure-etcd-pod-specification-ownership-set
 #     - ensure-etcd-pod-specification-ownership-set-root:root
+#     - kubernetes-ensure-etcd-pod-specification-ownership-set-root:root
 #   severity: HIGH
 #   recommended_action: "Change the etcd pod specification file /etc/kubernetes/manifests/etcd.yaml ownership to root:root"
 #   input:

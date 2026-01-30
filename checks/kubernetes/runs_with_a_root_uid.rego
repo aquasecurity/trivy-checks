@@ -13,6 +13,7 @@
 #     - AVD-KSV-0105
 #     - KSV105
 #     - containers-not-run-as-root
+#     - kubernetes-containers-not-run-as-root
 #   severity: LOW
 #   recommended_action: "Set 'securityContext.runAsUser' to a non-zero integer or leave undefined."
 #   input:

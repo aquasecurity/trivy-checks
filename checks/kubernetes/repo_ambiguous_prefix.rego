@@ -9,6 +9,7 @@
 #   aliases:
 #     - AVD-KSV-0124
 #     - repo-ambiguous-prefix
+#     - kubernetes-repo-ambiguous-prefix
 #   severity: HIGH
 #   input:
 #     selector:

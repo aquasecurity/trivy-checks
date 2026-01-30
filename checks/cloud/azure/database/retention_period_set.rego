@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0025
 #     - retention-period-set
+#     - azure-database-retention-period-set
 #   provider: azure
 #   service: database
 #   severity: MEDIUM

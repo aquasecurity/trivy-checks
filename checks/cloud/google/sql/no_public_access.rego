@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0017
 #     - no-public-access
+#     - google-sql-no-public-access
 #   provider: google
 #   service: sql
 #   severity: HIGH

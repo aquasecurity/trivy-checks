@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AZU-0029
 #     - no-public-firewall-access
+#     - azure-database-no-public-firewall-access
 #   provider: azure
 #   service: database
 #   severity: HIGH

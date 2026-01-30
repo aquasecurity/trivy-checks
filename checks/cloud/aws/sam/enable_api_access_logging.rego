@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0113
 #     - enable-api-access-logging
+#     - aws-sam-enable-api-access-logging
 #   provider: aws
 #   service: sam
 #   severity: MEDIUM

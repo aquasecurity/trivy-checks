@@ -17,6 +17,7 @@
 #   aliases:
 #     - AVD-AWS-0107
 #     - no-public-ingress-sgr
+#     - aws-ec2-no-public-ingress-sgr
 #   provider: aws
 #   service: ec2
 #   severity: HIGH

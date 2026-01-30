@@ -13,6 +13,7 @@
 #     - AVD-DS-0009
 #     - DS009
 #     - user-absolute-workdir
+#     - docker-user-absolute-workdir
 #   severity: HIGH
 #   recommended_action: "Use absolute paths for your WORKDIR"
 #   input:

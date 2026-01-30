@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0045
 #     - enable-at-rest-encryption
+#     - aws-elasticache-enable-at-rest-encryption
 #   provider: aws
 #   service: elasticache
 #   severity: HIGH

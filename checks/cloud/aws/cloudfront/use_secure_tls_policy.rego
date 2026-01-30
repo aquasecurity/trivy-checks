@@ -17,6 +17,7 @@
 #   aliases:
 #     - AVD-AWS-0013
 #     - use-secure-tls-policy
+#     - aws-cloudfront-use-secure-tls-policy
 #   provider: aws
 #   service: cloudfront
 #   severity: HIGH

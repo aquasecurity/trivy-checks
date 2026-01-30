@@ -13,6 +13,7 @@
 #     - AVD-KCV-0042
 #     - KCV0042
 #     - Ensure-cert-file-and-key-file-arguments-are-set-as-appropriate
+#     - kubernetes-Ensure-cert-file-and-key-file-arguments-are-set-as-appropriate
 #   severity: LOW
 #   recommended_action: "Follow the etcd service documentation and configure TLS encryption. Then, edit the etcd pod specification file /etc/kubernetes/manifests/etcd.yaml on the master node and set the below parameters."
 #   input:

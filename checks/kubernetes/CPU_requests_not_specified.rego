@@ -13,6 +13,7 @@
 #     - AVD-KSV-0015
 #     - KSV015
 #     - no-unspecified-cpu-requests
+#     - kubernetes-no-unspecified-cpu-requests
 #   severity: LOW
 #   recommended_action: "Set 'containers[].resources.requests.cpu'."
 #   input:

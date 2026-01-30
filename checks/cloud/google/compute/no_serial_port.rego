@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-GCP-0032
 #     - no-serial-port
+#     - google-compute-no-serial-port
 #   provider: google
 #   service: compute
 #   severity: MEDIUM

@@ -19,6 +19,7 @@
 #   aliases:
 #     - AVD-AWS-0175
 #     - enable-access-analyzer
+#     - aws-accessanalyzer-enable-access-analyzer
 #   provider: aws
 #   service: accessanalyzer
 #   severity: LOW

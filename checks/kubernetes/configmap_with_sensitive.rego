@@ -10,6 +10,7 @@
 #   aliases:
 #     - AVD-KSV-01010
 #     - configMap_with_sensitive
+#     - kubernetes-configMap-with-sensitive
 #   severity: MEDIUM
 #   recommended_action: "Remove sensitive content from configMap data value"
 #   input:
