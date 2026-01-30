@@ -13,6 +13,7 @@
 #     - AVD-KCV-0035
 #     - KCV0135
 #     - ensure-use-service-account-credentials-argument-is-set-to-true
+#     - kubernetes-ensure-use-service-account-credentials-argument-is-set-to-true
 #   severity: LOW
 #   recommended_action: "Edit the Controller Manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml on the Control Plane node to set the below parameter."
 #   input:

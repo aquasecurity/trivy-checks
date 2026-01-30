@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AWS-0031
 #     - enforce-immutable-repository
+#     - aws-ecr-enforce-immutable-repository
 #   provider: aws
 #   service: ecr
 #   severity: HIGH

@@ -13,6 +13,7 @@
 #     - AVD-KCV-0010
 #     - KCV0010
 #     - ensure-admission-control-plugin-event-rate-limit-is-set
+#     - kubernetes-ensure-admission-control-plugin-event-rate-limit-is-set
 #   severity: LOW
 #   recommended_action: "Follow the Kubernetes documentation and set the desired limits in a configuration file. Then, edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml and set the below parameters."
 #   input:

@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0035
 #     - no-public-access
+#     - azure-datafactory-no-public-access
 #   provider: azure
 #   service: datafactory
 #   severity: CRITICAL

@@ -14,6 +14,7 @@
 #     - AVD-AWS-0027
 #     - volume-encryption-customer-key
 #     - aws-ebs-encryption-customer-key
+#     - aws-ec2-volume-encryption-customer-key
 #   provider: aws
 #   service: ec2
 #   severity: LOW

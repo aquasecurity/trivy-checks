@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0171
 #     - enable-object-write-logging
+#     - aws-s3-enable-object-write-logging
 #   provider: aws
 #   service: s3
 #   severity: LOW

@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0126
 #     - use-secure-tls-policy
+#     - aws-elasticsearch-use-secure-tls-policy
 #   provider: aws
 #   service: elasticsearch
 #   severity: HIGH

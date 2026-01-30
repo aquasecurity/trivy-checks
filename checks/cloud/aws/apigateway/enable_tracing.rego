@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-AWS-0003
 #     - enable-tracing
+#     - aws-apigateway-enable-tracing
 #   provider: aws
 #   service: apigateway
 #   severity: LOW

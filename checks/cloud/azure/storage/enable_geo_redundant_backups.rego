@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0058
 #     - enable-geo-redundant-backups
+#     - azure-storage-enable-geo-redundant-backups
 #   provider: azure
 #   service: storage
 #   severity: LOW

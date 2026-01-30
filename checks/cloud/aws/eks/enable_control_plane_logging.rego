@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0038
 #     - enable-control-plane-logging
+#     - aws-eks-enable-control-plane-logging
 #   provider: aws
 #   service: eks
 #   severity: MEDIUM

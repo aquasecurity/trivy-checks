@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-GCP-0079
 #     - configure-audit-logging
+#     - google-iam-configure-audit-logging
 #   provider: google
 #   service: iam
 #   severity: LOW

@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-AWS-0053
 #     - alb-not-public
+#     - aws-elb-alb-not-public
 #   provider: aws
 #   service: elb
 #   severity: HIGH

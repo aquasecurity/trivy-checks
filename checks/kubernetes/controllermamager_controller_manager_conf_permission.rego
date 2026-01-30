@@ -13,6 +13,7 @@
 #     - AVD-KCV-0064
 #     - KCV0064
 #     - ensure-controller-manager-config-file-permissions-set-600-or-more-restrictive
+#     - kubernetes-ensure-controller-manager-config-file-permissions-set-600-or-more-restrictive
 #   severity: HIGH
 #   recommended_action: "Change the controller manager config file /etc/kubernetes/controller-manager.conf permissions of 600 or more restrictive "
 #   input:

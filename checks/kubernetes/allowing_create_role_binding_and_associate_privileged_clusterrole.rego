@@ -13,6 +13,7 @@
 #     - AVD-KSV-0051
 #     - KSV051
 #     - do-not-allow-role-binding-associate-privileged-role
+#     - kubernetes-do-not-allow-role-binding-associate-privileged-role
 #   severity: HIGH
 #   recommended_action: "Create a role which does not permit creation of role bindings and associating with privileged cluster role"
 #   input:

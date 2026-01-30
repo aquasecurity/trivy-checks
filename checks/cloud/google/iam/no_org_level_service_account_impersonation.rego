@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0009
 #     - no-org-level-service-account-impersonation
+#     - google-iam-no-org-level-service-account-impersonation
 #   provider: google
 #   service: iam
 #   severity: MEDIUM

@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-AZU-0037
 #     - no-secrets-in-custom-data
+#     - azure-compute-no-secrets-in-custom-data
 #   provider: azure
 #   service: compute
 #   severity: MEDIUM

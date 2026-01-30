@@ -13,6 +13,7 @@
 #     - AVD-KSV-0006
 #     - KSV006
 #     - no-docker-sock-mount
+#     - kubernetes-no-docker-sock-mount
 #   severity: HIGH
 #   recommended_action: "Do not specify /var/run/docker.socket in 'spec.template.volumes.hostPath.path'."
 #   input:

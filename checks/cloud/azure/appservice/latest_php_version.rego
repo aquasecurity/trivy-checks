@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AZU-0069
 #     - supported-php-version
+#     - azure-appservice-supported-php-version
 #   provider: azure
 #   service: appservice
 #   severity: MEDIUM

@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-AZU-0001
 #     - require-client-cert
+#     - azure-appservice-require-client-cert
 #   provider: azure
 #   service: appservice
 #   severity: LOW

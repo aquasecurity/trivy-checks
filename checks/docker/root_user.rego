@@ -13,6 +13,7 @@
 #     - AVD-DS-0002
 #     - DS002
 #     - least-privilege-user
+#     - docker-least-privilege-user
 #   severity: HIGH
 #   recommended_action: "Add 'USER <non root user name>' line to the Dockerfile"
 #   input:

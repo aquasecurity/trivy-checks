@@ -17,6 +17,7 @@
 #   - AVD-AWS-0089
 #   - enable-logging
 #   - s3-bucket-logging
+#   - aws-s3-enable-logging
 #   recommended_action: Add a logging block to the resource to enable access logging
 #   input:
 #     selector:

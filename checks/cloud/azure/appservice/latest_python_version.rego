@@ -16,6 +16,7 @@
 #   aliases:
 #     - AVD-AZU-0070
 #     - supported-python-version
+#     - azure-appservice-supported-python-version
 #   provider: azure
 #   service: appservice
 #   severity: MEDIUM

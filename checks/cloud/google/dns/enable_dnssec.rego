@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-GCP-0013
 #     - enable-dnssec
+#     - google-dns-enable-dnssec
 #   provider: google
 #   service: dns
 #   severity: MEDIUM

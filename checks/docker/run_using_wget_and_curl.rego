@@ -13,6 +13,7 @@
 #     - AVD-DS-0014
 #     - DS014
 #     - standardise-remote-get
+#     - docker-standardise-remote-get
 #   severity: LOW
 #   recommended_action: "Pick one util, either 'wget' or 'curl'"
 #   input:

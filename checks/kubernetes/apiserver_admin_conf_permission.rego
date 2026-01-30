@@ -13,6 +13,7 @@
 #     - AVD-KCV-0060
 #     - KCV0060
 #     - ensure-admin-config-file-permissions-set-600-or-more-restrictive
+#     - kubernetes-ensure-admin-config-file-permissions-set-600-or-more-restrictive
 #   severity: CRITICAL
 #   recommended_action: "Change the admin config file /etc/kubernetes/admin.conf permissions of 600 or more restrictive "
 #   input:

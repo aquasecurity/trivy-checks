@@ -13,6 +13,7 @@
 #     - AVD-KCV-0016
 #     - KCV0016
 #     - ensure-admission-control-plugin-node-restriction-is-set
+#     - kubernetes-ensure-admission-control-plugin-node-restriction-is-set
 #   severity: LOW
 #   recommended_action: "Follow the Kubernetes documentation and configure NodeRestriction plug-in on kubelets. Then, edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the master node and set the --enable-admission-plugins parameter to a value that includes NodeRestriction."
 #   input:

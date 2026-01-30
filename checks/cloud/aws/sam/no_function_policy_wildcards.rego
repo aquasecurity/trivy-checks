@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0114
 #     - no-function-policy-wildcards
+#     - aws-sam-no-function-policy-wildcards
 #   provider: aws
 #   service: sam
 #   severity: HIGH

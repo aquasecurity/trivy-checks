@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0040
 #     - no-public-cluster-access
+#     - aws-eks-no-public-cluster-access
 #   provider: aws
 #   service: eks
 #   severity: CRITICAL

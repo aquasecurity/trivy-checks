@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AWS-0150
 #     - require-iam-policy-change-alarm
+#     - aws-cloudwatch-require-iam-policy-change-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW

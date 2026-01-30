@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-NIF-0016
 #     - add-security-group-to-router
+#     - nifcloud-network-add-security-group-to-router
 #     - nifcloud-computing-add-security-group-to-router
 #   provider: nifcloud
 #   service: network

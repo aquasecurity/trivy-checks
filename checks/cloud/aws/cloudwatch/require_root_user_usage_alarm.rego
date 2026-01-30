@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AWS-0149
 #     - require-root-user-usage-alarm
+#     - aws-cloudwatch-require-root-user-usage-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW

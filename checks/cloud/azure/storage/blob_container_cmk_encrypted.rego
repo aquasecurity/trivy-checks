@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0060
 #     - blob-container-cmk-encrypted
+#     - azure-storage-blob-container-cmk-encrypted
 #   provider: azure
 #   service: storage
 #   severity: MEDIUM

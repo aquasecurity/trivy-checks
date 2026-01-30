@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0024
 #     - enable-backup
+#     - google-sql-enable-backup
 #   provider: google
 #   service: sql
 #   severity: MEDIUM

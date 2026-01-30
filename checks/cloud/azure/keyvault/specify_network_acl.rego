@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0013
 #     - specify-network-acl
+#     - azure-keyvault-specify-network-acl
 #   provider: azure
 #   service: keyvault
 #   severity: CRITICAL

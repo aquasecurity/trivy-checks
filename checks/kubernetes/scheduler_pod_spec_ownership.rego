@@ -14,6 +14,7 @@
 #     - KCV0053
 #     - ensure-scheduler-pod-specification-ownership-set
 #     - ensure-scheduler-pod-specification-ownership-set-root:root.
+#     - kubernetes-ensure-scheduler-pod-specification-ownership-set-root:root.
 #   severity: HIGH
 #   recommended_action: "Change the scheduler pod specification file /etc/kubernetes/manifests/kube-scheduler.yaml ownership to root:root"
 #   input:

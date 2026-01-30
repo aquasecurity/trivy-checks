@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AWS-0158
 #     - require-network-gateway-changes-alarm
+#     - aws-cloudwatch-require-network-gateway-changes-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW

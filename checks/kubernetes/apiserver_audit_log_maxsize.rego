@@ -13,6 +13,7 @@
 #     - AVD-KCV-0022
 #     - KCV0022
 #     - ensure-audit-log-maxsize-argument-is-set-to-100-or-as-appropriate
+#     - kubernetes-ensure-audit-log-maxsize-argument-is-set-to-100-or-as-appropriate
 #   severity: LOW
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --audit-log-maxsize parameter to an appropriate size in MB"
 #   input:

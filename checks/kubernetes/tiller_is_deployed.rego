@@ -11,6 +11,7 @@
 #     - AVD-KSV-0102
 #     - KSV102
 #     - no-tiller
+#     - kubernetes-no-tiller
 #   severity: CRITICAL
 #   recommended_action: "Migrate to Helm v3 which no longer has Tiller component"
 #   input:

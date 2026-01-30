@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0037
 #     - disk-encryption-no-plaintext-key
+#     - google-compute-disk-encryption-no-plaintext-key
 #   provider: google
 #   service: compute
 #   severity: CRITICAL

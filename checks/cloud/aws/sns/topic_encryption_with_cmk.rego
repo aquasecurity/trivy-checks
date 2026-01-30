@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0136
 #     - topic-encryption-use-cmk
+#     - aws-sns-topic-encryption-use-cmk
 #   provider: aws
 #   service: sns
 #   severity: HIGH

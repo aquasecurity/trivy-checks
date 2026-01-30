@@ -13,6 +13,7 @@
 #     - AVD-DS-0026
 #     - DS026
 #     - no-healthcheck
+#     - docker-no-healthcheck
 #   severity: LOW
 #   recommended_action: "Add HEALTHCHECK instruction in Dockerfile"
 #   input:

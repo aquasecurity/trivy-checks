@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AWS-0078
 #     - performance-insights-encryption-customer-key
+#     - aws-rds-performance-insights-encryption-customer-key
 #   provider: aws
 #   service: rds
 #   severity: LOW

@@ -13,6 +13,7 @@
 #     - AVD-KSV-0001
 #     - KSV001
 #     - no-self-privesc
+#     - kubernetes-no-self-privesc
 #   severity: MEDIUM
 #   recommended_action: "Set 'set containers[].securityContext.allowPrivilegeEscalation' to 'false'."
 #   input:

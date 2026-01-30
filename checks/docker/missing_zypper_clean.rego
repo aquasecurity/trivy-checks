@@ -13,6 +13,7 @@
 #     - AVD-DS-0020
 #     - DS020
 #     - purge-zipper-cache
+#     - docker-purge-zipper-cache
 #   severity: HIGH
 #   recommended_action: "Add 'zypper clean' to Dockerfile"
 #   input:

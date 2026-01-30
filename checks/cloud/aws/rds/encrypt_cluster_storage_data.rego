@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AWS-0079
 #     - encrypt-cluster-storage-data
+#     - aws-rds-encrypt-cluster-storage-data
 #   provider: aws
 #   service: rds
 #   severity: HIGH

@@ -13,6 +13,7 @@
 #     - AVD-KCV-0078
 #     - KCV0078
 #     - ensure-kubeconfig-kubelet-config.yaml-ownership-set-root:root
+#     - kubernetes-ensure-kubeconfig-kubelet-config.yaml-ownership-set-root:root
 #   severity: HIGH
 #   recommended_action: "Change the kubelet config.yaml file ownership to root:root"
 #   input:

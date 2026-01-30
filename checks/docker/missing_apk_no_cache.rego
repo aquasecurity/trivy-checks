@@ -13,6 +13,7 @@
 #     - AVD-DS-0025
 #     - DS025
 #     - purge-apk-package-cache
+#     - docker-purge-apk-package-cache
 #   severity: HIGH
 #   recommended_action: "Add '--no-cache' to 'apk add' in Dockerfile"
 #   input:

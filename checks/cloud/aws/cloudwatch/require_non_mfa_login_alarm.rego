@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AWS-0148
 #     - require-non-mfa-login-alarm
+#     - aws-cloudwatch-require-non-mfa-login-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW

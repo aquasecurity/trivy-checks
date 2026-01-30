@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AZU-0027
 #     - enable-audit
+#     - azure-database-enable-audit
 #   provider: azure
 #   service: database
 #   severity: MEDIUM

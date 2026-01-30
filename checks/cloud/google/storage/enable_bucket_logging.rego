@@ -14,6 +14,7 @@
 #     - AVD-GCP-0077
 #     - enable-bucket-logging
 #     - storage-bucket-logging-not-enabled
+#     - google-storage-enable-bucket-logging
 #   provider: google
 #   service: storage
 #   severity: MEDIUM

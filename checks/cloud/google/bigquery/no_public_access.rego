@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-GCP-0046
 #     - no-public-access
+#     - google-bigquery-no-public-access
 #   provider: google
 #   service: bigquery
 #   severity: CRITICAL

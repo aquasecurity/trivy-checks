@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AWS-0005
 #     - use-secure-tls-policy
+#     - aws-apigateway-use-secure-tls-policy
 #   provider: aws
 #   service: apigateway
 #   severity: HIGH

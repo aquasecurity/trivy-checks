@@ -10,6 +10,7 @@
 #   aliases:
 #     - AVD-KSV-0108
 #     - no_svc_with_extip
+#     - kubernetes-no-svc-with-extip
 #   severity: HIGH
 #   recommended_action: "Do not set spec.externalIPs"
 #   input:

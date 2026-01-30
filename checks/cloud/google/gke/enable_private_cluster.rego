@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-GCP-0059
 #     - enable-private-cluster
+#     - google-gke-enable-private-cluster
 #   provider: google
 #   service: gke
 #   severity: MEDIUM

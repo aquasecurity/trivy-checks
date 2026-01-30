@@ -13,6 +13,7 @@
 #     - AVD-KSV-0018
 #     - KSV018
 #     - limit-memory
+#     - kubernetes-limit-memory
 #   severity: LOW
 #   recommended_action: "Set a limit value under 'containers[].resources.limits.memory'."
 #   input:

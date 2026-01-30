@@ -12,6 +12,7 @@
 #   aliases:
 #     - AVD-DIG-0008
 #     - kubernetes-auto-upgrades-not-enabled
+#     - digitalocean-compute-kubernetes-auto-upgrades-not-enabled
 #   provider: digitalocean
 #   service: compute
 #   severity: CRITICAL

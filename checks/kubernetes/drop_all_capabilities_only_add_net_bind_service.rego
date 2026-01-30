@@ -13,6 +13,7 @@
 #     - AVD-KSV-0106
 #     - KSV106
 #     - drop-caps-add-bind-svc
+#     - kubernetes-drop-caps-add-bind-svc
 #   severity: LOW
 #   recommended_action: "Set 'spec.containers[*].securityContext.capabilities.drop' to 'ALL' and only add 'NET_BIND_SERVICE' to 'spec.containers[*].securityContext.capabilities.add'."
 #   input:

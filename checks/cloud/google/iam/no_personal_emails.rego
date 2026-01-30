@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0069
 #     - no-personal-emails
+#     - google-iam-no-personal-emails
 #     - not-proper-email-account-in-use
 #   provider: google
 #   service: iam

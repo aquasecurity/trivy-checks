@@ -13,6 +13,7 @@
 #     - AVD-KCV-0083
 #     - KCV0083
 #     - ensure-protect-kernel-defaults-set-true
+#     - kubernetes-ensure-protect-kernel-defaults-set-true
 #   severity: HIGH
 #   recommended_action: "If using a Kubelet config file, edit the file to set protectKernelDefaults: true"
 #   input:

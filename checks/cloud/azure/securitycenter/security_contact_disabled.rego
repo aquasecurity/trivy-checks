@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0064
 #     - security-contact-disabled
+#     - azure-securitycenter-security-contact-disabled
 #   provider: azure
 #   service: security-center
 #   severity: HIGH

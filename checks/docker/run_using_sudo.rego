@@ -13,6 +13,7 @@
 #     - AVD-DS-0010
 #     - DS010
 #     - no-sudo-run
+#     - docker-no-sudo-run
 #   severity: CRITICAL
 #   recommended_action: "Don't use sudo"
 #   input:

@@ -13,6 +13,7 @@
 #     - AVD-KCV-0013
 #     - KCV0013
 #     - ensure-admission-control-plugin-security-context-deny-is-set-if-pod-security-policy-is-not-used
+#     - kubernetes-ensure-admission-control-plugin-security-context-deny-is-set-if-pod-security-policy-is-not-used
 #   frameworks:
 #     k8s-cis-1.23:
 #       - "1.2.13"

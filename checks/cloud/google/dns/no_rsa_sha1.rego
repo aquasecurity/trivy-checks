@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-GCP-0012
 #     - no-rsa-sha1
+#     - google-dns-no-rsa-sha1
 #   provider: google
 #   service: dns
 #   severity: MEDIUM

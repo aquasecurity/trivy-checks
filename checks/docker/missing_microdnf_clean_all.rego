@@ -13,6 +13,7 @@
 #     - AVD-DS-0027
 #     - DS027
 #     - purge-microdnf-package-cache
+#     - docker-purge-microdnf-package-cache
 #   severity: HIGH
 #   recommended_action: "Add 'microdnf clean all' to Dockerfile"
 #   input:

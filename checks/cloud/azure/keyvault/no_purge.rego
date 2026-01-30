@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0016
 #     - no-purge
+#     - azure-keyvault-no-purge
 #   provider: azure
 #   service: keyvault
 #   severity: MEDIUM

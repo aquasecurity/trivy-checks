@@ -13,6 +13,7 @@
 #     - AVD-KSV-0041
 #     - KSV041
 #     - no-manage-secrets
+#     - kubernetes-no-manage-secrets
 #   severity: CRITICAL
 #   recommended_actions: "Manage secrets are not allowed. Remove resource 'secrets' from cluster role"
 #   input:

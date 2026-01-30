@@ -13,6 +13,7 @@
 #     - AVD-DS-0012
 #     - DS012
 #     - no-duplicate-alias
+#     - docker-no-duplicate-alias
 #   severity: CRITICAL
 #   recommended_action: "Change aliases to make them different"
 #   input:

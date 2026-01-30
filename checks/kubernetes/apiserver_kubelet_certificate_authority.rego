@@ -13,6 +13,7 @@
 #     - AVD-KCV-0006
 #     - KCV0006
 #     - ensure-kubelet-certificate-authority-argument-is-set
+#     - kubernetes-ensure-kubelet-certificate-authority-argument-is-set
 #   severity: LOW
 #   recommended_action: "Follow the Kubernetes documentation and setup the TLS connection between the apiserver and kubelets. "
 #   input:

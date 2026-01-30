@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AZU-0067
 #     - enable-disk-encryption
+#     - azure-container-enable-disk-encryption
 #   provider: azure
 #   service: container
 #   severity: LOW

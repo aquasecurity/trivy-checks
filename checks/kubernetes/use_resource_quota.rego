@@ -13,6 +13,7 @@
 #     - AVD-KSV-0040
 #     - KSV040
 #     - resource-quota-usage
+#     - kubernetes-resource-quota-usage
 #   severity: LOW
 #   recommended_action: Create a ResourceQuota policy with memory and CPU quotas for each namespace
 #   input:

@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0045
 #     - enable-standard-subscription
+#     - azure-securitycenter-enable-standard-subscription
 #   provider: azure
 #   service: security-center
 #   severity: LOW

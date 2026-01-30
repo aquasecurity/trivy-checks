@@ -19,6 +19,7 @@
 #   aliases:
 #     - AVD-GCP-0048
 #     - metadata-endpoints-disabled
+#     - google-gke-metadata-endpoints-disabled
 #   provider: google
 #   service: gke
 #   severity: HIGH

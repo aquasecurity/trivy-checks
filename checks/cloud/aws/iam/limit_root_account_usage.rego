@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0140
 #     - limit-root-account-usage
+#     - aws-iam-limit-root-account-usage
 #   provider: aws
 #   service: iam
 #   severity: LOW

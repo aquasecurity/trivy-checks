@@ -13,6 +13,7 @@
 #     - AVD-KSV-0021
 #     - KSV021
 #     - use-high-gid
+#     - kubernetes-use-high-gid
 #   severity: LOW
 #   recommended_action: "Set 'containers[].securityContext.runAsGroup' to an integer > 10000."
 #   input:

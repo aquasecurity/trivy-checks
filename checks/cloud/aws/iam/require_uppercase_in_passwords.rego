@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AWS-0061
 #     - require-uppercase-in-passwords
+#     - aws-iam-require-uppercase-in-passwords
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM

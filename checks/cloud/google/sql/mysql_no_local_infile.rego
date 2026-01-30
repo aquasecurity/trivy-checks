@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0026
 #     - mysql-no-local-infile
+#     - google-sql-mysql-no-local-infile
 #   provider: google
 #   service: sql
 #   severity: HIGH

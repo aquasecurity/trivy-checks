@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-AZU-0020
 #     - enable-ssl-enforcement
+#     - azure-database-enable-ssl-enforcement
 #   provider: azure
 #   service: database
 #   severity: MEDIUM

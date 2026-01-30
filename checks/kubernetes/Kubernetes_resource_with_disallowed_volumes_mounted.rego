@@ -13,6 +13,7 @@
 #     - AVD-KSV-0121
 #     - KSV121
 #     - no-k8s-with-disallowed-volumes
+#     - kubernetes-no-k8s-with-disallowed-volumes
 #   severity: HIGH
 #   recommended_action: "Do not Set 'spec.volumes[*].hostPath.path' to any of the disallowed volumes."
 #   input:

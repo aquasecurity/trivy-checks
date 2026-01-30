@@ -13,6 +13,7 @@
 #     - AVD-KCV-0034
 #     - KCV0034
 #     - ensure-profiling-argument-is-set-to-false
+#     - kubernetes-ensure-profiling-argument-is-set-to-false
 #     - ensure-controller-manager-profiling-argument-set-to-false
 #   severity: LOW
 #   recommended_action: "Edit the Controller Manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml on the Control Plane node and set the below parameter."

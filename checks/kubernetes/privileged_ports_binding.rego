@@ -14,6 +14,7 @@
 #     - AVD-KSV-0117
 #     - KSV117
 #     - no-privilege-port-binding
+#     - kubernetes-no-privilege-port-binding
 #   severity: MEDIUM
 #   recommended_action: "Do not map the container ports to privileged host ports when starting a container."
 #   input:

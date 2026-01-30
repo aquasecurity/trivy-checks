@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0095
 #     - enable-topic-encryption
+#     - aws-sns-enable-topic-encryption
 #   provider: aws
 #   service: sns
 #   severity: HIGH

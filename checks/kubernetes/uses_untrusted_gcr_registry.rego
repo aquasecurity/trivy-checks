@@ -11,6 +11,7 @@
 #     - AVD-KSV-0033
 #     - KSV033
 #     - use-gcr-domain
+#     - kubernetes-use-gcr-domain
 #   severity: MEDIUM
 #   recommended_action: "Use images from trusted GCR registries."
 #   deprecated: true

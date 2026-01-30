@@ -12,6 +12,7 @@
 #   aliases:
 #     - AVD-AZU-0050
 #     - ssh-blocked-from-internet
+#     - azure-network-ssh-blocked-from-internet
 #   provider: azure
 #   service: network
 #   severity: CRITICAL

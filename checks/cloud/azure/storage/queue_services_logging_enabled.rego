@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0009
 #     - queue-services-logging-enabled
+#     - azure-storage-queue-services-logging-enabled
 #   provider: azure
 #   service: storage
 #   severity: MEDIUM

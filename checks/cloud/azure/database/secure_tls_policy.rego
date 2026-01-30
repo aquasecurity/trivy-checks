@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-AZU-0026
 #     - secure-tls-policy
+#     - azure-database-secure-tls-policy
 #   provider: azure
 #   service: database
 #   severity: MEDIUM

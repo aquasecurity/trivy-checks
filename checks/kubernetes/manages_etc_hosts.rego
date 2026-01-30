@@ -11,6 +11,7 @@
 #     - AVD-KSV-0007
 #     - KSV007
 #     - no-hostaliases
+#     - kubernetes-no-hostaliases
 #   severity: LOW
 #   recommended_action: "Do not set 'spec.template.spec.hostAliases'."
 #   input:

@@ -12,6 +12,7 @@
 #   aliases:
 #     - AVD-AWS-0346
 #     - unauthorized-bucket-access
+#     - aws-iam-unauthorized-bucket-access
 #   provider: aws
 #   service: iam
 #   severity: HIGH

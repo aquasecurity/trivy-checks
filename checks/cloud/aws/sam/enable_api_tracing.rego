@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0111
 #     - enable-api-tracing
+#     - aws-sam-enable-api-tracing
 #   provider: aws
 #   service: sam
 #   severity: LOW

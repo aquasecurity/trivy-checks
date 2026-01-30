@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-GCP-0065
 #     - rotate-kms-keys
+#     - google-kms-rotate-kms-keys
 #   provider: google
 #   service: kms
 #   severity: HIGH

@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AZU-0021
 #     - postgres-configuration-connection-throttling
+#     - azure-database-postgres-configuration-connection-throttling
 #   provider: azure
 #   service: database
 #   severity: MEDIUM

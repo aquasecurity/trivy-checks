@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-AZU-0030
 #     - limit-role-actions
+#     - azure-authorization-limit-role-actions
 #   provider: azure
 #   service: authorization
 #   severity: MEDIUM

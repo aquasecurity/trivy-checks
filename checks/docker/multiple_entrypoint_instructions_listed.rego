@@ -13,6 +13,7 @@
 #     - AVD-DS-0007
 #     - DS007
 #     - only-one-entrypoint
+#     - docker-only-one-entrypoint
 #   severity: CRITICAL
 #   recommended_action: "Remove unnecessary ENTRYPOINT instruction."
 #   input:

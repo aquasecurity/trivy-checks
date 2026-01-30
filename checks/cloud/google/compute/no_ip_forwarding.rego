@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-GCP-0043
 #     - no-ip-forwarding
+#     - google-compute-no-ip-forwarding
 #   provider: google
 #   service: compute
 #   severity: HIGH

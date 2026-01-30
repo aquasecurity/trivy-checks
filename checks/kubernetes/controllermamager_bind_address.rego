@@ -13,6 +13,7 @@
 #     - AVD-KCV-0039
 #     - KCV0039
 #     - ensure-controller-manager-bind-address-is-loopback
+#     - kubernetes-ensure-controller-manager-bind-address-is-loopback
 #   severity: LOW
 #   recommended_action: "Edit the Controller Manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml on the Control Plane node and ensure the correct value for the --bind-address parameter"
 #   input:

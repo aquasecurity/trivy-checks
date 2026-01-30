@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-GCP-0002
 #     - enable-ubla
+#     - google-storage-enable-ubla
 #   provider: google
 #   service: storage
 #   severity: MEDIUM

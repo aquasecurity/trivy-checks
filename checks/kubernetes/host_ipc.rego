@@ -13,6 +13,7 @@
 #     - AVD-KSV-0008
 #     - KSV008
 #     - no-shared-ipc-namespace
+#     - kubernetes-no-shared-ipc-namespace
 #   severity: HIGH
 #   recommended_action: Do not set 'spec.template.spec.hostIPC' to true.
 #   input:

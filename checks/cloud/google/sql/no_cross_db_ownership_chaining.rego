@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0019
 #     - no-cross-db-ownership-chaining
+#     - google-sql-no-cross-db-ownership-chaining
 #   provider: google
 #   service: sql
 #   severity: MEDIUM

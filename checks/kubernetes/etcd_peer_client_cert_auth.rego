@@ -13,6 +13,7 @@
 #     - AVD-KCV-0046
 #     - KCV0046
 #     - ensure-peer-client-cert-auth-argument-is-set-to-true
+#     - kubernetes-ensure-peer-client-cert-auth-argument-is-set-to-true
 #   severity: LOW
 #   recommended_action: "Edit the etcd pod specification file /etc/kubernetes/manifests/etcd.yaml on the master node and set the below parameter."
 #   input:

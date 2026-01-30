@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0102
 #     - no-excessive-port-access
+#     - aws-ec2-no-excessive-port-access
 #     - aws-vpc-no-excessive-port-access
 #   provider: aws
 #   service: ec2

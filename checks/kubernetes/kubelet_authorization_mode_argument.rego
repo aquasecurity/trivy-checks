@@ -13,6 +13,7 @@
 #     - AVD-KCV-0080
 #     - KCV0080
 #     - ensure-authorization-mode-argument-set-alwaysallow
+#     - kubernetes-ensure-authorization-mode-argument-set-alwaysallow
 #   severity: HIGH
 #   recommended_action: "edit Kubelet config and set authorization: mode to Webhook."
 #   input:

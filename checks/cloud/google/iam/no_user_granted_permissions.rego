@@ -18,6 +18,7 @@
 #   aliases:
 #     - AVD-GCP-0003
 #     - no-user-granted-permissions
+#     - google-iam-no-user-granted-permissions
 #   provider: google
 #   service: iam
 #   severity: MEDIUM
