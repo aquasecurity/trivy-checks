@@ -26,6 +26,13 @@ test_allow_distribution_using_tls_1_3_2025 if {
 	}})
 }
 
+test_deny_distribution_using_tls_1_2_2021 if {
+	test.assert_equal_message("Distribution uses an insecure minimum TLS protocol version.", check.deny) with input as build_input({"viewercertificate": {
+		"cloudfrontdefaultcertificate": {"value": false},
+		"minimumprotocolversion": {"value": "TLSv1.2_2021"},
+	}})
+}
+
 test_allow_distribution_with_default_certificate_and_tls_1_0 if {
 	test.assert_empty(check.deny) with input as build_input({"viewercertificate": {
 		"cloudfrontdefaultcertificate": {"value": true},
