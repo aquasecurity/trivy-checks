@@ -13,6 +13,7 @@
 #     - AVD-DS-0017
 #     - DS017
 #     - no-orphan-package-update
+#     - docker-no-orphan-package-update
 #   severity: HIGH
 #   recommended_action: "Combine '<package-manager> update' and '<package-manager> install' instructions to single one"
 #   input:

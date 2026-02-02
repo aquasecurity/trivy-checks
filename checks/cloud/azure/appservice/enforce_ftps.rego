@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AZU-0071
 #     - enforce-ftps
+#     - azure-appservice-enforce-ftps
 #   provider: azure
 #   service: appservice
 #   severity: MEDIUM

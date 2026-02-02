@@ -13,6 +13,7 @@
 #     - AVD-KSV-0027
 #     - KSV027
 #     - no-custom-proc-mask
+#     - kubernetes-no-custom-proc-mask
 #   severity: MEDIUM
 #   recommended_action: "Do not set spec.containers[*].securityContext.procMount and spec.initContainers[*].securityContext.procMount."
 #   input:

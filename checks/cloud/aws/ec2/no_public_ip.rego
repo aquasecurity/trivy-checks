@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0009
 #     - no-public-ip
+#     - aws-ec2-no-public-ip
 #   provider: aws
 #   service: ec2
 #   severity: HIGH

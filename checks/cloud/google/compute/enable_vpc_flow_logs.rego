@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-GCP-0029
 #     - enable-vpc-flow-logs
+#     - google-compute-enable-vpc-flow-logs
 #   provider: google
 #   service: compute
 #   severity: LOW

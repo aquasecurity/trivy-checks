@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0011
 #     - use-secure-tls-policy
+#     - azure-storage-use-secure-tls-policy
 #   provider: azure
 #   service: storage
 #   severity: CRITICAL

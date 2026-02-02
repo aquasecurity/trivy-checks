@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-GCP-0030
 #     - no-project-wide-ssh-keys
+#     - google-compute-no-project-wide-ssh-keys
 #   provider: google
 #   service: compute
 #   severity: MEDIUM

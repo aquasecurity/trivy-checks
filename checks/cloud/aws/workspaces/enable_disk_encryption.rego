@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0109
 #     - enable-disk-encryption
+#     - aws-workspaces-enable-disk-encryption
 #   provider: aws
 #   service: workspaces
 #   severity: HIGH

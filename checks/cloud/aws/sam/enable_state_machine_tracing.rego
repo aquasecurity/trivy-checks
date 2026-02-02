@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0117
 #     - enable-state-machine-tracing
+#     - aws-sam-enable-state-machine-tracing
 #   provider: aws
 #   service: sam
 #   severity: LOW

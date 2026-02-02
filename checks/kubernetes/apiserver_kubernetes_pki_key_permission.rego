@@ -13,6 +13,7 @@
 #     - AVD-KCV-0067
 #     - KCV0067
 #     - ensure-kubernetes-pki-key-file-permission-set-600.
+#     - kubernetes-ensure-kubernetes-pki-key-file-permission-set-600.
 #   severity: CRITICAL
 #   recommended_action: "Change the Kubernetes PKI key file /etc/kubernetes/pki/*.key permission to 600"
 #   input:

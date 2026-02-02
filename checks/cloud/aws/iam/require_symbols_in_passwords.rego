@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0060
 #     - require-symbols-in-passwords
+#     - aws-iam-require-symbols-in-passwords
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM

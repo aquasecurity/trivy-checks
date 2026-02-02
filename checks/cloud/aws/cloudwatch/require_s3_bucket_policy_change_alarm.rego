@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AWS-0154
 #     - require-s3-bucket-policy-change-alarm
+#     - aws-cloudwatch-require-s3-bucket-policy-change-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW

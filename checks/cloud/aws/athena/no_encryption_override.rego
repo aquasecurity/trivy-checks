@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0007
 #     - no-encryption-override
+#     - aws-athena-no-encryption-override
 #   provider: aws
 #   service: athena
 #   severity: HIGH

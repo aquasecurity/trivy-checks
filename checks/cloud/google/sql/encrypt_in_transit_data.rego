@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0015
 #     - encrypt-in-transit-data
+#     - google-sql-encrypt-in-transit-data
 #   provider: google
 #   service: sql
 #   severity: HIGH

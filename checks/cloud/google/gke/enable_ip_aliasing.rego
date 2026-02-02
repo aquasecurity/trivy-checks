@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-GCP-0049
 #     - enable-ip-aliasing
+#     - google-gke-enable-ip-aliasing
 #   provider: google
 #   service: gke
 #   severity: LOW

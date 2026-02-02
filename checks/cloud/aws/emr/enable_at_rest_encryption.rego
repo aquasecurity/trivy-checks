@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0137
 #     - enable-at-rest-encryption
+#     - aws-emr-enable-at-rest-encryption
 #   provider: aws
 #   service: emr
 #   severity: HIGH

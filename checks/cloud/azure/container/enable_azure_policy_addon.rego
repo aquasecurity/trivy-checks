@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AZU-0066
 #     - enable-azure-policy-addon
+#     - azure-container-enable-azure-policy-addon
 #   provider: azure
 #   service: container
 #   severity: LOW

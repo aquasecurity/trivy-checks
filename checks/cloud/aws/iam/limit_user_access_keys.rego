@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0167
 #     - limit-user-access-keys
+#     - aws-iam-limit-user-access-keys
 #   provider: aws
 #   service: iam
 #   severity: LOW

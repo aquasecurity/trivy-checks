@@ -14,6 +14,7 @@
 #     - AVD-AWS-0178
 #     - require-vpc-flow-logs-for-all-vpcs
 #     - aws-autoscaling-enable-at-rest-encryption
+#     - aws-ec2-require-vpc-flow-logs-for-all-vpcs
 #   provider: aws
 #   service: ec2
 #   severity: MEDIUM

@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0135
 #     - queue-encryption-use-cmk
+#     - aws-sqs-queue-encryption-use-cmk
 #   provider: aws
 #   service: sqs
 #   severity: HIGH

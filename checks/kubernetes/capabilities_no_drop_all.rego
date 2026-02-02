@@ -13,6 +13,7 @@
 #     - AVD-KSV-0003
 #     - KSV003
 #     - drop-default-capabilities
+#     - kubernetes-drop-default-capabilities
 #   severity: LOW
 #   recommended_action: "Add 'ALL' to containers[].securityContext.capabilities.drop."
 #   input:

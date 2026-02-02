@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0062
 #     - security-contact-email
+#     - azure-securitycenter-security-contact-email
 #   provider: azure
 #   service: security-center
 #   severity: MEDIUM

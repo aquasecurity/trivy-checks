@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0016
 #     - pg-log-connections
+#     - google-sql-pg-log-connections
 #   provider: google
 #   service: sql
 #   severity: MEDIUM

@@ -13,6 +13,7 @@
 #     - AVD-DS-0005
 #     - DS005
 #     - use-copy-over-add
+#     - docker-use-copy-over-add
 #   severity: LOW
 #   recommended_action: Use COPY instead of ADD
 #   input:

@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0104
 #     - no-public-egress-sgr
+#     - aws-ec2-no-public-egress-sgr
 #     - aws-vpc-no-public-egress-sgr
 #   provider: aws
 #   service: ec2

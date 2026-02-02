@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0068
 #     - no-conditions-workload-identity-pool-provider
+#     - google-iam-no-conditions-workload-identity-pool-provider
 #   provider: google
 #   service: iam
 #   severity: HIGH

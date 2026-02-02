@@ -13,6 +13,7 @@
 #     - AVD-KCV-0071
 #     - KCV0071
 #     - ensure-proxy-kubeconfig-permissions-set-600-or-more-restrictive-if-exist
+#     - kubernetes-ensure-proxy-kubeconfig-permissions-set-600-or-more-restrictive-if-exist
 #   severity: HIGH
 #   recommended_action: "Change the proxy kubeconfig file <path><filename> permissions to 600 or more restrictive if exist"
 #   input:

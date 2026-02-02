@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0073
 #     - enable-in-transit-encryption
+#     - aws-msk-enable-in-transit-encryption
 #   provider: aws
 #   service: msk
 #   severity: HIGH

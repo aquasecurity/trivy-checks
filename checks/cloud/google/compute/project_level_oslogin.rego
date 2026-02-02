@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-GCP-0042
 #     - project-level-oslogin
+#     - google-compute-project-level-oslogin
 #   provider: google
 #   service: compute
 #   severity: MEDIUM

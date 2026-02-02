@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0144
 #     - disable-unused-credentials
+#     - aws-iam-disable-unused-credentials
 #   provider: aws
 #   service: iam
 #   severity: MEDIUM

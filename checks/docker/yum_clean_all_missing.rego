@@ -13,6 +13,7 @@
 #     - AVD-DS-0015
 #     - DS015
 #     - purge-yum-package-cache
+#     - docker-purge-yum-package-cache
 #   severity: HIGH
 #   recommended_action: "Add 'yum clean all' to Dockerfile"
 #   input:

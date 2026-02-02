@@ -12,6 +12,7 @@
 #   aliases:
 #     - AVD-AWS-0177
 #     - enable-deletion-protection
+#     - aws-rds-enable-deletion-protection
 #   provider: aws
 #   service: rds
 #   severity: MEDIUM

@@ -13,6 +13,7 @@
 #     - AVD-KCV-0092
 #     - KCV0092
 #     - ensure-Kubelet-only-makes-use-strong-cryptographic-ciphers
+#     - kubernetes-ensure-Kubelet-only-makes-use-strong-cryptographic-ciphers
 #   severity: CRITICAL
 #   recommended_action: "If using a Kubelet config file, edit the file to set TLSCipherSuites"
 #   input:

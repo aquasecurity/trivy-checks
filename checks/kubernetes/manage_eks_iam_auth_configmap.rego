@@ -13,6 +13,7 @@
 #     - AVD-KSV-0115
 #     - KSV115
 #     - eks-iam-configmap
+#     - kubernetes-eks-iam-configmap
 #   severity: CRITICAL
 #   recommended_actions: "Remove write permission verbs for resource 'configmaps' named 'aws-auth'"
 #   input:

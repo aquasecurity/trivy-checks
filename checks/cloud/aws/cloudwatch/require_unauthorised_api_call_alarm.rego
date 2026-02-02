@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AWS-0147
 #     - require-unauthorised-api-call-alarm
+#     - aws-cloudwatch-require-unauthorised-api-call-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW

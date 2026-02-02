@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0035
 #     - no-public-egress
+#     - google-compute-no-public-egress
 #   provider: google
 #   service: compute
 #   severity: CRITICAL

@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0077
 #     - specify-backup-retention
+#     - aws-rds-specify-backup-retention
 #   provider: aws
 #   service: rds
 #   severity: MEDIUM

@@ -14,6 +14,7 @@
 #     - AVD-AZU-0068
 #     - vm-not-attached-to-network
 #     - azure-vm-not-attached-to-network
+#     - azure-compute-vm-not-attached-to-network
 #   provider: azure
 #   service: compute
 #   severity: MEDIUM

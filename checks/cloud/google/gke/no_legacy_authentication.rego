@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-GCP-0064
 #     - no-legacy-authentication
+#     - google-gke-no-legacy-authentication
 #   provider: google
 #   service: gke
 #   severity: HIGH

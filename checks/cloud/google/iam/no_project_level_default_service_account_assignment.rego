@@ -12,6 +12,7 @@
 #   aliases:
 #     - AVD-GCP-0006
 #     - no-project-level-default-service-account-assignment
+#     - google-iam-no-project-level-default-service-account-assignment
 #   provider: google
 #   service: iam
 #   severity: MEDIUM

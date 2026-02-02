@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0059
 #     - log-storage-encryption
+#     - azure-storage-log-storage-encryption
 #   provider: azure
 #   service: storage
 #   severity: HIGH

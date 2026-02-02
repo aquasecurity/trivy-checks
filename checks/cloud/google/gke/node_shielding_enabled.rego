@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-GCP-0055
 #     - node-shielding-enabled
+#     - google-gke-node-shielding-enabled
 #   provider: google
 #   service: gke
 #   severity: HIGH

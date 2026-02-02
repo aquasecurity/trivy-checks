@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AZU-0065
 #     - enable-private-cluster
+#     - azure-container-enable-private-cluster
 #   provider: azure
 #   service: container
 #   severity: MEDIUM

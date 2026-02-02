@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-GCP-0036
 #     - no-oslogin-override
+#     - google-compute-no-oslogin-override
 #   provider: google
 #   service: compute
 #   severity: MEDIUM

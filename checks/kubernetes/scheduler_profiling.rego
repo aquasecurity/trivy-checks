@@ -14,6 +14,7 @@
 #     - KCV0040
 #     - ensure-profiling-argument-is-set-to-false
 #     - ensure-scheduler-profiling-argument-set-to-false
+#     - kubernetes-ensure-profiling-argument-is-set-to-false
 #   severity: LOW
 #   recommended_action: "Edit the Scheduler pod specification file /etc/kubernetes/manifests/kube-scheduler.yaml file on the Control Plane node and set the below parameter."
 #   input:

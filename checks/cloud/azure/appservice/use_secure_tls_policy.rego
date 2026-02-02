@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-AZU-0006
 #     - use-secure-tls-policy
+#     - azure-appservice-use-secure-tls-policy
 #   provider: azure
 #   service: appservice
 #   severity: HIGH

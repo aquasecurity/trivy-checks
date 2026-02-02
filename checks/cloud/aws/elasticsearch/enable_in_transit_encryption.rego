@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0043
 #     - enable-in-transit-encryption
+#     - aws-elasticsearch-enable-in-transit-encryption
 #   provider: aws
 #   service: elasticsearch
 #   severity: HIGH

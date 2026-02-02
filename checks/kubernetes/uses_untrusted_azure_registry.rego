@@ -11,6 +11,7 @@
 #     - AVD-KSV-0032
 #     - KSV032
 #     - use-azure-image-prefix
+#     - kubernetes-use-azure-image-prefix
 #   severity: MEDIUM
 #   recommended_action: "Use images from trusted Azure registries."
 #   deprecated: true

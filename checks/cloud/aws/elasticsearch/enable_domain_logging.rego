@@ -16,6 +16,7 @@
 #   aliases:
 #     - AVD-AWS-0042
 #     - enable-domain-logging
+#     - aws-elasticsearch-enable-domain-logging
 #   provider: aws
 #   service: elasticsearch
 #   severity: MEDIUM

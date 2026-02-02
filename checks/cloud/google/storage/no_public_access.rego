@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-GCP-0001
 #     - no-public-access
+#     - google-storage-no-public-access
 #   provider: google
 #   service: storage
 #   severity: HIGH

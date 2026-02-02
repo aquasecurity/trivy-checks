@@ -13,6 +13,7 @@
 #     - AVD-KSV-0004
 #     - KSV004
 #     - drop-unused-capabilities
+#     - kubernetes-drop-unused-capabilities
 #   severity: LOW
 #   recommended_action: "Specify at least one unneeded capability in 'containers[].securityContext.capabilities.drop'"
 #   input:

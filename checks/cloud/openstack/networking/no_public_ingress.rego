@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-OPNSTK-0003
 #     - no-public-ingress
+#     - openstack-networking-no-public-ingress
 #   provider: openstack
 #   service: networking
 #   severity: MEDIUM

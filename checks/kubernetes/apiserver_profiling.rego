@@ -13,6 +13,7 @@
 #     - AVD-KCV-0018
 #     - KCV0018
 #     - ensure-profiling-argument-is-set-to-false
+#     - kubernetes-ensure-profiling-argument-is-set-to-false
 #   severity: LOW
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the below parameter."
 #   input:

@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0125
 #     - enable-function-tracing
+#     - aws-sam-enable-function-tracing
 #   provider: aws
 #   service: sam
 #   severity: LOW

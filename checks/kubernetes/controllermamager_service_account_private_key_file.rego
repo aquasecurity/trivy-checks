@@ -13,6 +13,7 @@
 #     - AVD-KCV-0036
 #     - KCV0036
 #     - ensure-service-account-private-key-file-argument-is-set-as-appropriate
+#     - kubernetes-ensure-service-account-private-key-file-argument-is-set-as-appropriate
 #   severity: LOW
 #   recommended_action: "Edit the Controller Manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml on the Control Plane node and set the --service-account-private-key-file parameter to the private key file for service accounts."
 #   input:

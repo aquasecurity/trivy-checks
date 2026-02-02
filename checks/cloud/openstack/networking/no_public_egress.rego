@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-OPNSTK-0004
 #     - no-public-egress
+#     - openstack-networking-no-public-egress
 #   provider: openstack
 #   service: networking
 #   severity: MEDIUM

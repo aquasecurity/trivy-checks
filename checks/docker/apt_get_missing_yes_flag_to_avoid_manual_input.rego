@@ -13,6 +13,7 @@
 #     - AVD-DS-0021
 #     - DS021
 #     - use-apt-auto-confirm
+#     - docker-use-apt-auto-confirm
 #   severity: HIGH
 #   recommended_action: "Add '-y' flag to 'apt-get'"
 #   input:

@@ -10,6 +10,7 @@
 #   aliases:
 #     - AVD-AWS-0345
 #     - no-s3-full-access
+#     - aws-iam-no-s3-full-access
 #   provider: aws
 #   service: iam
 #   severity: HIGH

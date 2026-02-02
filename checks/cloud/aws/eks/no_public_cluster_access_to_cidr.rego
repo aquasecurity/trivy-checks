@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0041
 #     - no-public-cluster-access-to-cidr
+#     - aws-eks-no-public-cluster-access-to-cidr
 #   provider: aws
 #   service: eks
 #   severity: CRITICAL

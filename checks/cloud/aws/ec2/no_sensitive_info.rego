@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-AWS-0122
 #     - no-sensitive-info
+#     - aws-ec2-no-sensitive-info
 #     - aws-autoscaling-no-sensitive-info
 #   provider: aws
 #   service: ec2

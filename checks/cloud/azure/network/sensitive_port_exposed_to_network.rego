@@ -14,6 +14,7 @@
 #     - AVD-AZU-0074
 #     - sensitive-port-is-exposed-to-entire-network
 #     - azure-sensitive-port-is-exposed-to-entire-network
+#     - azure-network-sensitive-port-is-exposed-to-entire-network
 #   provider: azure
 #   service: network
 #   severity: HIGH

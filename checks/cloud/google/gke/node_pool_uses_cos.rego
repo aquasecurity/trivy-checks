@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-GCP-0054
 #     - node-pool-uses-cos
+#     - google-gke-node-pool-uses-cos
 #   provider: google
 #   service: gke
 #   severity: LOW

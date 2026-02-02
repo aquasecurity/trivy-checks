@@ -14,6 +14,7 @@
 #     - KCV0050
 #     - ensure-controller-manager-pod-specification-file-permissions-set
 #     - ensure-controller-manager-pod-specification-file-permissions-set-600-or-more-restrictive
+#     - kubernetes-ensure-controller-manager-pod-specification-file-permissions-set-600-or-more-restrictive
 #   severity: HIGH
 #   recommended_action: "Change the controller manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml permissions of 600 or more restrictive "
 #   input:

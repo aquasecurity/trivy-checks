@@ -13,6 +13,7 @@
 #     - AVD-KCV-0063
 #     - KCV0063
 #     - ensure-scheduler-config-ownership-set-root:root.
+#     - kubernetes-ensure-scheduler-config-ownership-set-root:root.
 #   severity: HIGH
 #   recommended_action: "Change the scheduler config  file /etc/kubernetes/scheduler.conf ownership to root:root"
 #   input:

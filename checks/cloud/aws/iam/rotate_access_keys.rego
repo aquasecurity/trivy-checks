@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0146
 #     - rotate-access-keys
+#     - aws-iam-rotate-access-keys
 #   provider: aws
 #   service: iam
 #   severity: LOW

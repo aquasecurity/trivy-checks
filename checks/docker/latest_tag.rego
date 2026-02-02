@@ -11,6 +11,7 @@
 #     - AVD-DS-0001
 #     - DS001
 #     - use-specific-tags
+#     - docker-use-specific-tags
 #   severity: MEDIUM
 #   recommended_action: "Add a tag to the image in the 'FROM' statement"
 #   input:

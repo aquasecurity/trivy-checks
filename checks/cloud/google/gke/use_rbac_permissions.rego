@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-GCP-0062
 #     - use-rbac-permissions
+#     - google-gke-use-rbac-permissions
 #   provider: google
 #   service: gke
 #   severity: HIGH

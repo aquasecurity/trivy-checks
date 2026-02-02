@@ -11,6 +11,7 @@
 #     - AVD-KSV-0107
 #     - KSV107
 #     - evaluate-k8s-deprecated-removed-apis
+#     - kubernetes-evaluate-k8s-deprecated-removed-apis
 #   severity: LOW
 #   recommended_action: Migrate resource to new API
 #   input:

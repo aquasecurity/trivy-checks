@@ -13,6 +13,7 @@
 #     - AVD-DS-0022
 #     - DS022
 #     - no-maintainer
+#     - docker-no-maintainer
 #   severity: HIGH
 #   recommended_action: "Use LABEL instead of MAINTAINER"
 #   input:

@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AWS-0132
 #     - encryption-customer-key
+#     - aws-s3-encryption-customer-key
 #   provider: aws
 #   service: s3
 #   severity: HIGH

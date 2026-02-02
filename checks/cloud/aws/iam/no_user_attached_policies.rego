@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0143
 #     - no-user-attached-policies
+#     - aws-iam-no-user-attached-policies
 #   provider: aws
 #   service: iam
 #   severity: LOW

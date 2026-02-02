@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0131
 #     - enable-at-rest-encryption
+#     - aws-ec2-enable-at-rest-encryption
 #   provider: aws
 #   service: ec2
 #   severity: HIGH

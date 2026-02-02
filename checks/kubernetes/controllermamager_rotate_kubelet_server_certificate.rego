@@ -13,6 +13,7 @@
 #     - AVD-KCV-0038
 #     - KCV0038
 #     - Ensure that the RotateKubeletServerCertificate argument is set to true
+#     - kubernetes-Ensure that the RotateKubeletServerCertificate argument is set to true
 #   severity: LOW
 #   recommended_action: "Edit the Controller Manager pod specification file /etc/kubernetes/manifests/kube-controller-manager.yaml on the Control Plane node and set the --feature-gates parameter to include RotateKubeletServerCertificate=true ."
 #   input:

@@ -13,6 +13,7 @@
 #     - AVD-KCV-0020
 #     - KCV0020
 #     - ensure-audit-log-maxage-argument-is-set-to-30-or-as-appropriate
+#     - kubernetes-ensure-audit-log-maxage-argument-is-set-to-30-or-as-appropriate
 #   severity: LOW
 #   recommended_action: "Edit the API server pod specification file /etc/kubernetes/manifests/kube-apiserver.yaml on the Control Plane node and set the --audit-log-maxage parameter to 30 or as an appropriate number of days."
 #   input:

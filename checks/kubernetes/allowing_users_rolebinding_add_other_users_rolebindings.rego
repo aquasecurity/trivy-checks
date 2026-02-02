@@ -13,6 +13,7 @@
 #     - AVD-KSV-0055
 #     - KSV055
 #     - view-all-secrets
+#     - kubernetes-view-all-secrets
 #   severity: LOW
 #   recommended_action: "Create a role which does not permit allowing users in a rolebinding to add other users to their rolebindings if not needed"
 #   input:

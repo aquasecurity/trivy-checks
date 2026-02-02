@@ -13,6 +13,7 @@
 #     - AVD-KCV-0079
 #     - KCV0079
 #     - disable-anonymous-requests-kubelet-server.
+#     - kubernetes-disable-anonymous-requests-kubelet-server.
 #   severity: CRITICAL
 #   recommended_action: "Disable anonymous requests to the Kubelet server"
 #   input:

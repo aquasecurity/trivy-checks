@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0046
 #     - set-required-contact-details
+#     - azure-securitycenter-set-required-contact-details
 #   provider: azure
 #   service: security-center
 #   severity: LOW

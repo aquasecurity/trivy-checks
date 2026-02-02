@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-AZU-0039
 #     - disable-password-authentication
+#     - azure-compute-disable-password-authentication
 #   provider: azure
 #   service: compute
 #   severity: HIGH

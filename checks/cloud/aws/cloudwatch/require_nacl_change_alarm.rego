@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AWS-0157
 #     - require-nacl-changes-alarm
+#     - aws-cloudwatch-require-nacl-changes-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW

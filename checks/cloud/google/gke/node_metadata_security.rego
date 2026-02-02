@@ -17,6 +17,7 @@
 #   aliases:
 #     - AVD-GCP-0057
 #     - node-metadata-security
+#     - google-gke-node-metadata-security
 #   provider: google
 #   service: gke
 #   severity: HIGH

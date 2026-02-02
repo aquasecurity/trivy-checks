@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0141
 #     - no-root-access-keys
+#     - aws-iam-no-root-access-keys
 #   provider: aws
 #   service: iam
 #   severity: CRITICAL

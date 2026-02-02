@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-AWS-0004
 #     - no-public-access
+#     - aws-apigateway-no-public-access
 #   provider: aws
 #   service: apigateway
 #   severity: LOW

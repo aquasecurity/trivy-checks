@@ -13,6 +13,7 @@
 #     - AVD-DS-0013
 #     - DS013
 #     - use-workdir-over-cd
+#     - docker-use-workdir-over-cd
 #   severity: MEDIUM
 #   recommended_action: "Use WORKDIR to change directory"
 #   input:

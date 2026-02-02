@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-NIF-0008
 #     - no-public-db-access
+#     - nifcloud-rdb-no-public-db-access
 #   provider: nifcloud
 #   service: rdb
 #   severity: CRITICAL

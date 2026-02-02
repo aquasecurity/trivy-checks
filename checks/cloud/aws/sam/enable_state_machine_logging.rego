@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AWS-0119
 #     - enable-state-machine-logging
+#     - aws-sam-enable-state-machine-logging
 #   provider: aws
 #   service: sam
 #   severity: LOW

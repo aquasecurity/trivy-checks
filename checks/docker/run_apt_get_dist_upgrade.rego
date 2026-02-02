@@ -11,6 +11,7 @@
 #     - AVD-DS-0024
 #     - DS024
 #     - no-dist-upgrade
+#     - docker-no-dist-upgrade
 #   deprecated: true
 #   severity: HIGH
 #   recommended_action: "Just use different image"

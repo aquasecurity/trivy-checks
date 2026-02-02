@@ -13,6 +13,7 @@
 #     - AVD-KSV-0012
 #     - KSV012
 #     - no-root
+#     - kubernetes-no-root
 #   severity: MEDIUM
 #   recommended_action: "Set 'containers[].securityContext.runAsNonRoot' to true."
 #   input:

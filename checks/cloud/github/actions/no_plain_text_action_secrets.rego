@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-GIT-0002
 #     - no-plain-text-action-secrets
+#     - github-environmentsecrets-no-plain-text-action-secrets
 #   provider: github
 #   service: environmentsecrets
 #   severity: HIGH

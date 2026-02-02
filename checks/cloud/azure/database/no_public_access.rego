@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-AZU-0022
 #     - no-public-access
+#     - azure-database-no-public-access
 #   provider: azure
 #   service: database
 #   severity: MEDIUM

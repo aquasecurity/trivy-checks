@@ -14,6 +14,7 @@
 #     - AVD-AZU-0073
 #     - network-watcher-flow-disabled
 #     - azure-network-watcher-flow-disabled
+#     - azure-network-network-watcher-flow-disabled
 #   provider: azure
 #   service: network
 #   severity: MEDIUM

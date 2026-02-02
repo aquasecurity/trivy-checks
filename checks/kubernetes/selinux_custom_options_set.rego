@@ -13,6 +13,7 @@
 #     - AVD-KSV-0025
 #     - KSV025
 #     - no-custom-selinux-options
+#     - kubernetes-no-custom-selinux-options
 #   severity: MEDIUM
 #   recommended_action: "Do not set 'spec.securityContext.seLinuxOptions', spec.containers[*].securityContext.seLinuxOptions and spec.initContainers[*].securityContext.seLinuxOptions."
 #   input:

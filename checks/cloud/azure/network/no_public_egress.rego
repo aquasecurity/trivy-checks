@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AZU-0051
 #     - no-public-egress
+#     - azure-network-no-public-egress
 #   provider: azure
 #   service: network
 #   severity: CRITICAL

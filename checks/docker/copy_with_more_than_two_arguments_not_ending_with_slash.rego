@@ -13,6 +13,7 @@
 #     - AVD-DS-0011
 #     - DS011
 #     - use-slash-for-copy-args
+#     - docker-use-slash-for-copy-args
 #   severity: CRITICAL
 #   recommended_action: "Add slash to last COPY argument"
 #   input:

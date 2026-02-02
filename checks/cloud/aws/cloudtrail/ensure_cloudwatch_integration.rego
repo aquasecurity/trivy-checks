@@ -19,6 +19,7 @@
 #   aliases:
 #     - AVD-AWS-0162
 #     - ensure-cloudwatch-integration
+#     - aws-cloudtrail-ensure-cloudwatch-integration
 #   provider: aws
 #   service: cloudtrail
 #   severity: LOW

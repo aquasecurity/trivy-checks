@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0056
 #     - blobs-soft-deletion-enabled
+#     - azure-storage-blobs-soft-deletion-enabled
 #   provider: azure
 #   service: storage
 #   severity: MEDIUM

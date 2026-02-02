@@ -13,6 +13,7 @@
 #     - AVD-KSV-0103
 #     - KSV103
 #     - no-hostprocess-containers
+#     - kubernetes-no-hostprocess-containers
 #   severity: MEDIUM
 #   recommended_action: "Do not enable 'hostProcess' on any securityContext"
 #   input:

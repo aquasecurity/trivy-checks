@@ -15,6 +15,7 @@
 #   aliases:
 #     - AVD-AZU-0017
 #     - ensure-secret-expiry
+#     - azure-keyvault-ensure-secret-expiry
 #   provider: azure
 #   service: keyvault
 #   severity: LOW

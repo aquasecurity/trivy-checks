@@ -11,6 +11,7 @@
 #   aliases:
 #     - AVD-KUBE-0001
 #     - no-public-ingress
+#     - kubernetes-network-no-public-ingress
 #   provider: kubernetes
 #   service: network
 #   severity: HIGH

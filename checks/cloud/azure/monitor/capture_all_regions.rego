@@ -13,6 +13,7 @@
 #   aliases:
 #     - AVD-AZU-0032
 #     - capture-all-regions
+#     - azure-monitor-capture-all-regions
 #   provider: azure
 #   service: monitor
 #   severity: MEDIUM

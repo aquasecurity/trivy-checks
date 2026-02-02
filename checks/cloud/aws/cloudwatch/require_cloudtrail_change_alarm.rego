@@ -14,6 +14,7 @@
 #   aliases:
 #     - AVD-AWS-0151
 #     - require-cloud-trail-change-alarm
+#     - aws-cloudwatch-require-cloud-trail-change-alarm
 #   provider: aws
 #   service: cloudwatch
 #   severity: LOW

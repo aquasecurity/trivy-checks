@@ -13,6 +13,7 @@
 #     - AVD-DS-0016
 #     - DS016
 #     - only-one-cmd
+#     - docker-only-one-cmd
 #   severity: HIGH
 #   recommended_action: "Dockerfile should only have one CMD instruction. Remove all the other CMD instructions"
 #   input:
