@@ -17,7 +17,7 @@ Resources:
           - DomainName: https://some.domain
             Id: somedomain1
         ViewerCertificate:
-          MinimumProtocolVersion: TLSv1.2_2021
+          MinimumProtocolVersion: TLSv1.2_2025
 ```
 
 
