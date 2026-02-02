@@ -34,6 +34,23 @@ cloudformation:
                   Id: somedomain1
               ViewerCertificate:
                 MinimumProtocolVersion: TLSv1.3_2025
+    - |-
+      Resources:
+        GoodExample:
+          Type: AWS::CloudFront::Distribution
+          Properties:
+            DistributionConfig:
+              DefaultCacheBehavior:
+                TargetOriginId: target
+                ViewerProtocolPolicy: https-only
+              Enabled: true
+              Logging:
+                Bucket: logging-bucket
+              Origins:
+                - DomainName: https://some.domain
+                  Id: somedomain1
+              ViewerCertificate:
+                MinimumProtocolVersion: TLSv1.2_2021
   bad:
     - |-
       Resources:
@@ -73,8 +90,15 @@ terraform:
     - |-
       resource "aws_cloudfront_distribution" "good_example" {
         viewer_certificate {
+          cloudfront_default_certificate = false
+          minimum_protocol_version       = "TLSv1.2_2021"
+        }
+      }
+    - |-
+      resource "aws_cloudfront_distribution" "good_example" {
+        viewer_certificate {
           cloudfront_default_certificate = true
-          minimum_protocol_version       = "TLSv1.0"
+        minimum_protocol_version       = "TLSv1.0"
         }
       }
   bad:
