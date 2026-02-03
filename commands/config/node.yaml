@@ -73,6 +73,8 @@ node:
       - /var/lib/rancher/rke2/agent/server.crt
       - /var/lib/rancher/rke2/agent/client-ca.crt
       - /var/lib/rancher/k3s/agent/client-ca.crt
+      - /system/secrets/kubernetes/kube-apiserver/ca.crt
+      - /system/secrets/kubernetes/kubelet/ca.crt
     svc:
       - /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
       - /etc/systemd/system/kubelet.service
@@ -81,6 +83,8 @@ node:
       - /etc/systemd/system/snap.microk8s.daemon-kubelet.service
       - /etc/systemd/system/atomic-openshift-node.service
       - /etc/systemd/system/origin-node.service
+      - /system/services/kubelet.yaml
+      - /etc/cri/conf.d/20-customization.part
     bins:
       - hyperkube kubelet
       - kubelet
@@ -96,6 +100,7 @@ node:
       - /var/lib/rancher/rke2/agent/kubelet.kubeconfig
       - /var/lib/rancher/k3s/server/cred/admin.kubeconfig
       - /var/lib/rancher/k3s/agent/kubelet.kubeconfig
+      - /system/secrets/kubernetes/kubelet/kubeconfig
     confs:
       - /etc/kubernetes/kubelet-config.yaml
       - /var/lib/kubelet/config.yaml
@@ -116,6 +121,8 @@ node:
       - /etc/systemd/system/snap.microk8s.daemon-kubelet.service
       - /etc/kubernetes/kubelet.yaml
       - /var/lib/rancher/rke2/agent/kubelet.kubeconfig
+      - /system/secrets/kubernetes/kubelet/config.yaml
+      - /etc/cri/conf.d/20-customization.part
     defaultconf: /var/lib/kubelet/config.yaml
     defaultsvc: /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
     defaultkubeconfig: /etc/kubernetes/kubelet.conf
@@ -142,8 +149,10 @@ node:
       - /var/snap/microk8s/current/credentials/proxy.config
       - /var/lib/rancher/rke2/agent/kubeproxy.kubeconfig
       - /var/lib/rancher/k3s/agent/kubeproxy.kubeconfig
+      - /system/secrets/kubernetes/kube-proxy/kubeconfig
     svc:
       - /lib/systemd/system/kube-proxy.service
       - /etc/systemd/system/snap.microk8s.daemon-proxy.service
+      - /system/services/kube-proxy.yaml
     defaultconf: /etc/kubernetes/addons/kube-proxy-daemonset.yaml
     defaultkubeconfig: /etc/kubernetes/proxy.conf
