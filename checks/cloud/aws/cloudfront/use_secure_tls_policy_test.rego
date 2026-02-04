@@ -6,7 +6,7 @@ import data.builtin.aws.cloudfront.aws0013 as check
 import data.lib.test
 
 test_deny_distribution_using_tls_1_0 if {
-	test.assert_equal_message("Distribution allows unencrypted communications.", check.deny) with input as build_input({"viewercertificate": {
+	test.assert_equal_message("Distribution uses an insecure minimum TLS protocol version.", check.deny) with input as build_input({"viewercertificate": {
 		"cloudfrontdefaultcertificate": {"value": false},
 		"minimumprotocolversion": {"value": "TLSv1.0"},
 	}})
