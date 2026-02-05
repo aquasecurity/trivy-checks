@@ -17,7 +17,13 @@ test_deny_minimum_tls_version_not_specified if {
 }
 
 test_allow_minimum_tls_version_is_tls1_2 if {
-	inp := {"azure": {"appservice": {"services": [{"site": {"minimumtlsversion": {"value": check.recommended_tls_version}}}]}}}
+	inp := {"azure": {"appservice": {"services": [{"site": {"minimumtlsversion": {"value": check.tls12}}}]}}}
+	res := check.deny with input as inp
+	res == set()
+}
+
+test_allow_minimum_tls_version_is_tls1_3 if {
+	inp := {"azure": {"appservice": {"services": [{"site": {"minimumtlsversion": {"value": check.tls13}}}]}}}
 	res := check.deny with input as inp
 	res == set()
 }

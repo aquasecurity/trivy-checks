@@ -22,6 +22,28 @@ test_latest_tag_denied if {
 	r[_].msg == "Specify a tag in the 'FROM' statement for image 'openjdk'"
 }
 
+# Test FROM image with registry addr like "test.registry.com:3000"
+test_no_tag_with_registry_port_denied if {
+	r := deny with input as {"Stages": [{"Name": "openjdk", "Commands": [{
+		"Cmd": "from",
+		"Value": ["test.registry.com:3000/openjdk"],
+	}]}]}
+
+	count(r) == 1
+	r[_].msg == "Specify a tag in the 'FROM' statement for image 'test.registry.com:3000/openjdk'"
+}
+
+# Test FROM image with latest tag and registry addr like "test.registry.com:3000"
+test_latest_tag_with_registry_port_denied if {
+	r := deny with input as {"Stages": [{"Name": "openjdk", "Commands": [{
+		"Cmd": "from",
+		"Value": ["test.registry.com:3000/openjdk:latest"],
+	}]}]}
+
+	count(r) == 1
+	r[_].msg == "Specify a tag in the 'FROM' statement for image 'test.registry.com:3000/openjdk'"
+}
+
 # Test FROM image with no tag
 test_no_tag_denied if {
 	r := deny with input as {"Stages": [{"Name": "openjdk", "Commands": [{

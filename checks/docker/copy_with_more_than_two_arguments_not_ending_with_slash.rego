@@ -29,13 +29,14 @@ import data.lib.docker
 get_copy_arg contains output if {
 	copy := docker.copy[_]
 
-	cnt := count(copy.Value)
+	args := [arg | arg := copy.Value[_]; not startswith(arg, "--")]
+	cnt := count(args)
 	cnt > 2
 
-	not is_command_with_hash(copy.Value, "file:")
-	not is_command_with_hash(copy.Value, "multi:")
+	not is_command_with_hash(args, "file:")
+	not is_command_with_hash(args, "multi:")
 
-	arg := copy.Value[cnt - 1]
+	arg := args[cnt - 1]
 	not endswith(arg, "/")
 	output := {
 		"arg": arg,

@@ -77,3 +77,34 @@ test_three_arg_allowed if {
 
 	count(r) == 0
 }
+
+test_copy_with_option_allowed if {
+	r := deny with input as {"Stages": [{"Name": "alpine:3.3", "Commands": [
+		{
+			"Cmd": "from",
+			"Value": ["node:carbon2"],
+		},
+		{
+			"Cmd": "copy",
+			"Value": ["--chown=root:root", "--chmod=755", "yarn.lock", "myapp"],
+		},
+	]}]}
+
+	count(r) == 0
+}
+
+test_copy_with_option_denied if {
+	r := deny with input as {"Stages": [{"Name": "alpine:3.3", "Commands": [
+		{
+			"Cmd": "from",
+			"Value": ["node:carbon2"],
+		},
+		{
+			"Cmd": "copy",
+			"Value": ["--chown=root:root", "--chmod=755", "package.json", "yarn.lock", "myapp"],
+		},
+	]}]}
+
+	count(r) == 1
+	r[_].msg == "Slash is expected at the end of COPY command argument 'myapp'"
+}
