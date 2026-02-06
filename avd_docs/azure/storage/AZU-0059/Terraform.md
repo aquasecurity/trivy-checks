@@ -1,5 +1,5 @@
 
-Enable secure transfer and set minimum TLS version to TLS1_2
+Enable secure transfer and set minimum TLS version to TLS1_2 or higher
 
 ```hcl
 resource "azurerm_storage_account" "good_example" {

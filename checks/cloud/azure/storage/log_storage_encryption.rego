@@ -1,7 +1,7 @@
 # METADATA
 # title: Storage account should have secure transfer and minimum TLS version configured
 # description: |
-#   Storage accounts should enforce HTTPS for secure data transfer and use a minimum TLS version of 1.2.
+#   Storage accounts should enforce HTTPS for secure data transfer and use a minimum TLS version of 1.2 or higher.
 #   This ensures that logs and data stored in the storage account are encrypted in transit.
 #   Azure Storage encrypts all data at rest by default, but transport encryption is also critical.
 # scope: package
@@ -20,7 +20,7 @@
 #   service: storage
 #   severity: HIGH
 #   minimum_trivy_version: 0.68.0
-#   recommended_action: Enable secure transfer and set minimum TLS version to TLS1_2 or TLS1_3
+#   recommended_action: Enable secure transfer and set minimum TLS version to TLS1_2 or higher
 #   input:
 #     selector:
 #       - type: cloud
