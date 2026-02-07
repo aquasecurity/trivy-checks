@@ -1,5 +1,5 @@
 
-Enable secure transfer and set minimum TLS version to TLS1_2
+Enable secure transfer and set minimum TLS version to TLS1_2 or higher
 
 ```hcl
 resource "azurerm_storage_account" "good_example" {
@@ -10,6 +10,17 @@ resource "azurerm_storage_account" "good_example" {
   account_replication_type   = "GRS"
   https_traffic_only_enabled = true
   min_tls_version            = "TLS1_2"
+}
+```
+```hcl
+resource "azurerm_storage_account" "good_example" {
+  name                       = "storageaccountname"
+  resource_group_name        = azurerm_resource_group.example.name
+  location                   = azurerm_resource_group.example.location
+  account_tier               = "Standard"
+  account_replication_type   = "GRS"
+  https_traffic_only_enabled = true
+  min_tls_version            = "TLS1_3"
 }
 ```
 ```hcl

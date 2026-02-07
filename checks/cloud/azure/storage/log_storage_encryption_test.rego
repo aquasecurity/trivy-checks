@@ -29,10 +29,19 @@ test_deny_tls_version_not_configured if {
 	test.assert_count(check.deny, 1) with input as inp
 }
 
-test_allow_https_and_secure_tls if {
+test_allow_https_and_secure_tls1_2 if {
 	inp := {"azure": {"storage": {"accounts": [{
 		"enforcehttps": {"value": true},
 		"minimumtlsversion": {"value": "TLS1_2"},
+	}]}}}
+
+	test.assert_empty(check.deny) with input as inp
+}
+
+test_allow_https_and_secure_tls1_3 if {
+	inp := {"azure": {"storage": {"accounts": [{
+		"enforcehttps": {"value": true},
+		"minimumtlsversion": {"value": "TLS1_3"},
 	}]}}}
 
 	test.assert_empty(check.deny) with input as inp
