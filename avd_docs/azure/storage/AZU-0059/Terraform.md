@@ -13,6 +13,17 @@ resource "azurerm_storage_account" "good_example" {
 }
 ```
 ```hcl
+resource "azurerm_storage_account" "good_example" {
+  name                       = "storageaccountname"
+  resource_group_name        = azurerm_resource_group.example.name
+  location                   = azurerm_resource_group.example.location
+  account_tier               = "Standard"
+  account_replication_type   = "GRS"
+  https_traffic_only_enabled = true
+  min_tls_version            = "TLS1_3"
+}
+```
+```hcl
 resource "azurerm_storage_account" "bad_example" {
   name                     = "storageaccountname"
   resource_group_name      = azurerm_resource_group.example.name

@@ -64,6 +64,6 @@ https_not_enforced(account) if value.is_false(account.enforcehttps)
 insecure_tls_version(account) if not account.minimumtlsversion
 
 insecure_tls_version(account) if {
-    value.is_known(account.minimumtlsversion)
-    not account.minimumtlsversion.value in allowed_tls_versions
+	value.is_known(account.minimumtlsversion)
+	not account.minimumtlsversion.value in allowed_tls_versions
 }
