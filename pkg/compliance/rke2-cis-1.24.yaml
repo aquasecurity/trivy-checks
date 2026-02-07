@@ -131,16 +131,16 @@ spec:
       description: Ensure that the admin.conf file has permissions of 600
       checks:
         - id: KCV-0060
-      commands: 
-        - id: CMD-0013
+      commands:
+        - id: CMD-0051
       severity: CRITICAL
     - id: 1.1.14
       name: Ensure that the admin.conf file ownership is set to root:root
       description: Ensure that the admin.conf file ownership is set to root:root
       checks:
         - id: KCV-0061
-      commands: 
-        - id: CMD-0014
+      commands:
+        - id: CMD-0052
       severity: CRITICAL
     - id: 1.1.15
       name: Ensure that the scheduler.conf file permissions are set to 600 or more
@@ -150,7 +150,7 @@ spec:
       checks:
         - id: KCV-0062
       commands:
-        - id: CMD-0015
+        - id: CMD-0055
       severity: HIGH
     - id: 1.1.16
       name: Ensure that the scheduler.conf file ownership is set to root:root
@@ -158,7 +158,7 @@ spec:
       checks:
         - id: KCV-0063
       commands:
-        - id: CMD-0016
+        - id: CMD-0056
       severity: HIGH
     - id: 1.1.17
       name: Ensure that the controller-manager.conf file permissions are set to 600 or
@@ -168,7 +168,7 @@ spec:
       checks:
         - id: KCV-0064
       commands:
-        - id: CMD-0017
+        - id: CMD-0053
       severity: HIGH
     - id: 1.1.18
       name: Ensure that the controller-manager.conf file ownership is set to root:root
@@ -177,7 +177,7 @@ spec:
       checks:
         - id: KCV-0065
       commands:
-        - id: CMD-0018
+        - id: CMD-0054
       severity: HIGH
     - id: 1.1.19
       name: Ensure that the Kubernetes PKI directory and file ownership is set to
