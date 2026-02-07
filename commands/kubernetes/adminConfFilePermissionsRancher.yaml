@@ -1,0 +1,8 @@
+---
+- id: CMD-0051
+  key: adminConfFilePermissions-rke2
+  title: admin.conf file permissions
+  nodeType: master
+  audit: stat -c permissions=%a /var/lib/rancher/rke2/server/cred/admin.kubeconfig
+  platforms:
+    - rke2

@@ -6,4 +6,3 @@
   audit: stat -c %U:%G $scheduler.kubeconfig
   platforms:
     - k8s
-    - rke2

@@ -1,0 +1,8 @@
+---
+- id: CMD-0054
+  key: controllerManagerConfFileOwnership-rke2
+  title: controller-manager.conf file ownership
+  nodeType: master
+  audit: stat -c %U:%G /var/lib/rancher/rke2/server/cred/controller.kubeconfig
+  platforms:
+    - rke2
