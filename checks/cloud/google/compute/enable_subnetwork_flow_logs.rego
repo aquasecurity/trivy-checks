@@ -19,8 +19,7 @@
 #   provider: google
 #   service: compute
 #   severity: MEDIUM
-#   recommended_action: |
-#     Enable VPC Flow Logs for subnets. In Terraform, set `enable_flow_logs = true` in the `google_compute_subnetwork` resource.
+#   recommended_action: Enable VPC Flow Logs for subnets.
 #   input:
 #     selector:
 #       - type: cloud
@@ -34,6 +33,7 @@ import rego.v1
 
 deny contains res if {
 	some subnetwork in input.google.compute.networks[_].subnetworks
+	not is_proxy_only_network(subnetwork)
 	is_flow_logs_disabled(subnetwork)
 	res := result.new(
 		"Subnetwork does not have flow logs enabled.",
@@ -43,17 +43,18 @@ deny contains res if {
 
 deny contains res if {
 	some subnetwork in input.google.compute.networks[_].subnetworks
-	is_flow_logs_configured(subnetwork)
+	not is_proxy_only_network(subnetwork)
+	not flow_logs_configured(subnetwork)
 	res := result.new(
 		"Subnetwork does not have flow logs configured.",
-		object.get(subnetwork, "enableflowlogs", subnetwork),
+		subnetwork,
 	)
 }
 
-is_flow_logs_disabled(subnetwork) if {
-	subnetwork.enableflowlogs.value == false
-}
+is_proxy_only_network(subnetwork) if subnetwork.purpose.value in {"REGIONAL_MANAGED_PROXY", "GLOBAL_MANAGED_PROXY"}
 
-is_flow_logs_configured(subnetwork) if {
-	not "enableflowlogs" in object.keys(subnetwork)
+is_flow_logs_disabled(subnetwork) if subnetwork.enableflowlogs.value == false
+
+flow_logs_configured(subnetwork) if {
+	"enableflowlogs" in object.keys(subnetwork)
 }
