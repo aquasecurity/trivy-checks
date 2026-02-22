@@ -1,0 +1,22 @@
+---
+spec:
+  id: ocp-cis-1.6.0
+  title: CIS Red Hat OpenShift Container Platform Benchmark 1.6.0
+  description: CIS Red Hat OpenShift Container Platform Benchmark 1.6.0
+  version: "1.6.0"
+  platfrom: ocp
+  type: cis
+  relatedResources:
+    - https://www.cisecurity.org/benchmark/kubernetes
+  controls:
+    - id: 1.1.1
+      name: Ensure that the API server pod specification file permissions are set to
+        600 or more restrictive
+      description: Ensure that the API server pod specification file has permissions
+        of 600 or more restrictive
+      checks:
+        - id: AVD-KCV-0048
+      commands:
+        - id: CMD-0051
+      severity: HIGH
+   
