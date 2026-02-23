@@ -8,7 +8,7 @@ require (
 	github.com/aws-cloudformation/rain v1.24.2
 	github.com/docker/docker v28.5.1+incompatible
 	github.com/hashicorp/hcl/v2 v2.24.0
-	github.com/open-policy-agent/opa v1.13.1
+	github.com/open-policy-agent/opa v1.13.2
 	github.com/owenrumney/squealer v1.2.12
 	github.com/samber/lo v1.52.0
 	github.com/stretchr/testify v1.11.1
