@@ -119,3 +119,36 @@ test_install_allowed if {
 
 	count(r) == 0
 }
+
+test_multi_stage_allowed if {
+	r := deny with input as {"Stages": [
+		{
+			"Name": "builder:1",
+			"Commands": [
+				{
+					"Cmd": "from",
+					"Value": ["alpine"],
+				},
+				{
+					"Cmd": "run",
+					"Value": ["wget http://google.com"],
+				},
+			],
+		},
+		{
+			"Name": "runtime:1",
+			"Commands": [
+				{
+					"Cmd": "from",
+					"Value": ["alpine"],
+				},
+				{
+					"Cmd": "run",
+					"Value": ["curl http://bing.com"],
+				},
+			],
+		},
+	]}
+
+	count(r) == 0
+}
