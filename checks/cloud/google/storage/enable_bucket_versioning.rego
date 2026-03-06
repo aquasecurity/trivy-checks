@@ -36,6 +36,7 @@ import data.lib.cloud.metadata
 
 deny contains res if {
 	some bucket in input.google.storage.buckets
+	isManaged(bucket)
 	not bucket.versioning.enabled.value
 
 	res := result.new(
