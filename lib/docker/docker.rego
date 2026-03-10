@@ -8,74 +8,48 @@ package lib.docker
 
 import rego.v1
 
-from contains instruction if {
-	instruction := input.Stages[_].Commands[_]
-	instruction.Cmd == "from"
-}
+from := instructions("from")
 
-add contains instruction if {
-	instruction := input.Stages[_].Commands[_]
-	instruction.Cmd == "add"
-}
+add := instructions("add")
 
-run contains instruction if {
-	instruction := input.Stages[_].Commands[_]
-	instruction.Cmd == "run"
-}
+run := instructions("run")
 
-copy contains instruction if {
-	instruction := input.Stages[_].Commands[_]
-	instruction.Cmd == "copy"
-}
+copy := instructions("copy")
 
-stage_copies[stage] := copies if {
-	stage := input.Stages[_]
-	copies := [copy | copy := stage.Commands[_]; copy.Cmd == "copy"]
-}
+entrypoint := instructions("entrypoint")
 
-entrypoint contains instruction if {
-	instruction := input.Stages[_].Commands[_]
-	instruction.Cmd == "entrypoint"
-}
+expose := instructions("expose")
 
-stage_entrypoints[stage] := entrypoints if {
-	stage := input.Stages[_]
-	entrypoints := [entrypoint | entrypoint := stage.Commands[_]; entrypoint.Cmd == "entrypoint"]
-}
+user := instructions("user")
 
-stage_cmd[stage] := cmds if {
-	stage := input.Stages[_]
-	cmds := [cmd | cmd := stage.Commands[_]; cmd.Cmd == "cmd"]
-}
+workdir := instructions("workdir")
 
-stage_healthcheck[stage] := hlthchecks if {
-	stage := input.Stages[_]
-	hlthchecks := [hlthcheck | hlthcheck := stage.Commands[_]; hlthcheck.Cmd == "healthcheck"]
-}
+healthcheck := instructions("healthcheck")
 
-stage_user[stage] := users if {
-	stage := input.Stages[_]
-	users := [cmd | cmd := stage.Commands[_]; cmd.Cmd == "user"]
-}
+stage_copies := stage_instructions("copy")
 
-expose contains instruction if {
-	instruction := input.Stages[_].Commands[_]
-	instruction.Cmd == "expose"
-}
+stage_entrypoints := stage_instructions("entrypoint")
 
-user contains instruction if {
-	instruction := input.Stages[_].Commands[_]
-	instruction.Cmd == "user"
-}
+stage_run := stage_instructions("run")
 
-workdir contains instruction if {
-	instruction := input.Stages[_].Commands[_]
-	instruction.Cmd == "workdir"
-}
+stage_cmd := stage_instructions("cmd")
 
-healthcheck contains instruction if {
-	instruction := input.Stages[_].Commands[_]
-	instruction.Cmd == "healthcheck"
+stage_healthcheck := stage_instructions("healthcheck")
+
+stage_user := stage_instructions("user")
+
+instructions(typ) := [inst |
+	some stage in input.Stages
+	some inst in stage.Commands
+	inst.Cmd == typ
+]
+
+stage_instructions(typ) := {stage: instructions |
+	some stage in input.Stages
+	instructions := [inst |
+		some inst in stage.Commands
+		inst.Cmd == typ
+	]
 }
 
 split_cmd(s) := sh.parse_commands(s)
