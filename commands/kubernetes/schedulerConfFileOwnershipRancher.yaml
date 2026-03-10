@@ -1,0 +1,8 @@
+---
+- id: CMD-0056
+  key: schedulerConfFileOwnership-rke2
+  title: scheduler.conf file ownership
+  nodeType: master
+  audit: stat -c %U:%G /var/lib/rancher/rke2/server/cred/scheduler.kubeconfig
+  platforms:
+    - rke2

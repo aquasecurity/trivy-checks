@@ -1,0 +1,8 @@
+---
+- id: CMD-0055
+  key: schedulerConfFilePermissions-rke2
+  title: scheduler.conf file permissions
+  nodeType: master
+  audit: stat -c %a /var/lib/rancher/rke2/server/cred/scheduler.kubeconfig
+  platforms:
+    - rke2

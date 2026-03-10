@@ -1,0 +1,8 @@
+---
+- id: CMD-0052
+  key: adminConfFileOwnership-rke2
+  title: admin.conf file ownership
+  nodeType: master
+  audit: stat -c %U:%G /var/lib/rancher/rke2/server/cred/admin.kubeconfig
+  platforms:
+    - rke2
