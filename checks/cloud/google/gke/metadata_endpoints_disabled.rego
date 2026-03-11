@@ -23,6 +23,7 @@
 #   provider: google
 #   service: gke
 #   severity: HIGH
+#   deprecated: true
 #   recommended_action: Disable legacy metadata endpoints
 #   input:
 #     selector:
