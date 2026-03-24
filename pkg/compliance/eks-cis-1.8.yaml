@@ -121,7 +121,10 @@ spec:
       maximum event creations per second. Setting this too low could result in relevant
       events not being logged, however the unlimited setting of 0 could result in a denial of
       service on the kubelet.
-    checks: null
+    checks: 
+      - id: KCV-0087
+    commands:
+      - id: CMD-0040
     severity: HIGH
   - id: 3.2.8
     name: Ensure that the --rotate-certificates argument is not present or is set to true (Automated)
