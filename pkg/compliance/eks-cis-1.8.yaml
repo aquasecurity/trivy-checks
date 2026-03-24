@@ -74,8 +74,10 @@ spec:
     name: Ensure that the --authorization-mode argument is not set to AlwaysAllow (Automated)
     description: Do not allow all requests. Enable explicit authorization.
     checks:
-      - id: KCV-0007
-    severity: LOW
+      - id: KCV-0080
+    commands:
+      - id: CMD-0033
+    severity: HIGH
   - id: 3.2.3
     name: Ensure that a Client CA File is Configured (Automated)
     description: Enable Kubelet authentication using certificates.
