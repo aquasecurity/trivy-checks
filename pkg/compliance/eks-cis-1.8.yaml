@@ -142,14 +142,6 @@ spec:
     commands:
       - id: CMD-0044
     severity: HIGH
-  - id: 3.3.1
-    name: Prefer using a container-optimized OS when possible (Manual)
-    description: |
-      If a container-optimized OS is required examine the nodes in EC2 and click on their AMI
-      to ensure that it is a container-optimized OS like Amazon Bottlerocket; or connect to the
-      worker node and check its OS.
-    checks: null
-    severity: HIGH
   - id: 4.1.1
     name: Ensure that the cluster-admin role is only used where required (Automated)
     description: |
