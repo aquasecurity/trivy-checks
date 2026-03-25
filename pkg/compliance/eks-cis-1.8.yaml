@@ -139,10 +139,9 @@ spec:
     description: Enable kubelet server certificate rotation.
     checks:
       - id: KCV-0091
-      - id: KCV-0038
     commands:
       - id: CMD-0044
-    severity: CRITICAL
+    severity: HIGH
   - id: 3.3.1
     name: Prefer using a container-optimized OS when possible (Manual)
     description: |
