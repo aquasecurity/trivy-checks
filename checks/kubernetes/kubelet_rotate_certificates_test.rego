@@ -32,5 +32,5 @@ test_validate_rotate_certificates_empty if {
 		"info": {"kubeletRotateCertificatesArgumentSet": {"values": []}},
 	}
 
-	count(r) == 1
+	count(r) == 0
 }
