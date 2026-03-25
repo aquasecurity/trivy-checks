@@ -183,7 +183,8 @@ spec:
       implemented to restrict this access)
       As such, access to create new pods should be restricted to the smallest possible group
       of users.
-    checks: null
+    checks:
+      - id: KSV-0048
     severity: HIGH
   - id: 4.1.5
     name: Ensure that default service accounts are not actively used. (Manual)
