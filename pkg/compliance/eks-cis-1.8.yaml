@@ -161,7 +161,7 @@ spec:
       - id: KSV-0041
     severity: CRITICAL
   - id: 4.1.3
-    name: Minimize wildcard use in Roles and ClusterRoles (Automated)
+    name: Minimize wildcard use in Roles and ClusterRoles (Manual)
     description: |
       Kubernetes Roles and ClusterRoles provide access to resources based on sets of
       objects and actions that can be taken on those objects. It is possible to set either of
@@ -173,7 +173,7 @@ spec:
       - id: KSV-0044
       - id: KSV-0045
       - id: KSV-0046
-    severity: HIGH
+    severity: CRITICAL
   - id: 4.1.4
     name: Minimize access to create pods (Manual)
     description: |
