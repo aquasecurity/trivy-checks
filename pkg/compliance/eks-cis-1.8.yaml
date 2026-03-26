@@ -218,6 +218,16 @@ spec:
     checks:
       - id: KSV-0050
     severity: CRITICAL
+  - id: 4.1.9
+    name: Minimize access to create persistent volumes (Manual)
+    description: |
+      The ability to create persistent volumes in a cluster can provide an opportunity for
+      privilege escalation, via the creation of hostPath volumes. As persistent volumes are
+      not covered by Pod Security Admission, a user with access to create persistent volumes
+      may be able to get access to sensitive files from the underlying host even where
+      restrictive Pod Security Admission policies are in place.
+    checks: null
+    severity: HIGH
   - id: 4.2.1
     name: Minimize the admission of privileged containers (Automated)
     description: Do not generally permit containers to be run with the securityContext.privileged flag set to true.
