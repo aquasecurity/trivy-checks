@@ -228,6 +228,15 @@ spec:
       restrictive Pod Security Admission policies are in place.
     checks: null
     severity: HIGH
+  - id: 4.1.10
+    name: Minimize access to the proxy sub-resource of nodes (Manual)
+    description: |
+      Users with access to the Proxy sub-resource of Node objects automatically have
+      permissions to use the kubelet API, which may allow for privilege escalation or bypass
+      cluster security controls such as audit logs.
+    checks:
+      - id: KSV-0049
+    severity: HIGH
   - id: 4.2.1
     name: Minimize the admission of privileged containers (Automated)
     description: Do not generally permit containers to be run with the securityContext.privileged flag set to true.
