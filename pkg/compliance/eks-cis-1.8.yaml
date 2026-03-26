@@ -201,13 +201,14 @@ spec:
       - id: KSV-0036
     severity: HIGH
   - id: 4.1.7
-    name: Avoid use of system:masters group (Manual)
+    name: Cluster Access Manager API to streamline and enhance the management of access controls within EKS clusters (Automated)
     description: |
-      The special group system:masters should not be used to grant permissions to any user
-      or service account, except where strictly necessary (e.g. bootstrapping access prior to
-      RBAC being fully available)
+      Amazon EKS has introduced the Cluster Access Manager API to streamline and
+      enhance the management of access controls within EKS clusters. This new approach is
+      now the recommended method over the traditional aws-auth ConfigMap for managing
+      Role-Based Access Control (RBAC) and Service Accounts.
     checks: null
-    severity: CRITICAL
+    severity: HIGH
   - id: 4.1.8
     name: Limit use of the Bind, Impersonate and Escalate permissions in the Kubernetes cluster
     description: |
