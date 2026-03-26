@@ -237,6 +237,17 @@ spec:
     checks:
       - id: KSV-0049
     severity: HIGH
+  - id: 4.1.11
+    name: Minimize access to webhook configuration objects (Manual)
+    description: |
+      Users with rights to create/modify/delete validatingwebhookconfigurations or
+      mutatingwebhookconfigurations can control webhooks that can read any object
+      admitted to the cluster, and in the case of mutating webhooks, also mutate admitted
+      objects. This could allow for privilege escalation or disruption of the operation of the
+      cluster.
+    checks:
+      - id: KSV-0114
+    severity: CRITICAL
   - id: 4.2.1
     name: Minimize the admission of privileged containers (Automated)
     description: Do not generally permit containers to be run with the securityContext.privileged flag set to true.
