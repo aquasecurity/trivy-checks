@@ -257,8 +257,12 @@ spec:
     checks: null
     severity: HIGH
   - id: 4.2.1
-    name: Minimize the admission of privileged containers (Automated)
-    description: Do not generally permit containers to be run with the securityContext.privileged flag set to true.
+    name: Minimize the admission of privileged containers (Manual)
+    description: |
+      Do not generally permit containers to be run with the securityContext.privileged
+      flag set to true. Privileged containers have access to all Linux Kernel capabilities 
+      and devices. A container running with full privileges can do almost everything that 
+      the host can do.
     checks:
       - id: KSV-0017
     severity: HIGH
