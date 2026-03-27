@@ -286,8 +286,11 @@ spec:
       - id: KSV-0008
     severity: HIGH
   - id: 4.2.4
-    name: Minimize the admission of containers wishing to share the host network namespace (Automated)
-    description: Do not generally permit containers to be run with the hostNetwork flag set to true.
+    name: Minimize the admission of containers wishing to share the host network namespace (Manual)
+    description: |
+      Do not generally permit containers to be run with the hostNetwork flag set to true.
+      A container running in the host's network namespace could access the local loopback
+      device, and could access network traffic to and from other pods.
     checks:
       - id: KSV-0009
     severity: HIGH
