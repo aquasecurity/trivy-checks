@@ -312,10 +312,9 @@ spec:
     checks: null
     severity: MEDIUM
   - id: 4.3.2
-    name: Ensure that all Namespaces have Network Policies defined (Automated)
+    name: Ensure that all Namespaces have Network Policies defined (Manual)
     description: Use network policies to isolate traffic in your cluster network.
-    checks:
-      - id: KSV-0038
+    checks: null
     severity: MEDIUM
   - id: 4.4.1
     name: Prefer using secrets as files over secrets as environment variables (Manual)
