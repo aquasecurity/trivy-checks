@@ -303,25 +303,6 @@ spec:
     checks:
       - id: KSV-0001
     severity: MEDIUM
-  - id: 4.2.6
-    name: Minimize the admission of root containers (Automated)
-    description: Do not generally permit containers to be run as the root user.
-    checks:
-      - id: KSV-0012
-    severity: MEDIUM
-  - id: 4.2.7
-    name: Minimize the admission of containers with added capabilities (Automated)
-    description: Do not generally permit containers with capabilities assigned beyond the default set.
-    checks:
-      - id: KSV-0004
-    severity: LOW
-  - id: 4.2.8
-    name: Minimize the admission of containers with capabilities assigned (Automated)
-    description: Do not generally permit containers with capabilities
-    checks: 
-      - id: KSV-0103
-      - id: KSV-0003
-    severity: MEDIUM
   - id: 4.3.1
     name: Ensure CNI plugin supports network policies (Manual)
     description: |
