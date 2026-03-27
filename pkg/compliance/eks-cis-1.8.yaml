@@ -295,14 +295,14 @@ spec:
       - id: KSV-0009
     severity: HIGH
   - id: 4.2.5
-    name: Minimize the admission of containers with allowPrivilegeEscalation (Automated)
+    name: Minimize the admission of containers with allowPrivilegeEscalation (Manual)
     description: |
       Do not generally permit containers to be run with the allowPrivilegeEscalation flag set
       to true. Allowing this right can lead to a process running a container getting more rights
       than it started with.
     checks:
       - id: KSV-0001
-    severity: HIGH
+    severity: MEDIUM
   - id: 4.2.6
     name: Minimize the admission of root containers (Automated)
     description: Do not generally permit containers to be run as the root user.
