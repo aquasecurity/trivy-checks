@@ -267,8 +267,12 @@ spec:
       - id: KSV-0017
     severity: HIGH
   - id: 4.2.2
-    name: Minimize the admission of containers wishing to share the host process ID namespace (Automated)
-    description: Do not generally permit containers to be run with the hostPID flag set to true.
+    name: Minimize the admission of containers wishing to share the host process ID namespace (Manual)
+    description: |
+      Do not generally permit containers to be run with the hostPID flag set to true.
+      A container running in the host's PID namespace can inspect processes running outside
+      the container. If the container also has access to ptrace capabilities this can be used to
+      escalate privileges outside of the container.
     checks:
       - id: KSV-0010
     severity: HIGH
