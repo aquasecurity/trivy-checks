@@ -379,12 +379,13 @@ spec:
     checks: null
     severity: MEDIUM
   - id: 5.2.1
-    name: Prefer using dedicated EKS Service Accounts (Manual)
+    name: Prefer using dedicated EKS Service Accounts (Automated)
     description: |
-      Kubernetes workloads should not use cluster node service accounts to authenticate to
-      Amazon EKS APIs. Each Kubernetes workload that needs to authenticate to other AWS
-      services using AWS IAM should be provisioned with a dedicated Service account.
-    checks: null
+      Kubernetes workloads should not use cluster node service accounts to authenticate 
+      to Amazon EKS APIs. Each Kubernetes workload that needs to authenticate to other 
+      AWSservices using AWS IAM should be provisioned with a dedicated Service account.
+    checks:
+      - id: KSV-0036
     severity: MEDIUM
   - id: 5.3.1
     name: Ensure Kubernetes Secrets are encrypted using Customer Master Keys (CMKs) managed in AWS KMS (Manual)
