@@ -341,25 +341,14 @@ spec:
     checks: null
     severity: MEDIUM
   - id: 4.5.2
-    name: Apply Security Context to Your Pods and Containers (Automated)
-    description: Apply Security Context to Your Pods and Containers
-    checks:
-      - id: KSV-0021
-      - id: KSV-0020
-      - id: KSV-0005
-      - id: KSV-0025
-      - id: KSV-0104
-      - id: KSV-0030
-    severity: HIGH
-  - id: 4.5.3
     name: The default namespace should not be used (Automated)
     description: |
       Kubernetes provides a default namespace, where objects are placed if no namespace
       is specified for them. Placing objects in this namespace makes application of RBAC and
       other controls more difficult.
     checks:
-     - id: KSV-0110
-    severity: MEDIUM
+      - id: KSV-0110
+    severity: LOW
   - id: 5.1.1
     name: Ensure Image Vulnerability Scanning using Amazon ECR image scanning or a third party provider (Automated)
     description: Scan images being deployed to Amazon EKS for vulnerabilities.
