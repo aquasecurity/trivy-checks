@@ -409,14 +409,18 @@ spec:
     checks: null
     severity: MEDIUM
   - id: 5.4.4
-    name: Ensure Network Policy is Enabled and set as appropriate (Manual)
+    name: Ensure Network Policy is Enabled and set as appropriate (Automated)
     description: |
-            Amazon EKS provides two ways to implement network policy. You choose a network
-            policy option when you create an EKS cluster. The policy option can't be changed after the cluster is created:
-            Calico Network Policies, an open-source network and network
-            security solution founded by Tigera. Both implementations use Linux IPTables to
-            enforce the specified policies. Policies are translated into sets of allowed and disallowed
-            IP pairs. These pairs are then programmed as IPTable filter rules
+            AmazonEKSNetworkingPolicy is an AWS-managed add-on that provides native
+            support for Kubernetes NetworkPolicy enforcement within Amazon Elastic Kubernetes
+            Service (EKS) clusters. It enables organizations to define and apply fine-grained, 
+            pod-level network access controls that regulate traffic between workloads and external
+            endpoints. Built on an AWS-optimized implementation of Calico, the add-on integrates
+            seamlessly with the EKS control plane to deliver a secure and scalable approach to
+            network segmentation without requiring manual CNI plugin installation. By leveraging
+            AmazonEKSNetworkingPolicy, enterprises can strengthen their cluster security posture,
+            enforce zero-trust networking principles, and ensure compliance with organizational and
+            regulatory access control standards.
     checks: null
     severity: MEDIUM
   - id: 5.4.5
