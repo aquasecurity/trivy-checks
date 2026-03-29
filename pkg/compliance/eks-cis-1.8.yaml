@@ -393,17 +393,17 @@ spec:
     checks: null
     severity: MEDIUM
   - id: 5.4.1
-    name: Restrict Access to the Control Plane Endpoint (Manual)
+    name: Restrict Access to the Control Plane Endpoint (Automated)
     description: Enable Endpoint Private Access to restrict access to the cluster's control plane to only an allowlist of authorized IPs
     checks: null
     severity: MEDIUM
   - id: 5.4.2
-    name: Ensure clusters are created with Private Endpoint Enabled and Public Access Disabled (Manual)
+    name: Ensure clusters are created with Private Endpoint Enabled and Public Access Disabled (Automated)
     description: Disable access to the Kubernetes API from outside the node network if it is not required.
     checks: null
     severity: MEDIUM
   - id: 5.4.3
-    name: Ensure clusters are created with Private Nodes (Manual)
+    name: Ensure clusters are created with Private Nodes (Automated)
     description: Disable public IP addresses for cluster nodes, so that they only have private IP addresses. 
         Private Nodes are nodes with no public IP addresses.
     checks: null
