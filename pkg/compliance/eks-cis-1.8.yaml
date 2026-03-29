@@ -367,8 +367,10 @@ spec:
   - id: 5.1.3
     name: Minimize cluster access to read-only for Amazon ECR (Manual)
     description: |
-      Configure the Cluster Service Account with Storage Object Viewer Role to only allow
-      read-only access to Amazon ECR
+      Configure the EKS Node IAM Role (NodeInstanceRole) with read-only 
+      permissions to Amazon ECR. Nodes only require pull access to deploy 
+      containers; restricting these permissions prevents credentials from being 
+      abused to modify or delete images.
     checks: null
     severity: MEDIUM
   - id: 5.1.4
