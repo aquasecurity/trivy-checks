@@ -351,7 +351,10 @@ spec:
     severity: LOW
   - id: 5.1.1
     name: Ensure Image Vulnerability Scanning using Amazon ECR image scanning or a third party provider (Automated)
-    description: Scan images being deployed to Amazon EKS for vulnerabilities.
+    description: |
+      Scan images being deployed to Amazon EKS for vulnerabilities. Software 
+      vulnerabilities can be exploited to obtain unauthorized access to cloud 
+      resources. ECR should be configured with 'scanOnPush=true'.
     checks: null
     severity: MEDIUM
   - id: 5.1.2
