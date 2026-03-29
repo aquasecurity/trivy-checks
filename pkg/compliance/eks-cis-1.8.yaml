@@ -334,7 +334,10 @@ spec:
     severity: MEDIUM
   - id: 4.5.1
     name: Create administrative boundaries between resources using namespaces (Manual)
-    description: Use namespaces to isolate your Kubernetes objects.
+    description: |
+      Use namespaces to isolate your Kubernetes objects. Limiting the scope of user 
+      permissions reduces the impact of mistakes or malicious activities by partitioning 
+      resources into logically named groups.
     checks: null
     severity: MEDIUM
   - id: 4.5.2
