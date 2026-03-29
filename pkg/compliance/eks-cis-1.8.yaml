@@ -329,8 +329,7 @@ spec:
       Consider the use of an external secrets storage and management system, instead of
       using Kubernetes Secrets directly, if you have more complex secret management
       needs. Ensure the solution requires authentication to access secrets, has auditing of
-      access to and use of secrets, and encrypts secrets. Some solutions also make it easier
-      to rotate secrets
+      access to and use of secrets, and encrypts secrets.
     checks: null
     severity: MEDIUM
   - id: 4.5.1
