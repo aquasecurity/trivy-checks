@@ -317,9 +317,9 @@ spec:
     checks: null
     severity: MEDIUM
   - id: 4.4.1
-    name: Prefer using secrets as files over secrets as environment variables (Manual)
+    name: Prefer using secrets as files over secrets as environment variables (Automated)
     description: |
-      Kubernetes supports mounting secrets as data volumes or as environment variables. 
+      Kubernetes supports mounting secrets as data volumes or as environment variables.
       Minimize the use of environment variable secrets.
     checks: null
     severity: MEDIUM
