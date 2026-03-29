@@ -359,8 +359,9 @@ spec:
     severity: MEDIUM
   - id: 5.1.2
     name: Minimize user access to Amazon ECR (Manual)
-    description: Restrict user access to Amazon ECR, limiting interaction with build images to only authorized 
-        personnel and service accounts.
+    description: |
+      Restrict user access to Amazon ECR, limiting interaction with build images to only 
+      authorized personnel and service accounts.
     checks: null
     severity: MEDIUM
   - id: 5.1.3
