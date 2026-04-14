@@ -10,7 +10,9 @@ jobs:
     uses: ./.github/workflows/reusable-release.yaml
     with:
       nightly: true
-    secrets: inherit
+    secrets:
+      TRIVY_CHECKS_DEPLOY_TOKEN: ${{ secrets.TRIVY_CHECKS_DEPLOY_TOKEN }}
+      DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
     permissions:
       contents: read
-      packages: write
