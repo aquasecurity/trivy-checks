@@ -3,6 +3,6 @@
   key: etcdDataDirectoryOwnership
   title: Etcd data directory Ownership
   nodeType: master
-  audit: stat -c %U:%G /node/var/lib/etcd
+  audit: stat -c %U:%G /var/lib/rancher/rke2/server/db/etcd
   platforms:
     - rke2
