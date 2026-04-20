@@ -34,13 +34,6 @@ validate_kubelet_rotate_certificates(sp) := {"kubeletRotateCertificatesArgumentS
 	count(violation) > 0
 }
 
-validate_kubelet_rotate_certificates(sp) := {"kubeletRotateCertificatesArgumentSet": rotate_certificates} if {
-	sp.kind == "NodeInfo"
-	sp.type == types[_]
-	count(sp.info.kubeletRotateCertificatesArgumentSet.values) == 0
-	rotate_certificates = {}
-}
-
 deny contains res if {
 	output := validate_kubelet_rotate_certificates(input)
 	msg := "Ensure that the --rotate-certificates argument is not set to false"
