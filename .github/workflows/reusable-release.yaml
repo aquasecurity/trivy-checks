@@ -7,6 +7,13 @@ on:
         required: false
         default: false
         description: "Run nightly release"
+    secrets:
+      TRIVY_CHECKS_DEPLOY_TOKEN:
+        required: true
+      DOCKERHUB_USER:
+        required: true
+      DOCKERHUB_TOKEN:
+        required: true
 
 env:
   GH_USER: aqua-bot
@@ -17,11 +24,10 @@ jobs:
     uses: ./.github/workflows/integration-tests.yaml
 
   release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-2404-2core
     needs: integration-tests
     permissions:
       contents: read
-      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -43,7 +49,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ vars.GHCR_USER || env.GH_USER }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.TRIVY_CHECKS_DEPLOY_TOKEN }}
 
       - name: Login to Docker Hub
         uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3.7.0
@@ -111,12 +117,3 @@ jobs:
               fi
             done
           done
-
-      - name: Microsoft Teams Notification
-        uses: Skitionek/notify-microsoft-teams@b65dda7f5e6fd0960b97f923629b911890dc60b1
-        if: failure()
-        with:
-          webhook_url: ${{ secrets.TRIVY_MSTEAMS_WEBHOOK }}
-          needs: ${{ toJson(needs) }}
-          job: ${{ toJson(job) }}
-          steps: ${{ toJson(steps) }}
