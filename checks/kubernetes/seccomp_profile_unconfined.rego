@@ -15,7 +15,7 @@
 #     - no-seccomp-unconfined
 #     - kubernetes-no-seccomp-unconfined
 #   severity: MEDIUM
-#   recommended_action: "Specify seccomp either by annotation or by seccomp profile type having allowed values as per pod security standards"
+#   recommended_action: "Specify seccomp either by annotation or by seccomp profile type having allowed values as per pod security standards for containers, initContainers, and ephemeralContainers"
 #   input:
 #     selector:
 #     - type: kubernetes
