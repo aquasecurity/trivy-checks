@@ -1,0 +1,21 @@
+dockerfile:
+  good:
+    - |-
+      FROM debian:9
+      RUN set -o pipefail && wget -O - https://some.site | wc -l > /number
+    - |-
+      FROM debian:9
+      SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+      RUN wget -O - https://some.site | wc -l > /number
+    - |-
+      FROM debian:9
+      SHELL ["pwsh", "-c"]
+      RUN Get-Variable PSVersionTable | Select-Object -ExpandProperty Value
+  bad:
+    - |-
+      FROM debian:9
+      RUN wget -O - https://some.site | wc -l > /number
+    - |-
+      FROM debian:9
+      SHELL ["/bin/bash", "-c"]
+      RUN wget -O - https://some.site | wc -l > /number
