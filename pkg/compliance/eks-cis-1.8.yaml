@@ -9,39 +9,46 @@ spec:
   - https://www.cisecurity.org/benchmark/amazon_web_services
   controls:
   - id: 2.1.1
-    name: Enable audit Logs (Manual)
+    name: Enable audit Logs (Automated)
     description: |
       Control plane logs provide visibility into operation of the EKS Control plane components systems. 
       The API server audit logs record all accepted and rejected requests in the cluster. 
       When enabled via EKS configuration the control plane logs for a cluster are exported to a CloudWatch 
       Log Group for persistence.
+    checks:
+      - id: AWS-0038
+    severity: MEDIUM
+  - id: 2.1.2
+    name: Ensure audit logs are collected and managed (Manual)
+    description: |
+      Ensure that audit logs are collected and managed in accordance with the enterprise’s audit log management process across all Kubernetes components.
     checks: null
     severity: MEDIUM
   - id: 3.1.1
-    name: Ensure that the kubeconfig file permissions are set to 644 or more restrictive (Manual)
+    name: Ensure that the kubeconfig file permissions are set to 644 or more restrictive (Automated)
     description: |
       If kubelet is running, and if it is configured by a kubeconfig file, ensure that the proxy kubeconfig 
       file has permissions of 644 or more restrictive
     checks: 
       - id: KCV-0094
     commands:
-      - id: CMD-0024
+      - id: CMD-0026
     severity: HIGH
   - id: 3.1.2
-    name: Ensure that the kubelet service file ownership is set to root:root (Automated)
-    description: Ensure that the kubelet service file ownership is set to root:root
+    name: Ensure that the kubelet kubeconfig file ownership is set to root:root (Automated)
+    description: If kubelet is running, ensure that the file ownership of its kubeconfig file is set to root:root.
     checks:
-      - id: KCV-0070
+      - id: KCV-0074
     commands:
-      - id: CMD-0023
+      - id: CMD-0027
     severity: HIGH
   - id: 3.1.3
     name: Ensure that the kubelet configuration file has permissions set to 644 or more restrictive (Automated)
     description: |
       Ensure that if the kubelet refers to a configuration file with the
-      --config argument, that file has permissions of 600 or more restrictive
+      --config argument, that file has permissions of 644 or more restrictive
     checks:
-      - id: KCV-0077
+      - id: KCV-0095
     commands:
       - id: CMD-0030
     severity: HIGH
@@ -67,8 +74,10 @@ spec:
     name: Ensure that the --authorization-mode argument is not set to AlwaysAllow (Automated)
     description: Do not allow all requests. Enable explicit authorization.
     checks:
-      - id: KCV-0007
-    severity: LOW
+      - id: KCV-0080
+    commands:
+      - id: CMD-0033
+    severity: HIGH
   - id: 3.2.3
     name: Ensure that a Client CA File is Configured (Automated)
     description: Enable Kubelet authentication using certificates.
@@ -112,7 +121,10 @@ spec:
       maximum event creations per second. Setting this too low could result in relevant
       events not being logged, however the unlimited setting of 0 could result in a denial of
       service on the kubelet.
-    checks: null
+    checks: 
+      - id: KCV-0087
+    commands:
+      - id: CMD-0040
     severity: HIGH
   - id: 3.2.8
     name: Ensure that the --rotate-certificates argument is not present or is set to true (Automated)
@@ -127,17 +139,8 @@ spec:
     description: Enable kubelet server certificate rotation.
     checks:
       - id: KCV-0091
-      - id: KCV-0038
     commands:
       - id: CMD-0044
-    severity: CRITICAL
-  - id: 3.3.1
-    name: Prefer using a container-optimized OS when possible (Manual)
-    description: |
-      If a container-optimized OS is required examine the nodes in EC2 and click on their AMI
-      to ensure that it is a container-optimized OS like Amazon Bottlerocket; or connect to the
-      worker node and check its OS.
-    checks: null
     severity: HIGH
   - id: 4.1.1
     name: Ensure that the cluster-admin role is only used where required (Automated)
@@ -148,7 +151,7 @@ spec:
       - id: KSV-0111
     severity: HIGH
   - id: 4.1.2
-    name: Minimize access to secrets (Automated)
+    name: Minimize access to secrets (Manual)
     description: |
       The Kubernetes API stores secrets, which may be service account tokens for the
       Kubernetes API or credentials used by workloads in the cluster. Access to these secrets
@@ -156,9 +159,9 @@ spec:
       privilege escalation.
     checks:
       - id: KSV-0041
-    severity: HIGH
+    severity: CRITICAL
   - id: 4.1.3
-    name: Minimize wildcard use in Roles and ClusterRoles (Automated)
+    name: Minimize wildcard use in Roles and ClusterRoles (Manual)
     description: |
       Kubernetes Roles and ClusterRoles provide access to resources based on sets of
       objects and actions that can be taken on those objects. It is possible to set either of
@@ -170,7 +173,7 @@ spec:
       - id: KSV-0044
       - id: KSV-0045
       - id: KSV-0046
-    severity: HIGH
+    severity: CRITICAL
   - id: 4.1.4
     name: Minimize access to create pods (Manual)
     description: |
@@ -180,7 +183,8 @@ spec:
       implemented to restrict this access)
       As such, access to create new pods should be restricted to the smallest possible group
       of users.
-    checks: null
+    checks:
+      - id: KSV-0048
     severity: HIGH
   - id: 4.1.5
     name: Ensure that default service accounts are not actively used. (Manual)
@@ -193,76 +197,111 @@ spec:
     description: |
       Service accounts tokens should not be mounted in pods except where the workload
       running in the pod explicitly needs to communicate with the API server
-    checks: null
+    checks:
+      - id: KSV-0036
     severity: HIGH
   - id: 4.1.7
-    name: Avoid use of system:masters group (Manual)
+    name: Cluster Access Manager API to streamline and enhance the management of access controls within EKS clusters (Automated)
     description: |
-      The special group system:masters should not be used to grant permissions to any user
-      or service account, except where strictly necessary (e.g. bootstrapping access prior to
-      RBAC being fully available)
+      Amazon EKS has introduced the Cluster Access Manager API to streamline and
+      enhance the management of access controls within EKS clusters. This new approach is
+      now the recommended method over the traditional aws-auth ConfigMap for managing
+      Role-Based Access Control (RBAC) and Service Accounts.
     checks: null
-    severity: CRITICAL
+    severity: HIGH
   - id: 4.1.8
-    name: Limit use of the Bind, Impersonate and Escalate permissions in the Kubernetes cluster
+    name: Limit use of the Bind, Impersonate and Escalate permissions in the Kubernetes cluster (Manual)
     description: |
-      The special group system:masters should not be used to grant permissions to any user
-      or service account, except where strictly necessary (e.g. bootstrapping access prior to
-      RBAC being fully available)
+      Cluster roles and roles with the impersonate, bind or escalate permissions should not
+      be granted unless strictly required. Each of these permissions allow a particular subject
+      to escalate their privileges beyond those explicitly granted by cluster administrators.
     checks:
-      - id: KSV-0123
+      - id: KSV-0050
     severity: CRITICAL
+  - id: 4.1.9
+    name: Minimize access to create persistent volumes (Manual)
+    description: |
+      The ability to create persistent volumes in a cluster can provide an opportunity for
+      privilege escalation, via the creation of hostPath volumes. As persistent volumes are
+      not covered by Pod Security Admission, a user with access to create persistent volumes
+      may be able to get access to sensitive files from the underlying host even where
+      restrictive Pod Security Admission policies are in place.
+    checks: null
+    severity: HIGH
+  - id: 4.1.10
+    name: Minimize access to the proxy sub-resource of nodes (Manual)
+    description: |
+      Users with access to the Proxy sub-resource of Node objects automatically have
+      permissions to use the kubelet API, which may allow for privilege escalation or bypass
+      cluster security controls such as audit logs.
+    checks:
+      - id: KSV-0049
+    severity: HIGH
+  - id: 4.1.11
+    name: Minimize access to webhook configuration objects (Manual)
+    description: |
+      Users with rights to create/modify/delete validatingwebhookconfigurations or
+      mutatingwebhookconfigurations can control webhooks that can read any object
+      admitted to the cluster, and in the case of mutating webhooks, also mutate admitted
+      objects. This could allow for privilege escalation or disruption of the operation of the
+      cluster.
+    checks:
+      - id: KSV-0114
+    severity: CRITICAL
+  - id: 4.1.12
+    name: Minimize access to the service account token creation (Manual)
+    description: |
+      Users with rights to create new service account tokens at a cluster level, can create
+      long-lived privileged credentials in the cluster. This could allow for privilege escalation
+      and persistent access to the cluster, even if the users account has been revoked.
+    checks: null
+    severity: HIGH
   - id: 4.2.1
-    name: Minimize the admission of privileged containers (Automated)
-    description: Do not generally permit containers to be run with the securityContext.privileged flag set to true.
+    name: Minimize the admission of privileged containers (Manual)
+    description: |
+      Do not generally permit containers to be run with the securityContext.privileged
+      flag set to true. Privileged containers have access to all Linux Kernel capabilities 
+      and devices. A container running with full privileges can do almost everything that 
+      the host can do.
     checks:
       - id: KSV-0017
     severity: HIGH
   - id: 4.2.2
-    name: Minimize the admission of containers wishing to share the host process ID namespace (Automated)
-    description: Do not generally permit containers to be run with the hostPID flag set to true.
+    name: Minimize the admission of containers wishing to share the host process ID namespace (Manual)
+    description: |
+      Do not generally permit containers to be run with the hostPID flag set to true.
+      A container running in the host's PID namespace can inspect processes running outside
+      the container. If the container also has access to ptrace capabilities this can be used to
+      escalate privileges outside of the container.
     checks:
       - id: KSV-0010
     severity: HIGH
   - id: 4.2.3
-    name: Minimize the admission of containers wishing to share the host IPC namespace (Automated)
-    description: Do not generally permit containers to be run with the hostIPC flag set to true.
+    name: Minimize the admission of containers wishing to share the host IPC namespace (Manual)
+    description: |
+      Do not generally permit containers to be run with the hostIPC flag set to true.
+      A container running in the host's IPC namespace can use IPC to interact with 
+      processes outside the container.
     checks:
       - id: KSV-0008
     severity: HIGH
   - id: 4.2.4
-    name: Minimize the admission of containers wishing to share the host network namespace (Automated)
-    description: Do not generally permit containers to be run with the hostNetwork flag set to true.
+    name: Minimize the admission of containers wishing to share the host network namespace (Manual)
+    description: |
+      Do not generally permit containers to be run with the hostNetwork flag set to true.
+      A container running in the host's network namespace could access the local loopback
+      device, and could access network traffic to and from other pods.
     checks:
       - id: KSV-0009
     severity: HIGH
   - id: 4.2.5
-    name: Minimize the admission of containers with allowPrivilegeEscalation (Automated)
+    name: Minimize the admission of containers with allowPrivilegeEscalation (Manual)
     description: |
       Do not generally permit containers to be run with the allowPrivilegeEscalation flag set
       to true. Allowing this right can lead to a process running a container getting more rights
       than it started with.
     checks:
       - id: KSV-0001
-    severity: HIGH
-  - id: 4.2.6
-    name: Minimize the admission of root containers (Automated)
-    description: Do not generally permit containers to be run as the root user.
-    checks:
-      - id: KSV-0012
-    severity: MEDIUM
-  - id: 4.2.7
-    name: Minimize the admission of containers with added capabilities (Automated)
-    description: Do not generally permit containers with capabilities assigned beyond the default set.
-    checks:
-      - id: KSV-0004
-    severity: LOW
-  - id: 4.2.8
-    name: Minimize the admission of containers with capabilities assigned (Automated)
-    description: Do not generally permit containers with capabilities
-    checks: 
-      - id: KSV-0103
-      - id: KSV-0003
     severity: MEDIUM
   - id: 4.3.1
     name: Ensure CNI plugin supports network policies (Manual)
@@ -273,15 +312,14 @@ spec:
     checks: null
     severity: MEDIUM
   - id: 4.3.2
-    name: Ensure that all Namespaces have Network Policies defined (Automated)
+    name: Ensure that all Namespaces have Network Policies defined (Manual)
     description: Use network policies to isolate traffic in your cluster network.
-    checks:
-      - id: KSV-0038
+    checks: null
     severity: MEDIUM
   - id: 4.4.1
-    name: Prefer using secrets as files over secrets as environment variables (Manual)
+    name: Prefer using secrets as files over secrets as environment variables (Automated)
     description: |
-      Kubernetes supports mounting secrets as data volumes or as environment variables. 
+      Kubernetes supports mounting secrets as data volumes or as environment variables.
       Minimize the use of environment variable secrets.
     checks: null
     severity: MEDIUM
@@ -291,51 +329,48 @@ spec:
       Consider the use of an external secrets storage and management system, instead of
       using Kubernetes Secrets directly, if you have more complex secret management
       needs. Ensure the solution requires authentication to access secrets, has auditing of
-      access to and use of secrets, and encrypts secrets. Some solutions also make it easier
-      to rotate secrets
+      access to and use of secrets, and encrypts secrets.
     checks: null
     severity: MEDIUM
   - id: 4.5.1
     name: Create administrative boundaries between resources using namespaces (Manual)
-    description: Use namespaces to isolate your Kubernetes objects.
+    description: |
+      Use namespaces to isolate your Kubernetes objects. Limiting the scope of user 
+      permissions reduces the impact of mistakes or malicious activities by partitioning 
+      resources into logically named groups.
     checks: null
     severity: MEDIUM
   - id: 4.5.2
-    name: Apply Security Context to Your Pods and Containers (Automated)
-    description: Apply Security Context to Your Pods and Containers
-    checks:
-      - id: KSV-0021
-      - id: KSV-0020
-      - id: KSV-0005
-      - id: KSV-0025
-      - id: KSV-0104
-      - id: KSV-0030
-    severity: HIGH
-  - id: 4.5.3
     name: The default namespace should not be used (Automated)
     description: |
       Kubernetes provides a default namespace, where objects are placed if no namespace
       is specified for them. Placing objects in this namespace makes application of RBAC and
       other controls more difficult.
     checks:
-     - id: KSV-0110
-    severity: MEDIUM
+      - id: KSV-0110
+    severity: LOW
   - id: 5.1.1
     name: Ensure Image Vulnerability Scanning using Amazon ECR image scanning or a third party provider (Automated)
-    description: Scan images being deployed to Amazon EKS for vulnerabilities.
+    description: |
+      Scan images being deployed to Amazon EKS for vulnerabilities. Software 
+      vulnerabilities can be exploited to obtain unauthorized access to cloud 
+      resources. ECR should be configured with 'scanOnPush=true'.
     checks: null
     severity: MEDIUM
   - id: 5.1.2
     name: Minimize user access to Amazon ECR (Manual)
-    description: Restrict user access to Amazon ECR, limiting interaction with build images to only authorized 
-        personnel and service accounts.
+    description: |
+      Restrict user access to Amazon ECR, limiting interaction with build images to only 
+      authorized personnel and service accounts.
     checks: null
     severity: MEDIUM
   - id: 5.1.3
     name: Minimize cluster access to read-only for Amazon ECR (Manual)
     description: |
-      Configure the Cluster Service Account with Storage Object Viewer Role to only allow
-      read-only access to Amazon ECR
+      Configure the EKS Node IAM Role (NodeInstanceRole) with read-only 
+      permissions to Amazon ECR. Nodes only require pull access to deploy 
+      containers; restricting these permissions prevents credentials from being 
+      abused to modify or delete images.
     checks: null
     severity: MEDIUM
   - id: 5.1.4
@@ -344,12 +379,13 @@ spec:
     checks: null
     severity: MEDIUM
   - id: 5.2.1
-    name: Prefer using dedicated EKS Service Accounts (Manual)
+    name: Prefer using dedicated EKS Service Accounts (Automated)
     description: |
-      Kubernetes workloads should not use cluster node service accounts to authenticate to
-      Amazon EKS APIs. Each Kubernetes workload that needs to authenticate to other AWS
-      services using AWS IAM should be provisioned with a dedicated Service account.
-    checks: null
+      Kubernetes workloads should not use cluster node service accounts to authenticate 
+      to Amazon EKS APIs. Each Kubernetes workload that needs to authenticate to other 
+      AWSservices using AWS IAM should be provisioned with a dedicated Service account.
+    checks:
+      - id: KSV-0036
     severity: MEDIUM
   - id: 5.3.1
     name: Ensure Kubernetes Secrets are encrypted using Customer Master Keys (CMKs) managed in AWS KMS (Manual)
@@ -357,30 +393,34 @@ spec:
     checks: null
     severity: MEDIUM
   - id: 5.4.1
-    name: Restrict Access to the Control Plane Endpoint (Manual)
+    name: Restrict Access to the Control Plane Endpoint (Automated)
     description: Enable Endpoint Private Access to restrict access to the cluster's control plane to only an allowlist of authorized IPs
     checks: null
     severity: MEDIUM
   - id: 5.4.2
-    name: Ensure clusters are created with Private Endpoint Enabled and Public Access Disabled (Manual)
+    name: Ensure clusters are created with Private Endpoint Enabled and Public Access Disabled (Automated)
     description: Disable access to the Kubernetes API from outside the node network if it is not required.
     checks: null
     severity: MEDIUM
   - id: 5.4.3
-    name: Ensure clusters are created with Private Nodes (Manual)
+    name: Ensure clusters are created with Private Nodes (Automated)
     description: Disable public IP addresses for cluster nodes, so that they only have private IP addresses. 
         Private Nodes are nodes with no public IP addresses.
     checks: null
     severity: MEDIUM
   - id: 5.4.4
-    name: Ensure Network Policy is Enabled and set as appropriate (Manual)
+    name: Ensure Network Policy is Enabled and set as appropriate (Automated)
     description: |
-            Amazon EKS provides two ways to implement network policy. You choose a network
-            policy option when you create an EKS cluster. The policy option can't be changed after the cluster is created:
-            Calico Network Policies, an open-source network and network
-            security solution founded by Tigera. Both implementations use Linux IPTables to
-            enforce the specified policies. Policies are translated into sets of allowed and disallowed
-            IP pairs. These pairs are then programmed as IPTable filter rules
+            AmazonEKSNetworkingPolicy is an AWS-managed add-on that provides native
+            support for Kubernetes NetworkPolicy enforcement within Amazon Elastic Kubernetes
+            Service (EKS) clusters. It enables organizations to define and apply fine-grained, 
+            pod-level network access controls that regulate traffic between workloads and external
+            endpoints. Built on an AWS-optimized implementation of Calico, the add-on integrates
+            seamlessly with the EKS control plane to deliver a secure and scalable approach to
+            network segmentation without requiring manual CNI plugin installation. By leveraging
+            AmazonEKSNetworkingPolicy, enterprises can strengthen their cluster security posture,
+            enforce zero-trust networking principles, and ensure compliance with organizational and
+            regulatory access control standards.
     checks: null
     severity: MEDIUM
   - id: 5.4.5
@@ -395,10 +435,5 @@ spec:
       AWS IAM Authenticator for Kubernetes. You can configure the stock kubectl client to
       work with Amazon EKS by installing the AWS IAM Authenticator for Kubernetes and
       modifying your kubectl configuration file to use it for authentication
-    checks: null
-    severity: MEDIUM
-  - id: 5.6.1
-    name: Consider Fargate for running untrusted workloads (Manual)
-    description: It is Best Practice to restrict or fence untrusted workloads when running in a multi-tenant environment.
     checks: null
     severity: MEDIUM
