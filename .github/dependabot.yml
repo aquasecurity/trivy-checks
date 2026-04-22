@@ -6,7 +6,7 @@ updates:
     schedule:
       interval: "weekly"
     cooldown:
-      default-days: 3
+      default-days: 7
     ignore:
       - dependency-name: "github.com/aquasecurity/trivy" ## `trivy` are updated manually
     groups:
@@ -22,6 +22,8 @@ updates:
     directory: /
     schedule:
       interval: "monthly"
+    cooldown:
+      default-days: 7
     groups:
       github-actions:
         patterns:
