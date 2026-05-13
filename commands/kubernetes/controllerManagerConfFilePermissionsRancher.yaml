@@ -1,0 +1,8 @@
+---
+- id: CMD-0053
+  key: controllerManagerConfFilePermissions-rke2
+  title: controller-manager.conf file permissions
+  nodeType: master
+  audit: stat -c %a /var/lib/rancher/rke2/server/cred/controller.kubeconfig
+  platforms:
+    - rke2

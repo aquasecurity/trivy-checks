@@ -3,6 +3,6 @@
   key: etcdDataDirectoryPermissions
   title: Etcd data directory permissions
   nodeType: master
-  audit: stat -c %a /node/var/lib/etcd
+  audit: stat -c %a /var/lib/rancher/rke2/server/db/etcd
   platforms:
     - rke2
