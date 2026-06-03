@@ -29,5 +29,6 @@ test_disallow_bucket_with_logging_disabled if {
 	test.assert_equal_message(
 		"Trail S3 bucket does not have logging enabled",
 		check.deny,
-	) with input as inp
+	)
+		with input as inp
 }
