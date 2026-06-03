@@ -46,7 +46,7 @@ require (
 	github.com/containerd/platforms v1.0.0-rc.2 // indirect
 	github.com/containerd/typeurl/v2 v2.2.3 // indirect
 	github.com/cpuguy83/dockercfg v0.3.2 // indirect
-	github.com/cyphar/filepath-securejoin v0.5.1 // indirect
+	github.com/cyphar/filepath-securejoin v0.6.1 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.4.1 // indirect
 	github.com/dgraph-io/badger/v4 v4.9.1 // indirect
@@ -62,7 +62,7 @@ require (
 	github.com/felixge/httpsnoop v1.0.4 // indirect
 	github.com/fsnotify/fsnotify v1.9.0 // indirect
 	github.com/go-git/gcfg v1.5.1-0.20230307220236-3a3c6141e376 // indirect
-	github.com/go-git/go-billy/v5 v5.6.2 // indirect
+	github.com/go-git/go-billy/v5 v5.9.0 // indirect
 	github.com/go-git/go-git/v5 v5.16.3 // indirect
 	github.com/go-logr/logr v1.4.3 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
