@@ -6,8 +6,8 @@ require (
 	github.com/aquasecurity/go-version v0.0.1
 	github.com/aquasecurity/trivy v0.61.1-0.20250407075540-f1329c7ea1aa
 	github.com/aws-cloudformation/rain v1.24.4
-	github.com/docker/docker v28.5.1+incompatible
 	github.com/hashicorp/hcl/v2 v2.24.0
+	github.com/moby/moby/api v1.54.1
 	github.com/open-policy-agent/opa v1.16.1
 	github.com/owenrumney/squealer v1.2.12
 	github.com/samber/lo v1.53.0
@@ -106,7 +106,6 @@ require (
 	github.com/moby/docker-image-spec v1.3.1 // indirect
 	github.com/moby/go-archive v0.2.0 // indirect
 	github.com/moby/locker v1.0.1 // indirect
-	github.com/moby/moby/api v1.54.1 // indirect
 	github.com/moby/moby/client v0.4.0 // indirect
 	github.com/moby/patternmatcher v0.6.1 // indirect
 	github.com/moby/sys/sequential v0.6.0 // indirect
