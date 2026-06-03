@@ -64,7 +64,7 @@ test_allow_secret_file_without_copy if {
 test_allow_secret_file_copy_with_other_base_path if {
 	inp := build_input([
 		instruction("copy", ["/src", "/src"]),
-		instruction("env", ["GOOGLE_APPLICATION_CREDENTIALS", "=", "./app/google-storage-service.json"]),
+		instruction("env", ["GOOGLE_APPLICATION_CREDENTIALS", "./app/google-storage-service.json", "="]),
 	])
 	res := check.deny with input as inp
 	count(res) = 0
