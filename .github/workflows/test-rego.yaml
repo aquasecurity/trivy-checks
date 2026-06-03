@@ -13,6 +13,9 @@ on:
   merge_group:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   opa-tests:
     name: OPA tests
