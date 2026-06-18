@@ -58,6 +58,10 @@ func (l localTrivy) VersionJSON() ([]byte, error) {
 }
 
 func (l localTrivy) Run(args []string) ([]byte, error) {
+	// Use an isolated cache dir so a stale policy bundle from the default
+	// cache (e.g. ~/.cache/trivy) is never reused after a check changes.
+	cacheDir := filepath.Join(l.targetDir, "trivy-cache")
+	args = append([]string{args[0], "--cache-dir", cacheDir}, args[1:]...)
 	return exec.Command(l.binary, args...).CombinedOutput()
 }
 
