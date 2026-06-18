@@ -22,7 +22,7 @@ cloudformation:
           Properties:
             DistributionConfig:
               DefaultCacheBehavior:
-                ViewerProtocolPolicy: "redirect-to-https"
+                ViewerProtocolPolicy: redirect-to-https
               ViewerCertificate:
                 MinimumProtocolVersion: TLSv1.2_2021
 
@@ -58,7 +58,7 @@ cloudformation:
           Properties:
             DistributionConfig:
               DefaultCacheBehavior:
-                ViewerProtocolPolicy: "redirect-to-https"
+                ViewerProtocolPolicy: redirect-to-https
               ViewerCertificate:
                 MinimumProtocolVersion: TLSv1.2_2021
 
