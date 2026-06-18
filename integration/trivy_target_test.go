@@ -8,6 +8,8 @@ import (
 	"io"
 	"os"
 	"os/exec"
+	"path"
+	"path/filepath"
 
 	"github.com/moby/moby/api/types/container"
 	"github.com/moby/moby/api/types/mount"
@@ -32,8 +34,9 @@ type trivyTarget interface {
 	// Run executes trivy with the given args and returns the combined output,
 	// with a non-nil error when trivy exits with a non-zero code.
 	Run(args []string) ([]byte, error)
-	// BasePath is the path prefix used for --output and the scan target.
-	BasePath() string
+	// Path builds a path under the target's working directory, using the
+	// separator appropriate for where trivy runs (Linux container vs host).
+	Path(elem ...string) string
 }
 
 // newTrivyTarget selects the target based on the TRIVY_BINARY environment variable.
@@ -58,7 +61,9 @@ func (l localTrivy) Run(args []string) ([]byte, error) {
 	return exec.Command(l.binary, args...).CombinedOutput()
 }
 
-func (l localTrivy) BasePath() string { return l.targetDir }
+func (l localTrivy) Path(elem ...string) string {
+	return filepath.Join(append([]string{l.targetDir}, elem...)...)
+}
 
 // containerTrivy runs trivy in a container pinned to a released version.
 // targetDir is mounted at /testdata.
@@ -68,7 +73,9 @@ type containerTrivy struct {
 	targetDir string
 }
 
-func (c containerTrivy) BasePath() string { return "/testdata" }
+func (c containerTrivy) Path(elem ...string) string {
+	return path.Join(append([]string{"/testdata"}, elem...)...)
+}
 
 func (c containerTrivy) VersionJSON() ([]byte, error) {
 	trivy, err := testcontainer.RunTrivy(c.ctx, "aquasec/trivy:"+c.version,
@@ -88,6 +95,8 @@ func (c containerTrivy) VersionJSON() ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
+	defer rc.Close()
+
 	return io.ReadAll(rc)
 }
 
@@ -118,6 +127,8 @@ func (c containerTrivy) Run(args []string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
+	defer rc.Close()
+
 	b, err := io.ReadAll(rc)
 	if err != nil {
 		return nil, err

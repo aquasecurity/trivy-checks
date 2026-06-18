@@ -75,9 +75,9 @@ func TestScanCheckExamples(t *testing.T) {
 				"conf",
 				"--checks-bundle-repository", bundleImage,
 				"--format", "json",
-				"--output", filepath.Join(target.BasePath(), reportFileName),
+				"--output", target.Path(reportFileName),
 				"--include-deprecated-checks=false",
-				filepath.Join(target.BasePath(), "examples"),
+				target.Path("examples"),
 			}
 
 			out, err := target.Run(args)
