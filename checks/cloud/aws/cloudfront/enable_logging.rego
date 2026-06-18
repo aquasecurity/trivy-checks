@@ -41,6 +41,16 @@ deny contains res if {
 	)
 }
 
-without_logging_bucket(dist) if value.is_empty(dist.logging.bucket)
+without_logging_bucket(dist) if {
+	value.is_empty(dist.logging.bucket)
+	not is_v2_enabled(dist)
+}
 
-without_logging_bucket(dist) if not dist.logging.bucket
+without_logging_bucket(dist) if {
+	not dist.logging.bucket
+	not is_v2_enabled(dist)
+}
+
+is_v2_enabled(dist) if {
+	dist.logging.v2.enabled.value == true
+}
