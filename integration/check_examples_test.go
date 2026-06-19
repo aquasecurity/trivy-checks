@@ -7,7 +7,6 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"io"
 	"io/fs"
 	"os"
 	"path/filepath"
@@ -23,7 +22,6 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/testcontainers/testcontainers-go"
 	"github.com/testcontainers/testcontainers-go/modules/registry"
-	"github.com/testcontainers/testcontainers-go/wait"
 
 	"github.com/aquasecurity/go-version/pkg/semver"
 	"github.com/aquasecurity/trivy-checks/integration/testcontainer"
@@ -50,19 +48,26 @@ func TestScanCheckExamples(t *testing.T) {
 
 	bundleImage := registryHost + "/" + "trivy-checks:latest"
 
-	for _, version := range trivyVersions {
+	versions := trivyVersions
+	if localTrivyBinary != "" {
+		versions = []string{"local"}
+	}
+
+	for _, version := range versions {
 		t.Run(version, func(t *testing.T) {
 			verDir := filepath.Join(tmpDir, version)
 			examplesPath := filepath.Join(verDir, "examples")
 
-			trivyVer := getActualTrivyVersion(t, version)
+			targetDir, err := filepath.Abs(verDir)
+			require.NoError(t, err)
+
+			target := newTrivyTarget(ctx, version, targetDir)
+
+			trivyVer := getActualTrivyVersion(t, target)
 			checksMetadata, skipped := setupTarget(t, examplesPath, trivyVer)
 
 			bundlePath := buildBundle(t, verDir, skipped, trivyVer)
 			pushBundle(t, ctx, bundlePath, bundleImage)
-
-			targetDir, err := filepath.Abs(verDir)
-			require.NoError(t, err)
 
 			reportFileName := version + "_" + "report.json"
 
@@ -70,51 +75,21 @@ func TestScanCheckExamples(t *testing.T) {
 				"conf",
 				"--checks-bundle-repository", bundleImage,
 				"--format", "json",
-				"--output", "/testdata/" + reportFileName,
+				"--output", target.Path(reportFileName),
 				"--include-deprecated-checks=false",
-				"/testdata/examples",
+				target.Path("examples"),
 			}
-			trivy, err := testcontainer.RunTrivy(ctx, "aquasec/trivy:"+version, args,
-				testcontainers.CustomizeRequest(testcontainers.GenericContainerRequest{
-					ContainerRequest: testcontainers.ContainerRequest{
-						AlwaysPullImage: false,
-					},
-				}),
-				testcontainers.WithHostConfigModifier(func(hc *container.HostConfig) {
-					hc.NetworkMode = "host"
-					hc.Mounts = []mount.Mount{
-						{
-							Type:   mount.TypeBind,
-							Source: targetDir,
-							Target: "/testdata",
-						},
-					}
-				}),
-			)
-			require.NoError(t, err)
-			t.Cleanup(func() { trivy.Terminate(ctx) })
 
-			rc, err := trivy.Logs(ctx)
-			require.NoError(t, err)
-
-			b, err := io.ReadAll(rc)
-			require.NoError(t, err)
-
-			state, err := trivy.State(t.Context())
-			require.NoError(t, err)
-
-			if state.ExitCode != 0 {
-				t.Fatal(string(b))
+			out, err := target.Run(args)
+			if err != nil {
+				t.Fatalf("trivy run failed: %v\n%s", err, out)
 			}
 
 			// trivy switches to embedded checks if the bundle load fails, so we should check this out
-			if bytes.Contains(b, []byte("Falling back to embedded checks")) {
-				t.Log(string(b))
+			if bytes.Contains(out, []byte("Falling back to embedded checks")) {
+				t.Log(string(out))
 				t.Fatal("Failed to load checks from the bundle")
 			}
-
-			require.NoError(t, err)
-			require.NoError(t, trivy.Terminate(ctx))
 
 			reportPath := filepath.Join(targetDir, reportFileName)
 			report := readTrivyReport(t, reportPath)
@@ -125,32 +100,13 @@ func TestScanCheckExamples(t *testing.T) {
 	}
 }
 
-func getActualTrivyVersion(t *testing.T, version string) semver.Version {
+func getActualTrivyVersion(t *testing.T, target trivyTarget) semver.Version {
 	t.Helper()
 
-	args := []string{
-		"version",
-		"-f", "json",
-		"-q",
-	}
-
-	trivy, err := testcontainer.RunTrivy(t.Context(), "aquasec/trivy:"+version, args,
-		testcontainers.CustomizeRequest(testcontainers.GenericContainerRequest{
-			ContainerRequest: testcontainers.ContainerRequest{
-				WaitingFor: wait.ForExit(),
-			},
-		}),
-	)
-	defer trivy.Terminate(t.Context())
-
-	rc, err := trivy.Logs(t.Context())
-	require.NoError(t, err)
-
-	b, err := io.ReadAll(rc)
+	b, err := target.VersionJSON()
 	require.NoError(t, err)
 
 	t.Logf("Version response: %q", string(b))
-	require.NoError(t, err)
 
 	var resp struct {
 		Version string `json:"Version"`
