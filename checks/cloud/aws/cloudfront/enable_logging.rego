@@ -17,6 +17,7 @@
 #   provider: aws
 #   service: cloudfront
 #   severity: MEDIUM
+#   minimum_trivy_version: 0.72.0
 #   recommended_action: Enable logging for CloudFront distributions
 #   input:
 #     selector:
@@ -35,6 +36,7 @@ import data.lib.cloud.value
 deny contains res if {
 	some dist in input.aws.cloudfront.distributions
 	without_logging_bucket(dist)
+	v2_not_enabled(dist)
 	res := result.new(
 		"Distribution does not have logging enabled",
 		metadata.obj_by_path(dist, ["logging", "bucket"]),
@@ -44,3 +46,7 @@ deny contains res if {
 without_logging_bucket(dist) if value.is_empty(dist.logging.bucket)
 
 without_logging_bucket(dist) if not dist.logging.bucket
+
+v2_not_enabled(dist) if value.is_false(dist.logging.v2.enabled)
+
+v2_not_enabled(dist) if not dist.logging.v2.enabled

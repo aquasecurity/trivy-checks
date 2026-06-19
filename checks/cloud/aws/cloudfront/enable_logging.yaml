@@ -15,6 +15,28 @@ cloudformation:
               Origins:
                 - DomainName: https://some.domain
                   Id: somedomain1
+    - |-
+      Resources:
+        GoodDistV2:
+          Type: AWS::CloudFront::Distribution
+          Properties:
+            DistributionConfig:
+              DefaultCacheBehavior:
+                ViewerProtocolPolicy: redirect-to-https
+              ViewerCertificate:
+                MinimumProtocolVersion: TLSv1.2_2021
+
+        DeliverySource:
+          Type: AWS::Logs::DeliverySource
+          Properties:
+            LogType: ACCESS_LOGS
+            Name: cloudfront-log-delivery-source
+            ResourceArn: !Ref GoodDistV2
+
+        Delivery:
+          Type: AWS::Logs::Delivery
+          Properties:
+            DeliverySourceName: !Ref DeliverySource
   bad:
     - |-
       Resources:
@@ -29,6 +51,23 @@ cloudformation:
               Origins:
                 - DomainName: https://some.domain
                   Id: somedomain1
+    - |-
+      Resources:
+        BadDistV2:
+          Type: AWS::CloudFront::Distribution
+          Properties:
+            DistributionConfig:
+              DefaultCacheBehavior:
+                ViewerProtocolPolicy: redirect-to-https
+              ViewerCertificate:
+                MinimumProtocolVersion: TLSv1.2_2021
+
+        DeliverySource:
+          Type: AWS::Logs::DeliverySource
+          Properties:
+            LogType: ACCESS_LOGS
+            Name: cloudfront-log-delivery-source
+            ResourceArn: !Ref BadDistV2
 terraform:
   links:
     - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution#logging_config
@@ -42,9 +81,41 @@ terraform:
           prefix          = "myprefix"
         }
       }
+    - |-
+      resource "aws_cloudfront_distribution" "good_v2_example" {
+        default_cache_behavior {
+          viewer_protocol_policy = "redirect-to-https"
+        }
+        viewer_certificate {
+          minimum_protocol_version = "TLSv1.2_2021"
+        }
+      }
+
+      resource "aws_cloudwatch_log_delivery_source" "example" {
+        log_type     = "ACCESS_LOGS"
+        resource_arn = aws_cloudfront_distribution.good_v2_example.arn
+      }
+
+      resource "aws_cloudwatch_log_delivery" "example" {
+        delivery_source_name = aws_cloudwatch_log_delivery_source.example.name
+      }
   bad:
     - |-
       resource "aws_cloudfront_distribution" "bad_example" {
         // other config
         // no logging_config
+      }
+    - |-
+      resource "aws_cloudfront_distribution" "bad_v2_example" {
+        default_cache_behavior {
+          viewer_protocol_policy = "redirect-to-https"
+        }
+        viewer_certificate {
+          minimum_protocol_version = "TLSv1.2_2021"
+        }
+      }
+
+      resource "aws_cloudwatch_log_delivery_source" "example" {
+        log_type     = "ACCESS_LOGS"
+        resource_arn = aws_cloudfront_distribution.bad_v2_example.arn
       }

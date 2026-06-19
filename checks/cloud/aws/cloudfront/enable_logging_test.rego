@@ -10,7 +10,22 @@ test_allow_distribution_with_logging if {
 	test.assert_empty(check.deny) with input as inp
 }
 
+test_allow_distribution_with_v2_logging if {
+	inp := {"aws": {"cloudfront": {"distributions": [{"logging": {"bucket": {"value": ""}, "v2": {"enabled": {"value": true}}}}]}}}
+	test.assert_empty(check.deny) with input as inp
+}
+
 test_deny_distribution_without_logging if {
 	inp := {"aws": {"cloudfront": {"distributions": [{"logging": {"bucket": {"value": ""}}}]}}}
+	test.assert_count(check.deny, 1) with input as inp
+}
+
+test_deny_distribution_with_v2_disabled if {
+	inp := {"aws": {"cloudfront": {"distributions": [{"logging": {"bucket": {"value": ""}, "v2": {"enabled": {"value": false}}}}]}}}
+	test.assert_count(check.deny, 1) with input as inp
+}
+
+test_deny_distribution_entirely_missing_logging if {
+	inp := {"aws": {"cloudfront": {"distributions": [{}]}}}
 	test.assert_count(check.deny, 1) with input as inp
 }
