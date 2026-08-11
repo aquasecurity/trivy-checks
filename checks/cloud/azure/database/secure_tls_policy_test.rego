@@ -28,8 +28,18 @@ test_deny_postgresql_server_minimum_tls_version_is_1_0 if {
 test_allow_servers_with_minimum_tls_version_1_2 if {
 	inp := {"azure": {"database": {
 		"mssqlservers": [build_server(check.recommended_mssql_tls_version)],
-		"mysqlservers": [build_server(check.recommended_tls_version)],
-		"postgresqlservers": [build_server(check.recommended_tls_version)],
+		"mysqlservers": [build_server("TLS1_2")],
+		"postgresqlservers": [build_server("TLS1_2")],
+	}}}
+
+	res := check.deny with input as inp
+	count(res) == 0
+}
+
+test_allow_servers_with_minimum_tls_version_1_3 if {
+	inp := {"azure": {"database": {
+		"mysqlservers": [build_server("TLS1_3")],
+		"postgresqlservers": [build_server("TLS1_3")],
 	}}}
 
 	res := check.deny with input as inp

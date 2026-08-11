@@ -30,7 +30,7 @@ import rego.v1
 import data.lib.azure.database
 import data.lib.cloud.metadata
 
-recommended_tls_version := "TLS1_2"
+recommended_tls_versions := {"TLS1_2", "TLS1_3"}
 
 recommended_mssql_tls_version := "1.2"
 
@@ -52,6 +52,6 @@ deny contains res if {
 	)
 }
 
-is_recommended_tls(server) := server.minimumtlsversion.value == recommended_tls_version
+is_recommended_tls(server) := server.minimumtlsversion.value in recommended_tls_versions
 
 is_recommended_mssql_tls(server) := server.minimumtlsversion.value == recommended_mssql_tls_version
