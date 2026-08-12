@@ -12,6 +12,7 @@ var registerOnce sync.Once
 func RegisterBuiltins() {
 	registerOnce.Do(func() {
 		opa.RegisterBuiltin1(rego.ShParseCommandsDecl, rego.ShParseCommandsImpl)
+		opa.RegisterBuiltin1(rego.ShHasPipesDecl, rego.ShHasPipesImpl)
 		opa.RegisterBuiltin1(rego.CidrCountAdressesDecl, rego.CidrCountAdressesImpl)
 		opa.RegisterBuiltin1(rego.CidrIsPublicDecl, rego.CidrIsPublicImpl)
 		opa.RegisterBuiltin1(rego.SquealerScanStringDecl, rego.SquealerScanStringImpl)
