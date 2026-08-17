@@ -27,10 +27,13 @@ package builtin.google.compute.google0039
 
 import rego.v1
 
-tls_v_1_2 := "TLS_1_2"
+import data.lib.cloud.value
+
+allowed_tls_versions := {"TLS_1_2", "TLS_1_3"}
 
 deny contains res if {
 	some policy in input.google.compute.sslpolicies
-	policy.minimumtlsversion.value != tls_v_1_2
+	value.is_known(policy.minimumtlsversion)
+	not policy.minimumtlsversion.value in allowed_tls_versions
 	res := result.new("TLS policy does not specify a minimum of TLS 1.2", policy.minimumtlsversion)
 }
