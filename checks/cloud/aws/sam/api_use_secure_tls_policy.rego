@@ -30,7 +30,6 @@ package builtin.aws.sam.aws0112
 import rego.v1
 
 import data.lib.cloud.metadata
-import data.lib.cloud.value
 
 deny contains res if {
 	some api in input.aws.sam.apis
@@ -41,4 +40,24 @@ deny contains res if {
 	)
 }
 
-is_secure_tls_policy(api) if value.is_equal(api.domainconfiguration.securitypolicy, "TLS_1_2")
+# Every SecurityPolicy value accepted by AWS::ApiGateway::DomainName except
+# TLS_1_0, which is the only one that permits TLS 1.0. The rest negotiate
+# TLS 1.2 or higher, so flagging them as "outdated" is a false positive.
+#
+# This is an allow list rather than a deny list on TLS_1_0 so that a policy
+# AWS introduces later is reported until it has been reviewed, instead of
+# being silently accepted.
+secure_tls_policies := {
+	"TLS_1_2",
+	"SecurityPolicy_TLS13_1_3_2025_09",
+	"SecurityPolicy_TLS13_1_3_FIPS_2025_09",
+	"SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09",
+	"SecurityPolicy_TLS13_1_2_FIPS_PQ_2025_09",
+	"SecurityPolicy_TLS13_1_2_PQ_2025_09",
+	"SecurityPolicy_TLS13_1_2_2021_06",
+	"SecurityPolicy_TLS13_2025_EDGE",
+	"SecurityPolicy_TLS12_PFS_2025_EDGE",
+	"SecurityPolicy_TLS12_2018_EDGE",
+}
+
+is_secure_tls_policy(api) if api.domainconfiguration.securitypolicy.value in secure_tls_policies
