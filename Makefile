@@ -3,7 +3,7 @@ export CGO_ENABLED=0
 SHELL := /bin/bash
 
 OUTDATED_API_DATA_URL := https://raw.githubusercontent.com/aquasecurity/trivy-db-data/refs/heads/main/k8s/api/k8s-outdated-api.json
-OUTDATED_API_CHECK := checks/kubernetes/workloads/outdated_api.rego
+OUTDATED_API_CHECK := checks/kubernetes/outdated_api.rego
 
 ORAS_IMAGE := ghcr.io/oras-project/oras:v1.3.0
 BUNDLE_FILE := bundle.tar.gz
@@ -47,7 +47,7 @@ download-schemas:
 		for file in $(SCHEMAS); do \
 			url="$$base_url/$$file"; \
 			echo "  - $$file"; \
-			wget -q -O $$schemas_path/$$file $$url || { echo "Failed to download $$url"; exit 1; }; \
+			curl -fsS -o $$schemas_path/$$file $$url || { echo "Failed to download $$url"; exit 1; }; \
 		done; \
 	done
 
