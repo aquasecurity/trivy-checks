@@ -8,6 +8,12 @@ terraform:
         profile         = "MODERN"
         min_tls_version = "TLS_1_2"
       }
+    - |-
+      resource "google_compute_ssl_policy" "good_example_tls13" {
+        name            = "production-ssl-policy"
+        profile         = "RESTRICTED"
+        min_tls_version = "TLS_1_3"
+      }
   bad:
     - |-
       resource "google_compute_ssl_policy" "bad_example" {
