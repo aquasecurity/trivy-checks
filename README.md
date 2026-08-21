@@ -10,15 +10,14 @@ Join the community, and talk to us about any matter in [GitHub Discussion](https
 
 The directory structure is broken down as follows:
 
-- `cmd/` - These CLI tools are primarily used during development for end-to-end testing without requiring the use of a library.
-  - `cmd/id` - This command helps generate the next available ID that is free when writing a new check.
-- `checks/` - All the checks are defined in this directory.
-  - `kubernetes/` - Kubernetes-specific security checks
-    - `access/` - RBAC, authentication, and authorization related checks
-    - `network/` - Network security checks including network policies, host network access, and service configurations
-    - `resources/` - Resource quotas, limits, and management checks
-    - `security/` - Core security checks including Pod Security Standards
-    - `workloads/` - Workload-specific security checks
-  - `cloud/kubernetes/` - Cloud-specific Kubernetes security checks
-- `commands/` - All [Node-collector](https://github.com/aquasecurity/k8s-node-collector) commands are defined in this directory.
-- `test/` - Integration tests and other high-level tests that require a full build of the project.
+- `checks/` - the checks themselves, grouped by target: `cloud/<provider>/<service>/`, `docker/`, `kubernetes/`.
+- `lib/` - shared Rego helpers the checks import: `lib/cloud`, `lib/kubernetes`, `lib/docker`, `lib/test`.
+- `avd_docs/` - documentation generated from the check examples by `make docs`, published on [avd.aquasec.com](https://avd.aquasec.com/).
+- `commands/` - [Node-collector](https://github.com/aquasecurity/k8s-node-collector) commands.
+- `pkg/compliance/` - compliance report specs, one yaml per report ID.
+- `cmd/` - development tools, e.g. `cmd/id` for the next free check ID and `cmd/avd_generator` behind `make docs`.
+- `examples/` - sample IaC and custom checks used by the integration tests.
+- `integration/` - integration tests that run real Trivy.
+- `test/` - Go tests over the checks and their metadata.
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to write a check.
