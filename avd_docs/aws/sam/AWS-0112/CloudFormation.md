@@ -12,5 +12,16 @@ Resources:
       StageName: Prod
       TracingEnabled: false
 ```
+```yaml
+Resources:
+  GoodExampleTls13:
+    Type: AWS::Serverless::Api
+    Properties:
+      Domain:
+        SecurityPolicy: SecurityPolicy_TLS13_1_2_2021_06
+      Name: Good SAM API example with TLS 1.3
+      StageName: Prod
+      TracingEnabled: false
+```
 
 
