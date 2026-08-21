@@ -30,19 +30,33 @@ package builtin.aws.elasticsearch.aws0126
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some domain in input.aws.elasticsearch.domains
-	not is_tls_policy_secure(domain)
+	non_compliant_tls(domain)
 	res := result.new(
 		"Domain does not have a secure TLS policy.",
 		metadata.obj_by_path(domain, ["endpoint", "tlspolicy"]),
 	)
 }
 
-recommended_tls_policies := {
-	"Policy-Min-TLS-1-2-2019-07",
-	"Policy-Min-TLS-1-2-PFS-2023-10",
+# A missing TLS policy is a misconfiguration: report it.
+non_compliant_tls(domain) if not domain.endpoint.tlspolicy
+
+# A present but resolved value is only compliant when it matches one of the
+# secure policy families. Matching by prefix (rather than an exact allowlist)
+# also accepts newer entries such as Policy-Min-TLS-1-2-RFC9151-FIPS-2024-08
+# and any future TLS 1.3-minimum family, while still rejecting
+# Policy-Min-TLS-1-0-2019-07.
+non_compliant_tls(domain) if {
+	value.is_known(domain.endpoint.tlspolicy)
+	not is_tls_policy_secure(domain)
 }
 
-is_tls_policy_secure(domain) if domain.endpoint.tlspolicy.value in recommended_tls_policies
+secure_tls_policies := ["Policy-Min-TLS-1-2-*", "Policy-Min-TLS-1-3-*"]
+
+is_tls_policy_secure(domain) if {
+	some p in secure_tls_policies
+	glob.match(p, [], domain.endpoint.tlspolicy.value)
+}
