@@ -15,7 +15,7 @@
 #     - drop-caps-add-bind-svc
 #     - kubernetes-drop-caps-add-bind-svc
 #   severity: LOW
-#   recommended_action: "Set 'spec.containers[*].securityContext.capabilities.drop' to 'ALL' and only add 'NET_BIND_SERVICE' to 'spec.containers[*].securityContext.capabilities.add'."
+#   recommended_action: "Set 'spec.containers[*].securityContext.capabilities.drop', 'spec.initContainers[*].securityContext.capabilities.drop' and 'spec.ephemeralContainers[*].securityContext.capabilities.drop' to 'ALL' and only add 'NET_BIND_SERVICE'."
 #   input:
 #     selector:
 #     - type: kubernetes
@@ -30,13 +30,33 @@ hasDropAll(container) if {
 }
 
 containersWithoutDropAll contains container if {
-	container := kubernetes.containers[_]
-	not hasDropAll(container)
+        container := kubernetes.containers[_]
+        not hasDropAll(container)
+}
+
+containersWithoutDropAll contains container if {
+        container := kubernetes.initContainers[_]
+        not hasDropAll(container)
+}
+
+containersWithoutDropAll contains container if {
+        container := kubernetes.ephemeralContainers[_]
+        not hasDropAll(container)
 }
 
 containersWithDropAll contains container if {
-	container := kubernetes.containers[_]
-	hasDropAll(container)
+        container := kubernetes.containers[_]
+        hasDropAll(container)
+}
+
+containersWithDropAll contains container if {
+        container := kubernetes.initContainers[_]
+        hasDropAll(container)
+}
+
+containersWithDropAll contains container if {
+        container := kubernetes.ephemeralContainers[_]
+        hasDropAll(container)
 }
 
 deny contains res if {
