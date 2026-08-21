@@ -10,10 +10,6 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func init() {
-	os.Setenv("TESTCONTAINERS_RYUK_DISABLED", "true")
-}
-
 func readTrivyReport(t *testing.T, outputFile string) []Result {
 	t.Helper()
 

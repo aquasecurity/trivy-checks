@@ -19,6 +19,8 @@ import (
 )
 
 func TestCustomChecks(t *testing.T) {
+	examplesPath, err := filepath.Abs("../examples")
+	require.NoError(t, err)
 
 	tests := []struct {
 		dir        string
@@ -103,9 +105,6 @@ func TestCustomChecks(t *testing.T) {
 
 			args = append(args, tt.args...)
 
-			examplesPath, err := filepath.Abs("../examples")
-			require.NoError(t, err)
-
 			reportPath := filepath.Join(examplesPath, tt.dir, outputFile)
 
 			trivy, err := testcontainer.RunTrivy(t.Context(), "aquasec/trivy:latest", args,
@@ -154,7 +153,7 @@ func TestCustomChecks(t *testing.T) {
 			}
 
 			require.Len(t, fails, 1)
-			assert.Equal(t, expected, lo.Values(fails)[0])
+			assert.Equal(t, expected, fails[results[0].Target])
 		})
 	}
 }
