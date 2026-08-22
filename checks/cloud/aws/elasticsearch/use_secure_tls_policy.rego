@@ -31,8 +31,14 @@ import rego.v1
 
 import data.lib.cloud.metadata
 
+secure_tls_policies := [
+	"Policy-Min-TLS-1-2-*",
+	"Policy-Min-TLS-1-3-*",
+]
+
 deny contains res if {
 	some domain in input.aws.elasticsearch.domains
+	value.is_known(domain.endpoint.tlspolicy)
 	not is_tls_policy_secure(domain)
 	res := result.new(
 		"Domain does not have a secure TLS policy.",
@@ -40,9 +46,7 @@ deny contains res if {
 	)
 }
 
-recommended_tls_policies := {
-	"Policy-Min-TLS-1-2-2019-07",
-	"Policy-Min-TLS-1-2-PFS-2023-10",
+is_tls_policy_secure(domain) if {
+	some pattern in secure_tls_policies
+	glob.match(pattern, [], domain.endpoint.tlspolicy.value)
 }
-
-is_tls_policy_secure(domain) if domain.endpoint.tlspolicy.value in recommended_tls_policies
