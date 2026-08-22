@@ -30,13 +30,12 @@ package builtin.aws.apigateway.aws0005
 
 import rego.v1
 
+import data.lib.aws.apigateway as apigateway
 import data.lib.cloud.metadata
-
-policies := ["TLS_1_2", "SecurityPolicy_TLS12_*_EDGE", "SecurityPolicy_TLS13_*"]
 
 deny contains res if {
 	some domain in input.aws.apigateway.v1.domainnames
-	not is_SecurityPolicy_TLS12(domain)
+	apigateway.is_outdated_security_policy(domain.securitypolicy)
 	res := result.new(
 		"Domain name is configured with an outdated TLS policy.",
 		metadata.obj_by_path(domain, "securitypolicy"),
@@ -45,14 +44,9 @@ deny contains res if {
 
 deny contains res if {
 	some domain in input.aws.apigateway.v2.domainnames
-	not is_SecurityPolicy_TLS12(domain)
+	apigateway.is_outdated_security_policy(domain.securitypolicy)
 	res := result.new(
 		"Domain name is configured with an outdated TLS policy.",
 		metadata.obj_by_path(domain, "securitypolicy"),
 	)
-}
-
-is_SecurityPolicy_TLS12(domain) if {
-	some p in policies
-	glob.match(p, [], domain.securitypolicy.value)
 }
