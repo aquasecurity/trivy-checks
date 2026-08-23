@@ -40,9 +40,12 @@ deny contains res if {
 	)
 }
 
-recommended_tls_policies := {
-	"Policy-Min-TLS-1-2-2019-07",
-	"Policy-Min-TLS-1-2-PFS-2023-10",
-}
+# Patterns rather than exact names, so policies added to the same families
+# are covered without a change here.
+secure_tls_policies := ["Policy-Min-TLS-1-2-*", "Policy-Min-TLS-1-3-*"]
 
-is_tls_policy_secure(domain) if domain.endpoint.tlspolicy.value in recommended_tls_policies
+is_tls_policy_secure(domain) if {
+	value.is_known(domain.endpoint.tlspolicy)
+	some p in secure_tls_policies
+	glob.match(p, [], domain.endpoint.tlspolicy.value)
+}
