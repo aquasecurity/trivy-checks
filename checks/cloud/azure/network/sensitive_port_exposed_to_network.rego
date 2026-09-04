@@ -61,18 +61,35 @@ deny contains res if {
 	rule.allow.value
 	not rule.outbound.value
 	lower(rule.protocol.value) != "icmp"
-	some ports in rule.destinationports
-	some sensitive_port in sensitive_ports
-	net.is_port_range_include(ports.start.value, ports.end.value, sensitive_port)
 	some ip in rule.sourceaddresses
 	net.cidr_allows_all_ips(ip.value)
+
+	exposed := sort({sensitive_port |
+		some ports in rule.destinationports
+		some sensitive_port in sensitive_ports
+		net.is_port_range_include(ports.start.value, ports.end.value, sensitive_port)
+	})
+	count(exposed) > 0
+
 	res := result.new(
-		sprintf("Security group rule allows unrestricted ingress to sensitive port %d from any IP address.", [sensitive_port]),
+		sprintf("Security group rule allows unrestricted ingress to sensitive %s from any IP address.", [exposed_ports(exposed)]),
 		ip,
 	)
 }
 
-port_range_includes(from, to, port) if {
-	from.value <= port
-	port <= to.value
+max_listed_ports := 5
+
+exposed_ports(ports) := sprintf("port %d", [ports[0]]) if count(ports) == 1
+
+exposed_ports(ports) := sprintf("ports %s", [format_ports(ports)]) if count(ports) > 1
+
+format_ports(ports) := join_ports(ports) if count(ports) <= max_listed_ports
+
+format_ports(ports) := sprintf("%s and %d more", [
+	join_ports(array.slice(ports, 0, max_listed_ports)),
+	count(ports) - max_listed_ports,
+]) if {
+	count(ports) > max_listed_ports
 }
+
+join_ports(ports) := concat(", ", [format_int(port, 10) | some port in ports])
