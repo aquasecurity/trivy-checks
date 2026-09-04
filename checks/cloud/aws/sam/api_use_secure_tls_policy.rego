@@ -32,6 +32,10 @@ import rego.v1
 import data.lib.cloud.metadata
 import data.lib.cloud.value
 
+# Patterns rather than exact names, so policies added to the same families
+# are covered without a change here.
+secure_security_policies := ["TLS_1_2", "SecurityPolicy_TLS12_*_EDGE", "SecurityPolicy_TLS13_*"]
+
 deny contains res if {
 	some api in input.aws.sam.apis
 	not is_secure_tls_policy(api)
@@ -41,4 +45,8 @@ deny contains res if {
 	)
 }
 
-is_secure_tls_policy(api) if value.is_equal(api.domainconfiguration.securitypolicy, "TLS_1_2")
+is_secure_tls_policy(api) if {
+	value.is_known(api.domainconfiguration.securitypolicy)
+	some p in secure_security_policies
+	glob.match(p, [], api.domainconfiguration.securitypolicy.value)
+}
