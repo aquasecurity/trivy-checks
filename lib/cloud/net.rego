@@ -14,6 +14,11 @@ rdp_port := 3389
 
 all_ips := {"0.0.0.0/0", "0000:0000:0000:0000:0000:0000:0000:0000/0", "::/0", "*"}
 
+# Some providers accept a keyword in place of a CIDR. Azure network security groups
+# use the "Internet" service tag to mean the public internet address space.
+# https://learn.microsoft.com/en-us/azure/virtual-network/service-tags-overview
+all_ips_keywords := {"internet", "any"}
+
 # "-1" or "all" equivalent to all protocols
 # https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_firewall#protocol
@@ -50,6 +55,8 @@ is_port_range_include(from, to, port) if {
 
 # check if CIDR defines an IP block containing all possible IP addresses
 cidr_allows_all_ips(cidr) if cidr in all_ips
+
+cidr_allows_all_ips(cidr) if lower(cidr) in all_ips_keywords
 
 protocol(v) := lower(v) if is_string(v)
 
