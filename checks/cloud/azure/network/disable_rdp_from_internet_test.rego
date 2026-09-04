@@ -20,6 +20,22 @@ test_deny_inbound_rule_allows_rdp_access_from_internet if {
 	count(res) == 1
 }
 
+test_deny_inbound_rule_allows_rdp_access_from_internet_service_tag if {
+	inp := {"azure": {"network": {"securitygroups": [{"rules": [{
+		"outbound": {"value": false},
+		"allow": {"value": true},
+		"protocol": {"value": "Tcp"},
+		"sourceaddresses": [{"value": "Internet"}],
+		"destinationports": [{
+			"start": {"value": 3310},
+			"end": {"value": 3390},
+		}],
+	}]}]}}}
+
+	res := check.deny with input as inp
+	count(res) == 1
+}
+
 test_allow_inbound_rule_allow_rdp_access_from_specific_address if {
 	inp := {"azure": {"network": {"securitygroups": [{"rules": [{
 		"outbound": {"value": false},

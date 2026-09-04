@@ -55,6 +55,22 @@ test_deny_all_ports_exposed if {
 	res[_].msg == "Security group rule allows unrestricted ingress to sensitive ports 20, 21, 23, 25, 53 and 14 more from any IP address."
 }
 
+test_deny_sensitive_port_exposed_to_internet_service_tag if {
+	inp := {"azure": {"network": {"securitygroups": [{"rules": [{
+		"allow": {"value": true},
+		"outbound": {"value": false},
+		"protocol": {"value": "TCP"},
+		"destinationports": [{
+			"start": {"value": 23},
+			"end": {"value": 23},
+		}],
+		"sourceaddresses": [{"value": "Internet"}],
+	}]}]}}}
+
+	res := check.deny with input as inp
+	count(res) == 1
+}
+
 test_allow_non_sensitive_port if {
 	inp := {"azure": {"network": {"securitygroups": [{"rules": [{
 		"allow": {"value": true},

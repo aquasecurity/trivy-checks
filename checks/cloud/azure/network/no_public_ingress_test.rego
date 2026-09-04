@@ -15,6 +15,17 @@ test_deny_inbound_rule_with_wildcard_source_address if {
 	count(res) == 1
 }
 
+test_deny_inbound_rule_with_internet_service_tag_source_address if {
+	inp := {"azure": {"network": {"securitygroups": [{"rules": [{
+		"allow": {"value": true},
+		"outbound": {"value": false},
+		"sourceaddresses": [{"value": "Internet"}],
+	}]}]}}}
+
+	res := check.deny with input as inp
+	count(res) == 1
+}
+
 test_allow_inbound_rule_with_private_source_address if {
 	inp := {"azure": {"network": {"securitygroups": [{"rules": [{
 		"allow": {"value": true},
