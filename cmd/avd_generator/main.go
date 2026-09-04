@@ -33,7 +33,7 @@ func generateDocs(path string) {
 		generateCount++
 	}
 
-	fmt.Printf("\nGenerated %d files in %s\n", generateCount, path)
+	fmt.Printf("Generated %d files in %s\n", generateCount, path)
 }
 
 func writeDocsFile(meta metadata.Metadata, path string) {
@@ -61,8 +61,6 @@ func writeDocsFile(meta metadata.Metadata, path string) {
 	if err := tmpl.Execute(file, meta); err != nil {
 		fail("error occurred generating the document %s", err.Error())
 	}
-
-	fmt.Printf("Generating docs file for policy %s\n", meta.ID())
 
 	exmpls, path, err := examples.GetCheckExamples(meta)
 	if err != nil {
@@ -115,7 +113,6 @@ func generateProviderExamplesDocs(
 	if err := tmpl.Execute(file, data); err != nil {
 		return fmt.Errorf("execute template: %w", err)
 	}
-	fmt.Printf("Generating %s file for policy %s\n", provider, meta.ID())
 
 	return nil
 }
