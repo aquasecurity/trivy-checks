@@ -29,20 +29,14 @@ package builtin.aws.elasticsearch.aws0126
 
 import rego.v1
 
+import data.lib.cloud.aws.apigateway
 import data.lib.cloud.metadata
 
 deny contains res if {
 	some domain in input.aws.elasticsearch.domains
-	not is_tls_policy_secure(domain)
+	apigateway.is_outdated_elasticsearch_tls_policy(domain.endpoint.tlspolicy)
 	res := result.new(
 		"Domain does not have a secure TLS policy.",
 		metadata.obj_by_path(domain, ["endpoint", "tlspolicy"]),
 	)
 }
-
-recommended_tls_policies := {
-	"Policy-Min-TLS-1-2-2019-07",
-	"Policy-Min-TLS-1-2-PFS-2023-10",
-}
-
-is_tls_policy_secure(domain) if domain.endpoint.tlspolicy.value in recommended_tls_policies
