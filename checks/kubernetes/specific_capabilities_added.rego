@@ -15,7 +15,7 @@
 #     - no-non-default-capabilities
 #     - kubernetes-no-non-default-capabilities
 #   severity: MEDIUM
-#   recommended_action: "Do not set spec.containers[*].securityContext.capabilities.add and spec.initContainers[*].securityContext.capabilities.add."
+#   recommended_action: "Do not set capabilities beyond the default set. Allowed capabilities: AUDIT_WRITE, CHOWN, DAC_OVERRIDE, FOWNER, FSETID, KILL, MKNOD, NET_BIND_SERVICE, SETFCAP, SETGID, SETPCAP, SETUID, SYS_CHROOT."
 #   input:
 #     selector:
 #     - type: kubernetes
@@ -39,26 +39,29 @@ import data.lib.kubernetes
 default failAdditionalCaps := false
 
 # Add allowed capabilities to this set
-allowed_caps := set()
-
-# getContainersWithDisallowedCaps returns a list of containers which have
-# additional capabilities not included in the allowed capabilities list
-getContainersWithDisallowedCaps contains container if {
-	container := kubernetes.containers[_]
-	set_caps := {cap | cap := container.securityContext.capabilities.add[_]}
-	caps_not_allowed := set_caps - allowed_caps
-	count(caps_not_allowed) > 0
-}
-
-# cap_msg is a string of allowed capabilities to be print as part of deny message
-caps_msg := "" if {
-	count(allowed_caps) == 0
-} else := msg if {
-	msg := sprintf(" or set it to the following allowed values: %s", [concat(", ", allowed_caps)])
+allowed_caps := {
+    "AUDIT_WRITE",
+    "CHOWN",
+    "DAC_OVERRIDE",
+    "FOWNER",
+    "FSETID",
+    "KILL",
+    "MKNOD",
+    "NET_BIND_SERVICE",
+    "SETFCAP",
+    "SETGID",
+    "SETPCAP",
+    "SETUID",
+    "SYS_CHROOT",
 }
 
 deny contains res if {
-	output := getContainersWithDisallowedCaps[_]
-	msg := sprintf("Container '%s' of %s '%s' should not set 'securityContext.capabilities.add'%s", [output.name, kubernetes.kind, kubernetes.name, caps_msg])
-	res := result.new(msg, output)
+    container := kubernetes.containers[_]
+    disallowed := {cap | cap := container.securityContext.capabilities.add[_]; not cap in allowed_caps}
+    count(disallowed) > 0
+    msg := sprintf(
+        "Container '%s' of %s '%s' adds disallowed capabilities: %s",
+        [container.name, kubernetes.kind, kubernetes.name, concat(", ", disallowed)],
+    )
+    res := result.new(msg, container)
 }
