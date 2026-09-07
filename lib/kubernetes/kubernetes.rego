@@ -97,19 +97,19 @@ split_image(image) := [image_name, tag] if {
 }
 
 pod_containers(pod) := all_containers if {
-	keys = {"containers", "initContainers"}
-	all_containers = [c |
-		keys[k]
-		some container in pod.spec[k]
-		c := json.patch(
-			container,
-			[{
-				"op": "add",
-				"path": "securityContext",
-				"value": k8s_sec_context.resolve_container_sec_context(pod, container),
-			}],
-		)
-	]
+        keys = {"containers", "initContainers", "ephemeralContainers"}
+        all_containers = [c |
+                keys[k]
+                some container in pod.spec[k]
+                c := json.patch(
+                        container,
+                        [{
+                                "op": "add",
+                                "path": "securityContext",
+                                "value": k8s_sec_context.resolve_container_sec_context(pod, container),
+                        }],
+                )
+        ]
 }
 
 containers contains container if {

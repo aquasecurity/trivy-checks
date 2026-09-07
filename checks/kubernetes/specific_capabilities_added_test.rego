@@ -82,3 +82,35 @@ test_no_capabilities_allowed if {
 
 	count(r) == 0
 }
+
+test_capabilities_add_denied_init_container if {
+        r := deny with input as {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "metadata": {"name": "hello-add-capabilities"},
+                "spec": {"initContainers": [{
+                        "image": "busybox",
+                        "name": "hello-init",
+                        "securityContext": {"capabilities": {"add": ["NET_BIND_SERVICE"]}},
+                }]},
+        }
+
+        count(r) == 1
+        r[_].msg == "Container 'hello-init' of Pod 'hello-add-capabilities' should not set 'securityContext.capabilities.add'"
+}
+
+test_capabilities_add_denied_ephemeral_container if {
+        r := deny with input as {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "metadata": {"name": "hello-add-capabilities"},
+                "spec": {"ephemeralContainers": [{
+                        "image": "busybox",
+                        "name": "hello-ephemeral",
+                        "securityContext": {"capabilities": {"add": ["NET_BIND_SERVICE"]}},
+                }]},
+        }
+
+        count(r) == 1
+        r[_].msg == "Container 'hello-ephemeral' of Pod 'hello-add-capabilities' should not set 'securityContext.capabilities.add'"
+}
