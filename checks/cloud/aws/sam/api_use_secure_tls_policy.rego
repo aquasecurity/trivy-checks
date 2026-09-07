@@ -29,16 +29,14 @@ package builtin.aws.sam.aws0112
 
 import rego.v1
 
+import data.lib.aws.apigateway as apigateway
 import data.lib.cloud.metadata
-import data.lib.cloud.value
 
 deny contains res if {
 	some api in input.aws.sam.apis
-	not is_secure_tls_policy(api)
+	apigateway.is_outdated_security_policy(api.domainconfiguration.securitypolicy)
 	res := result.new(
 		"Domain name is configured with an outdated TLS policy.",
 		metadata.obj_by_path(api, ["domainconfiguration", "securitypolicy"]),
 	)
 }
-
-is_secure_tls_policy(api) if value.is_equal(api.domainconfiguration.securitypolicy, "TLS_1_2")

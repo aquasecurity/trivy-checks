@@ -17,6 +17,18 @@ test_allow_use_secure_tls_policy_2 if {
 	test.assert_empty(check.deny) with input as inp
 }
 
+test_allow_use_secure_tls_policy_fips if {
+	inp := {"aws": {"elasticsearch": {"domains": [{"endpoint": {"tlspolicy": {"value": "Policy-Min-TLS-1-2-RFC9151-FIPS-2024-08"}}}]}}}
+
+	test.assert_empty(check.deny) with input as inp
+}
+
+test_allow_unresolvable_tls_policy if {
+	inp := {"aws": {"elasticsearch": {"domains": [{"endpoint": {"tlspolicy": {}}}]}}}
+
+	test.assert_empty(check.deny) with input as inp
+}
+
 test_deny_does_not_use_secure_tls_policy if {
 	inp := {"aws": {"elasticsearch": {"domains": [{"endpoint": {"tlspolicy": {"value": "Policy-Min-TLS-1-0-2019-07"}}}]}}}
 
