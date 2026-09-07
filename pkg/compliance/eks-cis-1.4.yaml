@@ -15,7 +15,8 @@ spec:
       The API server audit logs record all accepted and rejected requests in the cluster. 
       When enabled via EKS configuration the control plane logs for a cluster are exported to a CloudWatch 
       Log Group for persistence.
-    checks: null
+    checks: 
+      - id: AWS-0038
     severity: MEDIUM
   - id: 3.1.1
     name: Ensure that the kubeconfig file permissions are set to 644 or more restrictive (Manual)
@@ -115,7 +116,8 @@ spec:
       maximum event creations per second. Setting this too low could result in relevant
       events not being logged, however the unlimited setting of 0 could result in a denial of
       service on the kubelet.
-    checks: null
+    checks:
+      - id: KCV-0087
     severity: HIGH
   - id: 3.2.8
     name: Ensure that the --rotate-certificates argument is not present or is set to true (Automated)
@@ -196,7 +198,8 @@ spec:
     description: |
       Service accounts tokens should not be mounted in pods except where the workload
       running in the pod explicitly needs to communicate with the API server
-    checks: null
+    checks:
+      - id: KSV-0036
     severity: HIGH
   - id: 4.1.7
     name: Avoid use of system:masters group (Manual)
@@ -357,17 +360,20 @@ spec:
   - id: 5.3.1
     name: Ensure Kubernetes Secrets are encrypted using Customer Master Keys (CMKs) managed in AWS KMS (Manual)
     description: Encrypt Kubernetes secrets, stored in etcd, using secrets encryption feature during Amazon EKS cluster creation.
-    checks: null
+    checks:
+      - id: AWS-0039
     severity: MEDIUM
   - id: 5.4.1
     name: Restrict Access to the Control Plane Endpoint (Manual)
     description: Enable Endpoint Private Access to restrict access to the cluster's control plane to only an allowlist of authorized IPs
-    checks: null
+    checks:
+      - id: AWS-0041
     severity: MEDIUM
   - id: 5.4.2
     name: Ensure clusters are created with Private Endpoint Enabled and Public Access Disabled (Manual)
     description: Disable access to the Kubernetes API from outside the node network if it is not required.
-    checks: null
+    checks:
+      - id: AWS-0040
     severity: MEDIUM
   - id: 5.4.3
     name: Ensure clusters are created with Private Nodes (Manual)
