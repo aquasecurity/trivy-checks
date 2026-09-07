@@ -22,3 +22,25 @@ test_deny_does_not_use_secure_tls_policy if {
 
 	test.assert_equal_message("Domain does not have a secure TLS policy.", check.deny) with input as inp
 }
+
+# Regression for https://github.com/aquasecurity/trivy/issues/11118:
+# Policy-Min-TLS-1-2-RFC9151-FIPS-2024-08 is the strictest current policy and must not be flagged.
+test_allow_use_secure_tls_policy_fips if {
+	inp := {"aws": {"elasticsearch": {"domains": [{"endpoint": {"tlspolicy": {"value": "Policy-Min-TLS-1-2-RFC9151-FIPS-2024-08"}}}]}}}
+
+	test.assert_empty(check.deny) with input as inp
+}
+
+# Future-proofing: any TLS 1.3-minimum policy should also be accepted.
+test_allow_use_secure_tls_policy_tls13 if {
+	inp := {"aws": {"elasticsearch": {"domains": [{"endpoint": {"tlspolicy": {"value": "Policy-Min-TLS-1-3-2025-01"}}}]}}}
+
+	test.assert_empty(check.deny) with input as inp
+}
+
+# Unresolvable values (e.g. from Terraform variables) must not produce a false positive.
+test_no_finding_for_unresolved_tls_policy if {
+	inp := {"aws": {"elasticsearch": {"domains": [{"endpoint": {"tlspolicy": {"value": "", "unresolvable": true}}}]}}}
+
+	test.assert_empty(check.deny) with input as inp
+}
