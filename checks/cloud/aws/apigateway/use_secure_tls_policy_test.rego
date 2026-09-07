@@ -25,3 +25,9 @@ test_deny_with_tls_1_0 if {
 	inp := {"aws": {"apigateway": {"v1": {"domainnames": [{"securitypolicy": {"value": "TLS_1_0"}}]}}}}
 	test.assert_count(check.deny, 1) with input as inp
 }
+
+test_allow_with_unresolvable_policy if {
+	# An unresolvable value must not produce a finding (no false positive).
+	inp := {"aws": {"apigateway": {"v1": {"domainnames": [{"securitypolicy": {"value": "", "unresolvable": true}}]}}}}
+	test.assert_empty(check.deny) with input as inp
+}
