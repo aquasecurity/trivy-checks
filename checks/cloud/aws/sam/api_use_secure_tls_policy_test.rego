@@ -16,3 +16,27 @@ test_allow_tls_v_1_2 if {
 
 	test.assert_empty(check.deny) with input as inp
 }
+
+test_allow_security_policy_tls12_edge if {
+	inp := {"aws": {"sam": {"apis": [{"domainconfiguration": {"securitypolicy": {"value": "SecurityPolicy_TLS12_2018_EDGE"}}}]}}}
+
+	test.assert_empty(check.deny) with input as inp
+}
+
+test_allow_security_policy_tls13 if {
+	inp := {"aws": {"sam": {"apis": [{"domainconfiguration": {"securitypolicy": {"value": "SecurityPolicy_TLS13_1_2_2021_06"}}}]}}}
+
+	test.assert_empty(check.deny) with input as inp
+}
+
+test_allow_security_policy_tls13_fips if {
+	inp := {"aws": {"sam": {"apis": [{"domainconfiguration": {"securitypolicy": {"value": "SecurityPolicy_TLS13_1_3_FIPS_2025_09"}}}]}}}
+
+	test.assert_empty(check.deny) with input as inp
+}
+
+test_deny_unresolvable_value if {
+	inp := {"aws": {"sam": {"apis": [{"domainconfiguration": {"securitypolicy": {"value": "unresolvable"}}}]}}}
+
+	test.assert_count(check.deny, 1) with input as inp
+}
