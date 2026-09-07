@@ -15,7 +15,7 @@
 #     - no-root
 #     - kubernetes-no-root
 #   severity: MEDIUM
-#   recommended_action: "Set 'containers[].securityContext.runAsNonRoot' to true."
+#   recommended_action: "Set 'containers[].securityContext.runAsNonRoot', 'initContainers[].securityContext.runAsNonRoot' and 'ephemeralContainers[].securityContext.runAsNonRoot' to true."
 #   input:
 #     selector:
 #     - type: kubernetes
@@ -38,21 +38,38 @@ import data.lib.kubernetes
 
 default checkRunAsNonRoot := false
 
-# getNonRootContainers returns the names of all containers which have
-# securityContext.runAsNonRoot set to true.
 getNonRootContainers contains container if {
-	allContainers := kubernetes.containers[_]
-	allContainers.securityContext.runAsNonRoot == true
-	container := allContainers.name
+        allContainers := kubernetes.containers[_]
+        allContainers.securityContext.runAsNonRoot == true
+        container := allContainers.name
 }
 
-# getRootContainers returns the names of all containers which have
-# securityContext.runAsNonRoot set to false or not set.
+getNonRootContainers contains container if {
+        allContainers := kubernetes.initContainers[_]
+        allContainers.securityContext.runAsNonRoot == true
+        container := allContainers.name
+}
+
+getNonRootContainers contains container if {
+        allContainers := kubernetes.ephemeralContainers[_]
+        allContainers.securityContext.runAsNonRoot == true
+        container := allContainers.name
+}
+
 getRootContainers contains container if {
-	container := kubernetes.containers[_]
-	not getNonRootContainers[container.name]
+        container := kubernetes.containers[_]
+        not getNonRootContainers[container.name]
 }
 
+getRootContainers contains container if {
+        container := kubernetes.initContainers[_]
+        not getNonRootContainers[container.name]
+}
+
+getRootContainers contains container if {
+        container := kubernetes.ephemeralContainers[_]
+        not getNonRootContainers[container.name]
+}
 # checkRunAsNonRoot is true if securityContext.runAsNonRoot is set to false
 # or if securityContext.runAsNonRoot is not set.
 checkRunAsNonRootContainers if {

@@ -95,3 +95,58 @@ test_run_as_non_root_set_to_true_for_container_allowed if {
 
 	count(r) == 0
 }
+
+
+test_run_as_non_root_not_set_init_container_denied if {
+        r := deny with input as {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "metadata": {"name": "hello-run-as-root"},
+                "spec": {"initContainers": [{
+                        "image": "busybox",
+                        "name": "hello-init",
+                }]},
+        }
+        count(r) == 1
+}
+
+test_run_as_non_root_set_to_true_init_container_allowed if {
+        r := deny with input as {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "metadata": {"name": "hello-run-as-root"},
+                "spec": {"initContainers": [{
+                        "image": "busybox",
+                        "name": "hello-init",
+                        "securityContext": {"runAsNonRoot": true},
+                }]},
+        }
+        count(r) == 0
+}
+
+test_run_as_non_root_not_set_ephemeral_container_denied if {
+        r := deny with input as {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "metadata": {"name": "hello-run-as-root"},
+                "spec": {"ephemeralContainers": [{
+                        "image": "busybox",
+                        "name": "hello-ephemeral",
+                }]},
+        }
+        count(r) == 1
+}
+
+test_run_as_non_root_set_to_true_ephemeral_container_allowed if {
+        r := deny with input as {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "metadata": {"name": "hello-run-as-root"},
+                "spec": {"ephemeralContainers": [{
+                        "image": "busybox",
+                        "name": "hello-ephemeral",
+                        "securityContext": {"runAsNonRoot": true},
+                }]},
+        }
+        count(r) == 0
+}
