@@ -51,23 +51,25 @@ func parseCommands(cmdsSeq string) ([][]string, error) {
 
 	printer := syntax.NewPrinter()
 
+	var buffer bytes.Buffer
+
 	var commands [][]string
-	syntax.Walk(f, func(node syntax.Node) bool {
-		switch x := node.(type) {
-		case *syntax.CallExpr:
-			args := x.Args
-			var cmd []string
-			for _, word := range args {
-				var buffer bytes.Buffer
-				printer.Print(&buffer, word)
-				cmd = append(cmd, buffer.String())
-			}
-			if cmd != nil {
-				commands = append(commands, cmd)
-			}
+	for node := range syntax.Preorder(f) {
+		call, ok := node.(*syntax.CallExpr)
+		if !ok {
+			continue
 		}
-		return true
-	})
+
+		cmd := make([]string, 0, len(call.Args))
+		for _, word := range call.Args {
+			buffer.Reset()
+			printer.Print(&buffer, word)
+			cmd = append(cmd, buffer.String())
+		}
+		if len(cmd) > 0 {
+			commands = append(commands, cmd)
+		}
+	}
 
 	return commands, nil
 }
