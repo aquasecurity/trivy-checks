@@ -19,7 +19,7 @@ env:
 
 jobs:
   integration-tests:
-    uses: ./.github/workflows/integration-tests.yaml
+    uses: $/.github/workflows/integration-tests.yaml
     permissions:
       contents: read
 
