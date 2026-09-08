@@ -7,15 +7,11 @@ updates:
       interval: "weekly"
     cooldown:
       default-days: 7
-    ignore:
-      - dependency-name: "github.com/aquasecurity/trivy" ## `trivy` are updated manually
     groups:
       docker:
         patterns:
           - "github.com/docker/*"
       common:
-        exclude-patterns:
-          - "github.com/aquasecurity/trivy"
         patterns:
           - "*"
   - package-ecosystem: github-actions
@@ -28,4 +24,3 @@ updates:
       github-actions:
         patterns:
           - "*"
-  
