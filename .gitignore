@@ -1,6 +1,6 @@
-bundle.tar.gz
-opa
-schemas
+/bundle.tar.gz
+/opa
+/schemas
 
 .idea
 .vscode
