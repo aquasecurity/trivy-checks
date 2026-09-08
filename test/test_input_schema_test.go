@@ -21,10 +21,12 @@ import (
 	"github.com/xeipuuv/gojsonschema"
 
 	trivy_checks "github.com/aquasecurity/trivy-checks"
-	_ "github.com/aquasecurity/trivy/pkg/iac/rego" // register Built-in Functions from Trivy
+	checksrego "github.com/aquasecurity/trivy-checks/pkg/rego"
 )
 
 func TestInputsConformToSchema(t *testing.T) {
+	checksrego.RegisterBuiltins()
+
 	modules := collectModules(t)
 	queries := buildEvalInputRules(t, modules)
 

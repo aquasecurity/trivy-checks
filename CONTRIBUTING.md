@@ -20,10 +20,9 @@ Background reading that is not repeated here:
 - **GNU sed**, installed as `gsed` on macOS.
 
 Do not reach for a stock `opa` binary. The checks call built-in functions that plain OPA does not
-have, `result.new` and `isManaged` from Trivy among them, and `cidr.is_public` or
-`sh.parse_commands` from this repository. Every `make` target goes through `go run ./cmd/opa`, an
-OPA build with all of these registered, and that is the only way to compile or test a check
-locally.
+have, such as `result.new`, `isManaged`, `cidr.is_public` and `sh.parse_commands`. Every `make`
+target goes through `go run ./cmd/opa`, an OPA build with all of these registered, and that is the
+only way to compile or test a check locally.
 
 ## Writing checks
 
