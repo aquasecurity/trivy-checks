@@ -28,6 +28,14 @@ func TestParseCommands(t *testing.T) {
 			cmdsSeq:  `echo "test;test" ;apt update && apt install -y nginx`,
 			expected: [][]string{{"echo", "\"test;test\""}, {"apt", "update"}, {"apt", "install", "-y", "nginx"}},
 		},
+		{
+			cmdsSeq:  "FOO=bar",
+			expected: nil,
+		},
+		{
+			cmdsSeq:  "FOO=bar apt update",
+			expected: [][]string{{"apt", "update"}},
+		},
 	}
 
 	for _, test := range tests {
