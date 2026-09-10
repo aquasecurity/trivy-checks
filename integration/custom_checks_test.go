@@ -101,6 +101,8 @@ func TestCustomChecks(t *testing.T) {
 				"--check-namespaces", "user",
 				"--skip-check-update",
 				"--ignore-policy", "../ignore.rego",
+				// fail on any compile error instead of dropping the checks that fail
+				"--rego-error-limit", "0",
 			}
 
 			args = append(args, tt.args...)

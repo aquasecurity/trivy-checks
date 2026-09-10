@@ -14,6 +14,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/samber/lo"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/testcontainers/testcontainers-go/modules/registry"
@@ -24,6 +25,9 @@ import (
 )
 
 var trivyVersions = []string{"0.61.0", "latest", "canary"}
+
+// the version that added --rego-error-limit
+var regoErrorLimitVersion = lo.Must(semver.Parse("0.68.0"))
 
 // reportFileName is written next to the examples directory each subtest works in,
 // so it needs no per-version prefix.
@@ -72,8 +76,14 @@ func TestScanCheckExamples(t *testing.T) {
 				"--format", "json",
 				"--output", target.Path(reportFileName),
 				"--include-deprecated-checks=false",
-				target.Path("examples"),
 			}
+
+			// fail on any compile error instead of dropping the checks that fail
+			if trivyVer.GreaterThanOrEqual(regoErrorLimitVersion) {
+				args = append(args, "--rego-error-limit", "0")
+			}
+
+			args = append(args, target.Path("examples"))
 
 			out, err := target.Run(args)
 			if err != nil {
