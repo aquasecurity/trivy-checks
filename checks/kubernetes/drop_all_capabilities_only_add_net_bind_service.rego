@@ -25,6 +25,8 @@ import rego.v1
 
 import data.lib.kubernetes
 
+allowed_caps := {"NET_BIND_SERVICE"}
+
 hasDropAll(container) if {
 	upper(container.securityContext.capabilities.drop[_]) == "ALL"
 }
@@ -40,15 +42,15 @@ containersWithDropAll contains container if {
 }
 
 deny contains res if {
-	container := containersWithoutDropAll[_]
-	msg := "container should drop all"
-	res := result.new(msg, container)
+    container := containersWithoutDropAll[_]
+    msg := sprintf("Container '%s' does not drop all capabilities", [container.name])
+    res := result.new(msg, container)
 }
 
 deny contains res if {
-	container := containersWithDropAll[_]
-	add := container.securityContext.capabilities.add[_]
-	add != "NET_BIND_SERVICE"
-	msg := "container should not add stuff"
-	res := result.new(msg, container.securityContext.capabilities)
+    container := containersWithDropAll[_]
+    disallowed := {cap | cap := container.securityContext.capabilities.add[_]; not cap in allowed_caps}
+    count(disallowed) > 0
+    msg := sprintf("Container '%s' adds disallowed capabilities: %s", [container.name, concat(", ", disallowed)])
+    res := result.new(msg, container.securityContext.capabilities)
 }
