@@ -32,12 +32,13 @@ outdated_ssl_policies := {
 	"ELBSecurityPolicy-2016-08",
 	"ELBSecurityPolicy-FS-2018-06",
 	"ELBSecurityPolicy-FS-1-1-2019-08",
-	"ELBSecurityPolicy-TLS-1-0-2015-04",
 	"ELBSecurityPolicy-TLS-1-1-2017-01",
+	"ELBSecurityPolicy-TLS13-1-0-FIPS-2023-04",
+	"ELBSecurityPolicy-TLS13-1-0-FIPS-PQ-2025-09",
+	"ELBSecurityPolicy-TLS13-1-0-PQ-2025-09",
 	"ELBSecurityPolicy-TLS13-1-0-2021-06",
+	"ELBSecurityPolicy-TLS13-1-1-FIPS-2023-04",
 	"ELBSecurityPolicy-TLS13-1-1-2021-06",
-	"ELBSecurityPolicy-TLS13-1-2-Ext1-2021-06",
-	"ELBSecurityPolicy-TLS13-1-2-Ext2-2021-06",
 }
 
 deny contains res if {
