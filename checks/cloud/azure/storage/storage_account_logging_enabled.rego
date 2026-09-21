@@ -19,7 +19,7 @@
 #   provider: azure
 #   service: storage
 #   severity: MEDIUM
-#   minimum_trivy_version: 0.68.0
+#   minimum_trivy_version: 0.75.0
 #   recommended_action: Enable logging for at least one storage service (Queue, Table, or Blob)
 #   input:
 #     selector:
@@ -42,10 +42,24 @@ deny contains res if {
 	logging_disabled(account)
 	res := result.new(
 		"Storage account does not have logging enabled for any service.",
-		metadata.obj_by_path(account, ["queueproperties", "enablelogging"]),
+		logging_metadata(account),
 	)
 }
 
-logging_disabled(account) if not account.queueproperties
+logging_metadata(account) := metadata.obj_by_path(account, ["diagnosticloggingenabled"]) if object.get(account, "diagnosticloggingenabled", null) != null
 
-logging_disabled(account) if value.is_false(account.queueproperties.enablelogging)
+logging_metadata(account) := metadata.obj_by_path(account, ["queueproperties", "enablelogging"]) if not account.diagnosticloggingenabled
+
+logging_disabled(account) if {
+	diagnostic_logging_disabled(account)
+	not account.queueproperties
+}
+
+logging_disabled(account) if {
+	diagnostic_logging_disabled(account)
+	value.is_false(account.queueproperties.enablelogging)
+}
+
+diagnostic_logging_disabled(account) if not account.diagnosticloggingenabled
+
+diagnostic_logging_disabled(account) if value.is_false(account.diagnosticloggingenabled)
