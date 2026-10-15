@@ -34,15 +34,14 @@ package builtin.kubernetes.KSV004
 import rego.v1
 
 import data.lib.kubernetes
-import data.lib.utils
 
 default failCapsDropAny := false
 
 # getCapsDropAnyContainers returns names of all containers
-# which set securityContext.capabilities.drop
+# which drop at least one capability in securityContext.capabilities.drop
 getCapsDropAnyContainers contains container if {
 	allContainers := kubernetes.containers[_]
-	utils.has_key(allContainers.securityContext.capabilities, "drop")
+	count(allContainers.securityContext.capabilities.drop) > 0
 	container := allContainers.name
 }
 
