@@ -5,9 +5,9 @@ go 1.26.2
 require (
 	github.com/aquasecurity/go-version v0.0.1
 	github.com/aws-cloudformation/rain v1.24.4
-	github.com/hashicorp/hcl/v2 v2.24.0
-	github.com/moby/moby/api v1.55.0
-	github.com/open-policy-agent/opa v1.21.0
+	github.com/hashicorp/hcl/v2 v2.25.0
+	github.com/moby/moby/api v1.56.1
+	github.com/open-policy-agent/opa v1.21.1
 	github.com/owenrumney/squealer v1.2.12
 	github.com/samber/lo v1.53.0
 	github.com/stretchr/testify v1.12.1
@@ -16,7 +16,7 @@ require (
 	github.com/xeipuuv/gojsonschema v1.2.0
 	golang.org/x/text v0.42.0
 	gopkg.in/yaml.v3 v3.0.1
-	mvdan.cc/sh/v3 v3.13.1
+	mvdan.cc/sh/v3 v3.14.1
 )
 
 require (
@@ -27,6 +27,7 @@ require (
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/agnivade/levenshtein v1.2.1 // indirect
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
+	github.com/apparentlymart/go-textseg/v17 v17.0.1 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cenkalti/backoff/v4 v4.3.0 // indirect
 	github.com/cenkalti/backoff/v5 v5.0.3 // indirect
@@ -143,7 +144,7 @@ require (
 	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
 	github.com/yashtewari/glob-intersection v0.2.0 // indirect
 	github.com/yusufpapurcu/wmi v1.2.4 // indirect
-	github.com/zclconf/go-cty v1.16.3 // indirect
+	github.com/zclconf/go-cty v1.19.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
 	go.opentelemetry.io/contrib/bridges/prometheus v0.71.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.71.0 // indirect
