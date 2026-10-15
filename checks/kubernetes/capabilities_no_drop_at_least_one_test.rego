@@ -72,3 +72,47 @@ test_deny_only_the_container_without_drop if {
 
 	test.assert_equal_message("Container 'non-compliant' of 'pod' 'hello-drop-capabilities' in 'custom-namespace' namespace should set securityContext.capabilities.drop", check.deny) with input as inp
 }
+
+test_deny_empty_drop_list if {
+	inp := {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-drop-capabilities"},
+		"spec": {"containers": [{
+			"image": "busybox",
+			"name": "hello",
+			"securityContext": {"capabilities": {"drop": []}},
+		}]},
+	}
+
+	test.assert_equal_message("Container 'hello' of 'pod' 'hello-drop-capabilities' in 'default' namespace should set securityContext.capabilities.drop", check.deny) with input as inp
+}
+
+test_deny_deployment_without_drop if {
+	inp := {
+		"apiVersion": "apps/v1",
+		"kind": "Deployment",
+		"metadata": {"name": "hello-drop-capabilities"},
+		"spec": {"template": {"spec": {"containers": [{
+			"image": "busybox",
+			"name": "hello",
+		}]}}},
+	}
+
+	test.assert_equal_message("Container 'hello' of 'deployment' 'hello-drop-capabilities' in 'default' namespace should set securityContext.capabilities.drop", check.deny) with input as inp
+}
+
+test_allow_deployment_with_drop if {
+	inp := {
+		"apiVersion": "apps/v1",
+		"kind": "Deployment",
+		"metadata": {"name": "hello-drop-capabilities"},
+		"spec": {"template": {"spec": {"containers": [{
+			"image": "busybox",
+			"name": "hello",
+			"securityContext": {"capabilities": {"drop": ["NET_RAW"]}},
+		}]}}},
+	}
+
+	test.assert_empty(check.deny) with input as inp
+}
