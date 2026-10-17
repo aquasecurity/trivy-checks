@@ -9,3 +9,4 @@
   platforms:
     - k8s
     - rke2
+    - k3s
