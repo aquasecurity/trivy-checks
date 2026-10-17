@@ -41,6 +41,10 @@ test_add_command[name] if {
 			"cmds": [{"Cmd": "add", "Value": ["/target/resources.tar.gz", "resources.tar.gz"]}],
 			"expected": 0,
 		},
+		"ADD with .tgz allowed": {
+			"cmds": [{"Cmd": "add", "Value": ["/target/resources.tgz", "resources.tgz"]}],
+			"expected": 0,
+		},
 		"ADD with http URL allowed": {
 			"cmds": [{"Cmd": "add", "Value": ["http://example.com/foo.txt", "bar.txt"]}],
 			"expected": 0,
