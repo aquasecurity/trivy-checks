@@ -233,3 +233,22 @@ test_basic_allowed if {
 
 	count(r) == 0
 }
+
+# The finding must be reported on the first FROM that uses the alias, not on a later one.
+test_denied_alias_reported_on_first_from if {
+	r := deny with input as {"Stages": [
+		{"Name": "debian:jesse2 as build", "Commands": [{
+			"Cmd": "from",
+			"Value": ["debian:jesse2", "as", "build"],
+			"StartLine": 3,
+		}]},
+		{"Name": "debian:jesse1 as build", "Commands": [{
+			"Cmd": "from",
+			"Value": ["debian:jesse1", "as", "build"],
+			"StartLine": 5,
+		}]},
+	]}
+
+	count(r) == 1
+	r[_].startline == 3
+}
