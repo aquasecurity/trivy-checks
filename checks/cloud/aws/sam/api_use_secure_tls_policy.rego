@@ -41,4 +41,7 @@ deny contains res if {
 	)
 }
 
-is_secure_tls_policy(api) if value.is_equal(api.domainconfiguration.securitypolicy, "TLS_1_2")
+# AWS::Serverless::Api Domain SecurityPolicy accepts several values; only TLS_1_0
+# is insecure. Every other value enforces TLS 1.2 or higher, so treat anything
+# other than TLS_1_0 as secure.
+is_secure_tls_policy(api) if not value.is_equal(api.domainconfiguration.securitypolicy, "TLS_1_0")
