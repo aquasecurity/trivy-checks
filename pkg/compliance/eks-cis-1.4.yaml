@@ -22,11 +22,8 @@ spec:
     description: |
       If kubelet is running, and if it is configured by a kubeconfig file, ensure that the proxy kubeconfig 
       file has permissions of 644 or more restrictive
-
-      Check with the following command: 
-      > sudo systemctl status kubelet
     checks: 
-      - id: KCV-0071
+      - id: KCV-0094
     commands:
       - id: CMD-0024
     severity: HIGH
