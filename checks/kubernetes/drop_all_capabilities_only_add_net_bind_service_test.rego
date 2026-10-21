@@ -120,3 +120,62 @@ test_drop_all_add_other_denied if {
 
 	count(r) == 1
 }
+test_drop_all_denied_init_container if {
+        r := deny with input as {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "metadata": {"name": "hello-seccomp"},
+                "spec": {"initContainers": [{
+                        "image": "busybox",
+                        "name": "hello-init",
+                        "securityContext": {"capabilities": {"drop": ["OTHER"]}},
+                }]},
+        }
+
+        count(r) == 1
+}
+
+test_drop_all_allowed_init_container if {
+        r := deny with input as {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "metadata": {"name": "hello-seccomp"},
+                "spec": {"initContainers": [{
+                        "image": "busybox",
+                        "name": "hello-init",
+                        "securityContext": {"capabilities": {"drop": ["ALL"]}},
+                }]},
+        }
+
+        count(r) == 0
+}
+
+test_drop_all_denied_ephemeral_container if {
+        r := deny with input as {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "metadata": {"name": "hello-seccomp"},
+                "spec": {"ephemeralContainers": [{
+                        "image": "busybox",
+                        "name": "hello-ephemeral",
+                        "securityContext": {"capabilities": {"drop": ["OTHER"]}},
+                }]},
+        }
+
+        count(r) == 1
+}
+
+test_drop_all_allowed_ephemeral_container if {
+        r := deny with input as {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "metadata": {"name": "hello-seccomp"},
+                "spec": {"ephemeralContainers": [{
+                        "image": "busybox",
+                        "name": "hello-ephemeral",
+                        "securityContext": {"capabilities": {"drop": ["ALL"]}},
+                }]},
+        }
+
+        count(r) == 0
+}

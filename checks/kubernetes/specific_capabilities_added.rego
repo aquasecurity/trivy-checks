@@ -15,7 +15,7 @@
 #     - no-non-default-capabilities
 #     - kubernetes-no-non-default-capabilities
 #   severity: MEDIUM
-#   recommended_action: "Do not set spec.containers[*].securityContext.capabilities.add and spec.initContainers[*].securityContext.capabilities.add."
+#   recommended_action: "Do not set spec.containers[*].securityContext.capabilities.add and spec.initContainers[*].securityContext.capabilities.add and spec.ephemeralContainers[*].securityContext.capabilities.add."
 #   input:
 #     selector:
 #     - type: kubernetes
@@ -44,10 +44,24 @@ allowed_caps := set()
 # getContainersWithDisallowedCaps returns a list of containers which have
 # additional capabilities not included in the allowed capabilities list
 getContainersWithDisallowedCaps contains container if {
-	container := kubernetes.containers[_]
-	set_caps := {cap | cap := container.securityContext.capabilities.add[_]}
-	caps_not_allowed := set_caps - allowed_caps
-	count(caps_not_allowed) > 0
+        container := kubernetes.containers[_]
+        set_caps := {cap | cap := container.securityContext.capabilities.add[_]}
+        caps_not_allowed := set_caps - allowed_caps
+        count(caps_not_allowed) > 0
+}
+
+getContainersWithDisallowedCaps contains container if {
+        container := kubernetes.initContainers[_]
+        set_caps := {cap | cap := container.securityContext.capabilities.add[_]}
+        caps_not_allowed := set_caps - allowed_caps
+        count(caps_not_allowed) > 0
+}
+
+getContainersWithDisallowedCaps contains container if {
+        container := kubernetes.ephemeralContainers[_]
+        set_caps := {cap | cap := container.securityContext.capabilities.add[_]}
+        caps_not_allowed := set_caps - allowed_caps
+        count(caps_not_allowed) > 0
 }
 
 # cap_msg is a string of allowed capabilities to be print as part of deny message
