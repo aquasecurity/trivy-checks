@@ -38,6 +38,14 @@ outdated_ssl_policies := {
 	"ELBSecurityPolicy-TLS13-1-1-2021-06",
 	"ELBSecurityPolicy-TLS13-1-2-Ext1-2021-06",
 	"ELBSecurityPolicy-TLS13-1-2-Ext2-2021-06",
+	# FIPS / post-quantum variants whose minimum protocol is TLS 1.0 or 1.1.
+	# They share the protocol range of the TLS13-1-0/1-1-2021-06 policies above
+	# (AWS documents them as "legacy compatibility" policies) and are not in the
+	# AWS Security Hub recommended set. See aquasecurity/trivy#11121.
+	"ELBSecurityPolicy-TLS13-1-0-FIPS-2023-04",
+	"ELBSecurityPolicy-TLS13-1-0-FIPS-PQ-2025-09",
+	"ELBSecurityPolicy-TLS13-1-0-PQ-2025-09",
+	"ELBSecurityPolicy-TLS13-1-1-FIPS-2023-04",
 }
 
 deny contains res if {
