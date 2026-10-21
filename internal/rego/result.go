@@ -9,7 +9,6 @@ import (
 )
 
 // Keys of the object returned by the result.new built-in.
-// Trivy reads the object back by these keys, so they must be changed in both projects.
 const (
 	resultKeyMessage      = "msg"
 	resultKeyStartLine    = "startline"
