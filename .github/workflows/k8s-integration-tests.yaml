@@ -1,0 +1,32 @@
+name: K8s Integration Tests
+on:
+  pull_request:
+    paths:
+      - "checks/kubernetes/**"
+      - "commands/**"
+      - "lib/kubernetes/**"
+      - "pkg/compliance/**"
+      - "integration/**"
+      - ".github/workflows/k8s-integration-tests.yaml"
+  workflow_call:
+
+permissions: {}
+
+jobs:
+  k8s-integration-tests:
+    name: K8s Integration Tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+
+      - name: Run k8s integration tests
+        run: make test-integration-k8s
