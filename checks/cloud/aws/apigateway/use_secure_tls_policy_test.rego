@@ -21,6 +21,19 @@ test_allow_with_SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09 if {
 	test.assert_empty(check.deny) with input as {"aws": {"apigateway": {"v1": {"domainnames": [{"securitypolicy": {"value": "SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09"}}]}}}}
 }
 
+test_allow_with_SecurityPolicy_TLS13_1_2_Ext2_FIPS_PQ_2025_09 if {
+	test.assert_empty(check.deny) with input as {"aws": {"apigateway": {"v1": {"domainnames": [{"securitypolicy": {"value": "SecurityPolicy_TLS13_1_2_Ext2_FIPS_PQ_2025_09"}}]}}}}
+}
+
+test_allow_with_unresolvable_policy if {
+	test.assert_empty(check.deny) with input as {"aws": {"apigateway": {"v2": {"domainnames": [{"securitypolicy": {"value": "", "unresolvable": true}}]}}}}
+}
+
+test_deny_with_unknown_policy if {
+	inp := {"aws": {"apigateway": {"v1": {"domainnames": [{"securitypolicy": {"value": "SecurityPolicy_TLS13_Unknown"}}]}}}}
+	test.assert_count(check.deny, 1) with input as inp
+}
+
 test_deny_with_tls_1_0 if {
 	inp := {"aws": {"apigateway": {"v1": {"domainnames": [{"securitypolicy": {"value": "TLS_1_0"}}]}}}}
 	test.assert_count(check.deny, 1) with input as inp

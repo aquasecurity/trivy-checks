@@ -29,16 +29,24 @@ package builtin.aws.sam.aws0112
 
 import rego.v1
 
+import data.lib.aws.tls_policies
 import data.lib.cloud.metadata
 import data.lib.cloud.value
 
 deny contains res if {
 	some api in input.aws.sam.apis
-	not is_secure_tls_policy(api)
+	has_outdated_policy(api)
 	res := result.new(
 		"Domain name is configured with an outdated TLS policy.",
 		metadata.obj_by_path(api, ["domainconfiguration", "securitypolicy"]),
 	)
 }
 
-is_secure_tls_policy(api) if value.is_equal(api.domainconfiguration.securitypolicy, "TLS_1_2")
+# A missing policy is not reported. Without Domain the API has no custom domain,
+# and a custom domain without SecurityPolicy uses TLS_1_2 by default.
+# https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-api-domainconfiguration.html
+# https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-security-policies-list.html#apigateway-security-policies-default
+has_outdated_policy(api) if {
+	value.is_known(api.domainconfiguration.securitypolicy)
+	not api.domainconfiguration.securitypolicy.value in tls_policies.apigateway_secure_policies
+}
