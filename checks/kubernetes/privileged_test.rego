@@ -61,3 +61,58 @@ test_privileged_is_false_allowed if {
 
 	count(r) == 0
 }
+test_privileged_is_true_denied_init_container if {
+        r := deny with input as {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "metadata": {"name": "hello-privileged"},
+                "spec": {"initContainers": [{
+                        "image": "busybox",
+                        "name": "hello-init",
+                        "securityContext": {"privileged": true},
+                }]},
+        }
+        count(r) == 1
+}
+
+test_privileged_is_false_allowed_init_container if {
+        r := deny with input as {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "metadata": {"name": "hello-privileged"},
+                "spec": {"initContainers": [{
+                        "image": "busybox",
+                        "name": "hello-init",
+                        "securityContext": {"privileged": false},
+                }]},
+        }
+        count(r) == 0
+}
+
+test_privileged_is_true_denied_ephemeral_container if {
+        r := deny with input as {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "metadata": {"name": "hello-privileged"},
+                "spec": {"ephemeralContainers": [{
+                        "image": "busybox",
+                        "name": "hello-ephemeral",
+                        "securityContext": {"privileged": true},
+                }]},
+        }
+        count(r) == 1
+}
+
+test_privileged_is_false_allowed_ephemeral_container if {
+        r := deny with input as {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "metadata": {"name": "hello-privileged"},
+                "spec": {"ephemeralContainers": [{
+                        "image": "busybox",
+                        "name": "hello-ephemeral",
+                        "securityContext": {"privileged": false},
+                }]},
+        }
+        count(r) == 0
+}

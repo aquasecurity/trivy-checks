@@ -251,3 +251,56 @@ test_deployment_annotations_seccomp_profile_unconfined_allowed if {
 	}
 	count(r) == 0
 }
+test_init_container_seccomp_profile_unconfined_denied if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-sysctls"},
+		"spec": {
+			"containers": [{"name": "hello", "image": "busybox", "securityContext": {"seccompProfile": {"type": "RuntimeDefault"}}}],
+			"initContainers": [{"name": "init-hello", "image": "busybox", "securityContext": {"seccompProfile": {"type": "Unconfined"}}}],
+		},
+	}
+	count(r) == 1
+	contains(r[_].msg, "init-hello")
+}
+
+test_init_container_seccomp_profile_unconfined_allowed if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-sysctls"},
+		"spec": {
+			"containers": [{"name": "hello", "image": "busybox", "securityContext": {"seccompProfile": {"type": "RuntimeDefault"}}}],
+			"initContainers": [{"name": "init-hello", "image": "busybox", "securityContext": {"seccompProfile": {"type": "RuntimeDefault"}}}],
+		},
+	}
+	count(r) == 0
+}
+
+test_ephemeral_container_seccomp_profile_unconfined_denied if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-sysctls"},
+		"spec": {
+			"containers": [{"name": "hello", "image": "busybox", "securityContext": {"seccompProfile": {"type": "RuntimeDefault"}}}],
+			"ephemeralContainers": [{"name": "ephemeral-hello", "image": "busybox", "securityContext": {"seccompProfile": {"type": "Unconfined"}}}],
+		},
+	}
+	count(r) == 1
+	contains(r[_].msg, "ephemeral-hello")
+}
+
+test_ephemeral_container_seccomp_profile_unconfined_allowed if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-sysctls"},
+		"spec": {
+			"containers": [{"name": "hello", "image": "busybox", "securityContext": {"seccompProfile": {"type": "RuntimeDefault"}}}],
+			"ephemeralContainers": [{"name": "ephemeral-hello", "image": "busybox", "securityContext": {"seccompProfile": {"type": "RuntimeDefault"}}}],
+		},
+	}
+	count(r) == 0
+}
