@@ -15,7 +15,7 @@
 #     - no-privileged-containers
 #     - kubernetes-no-privileged-containers
 #   severity: HIGH
-#   recommended_action: "Change 'containers[].securityContext.privileged' to 'false'."
+#   recommended_action: "Change 'containers[].securityContext.privileged', 'initContainers[].securityContext.privileged' and 'ephemeralContainers[].securityContext.privileged' to 'false'."
 #   input:
 #     selector:
 #     - type: kubernetes
@@ -44,7 +44,15 @@ getPrivilegedContainers contains container if {
 	container := kubernetes.containers[_]
 	container.securityContext.privileged == true
 }
+getPrivilegedContainers contains container if {
+        container := kubernetes.initContainers[_]
+        container.securityContext.privileged == true
+}
 
+getPrivilegedContainers contains container if {
+        container := kubernetes.ephemeralContainers[_]
+        container.securityContext.privileged == true
+}
 deny contains res if {
 	output := getPrivilegedContainers[_]
 	msg := kubernetes.format(sprintf("Container '%s' of %s '%s' should set 'securityContext.privileged' to false", [output.name, kubernetes.kind, kubernetes.name]))
