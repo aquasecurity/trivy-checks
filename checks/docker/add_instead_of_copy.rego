@@ -28,7 +28,7 @@ import data.lib.docker
 
 is_unnecessary_add(add) if {
 	args := concat(" ", add.Value)
-	every s in {".tar", "http://", "https://", "git@"} {
+	every s in {".tar", ".tgz", "http://", "https://", "git@"} {
 		not contains(args, s)
 	}
 
