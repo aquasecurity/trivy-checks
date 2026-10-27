@@ -7,7 +7,7 @@ require (
 	github.com/aws-cloudformation/rain v1.24.4
 	github.com/hashicorp/hcl/v2 v2.25.0
 	github.com/moby/moby/api v1.56.1
-	github.com/open-policy-agent/opa v1.21.2
+	github.com/open-policy-agent/opa v1.21.3
 	github.com/owenrumney/squealer v1.2.12
 	github.com/samber/lo v1.53.0
 	github.com/stretchr/testify v1.12.1
