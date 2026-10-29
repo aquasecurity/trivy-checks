@@ -3,3 +3,7 @@ rules:
   # See: https://docs.zizmor.sh/audits/#secrets-outside-env
   secrets-outside-env:
     disable: true
+  # The zizmor version in use does not support workflow dependency lockfiles.
+  # See: https://github.com/zizmorcore/zizmor/issues/2477
+  unpinned-uses:
+    disable: true
