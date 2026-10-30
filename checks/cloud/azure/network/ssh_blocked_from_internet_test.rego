@@ -83,3 +83,19 @@ test_allow_inbound_rule_allow_access_for_non_ssh_port if {
 	res := check.deny with input as inp
 	res == set()
 }
+
+test_deny_inbound_rule_allows_ssh_access_from_ranges_covering_all_ips if {
+	inp := {"azure": {"network": {"securitygroups": [{"rules": [{
+		"outbound": {"value": false},
+		"allow": {"value": true},
+		"protocol": {"value": "Tcp"},
+		"sourceaddresses": [{"value": "0.0.0.0/1"}, {"value": "128.0.0.0/1"}],
+		"destinationports": [{
+			"start": {"value": 22},
+			"end": {"value": 22},
+		}],
+	}]}]}}}
+
+	res := check.deny with input as inp
+	count(res) == 1
+}

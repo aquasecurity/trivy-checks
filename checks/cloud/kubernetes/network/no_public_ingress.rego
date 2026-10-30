@@ -32,8 +32,7 @@ import data.lib.net
 deny contains res if {
 	some policy in input.kubernetes.networkpolicies
 	isManaged(policy)
-	some source in policy.spec.ingress.sourcecidrs
-	net.cidr_allows_all_ips(source.value)
+	some source in net.all_ips_sources(policy.spec.ingress.sourcecidrs)
 	res := result.new(
 		"Network policy allows unrestricted ingress from any IP address.",
 		source,

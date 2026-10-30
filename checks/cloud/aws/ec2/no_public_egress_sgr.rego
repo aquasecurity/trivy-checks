@@ -34,8 +34,7 @@ import data.lib.net
 
 deny contains res if {
 	some rule in input.aws.ec2.securitygroups[_].egressrules
-	some block in rule.cidrs
-	net.cidr_allows_all_ips(block.value)
+	some block in net.all_ips_sources(rule.cidrs)
 	res := result.new(
 		"Security group rule allows unrestricted egress to any IP address.",
 		block,

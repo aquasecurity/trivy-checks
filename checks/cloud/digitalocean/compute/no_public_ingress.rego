@@ -32,8 +32,7 @@ import rego.v1
 import data.lib.net
 
 deny contains res if {
-	some address in input.digitalocean.compute.firewalls[_].inboundrules[_].sourceaddresses
-	net.cidr_allows_all_ips(address.value)
+	some address in net.all_ips_sources(input.digitalocean.compute.firewalls[_].inboundrules[_].sourceaddresses)
 	res := result.new(
 		"Firewall rule allows unrestricted ingress from any IP address.",
 		address,

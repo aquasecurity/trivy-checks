@@ -58,6 +58,39 @@ cidr_allows_all_ips(cidr) if cidr in all_ips
 
 cidr_allows_all_ips(cidr) if lower(cidr) in all_ips_keywords
 
+# check if CIDRs together cover every IPv4 or every IPv6 address,
+# e.g. 0.0.0.0/1 and 128.0.0.0/1
+cidrs_cover_all_ips(cidrs) if {
+	"0.0.0.0/0" in net.cidr_merge(valid_cidrs(cidrs, false))
+}
+
+cidrs_cover_all_ips(cidrs) if {
+	"::/0" in net.cidr_merge(valid_cidrs(cidrs, true))
+}
+
+# valid_cidrs returns the values that are valid CIDRs of one IP version.
+# IPv4 and IPv6 are merged separately because net.cidr_merge drops IPv4 ranges
+# when the input mixes both, and values such as service tags or bare IPs are
+# skipped because they would make the merge undefined or classful.
+valid_cidrs(cidrs, ipv6) := [cidr |
+	some cidr in cidrs
+	net.cidr_is_valid(cidr)
+	contains(cidr, ":") == ipv6
+]
+
+# all_ips_sources returns the sources to report for a rule that allows all IP addresses:
+# the sources that allow all IP addresses on their own, or else the first source
+# when the sources together cover every IPv4 or every IPv6 address
+all_ips_sources(sources) := matched if {
+	matched := {source |
+		some source in sources
+		cidr_allows_all_ips(source.value)
+	}
+	count(matched) > 0
+} else := {sources[0]} if {
+	cidrs_cover_all_ips([source.value | some source in sources])
+} else := set()
+
 protocol(v) := lower(v) if is_string(v)
 
 protocol(v) := lower(format_int(v, 10)) if is_number(v)
