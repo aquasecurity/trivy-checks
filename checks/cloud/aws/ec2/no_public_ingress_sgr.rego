@@ -46,8 +46,7 @@ deny contains res if {
 	some rule in group.ingressrules
 	net.is_tcp_or_udp_protocol(rule.protocol.value)
 	net.is_ssh_or_rdp_port(rule)
-	some block in rule.cidrs
-	net.cidr_allows_all_ips(block.value)
+	some block in net.all_ips_sources(rule.cidrs)
 	res := result.new(
 		"Security group rule allows unrestricted ingress from any IP address.",
 		block,

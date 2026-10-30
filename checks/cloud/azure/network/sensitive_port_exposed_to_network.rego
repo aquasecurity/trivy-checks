@@ -61,8 +61,7 @@ deny contains res if {
 	rule.allow.value
 	not rule.outbound.value
 	lower(rule.protocol.value) != "icmp"
-	some ip in rule.sourceaddresses
-	net.cidr_allows_all_ips(ip.value)
+	some ip in net.all_ips_sources(rule.sourceaddresses)
 
 	exposed := sort({sensitive_port |
 		some ports in rule.destinationports

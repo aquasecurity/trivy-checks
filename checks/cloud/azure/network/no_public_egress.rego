@@ -36,7 +36,6 @@ deny contains res if {
 	some rule in group.rules
 	rule.outbound.value
 	rule.allow.value
-	some addr in rule.destinationaddresses
-	net.cidr_allows_all_ips(addr.value)
+	some addr in net.all_ips_sources(rule.destinationaddresses)
 	res := result.new("Security group rule allows unrestricted egress to any IP address.", addr)
 }
