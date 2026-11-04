@@ -3,7 +3,6 @@
 package integration
 
 import (
-	"bytes"
 	"context"
 	"encoding/json"
 	"io/fs"
@@ -85,16 +84,7 @@ func TestScanCheckExamples(t *testing.T) {
 
 			args = append(args, target.Path("examples"))
 
-			out, err := target.Run(args)
-			if err != nil {
-				t.Fatalf("trivy run failed: %v\n%s", err, out)
-			}
-
-			// trivy switches to embedded checks if the bundle load fails, so we should check this out
-			if bytes.Contains(out, []byte("Falling back to embedded checks")) {
-				t.Log(string(out))
-				t.Fatal("Failed to load checks from the bundle")
-			}
+			runTrivy(t, target, args)
 
 			report := readTrivyReport(t, filepath.Join(targetDir, reportFileName))
 
