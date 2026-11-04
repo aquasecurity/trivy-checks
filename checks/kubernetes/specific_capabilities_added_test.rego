@@ -2,7 +2,28 @@ package builtin.kubernetes.KSV022
 
 import rego.v1
 
-test_capabilities_add_denied if {
+test_non_default_capability_denied  if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-add-capabilities"},
+		"spec": {"containers": [{
+			"command": [
+				"sh",
+				"-c",
+				"echo 'Hello' && sleep 1h",
+			],
+			"image": "busybox",
+			"name": "hello",
+			"securityContext": {"capabilities": {"add": ["SYS_ADMIN"]}},
+		}]},
+	}
+
+	count(r) == 1
+	r[_].msg == "Container 'hello' of Pod 'hello-add-capabilities' adds disallowed capabilities: SYS_ADMIN"
+}
+
+test_capabilities_net_bind_cap_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
 		"kind": "Pod",
@@ -19,8 +40,7 @@ test_capabilities_add_denied if {
 		}]},
 	}
 
-	count(r) == 1
-	r[_].msg == "Container 'hello' of Pod 'hello-add-capabilities' should not set 'securityContext.capabilities.add'"
+	count(r) == 0
 }
 
 test_capabilities_add_empty_allowed if {
