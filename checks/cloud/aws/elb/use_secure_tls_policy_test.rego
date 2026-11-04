@@ -25,3 +25,16 @@ test_allow_with_actual_tls_policy if {
 
 	test.assert_empty(check.deny) with input as inp
 }
+
+test_deny_with_outdated_fips_pq_tls_policy if {
+	some policy in {
+		"ELBSecurityPolicy-TLS13-1-0-FIPS-2023-04",
+		"ELBSecurityPolicy-TLS13-1-0-FIPS-PQ-2025-09",
+		"ELBSecurityPolicy-TLS13-1-0-PQ-2025-09",
+		"ELBSecurityPolicy-TLS13-1-1-FIPS-2023-04",
+	}
+
+	inp := {"aws": {"elb": {"loadbalancers": [{"listeners": [{"tlspolicy": {"value": policy}}]}]}}}
+
+	test.assert_equal_message("Listener uses an outdated TLS policy.", check.deny) with input as inp
+}
