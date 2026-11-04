@@ -10,12 +10,24 @@ cloudformation:
             Name: Good SAM API example
             StageName: Prod
             TracingEnabled: false
+    - |-
+      Resources:
+        GoodExampleTls13:
+          Type: AWS::Serverless::Api
+          Properties:
+            Domain:
+              SecurityPolicy: SecurityPolicy_TLS13_1_2_2021_06
+            Name: Good SAM API example with TLS 1.3
+            StageName: Prod
+            TracingEnabled: false
   bad:
     - |-
       Resources:
         BadExample:
           Type: AWS::Serverless::Api
           Properties:
+            Domain:
+              SecurityPolicy: TLS_1_0
             Name: Bad SAM API example
             StageName: Prod
             TracingEnabled: false
