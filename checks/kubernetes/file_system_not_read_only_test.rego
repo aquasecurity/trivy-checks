@@ -62,3 +62,56 @@ test_read_only_root_file_system_true_allowed if {
 
 	count(r) == 0
 }
+test_read_only_root_file_system_not_set_init_container_denied if {
+        r := deny with input as {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "metadata": {"name": "hello-fs-not-readonly"},
+                "spec": {"initContainers": [{
+                        "image": "busybox",
+                        "name": "hello-init",
+                }]},
+        }
+        count(r) == 1
+}
+
+test_read_only_root_file_system_true_init_container_allowed if {
+        r := deny with input as {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "metadata": {"name": "hello-fs-not-readonly"},
+                "spec": {"initContainers": [{
+                        "image": "busybox",
+                        "name": "hello-init",
+                        "securityContext": {"readOnlyRootFilesystem": true},
+                }]},
+        }
+        count(r) == 0
+}
+
+test_read_only_root_file_system_not_set_ephemeral_container_denied if {
+        r := deny with input as {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "metadata": {"name": "hello-fs-not-readonly"},
+                "spec": {"ephemeralContainers": [{
+                        "image": "busybox",
+                        "name": "hello-ephemeral",
+                }]},
+        }
+        count(r) == 1
+}
+
+test_read_only_root_file_system_true_ephemeral_container_allowed if {
+        r := deny with input as {
+                "apiVersion": "v1",
+                "kind": "Pod",
+                "metadata": {"name": "hello-fs-not-readonly"},
+                "spec": {"ephemeralContainers": [{
+                        "image": "busybox",
+                        "name": "hello-ephemeral",
+                        "securityContext": {"readOnlyRootFilesystem": true},
+                }]},
+        }
+        count(r) == 0
+}
