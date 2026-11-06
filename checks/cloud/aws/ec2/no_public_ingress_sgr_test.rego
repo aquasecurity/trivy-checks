@@ -73,4 +73,26 @@ test_allow_ingress_sg_restrictive_cidr_range if {
 	test.assert_empty(check.deny) with input as inp
 }
 
+test_deny_ingress_sg_ranges_covering_all_ips_for_ssh_port if {
+	inp := build_input({
+		"protocol": {"value": "tcp"},
+		"cidrs": [{"value": "0.0.0.0/1"}, {"value": "128.0.0.0/1"}],
+		"fromport": {"value": net.ssh_port},
+		"toport": {"value": net.ssh_port},
+	})
+
+	test.assert_count(check.deny, 1) with input as inp
+}
+
+test_allow_ingress_sg_ranges_not_covering_all_ips if {
+	inp := build_input({
+		"protocol": {"value": "tcp"},
+		"cidrs": [{"value": "0.0.0.0/1"}, {"value": "10.0.0.0/8"}],
+		"fromport": {"value": net.ssh_port},
+		"toport": {"value": net.ssh_port},
+	})
+
+	test.assert_empty(check.deny) with input as inp
+}
+
 build_input(rule) := {"aws": {"ec2": {"securitygroups": [{"ingressrules": [rule]}]}}}

@@ -33,3 +33,18 @@ test_allow_ssh_access_from_specific_ip if {
 	res := check.deny with input as inp
 	res == set()
 }
+
+test_deny_ssh_access_from_ranges_covering_all_ips if {
+	inp := {"google": {"compute": {"networks": [{"firewall": {"ingressrules": [{
+		"firewallrule": {
+			"isallow": {"value": true},
+			"enforced": {"value": true},
+			"protocol": {"value": "tcp"},
+			"ports": [{"start": {"value": 22}, "end": {"value": 22}}],
+		},
+		"sourceranges": [{"value": "0.0.0.0/1"}, {"value": "128.0.0.0/1"}],
+	}]}}]}}}
+
+	res := check.deny with input as inp
+	count(res) == 1
+}

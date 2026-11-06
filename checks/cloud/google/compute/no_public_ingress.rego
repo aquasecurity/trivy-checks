@@ -40,8 +40,7 @@ deny contains res if {
 	rule.firewallrule.isallow.value
 	rule.firewallrule.enforced.value
 
-	some source in rule.sourceranges
-	net.cidr_allows_all_ips(source.value)
+	some source in net.all_ips_sources(rule.sourceranges)
 	res := result.new(
 		"Firewall rule allows unrestricted ingress from any IP address.",
 		source,

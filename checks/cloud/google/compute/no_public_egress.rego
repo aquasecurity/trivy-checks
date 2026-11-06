@@ -36,8 +36,7 @@ deny contains res if {
 	some rule in network.firewall.egressrules
 	rule.firewallrule.isallow.value
 	rule.firewallrule.enforced.value
-	some destination in rule.destinationranges
-	net.cidr_allows_all_ips(destination.value)
+	some destination in net.all_ips_sources(rule.destinationranges)
 	res := result.new(
 		"Firewall rule allows unrestricted egress to any IP address.",
 		destination,

@@ -31,8 +31,7 @@ import data.lib.net
 deny contains res if {
 	some policy in input.kubernetes.networkpolicies
 	isManaged(policy)
-	some dest in policy.spec.egress.destinationcidrs
-	net.cidr_allows_all_ips(dest.value)
+	some dest in net.all_ips_sources(policy.spec.egress.destinationcidrs)
 	res := result.new(
 		"Network policy allows unrestricted egress to any IP address.",
 		dest,
