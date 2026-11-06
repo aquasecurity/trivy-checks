@@ -71,3 +71,15 @@ test_cidrs_cover_all_ips_next_to_non_cidr_values if {
 test_cidrs_cover_all_ips_for_zero_prefix_with_host_bits if {
 	net.cidrs_cover_all_ips(["10.1.2.3/0"])
 }
+
+test_all_ips_sources_for_split_ranges_after_other_version if {
+	sources := [{"value": "10.0.0.0/8"}, {"value": "::/1"}, {"value": "8000::/1"}]
+	net.all_ips_sources(sources) == {{"value": "::/1"}}
+}
+
+test_cidrs_cover_all_ips_skips_ipv4_mapped_ranges if {
+	not net.cidrs_cover_all_ips(["::ffff:10.0.0.0/104", "::ffff:11.0.0.0/104"])
+	not net.cidrs_cover_all_ips(["::ffff:0:0/96", "::ffff:0:0/96"])
+	net.cidrs_cover_all_ips(["::ffff:10.0.0.0/104", "::/1", "8000::/1"])
+	net.cidrs_cover_all_ips(["0.0.0.0/1", "128.0.0.0/1", "::ffff:10.0.0.0/104"])
+}

@@ -60,35 +60,49 @@ cidr_allows_all_ips(cidr) if lower(cidr) in all_ips_keywords
 
 # check if CIDRs together cover every IPv4 or every IPv6 address,
 # e.g. 0.0.0.0/1 and 128.0.0.0/1
-cidrs_cover_all_ips(cidrs) if {
-	"0.0.0.0/0" in net.cidr_merge(valid_cidrs(cidrs, false))
-}
+cidrs_cover_all_ips(cidrs) if count(covering_cidrs(cidrs)) > 0
 
-cidrs_cover_all_ips(cidrs) if {
-	"::/0" in net.cidr_merge(valid_cidrs(cidrs, true))
+# covering_cidrs returns the CIDRs of the IP version whose ranges together cover
+# every address of that version
+covering_cidrs(cidrs) := v4 if {
+	v4 := valid_cidrs(cidrs, false)
+	"0.0.0.0/0" in net.cidr_merge(v4)
+} else := v6 if {
+	v6 := valid_cidrs(cidrs, true)
+	"::/0" in net.cidr_merge(v6)
 }
 
 # valid_cidrs returns the values that are valid CIDRs of one IP version.
 # IPv4 and IPv6 are merged separately because net.cidr_merge drops IPv4 ranges
 # when the input mixes both, and values such as service tags or bare IPs are
 # skipped because they would make the merge undefined or classful.
+# IPv4-mapped IPv6 ranges are skipped too, because net.cidr_merge panics on them.
 valid_cidrs(cidrs, ipv6) := [cidr |
 	some cidr in cidrs
 	net.cidr_is_valid(cidr)
 	contains(cidr, ":") == ipv6
+	not ipv4_mapped(cidr)
 ]
+
+# only values with ":" are checked, because net.cidr_contains("::ffff:0:0/96", "10.0.0.0/8")
+# is true for IPv4 ranges
+ipv4_mapped(cidr) if {
+	contains(cidr, ":")
+	net.cidr_contains("::ffff:0:0/96", cidr)
+}
 
 # all_ips_sources returns the sources to report for a rule that allows all IP addresses:
 # the sources that allow all IP addresses on their own, or else the first source
-# when the sources together cover every IPv4 or every IPv6 address
+# among the CIDRs that together cover every IPv4 or every IPv6 address
 all_ips_sources(sources) := matched if {
 	matched := {source |
 		some source in sources
 		cidr_allows_all_ips(source.value)
 	}
 	count(matched) > 0
-} else := {sources[0]} if {
-	cidrs_cover_all_ips([source.value | some source in sources])
+} else := {source} if {
+	covering := covering_cidrs([s.value | some s in sources])
+	source := [s | some s in sources; s.value in covering][0]
 } else := set()
 
 protocol(v) := lower(v) if is_string(v)
