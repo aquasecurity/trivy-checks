@@ -57,6 +57,74 @@ test_detect_secret[name] if {
 			"data": {"test": "REDIS_MASTER_PASSWORD={{ .Values.redis.password }}"},
 			"expected": 0,
 		},
+		"equals-separated secret with colon in value": {
+			"data": {"settings": "log_level=debug\npassword=synthetic:123"},
+			"expected": 1,
+			"expected_keys": {"password"},
+		},
+		"colon-separated secret with equals in value": {
+			"data": {"settings": "password: synthetic=123"},
+			"expected": 1,
+			"expected_keys": {"password"},
+		},
+		"secret with url value": {
+			"data": {"env": "TOKEN=https://example.com:8443/token"},
+			"expected": 1,
+			"expected_keys": {"TOKEN"},
+		},
+		"cm value with env variable reference after space": {
+			"data": {"settings": "password: ${DB_PASSWORD}"},
+			"expected": 0,
+		},
+		"cm value with literal shell default": {
+			"data": {"env": "DB_PASSWORD=${DB_PASSWORD:-synthetic}"},
+			"expected": 1,
+			"expected_keys": {"DB_PASSWORD"},
+		},
+		"cm value with nested literal shell default": {
+			"data": {"env": "DB_PASSWORD=${DB_PASSWORD:-${FALLBACK_PASSWORD:-synthetic}}"},
+			"expected": 1,
+			"expected_keys": {"DB_PASSWORD"},
+		},
+		"cm value with literal placeholder default": {
+			"data": {"application.properties": "db.password=${DB_PASSWORD:synthetic}"},
+			"expected": 1,
+			"expected_keys": {"db.password"},
+		},
+		"cm value with literal default without colon": {
+			"data": {"env": "DB_PASSWORD=${DB_PASSWORD-synthetic}"},
+			"expected": 1,
+			"expected_keys": {"DB_PASSWORD"},
+		},
+		"cm value with literal assign default": {
+			"data": {"env": "DB_PASSWORD=${DB_PASSWORD:=synthetic}"},
+			"expected": 1,
+			"expected_keys": {"DB_PASSWORD"},
+		},
+		"cm value with whitespace shell default": {
+			"data": {"env": "DB_PASSWORD=${DB_PASSWORD:- }"},
+			"expected": 0,
+		},
+		"cm value with alternative value expansion": {
+			"data": {"env": "DB_PASSWORD=${DB_PASSWORD:+synthetic}"},
+			"expected": 0,
+		},
+		"cm value with empty shell default": {
+			"data": {"env": "DB_PASSWORD=${DB_PASSWORD:-}"},
+			"expected": 0,
+		},
+		"cm value with quoted empty shell default": {
+			"data": {"env": "DB_PASSWORD=${DB_PASSWORD:-\"\"}"},
+			"expected": 0,
+		},
+		"cm value with shell default referencing another variable": {
+			"data": {"env": "DB_PASSWORD=${DB_PASSWORD:-${FALLBACK_PASSWORD}}"},
+			"expected": 0,
+		},
+		"cm value with required variable check": {
+			"data": {"env": "DB_PASSWORD=${DB_PASSWORD:?DB_PASSWORD is required}"},
+			"expected": 0,
+		},
 	}
 
 	inp := {

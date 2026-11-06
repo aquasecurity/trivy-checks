@@ -76,24 +76,36 @@ config_map_secrets_from_values contains key if {
 	key := config_map_secret_key(line)
 }
 
-# config_map_secret_key extracts the key from a value string if it looks like a sensitive assignment.
-# It supports splitting on '=' or ':' and ignores values that:
-# - don't contain a delimiter
-# - have no actual value (e.g. "PASSWORD=")
-# - are interpolation references (e.g. "${VAR}", "$(command)", "{{ template }}")
-config_map_secret_key(value) := key if {
-	some delimiter in {":", "="}
-	parts := split(value, delimiter)
-	count(parts) > 1
-	raw_value := parts[1]
+# config_map_secret_key returns the key of an assignment line, split at the first '=' or ':',
+# if the assigned value is a literal.
+config_map_secret_key(line) := trim_space(parts[1]) if {
+	parts := regex.find_all_string_submatch_n(`^([^:=]+)[:=](.*)$`, line, 1)[0]
+	is_literal_value(trim_space(parts[2]))
+}
 
-	# skip if value is empty
-	raw_value != ""
+# is_literal_value is true for a non-empty value that is not an interpolation (e.g. "${VAR}",
+# "$(command)", "{{ template }}"), and for a reference with a non-empty literal default
+# (e.g. "${VAR:-default}", "${VAR:-${OTHER:-default}}", "${VAR:default}").
+is_literal_value(value) if {
+	value != ""
+	not is_interpolation(value)
+}
 
-	# skip interpolated or templated values
-	not is_interpolation(raw_value)
+is_literal_value(value) if {
+	default_value := reference_default(value)
+	default_value != ""
 
-	key := parts[0]
+	# skip references to other variables and the ':+' and ':?' expansions
+	not regex.match(`^[-+?=$]`, default_value)
+}
+
+# reference_default returns the innermost default of a "${VAR...}" reference.
+# "${VAR:offset}" is also treated as a default because it cannot be told apart from "${VAR:default}".
+reference_default(value) := trim(match[1], "\"' ") if {
+	match := regex.find_all_string_submatch_n(
+		`^"?(?:\$\{[A-Za-z_][A-Za-z0-9_]*(?::?[-=]|:))+([^}]*)\}`,
+		value, 1,
+	)[0]
 }
 
 # is_interpolation returns true if the string starts with any known interpolation prefix
