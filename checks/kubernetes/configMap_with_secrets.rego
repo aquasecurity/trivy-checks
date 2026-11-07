@@ -77,30 +77,79 @@ config_map_secrets_from_values contains key if {
 }
 
 # config_map_secret_key extracts the key from a value string if it looks like a sensitive assignment.
-# It supports splitting on '=' or ':' and ignores values that:
-# - don't contain a delimiter
-# - have no actual value (e.g. "PASSWORD=")
-# - are interpolation references (e.g. "${VAR}", "$(command)", "{{ template }}")
+# The line is split at the first '=' or ':', so a value may contain the other character.
+# Empty values and references without a literal default are ignored.
 config_map_secret_key(value) := key if {
-	some delimiter in {":", "="}
-	parts := split(value, delimiter)
-	count(parts) > 1
-	raw_value := parts[1]
-
-	# skip if value is empty
+	idx := first_assignment_index(value)
+	key := substring(value, 0, idx)
+	raw_value := substring(value, idx + 1, count(value))
 	raw_value != ""
-
-	# skip interpolated or templated values
-	not is_interpolation(raw_value)
-
-	key := parts[0]
+	not secret_value_is_reference(raw_value)
 }
 
-# is_interpolation returns true if the string starts with any known interpolation prefix
-is_interpolation(val) if {
-	trimmed := trim_prefix(val, "\"")
-	some prefix in {"${", "$(", "{{"}
+# first_assignment_index is the earliest '=' or ':' in the line.
+first_assignment_index(value) := idx if {
+	positions := [i |
+		some mark in ["=", ":"]
+		i := indexof(value, mark)
+		i >= 0
+	]
+	count(positions) > 0
+	idx := min(positions)
+}
+
+# secret_value_is_reference is true when the value does not embed a literal secret.
+# ${VAR:-literal} and ${VAR:-${OTHER:-literal}} still contain a secret and return false.
+secret_value_is_reference(val) if {
+	trimmed := trim(val, "\"")
+	some prefix in ["$(", "{{"]
 	startswith(trimmed, prefix)
+}
+
+secret_value_is_reference(val) if {
+	trimmed := trim(val, "\"")
+	startswith(trimmed, "${")
+	not reference_embeds_literal(trimmed)
+}
+
+# reference_embeds_literal reports shell-style defaults that are not another variable.
+# Nesting is checked for the two levels described by the ConfigMap examples.
+reference_embeds_literal(expr) if {
+	fallback := reference_default(expr)
+	default_embeds_literal(fallback)
+}
+
+reference_default(expr) := value if {
+	startswith(expr, "${")
+	endswith(expr, "}")
+	inner := substring(expr, 2, count(expr) - 3)
+	spec := regex.find_all_string_submatch_n(`^[A-Za-z_][A-Za-z0-9_]*(:-|:=|:\+|\+|:\?|-|=)([\s\S]*)$`, inner, 1)
+	count(spec) == 1
+	value := trim(spec[0][2], " \t")
+}
+
+default_embeds_literal(value) if {
+	value != ""
+	not startswith(value, "$")
+}
+
+default_embeds_literal(value) if {
+	nested := reference_default(value)
+	nested != ""
+	not startswith(nested, "$")
+}
+
+default_embeds_literal(value) if {
+	nested := reference_default(value)
+	inner := reference_default(nested)
+	inner != ""
+	not startswith(inner, "$")
+}
+
+default_embeds_literal(value) if {
+	startswith(value, "$")
+	not startswith(value, "${")
+	not regex.match(`^\$[A-Za-z_][A-Za-z0-9_]*$`, value)
 }
 
 # config_map_secret_keys detects ConfigMap data keys that appear to reference secrets.

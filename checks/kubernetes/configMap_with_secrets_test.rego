@@ -57,6 +57,33 @@ test_detect_secret[name] if {
 			"data": {"test": "REDIS_MASTER_PASSWORD={{ .Values.redis.password }}"},
 			"expected": 0,
 		},
+		"line with both separators": {
+			"data": {"settings": "password=synthetic:123"},
+			"expected": 1,
+			"expected_keys": {"password"},
+		},
+		"reference with a literal default": {
+			"data": {"env": "REDIS_PASSWORD=${PASSWORD:-synthetic}"},
+			"expected": 1,
+			"expected_keys": {"REDIS_PASSWORD"},
+		},
+		"nested reference with a literal default": {
+			"data": {"env": "REDIS_PASSWORD=${PASSWORD:-${OTHER:-synthetic}}"},
+			"expected": 1,
+			"expected_keys": {"REDIS_PASSWORD"},
+		},
+		"reference with an empty default": {
+			"data": {"env": "REDIS_PASSWORD=${PASSWORD:-}"},
+			"expected": 0,
+		},
+		"reference whose default is another variable": {
+			"data": {"env": "REDIS_PASSWORD=${PASSWORD:-${OTHER}}"},
+			"expected": 0,
+		},
+		"reference whose default is a plain variable": {
+			"data": {"env": "REDIS_PASSWORD=${PASSWORD:-$OTHER}"},
+			"expected": 0,
+		},
 	}
 
 	inp := {
