@@ -61,15 +61,16 @@ parse_image_and_tag(from, _) := [img, tag] if {
 	[img, tag] = parse_tag(reference)
 }
 
-global_vars := stage_args(input.Stages[0])
-
+# FROM can only use ARGs declared before the first FROM.
 # see https://docs.docker.com/build/building/variables/#scoping
-stage_vars(stage_num) := object.union(
-	global_vars,
-	stage_args(input.Stages[stage_num]),
-) if {
-	stage_num != 0
-} else := global_vars
+global_vars := stage_args(input.Stages[0]) if {
+	not has_from(input.Stages[0])
+} else := {}
+
+has_from(stage) if {
+	some instruction in stage.Commands
+	instruction.Cmd == "from"
+}
 
 stage_args(stage) := {name: def_value |
 	some instruction in stage.Commands
@@ -126,11 +127,10 @@ parse_image_and_tag(from, vars) := [img, tag] if {
 }
 
 deny contains res if {
-	some instruction in input.Stages[i].Commands
+	some instruction in input.Stages[_].Commands
 	instruction.Cmd == "from"
 
-	vars := stage_vars(i)
-	[img, tag] := parse_image_and_tag(instruction, vars)
+	[img, tag] := parse_image_and_tag(instruction, global_vars)
 
 	img != "scratch"
 	img != ""
