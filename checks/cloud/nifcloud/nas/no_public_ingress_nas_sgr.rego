@@ -33,7 +33,6 @@ import data.lib.net
 
 deny contains res if {
 	some sg in input.nifcloud.nas.nassecuritygroups
-	some c in sg.cidrs
-	net.cidr_allows_all_ips(c.value)
+	some c in net.all_ips_sources(sg.cidrs)
 	res := result.new("Security group rule allows unrestricted ingress from any IP address.", c)
 }

@@ -40,8 +40,7 @@ deny contains res if {
 	lower(rule.protocol.value) != "icmp"
 	some ports in rule.destinationports
 	port_range_includes(ports.start, ports.end, 3389)
-	some ip in rule.sourceaddresses
-	net.cidr_allows_all_ips(ip.value)
+	some ip in net.all_ips_sources(rule.sourceaddresses)
 	res := result.new(
 		"Security group rule allows unrestricted ingress to RDP port from any IP address.",
 		ip,

@@ -44,8 +44,7 @@ deny contains res if {
 	is_ssh_port(rule)
 
 	# Check if rule allows access from public internet
-	some source in rule.sourceranges
-	net.cidr_allows_all_ips(source.value)
+	some source in net.all_ips_sources(rule.sourceranges)
 
 	res := result.new(
 		"Firewall rule allows SSH access from the public internet.",
