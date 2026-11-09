@@ -28,3 +28,21 @@ test_deny_ebs_block_device_not_encrypted if {
 
 	test.assert_equal_message("EBS block device is not encrypted.", check.deny) with input as inp
 }
+
+test_allow_root_block_device_encryption_unresolvable if {
+	inp := {"aws": {"ec2": {"instances": [{"rootblockdevice": {"encrypted": {"value": false, "unresolvable": true}}}]}}}
+
+	test.assert_empty(check.deny) with input as inp
+}
+
+test_allow_ebs_block_device_encryption_unresolvable if {
+	inp := {"aws": {"ec2": {"instances": [{"ebsblockdevices": [{"encrypted": {"value": false, "unresolvable": true}}]}]}}}
+
+	test.assert_empty(check.deny) with input as inp
+}
+
+test_deny_root_block_device_encryption_missing if {
+	inp := {"aws": {"ec2": {"instances": [{"rootblockdevice": {}}]}}}
+
+	test.assert_equal_message("Root block device is not encrypted.", check.deny) with input as inp
+}
