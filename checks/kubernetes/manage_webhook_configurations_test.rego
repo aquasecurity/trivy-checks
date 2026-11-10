@@ -163,3 +163,33 @@ test_manageWebhookConfig_verb_wrong if {
 
 	count(r) == 0
 }
+
+test_manageWebhookConfig_admissionregistration_api_group if {
+	r := deny with input as {
+		"apiVersion": "rbac.authorization.k8s.io/v1",
+		"kind": "ClusterRole",
+		"metadata": {"name": "webhook-manager"},
+		"rules": [{
+			"apiGroups": ["admissionregistration.k8s.io"],
+			"resources": ["validatingwebhookconfigurations"],
+			"verbs": ["patch"],
+		}],
+	}
+
+	count(r) > 0
+}
+
+test_manageWebhookConfig_not_trigger_crd_api_group if {
+	r := deny with input as {
+		"apiVersion": "rbac.authorization.k8s.io/v1",
+		"kind": "ClusterRole",
+		"metadata": {"name": "crd-manager"},
+		"rules": [{
+			"apiGroups": ["example.com"],
+			"resources": ["mutatingwebhookconfigurations", "validatingwebhookconfigurations"],
+			"verbs": ["*"],
+		}],
+	}
+
+	count(r) == 0
+}

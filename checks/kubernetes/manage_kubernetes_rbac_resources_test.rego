@@ -181,3 +181,73 @@ test_manage_K8s_RBAC_resources_not_trigger_get if {
 
 	count(r) == 0
 }
+
+test_manage_K8s_RBAC_resources_rbac_api_group if {
+	r := deny with input as {
+		"apiVersion": "rbac.authorization.k8s.io/v1",
+		"kind": "ClusterRole",
+		"metadata": {"name": "rbac-manager"},
+		"rules": [{
+			"apiGroups": ["rbac.authorization.k8s.io"],
+			"resources": ["roles", "rolebindings"],
+			"verbs": ["*"],
+		}],
+	}
+
+	count(r) > 0
+}
+
+test_manage_K8s_RBAC_resources_not_trigger_crd_api_group if {
+	r := deny with input as {
+		"apiVersion": "rbac.authorization.k8s.io/v1",
+		"kind": "ClusterRole",
+		"metadata": {"name": "crossplane:provider:provider-grafana:system"},
+		"rules": [{
+			"apiGroups": ["enterprise.grafana.crossplane.io"],
+			"resources": ["roles", "rolebindings"],
+			"verbs": ["*"],
+		}],
+	}
+
+	count(r) == 0
+}
+
+test_manage_K8s_RBAC_resources_not_trigger_core_api_group if {
+	r := deny with input as {
+		"apiVersion": "rbac.authorization.k8s.io/v1",
+		"kind": "Role",
+		"metadata": {
+			"namespace": "default",
+			"name": "pod-reader",
+		},
+		"rules": [{
+			"apiGroups": [""],
+			"resources": ["roles"],
+			"verbs": ["escalate"],
+		}],
+	}
+
+	count(r) == 0
+}
+
+test_manage_K8s_RBAC_resources_mixed_api_groups if {
+	r := deny with input as {
+		"apiVersion": "rbac.authorization.k8s.io/v1",
+		"kind": "ClusterRole",
+		"metadata": {"name": "mixed"},
+		"rules": [
+			{
+				"apiGroups": ["transform.vault.upbound.io"],
+				"resources": ["roles"],
+				"verbs": ["*"],
+			},
+			{
+				"apiGroups": ["example.com", "rbac.authorization.k8s.io"],
+				"resources": ["rolebindings"],
+				"verbs": ["bind"],
+			},
+		],
+	}
+
+	count(r) == 1
+}

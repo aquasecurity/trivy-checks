@@ -34,9 +34,13 @@ readKinds := ["Role", "ClusterRole"]
 
 readResource := ["mutatingwebhookconfigurations", "validatingwebhookconfigurations"]
 
+# resources of the same name in other API groups (e.g. CRDs) are not webhook configurations
+readAPIGroups := ["admissionregistration.k8s.io", "*"]
+
 manageWebhookConfig contains input.rules[ru] if {
-	some ru, r, v
+	some ru, g, r, v
 	input.kind == readKinds[_]
+	input.rules[ru].apiGroups[g] == readAPIGroups[_]
 	input.rules[ru].resources[r] == readResource[_]
 	input.rules[ru].verbs[v] == readVerbs[_]
 }
