@@ -72,15 +72,21 @@ config_map_secrets_from_values contains key if {
 	regex.match(pattern, v)
 
 	some line in split(v, "\n")
-	regex.match(pattern, line)
-	key := config_map_secret_key(line)
+	assigns_literal(line, pattern)
+	key := assignment_key(line)
 }
 
-# config_map_secret_key returns the key of an assignment line, split at the first '=' or ':',
-# if the assigned value is a literal.
-config_map_secret_key(line) := trim_space(parts[1]) if {
-	parts := regex.find_all_string_submatch_n(`^([^:=]+)[:=](.*)$`, line, 1)[0]
-	is_literal_value(trim_space(parts[2]))
+# assigns_literal is true if the first match of pattern in line is followed by a literal value.
+# The value is taken after the match rather than after the first delimiter, so a secret in
+# "url: ${HOST}/x?password=synthetic" is still found.
+assigns_literal(line, pattern) if {
+	match := regex.find_all_string_submatch_n(concat("", [pattern, "(.*)"]), line, 1)[0]
+	is_literal_value(trim_space(match[count(match) - 1]))
+}
+
+# assignment_key returns the part of an assignment line before the first '=' or ':'.
+assignment_key(line) := trim_space(parts[1]) if {
+	parts := regex.find_all_string_submatch_n(`^([^:=]+)[:=]`, line, 1)[0]
 }
 
 # is_literal_value is true for a non-empty value that is not an interpolation (e.g. "${VAR}",

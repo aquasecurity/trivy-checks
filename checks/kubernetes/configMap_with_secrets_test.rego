@@ -72,6 +72,25 @@ test_detect_secret[name] if {
 			"expected": 1,
 			"expected_keys": {"TOKEN"},
 		},
+		"secret in url query after colon-separated interpolation": {
+			"data": {"settings": "url:${HOST}/x?password=synthetic"},
+			"expected": 1,
+			"expected_keys": {"url"},
+		},
+		"secret in url query after interpolation": {
+			"data": {"settings": "url: ${HOST}/x?password=synthetic"},
+			"expected": 1,
+			"expected_keys": {"url"},
+		},
+		"secret in url query after template": {
+			"data": {"settings": "dsn: {{ .Values.host }}/db?password=synthetic"},
+			"expected": 1,
+			"expected_keys": {"dsn"},
+		},
+		"interpolated secret in url query": {
+			"data": {"settings": "url: https://example.com/x?password=${DB_PASSWORD}"},
+			"expected": 0,
+		},
 		"cm value with env variable reference after space": {
 			"data": {"settings": "password: ${DB_PASSWORD}"},
 			"expected": 0,
