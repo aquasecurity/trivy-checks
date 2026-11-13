@@ -34,11 +34,10 @@ readVerbs := ["create", "update", "patch", "delete", "deletecollection", "impers
 
 readResources := ["services", "endpoints", "endpointslices", "networkpolicies", "ingresses"]
 
-managekubernetesNetworking contains input.rules[ru] if {
-	some ru, r, v
+managekubernetesNetworking contains rule if {
 	input.kind == readKinds[_]
-	input.rules[ru].resources[r] == readResources[_]
-	input.rules[ru].verbs[v] == readVerbs[_]
+	some rule in input.rules
+	kubernetes.rbac_rule_grants(rule, readResources, readVerbs)
 }
 
 deny contains res if {

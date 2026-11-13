@@ -32,11 +32,10 @@ readVerbs := ["delete", "deletecollection", "*"]
 
 readKinds := ["Role", "ClusterRole"]
 
-deletePodsLogRestricted contains input.rules[ru] if {
-	some ru, r, v
+deletePodsLogRestricted contains rule if {
 	input.kind == readKinds[_]
-	input.rules[ru].resources[r] == "pods/log"
-	input.rules[ru].verbs[v] == readVerbs[_]
+	some rule in input.rules
+	kubernetes.rbac_rule_grants(rule, ["pods/log"], readVerbs)
 }
 
 deny contains res if {

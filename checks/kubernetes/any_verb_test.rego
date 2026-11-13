@@ -2,6 +2,8 @@ package builtin.kubernetes.KSV045
 
 import rego.v1
 
+import data.lib.test
+
 test_any_verb_role_secrets if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
@@ -306,4 +308,52 @@ test_any_verb_role_no_any_verb if {
 	}
 
 	count(r) == 0
+}
+
+test_any_verb_role_builtin_api_groups if {
+	every resource, group in {
+		"secrets": "",
+		"pods": "",
+		"deployments": "apps",
+		"daemonsets": "apps",
+		"statefulsets": "apps",
+		"replicationcontrollers": "",
+		"replicasets": "apps",
+		"cronjobs": "batch",
+		"jobs": "batch",
+		"roles": "rbac.authorization.k8s.io",
+		"clusterroles": "rbac.authorization.k8s.io",
+		"rolebindings": "rbac.authorization.k8s.io",
+		"clusterrolebindings": "rbac.authorization.k8s.io",
+		"users": "",
+		"groups": "",
+	} {
+		r := deny with input as {
+			"apiVersion": "rbac.authorization.k8s.io/v1",
+			"kind": "ClusterRole",
+			"metadata": {"name": "pod-reader"},
+			"rules": [{
+				"apiGroups": [group],
+				"resources": [resource],
+				"verbs": ["*"],
+			}],
+		}
+
+		test.assert_count(r, 1)
+	}
+}
+
+test_any_verb_role_not_trigger_crd_api_group if {
+	r := deny with input as {
+		"apiVersion": "rbac.authorization.k8s.io/v1",
+		"kind": "ClusterRole",
+		"metadata": {"name": "crossplane:provider:provider-grafana:system"},
+		"rules": [{
+			"apiGroups": ["enterprise.grafana.crossplane.io"],
+			"resources": ["roles", "users"],
+			"verbs": ["*"],
+		}],
+	}
+
+	test.assert_empty(r)
 }

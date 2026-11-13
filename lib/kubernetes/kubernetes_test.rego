@@ -524,3 +524,80 @@ test_scheduler_has_not_valid_container if {
 	}
 	not is_scheduler(scheduler_container)
 }
+
+test_rbac_rule_grants[name] if {
+	some name, tc in {
+		"own api group": {
+			"rule": {"apiGroups": ["rbac.authorization.k8s.io"], "resources": ["roles"], "verbs": ["bind"]},
+			"resources": ["roles"],
+			"verbs": ["bind"],
+			"expected": true,
+		},
+		"core api group": {
+			"rule": {"apiGroups": [""], "resources": ["pods"], "verbs": ["create"]},
+			"resources": ["pods"],
+			"verbs": ["create"],
+			"expected": true,
+		},
+		"wildcard api group": {
+			"rule": {"apiGroups": ["*"], "resources": ["roles"], "verbs": ["bind"]},
+			"resources": ["roles"],
+			"verbs": ["bind"],
+			"expected": true,
+		},
+		"legacy api group": {
+			"rule": {"apiGroups": ["extensions"], "resources": ["deployments"], "verbs": ["create"]},
+			"resources": ["deployments"],
+			"verbs": ["create"],
+			"expected": true,
+		},
+		"one of api groups": {
+			"rule": {"apiGroups": ["example.com", "rbac.authorization.k8s.io"], "resources": ["roles"], "verbs": ["bind"]},
+			"resources": ["roles"],
+			"verbs": ["bind"],
+			"expected": true,
+		},
+		"unknown resource with wildcard api group": {
+			"rule": {"apiGroups": ["*"], "resources": ["foos"], "verbs": ["create"]},
+			"resources": ["foos"],
+			"verbs": ["create"],
+			"expected": true,
+		},
+		"crd api group": {
+			"rule": {"apiGroups": ["enterprise.grafana.crossplane.io"], "resources": ["roles"], "verbs": ["*"]},
+			"resources": ["roles"],
+			"verbs": ["*"],
+			"expected": false,
+		},
+		"api group of other resource": {
+			"rule": {"apiGroups": ["apps"], "resources": ["pods"], "verbs": ["create"]},
+			"resources": ["pods"],
+			"verbs": ["create"],
+			"expected": false,
+		},
+		"unknown resource with specific api group": {
+			"rule": {"apiGroups": [""], "resources": ["foos"], "verbs": ["create"]},
+			"resources": ["foos"],
+			"verbs": ["create"],
+			"expected": false,
+		},
+		"other verb": {
+			"rule": {"apiGroups": ["*"], "resources": ["roles"], "verbs": ["get"]},
+			"resources": ["roles"],
+			"verbs": ["bind"],
+			"expected": false,
+		},
+		"other resource": {
+			"rule": {"apiGroups": ["*"], "resources": ["pods"], "verbs": ["bind"]},
+			"resources": ["roles"],
+			"verbs": ["bind"],
+			"expected": false,
+		},
+	}
+
+	_rbac_rule_grants(tc) == tc.expected
+}
+
+_rbac_rule_grants(tc) if {
+	rbac_rule_grants(tc.rule, tc.resources, tc.verbs)
+} else := false

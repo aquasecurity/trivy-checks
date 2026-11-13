@@ -31,11 +31,10 @@ readVerbs := ["get", "list", "watch", "create", "update", "patch", "delete", "de
 
 readKinds := ["ClusterRole"]
 
-resourceManageSecret contains input.rules[ru] if {
-	some ru, r, v
+resourceManageSecret contains rule if {
 	input.kind == readKinds[_]
-	input.rules[ru].resources[r] == "secrets"
-	input.rules[ru].verbs[v] == readVerbs[_]
+	some rule in input.rules
+	kubernetes.rbac_rule_grants(rule, ["secrets"], readVerbs)
 }
 
 deny contains res if {

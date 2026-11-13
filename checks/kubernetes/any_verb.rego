@@ -23,15 +23,16 @@ package builtin.kubernetes.KSV045
 
 import rego.v1
 
+import data.lib.kubernetes
+
 resourceRead := ["secrets", "pods", "deployments", "daemonsets", "statefulsets", "replicationcontrollers", "replicasets", "cronjobs", "jobs", "roles", "clusterroles", "rolebindings", "clusterrolebindings", "users", "groups"]
 
 readKinds := ["Role", "ClusterRole"]
 
-resourceAllowAnyVerbOnspecificResource contains input.rules[ru] if {
-	some ru, r, v
+resourceAllowAnyVerbOnspecificResource contains rule if {
 	input.kind == readKinds[_]
-	input.rules[ru].resources[r] == resourceRead[_]
-	input.rules[ru].verbs[v] == "*"
+	some rule in input.rules
+	kubernetes.rbac_rule_grants(rule, resourceRead, ["*"])
 }
 
 deny contains res if {
