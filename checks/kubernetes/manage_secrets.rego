@@ -34,7 +34,7 @@ readKinds := ["ClusterRole"]
 resourceManageSecret contains rule if {
 	input.kind == readKinds[_]
 	some rule in input.rules
-	kubernetes.rule_grants(rule, ["secrets"], readVerbs)
+	kubernetes.rbac_rule_grants(rule, ["secrets"], readVerbs)
 }
 
 deny contains res if {

@@ -39,7 +39,7 @@ resourceName := "aws-auth"
 manageEKSIAMAuthConfigmap contains rule if {
 	input.kind == readKinds[_]
 	some rule in input.rules
-	kubernetes.rule_grants(rule, [readResource], readVerbs)
+	kubernetes.rbac_rule_grants(rule, [readResource], readVerbs)
 	resourceName in rule.resourceNames
 }
 

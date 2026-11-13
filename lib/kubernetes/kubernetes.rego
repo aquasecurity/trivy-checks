@@ -221,7 +221,7 @@ is_apiserver(container) if {
 # API groups that serve the built-in resources referenced by RBAC checks.
 # "" is the core group. Legacy groups such as extensions are kept because
 # older manifests still grant access through them.
-resource_api_groups := {
+rbac_resource_api_groups := {
 	"pods": {""},
 	"pods/exec": {""},
 	"pods/log": {""},
@@ -250,21 +250,21 @@ resource_api_groups := {
 	"validatingwebhookconfigurations": {"admissionregistration.k8s.io"},
 }
 
-# rule_grants is true if the RBAC rule grants any of the verbs on any of the
+# rbac_rule_grants is true if the RBAC rule grants any of the verbs on any of the
 # resources. A resource only counts in its own API group, so a CRD with the
 # same name in another group does not match.
-rule_grants(rule, resources, verbs) if {
+rbac_rule_grants(rule, resources, verbs) if {
 	some resource in rule.resources
 	resource in resources
 	some verb in rule.verbs
 	verb in verbs
 	some group in rule.apiGroups
-	api_group_serves(group, resource)
+	rbac_api_group_serves(group, resource)
 }
 
-# A resource missing from resource_api_groups matches only the "*" group.
-api_group_serves("*", _)
+# A resource missing from rbac_resource_api_groups matches only the "*" group.
+rbac_api_group_serves("*", _)
 
-api_group_serves(group, resource) if {
-	group in resource_api_groups[resource]
+rbac_api_group_serves(group, resource) if {
+	group in rbac_resource_api_groups[resource]
 }

@@ -37,7 +37,7 @@ readResource := "configmaps"
 manageConfigmaps contains rule if {
 	input.kind == readKinds[_]
 	some rule in input.rules
-	kubernetes.rule_grants(rule, [readResource], readVerbs)
+	kubernetes.rbac_rule_grants(rule, [readResource], readVerbs)
 }
 
 deny contains res if {

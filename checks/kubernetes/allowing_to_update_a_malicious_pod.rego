@@ -37,7 +37,7 @@ readKinds := ["Role", "ClusterRole"]
 update_malicious_pod contains rule if {
 	input.kind == readKinds[_]
 	some rule in input.rules
-	kubernetes.rule_grants(rule, workloads, changeVerbs)
+	kubernetes.rbac_rule_grants(rule, workloads, changeVerbs)
 }
 
 deny contains res if {

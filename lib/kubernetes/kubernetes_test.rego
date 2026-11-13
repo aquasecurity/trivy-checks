@@ -525,7 +525,7 @@ test_scheduler_has_not_valid_container if {
 	not is_scheduler(scheduler_container)
 }
 
-test_rule_grants[name] if {
+test_rbac_rule_grants[name] if {
 	some name, tc in {
 		"own api group": {
 			"rule": {"apiGroups": ["rbac.authorization.k8s.io"], "resources": ["roles"], "verbs": ["bind"]},
@@ -595,9 +595,9 @@ test_rule_grants[name] if {
 		},
 	}
 
-	_rule_grants(tc) == tc.expected
+	_rbac_rule_grants(tc) == tc.expected
 }
 
-_rule_grants(tc) if {
-	rule_grants(tc.rule, tc.resources, tc.verbs)
+_rbac_rule_grants(tc) if {
+	rbac_rule_grants(tc.rule, tc.resources, tc.verbs)
 } else := false

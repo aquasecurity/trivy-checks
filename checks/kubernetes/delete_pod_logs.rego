@@ -35,7 +35,7 @@ readKinds := ["Role", "ClusterRole"]
 deletePodsLogRestricted contains rule if {
 	input.kind == readKinds[_]
 	some rule in input.rules
-	kubernetes.rule_grants(rule, ["pods/log"], readVerbs)
+	kubernetes.rbac_rule_grants(rule, ["pods/log"], readVerbs)
 }
 
 deny contains res if {

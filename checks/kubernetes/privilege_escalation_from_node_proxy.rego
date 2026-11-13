@@ -32,7 +32,7 @@ readKinds := ["Role", "ClusterRole"]
 privilegeEscalationFromNodeProxy contains rule if {
 	input.kind == readKinds[_]
 	some rule in input.rules
-	kubernetes.rule_grants(rule, ["nodes/proxy"], readVerbs)
+	kubernetes.rbac_rule_grants(rule, ["nodes/proxy"], readVerbs)
 }
 
 deny contains res if {

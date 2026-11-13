@@ -32,7 +32,7 @@ readKinds := ["Role", "ClusterRole"]
 resourceAllowAnyVerbOnspecificResource contains rule if {
 	input.kind == readKinds[_]
 	some rule in input.rules
-	kubernetes.rule_grants(rule, resourceRead, ["*"])
+	kubernetes.rbac_rule_grants(rule, resourceRead, ["*"])
 }
 
 deny contains res if {

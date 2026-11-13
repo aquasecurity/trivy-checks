@@ -37,7 +37,7 @@ criticalResources := ["roles", "rolebindings"]
 criticalK8sRBACResources contains rule if {
 	input.kind == ["Role", "ClusterRole"][_]
 	some rule in input.rules
-	kubernetes.rule_grants(rule, criticalResources, criticalVerbs)
+	kubernetes.rbac_rule_grants(rule, criticalResources, criticalVerbs)
 }
 
 deny contains res if {
