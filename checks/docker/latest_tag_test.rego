@@ -67,16 +67,14 @@ test_scratch_allowed if {
 
 test_with_variables_allowed if {
 	r := deny with input as {"Stages": [
-		{"Name": "alpine:3.5", "Commands": [
-			{
-				"Cmd": "from",
-				"Value": ["alpine:3.5"],
-			},
-			{
-				"Cmd": "arg",
-				"Value": ["IMAGE=alpine:3.12"],
-			},
-		]},
+		{"Name": "", "Commands": [{
+			"Cmd": "arg",
+			"Value": ["IMAGE=alpine:3.12"],
+		}]},
+		{"Name": "alpine:3.5", "Commands": [{
+			"Cmd": "from",
+			"Value": ["alpine:3.5"],
+		}]},
 		{"Name": "image", "Commands": [
 			{
 				"Cmd": "from",
@@ -97,16 +95,14 @@ test_with_variables_allowed if {
 
 test_with_variables_denied if {
 	r := deny with input as {"Stages": [
-		{"Name": "alpine:3.5", "Commands": [
-			{
-				"Cmd": "from",
-				"Value": ["alpine:3.5"],
-			},
-			{
-				"Cmd": "arg",
-				"Value": ["IMAGE=all-in-one"],
-			},
-		]},
+		{"Name": "", "Commands": [{
+			"Cmd": "arg",
+			"Value": ["IMAGE=all-in-one"],
+		}]},
+		{"Name": "alpine:3.5", "Commands": [{
+			"Cmd": "from",
+			"Value": ["alpine:3.5"],
+		}]},
 		{"Name": "image", "Commands": [
 			{
 				"Cmd": "from",
@@ -274,7 +270,7 @@ test_deny_image_ref_to_global_arg_without_default_value if {
 	r[_].msg == "Specify a tag in the 'FROM' statement for image '/ubuntu'"
 }
 
-test_deny_global_arg_is_overrided_to_latest if {
+test_allow_stage_arg_does_not_affect_from if {
 	r := deny with input as {"Stages": [
 		{"Name": "", "Commands": [{
 			"Cmd": "arg",
@@ -282,12 +278,12 @@ test_deny_global_arg_is_overrided_to_latest if {
 		}]},
 		{"Name": "foo:${TAG}", "Commands": [
 			{
-				"Cmd": "arg",
-				"Value": ["TAG=latest"],
-			},
-			{
 				"Cmd": "from",
 				"Value": ["foo:${TAG}"],
+			},
+			{
+				"Cmd": "arg",
+				"Value": ["TAG=latest"],
 			},
 		]},
 		{"Name": "bar:${TAG}", "Commands": [{
@@ -296,8 +292,54 @@ test_deny_global_arg_is_overrided_to_latest if {
 		}]},
 	]}
 
+	count(r) == 0
+}
+
+test_allow_alias_ref_to_global_arg if {
+	r := deny with input as {"Stages": [
+		{"Name": "", "Commands": [{
+			"Cmd": "arg",
+			"Value": ["OS=rocky10"],
+		}]},
+		{"Name": "rockylinux:10.2-minimal AS os-rocky10", "Commands": [{
+			"Cmd": "from",
+			"Value": ["rockylinux:10.2-minimal", "AS", "os-rocky10"],
+		}]},
+		{"Name": "os-${OS} AS final", "Commands": [
+			{
+				"Cmd": "from",
+				"Value": ["os-${OS}", "AS", "final"],
+			},
+			{
+				"Cmd": "arg",
+				"Value": ["OS"],
+			},
+		]},
+	]}
+
+	count(r) == 0
+}
+
+test_deny_first_stage_arg_is_not_global if {
+	r := deny with input as {"Stages": [
+		{"Name": "alpine:3.20", "Commands": [
+			{
+				"Cmd": "from",
+				"Value": ["alpine:3.20"],
+			},
+			{
+				"Cmd": "arg",
+				"Value": ["SUFFIX=:3.20"],
+			},
+		]},
+		{"Name": "alpine${SUFFIX}", "Commands": [{
+			"Cmd": "from",
+			"Value": ["alpine${SUFFIX}"],
+		}]},
+	]}
+
 	count(r) == 1
-	r[_].msg == "Specify a tag in the 'FROM' statement for image 'foo'"
+	r[_].msg == "Specify a tag in the 'FROM' statement for image 'alpine'"
 }
 
 test_deny_image_ref_to_multiple_args_but_tag_latest if {
