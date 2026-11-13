@@ -3,9 +3,15 @@
   key: kubeletStreamingConnectionIdleTimeoutArgumentSet
   title: kubelet --streaming-connection-idle-timeout argument is set
   nodeType: worker
-  audit: ps -ef | grep $kubelet.bins |grep ' --streamingConnectionIdleTimeout' |
-    grep -o ' --streamingConnectionIdleTimeout=[^"]\S*' | awk -F "=" '{print
-    $2}' |awk 'FNR <= 1'
+  audit: >-
+    ps -eo args |
+    awk -v bin="$kubelet.bins" 'BEGIN {n=split(bin, parts, " ")}
+    {name=$1; sub(/^.*\//, "", name); if (!n || name != parts[1]) next;
+    for (i=2; i<=n; i++) if ($i != parts[i]) next; print}' |
+    grep ' --streamingConnectionIdleTimeout' |
+    grep -o ' --streamingConnectionIdleTimeout=[^"]\S*' |
+    awk -F "=" '{print $2}' |
+    awk 'FNR <= 1'
   platforms:
     - k8s
     - eks
