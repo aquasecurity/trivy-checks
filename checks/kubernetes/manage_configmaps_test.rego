@@ -2,6 +2,8 @@ package builtin.kubernetes.KSV049
 
 import rego.v1
 
+import data.lib.test
+
 test_manageConfigmaps_verb_create if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
@@ -144,4 +146,40 @@ test_manageConfigmaps_verb_wrong if {
 	}
 
 	count(r) == 0
+}
+
+test_manageConfigmaps_core_api_group if {
+	r := deny with input as {
+		"apiVersion": "rbac.authorization.k8s.io/v1",
+		"kind": "Role",
+		"metadata": {
+			"namespace": "default",
+			"name": "pod-reader",
+		},
+		"rules": [{
+			"apiGroups": [""],
+			"resources": ["configmaps"],
+			"verbs": ["create"],
+		}],
+	}
+
+	test.assert_count(r, 1)
+}
+
+test_manageConfigmaps_not_trigger_crd_api_group if {
+	r := deny with input as {
+		"apiVersion": "rbac.authorization.k8s.io/v1",
+		"kind": "Role",
+		"metadata": {
+			"namespace": "default",
+			"name": "pod-reader",
+		},
+		"rules": [{
+			"apiGroups": ["example.com"],
+			"resources": ["configmaps"],
+			"verbs": ["create"],
+		}],
+	}
+
+	test.assert_empty(r)
 }

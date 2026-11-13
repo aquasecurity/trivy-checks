@@ -217,3 +217,54 @@ is_scheduler(container) if {
 is_apiserver(container) if {
 	regex.match("^(.*/)?kube-apiserver$", container.command[0])
 }
+
+# API groups that serve the built-in resources referenced by RBAC checks.
+# "" is the core group. Legacy groups such as extensions are kept because
+# older manifests still grant access through them.
+resource_api_groups := {
+	"pods": {""},
+	"pods/exec": {""},
+	"pods/log": {""},
+	"nodes/proxy": {""},
+	"secrets": {""},
+	"configmaps": {""},
+	"services": {""},
+	"endpoints": {""},
+	"replicationcontrollers": {""},
+	"users": {""},
+	"groups": {""},
+	"deployments": {"apps", "extensions"},
+	"daemonsets": {"apps", "extensions"},
+	"replicasets": {"apps", "extensions"},
+	"statefulsets": {"apps"},
+	"jobs": {"batch"},
+	"cronjobs": {"batch"},
+	"endpointslices": {"discovery.k8s.io"},
+	"networkpolicies": {"networking.k8s.io", "extensions"},
+	"ingresses": {"networking.k8s.io", "extensions"},
+	"roles": {"rbac.authorization.k8s.io"},
+	"rolebindings": {"rbac.authorization.k8s.io"},
+	"clusterroles": {"rbac.authorization.k8s.io"},
+	"clusterrolebindings": {"rbac.authorization.k8s.io"},
+	"mutatingwebhookconfigurations": {"admissionregistration.k8s.io"},
+	"validatingwebhookconfigurations": {"admissionregistration.k8s.io"},
+}
+
+# rule_grants is true if the RBAC rule grants any of the verbs on any of the
+# resources. A resource only counts in its own API group, so a CRD with the
+# same name in another group does not match.
+rule_grants(rule, resources, verbs) if {
+	some resource in rule.resources
+	resource in resources
+	some verb in rule.verbs
+	verb in verbs
+	some group in rule.apiGroups
+	api_group_serves(group, resource)
+}
+
+# A resource missing from resource_api_groups matches only the "*" group.
+api_group_serves("*", _)
+
+api_group_serves(group, resource) if {
+	group in resource_api_groups[resource]
+}

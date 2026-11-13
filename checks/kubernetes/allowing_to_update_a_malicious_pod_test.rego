@@ -2,6 +2,8 @@ package builtin.kubernetes.KSV048
 
 import rego.v1
 
+import data.lib.test
+
 test_update_malicious_pod_deployments if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
@@ -324,4 +326,51 @@ test_update_malicious_pod_impersonate if {
 	}
 
 	count(r) == 0
+}
+
+test_update_malicious_pod_builtin_api_groups if {
+	every resource, group in {
+		"pods": "",
+		"deployments": "apps",
+		"jobs": "batch",
+		"cronjobs": "batch",
+		"statefulsets": "apps",
+		"daemonsets": "apps",
+		"replicasets": "apps",
+		"replicationcontrollers": "",
+	} {
+		r := deny with input as {
+			"apiVersion": "rbac.authorization.k8s.io/v1",
+			"kind": "Role",
+			"metadata": {
+				"namespace": "default",
+				"name": "pod-reader",
+			},
+			"rules": [{
+				"apiGroups": [group],
+				"resources": [resource],
+				"verbs": ["create"],
+			}],
+		}
+
+		test.assert_count(r, 1)
+	}
+}
+
+test_update_malicious_pod_not_trigger_crd_api_group if {
+	r := deny with input as {
+		"apiVersion": "rbac.authorization.k8s.io/v1",
+		"kind": "Role",
+		"metadata": {
+			"namespace": "default",
+			"name": "pod-reader",
+		},
+		"rules": [{
+			"apiGroups": ["example.com"],
+			"resources": ["pods", "deployments", "jobs"],
+			"verbs": ["create"],
+		}],
+	}
+
+	test.assert_empty(r)
 }

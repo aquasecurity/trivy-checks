@@ -36,12 +36,11 @@ readResource := "configmaps"
 
 resourceName := "aws-auth"
 
-manageEKSIAMAuthConfigmap contains input.rules[ru] if {
-	some ru, r, v
+manageEKSIAMAuthConfigmap contains rule if {
 	input.kind == readKinds[_]
-	input.rules[ru].resources[r] == readResource
-	input.rules[ru].verbs[v] == readVerbs[_]
-	input.rules[ru].resourceNames[rn] == resourceName
+	some rule in input.rules
+	kubernetes.rule_grants(rule, [readResource], readVerbs)
+	resourceName in rule.resourceNames
 }
 
 deny contains res if {

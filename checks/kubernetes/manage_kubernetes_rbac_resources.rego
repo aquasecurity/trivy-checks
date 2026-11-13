@@ -34,15 +34,10 @@ criticalVerbs := ["escalate", "bind", "impersonate", "*"]
 
 criticalResources := ["roles", "rolebindings"]
 
-# roles and rolebindings of other API groups (e.g. CRDs) are not RBAC resources
-criticalAPIGroups := ["rbac.authorization.k8s.io", "*"]
-
-criticalK8sRBACResources contains input.rules[ru] if {
-	some ru, g, r, v
+criticalK8sRBACResources contains rule if {
 	input.kind == ["Role", "ClusterRole"][_]
-	input.rules[ru].apiGroups[g] == criticalAPIGroups[_]
-	input.rules[ru].resources[r] == criticalResources[_]
-	input.rules[ru].verbs[v] == criticalVerbs[_]
+	some rule in input.rules
+	kubernetes.rule_grants(rule, criticalResources, criticalVerbs)
 }
 
 deny contains res if {

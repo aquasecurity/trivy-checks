@@ -34,11 +34,10 @@ changeVerbs := ["create", "update", "patch", "delete", "deletecollection", "impe
 
 readKinds := ["Role", "ClusterRole"]
 
-update_malicious_pod contains input.rules[ru] if {
-	some ru, r, v
+update_malicious_pod contains rule if {
 	input.kind == readKinds[_]
-	input.rules[ru].resources[r] == workloads[_]
-	input.rules[ru].verbs[v] == changeVerbs[_]
+	some rule in input.rules
+	kubernetes.rule_grants(rule, workloads, changeVerbs)
 }
 
 deny contains res if {
