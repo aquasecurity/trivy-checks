@@ -27,18 +27,8 @@ package builtin.aws.elb.aws0047
 
 import rego.v1
 
-outdated_ssl_policies := {
-	"ELBSecurityPolicy-2015-05",
-	"ELBSecurityPolicy-2016-08",
-	"ELBSecurityPolicy-FS-2018-06",
-	"ELBSecurityPolicy-FS-1-1-2019-08",
-	"ELBSecurityPolicy-TLS-1-0-2015-04",
-	"ELBSecurityPolicy-TLS-1-1-2017-01",
-	"ELBSecurityPolicy-TLS13-1-0-2021-06",
-	"ELBSecurityPolicy-TLS13-1-1-2021-06",
-	"ELBSecurityPolicy-TLS13-1-2-Ext1-2021-06",
-	"ELBSecurityPolicy-TLS13-1-2-Ext2-2021-06",
-}
+import data.lib.aws.tls_policies
+import data.lib.cloud.value
 
 deny contains res if {
 	some lb in input.aws.elb.loadbalancers
@@ -48,6 +38,8 @@ deny contains res if {
 	res := result.new("Listener uses an outdated TLS policy.", listener.tlspolicy)
 }
 
+# Listeners that do not terminate TLS have no policy.
 has_outdated_policy(listener) if {
-	listener.tlspolicy.value in outdated_ssl_policies
+	value.is_not_empty(listener.tlspolicy)
+	not listener.tlspolicy.value in tls_policies.elb_secure_policies
 }

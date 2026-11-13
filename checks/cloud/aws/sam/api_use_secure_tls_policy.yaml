@@ -16,6 +16,8 @@ cloudformation:
         BadExample:
           Type: AWS::Serverless::Api
           Properties:
+            Domain:
+              SecurityPolicy: TLS_1_0
             Name: Bad SAM API example
             StageName: Prod
             TracingEnabled: false
