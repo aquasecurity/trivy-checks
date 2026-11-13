@@ -72,28 +72,46 @@ config_map_secrets_from_values contains key if {
 	regex.match(pattern, v)
 
 	some line in split(v, "\n")
-	regex.match(pattern, line)
-	key := config_map_secret_key(line)
+	assigns_literal(line, pattern)
+	key := assignment_key(line)
 }
 
-# config_map_secret_key extracts the key from a value string if it looks like a sensitive assignment.
-# It supports splitting on '=' or ':' and ignores values that:
-# - don't contain a delimiter
-# - have no actual value (e.g. "PASSWORD=")
-# - are interpolation references (e.g. "${VAR}", "$(command)", "{{ template }}")
-config_map_secret_key(value) := key if {
-	some delimiter in {":", "="}
-	parts := split(value, delimiter)
-	count(parts) > 1
-	raw_value := parts[1]
+# assigns_literal is true if the first match of pattern in line is followed by a literal value.
+# The value is taken after the match rather than after the first delimiter, so a secret in
+# "url: ${HOST}/x?password=synthetic" is still found.
+assigns_literal(line, pattern) if {
+	match := regex.find_all_string_submatch_n(concat("", [pattern, "(.*)"]), line, 1)[0]
+	is_literal_value(trim_space(match[count(match) - 1]))
+}
 
-	# skip if value is empty
-	raw_value != ""
+# assignment_key returns the part of an assignment line before the first '=' or ':'.
+assignment_key(line) := trim_space(parts[1]) if {
+	parts := regex.find_all_string_submatch_n(`^([^:=]+)[:=]`, line, 1)[0]
+}
 
-	# skip interpolated or templated values
-	not is_interpolation(raw_value)
+# is_literal_value is true for a non-empty value that is not an interpolation (e.g. "${VAR}",
+# "$(command)", "{{ template }}"), and for a reference with a non-empty literal default
+# (e.g. "${VAR:-default}", "${VAR:-${OTHER:-default}}", "${VAR:default}").
+is_literal_value(value) if {
+	value != ""
+	not is_interpolation(value)
+}
 
-	key := parts[0]
+is_literal_value(value) if {
+	default_value := reference_default(value)
+	default_value != ""
+
+	# skip references to other variables and the ':+' and ':?' expansions
+	not regex.match(`^[-+?=$]`, default_value)
+}
+
+# reference_default returns the innermost default of a "${VAR...}" reference.
+# "${VAR:offset}" is also treated as a default because it cannot be told apart from "${VAR:default}".
+reference_default(value) := trim(match[1], "\"' ") if {
+	match := regex.find_all_string_submatch_n(
+		`^"?(?:\$\{[A-Za-z_][A-Za-z0-9_]*(?::?[-=]|:))+([^}]*)\}`,
+		value, 1,
+	)[0]
 }
 
 # is_interpolation returns true if the string starts with any known interpolation prefix
