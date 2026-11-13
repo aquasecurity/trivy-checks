@@ -30,11 +30,11 @@ package builtin.aws.ec2.aws0131
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some instance in input.aws.ec2.instances
-	instance.rootblockdevice
-	not instance.rootblockdevice.encrypted.value
+	encryption_disabled(instance.rootblockdevice)
 	res := result.new(
 		"Root block device is not encrypted.",
 		metadata.obj_by_path(instance, ["rootblockdevice", "encrypted"]),
@@ -44,9 +44,13 @@ deny contains res if {
 deny contains res if {
 	some instance in input.aws.ec2.instances
 	some ebs in instance.ebsblockdevices
-	not ebs.encrypted.value
+	encryption_disabled(ebs)
 	res := result.new(
 		"EBS block device is not encrypted.",
 		metadata.obj_by_path(ebs, ["encrypted"]),
 	)
 }
+
+encryption_disabled(device) if not device.encrypted
+
+encryption_disabled(device) if value.is_false(device.encrypted)
