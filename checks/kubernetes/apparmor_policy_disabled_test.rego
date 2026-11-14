@@ -2,6 +2,8 @@ package builtin.kubernetes.KSV002
 
 import rego.v1
 
+import data.lib.test
+
 test_custom_deny if {
 	r := deny with input as {
 		"apiVersion": "v1",
@@ -97,4 +99,30 @@ test_runtime_default_allowed if {
 	}
 
 	count(r) == 0
+}
+
+test_ephemeral_container_custom_deny if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {
+			"annotations": {
+				"container.apparmor.security.beta.kubernetes.io/hello": "runtime/default",
+				"container.apparmor.security.beta.kubernetes.io/debugger": "unconfined",
+			},
+			"name": "hello-apparmor",
+		},
+		"spec": {
+			"containers": [{
+				"image": "busybox",
+				"name": "hello",
+			}],
+			"ephemeralContainers": [{
+				"image": "busybox",
+				"name": "debugger",
+			}],
+		},
+	}
+
+	test.assert_equal_message("Container 'debugger' of Pod 'hello-apparmor' should specify an AppArmor profile", r)
 }

@@ -2,6 +2,8 @@ package builtin.kubernetes.KSV103
 
 import rego.v1
 
+import data.lib.test
+
 test_base_securityContext_hostProcess_enabled_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
@@ -137,4 +139,25 @@ test_container_securityContext_hostProcess_unspecified_allowed if {
 	}
 
 	count(r) == 0
+}
+
+test_ephemeral_container_securityContext_hostProcess_enabled_denied if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-sysctls"},
+		"spec": {
+			"containers": [{
+				"image": "busybox",
+				"name": "hello",
+			}],
+			"ephemeralContainers": [{
+				"image": "busybox",
+				"name": "debugger",
+				"securityContext": {"windowsOptions": {"hostProcess": true}},
+			}],
+		},
+	}
+
+	test.assert_equal_message("You should not enable hostProcess.", r)
 }
