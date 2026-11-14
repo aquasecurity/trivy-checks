@@ -2,6 +2,8 @@ package builtin.kubernetes.KSV017
 
 import rego.v1
 
+import data.lib.test
+
 test_privileged_is_true_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
@@ -60,4 +62,25 @@ test_privileged_is_false_allowed if {
 	}
 
 	count(r) == 0
+}
+
+test_privileged_is_true_in_ephemeral_container_denied if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-privileged"},
+		"spec": {
+			"containers": [{
+				"image": "busybox",
+				"name": "hello",
+			}],
+			"ephemeralContainers": [{
+				"image": "busybox",
+				"name": "debugger",
+				"securityContext": {"privileged": true},
+			}],
+		},
+	}
+
+	test.assert_equal_message("Container 'debugger' of Pod 'hello-privileged' should set 'securityContext.privileged' to false", r)
 }

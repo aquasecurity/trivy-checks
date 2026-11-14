@@ -2,6 +2,8 @@ package builtin.kubernetes.KSV106
 
 import rego.v1
 
+import data.lib.test
+
 test_drop_all_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
@@ -119,4 +121,26 @@ test_drop_all_add_other_denied if {
 	}
 
 	count(r) == 1
+}
+
+test_drop_all_add_other_in_ephemeral_container_denied if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-seccomp"},
+		"spec": {
+			"containers": [{
+				"image": "busybox",
+				"name": "hello",
+				"securityContext": {"capabilities": {"drop": ["ALL"]}},
+			}],
+			"ephemeralContainers": [{
+				"image": "busybox",
+				"name": "debugger",
+				"securityContext": {"capabilities": {"drop": ["ALL"], "add": ["SYS_PTRACE"]}},
+			}],
+		},
+	}
+
+	test.assert_equal_message("container should not add stuff", r)
 }

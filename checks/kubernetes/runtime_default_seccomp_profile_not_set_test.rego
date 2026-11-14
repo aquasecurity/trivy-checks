@@ -2,6 +2,8 @@ package builtin.kubernetes.KSV030
 
 import rego.v1
 
+import data.lib.test
+
 test_pod_context_custom_profile_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
@@ -273,4 +275,25 @@ test_pod_context_correct_profile_at_container_allowed if {
 	}
 
 	count(r) == 0
+}
+
+test_ephemeral_container_context_undefined_profile_denied if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-seccomp"},
+		"spec": {
+			"containers": [{
+				"image": "busybox",
+				"name": "hello",
+				"securityContext": {"seccompProfile": {"type": "RuntimeDefault"}},
+			}],
+			"ephemeralContainers": [{
+				"image": "busybox",
+				"name": "debugger",
+			}],
+		},
+	}
+
+	test.assert_equal_message("Either Pod or Container should set 'securityContext.seccompProfile.type' to 'RuntimeDefault'", r)
 }

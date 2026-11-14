@@ -2,6 +2,8 @@ package builtin.kubernetes.KSV015
 
 import rego.v1
 
+import data.lib.test
+
 test_CPU_requests_not_specified_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
@@ -40,4 +42,24 @@ test_CPU_requests_specified_allowed if {
 	}
 
 	count(r) == 0
+}
+
+test_CPU_requests_not_specified_ephemeral_container_skipped if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-cpu-request"},
+		"spec": {
+			"containers": [{
+				"image": "busybox",
+				"name": "hello",
+			}],
+			"ephemeralContainers": [{
+				"image": "busybox",
+				"name": "debugger",
+			}],
+		},
+	}
+
+	test.assert_equal_message("Container 'hello' of Pod 'hello-cpu-request' should set 'resources.requests.cpu'", r)
 }

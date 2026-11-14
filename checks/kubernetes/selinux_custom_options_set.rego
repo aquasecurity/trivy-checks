@@ -15,7 +15,7 @@
 #     - no-custom-selinux-options
 #     - kubernetes-no-custom-selinux-options
 #   severity: MEDIUM
-#   recommended_action: "Do not set 'spec.securityContext.seLinuxOptions', spec.containers[*].securityContext.seLinuxOptions and spec.initContainers[*].securityContext.seLinuxOptions."
+#   recommended_action: "Do not set 'spec.securityContext.seLinuxOptions', spec.containers[*].securityContext.seLinuxOptions, spec.initContainers[*].securityContext.seLinuxOptions and spec.ephemeralContainers[*].securityContext.seLinuxOptions."
 #   input:
 #     selector:
 #     - type: kubernetes

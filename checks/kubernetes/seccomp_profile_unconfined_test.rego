@@ -2,6 +2,8 @@ package builtin.kubernetes.KSV104
 
 import rego.v1
 
+import data.lib.test
+
 test_container_seccomp_profile_unconfined_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
@@ -250,4 +252,50 @@ test_deployment_annotations_seccomp_profile_unconfined_allowed if {
 		},
 	}
 	count(r) == 0
+}
+
+test_ephemeral_container_seccomp_profile_unconfined_denied if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-seccomp"},
+		"spec": {
+			"containers": [{
+				"name": "hello",
+				"image": "busybox",
+				"securityContext": {"seccompProfile": {"type": "RuntimeDefault"}},
+			}],
+			"ephemeralContainers": [{
+				"name": "debugger",
+				"image": "busybox",
+				"securityContext": {"seccompProfile": {"type": "Unconfined"}},
+			}],
+		},
+	}
+
+	test.assert_equal_message("container \"debugger\" of pod \"hello-seccomp\" in \"default\" namespace should specify a seccomp profile", r)
+}
+
+test_ephemeral_container_annotations_seccomp_profile_allowed if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {
+			"name": "hello-seccomp",
+			"annotations": {"container.seccomp.security.alpha.kubernetes.io/debugger": "runtime/default"},
+		},
+		"spec": {
+			"containers": [{
+				"name": "hello",
+				"image": "busybox",
+				"securityContext": {"seccompProfile": {"type": "RuntimeDefault"}},
+			}],
+			"ephemeralContainers": [{
+				"name": "debugger",
+				"image": "busybox",
+			}],
+		},
+	}
+
+	test.assert_empty(r)
 }

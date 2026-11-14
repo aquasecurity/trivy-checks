@@ -15,7 +15,7 @@
 #     - use-default-seccomp
 #     - kubernetes-use-default-seccomp
 #   severity: LOW
-#   recommended_action: "Set 'spec.securityContext.seccompProfile.type', 'spec.containers[*].securityContext.seccompProfile' and 'spec.initContainers[*].securityContext.seccompProfile' to 'RuntimeDefault' or undefined."
+#   recommended_action: "Set 'spec.securityContext.seccompProfile.type', 'spec.containers[*].securityContext.seccompProfile', 'spec.initContainers[*].securityContext.seccompProfile' and 'spec.ephemeralContainers[*].securityContext.seccompProfile' to 'RuntimeDefault' or undefined."
 #   input:
 #     selector:
 #     - type: kubernetes

@@ -45,9 +45,10 @@ getRequestsCPUContainers contains container if {
 }
 
 # getNoRequestsCPUContainers returns all containers which have not set
-# resources.requests.cpu
+# resources.requests.cpu. Ephemeral containers are skipped because they cannot set resources.
 getNoRequestsCPUContainers contains container if {
 	container := kubernetes.containers[_]
+	not kubernetes.is_ephemeral_container(container)
 	not getRequestsCPUContainers[container]
 }
 
