@@ -14,8 +14,8 @@ workflows:
     '.github/workflows/reusable-release.yaml':
         - 'actions/checkout@v7.0.1'
         - 'actions/setup-go@v7.0.0'
-        - 'docker/login-action@v4.6.0'
-        - 'oras-project/setup-oras@v2.0.1'
+        - 'docker/login-action@v4.8.0'
+        - 'oras-project/setup-oras@v2.0.3'
     '.github/workflows/test.yaml':
         - 'actions/checkout@v7.0.1'
         - 'actions/setup-go@v7.0.0'
@@ -31,9 +31,9 @@ dependencies:
         commit: 'sha1-b7ad1dad31e06c5925ef5d2fc7ad053ef454303e'
         owner_id: 44036562
         repo_id: 192624594
-    'docker/login-action@v4.6.0':
-        ref: 'v4.6.0'
-        commit: 'sha1-dbcb813823bdd20940b903addbd779551569679f'
+    'docker/login-action@v4.8.0':
+        ref: 'v4.8.0'
+        commit: 'sha1-8aa5831fb8d48d8f76594c7ddde61ae58019f550'
         owner_id: 5429470
         repo_id: 287743349
     'github/codeql-action@9b3254085494b55a0f7c4c2b3d2d52cc712ce370':
@@ -46,9 +46,9 @@ dependencies:
         commit: 'sha1-761188c3b435761fa254beca508a44875619648f'
         owner_id: 16468693
         repo_id: 668633487
-    'oras-project/setup-oras@v2.0.1':
-        ref: 'v2.0.1'
-        commit: 'sha1-1d808f7d7f6995cc68b7bf507bfe5c5446e1dc9d'
+    'oras-project/setup-oras@v2.0.3':
+        ref: 'v2.0.3'
+        commit: 'sha1-5e2f2482b30b0cb3e14e67f89a80c88c659a7c63'
         owner_id: 81890686
         repo_id: 590286646
     'zizmorcore/zizmor-action@v0.8.1':
