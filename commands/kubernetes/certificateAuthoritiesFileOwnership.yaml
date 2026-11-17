@@ -3,9 +3,15 @@
   key: certificateAuthoritiesFileOwnership
   title: Client certificate authorities file ownership
   nodeType: worker
-  audit: stat -c %U:%G $(ps -ef | grep $kubelet.bins |grep 'client-ca-file' | grep
-    -o 'client-ca-file=[^"]\S*' | awk -F "=" '{print $2}' |awk 'FNR <= 1') 2>
-    /dev/null
+  audit: >-
+    stat -c %U:%G $(ps -eo args |
+    awk -v bin="$kubelet.bins" 'BEGIN {n=split(bin, parts, " ")}
+    {name=$1; sub(/^.*\//, "", name); if (!n || name != parts[1]) next;
+    for (i=2; i<=n; i++) if ($i != parts[i]) next; print}' |
+    grep 'client-ca-file' |
+    grep -o 'client-ca-file=[^"]\S*' |
+    awk -F "=" '{print $2}' |
+    awk 'FNR <= 1') 2> /dev/null
   platforms:
     - k8s
     - rke2
