@@ -34,11 +34,10 @@ readKinds := ["Role", "ClusterRole"]
 
 readResource := "configmaps"
 
-manageConfigmaps contains input.rules[ru] if {
-	some ru, r, v
+manageConfigmaps contains rule if {
 	input.kind == readKinds[_]
-	input.rules[ru].resources[r] == readResource
-	input.rules[ru].verbs[v] == readVerbs[_]
+	some rule in input.rules
+	kubernetes.rbac_rule_grants(rule, [readResource], readVerbs)
 }
 
 deny contains res if {

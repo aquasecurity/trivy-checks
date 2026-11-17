@@ -23,15 +23,16 @@ package builtin.kubernetes.KSV047
 
 import rego.v1
 
+import data.lib.kubernetes
+
 readVerbs := ["get", "create"]
 
 readKinds := ["Role", "ClusterRole"]
 
-privilegeEscalationFromNodeProxy contains input.rules[ru] if {
+privilegeEscalationFromNodeProxy contains rule if {
 	input.kind == readKinds[_]
-	some ru, r, v
-	input.rules[ru].resources[r] == "nodes/proxy"
-	input.rules[ru].verbs[v] == readVerbs[_]
+	some rule in input.rules
+	kubernetes.rbac_rule_grants(rule, ["nodes/proxy"], readVerbs)
 }
 
 deny contains res if {

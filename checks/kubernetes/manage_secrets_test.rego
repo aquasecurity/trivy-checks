@@ -2,6 +2,8 @@ package builtin.kubernetes.KSV041
 
 import rego.v1
 
+import data.lib.test
+
 test_manage_secrets if {
 	r := deny with input as {
 		"apiVersion": "rbac.authorization.k8s.io/v1",
@@ -162,4 +164,40 @@ test_manage_secret_verb_watch if {
 	}
 
 	count(r) > 0
+}
+
+test_manage_secret_core_api_group if {
+	r := deny with input as {
+		"apiVersion": "rbac.authorization.k8s.io/v1",
+		"kind": "ClusterRole",
+		"metadata": {
+			"namespace": "default",
+			"name": "pod-reader",
+		},
+		"rules": [{
+			"apiGroups": [""],
+			"resources": ["secrets"],
+			"verbs": ["get"],
+		}],
+	}
+
+	test.assert_count(r, 1)
+}
+
+test_manage_secret_not_trigger_crd_api_group if {
+	r := deny with input as {
+		"apiVersion": "rbac.authorization.k8s.io/v1",
+		"kind": "ClusterRole",
+		"metadata": {
+			"namespace": "default",
+			"name": "pod-reader",
+		},
+		"rules": [{
+			"apiGroups": ["example.com"],
+			"resources": ["secrets"],
+			"verbs": ["get"],
+		}],
+	}
+
+	test.assert_empty(r)
 }
