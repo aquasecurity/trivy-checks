@@ -29,6 +29,10 @@ test: download-schemas
 test-integration:
 	go test -v -timeout 5m -tags=integration ./integration/...
 
+.PHONY: test-integration-k8s
+test-integration-k8s:
+	go test -v -timeout 20m -tags=integration,k8s -run TestK8sCompliance ./integration/...
+
 .PHONY: download-schemas
 download-schemas:
 	@for version in $(TRIVY_VERSIONS); do \
