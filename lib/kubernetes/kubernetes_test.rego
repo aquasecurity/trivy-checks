@@ -225,6 +225,56 @@ test_init_containers if {
 	test_containers[_].name == "hello-init-containers"
 }
 
+test_ephemeral_containers if {
+	test_containers := containers with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"spec": {
+			"securityContext": {"runAsNonRoot": true},
+			"containers": [{
+				"image": "busybox",
+				"name": "hello",
+			}],
+			"ephemeralContainers": [{
+				"image": "busybox",
+				"name": "debugger",
+				"securityContext": {"privileged": true},
+			}],
+		},
+	}
+
+	some container in test_containers
+	container.name == "debugger"
+	container.securityContext == {
+		"runAsNonRoot": true,
+		"privileged": true,
+	}
+}
+
+test_is_ephemeral_container if {
+	mock := {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"spec": {
+			"initContainers": [{
+				"image": "busybox",
+				"name": "init",
+			}],
+			"containers": [{
+				"image": "busybox",
+				"name": "hello",
+			}],
+			"ephemeralContainers": [{
+				"image": "busybox",
+				"name": "debugger",
+			}],
+		},
+	}
+
+	ephemeral := {c.name | some c in containers; is_ephemeral_container(c)} with input as mock
+	ephemeral == {"debugger"}
+}
+
 test_containers if {
 	test_containers := containers with input as {
 		"apiVersion": "v1",

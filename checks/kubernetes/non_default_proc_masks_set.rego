@@ -15,7 +15,7 @@
 #     - no-custom-proc-mask
 #     - kubernetes-no-custom-proc-mask
 #   severity: MEDIUM
-#   recommended_action: "Do not set spec.containers[*].securityContext.procMount and spec.initContainers[*].securityContext.procMount."
+#   recommended_action: "Do not set spec.containers[*].securityContext.procMount, spec.initContainers[*].securityContext.procMount and spec.ephemeralContainers[*].securityContext.procMount."
 #   input:
 #     selector:
 #     - type: kubernetes
@@ -47,6 +47,6 @@ failProcMountOpts contains container if {
 
 deny contains res if {
 	output := failProcMountOpts[_]
-	msg := kubernetes.format(sprintf("%s '%s' should not set 'spec.containers[*].securityContext.procMount' or 'spec.initContainers[*].securityContext.procMount'", [kubernetes.kind, kubernetes.name]))
+	msg := kubernetes.format(sprintf("%s '%s' should not set 'spec.containers[*].securityContext.procMount', 'spec.initContainers[*].securityContext.procMount' or 'spec.ephemeralContainers[*].securityContext.procMount'", [kubernetes.kind, kubernetes.name]))
 	res := result.new(msg, output)
 }

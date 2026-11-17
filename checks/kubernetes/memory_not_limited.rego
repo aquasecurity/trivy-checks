@@ -45,9 +45,10 @@ getLimitsMemoryContainers contains container if {
 }
 
 # getNoLimitsMemoryContainers returns all containers which have not set
-# resources.limits.memory
+# resources.limits.memory. Ephemeral containers are skipped because they cannot set resources.
 getNoLimitsMemoryContainers contains container if {
 	container := kubernetes.containers[_]
+	not kubernetes.is_ephemeral_container(container)
 	not getLimitsMemoryContainers[container]
 }
 

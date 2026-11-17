@@ -2,6 +2,8 @@ package builtin.kubernetes.KSV025
 
 import rego.v1
 
+import data.lib.test
+
 test_pod_invalid_selinux_type_denied if {
 	r := deny with input as {
 		"apiVersion": "v1",
@@ -164,4 +166,25 @@ test_containers_have_multiple_restricted_keys_in_selinux_options_denied if {
 
 	count(r) == 1
 	r[_].msg == "Pod 'hello-selinux' uses restricted properties in seLinuxOptions: ('role', 'user')"
+}
+
+test_ephemeral_container_invalid_selinux_type_denied if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-selinux"},
+		"spec": {
+			"containers": [{
+				"image": "busybox",
+				"name": "hello",
+			}],
+			"ephemeralContainers": [{
+				"image": "busybox",
+				"name": "debugger",
+				"securityContext": {"seLinuxOptions": {"type": "spc_t"}},
+			}],
+		},
+	}
+
+	test.assert_equal_message("Pod 'hello-selinux' uses invalid seLinux type 'spc_t'", r)
 }

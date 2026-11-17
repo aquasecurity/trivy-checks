@@ -45,9 +45,10 @@ getLimitsCPUContainers contains container if {
 }
 
 # getNoLimitsCPUContainers returns all containers which have not set
-# resources.limits.cpu
+# resources.limits.cpu. Ephemeral containers are skipped because they cannot set resources.
 getNoLimitsCPUContainers contains container if {
 	container := kubernetes.containers[_]
+	not kubernetes.is_ephemeral_container(container)
 	not getLimitsCPUContainers[container]
 }
 

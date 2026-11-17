@@ -97,7 +97,7 @@ split_image(image) := [image_name, tag] if {
 }
 
 pod_containers(pod) := all_containers if {
-	keys = {"containers", "initContainers"}
+	keys = {"containers", "initContainers", "ephemeralContainers"}
 	all_containers = [c |
 		keys[k]
 		some container in pod.spec[k]
@@ -121,6 +121,15 @@ containers contains container if {
 containers contains container if {
 	all_containers = pod_containers(object)
 	container = all_containers[_]
+}
+
+# is_ephemeral_container checks whether the container comes from spec.ephemeralContainers.
+# The API does not allow resources, ports, probes and lifecycle in such containers.
+# Container names are unique within a pod, so the name is enough to find the container.
+is_ephemeral_container(container) if {
+	some pod in pods
+	some ephemeral in pod.spec.ephemeralContainers
+	ephemeral.name == container.name
 }
 
 pods contains pod if {

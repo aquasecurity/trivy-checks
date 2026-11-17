@@ -15,7 +15,7 @@
 #     - no-non-default-capabilities
 #     - kubernetes-no-non-default-capabilities
 #   severity: MEDIUM
-#   recommended_action: "Do not set spec.containers[*].securityContext.capabilities.add and spec.initContainers[*].securityContext.capabilities.add."
+#   recommended_action: "Do not set spec.containers[*].securityContext.capabilities.add, spec.initContainers[*].securityContext.capabilities.add and spec.ephemeralContainers[*].securityContext.capabilities.add."
 #   input:
 #     selector:
 #     - type: kubernetes

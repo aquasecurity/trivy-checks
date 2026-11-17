@@ -2,6 +2,8 @@ package builtin.kubernetes.KSV001
 
 import rego.v1
 
+import data.lib.test
+
 test_allow_privilege_escalation_set_to_false_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
@@ -92,4 +94,25 @@ test_allow_privilege_escalation_multiple_containers if {
 		]},
 	}
 	count(r) == 1
+}
+
+test_allow_privilege_escalation_is_undefined_in_ephemeral_container_denied if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-privilege-escalation"},
+		"spec": {
+			"containers": [{
+				"image": "busybox",
+				"name": "hello",
+				"securityContext": {"allowPrivilegeEscalation": false},
+			}],
+			"ephemeralContainers": [{
+				"image": "busybox",
+				"name": "debugger",
+			}],
+		},
+	}
+
+	test.assert_equal_message("Container 'debugger' of Pod 'hello-privilege-escalation' should set 'securityContext.allowPrivilegeEscalation' to false", r)
 }

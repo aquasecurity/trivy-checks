@@ -2,6 +2,8 @@ package builtin.kubernetes.KSV105
 
 import rego.v1
 
+import data.lib.test
+
 test_run_as_group_not_defined_allowed if {
 	r := deny with input as {
 		"apiVersion": "v1",
@@ -64,4 +66,26 @@ test_run_as_user_set_to_non_zero_for_pod_allowed if {
 	}
 
 	count(r) == 0
+}
+
+test_run_as_user_set_to_zero_for_ephemeral_container_denied if {
+	r := deny with input as {
+		"apiVersion": "v1",
+		"kind": "Pod",
+		"metadata": {"name": "hello-run-as-group"},
+		"spec": {
+			"securityContext": {"runAsUser": 1337},
+			"containers": [{
+				"image": "busybox",
+				"name": "hello",
+			}],
+			"ephemeralContainers": [{
+				"image": "busybox",
+				"name": "debugger",
+				"securityContext": {"runAsUser": 0},
+			}],
+		},
+	}
+
+	test.assert_equal_message("securityContext.runAsUser should be set to a value greater than 0", r)
 }

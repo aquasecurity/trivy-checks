@@ -45,9 +45,10 @@ getRequestsMemoryContainers contains container if {
 }
 
 # getNoRequestsMemoryContainers returns all containers which have not set
-# resources.requests.memory
+# resources.requests.memory. Ephemeral containers are skipped because they cannot set resources.
 getNoRequestsMemoryContainers contains container if {
 	container := kubernetes.containers[_]
+	not kubernetes.is_ephemeral_container(container)
 	not getRequestsMemoryContainers[container]
 }
 
