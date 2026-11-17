@@ -37,15 +37,15 @@ import data.lib.kubernetes
 
 default failCapsSysModule := false
 
-# getCapsSysAdmin returns the names of all containers which include
-# 'SYS_ADMIN' in securityContext.capabilities.add.
+# getCapsSysModule returns all containers which include
+# 'SYS_MODULE' in securityContext.capabilities.add.
 getCapsSysModule contains container if {
 	container := kubernetes.containers[_]
 	container.securityContext.capabilities.add[_] == "SYS_MODULE"
 }
 
 deny contains res if {
-	output := getCapsSysModule[_]
-	msg := kubernetes.format(sprintf("container %s of %s %s in %s namespace should not include 'SYS_MODULE' in securityContext.capabilities.add", [getCapsSysModule[_], lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
-	res := result.new(msg, output)
+	container := getCapsSysModule[_]
+	msg := kubernetes.format(sprintf("container %s of %s %s in %s namespace should not include 'SYS_MODULE' in securityContext.capabilities.add", [container.name, lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
+	res := result.new(msg, container)
 }

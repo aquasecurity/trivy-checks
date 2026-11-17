@@ -37,16 +37,15 @@ import data.lib.kubernetes
 
 default failCapsNetRaw := false
 
-# getCapsNetRaw returns the names of all containers which include
+# getCapsNetRaw returns all containers which include
 # 'NET_RAW' in securityContext.capabilities.add.
 getCapsNetRaw contains container if {
-	allContainers := kubernetes.containers[_]
-	allContainers.securityContext.capabilities.add[_] == "NET_RAW"
-	container := allContainers.name
+	container := kubernetes.containers[_]
+	container.securityContext.capabilities.add[_] == "NET_RAW"
 }
 
 deny contains res if {
-	output := getCapsNetRaw[_]
-	msg := kubernetes.format(sprintf("container %s of %s %s in %s namespace should not include 'NET_RAW' in securityContext.capabilities.add", [getCapsNetRaw[_], lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
-	res := result.new(msg, output)
+	container := getCapsNetRaw[_]
+	msg := kubernetes.format(sprintf("container %s of %s %s in %s namespace should not include 'NET_RAW' in securityContext.capabilities.add", [container.name, lower(kubernetes.kind), kubernetes.name, kubernetes.namespace]))
+	res := result.new(msg, container)
 }
