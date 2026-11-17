@@ -24,6 +24,14 @@ jobs:
         with:
           go-version-file: go.mod
 
+      - name: Verify go.mod is up-to-date
+        run: |
+          go mod tidy
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Run 'go mod tidy' and push it"
+            exit 1
+          fi
+
       - name: Run Go tests
         run: make test
 
