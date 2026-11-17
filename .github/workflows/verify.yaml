@@ -1,0 +1,44 @@
+name: Verify Docs and Specs
+
+on:
+  pull_request:
+  merge_group:
+
+env:
+  GO_VERSION: "1.24"
+
+jobs:
+  verify-docs:
+    name: Verify Docs
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - run: |
+          make docs
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Run 'make docs' and push it"
+            exit 1
+          fi
+
+  verify-specs:
+    name: Verify Specs
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Generate specification files
+        run: |
+          make genspec
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Run 'make genspec' and push it"
+            exit 1
+          fi
