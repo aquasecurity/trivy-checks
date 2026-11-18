@@ -136,10 +136,10 @@ Example of how to define command data under ./commands folder:
 
 #### Command ID
 
-Find the next command ID by running the command.
+Run the command below and take the `CMD` ID from its output. Then raise the `CMD` number in `lastIDs` in `cmd/id/main.go`.
 
 ```sh
-make command-id
+make id
 ```
 
 #### Command Key

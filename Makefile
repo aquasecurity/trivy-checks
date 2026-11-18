@@ -119,10 +119,6 @@ fmt-examples:
 id:
 	@go run ./cmd/id
 
-.PHONY: command-id
-command-id:
-	@go run ./cmd/command_id
-
 .PHONY: update-outdated-api-data
 update-outdated-api-data:
 	@outdated_api_data=$$(curl -s ${OUTDATED_API_DATA_URL} | jq -c) ;\
