@@ -5,9 +5,10 @@
 # schemas:
 # - input: schema["kubernetes"]
 # custom:
-#   id: KSV-01010
+#   id: KSV-0127
 #   long_id: kubernetes-configMap-with-sensitive
 #   aliases:
+#     - KSV-01010
 #     - AVD-KSV-01010
 #     - configMap_with_sensitive
 #     - kubernetes-configMap-with-sensitive

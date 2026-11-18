@@ -54,8 +54,7 @@ Kubernetes and Dockerfile checks need no provider definitions.
 
 ### Pick an ID
 
-Run `make id`. It prints the next free ID for every prefix in use, so take the one that matches
-the target you are writing for.
+Run `make id` and take the ID for the target you are writing for. It prints the next ID for every check prefix and for Kubernetes commands (`CMD`). Then raise the number for that prefix in `lastIDs` in `cmd/id/main.go`, or the tests fail. Never lower these numbers, so that IDs of removed checks and commands are not given out again.
 
 ### Write the check
 
@@ -113,7 +112,7 @@ There is no strict rule. Follow the checks that already live in the same directo
 ```
 AZU-0072   ->  builtin.azure.appservice.azure0072
 AWS-0176   ->  builtin.aws.rds.aws0176
-KSV-01010  ->  builtin.kubernetes.KSV01010
+KSV-0109   ->  builtin.kubernetes.KSV0109
 DS-0006    ->  builtin.dockerfile.DS006
 ```
 

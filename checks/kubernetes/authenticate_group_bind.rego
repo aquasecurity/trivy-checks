@@ -7,9 +7,10 @@
 # related_resources:
 # - https://orca.security/resources/blog/sys-all-google-kubernetes-engine-risk/
 # custom:
-#   id: KSV-01011
+#   id: KSV-0126
 #   long_id: kubernetes-no-system-authenticated-group-bind
 #   aliases:
+#     - KSV-01011
 #     - AVD-KSV-01011
 #     - KSV01011
 #     - no-system-authenticated-group-bind
