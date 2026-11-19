@@ -23,6 +23,15 @@ test_allow_logging_enabled if {
 	test.assert_empty(check.deny) with input as inp
 }
 
+test_allow_logging_unresolvable if {
+	inp := {"azure": {"storage": {"accounts": [{
+		"queues": [{"name": {"value": "test"}}],
+		"queueproperties": {"enablelogging": {"value": false, "unresolvable": true}},
+	}]}}}
+
+	test.assert_empty(check.deny) with input as inp
+}
+
 test_allow_logging_disabled_but_queues_are_empty if {
 	inp := {"azure": {"storage": {"accounts": [{
 		"queues": [],
