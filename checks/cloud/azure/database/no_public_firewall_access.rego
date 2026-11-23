@@ -32,8 +32,7 @@ import rego.v1
 import data.lib.azure.database
 
 deny contains res if {
-	some server in database.all_servers
-	some rule in server.firewallrules
+	some rule in database.all_firewall_rules
 	not allowing_azure_services(rule)
 	rule.startip.value != rule.endip.value
 	is_public_rule(rule)
