@@ -35,8 +35,6 @@ import rego.v1
 
 import data.lib.kubernetes
 
-default failCapsNetRaw := false
-
 # getCapsNetRaw returns all containers which include
 # 'NET_RAW' in securityContext.capabilities.add.
 getCapsNetRaw contains container if {

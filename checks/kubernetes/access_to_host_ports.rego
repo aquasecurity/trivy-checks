@@ -36,8 +36,6 @@ import rego.v1
 
 import data.lib.kubernetes
 
-default failHostPorts := false
-
 # Add allowed host ports to this set
 allowed_host_ports := set()
 

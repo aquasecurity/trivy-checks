@@ -35,8 +35,6 @@ import rego.v1
 
 import data.lib.kubernetes
 
-default failCapsSysModule := false
-
 # getCapsSysModule returns all containers which include
 # 'SYS_MODULE' in securityContext.capabilities.add.
 getCapsSysModule contains container if {

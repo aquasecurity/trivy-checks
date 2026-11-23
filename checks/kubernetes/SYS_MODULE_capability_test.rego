@@ -41,8 +41,7 @@ test_cap_add_sys_admin_denied if {
 	count(r) == 1
 }
 
-# Each offending container is reported once, named, and not as a dump of the whole
-# container object.
+# Each offending container is reported once, named.
 test_sys_module_reports_each_container_once if {
 	r := deny with input as {
 		"apiVersion": "v1",
