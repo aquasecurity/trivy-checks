@@ -33,3 +33,16 @@ test_allow_mysql_server_allow_access_to_azure_services if {
 	res := check.deny with input as inp
 	count(res) == 0
 }
+
+test_deny_unmanaged_server_allow_public_access if {
+	inp := {"azure": {"database": {"mssqlservers": [{"server": {
+		"__defsec_metadata": {"managed": false},
+		"firewallrules": [{
+			"startip": {"value": "0.0.0.0"},
+			"endip": {"value": "255.255.255.255"},
+		}],
+	}}]}}}
+
+	res := check.deny with input as inp
+	count(res) == 1
+}

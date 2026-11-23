@@ -8,12 +8,20 @@ package lib.azure.database
 
 import rego.v1
 
-all_servers := servers(["mssqlservers", "mysqlservers", "mariadbservers", "postgresqlservers"])
+server_types := ["mssqlservers", "mysqlservers", "mariadbservers", "postgresqlservers"]
 
-servers(types) := servers if {
-	servers := [db.server |
-		some dbkey in types
-		some db in input.azure.database[dbkey]
-		isManaged(db.server)
-	]
-}
+all_servers := servers(server_types)
+
+# all_firewall_rules contains the firewall rules of all servers, including
+# orphan rules whose server is unknown.
+all_firewall_rules := [rule |
+	some dbkey in server_types
+	some db in input.azure.database[dbkey]
+	some rule in db.server.firewallrules
+]
+
+servers(types) := [db.server |
+	some dbkey in types
+	some db in input.azure.database[dbkey]
+	isManaged(db.server)
+]
