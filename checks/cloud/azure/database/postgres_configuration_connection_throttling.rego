@@ -34,10 +34,20 @@ import data.lib.cloud.metadata
 deny contains res if {
 	some server in input.azure.database.postgresqlservers
 	isManaged(server)
+	not throttling_unsupported(server)
 
 	not server.config.connectionthrottling.value
 	res := result.new(
 		"Database server is not configured to throttle connections.",
 		metadata.obj_by_path(server, ["config", "connectionthrottling"]),
 	)
+}
+
+# PostgreSQL 18 and later on flexible servers do not have the
+# connection_throttle.enable parameter. object.get keeps the check
+# working with Trivy versions whose schema has no version field.
+throttling_unsupported(server) if {
+	version := object.get(server, ["version", "value"], "")
+	regex.match(`^[0-9]+(\.[0-9]+)?$`, version)
+	to_number(version) >= 18
 }
