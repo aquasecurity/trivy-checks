@@ -13,9 +13,32 @@ terraform:
           }
         }
       }
+    - |-
+      resource "google_container_cluster" "good_example" {
+        name     = "my-gke-cluster"
+        location = "us-central1"
+        control_plane_endpoints_config {
+          dns_endpoint_config {
+            allow_external_traffic = true
+          }
+          ip_endpoints_config {
+            enabled = false
+          }
+        }
+      }
   bad:
     - |-
       resource "google_container_cluster" "bad_example" {
         name     = "my-gke-cluster"
         location = "us-central1"
+      }
+    - |-
+      resource "google_container_cluster" "bad_example" {
+        name     = "my-gke-cluster"
+        location = "us-central1"
+        control_plane_endpoints_config {
+          ip_endpoints_config {
+            enabled = true
+          }
+        }
       }

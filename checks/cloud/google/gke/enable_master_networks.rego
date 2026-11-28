@@ -15,6 +15,7 @@
 #   provider: google
 #   service: gke
 #   severity: HIGH
+#   minimum_trivy_version: 0.77.0
 #   recommended_action: Enable master authorized networks
 #   input:
 #     selector:
@@ -28,10 +29,12 @@ package builtin.google.gke.google0061
 import rego.v1
 
 import data.lib.cloud.metadata
+import data.lib.cloud.value
 
 deny contains res if {
 	some cluster in input.google.gke.clusters
 	isManaged(cluster)
+	value.is_true(cluster.controlplaneendpoints.ipendpoints.enabled)
 	not cluster.masterauthorizednetworks.enabled.value
 	res := result.new(
 		"Cluster does not have master authorized networks enabled.",
